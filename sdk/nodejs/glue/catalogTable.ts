@@ -125,7 +125,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
-     * The follow arguments are optional:
+     * The following arguments are optional:
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -258,7 +258,7 @@ export interface CatalogTableState {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
-     * The follow arguments are optional:
+     * The following arguments are optional:
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -290,7 +290,7 @@ export interface CatalogTableState {
      */
     partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface CatalogTableArgs {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
-     * The follow arguments are optional:
+     * The following arguments are optional:
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -362,7 +362,7 @@ export interface CatalogTableArgs {
      */
     partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

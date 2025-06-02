@@ -73,7 +73,7 @@ type AgentDataSource struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
@@ -129,7 +129,7 @@ type agentDataSourceState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
@@ -153,7 +153,7 @@ type AgentDataSourceState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
@@ -179,7 +179,7 @@ type agentDataSourceArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration *AgentDataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
@@ -202,7 +202,7 @@ type AgentDataSourceArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
 	ServerSideEncryptionConfiguration AgentDataSourceServerSideEncryptionConfigurationPtrInput
@@ -332,7 +332,7 @@ func (o AgentDataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentDataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentDataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

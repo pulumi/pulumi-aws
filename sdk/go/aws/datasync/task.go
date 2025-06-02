@@ -175,7 +175,7 @@ type Task struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrOutput `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
@@ -243,7 +243,7 @@ type taskState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options *TaskOptions `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule *TaskSchedule `pulumi:"schedule"`
@@ -276,7 +276,7 @@ type TaskState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrInput
@@ -311,7 +311,7 @@ type taskArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options *TaskOptions `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule *TaskSchedule `pulumi:"schedule"`
@@ -341,7 +341,7 @@ type TaskArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
 	Options TaskOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrInput
@@ -479,7 +479,7 @@ func (o TaskOutput) Options() TaskOptionsPtrOutput {
 	return o.ApplyT(func(v *Task) TaskOptionsPtrOutput { return v.Options }).(TaskOptionsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TaskOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

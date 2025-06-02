@@ -76,7 +76,7 @@ type VoiceConnectorOrigination struct {
 
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 	Routes VoiceConnectorOriginationRouteArrayOutput `pulumi:"routes"`
@@ -128,7 +128,7 @@ func GetVoiceConnectorOrigination(ctx *pulumi.Context,
 type voiceConnectorOriginationState struct {
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled *bool `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 	Routes []VoiceConnectorOriginationRoute `pulumi:"routes"`
@@ -139,7 +139,7 @@ type voiceConnectorOriginationState struct {
 type VoiceConnectorOriginationState struct {
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 	Routes VoiceConnectorOriginationRouteArrayInput
@@ -154,7 +154,7 @@ func (VoiceConnectorOriginationState) ElementType() reflect.Type {
 type voiceConnectorOriginationArgs struct {
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled *bool `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 	Routes []VoiceConnectorOriginationRoute `pulumi:"routes"`
@@ -166,7 +166,7 @@ type voiceConnectorOriginationArgs struct {
 type VoiceConnectorOriginationArgs struct {
 	// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
 	Disabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
 	Routes VoiceConnectorOriginationRouteArrayInput
@@ -266,7 +266,7 @@ func (o VoiceConnectorOriginationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorOriginationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorOrigination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

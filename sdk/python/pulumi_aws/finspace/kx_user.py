@@ -32,7 +32,7 @@ class KxUserArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: A unique identifier for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "environment_id", environment_id)
@@ -86,7 +86,7 @@ class KxUserArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -125,7 +125,7 @@ class _KxUserState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: A unique identifier for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -198,7 +198,7 @@ class _KxUserState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -295,7 +295,7 @@ class KxUser(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: A unique identifier for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -419,7 +419,7 @@ class KxUser(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: A unique identifier for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -474,7 +474,7 @@ class KxUser(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

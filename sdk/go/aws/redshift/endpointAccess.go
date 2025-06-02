@@ -60,7 +60,7 @@ type EndpointAccess struct {
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -119,7 +119,7 @@ type endpointAccessState struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// The port number on which the cluster accepts incoming connections.
 	Port *int `pulumi:"port"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -140,7 +140,7 @@ type EndpointAccessState struct {
 	EndpointName pulumi.StringPtrInput
 	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 	ResourceOwner pulumi.StringPtrInput
@@ -161,7 +161,7 @@ type endpointAccessArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The Redshift-managed VPC endpoint name.
 	EndpointName string `pulumi:"endpointName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -177,7 +177,7 @@ type EndpointAccessArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The Redshift-managed VPC endpoint name.
 	EndpointName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
 	ResourceOwner pulumi.StringPtrInput
@@ -294,7 +294,7 @@ func (o EndpointAccessOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointAccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

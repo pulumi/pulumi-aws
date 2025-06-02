@@ -33,7 +33,7 @@ class AnalyzerArgs:
                
                The following arguments are optional:
         :param pulumi.Input['AnalyzerConfigurationArgs'] configuration: A block that specifies the configuration of the analyzer. Documented below
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         """
@@ -77,7 +77,7 @@ class AnalyzerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -127,7 +127,7 @@ class _AnalyzerState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] arn: ARN of the Analyzer.
         :param pulumi.Input['AnalyzerConfigurationArgs'] configuration: A block that specifies the configuration of the analyzer. Documented below
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
@@ -189,7 +189,7 @@ class _AnalyzerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -323,7 +323,7 @@ class Analyzer(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. Documented below
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         """
@@ -471,7 +471,7 @@ class Analyzer(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] arn: ARN of the Analyzer.
         :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. Documented below
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
@@ -519,7 +519,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

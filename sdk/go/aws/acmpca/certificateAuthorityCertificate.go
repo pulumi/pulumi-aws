@@ -160,7 +160,7 @@ type CertificateAuthorityCertificate struct {
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -206,7 +206,7 @@ type certificateAuthorityCertificateState struct {
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -217,7 +217,7 @@ type CertificateAuthorityCertificateState struct {
 	CertificateAuthorityArn pulumi.StringPtrInput
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -232,7 +232,7 @@ type certificateAuthorityCertificateArgs struct {
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -244,7 +244,7 @@ type CertificateAuthorityCertificateArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -350,7 +350,7 @@ func (o CertificateAuthorityCertificateOutput) CertificateChain() pulumi.StringP
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CertificateAuthorityCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

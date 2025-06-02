@@ -203,21 +203,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
-    }
-
-    /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -265,12 +250,18 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     /**
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * 
      */
     @Import(name="timePeriodStart")
     private @Nullable Output<String> timePeriodStart;
 
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      * 
      */
     public Optional<Output<String>> timePeriodStart() {
@@ -311,7 +302,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.notifications = $.notifications;
         this.plannedLimits = $.plannedLimits;
-        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timePeriodEnd = $.timePeriodEnd;
@@ -620,27 +610,6 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(String region) {
-            return region(Output.of(region));
-        }
-
-        /**
          * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -706,6 +675,9 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
          * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+         * 
          * @return builder
          * 
          */
@@ -716,6 +688,9 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+         * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
          * 
          * @return builder
          * 

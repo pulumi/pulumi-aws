@@ -37,7 +37,7 @@ class AppAuthorizationArgs:
         :param pulumi.Input[builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         pulumi.set(__self__, "app", app)
@@ -107,7 +107,7 @@ class AppAuthorizationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -173,7 +173,7 @@ class _AppAuthorizationState:
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         :param pulumi.Input[builtins.str] persona: The user persona of the app authorization.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         if app is not None:
@@ -303,7 +303,7 @@ class _AppAuthorizationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -408,7 +408,7 @@ class AppAuthorization(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
         :param pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         ...
@@ -534,7 +534,7 @@ class AppAuthorization(pulumi.CustomResource):
         :param pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         :param pulumi.Input[builtins.str] persona: The user persona of the app authorization.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -623,7 +623,7 @@ class AppAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

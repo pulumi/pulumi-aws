@@ -32,7 +32,7 @@ class ProjectArgs:
         :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[builtins.str] name: A name for the project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if data_delivery is not None:
@@ -86,7 +86,7 @@ class ProjectArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -138,7 +138,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the project was most recently updated.
         :param pulumi.Input[builtins.int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[builtins.str] name: A name for the project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -310,7 +310,7 @@ class _ProjectState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -440,7 +440,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[builtins.str] description: Specifies the description of the project.
         :param pulumi.Input[builtins.str] name: A name for the project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -604,7 +604,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the project was most recently updated.
         :param pulumi.Input[builtins.int] launch_count: The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[builtins.str] name: A name for the project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -722,7 +722,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

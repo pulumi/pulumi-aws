@@ -316,7 +316,7 @@ type Cluster struct {
 	PreferredAvailabilityZones pulumi.StringArrayOutput `pulumi:"preferredAvailabilityZones"`
 	// The outpost ARN in which the cache cluster will be created.
 	PreferredOutpostArn pulumi.StringOutput `pulumi:"preferredOutpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
@@ -436,7 +436,7 @@ type clusterState struct {
 	PreferredAvailabilityZones []string `pulumi:"preferredAvailabilityZones"`
 	// The outpost ARN in which the cache cluster will be created.
 	PreferredOutpostArn *string `pulumi:"preferredOutpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
@@ -527,7 +527,7 @@ type ClusterState struct {
 	PreferredAvailabilityZones pulumi.StringArrayInput
 	// The outpost ARN in which the cache cluster will be created.
 	PreferredOutpostArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringPtrInput
@@ -612,7 +612,7 @@ type clusterArgs struct {
 	PreferredAvailabilityZones []string `pulumi:"preferredAvailabilityZones"`
 	// The outpost ARN in which the cache cluster will be created.
 	PreferredOutpostArn *string `pulumi:"preferredOutpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
@@ -692,7 +692,7 @@ type ClusterArgs struct {
 	PreferredAvailabilityZones pulumi.StringArrayInput
 	// The outpost ARN in which the cache cluster will be created.
 	PreferredOutpostArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringPtrInput
@@ -942,7 +942,7 @@ func (o ClusterOutput) PreferredOutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredOutpostArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

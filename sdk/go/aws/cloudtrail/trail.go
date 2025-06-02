@@ -559,7 +559,7 @@ type Trail struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
@@ -638,7 +638,7 @@ type trailState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
@@ -685,7 +685,7 @@ type TrailState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the trail.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	//
@@ -732,7 +732,7 @@ type trailArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the trail.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the S3 bucket designated for publishing log files.
 	//
@@ -772,7 +772,7 @@ type TrailArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the trail.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
 	//
@@ -943,7 +943,7 @@ func (o TrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrailOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -32,7 +32,7 @@ class RoleAssociationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         """
         pulumi.set(__self__, "role", role)
@@ -86,7 +86,7 @@ class RoleAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -118,7 +118,7 @@ class _RoleAssociationState:
         """
         Input properties used for looking up and filtering RoleAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -152,7 +152,7 @@ class _RoleAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -253,7 +253,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -366,7 +366,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -396,7 +396,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

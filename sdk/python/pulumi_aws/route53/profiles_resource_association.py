@@ -33,7 +33,7 @@ class ProfilesResourceAssociationArgs:
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
         pulumi.set(__self__, "profile_id", profile_id)
@@ -87,7 +87,7 @@ class ProfilesResourceAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -134,7 +134,7 @@ class _ProfilesResourceAssociationState:
         Input properties used for looking up and filtering ProfilesResourceAssociation resources.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_type: Type of resource associated with the profile.
@@ -199,7 +199,7 @@ class _ProfilesResourceAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -307,7 +307,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
@@ -403,7 +403,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_type: Type of resource associated with the profile.
@@ -451,7 +451,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

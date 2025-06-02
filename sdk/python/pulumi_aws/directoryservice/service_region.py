@@ -34,7 +34,7 @@ class ServiceRegionArgs:
         :param pulumi.Input[builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "directory_id", directory_id)
@@ -99,7 +99,7 @@ class ServiceRegionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -134,7 +134,7 @@ class _ServiceRegionState:
         Input properties used for looking up and filtering ServiceRegion resources.
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -183,7 +183,7 @@ class _ServiceRegionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -339,7 +339,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
@@ -501,7 +501,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -540,7 +540,7 @@ class ServiceRegion(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

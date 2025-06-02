@@ -82,7 +82,8 @@ type GetVoicesArgs struct {
 	IncludeAdditionalLanguageCodes *bool `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode *string `pulumi:"languageCode"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
@@ -117,7 +118,8 @@ type GetVoicesOutputArgs struct {
 	IncludeAdditionalLanguageCodes pulumi.BoolPtrInput `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices GetVoicesVoiceArrayInput `pulumi:"voices"`
 }

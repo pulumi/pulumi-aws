@@ -196,6 +196,7 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param builtins.str id: ID of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()
@@ -251,6 +252,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param builtins.str id: ID of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()

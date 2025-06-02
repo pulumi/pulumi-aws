@@ -43,8 +43,14 @@ class EipArgs:
         :param pulumi.Input[builtins.str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+               Including both will **not** return an error from the AWS API, but will have undefined behavior.
+               See the relevant [AssociateAddress API Call][1] for more information.
+               
+               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -182,7 +188,7 @@ class EipArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -195,6 +201,12 @@ class EipArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        See the relevant [AssociateAddress API Call][1] for more information.
+
+        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         return pulumi.get(self, "tags")
 
@@ -249,8 +261,14 @@ class _EipState:
         :param pulumi.Input[builtins.str] public_ip: Contains the public IP address.
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+               Including both will **not** return an error from the AWS API, but will have undefined behavior.
+               See the relevant [AssociateAddress API Call][1] for more information.
+               
+               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if address is not None:
@@ -528,7 +546,7 @@ class _EipState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -541,6 +559,12 @@ class _EipState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        See the relevant [AssociateAddress API Call][1] for more information.
+
+        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         return pulumi.get(self, "tags")
 
@@ -690,8 +714,14 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+               Including both will **not** return an error from the AWS API, but will have undefined behavior.
+               See the relevant [AssociateAddress API Call][1] for more information.
+               
+               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         ...
     @overload
@@ -913,8 +943,14 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_ip: Contains the public IP address.
         :param pulumi.Input[builtins.str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+               Including both will **not** return an error from the AWS API, but will have undefined behavior.
+               See the relevant [AssociateAddress API Call][1] for more information.
+               
+               > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1099,7 +1135,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1108,6 +1144,12 @@ class Eip(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        See the relevant [AssociateAddress API Call][1] for more information.
+
+        > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
         return pulumi.get(self, "tags")
 

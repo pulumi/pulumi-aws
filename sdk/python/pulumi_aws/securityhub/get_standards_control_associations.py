@@ -101,6 +101,7 @@ def get_standards_control_associations(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
     """
     __args__ = dict()
@@ -133,6 +134,7 @@ def get_standards_control_associations_output(region: Optional[pulumi.Input[Opti
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
     """
     __args__ = dict()

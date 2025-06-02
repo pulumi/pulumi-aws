@@ -170,7 +170,7 @@ type VoiceConnectorStreaming struct {
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput `pulumi:"mediaInsightsConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayOutput `pulumi:"streamingNotificationTargets"`
@@ -220,7 +220,7 @@ type voiceConnectorStreamingState struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
@@ -235,7 +235,7 @@ type VoiceConnectorStreamingState struct {
 	Disabled pulumi.BoolPtrInput
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
@@ -254,7 +254,7 @@ type voiceConnectorStreamingArgs struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
@@ -270,7 +270,7 @@ type VoiceConnectorStreamingArgs struct {
 	Disabled pulumi.BoolPtrInput
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
@@ -382,7 +382,7 @@ func (o VoiceConnectorStreamingOutput) MediaInsightsConfiguration() VoiceConnect
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorStreamingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

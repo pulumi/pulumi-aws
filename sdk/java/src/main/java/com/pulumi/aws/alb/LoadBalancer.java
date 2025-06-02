@@ -510,14 +510,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserveHostHeader);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -602,12 +602,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+     * 
      */
     @Export(name="xffHeaderProcessingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xffHeaderProcessingMode;
 
     /**
      * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
      * 
      */
     public Output<Optional<String>> xffHeaderProcessingMode() {

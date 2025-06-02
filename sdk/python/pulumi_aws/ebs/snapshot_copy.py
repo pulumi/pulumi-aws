@@ -40,7 +40,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags for the snapshot.
         :param pulumi.Input[builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -154,7 +154,7 @@ class SnapshotCopyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -232,7 +232,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -401,7 +401,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -556,7 +556,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -700,7 +700,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -815,7 +815,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

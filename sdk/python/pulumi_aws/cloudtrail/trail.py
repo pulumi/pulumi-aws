@@ -56,7 +56,7 @@ class TrailArgs:
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[builtins.str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -257,7 +257,7 @@ class TrailArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -342,7 +342,7 @@ class _TrailState:
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -567,7 +567,7 @@ class _TrailState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -944,7 +944,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -1330,7 +1330,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -1483,7 +1483,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

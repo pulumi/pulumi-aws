@@ -55,9 +55,10 @@ type GetQuicksightAnalysisArgs struct {
 	// Identifier for the analysis.
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
-	AwsAccountId *string           `pulumi:"awsAccountId"`
-	Region       *string           `pulumi:"region"`
-	Tags         map[string]string `pulumi:"tags"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQuicksightAnalysis.
@@ -93,8 +94,9 @@ type GetQuicksightAnalysisOutputArgs struct {
 	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
-	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetQuicksightAnalysisOutputArgs) ElementType() reflect.Type {

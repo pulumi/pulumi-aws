@@ -71,7 +71,7 @@ type Vocabulary struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -137,7 +137,7 @@ type vocabularyState struct {
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State *string `pulumi:"state"`
@@ -165,7 +165,7 @@ type VocabularyState struct {
 	LastModifiedTime pulumi.StringPtrInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
 	State pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type vocabularyArgs struct {
 	LanguageCode string `pulumi:"languageCode"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the vocabulary. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,7 +208,7 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the vocabulary. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -337,7 +337,7 @@ func (o VocabularyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VocabularyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

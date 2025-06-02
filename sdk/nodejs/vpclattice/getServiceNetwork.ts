@@ -33,6 +33,9 @@ export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Identifier of the service network.
@@ -110,6 +113,9 @@ export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?
  * A collection of arguments for invoking getServiceNetwork.
  */
 export interface GetServiceNetworkOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Identifier of the service network.

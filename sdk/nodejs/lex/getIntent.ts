@@ -36,6 +36,9 @@ export interface GetIntentArgs {
      * Name of the intent. The name is case sensitive.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Version of the intent.
@@ -121,6 +124,9 @@ export interface GetIntentOutputArgs {
      * Name of the intent. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Version of the intent.

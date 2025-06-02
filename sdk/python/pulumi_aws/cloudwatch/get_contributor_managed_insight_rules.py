@@ -102,6 +102,7 @@ def get_contributor_managed_insight_rules(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
     """
     __args__ = dict()
@@ -133,6 +134,7 @@ def get_contributor_managed_insight_rules_output(region: Optional[pulumi.Input[O
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
     """
     __args__ = dict()

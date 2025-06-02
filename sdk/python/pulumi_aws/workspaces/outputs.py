@@ -17,6 +17,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectionAliasTimeouts',
+    'DirectoryActiveDirectoryConfig',
     'DirectoryCertificateBasedAuthProperties',
     'DirectorySamlProperties',
     'DirectorySelfServicePermissions',
@@ -27,6 +28,7 @@ __all__ = [
     'GetBundleComputeTypeResult',
     'GetBundleRootStorageResult',
     'GetBundleUserStorageResult',
+    'GetDirectoryActiveDirectoryConfigResult',
     'GetDirectoryCertificateBasedAuthPropertyResult',
     'GetDirectorySamlPropertyResult',
     'GetDirectorySelfServicePermissionResult',
@@ -64,6 +66,54 @@ class ConnectionAliasTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class DirectoryActiveDirectoryConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "serviceAccountSecretArn":
+            suggest = "service_account_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryActiveDirectoryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryActiveDirectoryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryActiveDirectoryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: builtins.str,
+                 service_account_secret_arn: builtins.str):
+        """
+        :param builtins.str domain_name: Fully qualified domain name of the AWS Directory Service directory.
+        :param builtins.str service_account_secret_arn: ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> builtins.str:
+        """
+        Fully qualified domain name of the AWS Directory Service directory.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="serviceAccountSecretArn")
+    def service_account_secret_arn(self) -> builtins.str:
+        """
+        ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+        """
+        return pulumi.get(self, "service_account_secret_arn")
 
 
 @pulumi.output_type
@@ -439,8 +489,8 @@ class DirectoryWorkspaceCreationProperties(dict):
         :param builtins.str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
         :param builtins.str default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
         :param builtins.bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
-        :param builtins.bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
-        :param builtins.bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        :param builtins.bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+        :param builtins.bool user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         if custom_security_group_id is not None:
             pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
@@ -481,7 +531,7 @@ class DirectoryWorkspaceCreationProperties(dict):
     @pulumi.getter(name="enableMaintenanceMode")
     def enable_maintenance_mode(self) -> Optional[builtins.bool]:
         """
-        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         return pulumi.get(self, "enable_maintenance_mode")
 
@@ -489,7 +539,7 @@ class DirectoryWorkspaceCreationProperties(dict):
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
     def user_enabled_as_local_administrator(self) -> Optional[builtins.bool]:
         """
-        Indicates whether users are local administrators of their WorkSpaces.
+        Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 
@@ -668,6 +718,35 @@ class GetBundleUserStorageResult(dict):
         Size of the user storage.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class GetDirectoryActiveDirectoryConfigResult(dict):
+    def __init__(__self__, *,
+                 domain_name: builtins.str,
+                 service_account_secret_arn: builtins.str):
+        """
+        :param builtins.str domain_name: Fully qualified domain name of the AWS Directory Service directory.
+        :param builtins.str service_account_secret_arn: ARN of the Secrets Manager secret that contains the credentials for the service account.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> builtins.str:
+        """
+        Fully qualified domain name of the AWS Directory Service directory.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="serviceAccountSecretArn")
+    def service_account_secret_arn(self) -> builtins.str:
+        """
+        ARN of the Secrets Manager secret that contains the credentials for the service account.
+        """
+        return pulumi.get(self, "service_account_secret_arn")
 
 
 @pulumi.output_type

@@ -66,7 +66,8 @@ type LookupOpenZfsSnapshotArgs struct {
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the snapshot.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds []string `pulumi:"snapshotIds"`
@@ -113,7 +114,8 @@ type LookupOpenZfsSnapshotOutputArgs struct {
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the snapshot.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds pulumi.StringArrayInput `pulumi:"snapshotIds"`

@@ -53,8 +53,9 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
 	// ARN of the ECS Cluster
-	ClusterArn string  `pulumi:"clusterArn"`
-	Region     *string `pulumi:"region"`
+	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the ECS Service
 	ServiceName string `pulumi:"serviceName"`
 	// Resource tags.
@@ -95,8 +96,9 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
 	// ARN of the ECS Cluster
-	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the ECS Service
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Resource tags.

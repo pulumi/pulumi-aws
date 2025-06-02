@@ -81,8 +81,9 @@ type LookupCertificateArgs struct {
 	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes []string `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-	MostRecent *bool   `pulumi:"mostRecent"`
-	Region     *string `pulumi:"region"`
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
@@ -131,8 +132,9 @@ type LookupCertificateOutputArgs struct {
 	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes pulumi.StringArrayInput `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.

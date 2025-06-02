@@ -163,12 +163,10 @@ type UserPool struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
@@ -271,12 +269,10 @@ type userPoolState struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
-	//
-	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
@@ -350,12 +346,10 @@ type UserPoolState struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
 	// Name of the user pool.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
@@ -419,12 +413,10 @@ type userPoolArgs struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
-	//
-	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
@@ -483,12 +475,10 @@ type UserPoolArgs struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
 	// Name of the user pool.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
@@ -703,8 +693,6 @@ func (o UserPoolOutput) MfaConfiguration() pulumi.StringPtrOutput {
 }
 
 // Name of the user pool.
-//
-// The following arguments are optional:
 func (o UserPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -714,7 +702,7 @@ func (o UserPoolOutput) PasswordPolicy() UserPoolPasswordPolicyOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolPasswordPolicyOutput { return v.PasswordPolicy }).(UserPoolPasswordPolicyOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserPoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

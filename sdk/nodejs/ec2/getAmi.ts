@@ -104,6 +104,9 @@ export interface GetAmiArgs {
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Any tags assigned to the image.
@@ -378,6 +381,9 @@ export interface GetAmiOutputArgs {
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the image.

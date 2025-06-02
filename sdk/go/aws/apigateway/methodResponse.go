@@ -185,7 +185,7 @@ type MethodResponse struct {
 
 	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -245,7 +245,7 @@ func GetMethodResponse(ctx *pulumi.Context,
 type methodResponseState struct {
 	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod *string `pulumi:"httpMethod"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Resource identifier for the method resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -264,7 +264,7 @@ type methodResponseState struct {
 type MethodResponseState struct {
 	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (MethodResponseState) ElementType() reflect.Type {
 type methodResponseArgs struct {
 	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod string `pulumi:"httpMethod"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Resource identifier for the method resource.
 	ResourceId string `pulumi:"resourceId"`
@@ -307,7 +307,7 @@ type methodResponseArgs struct {
 type MethodResponseArgs struct {
 	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Resource identifier for the method resource.
 	ResourceId pulumi.StringInput
@@ -415,7 +415,7 @@ func (o MethodResponseOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MethodResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

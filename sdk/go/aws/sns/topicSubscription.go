@@ -363,7 +363,7 @@ type TopicSubscription struct {
 	RawMessageDelivery pulumi.BoolPtrOutput `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrOutput `pulumi:"replayPolicy"`
@@ -440,7 +440,7 @@ type topicSubscriptionState struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy *string `pulumi:"replayPolicy"`
@@ -479,7 +479,7 @@ type TopicSubscriptionState struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrInput
@@ -514,7 +514,7 @@ type topicSubscriptionArgs struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy *string `pulumi:"replayPolicy"`
@@ -546,7 +546,7 @@ type TopicSubscriptionArgs struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrInput
@@ -710,7 +710,7 @@ func (o TopicSubscriptionOutput) RedrivePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.RedrivePolicy }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TopicSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

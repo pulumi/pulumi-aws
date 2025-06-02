@@ -92,7 +92,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -184,7 +184,7 @@ export interface PeeringAttachmentState {
      */
     peerTransitGatewayId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
@@ -223,7 +223,7 @@ export interface PeeringAttachmentArgs {
      */
     peerTransitGatewayId: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

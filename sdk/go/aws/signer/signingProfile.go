@@ -73,7 +73,7 @@ type SigningProfile struct {
 	PlatformDisplayName pulumi.StringOutput `pulumi:"platformDisplayName"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringOutput `pulumi:"platformId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords SigningProfileRevocationRecordArrayOutput `pulumi:"revocationRecords"`
@@ -134,7 +134,7 @@ type signingProfileState struct {
 	PlatformDisplayName *string `pulumi:"platformDisplayName"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId *string `pulumi:"platformId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords []SigningProfileRevocationRecord `pulumi:"revocationRecords"`
@@ -163,7 +163,7 @@ type SigningProfileState struct {
 	PlatformDisplayName pulumi.StringPtrInput
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Revocation information for a signing profile. See `revocationRecord` Block below for details.
 	RevocationRecords SigningProfileRevocationRecordArrayInput
@@ -192,7 +192,7 @@ type signingProfileArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId string `pulumi:"platformId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
@@ -208,7 +208,7 @@ type SigningProfileArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The ID of the platform that is used by the target signing profile.
 	PlatformId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
@@ -328,7 +328,7 @@ func (o SigningProfileOutput) PlatformId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.PlatformId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SigningProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

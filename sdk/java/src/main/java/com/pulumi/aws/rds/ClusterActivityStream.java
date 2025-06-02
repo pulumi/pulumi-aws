@@ -110,12 +110,18 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * 
      */
     @Export(name="engineNativeAuditFieldsIncluded", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> engineNativeAuditFieldsIncluded;
 
     /**
      * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      * 
      */
     public Output<Optional<Boolean>> engineNativeAuditFieldsIncluded() {
@@ -164,14 +170,14 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
         return this.mode;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

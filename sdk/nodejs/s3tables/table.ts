@@ -80,6 +80,11 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableEncryptionConfiguration>;
+    /**
      * Format of the table.
      * Must be `ICEBERG`.
      */
@@ -119,13 +124,13 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     public readonly tableBucketArn!: pulumi.Output<string>;
     /**
@@ -158,6 +163,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
             resourceInputs["metadataLocation"] = state ? state.metadataLocation : undefined;
@@ -182,6 +188,7 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -220,6 +227,11 @@ export interface TableState {
      * Account ID of the account that created the namespace.
      */
     createdBy?: pulumi.Input<string>;
+    /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration>;
     /**
      * Format of the table.
      * Must be `ICEBERG`.
@@ -260,13 +272,13 @@ export interface TableState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     tableBucketArn?: pulumi.Input<string>;
     /**
@@ -288,6 +300,11 @@ export interface TableState {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
+    /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration>;
     /**
      * Format of the table.
      * Must be `ICEBERG`.
@@ -312,13 +329,13 @@ export interface TableArgs {
      */
     namespace: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     tableBucketArn: pulumi.Input<string>;
 }

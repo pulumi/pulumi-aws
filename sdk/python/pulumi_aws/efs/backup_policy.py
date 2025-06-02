@@ -29,7 +29,7 @@ class BackupPolicyArgs:
         The set of arguments for constructing a BackupPolicy resource.
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_policy", backup_policy)
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -64,7 +64,7 @@ class BackupPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -83,7 +83,7 @@ class _BackupPolicyState:
         Input properties used for looking up and filtering BackupPolicy resources.
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
@@ -120,7 +120,7 @@ class _BackupPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -169,7 +169,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -259,7 +259,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -290,7 +290,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

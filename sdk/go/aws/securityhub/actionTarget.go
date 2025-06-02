@@ -66,7 +66,7 @@ type ActionTarget struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -114,7 +114,7 @@ type actionTargetState struct {
 	Identifier *string `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -127,7 +127,7 @@ type ActionTargetState struct {
 	Identifier pulumi.StringPtrInput
 	// The description for the custom action target.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -142,7 +142,7 @@ type actionTargetArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// The description for the custom action target.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -154,7 +154,7 @@ type ActionTargetArgs struct {
 	Identifier pulumi.StringInput
 	// The description for the custom action target.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o ActionTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ActionTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

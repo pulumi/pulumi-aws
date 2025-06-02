@@ -28,6 +28,9 @@ export function getDirectoryBuckets(args?: GetDirectoryBucketsArgs, opts?: pulum
  * A collection of arguments for invoking getDirectoryBuckets.
  */
 export interface GetDirectoryBucketsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -70,5 +73,8 @@ export function getDirectoryBucketsOutput(args?: GetDirectoryBucketsOutputArgs, 
  * A collection of arguments for invoking getDirectoryBuckets.
  */
 export interface GetDirectoryBucketsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

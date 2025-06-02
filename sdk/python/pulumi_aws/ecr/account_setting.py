@@ -29,7 +29,7 @@ class AccountSettingArgs:
                * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
                * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         :param pulumi.Input[builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -67,7 +67,7 @@ class AccountSettingArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -85,7 +85,7 @@ class _AccountSettingState:
         """
         Input properties used for looking up and filtering AccountSetting resources.
         :param pulumi.Input[builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Setting value that is specified. Valid values are:
                * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
                * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
@@ -113,7 +113,7 @@ class _AccountSettingState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -184,7 +184,7 @@ class AccountSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Setting value that is specified. Valid values are:
                * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
                * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
@@ -283,7 +283,7 @@ class AccountSetting(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Setting value that is specified. Valid values are:
                * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
                * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
@@ -309,7 +309,7 @@ class AccountSetting(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

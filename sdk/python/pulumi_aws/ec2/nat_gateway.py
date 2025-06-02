@@ -35,7 +35,7 @@ class NatGatewayArgs:
         :param pulumi.Input[builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         :param pulumi.Input[builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
@@ -111,7 +111,7 @@ class NatGatewayArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -192,7 +192,7 @@ class _NatGatewayState:
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface associated with the NAT Gateway.
         :param pulumi.Input[builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[builtins.str] public_ip: The Elastic IP address associated with the NAT Gateway.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
@@ -303,7 +303,7 @@ class _NatGatewayState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -469,7 +469,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         :param pulumi.Input[builtins.str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
@@ -630,7 +630,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface associated with the NAT Gateway.
         :param pulumi.Input[builtins.str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         :param pulumi.Input[builtins.str] public_ip: The Elastic IP address associated with the NAT Gateway.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
@@ -709,7 +709,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

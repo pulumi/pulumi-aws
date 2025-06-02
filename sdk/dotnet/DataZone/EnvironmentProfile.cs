@@ -217,14 +217,12 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("projectIdentifier")]
         public Output<string> ProjectIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -325,14 +323,12 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -407,14 +403,12 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier")]
         public Input<string>? ProjectIdentifier { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

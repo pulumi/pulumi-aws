@@ -33,7 +33,7 @@ class ServiceNetworkResourceAssociationArgs:
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
@@ -75,7 +75,7 @@ class ServiceNetworkResourceAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _ServiceNetworkResourceAssociationState:
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]] dns_entries: DNS entry of the association in the service network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -173,7 +173,7 @@ class _ServiceNetworkResourceAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -282,7 +282,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -390,7 +390,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkResourceAssociationDnsEntryArgs', 'ServiceNetworkResourceAssociationDnsEntryArgsDict']]]] dns_entries: DNS entry of the association in the service network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -432,7 +432,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

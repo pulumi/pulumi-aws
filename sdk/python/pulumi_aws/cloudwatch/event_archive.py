@@ -32,7 +32,7 @@ class EventArchiveArgs:
         :param pulumi.Input[builtins.str] description: The description of the new event archive.
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         pulumi.set(__self__, "event_source_arn", event_source_arn)
@@ -99,7 +99,7 @@ class EventArchiveArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -137,7 +137,7 @@ class _EventArchiveState:
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         if arn is not None:
@@ -219,7 +219,7 @@ class _EventArchiveState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -302,7 +302,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         ...
@@ -422,7 +422,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -482,7 +482,7 @@ class EventArchive(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

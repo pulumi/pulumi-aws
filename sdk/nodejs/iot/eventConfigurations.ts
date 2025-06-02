@@ -71,7 +71,7 @@ export class EventConfigurations extends pulumi.CustomResource {
      */
     public readonly eventConfigurations!: pulumi.Output<{[key: string]: boolean}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -112,7 +112,7 @@ export interface EventConfigurationsState {
      */
     eventConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }
@@ -126,7 +126,7 @@ export interface EventConfigurationsArgs {
      */
     eventConfigurations: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

@@ -148,8 +148,9 @@ type LookupPermissionsArgs struct {
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	//
 	// One of the following is required:
-	Principal string  `pulumi:"principal"`
-	Region    *string `pulumi:"region"`
+	Principal string `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table *GetPermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
@@ -207,8 +208,9 @@ type LookupPermissionsOutputArgs struct {
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	//
 	// One of the following is required:
-	Principal pulumi.StringInput    `pulumi:"principal"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	Principal pulumi.StringInput `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table GetPermissionsTablePtrInput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.

@@ -111,10 +111,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
+ * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * $ pulumi import aws:appflow/flow:Flow example example-flow
  * ```
  */
 export class Flow extends pulumi.CustomResource {
@@ -174,7 +174,7 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -290,7 +290,7 @@ export interface FlowState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -340,7 +340,7 @@ export interface FlowArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

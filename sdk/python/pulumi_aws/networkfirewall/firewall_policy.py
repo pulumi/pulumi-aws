@@ -34,7 +34,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[builtins.str] description: A friendly description of the firewall policy.
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_policy", firewall_policy)
@@ -101,7 +101,7 @@ class FirewallPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -141,7 +141,7 @@ class _FirewallPolicyState:
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] update_token: A string token used when updating a firewall policy.
@@ -229,7 +229,7 @@ class _FirewallPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -387,7 +387,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -562,7 +562,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] update_token: A string token used when updating a firewall policy.
@@ -626,7 +626,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

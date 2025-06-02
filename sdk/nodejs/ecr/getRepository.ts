@@ -39,6 +39,9 @@ export interface GetRepositoryArgs {
      * Name of the ECR Repository.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Registry ID where the repository was created.
@@ -122,6 +125,9 @@ export interface GetRepositoryOutputArgs {
      * Name of the ECR Repository.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Registry ID where the repository was created.

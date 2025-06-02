@@ -52,7 +52,8 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getBot.
 type LookupBotArgs struct {
 	// Name of the bot. The name is case sensitive.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Version or alias of the bot.
 	Version *string `pulumi:"version"`
@@ -109,7 +110,8 @@ func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulu
 // A collection of arguments for invoking getBot.
 type LookupBotOutputArgs struct {
 	// Name of the bot. The name is case sensitive.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version or alias of the bot.
 	Version pulumi.StringPtrInput `pulumi:"version"`

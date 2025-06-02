@@ -51,8 +51,9 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
 	// ID of the directory.
-	DirectoryId string  `pulumi:"directoryId"`
-	Region      *string `pulumi:"region"`
+	DirectoryId string `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -104,8 +105,9 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryOutputArgs struct {
 	// ID of the directory.
-	DirectoryId pulumi.StringInput    `pulumi:"directoryId"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

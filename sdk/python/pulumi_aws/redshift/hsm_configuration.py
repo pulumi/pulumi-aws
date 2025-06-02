@@ -36,7 +36,7 @@ class HsmConfigurationArgs:
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
@@ -126,7 +126,7 @@ class HsmConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -169,7 +169,7 @@ class _HsmConfigurationState:
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -282,7 +282,7 @@ class _HsmConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -364,7 +364,7 @@ class HsmConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -489,7 +489,7 @@ class HsmConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -569,7 +569,7 @@ class HsmConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

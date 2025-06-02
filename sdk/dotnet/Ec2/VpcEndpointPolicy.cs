@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

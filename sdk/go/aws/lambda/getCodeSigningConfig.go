@@ -55,7 +55,8 @@ func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigA
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigArgs struct {
 	// ARN of the code signing configuration.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -89,7 +90,8 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigOutputArgs struct {
 	// ARN of the code signing configuration.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

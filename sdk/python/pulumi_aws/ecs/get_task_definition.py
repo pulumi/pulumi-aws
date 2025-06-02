@@ -351,6 +351,7 @@ def get_task_definition(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()
@@ -424,6 +425,7 @@ def get_task_definition_output(region: Optional[pulumi.Input[Optional[builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()

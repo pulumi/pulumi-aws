@@ -38,7 +38,7 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,7 +125,7 @@ class VpcEndpointServiceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -203,7 +203,7 @@ class _VpcEndpointServiceState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The service name.
         :param pulumi.Input[builtins.str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
@@ -373,7 +373,7 @@ class _VpcEndpointServiceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -531,7 +531,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -682,7 +682,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The service name.
         :param pulumi.Input[builtins.str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
@@ -799,7 +799,7 @@ class VpcEndpointService(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -71,7 +71,8 @@ type LookupVpnGatewayArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpnGatewayFilter `pulumi:"filters"`
 	// ID of the specific VPN Gateway to retrieve.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the specific VPN Gateway to retrieve.
 	State *string `pulumi:"state"`
@@ -116,7 +117,8 @@ type LookupVpnGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPN Gateway to retrieve.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the specific VPN Gateway to retrieve.
 	State pulumi.StringPtrInput `pulumi:"state"`

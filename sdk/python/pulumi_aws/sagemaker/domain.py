@@ -50,7 +50,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See `default_space_settings` Block below.
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,7 +205,7 @@ class DomainArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -286,7 +286,7 @@ class _DomainState:
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
@@ -467,7 +467,7 @@ class _DomainState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -704,7 +704,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The domain name.
         :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
@@ -911,7 +911,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
@@ -1036,7 +1036,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

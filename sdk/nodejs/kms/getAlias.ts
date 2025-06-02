@@ -36,6 +36,9 @@ export interface GetAliasArgs {
      * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -97,5 +100,8 @@ export interface GetAliasOutputArgs {
      * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

@@ -285,7 +285,7 @@ type MetricStream struct {
 	//
 	// The following arguments are optional:
 	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -360,7 +360,7 @@ type metricStreamState struct {
 	//
 	// The following arguments are optional:
 	OutputFormat *string `pulumi:"outputFormat"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn *string `pulumi:"roleArn"`
@@ -397,7 +397,7 @@ type MetricStreamState struct {
 	//
 	// The following arguments are optional:
 	OutputFormat pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringPtrInput
@@ -432,7 +432,7 @@ type metricStreamArgs struct {
 	//
 	// The following arguments are optional:
 	OutputFormat string `pulumi:"outputFormat"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn string `pulumi:"roleArn"`
@@ -460,7 +460,7 @@ type MetricStreamArgs struct {
 	//
 	// The following arguments are optional:
 	OutputFormat pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 	RoleArn pulumi.StringInput
@@ -609,7 +609,7 @@ func (o MetricStreamOutput) OutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.OutputFormat }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MetricStreamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -74,6 +74,9 @@ export interface GetResolverRulesArgs {
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
     ownerId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the outbound resolver endpoint for the desired resolver rules.
@@ -178,6 +181,9 @@ export interface GetResolverRulesOutputArgs {
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the outbound resolver endpoint for the desired resolver rules.

@@ -31,7 +31,7 @@ class BucketCorsConfigurationArgs:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "cors_rules", cors_rules)
@@ -80,7 +80,7 @@ class BucketCorsConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _BucketCorsConfigurationState:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationCorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -152,7 +152,7 @@ class _BucketCorsConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -228,7 +228,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationCorsRuleArgs', 'BucketCorsConfigurationCorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -349,7 +349,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationCorsRuleArgs', 'BucketCorsConfigurationCorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,7 +389,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

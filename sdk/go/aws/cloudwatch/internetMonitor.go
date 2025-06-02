@@ -62,7 +62,7 @@ type InternetMonitor struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
@@ -121,7 +121,7 @@ type internetMonitorState struct {
 	//
 	// The following arguments are optional:
 	MonitorName *string `pulumi:"monitorName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
@@ -148,7 +148,7 @@ type InternetMonitorState struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
@@ -177,7 +177,7 @@ type internetMonitorArgs struct {
 	//
 	// The following arguments are optional:
 	MonitorName string `pulumi:"monitorName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
@@ -201,7 +201,7 @@ type InternetMonitorArgs struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
@@ -329,7 +329,7 @@ func (o InternetMonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InternetMonitorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

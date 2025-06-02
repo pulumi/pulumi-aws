@@ -312,17 +312,17 @@ type DataSet struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayOutput `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          pulumi.StringOutput            `pulumi:"name"`
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
@@ -389,17 +389,17 @@ type dataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          *string               `pulumi:"name"`
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
@@ -431,17 +431,17 @@ type DataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayInput
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          pulumi.StringPtrInput
 	OutputColumns DataSetOutputColumnArrayInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
@@ -475,16 +475,16 @@ type dataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
@@ -513,16 +513,16 @@ type DataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayInput
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
@@ -665,6 +665,8 @@ func (o DataSetOutput) LogicalTableMaps() DataSetLogicalTableMapArrayOutput {
 }
 
 // Display name for the dataset.
+//
+// The following arguments are optional:
 func (o DataSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -679,8 +681,6 @@ func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 }
 
 // Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-//
-// The following arguments are optional:
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
 }
@@ -690,7 +690,7 @@ func (o DataSetOutput) RefreshProperties() DataSetRefreshPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRefreshPropertiesPtrOutput { return v.RefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

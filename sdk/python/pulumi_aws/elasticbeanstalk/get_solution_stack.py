@@ -116,6 +116,7 @@ def get_solution_stack(most_recent: Optional[builtins.bool] = None,
            > **NOTE:** If more or less than a single match is returned by the search,
            this call will fail. Ensure that your search is specific enough to return
            a single solution stack, or use `most_recent` to choose the most recent one.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -157,6 +158,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[builti
            > **NOTE:** If more or less than a single match is returned by the search,
            this call will fail. Ensure that your search is specific enough to return
            a single solution stack, or use `most_recent` to choose the most recent one.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent

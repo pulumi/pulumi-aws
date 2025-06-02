@@ -29,7 +29,7 @@ class TypeArgs:
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.str] definition: The type definition.
         :param pulumi.Input[builtins.str] format: The type format: `SDL` or `JSON`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "definition", definition)
@@ -77,7 +77,7 @@ class TypeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -104,7 +104,7 @@ class _TypeState:
         :param pulumi.Input[builtins.str] description: The type description.
         :param pulumi.Input[builtins.str] format: The type format: `SDL` or `JSON`.
         :param pulumi.Input[builtins.str] name: The type name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -197,7 +197,7 @@ class _TypeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -254,7 +254,7 @@ class Type(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.str] definition: The type definition.
         :param pulumi.Input[builtins.str] format: The type format: `SDL` or `JSON`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -365,7 +365,7 @@ class Type(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The type description.
         :param pulumi.Input[builtins.str] format: The type format: `SDL` or `JSON`.
         :param pulumi.Input[builtins.str] name: The type name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,7 +432,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

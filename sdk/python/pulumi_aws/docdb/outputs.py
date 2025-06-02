@@ -16,11 +16,68 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ClusterMasterUserSecret',
     'ClusterParameterGroupParameter',
     'ClusterRestoreToPointInTime',
     'ElasticClusterTimeouts',
     'GlobalClusterGlobalClusterMember',
 ]
+
+@pulumi.output_type
+class ClusterMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "secretStatus":
+            suggest = "secret_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[builtins.str] = None,
+                 secret_arn: Optional[builtins.str] = None,
+                 secret_status: Optional[builtins.str] = None):
+        """
+        :param builtins.str kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[builtins.str]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "secret_status")
+
 
 @pulumi.output_type
 class ClusterParameterGroupParameter(dict):

@@ -44,7 +44,7 @@ export interface SearchArgs {
      */
     queryString: string;
     /**
-     * Amazon Web Services Region in which the resource was created and exists.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -113,7 +113,7 @@ export interface SearchOutputArgs {
      */
     queryString: pulumi.Input<string>;
     /**
-     * Amazon Web Services Region in which the resource was created and exists.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

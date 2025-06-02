@@ -90,7 +90,7 @@ type Disk_attachment struct {
 	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
 	// The name of the Lightsail Instance to attach to.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -139,7 +139,7 @@ type disk_attachmentState struct {
 	DiskPath *string `pulumi:"diskPath"`
 	// The name of the Lightsail Instance to attach to.
 	InstanceName *string `pulumi:"instanceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type Disk_attachmentState struct {
 	DiskPath pulumi.StringPtrInput
 	// The name of the Lightsail Instance to attach to.
 	InstanceName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -165,7 +165,7 @@ type disk_attachmentArgs struct {
 	DiskPath string `pulumi:"diskPath"`
 	// The name of the Lightsail Instance to attach to.
 	InstanceName string `pulumi:"instanceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -177,7 +177,7 @@ type Disk_attachmentArgs struct {
 	DiskPath pulumi.StringInput
 	// The name of the Lightsail Instance to attach to.
 	InstanceName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -283,7 +283,7 @@ func (o Disk_attachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o Disk_attachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

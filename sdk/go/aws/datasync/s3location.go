@@ -96,7 +96,7 @@ type S3Location struct {
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
@@ -156,7 +156,7 @@ type s3locationState struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
@@ -178,7 +178,7 @@ type S3LocationState struct {
 	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringPtrInput
@@ -202,7 +202,7 @@ func (S3LocationState) ElementType() reflect.Type {
 type s3locationArgs struct {
 	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns []string `pulumi:"agentArns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn string `pulumi:"s3BucketArn"`
@@ -220,7 +220,7 @@ type s3locationArgs struct {
 type S3LocationArgs struct {
 	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringInput
@@ -331,7 +331,7 @@ func (o S3LocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o S3LocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

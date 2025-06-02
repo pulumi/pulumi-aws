@@ -109,7 +109,7 @@ type StoredIscsiVolume struct {
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
@@ -198,7 +198,7 @@ type storedIscsiVolumeState struct {
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData *bool `pulumi:"preserveExistingData"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -243,7 +243,7 @@ type StoredIscsiVolumeState struct {
 	NetworkInterfacePort pulumi.IntPtrInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
@@ -284,7 +284,7 @@ type storedIscsiVolumeArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData bool `pulumi:"preserveExistingData"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -308,7 +308,7 @@ type StoredIscsiVolumeArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
@@ -455,7 +455,7 @@ func (o StoredIscsiVolumeOutput) PreserveExistingData() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.BoolOutput { return v.PreserveExistingData }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StoredIscsiVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

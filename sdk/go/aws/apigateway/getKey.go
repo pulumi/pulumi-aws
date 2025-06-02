@@ -52,7 +52,8 @@ func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
 	// ID of the API Key to look up.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -94,7 +95,8 @@ func GetKeyOutput(ctx *pulumi.Context, args GetKeyOutputArgs, opts ...pulumi.Inv
 // A collection of arguments for invoking getKey.
 type GetKeyOutputArgs struct {
 	// ID of the API Key to look up.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

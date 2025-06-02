@@ -65,7 +65,8 @@ type LookupInternetGatewayArgs struct {
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	Region            *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags map[string]string `pulumi:"tags"`
@@ -104,7 +105,8 @@ type LookupInternetGatewayOutputArgs struct {
 	Filters GetInternetGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId pulumi.StringPtrInput `pulumi:"internetGatewayId"`
-	Region            pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

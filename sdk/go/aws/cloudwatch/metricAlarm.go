@@ -187,6 +187,7 @@ import (
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
+//						ReturnData: pulumi.Bool(true),
 //						Expression: pulumi.String("ANOMALY_DETECTION_BAND(m1)"),
 //						Label:      pulumi.String("CPUUtilization (Expected)"),
 //					},
@@ -311,14 +312,17 @@ type MetricAlarm struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrOutput `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+	// for details about valid values.
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -408,14 +412,17 @@ type metricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []string `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+	// for details about valid values.
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
@@ -470,14 +477,17 @@ type MetricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+	// for details about valid values.
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
@@ -534,14 +544,17 @@ type metricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []string `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+	// for details about valid values.
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
@@ -593,14 +606,17 @@ type MetricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+	// for details about valid values.
 	//
 	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
@@ -787,12 +803,12 @@ func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 }
 
 // The period in seconds over which the specified `statistic` is applied.
-// Valid values are `10`, `30`, or any multiple of `60`.
+// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 func (o MetricAlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MetricAlarmOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -804,6 +820,9 @@ func (o MetricAlarmOutput) Statistic() pulumi.StringPtrOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+// for details about valid values.
 //
 // > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 func (o MetricAlarmOutput) Tags() pulumi.StringMapOutput {

@@ -35,7 +35,7 @@ class MemberDetectorFeatureArgs:
         :param pulumi.Input[builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -111,7 +111,7 @@ class MemberDetectorFeatureArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -135,7 +135,7 @@ class _MemberDetectorFeatureState:
         :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         if account_id is not None:
@@ -203,7 +203,7 @@ class _MemberDetectorFeatureState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -272,7 +272,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         ...
@@ -379,7 +379,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -430,7 +430,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -356,12 +356,6 @@ namespace Pulumi.Aws.Budgets
         public Output<ImmutableArray<Outputs.BudgetPlannedLimit>> PlannedLimits { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
-
-        /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -381,6 +375,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Output("timePeriodStart")]
         public Output<string> TimePeriodStart { get; private set; } = null!;
@@ -523,12 +520,6 @@ namespace Pulumi.Aws.Budgets
             set => _plannedLimits = value;
         }
 
-        /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -549,6 +540,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Input("timePeriodStart")]
         public Input<string>? TimePeriodStart { get; set; }
@@ -659,12 +653,6 @@ namespace Pulumi.Aws.Budgets
             set => _plannedLimits = value;
         }
 
-        /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -697,6 +685,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Input("timePeriodStart")]
         public Input<string>? TimePeriodStart { get; set; }

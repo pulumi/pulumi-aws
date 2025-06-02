@@ -68,7 +68,7 @@ type StreamConsumer struct {
 	CreationTimestamp pulumi.StringOutput `pulumi:"creationTimestamp"`
 	// Name of the stream consumer.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
@@ -113,7 +113,7 @@ type streamConsumerState struct {
 	CreationTimestamp *string `pulumi:"creationTimestamp"`
 	// Name of the stream consumer.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn *string `pulumi:"streamArn"`
@@ -126,7 +126,7 @@ type StreamConsumerState struct {
 	CreationTimestamp pulumi.StringPtrInput
 	// Name of the stream consumer.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringPtrInput
@@ -139,7 +139,7 @@ func (StreamConsumerState) ElementType() reflect.Type {
 type streamConsumerArgs struct {
 	// Name of the stream consumer.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn string `pulumi:"streamArn"`
@@ -149,7 +149,7 @@ type streamConsumerArgs struct {
 type StreamConsumerArgs struct {
 	// Name of the stream consumer.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
 	StreamArn pulumi.StringInput
@@ -257,7 +257,7 @@ func (o StreamConsumerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StreamConsumerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

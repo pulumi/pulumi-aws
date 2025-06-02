@@ -29,7 +29,7 @@ class LocationFsxLustreArgs:
         The set of arguments for constructing a LocationFsxLustre resource.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -70,7 +70,7 @@ class LocationFsxLustreArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _LocationFsxLustreState:
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[builtins.str] creation_time: The time that the FSx for Lustre location was created.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -186,7 +186,7 @@ class _LocationFsxLustreState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -292,7 +292,7 @@ class LocationFsxLustre(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -396,7 +396,7 @@ class LocationFsxLustre(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[builtins.str] creation_time: The time that the FSx for Lustre location was created.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -446,7 +446,7 @@ class LocationFsxLustre(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

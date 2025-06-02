@@ -28,7 +28,8 @@ func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ..
 type GetVpcAttachmentsArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetVpcAttachmentsFilter `pulumi:"filters"`
-	Region  *string                   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcAttachments.
@@ -54,7 +55,8 @@ func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputAr
 type GetVpcAttachmentsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetVpcAttachmentsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput             `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcAttachmentsOutputArgs) ElementType() reflect.Type {

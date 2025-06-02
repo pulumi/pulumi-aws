@@ -104,7 +104,7 @@ type Activation struct {
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
@@ -161,7 +161,7 @@ type activationState struct {
 	IamRole *string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount *int `pulumi:"registrationCount"`
@@ -186,7 +186,7 @@ type ActivationState struct {
 	IamRole pulumi.StringPtrInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntPtrInput
@@ -211,7 +211,7 @@ type activationArgs struct {
 	IamRole string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
@@ -229,7 +229,7 @@ type ActivationArgs struct {
 	IamRole pulumi.StringInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
@@ -354,7 +354,7 @@ func (o ActivationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ActivationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

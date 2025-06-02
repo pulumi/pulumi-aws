@@ -64,7 +64,7 @@ type TrustProvider struct {
 	OidcOptions TrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           pulumi.StringOutput                 `pulumi:"region"`
 	SseSpecification TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,7 +126,7 @@ type trustProviderState struct {
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName *string `pulumi:"policyReferenceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           *string                        `pulumi:"region"`
 	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,7 +153,7 @@ type TrustProviderState struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           pulumi.StringPtrInput
 	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,7 +184,7 @@ type trustProviderArgs struct {
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName string `pulumi:"policyReferenceName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           *string                        `pulumi:"region"`
 	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,7 +211,7 @@ type TrustProviderArgs struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           pulumi.StringPtrInput
 	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -343,7 +343,7 @@ func (o TrustProviderOutput) PolicyReferenceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.PolicyReferenceName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

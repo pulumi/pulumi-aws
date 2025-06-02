@@ -56,7 +56,8 @@ type GetOutpostsArgs struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
-	Region  *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Site identifier.
 	SiteId *string `pulumi:"siteId"`
 }
@@ -93,7 +94,8 @@ type GetOutpostsOutputArgs struct {
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Site identifier.
 	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
 }

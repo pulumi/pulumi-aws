@@ -29,7 +29,7 @@ class ApprovalRuleTemplateArgs:
         :param pulumi.Input[builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
         :param pulumi.Input[builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "content", content)
         if description is not None:
@@ -79,7 +79,7 @@ class ApprovalRuleTemplateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -109,7 +109,7 @@ class _ApprovalRuleTemplateState:
         :param pulumi.Input[builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         :param pulumi.Input[builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
         """
         if approval_rule_template_id is not None:
@@ -219,7 +219,7 @@ class _ApprovalRuleTemplateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -288,7 +288,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
         :param pulumi.Input[builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -400,7 +400,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         :param pulumi.Input[builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -478,7 +478,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

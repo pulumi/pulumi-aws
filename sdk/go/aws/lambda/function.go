@@ -434,7 +434,7 @@ type Function struct {
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
 	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -565,7 +565,7 @@ type functionState struct {
 	QualifiedArn *string `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
 	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -664,7 +664,7 @@ type FunctionState struct {
 	QualifiedArn pulumi.StringPtrInput
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
 	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -755,7 +755,7 @@ type functionArgs struct {
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
 	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -833,7 +833,7 @@ type FunctionArgs struct {
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
 	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
@@ -1080,7 +1080,7 @@ func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FunctionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

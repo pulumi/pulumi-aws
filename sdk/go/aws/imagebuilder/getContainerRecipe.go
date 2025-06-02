@@ -51,7 +51,8 @@ func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs,
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeArgs struct {
 	// ARN of the container recipe.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
@@ -109,7 +110,8 @@ func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipe
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeOutputArgs struct {
 	// ARN of the container recipe.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

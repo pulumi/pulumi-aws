@@ -57,7 +57,8 @@ type GetRouteTableAssociationsArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetRouteTableAssociationsFilter `pulumi:"filters"`
-	Region  *string                           `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// The following arguments are optional:
@@ -91,7 +92,8 @@ type GetRouteTableAssociationsOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetRouteTableAssociationsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                     `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// The following arguments are optional:

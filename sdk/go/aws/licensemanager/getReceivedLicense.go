@@ -53,8 +53,9 @@ func GetReceivedLicense(ctx *pulumi.Context, args *GetReceivedLicenseArgs, opts 
 // A collection of arguments for invoking getReceivedLicense.
 type GetReceivedLicenseArgs struct {
 	// The ARN of the received license you want data for.
-	LicenseArn string  `pulumi:"licenseArn"`
-	Region     *string `pulumi:"region"`
+	LicenseArn string `pulumi:"licenseArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicense.
@@ -106,8 +107,9 @@ func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutput
 // A collection of arguments for invoking getReceivedLicense.
 type GetReceivedLicenseOutputArgs struct {
 	// The ARN of the received license you want data for.
-	LicenseArn pulumi.StringInput    `pulumi:"licenseArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	LicenseArn pulumi.StringInput `pulumi:"licenseArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReceivedLicenseOutputArgs) ElementType() reflect.Type {

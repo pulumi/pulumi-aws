@@ -87,7 +87,7 @@ type MultiRegionAccessPoint struct {
 	Details MultiRegionAccessPointDetailsOutput `pulumi:"details"`
 	// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -136,7 +136,7 @@ type multiRegionAccessPointState struct {
 	Details *MultiRegionAccessPointDetails `pulumi:"details"`
 	// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
 	DomainName *string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
 	Status *string `pulumi:"status"`
@@ -153,7 +153,7 @@ type MultiRegionAccessPointState struct {
 	Details MultiRegionAccessPointDetailsPtrInput
 	// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
 	DomainName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
 	Status pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type multiRegionAccessPointArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointDetails `pulumi:"details"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -178,7 +178,7 @@ type MultiRegionAccessPointArgs struct {
 	AccountId pulumi.StringPtrInput
 	// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointDetailsInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -294,7 +294,7 @@ func (o MultiRegionAccessPointOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

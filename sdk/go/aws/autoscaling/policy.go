@@ -304,7 +304,7 @@ type Policy struct {
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrOutput `pulumi:"predictiveScalingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
@@ -438,7 +438,7 @@ type policyState struct {
 	PolicyType *string `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
@@ -540,7 +540,7 @@ type PolicyState struct {
 	PolicyType pulumi.StringPtrInput
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
@@ -644,7 +644,7 @@ type policyArgs struct {
 	PolicyType *string `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
@@ -745,7 +745,7 @@ type PolicyArgs struct {
 	PolicyType pulumi.StringPtrInput
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
@@ -966,7 +966,7 @@ func (o PolicyOutput) PredictiveScalingConfiguration() PolicyPredictiveScalingCo
 	return o.ApplyT(func(v *Policy) PolicyPredictiveScalingConfigurationPtrOutput { return v.PredictiveScalingConfiguration }).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

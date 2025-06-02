@@ -46,7 +46,7 @@ class DistributionArgs:
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
         :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] name: Name of the distribution.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -183,7 +183,7 @@ class DistributionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -247,7 +247,7 @@ class _DistributionState:
         :param pulumi.Input[builtins.str] name: Name of the distribution.
         :param pulumi.Input['DistributionOriginArgs'] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[builtins.str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[builtins.str] status: The status of the distribution.
         :param pulumi.Input[builtins.str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
@@ -483,7 +483,7 @@ class _DistributionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -711,7 +711,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] name: Name of the distribution.
         :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -965,7 +965,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the distribution.
         :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[builtins.str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[builtins.str] status: The status of the distribution.
         :param pulumi.Input[builtins.str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
@@ -1125,7 +1125,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

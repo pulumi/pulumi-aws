@@ -59,7 +59,8 @@ type LookupBotAssociationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBot `pulumi:"lexBot"`
-	Region *string                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBotAssociation.
@@ -86,7 +87,8 @@ type LookupBotAssociationOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBotInput `pulumi:"lexBot"`
-	Region pulumi.StringPtrInput        `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBotAssociationOutputArgs) ElementType() reflect.Type {

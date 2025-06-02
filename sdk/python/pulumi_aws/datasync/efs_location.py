@@ -37,7 +37,7 @@ class EfsLocationArgs:
         :param pulumi.Input[builtins.str] access_point_arn: Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         :param pulumi.Input[builtins.str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[builtins.str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -120,7 +120,7 @@ class EfsLocationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -175,7 +175,7 @@ class _EfsLocationState:
         :param pulumi.Input[builtins.str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[builtins.str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[builtins.str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -279,7 +279,7 @@ class _EfsLocationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -382,7 +382,7 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[builtins.str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[builtins.str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -500,7 +500,7 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[builtins.str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[builtins.str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -574,7 +574,7 @@ class EfsLocation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

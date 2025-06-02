@@ -206,6 +206,7 @@ def get_data_lake_settings(catalog_id: Optional[builtins.str] = None,
 
 
     :param builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -244,6 +245,7 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[bui
 
 
     :param builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

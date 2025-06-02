@@ -62,7 +62,8 @@ func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pul
 type GetKafkaVersionArgs struct {
 	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions []string `pulumi:"preferredVersions"`
-	Region            *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
 	Version *string `pulumi:"version"`
 }
@@ -91,7 +92,8 @@ func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, 
 type GetKafkaVersionOutputArgs struct {
 	// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
-	Region            pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }

@@ -143,7 +143,7 @@ type BotAssociation struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotOutput `pulumi:"lexBot"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -187,7 +187,7 @@ type botAssociationState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot *BotAssociationLexBot `pulumi:"lexBot"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -196,7 +196,7 @@ type BotAssociationState struct {
 	InstanceId pulumi.StringPtrInput
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -209,7 +209,7 @@ type botAssociationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBot `pulumi:"lexBot"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -219,7 +219,7 @@ type BotAssociationArgs struct {
 	InstanceId pulumi.StringInput
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot BotAssociationLexBotInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -320,7 +320,7 @@ func (o BotAssociationOutput) LexBot() BotAssociationLexBotOutput {
 	return o.ApplyT(func(v *BotAssociation) BotAssociationLexBotOutput { return v.LexBot }).(BotAssociationLexBotOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BotAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

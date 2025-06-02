@@ -219,7 +219,7 @@ type ServerlessCache struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayOutput `pulumi:"readerEndpoints"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -299,7 +299,7 @@ type serverlessCacheState struct {
 	Name *string `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints []ServerlessCacheReaderEndpoint `pulumi:"readerEndpoints"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -347,7 +347,7 @@ type ServerlessCacheState struct {
 	Name pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -389,7 +389,7 @@ type serverlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -425,7 +425,7 @@ type ServerlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -592,7 +592,7 @@ func (o ServerlessCacheOutput) ReaderEndpoints() ServerlessCacheReaderEndpointAr
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheReaderEndpointArrayOutput { return v.ReaderEndpoints }).(ServerlessCacheReaderEndpointArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessCacheOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -37,7 +37,7 @@ class ConstraintArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[builtins.str] description: Description of the constraint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "portfolio_id", portfolio_id)
@@ -128,7 +128,7 @@ class ConstraintArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -157,7 +157,7 @@ class _ConstraintState:
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -257,7 +257,7 @@ class _ConstraintState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -342,7 +342,7 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -465,7 +465,7 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -537,7 +537,7 @@ class Constraint(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -58,8 +58,9 @@ type LookupLayerVersionArgs struct {
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
-	LayerName string  `pulumi:"layerName"`
-	Region    *string `pulumi:"region"`
+	LayerName string `pulumi:"layerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version *int `pulumi:"version"`
 }
@@ -118,8 +119,9 @@ type LookupLayerVersionOutputArgs struct {
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
-	LayerName pulumi.StringInput    `pulumi:"layerName"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	LayerName pulumi.StringInput `pulumi:"layerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }

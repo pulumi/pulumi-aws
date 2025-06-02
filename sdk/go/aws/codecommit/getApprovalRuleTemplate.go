@@ -51,7 +51,8 @@ func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTem
 // A collection of arguments for invoking getApprovalRuleTemplate.
 type LookupApprovalRuleTemplateArgs struct {
 	// Name for the approval rule template. This needs to be less than 100 characters.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -89,7 +90,8 @@ func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRu
 // A collection of arguments for invoking getApprovalRuleTemplate.
 type LookupApprovalRuleTemplateOutputArgs struct {
 	// Name for the approval rule template. This needs to be less than 100 characters.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

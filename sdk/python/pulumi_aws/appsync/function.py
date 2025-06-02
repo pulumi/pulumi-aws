@@ -43,7 +43,7 @@ class FunctionArgs:
         :param pulumi.Input[builtins.str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[builtins.str] name: Function name. The function name does not have to be unique.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[builtins.str] response_mapping_template: Function response mapping template.
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
@@ -160,7 +160,7 @@ class FunctionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -245,7 +245,7 @@ class _FunctionState:
         :param pulumi.Input[builtins.str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[builtins.str] name: Function name. The function name does not have to be unique.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[builtins.str] response_mapping_template: Function response mapping template.
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
@@ -392,7 +392,7 @@ class _FunctionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -561,7 +561,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[builtins.str] name: Function name. The function name does not have to be unique.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[builtins.str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
@@ -751,7 +751,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[builtins.str] name: Function name. The function name does not have to be unique.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[builtins.str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
@@ -853,7 +853,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

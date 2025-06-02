@@ -92,7 +92,7 @@ type Group struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationOutput `pulumi:"sseConfiguration"`
@@ -154,7 +154,7 @@ type groupState struct {
 	Owner *string `pulumi:"owner"`
 	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
@@ -184,7 +184,7 @@ type GroupState struct {
 	Owner pulumi.StringPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
@@ -210,7 +210,7 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
@@ -228,7 +228,7 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
@@ -357,7 +357,7 @@ func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

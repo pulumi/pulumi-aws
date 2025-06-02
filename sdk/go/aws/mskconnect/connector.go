@@ -123,7 +123,7 @@ type Connector struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies which plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	//
@@ -215,7 +215,7 @@ type connectorState struct {
 	Name *string `pulumi:"name"`
 	// Specifies which plugins to use for the connector. See `plugin` Block for details.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	//
@@ -254,7 +254,7 @@ type ConnectorState struct {
 	Name pulumi.StringPtrInput
 	// Specifies which plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	//
@@ -295,7 +295,7 @@ type connectorArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies which plugins to use for the connector. See `plugin` Block for details.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	//
@@ -329,7 +329,7 @@ type ConnectorArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies which plugins to use for the connector. See `plugin` Block for details.
 	Plugins ConnectorPluginArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 	//
@@ -487,7 +487,7 @@ func (o ConnectorOutput) Plugins() ConnectorPluginArrayOutput {
 	return o.ApplyT(func(v *Connector) ConnectorPluginArrayOutput { return v.Plugins }).(ConnectorPluginArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

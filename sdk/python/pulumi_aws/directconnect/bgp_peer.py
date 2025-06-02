@@ -37,7 +37,7 @@ class BgpPeerArgs:
         :param pulumi.Input[builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -129,7 +129,7 @@ class BgpPeerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -163,7 +163,7 @@ class _BgpPeerState:
         :param pulumi.Input[builtins.str] bgp_status: The Up/Down state of the BGP peer.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         if address_family is not None:
@@ -289,7 +289,7 @@ class _BgpPeerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -348,7 +348,7 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         ...
@@ -456,7 +456,7 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bgp_status: The Up/Down state of the BGP peer.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -545,7 +545,7 @@ class BgpPeer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

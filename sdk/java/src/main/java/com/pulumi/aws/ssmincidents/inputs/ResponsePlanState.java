@@ -20,9 +20,17 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
 
     public static final ResponsePlanState Empty = new ResponsePlanState();
 
+    /**
+     * The actions that the response plan starts at the beginning of an incident.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<ResponsePlanActionArgs> action;
 
+    /**
+     * @return The actions that the response plan starts at the beginning of an incident.
+     * 
+     */
     public Optional<Output<ResponsePlanActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
@@ -42,37 +50,77 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * The Chatbot chat channel used for collaboration during an incident.
+     * 
+     */
     @Import(name="chatChannels")
     private @Nullable Output<List<String>> chatChannels;
 
+    /**
+     * @return The Chatbot chat channel used for collaboration during an incident.
+     * 
+     */
     public Optional<Output<List<String>>> chatChannels() {
         return Optional.ofNullable(this.chatChannels);
     }
 
+    /**
+     * The long format of the response plan name. This field can contain spaces.
+     * 
+     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
+    /**
+     * @return The long format of the response plan name. This field can contain spaces.
+     * 
+     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * 
+     */
     @Import(name="engagements")
     private @Nullable Output<List<String>> engagements;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * 
+     */
     public Optional<Output<List<String>>> engagements() {
         return Optional.ofNullable(this.engagements);
     }
 
+    /**
+     * The `incident_template` configuration block is required and supports the following arguments:
+     * 
+     */
     @Import(name="incidentTemplate")
     private @Nullable Output<ResponsePlanIncidentTemplateArgs> incidentTemplate;
 
+    /**
+     * @return The `incident_template` configuration block is required and supports the following arguments:
+     * 
+     */
     public Optional<Output<ResponsePlanIncidentTemplateArgs>> incidentTemplate() {
         return Optional.ofNullable(this.incidentTemplate);
     }
 
+    /**
+     * Information about third-party services integrated into the response plan. The following values are supported:
+     * 
+     */
     @Import(name="integration")
     private @Nullable Output<ResponsePlanIntegrationArgs> integration;
 
+    /**
+     * @return Information about third-party services integrated into the response plan. The following values are supported:
+     * 
+     */
     public Optional<Output<ResponsePlanIntegrationArgs>> integration() {
         return Optional.ofNullable(this.integration);
     }
@@ -93,23 +141,31 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * The tags applied to the response plan.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return The tags applied to the response plan.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -163,11 +219,23 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
             $ = new ResponsePlanState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The actions that the response plan starts at the beginning of an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<ResponsePlanActionArgs> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The actions that the response plan starts at the beginning of an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(ResponsePlanActionArgs action) {
             return action(Output.of(action));
         }
@@ -193,55 +261,127 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param chatChannels The Chatbot chat channel used for collaboration during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chatChannels(@Nullable Output<List<String>> chatChannels) {
             $.chatChannels = chatChannels;
             return this;
         }
 
+        /**
+         * @param chatChannels The Chatbot chat channel used for collaboration during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chatChannels(List<String> chatChannels) {
             return chatChannels(Output.of(chatChannels));
         }
 
+        /**
+         * @param chatChannels The Chatbot chat channel used for collaboration during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chatChannels(String... chatChannels) {
             return chatChannels(List.of(chatChannels));
         }
 
+        /**
+         * @param displayName The long format of the response plan name. This field can contain spaces.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The long format of the response plan name. This field can contain spaces.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engagements(@Nullable Output<List<String>> engagements) {
             $.engagements = engagements;
             return this;
         }
 
+        /**
+         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engagements(List<String> engagements) {
             return engagements(Output.of(engagements));
         }
 
+        /**
+         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engagements(String... engagements) {
             return engagements(List.of(engagements));
         }
 
+        /**
+         * @param incidentTemplate The `incident_template` configuration block is required and supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
         public Builder incidentTemplate(@Nullable Output<ResponsePlanIncidentTemplateArgs> incidentTemplate) {
             $.incidentTemplate = incidentTemplate;
             return this;
         }
 
+        /**
+         * @param incidentTemplate The `incident_template` configuration block is required and supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
         public Builder incidentTemplate(ResponsePlanIncidentTemplateArgs incidentTemplate) {
             return incidentTemplate(Output.of(incidentTemplate));
         }
 
+        /**
+         * @param integration Information about third-party services integrated into the response plan. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder integration(@Nullable Output<ResponsePlanIntegrationArgs> integration) {
             $.integration = integration;
             return this;
         }
 
+        /**
+         * @param integration Information about third-party services integrated into the response plan. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder integration(ResponsePlanIntegrationArgs integration) {
             return integration(Output.of(integration));
         }
@@ -268,7 +408,7 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -279,7 +419,7 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -288,11 +428,23 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
+        /**
+         * @param tags The tags applied to the response plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags The tags applied to the response plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

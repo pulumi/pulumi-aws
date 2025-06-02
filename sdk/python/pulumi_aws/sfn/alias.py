@@ -31,7 +31,7 @@ class AliasArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         :param pulumi.Input[builtins.str] description: Description of the alias.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "routing_configurations", routing_configurations)
         if description is not None:
@@ -81,7 +81,7 @@ class AliasArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -105,7 +105,7 @@ class _AliasState:
         :param pulumi.Input[builtins.str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[builtins.str] description: Description of the alias.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
         if arn is not None:
@@ -173,7 +173,7 @@ class _AliasState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -248,7 +248,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the alias.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
         ...
@@ -359,7 +359,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[builtins.str] description: Description of the alias.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -410,7 +410,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

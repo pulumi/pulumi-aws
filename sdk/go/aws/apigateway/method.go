@@ -146,7 +146,7 @@ type Method struct {
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
 	// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of the API models used for the request's content type
 	// where key is the content type (e.g., `application/json`)
@@ -217,7 +217,7 @@ type methodState struct {
 	HttpMethod *string `pulumi:"httpMethod"`
 	// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName *string `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of the API models used for the request's content type
 	// where key is the content type (e.g., `application/json`)
@@ -247,7 +247,7 @@ type MethodState struct {
 	HttpMethod pulumi.StringPtrInput
 	// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of the API models used for the request's content type
 	// where key is the content type (e.g., `application/json`)
@@ -281,7 +281,7 @@ type methodArgs struct {
 	HttpMethod string `pulumi:"httpMethod"`
 	// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName *string `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of the API models used for the request's content type
 	// where key is the content type (e.g., `application/json`)
@@ -312,7 +312,7 @@ type MethodArgs struct {
 	HttpMethod pulumi.StringInput
 	// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of the API models used for the request's content type
 	// where key is the content type (e.g., `application/json`)
@@ -446,7 +446,7 @@ func (o MethodOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MethodOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

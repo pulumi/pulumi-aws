@@ -60,6 +60,9 @@ export interface GetVpnAttachmentArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
@@ -145,6 +148,9 @@ export interface GetVpnAttachmentOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpnAttachmentFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.

@@ -92,7 +92,7 @@ type CustomModel struct {
 	JobStatus pulumi.StringOutput `pulumi:"jobStatus"`
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -178,7 +178,7 @@ type customModelState struct {
 	JobStatus *string `pulumi:"jobStatus"`
 	// S3 location for the output data.
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
@@ -220,7 +220,7 @@ type CustomModelState struct {
 	JobStatus pulumi.StringPtrInput
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
@@ -260,7 +260,7 @@ type customModelArgs struct {
 	JobName string `pulumi:"jobName"`
 	// S3 location for the output data.
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -291,7 +291,7 @@ type CustomModelArgs struct {
 	JobName pulumi.StringInput
 	// S3 location for the output data.
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
@@ -443,7 +443,7 @@ func (o CustomModelOutput) OutputDataConfig() CustomModelOutputDataConfigPtrOutp
 	return o.ApplyT(func(v *CustomModel) CustomModelOutputDataConfigPtrOutput { return v.OutputDataConfig }).(CustomModelOutputDataConfigPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomModelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

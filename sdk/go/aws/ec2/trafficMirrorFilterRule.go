@@ -99,7 +99,7 @@ type TrafficMirrorFilterRule struct {
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrOutput `pulumi:"destinationPortRange"`
 	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
@@ -175,7 +175,7 @@ type trafficMirrorFilterRuleState struct {
 	DestinationPortRange *TrafficMirrorFilterRuleDestinationPortRange `pulumi:"destinationPortRange"`
 	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol *int `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction *string `pulumi:"ruleAction"`
@@ -204,7 +204,7 @@ type TrafficMirrorFilterRuleState struct {
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrInput
 	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type trafficMirrorFilterRuleArgs struct {
 	DestinationPortRange *TrafficMirrorFilterRuleDestinationPortRange `pulumi:"destinationPortRange"`
 	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol *int `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction string `pulumi:"ruleAction"`
@@ -263,7 +263,7 @@ type TrafficMirrorFilterRuleArgs struct {
 	DestinationPortRange TrafficMirrorFilterRuleDestinationPortRangePtrInput
 	// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 	Protocol pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
 	RuleAction pulumi.StringInput
@@ -395,7 +395,7 @@ func (o TrafficMirrorFilterRuleOutput) Protocol() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.IntPtrOutput { return v.Protocol }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrafficMirrorFilterRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

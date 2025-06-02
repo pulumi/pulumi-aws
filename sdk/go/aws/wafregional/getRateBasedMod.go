@@ -51,7 +51,8 @@ func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pul
 // A collection of arguments for invoking getRateBasedMod.
 type GetRateBasedModArgs struct {
 	// Name of the WAF Regional rate based rule.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -75,7 +76,8 @@ func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, 
 // A collection of arguments for invoking getRateBasedMod.
 type GetRateBasedModOutputArgs struct {
 	// Name of the WAF Regional rate based rule.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

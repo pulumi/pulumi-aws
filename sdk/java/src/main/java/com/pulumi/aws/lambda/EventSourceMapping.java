@@ -152,6 +152,61 @@ import javax.annotation.Nullable;
  * ### Self Managed Apache Kafka
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.EventSourceMapping;
+ * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingProvisionedPollerConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.arn())
+ *             .topics("Example")
+ *             .startingPosition("TRIM_HORIZON")
+ *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
+ *                 .maximumPollers(80)
+ *                 .minimumPollers(10)
+ *                 .build())
+ *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
+ *                 .endpoints(Map.of("KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092"))
+ *                 .build())
+ *             .sourceAccessConfigurations(            
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type("VPC_SUBNET")
+ *                     .uri("subnet:subnet-example1")
+ *                     .build(),
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type("VPC_SUBNET")
+ *                     .uri("subnet:subnet-example2")
+ *                     .build(),
+ *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
+ *                     .type("VPC_SECURITY_GROUP")
+ *                     .uri("security_group:sg-example")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQS
@@ -659,14 +714,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.queues);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

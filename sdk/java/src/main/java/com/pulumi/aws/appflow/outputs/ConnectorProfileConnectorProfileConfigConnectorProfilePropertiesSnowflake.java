@@ -21,7 +21,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     private @Nullable String bucketPrefix;
     private @Nullable String privateLinkServiceName;
     /**
-     * @return AWS Region of the Snowflake account.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     private @Nullable String region;
@@ -54,7 +55,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.privateLinkServiceName);
     }
     /**
-     * @return AWS Region of the Snowflake account.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     public Optional<String> region() {

@@ -57,9 +57,10 @@ type LookupNetworkInsightsAnalysisArgs struct {
 	// whose data will be exported as attributes.
 	Filters []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
-	NetworkInsightsAnalysisId *string           `pulumi:"networkInsightsAnalysisId"`
-	Region                    *string           `pulumi:"region"`
-	Tags                      map[string]string `pulumi:"tags"`
+	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInsightsAnalysis.
@@ -115,8 +116,9 @@ type LookupNetworkInsightsAnalysisOutputArgs struct {
 	Filters GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`
-	Region                    pulumi.StringPtrInput `pulumi:"region"`
-	Tags                      pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupNetworkInsightsAnalysisOutputArgs) ElementType() reflect.Type {

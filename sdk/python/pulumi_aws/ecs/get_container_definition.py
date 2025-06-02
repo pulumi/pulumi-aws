@@ -193,6 +193,7 @@ def get_container_definition(container_name: Optional[builtins.str] = None,
 
 
     :param builtins.str container_name: Name of the container definition
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: ARN of the task definition which contains the container
     """
     __args__ = dict()
@@ -235,6 +236,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[builti
 
 
     :param builtins.str container_name: Name of the container definition
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: ARN of the task definition which contains the container
     """
     __args__ = dict()

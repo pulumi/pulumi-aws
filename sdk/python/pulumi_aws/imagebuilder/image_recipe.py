@@ -39,11 +39,11 @@ class ImageRecipeArgs:
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[builtins.str] description: Description of the image recipe.
         :param pulumi.Input[builtins.str] name: Name of the image recipe.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
@@ -99,7 +99,7 @@ class ImageRecipeArgs:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -147,7 +147,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -234,14 +234,14 @@ class _ImageRecipeState:
         :param pulumi.Input[builtins.str] owner: Owner of the image recipe.
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[builtins.str] platform: Platform of the image recipe.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -389,7 +389,7 @@ class _ImageRecipeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -451,7 +451,7 @@ class _ImageRecipeState:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -541,13 +541,13 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the image recipe.
         :param pulumi.Input[builtins.str] name: Name of the image recipe.
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -699,14 +699,14 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner: Owner of the image recipe.
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[builtins.str] platform: Platform of the image recipe.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -807,7 +807,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -849,7 +849,7 @@ class ImageRecipe(pulumi.CustomResource):
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 

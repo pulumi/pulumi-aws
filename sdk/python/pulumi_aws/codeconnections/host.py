@@ -34,7 +34,7 @@ class HostArgs:
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         pulumi.set(__self__, "provider_endpoint", provider_endpoint)
@@ -90,7 +90,7 @@ class HostArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -147,7 +147,7 @@ class _HostState:
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['HostVpcConfigurationArgs'] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         if arn is not None:
@@ -221,7 +221,7 @@ class _HostState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -315,7 +315,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
@@ -425,7 +425,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -479,7 +479,7 @@ class Host(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

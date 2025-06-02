@@ -43,7 +43,7 @@ class KxVolumeArgs:
         :param pulumi.Input[builtins.str] description: Description of the volume.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -152,7 +152,7 @@ class KxVolumeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -206,7 +206,7 @@ class _KxVolumeState:
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of volume creation.
                * `CREATING` – The volume creation is in progress.
                * `CREATE_FAILED` – The volume creation has failed.
@@ -378,7 +378,7 @@ class _KxVolumeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -511,7 +511,7 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[builtins.str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         """
@@ -654,7 +654,7 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of volume creation.
                * `CREATING` – The volume creation is in progress.
                * `CREATE_FAILED` – The volume creation has failed.
@@ -775,7 +775,7 @@ class KxVolume(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

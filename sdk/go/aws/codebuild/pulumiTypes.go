@@ -1640,11 +1640,9 @@ type ProjectEnvironment struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate *string `pulumi:"certificate"`
 	// Information about the compute resources the build project will use. Valid values:
-	// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-	// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid
-	// if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be
-	// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must
-	// be `BUILD_LAMBDA_XGB`.`
+	// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
+	// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
+	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
@@ -1665,9 +1663,9 @@ type ProjectEnvironment struct {
 	PrivilegedMode *bool `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
-	// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
-	// `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`,
-	// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
+	// Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
+	// `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
+	// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
 	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	Type string `pulumi:"type"`
 }
@@ -1687,11 +1685,9 @@ type ProjectEnvironmentArgs struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// Information about the compute resources the build project will use. Valid values:
-	// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-	// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid
-	// if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be
-	// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must
-	// be `BUILD_LAMBDA_XGB`.`
+	// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
+	// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
+	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
@@ -1712,9 +1708,9 @@ type ProjectEnvironmentArgs struct {
 	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential ProjectEnvironmentRegistryCredentialPtrInput `pulumi:"registryCredential"`
-	// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
-	// `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`,
-	// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
+	// Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
+	// `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
+	// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
 	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1802,11 +1798,9 @@ func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
 }
 
 // Information about the compute resources the build project will use. Valid values:
-// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid
-// if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be
-// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must
-// be `BUILD_LAMBDA_XGB`.`
+// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
+// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
+// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -1848,9 +1842,9 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistr
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentRegistryCredential { return v.RegistryCredential }).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
-// `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`,
-// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
+// Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
+// `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
+// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
 // the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
@@ -1891,11 +1885,9 @@ func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
 }
 
 // Information about the compute resources the build project will use. Valid values:
-// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid
-// if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be
-// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must
-// be `BUILD_LAMBDA_XGB`.`
+// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
+// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
+// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1972,9 +1964,9 @@ func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectEnvironmentRegi
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
-// `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`,
-// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
+// Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
+// `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
+// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
 // the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {

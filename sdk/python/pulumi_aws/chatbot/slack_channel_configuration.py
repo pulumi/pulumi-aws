@@ -43,7 +43,7 @@ class SlackChannelConfigurationArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[builtins.bool] user_authorization_required: Enables use of a user role requirement in your chat configuration.
@@ -145,7 +145,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -224,7 +224,7 @@ class _SlackChannelConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_channel_name: Name of the Slack channel.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -331,7 +331,7 @@ class _SlackChannelConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -500,7 +500,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
                
@@ -639,7 +639,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
         :param pulumi.Input[builtins.str] slack_channel_name: Name of the Slack channel.
         :param pulumi.Input[builtins.str] slack_team_id: ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -716,7 +716,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

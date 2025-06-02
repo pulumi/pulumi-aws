@@ -338,16 +338,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
     @Import(name="encrypted")
-    private @Nullable Output<Boolean> encrypted;
+    private @Nullable Output<String> encrypted;
 
     /**
      * @return If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    public Optional<Output<Boolean>> encrypted() {
+    public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
 
@@ -657,14 +659,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -734,12 +736,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -1295,22 +1303,24 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(@Nullable Output<Boolean> encrypted) {
+        public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(Boolean encrypted) {
+        public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
@@ -1744,7 +1754,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1755,7 +1765,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1851,6 +1861,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
+         * 
          * @return builder
          * 
          */
@@ -1861,6 +1874,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
          * 
          * @return builder
          * 

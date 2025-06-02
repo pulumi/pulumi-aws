@@ -59,9 +59,14 @@ export interface GetRoutingProfileArgs {
      * Returns information on a specific Routing Profile by name
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      */
     routingProfileId?: string;
     /**
@@ -159,9 +164,14 @@ export interface GetRoutingProfileOutputArgs {
      * Returns information on a specific Routing Profile by name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      */
     routingProfileId?: pulumi.Input<string>;
     /**

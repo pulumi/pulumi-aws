@@ -130,7 +130,7 @@ type VirtualGateway struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -190,7 +190,7 @@ type virtualGatewayState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -215,7 +215,7 @@ type VirtualGatewayState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -238,7 +238,7 @@ type virtualGatewayArgs struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Virtual gateway specification to apply.
 	Spec VirtualGatewaySpec `pulumi:"spec"`
@@ -254,7 +254,7 @@ type VirtualGatewayArgs struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Virtual gateway specification to apply.
 	Spec VirtualGatewaySpecInput
@@ -379,7 +379,7 @@ func (o VirtualGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -51,7 +51,7 @@ class AgentAgentActionGroupArgs:
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         pulumi.set(__self__, "action_group_name", action_group_name)
@@ -206,7 +206,7 @@ class AgentAgentActionGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -270,7 +270,7 @@ class _AgentAgentActionGroupState:
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         if action_group_executor is not None:
@@ -442,7 +442,7 @@ class _AgentAgentActionGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -621,7 +621,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         ...
@@ -846,7 +846,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -965,7 +965,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

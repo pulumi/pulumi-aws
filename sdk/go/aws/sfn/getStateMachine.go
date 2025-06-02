@@ -53,7 +53,8 @@ func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts 
 // A collection of arguments for invoking getStateMachine.
 type LookupStateMachineArgs struct {
 	// Friendly name of the state machine to match.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -90,7 +91,8 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 // A collection of arguments for invoking getStateMachine.
 type LookupStateMachineOutputArgs struct {
 	// Friendly name of the state machine to match.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

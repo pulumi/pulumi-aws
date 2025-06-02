@@ -80,7 +80,7 @@ type CloudFormationStack struct {
 	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringOutput `pulumi:"semanticVersion"`
@@ -136,7 +136,7 @@ type cloudFormationStackState struct {
 	Outputs map[string]string `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
@@ -157,7 +157,7 @@ type CloudFormationStackState struct {
 	Outputs pulumi.StringMapInput
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type cloudFormationStackArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
@@ -198,7 +198,7 @@ type CloudFormationStackArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o CloudFormationStackOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CloudFormationStackOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -138,6 +138,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
@@ -233,7 +235,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -270,6 +272,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
@@ -339,7 +343,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -388,6 +392,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>

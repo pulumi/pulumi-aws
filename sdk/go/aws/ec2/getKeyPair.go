@@ -76,7 +76,8 @@ type LookupKeyPairArgs struct {
 	KeyName *string `pulumi:"keyName"`
 	// Key Pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -127,7 +128,8 @@ type LookupKeyPairOutputArgs struct {
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Key Pair ID.
 	KeyPairId pulumi.StringPtrInput `pulumi:"keyPairId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the Key Pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

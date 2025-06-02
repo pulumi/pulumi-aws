@@ -20,6 +20,10 @@ namespace Pulumi.Aws.S3Control.Inputs
 
         [Input("regions", required: true)]
         private InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs>? _regions;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         public InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs> Regions
         {
             get => _regions ?? (_regions = new InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs>());

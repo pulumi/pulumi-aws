@@ -82,7 +82,7 @@ type Product struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersOutput `pulumi:"provisioningArtifactParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the product.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -159,7 +159,7 @@ type productState struct {
 	Owner *string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters *ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of the product.
 	Status *string `pulumi:"status"`
@@ -198,7 +198,7 @@ type ProductState struct {
 	Owner pulumi.StringPtrInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of the product.
 	Status pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type productArgs struct {
 	Owner string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Support information about the product.
 	SupportDescription *string `pulumi:"supportDescription"`
@@ -265,7 +265,7 @@ type ProductArgs struct {
 	Owner pulumi.StringInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Support information about the product.
 	SupportDescription pulumi.StringPtrInput
@@ -413,7 +413,7 @@ func (o ProductOutput) ProvisioningArtifactParameters() ProductProvisioningArtif
 	return o.ApplyT(func(v *Product) ProductProvisioningArtifactParametersOutput { return v.ProvisioningArtifactParameters }).(ProductProvisioningArtifactParametersOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProductOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -27,7 +27,7 @@ class StaticIpAttachmentArgs:
         The set of arguments for constructing a StaticIpAttachment resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "static_ip_name", static_ip_name)
@@ -62,7 +62,7 @@ class StaticIpAttachmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -82,7 +82,7 @@ class _StaticIpAttachmentState:
         Input properties used for looking up and filtering StaticIpAttachment resources.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         if instance_name is not None:
@@ -122,7 +122,7 @@ class _StaticIpAttachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -179,7 +179,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         ...
@@ -269,7 +269,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_ip_name: The name of the allocated static IP
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -302,7 +302,7 @@ class StaticIpAttachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

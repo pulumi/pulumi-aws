@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {identityProviderType: "SERVICE_MANAGED"});
  * const zoneId = new aws.transfer.Tag("zone_id", {
  *     resourceArn: example.arn,
- *     key: "aws:transfer:route53HostedZoneId",
+ *     key: "transfer:route53HostedZoneId",
  *     value: "/hostedzone/MyHostedZoneId",
  * });
  * const hostname = new aws.transfer.Tag("hostname", {
  *     resourceArn: example.arn,
- *     key: "aws:transfer:customHostname",
+ *     key: "transfer:customHostname",
  *     value: "example.com",
  * });
  * ```
@@ -71,7 +71,7 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export interface TagState {
      */
     key?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface TagArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

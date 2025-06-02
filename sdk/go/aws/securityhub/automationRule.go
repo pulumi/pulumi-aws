@@ -93,7 +93,7 @@ type AutomationRule struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolOutput `pulumi:"isTerminal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
@@ -154,7 +154,7 @@ type automationRuleState struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
@@ -177,7 +177,7 @@ type AutomationRuleState struct {
 	Description pulumi.StringPtrInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type automationRuleArgs struct {
 	Description string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName string `pulumi:"ruleName"`
@@ -223,7 +223,7 @@ type AutomationRuleArgs struct {
 	Description pulumi.StringInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringInput
@@ -346,7 +346,7 @@ func (o AutomationRuleOutput) IsTerminal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolOutput { return v.IsTerminal }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AutomationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

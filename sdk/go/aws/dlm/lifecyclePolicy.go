@@ -329,7 +329,7 @@ type LifecyclePolicy struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -386,7 +386,7 @@ type lifecyclePolicyState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
@@ -405,7 +405,7 @@ type LifecyclePolicyState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
@@ -426,7 +426,7 @@ type lifecyclePolicyArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
@@ -442,7 +442,7 @@ type LifecyclePolicyArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// See the `policyDetails` configuration block. Max of 1.
 	PolicyDetails LifecyclePolicyPolicyDetailsInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
@@ -557,7 +557,7 @@ func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailsOutpu
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailsOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

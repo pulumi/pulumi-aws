@@ -38,16 +38,12 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="effectiveStart")
     private @Nullable Output<String> effectiveStart;
 
     /**
      * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> effectiveStart() {
@@ -70,22 +66,9 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
-    }
-
-    /**
      * Rule schema version in this particular Cost Category.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="ruleVersion", required=true)
@@ -93,6 +76,8 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Rule schema version in this particular Cost Category.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> ruleVersion() {
@@ -150,7 +135,6 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultValue = $.defaultValue;
         this.effectiveStart = $.effectiveStart;
         this.name = $.name;
-        this.region = $.region;
         this.ruleVersion = $.ruleVersion;
         this.rules = $.rules;
         this.splitChargeRules = $.splitChargeRules;
@@ -199,8 +183,6 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -211,8 +193,6 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -243,28 +223,9 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(String region) {
-            return region(Output.of(region));
-        }
-
-        /**
          * @param ruleVersion Rule schema version in this particular Cost Category.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -276,6 +237,8 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ruleVersion Rule schema version in this particular Cost Category.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

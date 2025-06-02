@@ -36,7 +36,7 @@ class CertificateArgs:
         :param pulumi.Input[builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         :param pulumi.Input[builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         """
@@ -115,7 +115,7 @@ class CertificateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -158,7 +158,7 @@ class _CertificateState:
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         :param pulumi.Input[builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -261,7 +261,7 @@ class _CertificateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -376,7 +376,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -520,7 +520,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         :param pulumi.Input[builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[builtins.str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -594,7 +594,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

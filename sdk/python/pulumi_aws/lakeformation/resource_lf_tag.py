@@ -36,7 +36,7 @@ class ResourceLfTagArgs:
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -99,7 +99,7 @@ class ResourceLfTagArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -160,7 +160,7 @@ class _ResourceLfTagState:
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -223,7 +223,7 @@ class _ResourceLfTagState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -313,7 +313,7 @@ class ResourceLfTag(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -417,7 +417,7 @@ class ResourceLfTag(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -466,7 +466,7 @@ class ResourceLfTag(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

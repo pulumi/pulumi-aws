@@ -33,7 +33,7 @@ class SubscriberArgs:
         """
         The set of arguments for constructing a Subscriber resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -73,7 +73,7 @@ class SubscriberArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -174,7 +174,7 @@ class _SubscriberState:
         Input properties used for looking up and filtering Subscriber resources.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[builtins.str] arn: ARN of the Data Lake.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
@@ -249,7 +249,7 @@ class _SubscriberState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -464,7 +464,7 @@ class Subscriber(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -595,7 +595,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[builtins.str] arn: ARN of the Data Lake.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
@@ -651,7 +651,7 @@ class Subscriber(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

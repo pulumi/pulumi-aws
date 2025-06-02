@@ -150,7 +150,7 @@ type EventDestination struct {
 	MatchingTypes pulumi.StringArrayOutput `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
@@ -208,7 +208,7 @@ type eventDestinationState struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
@@ -231,7 +231,7 @@ type EventDestinationState struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
@@ -256,7 +256,7 @@ type eventDestinationArgs struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
@@ -278,7 +278,7 @@ type EventDestinationArgs struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
@@ -410,7 +410,7 @@ func (o EventDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

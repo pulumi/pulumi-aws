@@ -63,13 +63,15 @@ class CrawlerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input['CrawlerSchemaChangePolicyArgs'] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "role", role)
@@ -312,7 +314,7 @@ class CrawlerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -385,6 +387,8 @@ class CrawlerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         """
         return pulumi.get(self, "tags")
 
@@ -439,7 +443,7 @@ class _CrawlerState:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -447,6 +451,8 @@ class _CrawlerState:
         :param pulumi.Input[builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -696,7 +702,7 @@ class _CrawlerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -781,6 +787,8 @@ class _CrawlerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         """
         return pulumi.get(self, "tags")
 
@@ -978,7 +986,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -986,6 +994,8 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         """
         ...
     @overload
@@ -1257,7 +1267,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -1265,6 +1275,8 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[builtins.str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1430,7 +1442,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1487,6 +1499,8 @@ class Crawler(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         """
         return pulumi.get(self, "tags")
 

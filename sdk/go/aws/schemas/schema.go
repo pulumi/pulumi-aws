@@ -98,7 +98,7 @@ type Schema struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
@@ -163,7 +163,7 @@ type schemaState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName *string `pulumi:"registryName"`
@@ -190,7 +190,7 @@ type SchemaState struct {
 	LastModified pulumi.StringPtrInput
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringPtrInput
@@ -217,7 +217,7 @@ type schemaArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the registry in which this schema belongs.
 	RegistryName string `pulumi:"registryName"`
@@ -235,7 +235,7 @@ type SchemaArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringInput
@@ -357,7 +357,7 @@ func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SchemaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

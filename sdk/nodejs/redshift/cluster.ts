@@ -166,8 +166,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly elasticIp!: pulumi.Output<string | undefined>;
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      */
-    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    public readonly encrypted!: pulumi.Output<string | undefined>;
     /**
      * The connection endpoint
      */
@@ -255,7 +256,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -276,6 +277,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -504,8 +508,9 @@ export interface ClusterState {
     elasticIp?: pulumi.Input<string>;
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<string>;
     /**
      * The connection endpoint
      */
@@ -593,7 +598,7 @@ export interface ClusterState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -614,6 +619,9 @@ export interface ClusterState {
     snapshotIdentifier?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -694,8 +702,9 @@ export interface ClusterArgs {
     elasticIp?: pulumi.Input<string>;
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<string>;
     /**
      * If true , enhanced VPC routing is enabled.
      */
@@ -775,7 +784,7 @@ export interface ClusterArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -796,6 +805,9 @@ export interface ClusterArgs {
     snapshotIdentifier?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

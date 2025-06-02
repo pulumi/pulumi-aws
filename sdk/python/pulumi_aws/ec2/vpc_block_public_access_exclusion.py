@@ -33,7 +33,7 @@ class VpcBlockPublicAccessExclusionArgs:
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
@@ -68,7 +68,7 @@ class VpcBlockPublicAccessExclusionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -138,7 +138,7 @@ class _VpcBlockPublicAccessExclusionState:
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -180,7 +180,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -316,7 +316,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
@@ -435,7 +435,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -470,7 +470,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

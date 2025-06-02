@@ -81,6 +81,9 @@ export interface GetVpcArgs {
      * ID of the specific VPC to retrieve.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Current state of the desired VPC.
@@ -228,6 +231,9 @@ export interface GetVpcOutputArgs {
      * ID of the specific VPC to retrieve.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Current state of the desired VPC.

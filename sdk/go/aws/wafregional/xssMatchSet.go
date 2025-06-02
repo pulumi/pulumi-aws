@@ -65,7 +65,7 @@ type XssMatchSet struct {
 
 	// The name of the set
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples XssMatchSetXssMatchTupleArrayOutput `pulumi:"xssMatchTuples"`
@@ -103,7 +103,7 @@ func GetXssMatchSet(ctx *pulumi.Context,
 type xssMatchSetState struct {
 	// The name of the set
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
@@ -112,7 +112,7 @@ type xssMatchSetState struct {
 type XssMatchSetState struct {
 	// The name of the set
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
@@ -125,7 +125,7 @@ func (XssMatchSetState) ElementType() reflect.Type {
 type xssMatchSetArgs struct {
 	// The name of the set
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
@@ -135,7 +135,7 @@ type xssMatchSetArgs struct {
 type XssMatchSetArgs struct {
 	// The name of the set
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
@@ -233,7 +233,7 @@ func (o XssMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o XssMatchSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

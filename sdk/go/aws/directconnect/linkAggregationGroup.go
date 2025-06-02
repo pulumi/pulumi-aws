@@ -75,7 +75,7 @@ type LinkAggregationGroup struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The name of the service provider associated with the LAG.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -139,7 +139,7 @@ type linkAggregationGroupState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The name of the service provider associated with the LAG.
 	ProviderName *string `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,7 +168,7 @@ type LinkAggregationGroupState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// The name of the service provider associated with the LAG.
 	ProviderName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -193,7 +193,7 @@ type linkAggregationGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the service provider associated with the LAG.
 	ProviderName *string `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -213,7 +213,7 @@ type LinkAggregationGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the service provider associated with the LAG.
 	ProviderName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -356,7 +356,7 @@ func (o LinkAggregationGroupOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LinkAggregationGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

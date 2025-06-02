@@ -32,7 +32,7 @@ class SdkvoiceVoiceProfileDomainArgs:
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
@@ -84,7 +84,7 @@ class SdkvoiceVoiceProfileDomainArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _SdkvoiceVoiceProfileDomainState:
         :param pulumi.Input[builtins.str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         """
         if arn is not None:
@@ -175,7 +175,7 @@ class _SdkvoiceVoiceProfileDomainState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -263,7 +263,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         ...
@@ -370,7 +370,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -414,7 +414,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

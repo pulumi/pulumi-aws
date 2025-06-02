@@ -51,7 +51,8 @@ func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, o
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileArgs struct {
 	// Name of the target signing profile.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of tags associated with the signing profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -95,7 +96,8 @@ func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOu
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileOutputArgs struct {
 	// Name of the target signing profile.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of tags associated with the signing profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

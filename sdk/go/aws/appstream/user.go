@@ -65,7 +65,7 @@ type User struct {
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
@@ -123,7 +123,7 @@ type userState struct {
 	FirstName *string `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName *string `pulumi:"lastName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
@@ -146,7 +146,7 @@ type UserState struct {
 	FirstName pulumi.StringPtrInput
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
@@ -169,7 +169,7 @@ type userArgs struct {
 	FirstName *string `pulumi:"firstName"`
 	// Last name, or surname, of the user.
 	LastName *string `pulumi:"lastName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
@@ -189,7 +189,7 @@ type UserArgs struct {
 	FirstName pulumi.StringPtrInput
 	// Last name, or surname, of the user.
 	LastName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
@@ -316,7 +316,7 @@ func (o UserOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

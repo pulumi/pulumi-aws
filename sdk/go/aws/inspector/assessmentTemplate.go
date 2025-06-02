@@ -72,7 +72,7 @@ type AssessmentTemplate struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayOutput `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
@@ -131,7 +131,7 @@ type assessmentTemplateState struct {
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
@@ -152,7 +152,7 @@ type AssessmentTemplateState struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
@@ -175,7 +175,7 @@ type assessmentTemplateArgs struct {
 	EventSubscriptions []AssessmentTemplateEventSubscription `pulumi:"eventSubscriptions"`
 	// The name of the assessment template.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
@@ -193,7 +193,7 @@ type AssessmentTemplateArgs struct {
 	EventSubscriptions AssessmentTemplateEventSubscriptionArrayInput
 	// The name of the assessment template.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
@@ -312,7 +312,7 @@ func (o AssessmentTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssessmentTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

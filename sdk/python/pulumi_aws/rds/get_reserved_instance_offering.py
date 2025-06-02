@@ -169,6 +169,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = N
     :param builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param builtins.str product_description: Description of the reserved DB instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class
@@ -220,6 +221,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     :param builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param builtins.str product_description: Description of the reserved DB instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class

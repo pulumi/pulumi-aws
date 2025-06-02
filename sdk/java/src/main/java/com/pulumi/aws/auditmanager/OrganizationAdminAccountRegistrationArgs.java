@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class OrganizationAdminAccountRegistrationArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class OrganizationAdminAccountRegistrationArgs extends com.pulumi.r
         return this.adminAccountId;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private OrganizationAdminAccountRegistrationArgs() {}
 
     private OrganizationAdminAccountRegistrationArgs(OrganizationAdminAccountRegistrationArgs $) {
         this.adminAccountId = $.adminAccountId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class OrganizationAdminAccountRegistrationArgs extends com.pulumi.r
          */
         public Builder adminAccountId(String adminAccountId) {
             return adminAccountId(Output.of(adminAccountId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public OrganizationAdminAccountRegistrationArgs build() {

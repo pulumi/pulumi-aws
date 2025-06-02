@@ -92,7 +92,8 @@ type LookupPatchBaselineArgs struct {
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	//
 	// The following arguments are optional:
-	Owner  string  `pulumi:"owner"`
+	Owner string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -149,7 +150,8 @@ type LookupPatchBaselineOutputArgs struct {
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
 	//
 	// The following arguments are optional:
-	Owner  pulumi.StringInput    `pulumi:"owner"`
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

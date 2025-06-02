@@ -51,8 +51,9 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 // A collection of arguments for invoking getDomain.
 type LookupDomainArgs struct {
 	// Name of the domain.
-	DomainName string  `pulumi:"domainName"`
-	Region     *string `pulumi:"region"`
+	DomainName string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -119,8 +120,9 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 // A collection of arguments for invoking getDomain.
 type LookupDomainOutputArgs struct {
 	// Name of the domain.
-	DomainName pulumi.StringInput    `pulumi:"domainName"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

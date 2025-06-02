@@ -311,7 +311,7 @@ type Permissions struct {
 	//
 	// One of the following is required:
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTableOutput `pulumi:"table"`
@@ -381,7 +381,7 @@ type permissionsState struct {
 	//
 	// One of the following is required:
 	Principal *string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
@@ -416,7 +416,7 @@ type PermissionsState struct {
 	//
 	// One of the following is required:
 	Principal pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput
@@ -455,7 +455,7 @@ type permissionsArgs struct {
 	//
 	// One of the following is required:
 	Principal string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table *PermissionsTable `pulumi:"table"`
@@ -491,7 +491,7 @@ type PermissionsArgs struct {
 	//
 	// One of the following is required:
 	Principal pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. Detailed below.
 	Table PermissionsTablePtrInput
@@ -642,7 +642,7 @@ func (o PermissionsOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

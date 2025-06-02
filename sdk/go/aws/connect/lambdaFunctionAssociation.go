@@ -56,7 +56,7 @@ type LambdaFunctionAssociation struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -100,7 +100,7 @@ type lambdaFunctionAssociationState struct {
 	FunctionArn *string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -109,7 +109,7 @@ type LambdaFunctionAssociationState struct {
 	FunctionArn pulumi.StringPtrInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -122,7 +122,7 @@ type lambdaFunctionAssociationArgs struct {
 	FunctionArn string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type LambdaFunctionAssociationArgs struct {
 	FunctionArn pulumi.StringInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -233,7 +233,7 @@ func (o LambdaFunctionAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LambdaFunctionAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

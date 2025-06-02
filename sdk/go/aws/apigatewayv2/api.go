@@ -115,7 +115,7 @@ type Api struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
 	RouteKey pulumi.StringPtrOutput `pulumi:"routeKey"`
@@ -199,7 +199,7 @@ type apiState struct {
 	Name *string `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType *string `pulumi:"protocolType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
 	RouteKey *string `pulumi:"routeKey"`
@@ -251,7 +251,7 @@ type ApiState struct {
 	Name pulumi.StringPtrInput
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
 	RouteKey pulumi.StringPtrInput
@@ -299,7 +299,7 @@ type apiArgs struct {
 	Name *string `pulumi:"name"`
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType string `pulumi:"protocolType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
 	RouteKey *string `pulumi:"routeKey"`
@@ -342,7 +342,7 @@ type ApiArgs struct {
 	Name pulumi.StringPtrInput
 	// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
 	ProtocolType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
 	RouteKey pulumi.StringPtrInput
@@ -517,7 +517,7 @@ func (o ApiOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ class EventIntegrationArgs:
         :param pulumi.Input[builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[builtins.str] description: Description of the Event Integration.
         :param pulumi.Input[builtins.str] name: Name of the Event Integration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_filter", event_filter)
@@ -100,7 +100,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -139,7 +139,7 @@ class _EventIntegrationState:
         :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[builtins.str] name: Name of the Event Integration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -224,7 +224,7 @@ class _EventIntegrationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -305,7 +305,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[builtins.str] name: Name of the Event Integration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -415,7 +415,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[builtins.str] name: Name of the Event Integration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -477,7 +477,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

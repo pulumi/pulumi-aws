@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.CrawlerRecrawlPolicy?> RecrawlPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -362,6 +362,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -557,7 +559,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CrawlerRecrawlPolicyArgs>? RecrawlPolicy { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -609,6 +611,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -769,7 +773,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CrawlerRecrawlPolicyGetArgs>? RecrawlPolicy { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -821,6 +825,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** Must specify at least one of `dynamodb_target`, `jdbc_target`, `s3_target`, `mongodb_target` or `catalog_target`.
         /// </summary>
         public InputMap<string> Tags
         {

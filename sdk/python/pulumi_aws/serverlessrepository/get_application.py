@@ -151,6 +151,7 @@ def get_application(application_id: Optional[builtins.str] = None,
 
 
     :param builtins.str application_id: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     __args__ = dict()
@@ -192,6 +193,7 @@ def get_application_output(application_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str application_id: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     __args__ = dict()

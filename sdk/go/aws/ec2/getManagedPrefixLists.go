@@ -26,7 +26,8 @@ func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs,
 type GetManagedPrefixListsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetManagedPrefixListsFilter `pulumi:"filters"`
-	Region  *string                       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired .
 	//
@@ -59,7 +60,8 @@ func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixLists
 type GetManagedPrefixListsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetManagedPrefixListsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired .
 	//

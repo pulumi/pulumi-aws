@@ -26,6 +26,9 @@ export interface GetDataCatalogEncryptionSettingsArgs {
      * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -63,5 +66,8 @@ export interface GetDataCatalogEncryptionSettingsOutputArgs {
      * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

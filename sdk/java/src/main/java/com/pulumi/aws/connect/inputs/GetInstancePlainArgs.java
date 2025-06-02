@@ -18,12 +18,16 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Returns information on a specific connect instance by alias
      * 
+     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+     * 
      */
     @Import(name="instanceAlias")
     private @Nullable String instanceAlias;
 
     /**
      * @return Returns information on a specific connect instance by alias
+     * 
+     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
      * 
      */
     public Optional<String> instanceAlias() {
@@ -45,9 +49,17 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.instanceId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -97,6 +109,8 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param instanceAlias Returns information on a specific connect instance by alias
          * 
+         * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +130,12 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

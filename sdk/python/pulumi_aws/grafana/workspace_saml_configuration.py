@@ -50,7 +50,7 @@ class WorkspaceSamlConfigurationArgs:
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         """
         pulumi.set(__self__, "editor_role_values", editor_role_values)
@@ -230,7 +230,7 @@ class WorkspaceSamlConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -282,7 +282,7 @@ class _WorkspaceSamlConfigurationState:
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] status: The status of the SAML configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -456,7 +456,7 @@ class _WorkspaceSamlConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -581,7 +581,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
                
@@ -737,7 +737,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] login_validity_duration: The login validity duration.
         :param pulumi.Input[builtins.str] name_assertion: The name assertion.
         :param pulumi.Input[builtins.str] org_assertion: The org assertion.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_assertion: The role assertion.
         :param pulumi.Input[builtins.str] status: The status of the SAML configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -857,7 +857,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

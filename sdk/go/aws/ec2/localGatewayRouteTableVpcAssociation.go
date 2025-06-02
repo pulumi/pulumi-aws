@@ -66,7 +66,7 @@ type LocalGatewayRouteTableVpcAssociation struct {
 	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -117,7 +117,7 @@ type localGatewayRouteTableVpcAssociationState struct {
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -133,7 +133,7 @@ type LocalGatewayRouteTableVpcAssociationState struct {
 	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -152,7 +152,7 @@ func (LocalGatewayRouteTableVpcAssociationState) ElementType() reflect.Type {
 type localGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -166,7 +166,7 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 type LocalGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -272,7 +272,7 @@ func (o LocalGatewayRouteTableVpcAssociationOutput) LocalGatewayRouteTableId() p
 	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) pulumi.StringOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocalGatewayRouteTableVpcAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

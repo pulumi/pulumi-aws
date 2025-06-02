@@ -358,7 +358,7 @@ type Domain struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
@@ -436,7 +436,7 @@ type domainState struct {
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
@@ -485,7 +485,7 @@ type DomainState struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
@@ -530,7 +530,7 @@ type domainArgs struct {
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
@@ -570,7 +570,7 @@ type DomainArgs struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
@@ -754,7 +754,7 @@ func (o DomainOutput) NodeToNodeEncryption() DomainNodeToNodeEncryptionOutput {
 	return o.ApplyT(func(v *Domain) DomainNodeToNodeEncryptionOutput { return v.NodeToNodeEncryption }).(DomainNodeToNodeEncryptionOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

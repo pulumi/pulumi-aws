@@ -40,7 +40,7 @@ class FeatureArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         :param pulumi.Input[builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "project", project)
@@ -148,7 +148,7 @@ class FeatureArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -200,7 +200,7 @@ class _FeatureState:
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the feature was most recently updated.
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -364,7 +364,7 @@ class _FeatureState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -568,7 +568,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
@@ -785,7 +785,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_updated_time: The date and time that the feature was most recently updated.
         :param pulumi.Input[builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new feature.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -898,7 +898,7 @@ class Feature(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -137,6 +137,7 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
 
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
            
@@ -177,6 +178,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
 
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
            

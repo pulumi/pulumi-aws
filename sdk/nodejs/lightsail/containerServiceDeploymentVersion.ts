@@ -99,7 +99,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
      */
     public readonly publicEndpoint!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface ContainerServiceDeploymentVersionState {
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -203,7 +203,7 @@ export interface ContainerServiceDeploymentVersionArgs {
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

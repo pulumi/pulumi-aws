@@ -60,7 +60,8 @@ type GetPortfolioConstraintsArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPortfolioConstraints.
@@ -96,7 +97,8 @@ type GetPortfolioConstraintsOutputArgs struct {
 	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringPtrInput `pulumi:"productId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPortfolioConstraintsOutputArgs) ElementType() reflect.Type {

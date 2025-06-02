@@ -36,7 +36,7 @@ class LogGroupArgs:
         :param pulumi.Input[builtins.str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[builtins.str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
                If you select 0, the events in the log group are always retained and never expire.
@@ -114,7 +114,7 @@ class LogGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -183,7 +183,7 @@ class _LogGroupState:
         :param pulumi.Input[builtins.str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[builtins.str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
                If you select 0, the events in the log group are always retained and never expire.
@@ -278,7 +278,7 @@ class _LogGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -385,7 +385,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[builtins.str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
                If you select 0, the events in the log group are always retained and never expire.
@@ -499,7 +499,7 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_group_class: Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
         :param pulumi.Input[builtins.str] name: The name of the log group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, 3653, and 0.
                If you select 0, the events in the log group are always retained and never expire.
@@ -569,7 +569,7 @@ class LogGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

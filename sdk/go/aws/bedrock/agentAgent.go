@@ -161,15 +161,17 @@ type AgentAgent struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayOutput `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayOutput `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
+	// Timestamp of when the agent was last prepared.
+	PreparedAt pulumi.StringOutput `pulumi:"preparedAt"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
@@ -243,15 +245,17 @@ type agentAgentState struct {
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// Timestamp of when the agent was last prepared.
+	PreparedAt *string `pulumi:"preparedAt"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
@@ -287,15 +291,17 @@ type AgentAgentState struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
+	// Timestamp of when the agent was last prepared.
+	PreparedAt pulumi.StringPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
@@ -329,7 +335,7 @@ type agentAgentArgs struct {
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
@@ -337,7 +343,7 @@ type agentAgentArgs struct {
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
@@ -366,7 +372,7 @@ type AgentAgentArgs struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
@@ -374,7 +380,7 @@ type AgentAgentArgs struct {
 	PrepareAgent pulumi.BoolPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether the in-use check is skipped when deleting the agent.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
@@ -527,7 +533,7 @@ func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }
@@ -542,6 +548,11 @@ func (o AgentAgentOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
+// Timestamp of when the agent was last prepared.
+func (o AgentAgentOutput) PreparedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.PreparedAt }).(pulumi.StringOutput)
+}
+
 // Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
 func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrideConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentPromptOverrideConfigurationArrayOutput {
@@ -549,7 +560,7 @@ func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrid
 	}).(AgentAgentPromptOverrideConfigurationArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

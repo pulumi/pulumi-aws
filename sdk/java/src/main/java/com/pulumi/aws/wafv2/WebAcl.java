@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclChallengeConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
+import com.pulumi.aws.wafv2.outputs.WebAclDataProtectionConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRule;
 import com.pulumi.aws.wafv2.outputs.WebAclVisibilityConfig;
@@ -125,6 +126,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customResponseBodies);
     }
     /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    @Export(name="dataProtectionConfig", refs={WebAclDataProtectionConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclDataProtectionConfig> dataProtectionConfig;
+
+    /**
+     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    public Output<Optional<WebAclDataProtectionConfig>> dataProtectionConfig() {
+        return Codegen.optional(this.dataProtectionConfig);
+    }
+    /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
@@ -187,14 +202,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

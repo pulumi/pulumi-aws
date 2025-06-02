@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Output("bootstrapBrokersSaslIam")]
+        public Output<string> BootstrapBrokersSaslIam { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies client authentication information for the serverless cluster. See below.
         /// </summary>
         [Output("clientAuthentication")]
@@ -89,7 +95,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterUuid { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -171,7 +177,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Input("bootstrapBrokersSaslIam")]
+        public Input<string>? BootstrapBrokersSaslIam { get; set; }
+
+        /// <summary>
         /// Specifies client authentication information for the serverless cluster. See below.
         /// </summary>
         [Input("clientAuthentication")]
@@ -233,7 +245,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterUuid { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -36,7 +36,7 @@ class EventPermissionArgs:
         :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "statement_id", statement_id)
@@ -114,7 +114,7 @@ class EventPermissionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -139,7 +139,7 @@ class _EventPermissionState:
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         if action is not None:
@@ -208,7 +208,7 @@ class _EventPermissionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -293,7 +293,7 @@ class EventPermission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         ...
@@ -414,7 +414,7 @@ class EventPermission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -466,7 +466,7 @@ class EventPermission(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

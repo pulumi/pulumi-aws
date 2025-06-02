@@ -171,6 +171,7 @@ def get_place_index(index_name: Optional[builtins.str] = None,
 
 
     :param builtins.str index_name: Name of the place index resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()
@@ -209,6 +210,7 @@ def get_place_index_output(index_name: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str index_name: Name of the place index resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()

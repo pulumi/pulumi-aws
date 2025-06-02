@@ -35,13 +35,6 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filter);
     }
 
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
-    }
-
     /**
      * Value that you want to search for.
      * 
@@ -106,7 +99,6 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetTagsArgs(GetTagsArgs $) {
         this.filter = $.filter;
-        this.region = $.region;
         this.searchString = $.searchString;
         this.sortBies = $.sortBies;
         this.tagKey = $.tagKey;
@@ -150,15 +142,6 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filter(GetTagsFilterArgs filter) {
             return filter(Output.of(filter));
-        }
-
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        public Builder region(String region) {
-            return region(Output.of(region));
         }
 
         /**

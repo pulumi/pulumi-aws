@@ -113,6 +113,7 @@ def get_provisioning_artifacts(accept_language: Optional[builtins.str] = None,
     :param builtins.str product_id: Product identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -150,6 +151,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
     :param builtins.str product_id: Product identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

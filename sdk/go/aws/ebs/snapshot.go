@@ -81,7 +81,7 @@ type Snapshot struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
@@ -148,7 +148,7 @@ type snapshotState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier *string `pulumi:"storageTier"`
@@ -183,7 +183,7 @@ type SnapshotState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type snapshotArgs struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier *string `pulumi:"storageTier"`
@@ -230,7 +230,7 @@ type SnapshotArgs struct {
 	OutpostArn pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o SnapshotOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

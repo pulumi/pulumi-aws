@@ -57,7 +57,7 @@ type RegexPatternSet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 	RegexPatternStrings pulumi.StringArrayOutput `pulumi:"regexPatternStrings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -95,7 +95,7 @@ type regexPatternSetState struct {
 	Name *string `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -104,7 +104,7 @@ type RegexPatternSetState struct {
 	Name pulumi.StringPtrInput
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 	RegexPatternStrings pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -117,7 +117,7 @@ type regexPatternSetArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -127,7 +127,7 @@ type RegexPatternSetArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
 	RegexPatternStrings pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -228,7 +228,7 @@ func (o RegexPatternSetOutput) RegexPatternStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegexPatternStrings }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegexPatternSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

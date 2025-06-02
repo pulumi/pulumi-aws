@@ -233,6 +233,7 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
@@ -277,6 +278,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id

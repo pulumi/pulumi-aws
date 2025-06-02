@@ -34,7 +34,7 @@ class SchemaArgs:
         :param pulumi.Input[builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         :param pulumi.Input[builtins.str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content", content)
@@ -113,7 +113,7 @@ class SchemaArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _SchemaState:
         :param pulumi.Input[builtins.str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[builtins.str] last_modified: The last modified date of the schema.
         :param pulumi.Input[builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -253,7 +253,7 @@ class _SchemaState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -401,7 +401,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
         :param pulumi.Input[builtins.str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
@@ -543,7 +543,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[builtins.str] last_modified: The last modified date of the schema.
         :param pulumi.Input[builtins.str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -613,7 +613,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -51,8 +51,9 @@ func GetAccessPoints(ctx *pulumi.Context, args *GetAccessPointsArgs, opts ...pul
 // A collection of arguments for invoking getAccessPoints.
 type GetAccessPointsArgs struct {
 	// EFS File System identifier.
-	FileSystemId string  `pulumi:"fileSystemId"`
-	Region       *string `pulumi:"region"`
+	FileSystemId string `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAccessPoints.
@@ -79,8 +80,9 @@ func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, 
 // A collection of arguments for invoking getAccessPoints.
 type GetAccessPointsOutputArgs struct {
 	// EFS File System identifier.
-	FileSystemId pulumi.StringInput    `pulumi:"fileSystemId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAccessPointsOutputArgs) ElementType() reflect.Type {

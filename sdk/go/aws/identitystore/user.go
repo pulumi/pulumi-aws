@@ -88,7 +88,7 @@ type User struct {
 	PreferredLanguage pulumi.StringPtrOutput `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrOutput `pulumi:"profileUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The user's time zone.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
@@ -101,6 +101,8 @@ type User struct {
 	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -165,7 +167,7 @@ type userState struct {
 	PreferredLanguage *string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl *string `pulumi:"profileUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user's time zone.
 	Timezone *string `pulumi:"timezone"`
@@ -178,6 +180,8 @@ type userState struct {
 	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -204,7 +208,7 @@ type UserState struct {
 	PreferredLanguage pulumi.StringPtrInput
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user's time zone.
 	Timezone pulumi.StringPtrInput
@@ -217,6 +221,8 @@ type UserState struct {
 	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrInput
 }
 
@@ -245,7 +251,7 @@ type userArgs struct {
 	PreferredLanguage *string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl *string `pulumi:"profileUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user's time zone.
 	Timezone *string `pulumi:"timezone"`
@@ -256,6 +262,8 @@ type userArgs struct {
 	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -281,7 +289,7 @@ type UserArgs struct {
 	PreferredLanguage pulumi.StringPtrInput
 	// An URL that may be associated with the user.
 	ProfileUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user's time zone.
 	Timezone pulumi.StringPtrInput
@@ -292,6 +300,8 @@ type UserArgs struct {
 	// The following arguments are optional:
 	UserName pulumi.StringInput
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrInput
 }
 
@@ -437,7 +447,7 @@ func (o UserOutput) ProfileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProfileUrl }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -465,6 +475,8 @@ func (o UserOutput) UserName() pulumi.StringOutput {
 }
 
 // The user type.
+//
+// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 func (o UserOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

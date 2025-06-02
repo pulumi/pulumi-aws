@@ -33,7 +33,7 @@ class DataQualityRulesetArgs:
         :param pulumi.Input[builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[builtins.str] description: Description of the data quality ruleset.
         :param pulumi.Input[builtins.str] name: Name of the data quality ruleset.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
@@ -89,7 +89,7 @@ class DataQualityRulesetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -144,7 +144,7 @@ class _DataQualityRulesetState:
         :param pulumi.Input[builtins.str] last_modified_on: The time and date that this data quality ruleset was created.
         :param pulumi.Input[builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[builtins.str] recommendation_run_id: When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -249,7 +249,7 @@ class _DataQualityRulesetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -388,7 +388,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the data quality ruleset.
         :param pulumi.Input[builtins.str] name: Name of the data quality ruleset.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
@@ -541,7 +541,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified_on: The time and date that this data quality ruleset was created.
         :param pulumi.Input[builtins.str] name: Name of the data quality ruleset.
         :param pulumi.Input[builtins.str] recommendation_run_id: When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -616,7 +616,7 @@ class DataQualityRuleset(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

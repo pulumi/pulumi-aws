@@ -31,7 +31,7 @@ class GcmChannelArgs:
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         if api_key is not None:
@@ -94,7 +94,7 @@ class GcmChannelArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -126,7 +126,7 @@ class _GcmChannelState:
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -190,7 +190,7 @@ class _GcmChannelState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -238,7 +238,7 @@ class GcmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -324,7 +324,7 @@ class GcmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,7 +371,7 @@ class GcmChannel(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

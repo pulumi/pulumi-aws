@@ -295,6 +295,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     :param builtins.str platform_version: The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param builtins.str reference_id: The reference ID to use for the task.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str started_by: An optional tag specified when a task is started.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param builtins.str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
@@ -406,6 +407,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     :param builtins.str platform_version: The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param builtins.str reference_id: The reference ID to use for the task.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str started_by: An optional tag specified when a task is started.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param builtins.str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.

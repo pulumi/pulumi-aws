@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> CdcMinFileSize { get; private set; } = null!;
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Output("cdcPath")]
         public Output<string?> CdcPath { get; private set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> ExternalId { get; private set; } = null!;
 
         /// <summary>
-        /// JSON document that describes how AWS DMS should interpret the data.
+        /// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         /// </summary>
         [Output("externalTableDefinition")]
         public Output<string?> ExternalTableDefinition { get; private set; } = null!;
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> PreserveTransactions { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -558,7 +558,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMinFileSize { get; set; }
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Input("cdcPath")]
         public Input<string>? CdcPath { get; set; }
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// JSON document that describes how AWS DMS should interpret the data.
+        /// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         /// </summary>
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
@@ -738,7 +738,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? PreserveTransactions { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -868,7 +868,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? CdcMinFileSize { get; set; }
 
         /// <summary>
-        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        /// Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         /// </summary>
         [Input("cdcPath")]
         public Input<string>? CdcPath { get; set; }
@@ -1012,7 +1012,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// JSON document that describes how AWS DMS should interpret the data.
+        /// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         /// </summary>
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
@@ -1066,7 +1066,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? PreserveTransactions { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

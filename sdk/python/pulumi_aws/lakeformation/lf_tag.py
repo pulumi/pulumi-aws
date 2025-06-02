@@ -29,7 +29,7 @@ class LfTagArgs:
         :param pulumi.Input[builtins.str] key: Key-name for the tag.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: List of possible values an attribute can take.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -78,7 +78,7 @@ class LfTagArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _LfTagState:
         Input properties used for looking up and filtering LfTag resources.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: List of possible values an attribute can take.
         """
         if catalog_id is not None:
@@ -138,7 +138,7 @@ class _LfTagState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -200,7 +200,7 @@ class LfTag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: List of possible values an attribute can take.
         """
         ...
@@ -294,7 +294,7 @@ class LfTag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[builtins.str] key: Key-name for the tag.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: List of possible values an attribute can take.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -327,7 +327,7 @@ class LfTag(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

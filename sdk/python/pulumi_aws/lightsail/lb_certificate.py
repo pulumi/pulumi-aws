@@ -32,7 +32,7 @@ class LbCertificateArgs:
         :param pulumi.Input[builtins.str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[builtins.str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
         :param pulumi.Input[builtins.str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         pulumi.set(__self__, "lb_name", lb_name)
@@ -85,7 +85,7 @@ class LbCertificateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -125,7 +125,7 @@ class _LbCertificateState:
         :param pulumi.Input[builtins.str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
         :param pulumi.Input[builtins.str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[builtins.str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         if arn is not None:
@@ -220,7 +220,7 @@ class _LbCertificateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -297,7 +297,7 @@ class LbCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
         :param pulumi.Input[builtins.str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[builtins.str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         ...
@@ -407,7 +407,7 @@ class LbCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
         :param pulumi.Input[builtins.str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[builtins.str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -474,7 +474,7 @@ class LbCertificate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

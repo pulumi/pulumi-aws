@@ -35,7 +35,7 @@ class ViewArgs:
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -106,7 +106,7 @@ class ViewArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -158,7 +158,7 @@ class _ViewState:
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -246,7 +246,7 @@ class _ViewState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -340,7 +340,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -450,7 +450,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[builtins.str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -514,7 +514,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

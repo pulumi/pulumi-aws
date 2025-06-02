@@ -72,7 +72,7 @@ type ProxyEndpoint struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A mapping of tags to assign to the resource.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -136,7 +136,7 @@ type proxyEndpointState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault *bool `pulumi:"isDefault"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A mapping of tags to assign to the resource.
 	Tags    map[string]string `pulumi:"tags"`
@@ -162,7 +162,7 @@ type ProxyEndpointState struct {
 	Endpoint pulumi.StringPtrInput
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags    pulumi.StringMapInput
@@ -186,7 +186,7 @@ type proxyEndpointArgs struct {
 	DbProxyEndpointName string `pulumi:"dbProxyEndpointName"`
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName string `pulumi:"dbProxyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -204,7 +204,7 @@ type ProxyEndpointArgs struct {
 	DbProxyEndpointName pulumi.StringInput
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -328,7 +328,7 @@ func (o ProxyEndpointOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProxyEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

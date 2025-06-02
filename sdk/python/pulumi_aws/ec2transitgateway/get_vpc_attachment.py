@@ -224,6 +224,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
 
     :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
     __args__ = dict()
@@ -282,6 +283,7 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
     __args__ = dict()

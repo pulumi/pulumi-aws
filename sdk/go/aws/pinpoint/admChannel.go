@@ -66,7 +66,7 @@ type AdmChannel struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -128,7 +128,7 @@ type admChannelState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -141,7 +141,7 @@ type AdmChannelState struct {
 	ClientSecret pulumi.StringPtrInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -158,7 +158,7 @@ type admChannelArgs struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -172,7 +172,7 @@ type AdmChannelArgs struct {
 	ClientSecret pulumi.StringInput
 	// Specifies whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -283,7 +283,7 @@ func (o AdmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AdmChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -161,6 +161,7 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
            whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -235,6 +236,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

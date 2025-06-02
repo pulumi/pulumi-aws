@@ -34,7 +34,7 @@ type ClusterSnapshot struct {
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 	OwnerAccount pulumi.StringOutput `pulumi:"ownerAccount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier pulumi.StringOutput `pulumi:"snapshotIdentifier"`
@@ -90,7 +90,7 @@ type clusterSnapshotState struct {
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
@@ -111,7 +111,7 @@ type ClusterSnapshotState struct {
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
 	OwnerAccount pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier pulumi.StringPtrInput
@@ -130,7 +130,7 @@ type clusterSnapshotArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier string `pulumi:"snapshotIdentifier"`
@@ -144,7 +144,7 @@ type ClusterSnapshotArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
 	SnapshotIdentifier pulumi.StringInput
@@ -264,7 +264,7 @@ func (o ClusterSnapshotOutput) OwnerAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.OwnerAccount }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterSnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -110,7 +110,7 @@ type EventSubscription struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
@@ -169,7 +169,7 @@ type eventSubscriptionState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
@@ -196,7 +196,7 @@ type EventSubscriptionState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type eventSubscriptionArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
@@ -245,7 +245,7 @@ type EventSubscriptionArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Neptune event subscription. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
 	SnsTopicArn pulumi.StringInput
@@ -374,7 +374,7 @@ func (o EventSubscriptionOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

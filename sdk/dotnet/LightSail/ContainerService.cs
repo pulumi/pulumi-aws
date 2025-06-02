@@ -17,6 +17,9 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
     /// see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
     /// 
+    /// &gt; **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see
+    /// [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -218,7 +221,7 @@ namespace Pulumi.Aws.LightSail
         public Output<Outputs.ContainerServicePublicDomainNames?> PublicDomainNames { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -349,7 +352,7 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServicePublicDomainNamesArgs>? PublicDomainNames { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -458,7 +461,7 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServicePublicDomainNamesGetArgs>? PublicDomainNames { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

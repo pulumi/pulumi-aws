@@ -948,12 +948,12 @@ type DistributionConfigurationDistribution struct {
 	LaunchTemplateConfigurations []DistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
-	// AWS Region for the distribution.
-	//
-	// The following arguments are optional:
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration *DistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfiguration"`
+	// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+	SsmParameterConfigurations []DistributionConfigurationDistributionSsmParameterConfiguration `pulumi:"ssmParameterConfigurations"`
 }
 
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
@@ -978,12 +978,12 @@ type DistributionConfigurationDistributionArgs struct {
 	LaunchTemplateConfigurations DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// AWS Region for the distribution.
-	//
-	// The following arguments are optional:
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration DistributionConfigurationDistributionS3ExportConfigurationPtrInput `pulumi:"s3ExportConfiguration"`
+	// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+	SsmParameterConfigurations DistributionConfigurationDistributionSsmParameterConfigurationArrayInput `pulumi:"ssmParameterConfigurations"`
 }
 
 func (DistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -1070,9 +1070,7 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// AWS Region for the distribution.
-//
-// The following arguments are optional:
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -1082,6 +1080,13 @@ func (o DistributionConfigurationDistributionOutput) S3ExportConfiguration() Dis
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionS3ExportConfiguration {
 		return v.S3ExportConfiguration
 	}).(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput)
+}
+
+// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+func (o DistributionConfigurationDistributionOutput) SsmParameterConfigurations() DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationDistributionSsmParameterConfiguration {
+		return v.SsmParameterConfigurations
+	}).(DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput)
 }
 
 type DistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -2657,6 +2662,121 @@ func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) S3P
 	}).(pulumi.StringPtrOutput)
 }
 
+type DistributionConfigurationDistributionSsmParameterConfiguration struct {
+	// AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+	AmiAccountId *string `pulumi:"amiAccountId"`
+	// Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+	DataType *string `pulumi:"dataType"`
+	// Name of the SSM parameter that will store the AMI ID after distribution.
+	ParameterName string `pulumi:"parameterName"`
+}
+
+// DistributionConfigurationDistributionSsmParameterConfigurationInput is an input type that accepts DistributionConfigurationDistributionSsmParameterConfigurationArgs and DistributionConfigurationDistributionSsmParameterConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionSsmParameterConfigurationInput` via:
+//
+//	DistributionConfigurationDistributionSsmParameterConfigurationArgs{...}
+type DistributionConfigurationDistributionSsmParameterConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionSsmParameterConfigurationOutput() DistributionConfigurationDistributionSsmParameterConfigurationOutput
+	ToDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(context.Context) DistributionConfigurationDistributionSsmParameterConfigurationOutput
+}
+
+type DistributionConfigurationDistributionSsmParameterConfigurationArgs struct {
+	// AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+	AmiAccountId pulumi.StringPtrInput `pulumi:"amiAccountId"`
+	// Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Name of the SSM parameter that will store the AMI ID after distribution.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+}
+
+func (DistributionConfigurationDistributionSsmParameterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionSsmParameterConfigurationArgs) ToDistributionConfigurationDistributionSsmParameterConfigurationOutput() DistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return i.ToDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionSsmParameterConfigurationArgs) ToDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionSsmParameterConfigurationOutput)
+}
+
+// DistributionConfigurationDistributionSsmParameterConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionSsmParameterConfigurationArray and DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionSsmParameterConfigurationArrayInput` via:
+//
+//	DistributionConfigurationDistributionSsmParameterConfigurationArray{ DistributionConfigurationDistributionSsmParameterConfigurationArgs{...} }
+type DistributionConfigurationDistributionSsmParameterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput
+	ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(context.Context) DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput
+}
+
+type DistributionConfigurationDistributionSsmParameterConfigurationArray []DistributionConfigurationDistributionSsmParameterConfigurationInput
+
+func (DistributionConfigurationDistributionSsmParameterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionSsmParameterConfigurationArray) ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return i.ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionSsmParameterConfigurationArray) ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput)
+}
+
+type DistributionConfigurationDistributionSsmParameterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionSsmParameterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionSsmParameterConfigurationOutput) ToDistributionConfigurationDistributionSsmParameterConfigurationOutput() DistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionSsmParameterConfigurationOutput) ToDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return o
+}
+
+// AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+func (o DistributionConfigurationDistributionSsmParameterConfigurationOutput) AmiAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionSsmParameterConfiguration) *string { return v.AmiAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+func (o DistributionConfigurationDistributionSsmParameterConfigurationOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionSsmParameterConfiguration) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the SSM parameter that will store the AMI ID after distribution.
+func (o DistributionConfigurationDistributionSsmParameterConfigurationOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionSsmParameterConfiguration) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+type DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ToDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationDistributionSsmParameterConfiguration {
+		return vs[0].([]DistributionConfigurationDistributionSsmParameterConfiguration)[vs[1].(int)]
+	}).(DistributionConfigurationDistributionSsmParameterConfigurationOutput)
+}
+
 type ImageImageScanningConfiguration struct {
 	// Configuration block with ECR configuration. Detailed below.
 	EcrConfiguration *ImageImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfiguration"`
@@ -3242,7 +3362,7 @@ type ImageOutputResourceAmi struct {
 	Image *string `pulumi:"image"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -3266,7 +3386,7 @@ type ImageOutputResourceAmiArgs struct {
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -3341,7 +3461,7 @@ func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageOutputResourceAmiOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -3369,7 +3489,7 @@ func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputR
 type ImageOutputResourceContainer struct {
 	// Set of URIs for created containers.
 	ImageUris []string `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -3387,7 +3507,7 @@ type ImageOutputResourceContainerInput interface {
 type ImageOutputResourceContainerArgs struct {
 	// Set of URIs for created containers.
 	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -3447,7 +3567,7 @@ func (o ImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOutput
 	return o.ApplyT(func(v ImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageOutputResourceContainerOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceContainer) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -8379,10 +8499,12 @@ type GetDistributionConfigurationDistribution struct {
 	LaunchTemplateConfigurations []GetDistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Nested list of S3 export configuration.
 	S3ExportConfigurations []GetDistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfigurations"`
+	// Nested list of SSM parameter configuration.
+	SsmParameterConfigurations []GetDistributionConfigurationDistributionSsmParameterConfiguration `pulumi:"ssmParameterConfigurations"`
 }
 
 // GetDistributionConfigurationDistributionInput is an input type that accepts GetDistributionConfigurationDistributionArgs and GetDistributionConfigurationDistributionOutput values.
@@ -8407,10 +8529,12 @@ type GetDistributionConfigurationDistributionArgs struct {
 	LaunchTemplateConfigurations GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Nested list of S3 export configuration.
 	S3ExportConfigurations GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput `pulumi:"s3ExportConfigurations"`
+	// Nested list of SSM parameter configuration.
+	SsmParameterConfigurations GetDistributionConfigurationDistributionSsmParameterConfigurationArrayInput `pulumi:"ssmParameterConfigurations"`
 }
 
 func (GetDistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -8497,7 +8621,7 @@ func (o GetDistributionConfigurationDistributionOutput) LicenseConfigurationArns
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// AWS Region of distribution.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetDistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -8507,6 +8631,13 @@ func (o GetDistributionConfigurationDistributionOutput) S3ExportConfigurations()
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionS3ExportConfiguration {
 		return v.S3ExportConfigurations
 	}).(GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput)
+}
+
+// Nested list of SSM parameter configuration.
+func (o GetDistributionConfigurationDistributionOutput) SsmParameterConfigurations() GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionSsmParameterConfiguration {
+		return v.SsmParameterConfigurations
+	}).(GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput)
 }
 
 type GetDistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -9642,6 +9773,125 @@ func (o GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput
 	}).(GetDistributionConfigurationDistributionS3ExportConfigurationOutput)
 }
 
+type GetDistributionConfigurationDistributionSsmParameterConfiguration struct {
+	// The AWS account ID that own the parameter in the given region.
+	AmiAccountId string `pulumi:"amiAccountId"`
+	// The data type of the SSM parameter.
+	DataType string `pulumi:"dataType"`
+	// Name of the SSM parameter used to store the AMI ID after distribution.
+	ParameterName string `pulumi:"parameterName"`
+}
+
+// GetDistributionConfigurationDistributionSsmParameterConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionSsmParameterConfigurationArgs and GetDistributionConfigurationDistributionSsmParameterConfigurationOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionSsmParameterConfigurationInput` via:
+//
+//	GetDistributionConfigurationDistributionSsmParameterConfigurationArgs{...}
+type GetDistributionConfigurationDistributionSsmParameterConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationOutput
+	ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationOutput
+}
+
+type GetDistributionConfigurationDistributionSsmParameterConfigurationArgs struct {
+	// The AWS account ID that own the parameter in the given region.
+	AmiAccountId pulumi.StringInput `pulumi:"amiAccountId"`
+	// The data type of the SSM parameter.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// Name of the SSM parameter used to store the AMI ID after distribution.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+}
+
+func (GetDistributionConfigurationDistributionSsmParameterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionSsmParameterConfigurationArgs) ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return i.ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionSsmParameterConfigurationArgs) ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionSsmParameterConfigurationOutput)
+}
+
+// GetDistributionConfigurationDistributionSsmParameterConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionSsmParameterConfigurationArray and GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionSsmParameterConfigurationArrayInput` via:
+//
+//	GetDistributionConfigurationDistributionSsmParameterConfigurationArray{ GetDistributionConfigurationDistributionSsmParameterConfigurationArgs{...} }
+type GetDistributionConfigurationDistributionSsmParameterConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput
+	ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput
+}
+
+type GetDistributionConfigurationDistributionSsmParameterConfigurationArray []GetDistributionConfigurationDistributionSsmParameterConfigurationInput
+
+func (GetDistributionConfigurationDistributionSsmParameterConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionSsmParameterConfigurationArray) ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return i.ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionSsmParameterConfigurationArray) ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionSsmParameterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) ToGetDistributionConfigurationDistributionSsmParameterConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return o
+}
+
+// The AWS account ID that own the parameter in the given region.
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) AmiAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionSsmParameterConfiguration) string {
+		return v.AmiAccountId
+	}).(pulumi.StringOutput)
+}
+
+// The data type of the SSM parameter.
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionSsmParameterConfiguration) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// Name of the SSM parameter used to store the AMI ID after distribution.
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionSsmParameterConfiguration) string {
+		return v.ParameterName
+	}).(pulumi.StringOutput)
+}
+
+type GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionSsmParameterConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput() GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) ToGetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionSsmParameterConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionSsmParameterConfiguration {
+		return vs[0].([]GetDistributionConfigurationDistributionSsmParameterConfiguration)[vs[1].(int)]
+	}).(GetDistributionConfigurationDistributionSsmParameterConfigurationOutput)
+}
+
 type GetDistributionConfigurationsFilter struct {
 	// Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
 	Name string `pulumi:"name"`
@@ -10183,7 +10433,7 @@ type GetImageOutputResourceAmi struct {
 	Image string `pulumi:"image"`
 	// Name of the AMI.
 	Name string `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -10207,7 +10457,7 @@ type GetImageOutputResourceAmiArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -10282,7 +10532,7 @@ func (o GetImageOutputResourceAmiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetImageOutputResourceAmiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -10310,7 +10560,7 @@ func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageO
 type GetImageOutputResourceContainer struct {
 	// Set of URIs for created containers.
 	ImageUris []string `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -10328,7 +10578,7 @@ type GetImageOutputResourceContainerInput interface {
 type GetImageOutputResourceContainerArgs struct {
 	// Set of URIs for created containers.
 	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -10388,7 +10638,7 @@ func (o GetImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOut
 	return o.ApplyT(func(v GetImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetImageOutputResourceContainerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceContainer) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -12121,6 +12371,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionS3ExportConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionS3ExportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionSsmParameterConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionSsmParameterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionSsmParameterConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationDistributionSsmParameterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationInput)(nil)).Elem(), ImageImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationPtrInput)(nil)).Elem(), ImageImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), ImageImageScanningConfigurationEcrConfigurationArgs{})
@@ -12221,6 +12473,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionS3ExportConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionS3ExportConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionSsmParameterConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionSsmParameterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionSsmParameterConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionSsmParameterConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterInput)(nil)).Elem(), GetDistributionConfigurationsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterArrayInput)(nil)).Elem(), GetDistributionConfigurationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageScanningConfigurationInput)(nil)).Elem(), GetImageImageScanningConfigurationArgs{})
@@ -12297,6 +12551,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionS3ExportConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionSsmParameterConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationEcrConfigurationOutput{})
@@ -12397,6 +12653,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionS3ExportConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionSsmParameterConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionSsmParameterConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetImageImageScanningConfigurationOutput{})

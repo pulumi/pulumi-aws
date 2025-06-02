@@ -76,7 +76,7 @@ type ManagedScalingPolicy struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayOutput `pulumi:"computeLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -120,7 +120,7 @@ type managedScalingPolicyState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -129,7 +129,7 @@ type ManagedScalingPolicyState struct {
 	ClusterId pulumi.StringPtrInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -142,7 +142,7 @@ type managedScalingPolicyArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits []ManagedScalingPolicyComputeLimit `pulumi:"computeLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -152,7 +152,7 @@ type ManagedScalingPolicyArgs struct {
 	ClusterId pulumi.StringInput
 	// Configuration block with compute limit settings. Described below.
 	ComputeLimits ManagedScalingPolicyComputeLimitArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -253,7 +253,7 @@ func (o ManagedScalingPolicyOutput) ComputeLimits() ManagedScalingPolicyComputeL
 	return o.ApplyT(func(v *ManagedScalingPolicy) ManagedScalingPolicyComputeLimitArrayOutput { return v.ComputeLimits }).(ManagedScalingPolicyComputeLimitArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ManagedScalingPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedScalingPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ class ManagedPrefixListArgs:
         :param pulumi.Input[builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "address_family", address_family)
@@ -100,7 +100,7 @@ class ManagedPrefixListArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -142,7 +142,7 @@ class _ManagedPrefixListState:
         :param pulumi.Input[builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this prefix list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] version: Latest version of this prefix list.
@@ -244,7 +244,7 @@ class _ManagedPrefixListState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -358,7 +358,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -494,7 +494,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[builtins.str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this prefix list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] version: Latest version of this prefix list.
@@ -567,7 +567,7 @@ class ManagedPrefixList(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

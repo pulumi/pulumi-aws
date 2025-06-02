@@ -52,7 +52,8 @@ func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.In
 type GetLogGroupsArgs struct {
 	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
-	Region             *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLogGroups.
@@ -80,7 +81,8 @@ func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts .
 type GetLogGroupsOutputArgs struct {
 	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix pulumi.StringPtrInput `pulumi:"logGroupNamePrefix"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLogGroupsOutputArgs) ElementType() reflect.Type {

@@ -51,8 +51,9 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexArgs struct {
 	// Name of the place index resource.
-	IndexName string  `pulumi:"indexName"`
-	Region    *string `pulumi:"region"`
+	IndexName string `pulumi:"indexName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -91,8 +92,9 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 // A collection of arguments for invoking getPlaceIndex.
 type LookupPlaceIndexOutputArgs struct {
 	// Name of the place index resource.
-	IndexName pulumi.StringInput    `pulumi:"indexName"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the place index.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

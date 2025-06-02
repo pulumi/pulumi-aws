@@ -277,7 +277,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -437,7 +437,7 @@ export interface DomainState {
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -517,7 +517,7 @@ export interface DomainArgs {
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

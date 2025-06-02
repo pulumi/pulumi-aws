@@ -98,6 +98,7 @@ def get_user_hierarchy_structure(instance_id: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -127,6 +128,7 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[built
 
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

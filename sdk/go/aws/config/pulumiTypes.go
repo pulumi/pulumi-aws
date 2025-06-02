@@ -640,10 +640,6 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Iot *string `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
-	Iotanalytics *string `pulumi:"iotanalytics"`
-	// Use this to override the default service endpoint URL
-	Iotevents *string `pulumi:"iotevents"`
-	// Use this to override the default service endpoint URL
 	Ivs *string `pulumi:"ivs"`
 	// Use this to override the default service endpoint URL
 	Ivschat *string `pulumi:"ivschat"`
@@ -735,6 +731,10 @@ type Endpoints struct {
 	Networkmanager *string `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor *string `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
+	Notifications *string `pulumi:"notifications"`
+	// Use this to override the default service endpoint URL
+	Notificationscontacts *string `pulumi:"notificationscontacts"`
 	// Use this to override the default service endpoint URL
 	Oam *string `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
@@ -1246,10 +1246,6 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Iot pulumi.StringPtrInput `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
-	Iotanalytics pulumi.StringPtrInput `pulumi:"iotanalytics"`
-	// Use this to override the default service endpoint URL
-	Iotevents pulumi.StringPtrInput `pulumi:"iotevents"`
-	// Use this to override the default service endpoint URL
 	Ivs pulumi.StringPtrInput `pulumi:"ivs"`
 	// Use this to override the default service endpoint URL
 	Ivschat pulumi.StringPtrInput `pulumi:"ivschat"`
@@ -1341,6 +1337,10 @@ type EndpointsArgs struct {
 	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor pulumi.StringPtrInput `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
+	Notifications pulumi.StringPtrInput `pulumi:"notifications"`
+	// Use this to override the default service endpoint URL
+	Notificationscontacts pulumi.StringPtrInput `pulumi:"notificationscontacts"`
 	// Use this to override the default service endpoint URL
 	Oam pulumi.StringPtrInput `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
@@ -2347,16 +2347,6 @@ func (o EndpointsOutput) Iot() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o EndpointsOutput) Iotanalytics() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Endpoints) *string { return v.Iotanalytics }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o EndpointsOutput) Iotevents() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Endpoints) *string { return v.Iotevents }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Ivs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ivs }).(pulumi.StringPtrOutput)
 }
@@ -2584,6 +2574,16 @@ func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Networkmonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Networkmonitor }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Notifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Notifications }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Notificationscontacts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Notificationscontacts }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

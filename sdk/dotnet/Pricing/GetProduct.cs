@@ -303,9 +303,6 @@ namespace Pulumi.Aws.Pricing
             set => _filters = value;
         }
 
-        [Input("region")]
-        public string? Region { get; set; }
-
         /// <summary>
         /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
         /// </summary>
@@ -332,9 +329,6 @@ namespace Pulumi.Aws.Pricing
             set => _filters = value;
         }
 
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
         /// <summary>
         /// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
         /// </summary>
@@ -356,7 +350,6 @@ namespace Pulumi.Aws.Pricing
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Region;
         /// <summary>
         /// Set to the product returned from the API.
         /// </summary>
@@ -369,15 +362,12 @@ namespace Pulumi.Aws.Pricing
 
             string id,
 
-            string region,
-
             string result,
 
             string serviceCode)
         {
             Filters = filters;
             Id = id;
-            Region = region;
             Result = result;
             ServiceCode = serviceCode;
         }

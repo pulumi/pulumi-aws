@@ -105,7 +105,7 @@ type LustreFileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput pulumi.IntPtrOutput `pulumi:"perUnitStorageThroughput"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
 	RootSquashConfiguration LustreFileSystemRootSquashConfigurationPtrOutput `pulumi:"rootSquashConfiguration"`
@@ -214,7 +214,7 @@ type lustreFileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
 	RootSquashConfiguration *LustreFileSystemRootSquashConfiguration `pulumi:"rootSquashConfiguration"`
@@ -291,7 +291,7 @@ type LustreFileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
 	RootSquashConfiguration LustreFileSystemRootSquashConfigurationPtrInput
@@ -362,7 +362,7 @@ type lustreFileSystemArgs struct {
 	MetadataConfiguration *LustreFileSystemMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
 	RootSquashConfiguration *LustreFileSystemRootSquashConfiguration `pulumi:"rootSquashConfiguration"`
@@ -426,7 +426,7 @@ type LustreFileSystemArgs struct {
 	MetadataConfiguration LustreFileSystemMetadataConfigurationPtrInput
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
 	RootSquashConfiguration LustreFileSystemRootSquashConfigurationPtrInput
@@ -654,7 +654,7 @@ func (o LustreFileSystemOutput) PerUnitStorageThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.IntPtrOutput { return v.PerUnitStorageThroughput }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LustreFileSystemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

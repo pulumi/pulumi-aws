@@ -87,7 +87,7 @@ type Assessment struct {
 	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
@@ -147,7 +147,7 @@ type assessmentState struct {
 	FrameworkId *string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
@@ -175,7 +175,7 @@ type AssessmentState struct {
 	FrameworkId pulumi.StringPtrInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
@@ -205,7 +205,7 @@ type assessmentArgs struct {
 	FrameworkId string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
@@ -227,7 +227,7 @@ type AssessmentArgs struct {
 	FrameworkId pulumi.StringInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
@@ -353,7 +353,7 @@ func (o AssessmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssessmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

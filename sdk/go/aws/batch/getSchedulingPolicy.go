@@ -51,7 +51,8 @@ func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArg
 // A collection of arguments for invoking getSchedulingPolicy.
 type LookupSchedulingPolicyArgs struct {
 	// ARN of the scheduling policy.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -82,7 +83,8 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 // A collection of arguments for invoking getSchedulingPolicy.
 type LookupSchedulingPolicyOutputArgs struct {
 	// ARN of the scheduling policy.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`

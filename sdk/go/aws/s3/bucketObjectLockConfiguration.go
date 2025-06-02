@@ -90,7 +90,7 @@ type BucketObjectLockConfiguration struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrOutput `pulumi:"objectLockEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for specifying the Object Lock rule for the specified object. See below.
 	Rule BucketObjectLockConfigurationRulePtrOutput `pulumi:"rule"`
@@ -154,7 +154,7 @@ type bucketObjectLockConfigurationState struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for specifying the Object Lock rule for the specified object. See below.
 	Rule *BucketObjectLockConfigurationRule `pulumi:"rule"`
@@ -170,7 +170,7 @@ type BucketObjectLockConfigurationState struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for specifying the Object Lock rule for the specified object. See below.
 	Rule BucketObjectLockConfigurationRulePtrInput
@@ -190,7 +190,7 @@ type bucketObjectLockConfigurationArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for specifying the Object Lock rule for the specified object. See below.
 	Rule *BucketObjectLockConfigurationRule `pulumi:"rule"`
@@ -207,7 +207,7 @@ type BucketObjectLockConfigurationArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for specifying the Object Lock rule for the specified object. See below.
 	Rule BucketObjectLockConfigurationRulePtrInput
@@ -318,7 +318,7 @@ func (o BucketObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPt
 	return o.ApplyT(func(v *BucketObjectLockConfiguration) pulumi.StringPtrOutput { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketObjectLockConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

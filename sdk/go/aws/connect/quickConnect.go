@@ -76,7 +76,7 @@ type QuickConnect struct {
 	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringOutput `pulumi:"quickConnectId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -132,7 +132,7 @@ type quickConnectState struct {
 	QuickConnectConfig *QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
 	// The identifier for the Quick Connect.
 	QuickConnectId *string `pulumi:"quickConnectId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type QuickConnectState struct {
 	QuickConnectConfig QuickConnectQuickConnectConfigPtrInput
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -174,7 +174,7 @@ type quickConnectArgs struct {
 	Name *string `pulumi:"name"`
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfig QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -190,7 +190,7 @@ type QuickConnectArgs struct {
 	Name pulumi.StringPtrInput
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfig QuickConnectQuickConnectConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -313,7 +313,7 @@ func (o QuickConnectOutput) QuickConnectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.QuickConnectId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QuickConnectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

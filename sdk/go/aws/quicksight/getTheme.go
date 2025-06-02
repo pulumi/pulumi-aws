@@ -54,7 +54,8 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 type LookupThemeArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the theme.
@@ -107,7 +108,8 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 type LookupThemeOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the theme.

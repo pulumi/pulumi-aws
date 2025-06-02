@@ -115,7 +115,8 @@ type GetResolverRulesArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId *string `pulumi:"ownerId"`
-	Region  *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -155,7 +156,8 @@ type GetResolverRulesOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.

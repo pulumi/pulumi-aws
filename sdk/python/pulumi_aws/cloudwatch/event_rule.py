@@ -44,7 +44,7 @@ class EventRuleArgs:
                Conflicts with `state`.
         :param pulumi.Input[builtins.str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[builtins.str] state: State of the rule.
@@ -177,7 +177,7 @@ class EventRuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -271,7 +271,7 @@ class _EventRuleState:
                Conflicts with `state`.
         :param pulumi.Input[builtins.str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[builtins.str] state: State of the rule.
@@ -421,7 +421,7 @@ class _EventRuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -573,7 +573,7 @@ class EventRule(pulumi.CustomResource):
                Conflicts with `state`.
         :param pulumi.Input[builtins.str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[builtins.str] state: State of the rule.
@@ -729,7 +729,7 @@ class EventRule(pulumi.CustomResource):
                Conflicts with `state`.
         :param pulumi.Input[builtins.str] name: The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[builtins.str] schedule_expression: The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         :param pulumi.Input[builtins.str] state: State of the rule.
@@ -835,7 +835,7 @@ class EventRule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

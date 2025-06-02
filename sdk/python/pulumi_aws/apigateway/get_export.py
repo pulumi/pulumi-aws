@@ -163,6 +163,7 @@ def get_export(accepts: Optional[builtins.str] = None,
     :param builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str stage_name: Name of the Stage that will be exported.
     """
@@ -210,6 +211,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[builtins.str]]] = 
     :param builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str stage_name: Name of the Stage that will be exported.
     """

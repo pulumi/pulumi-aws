@@ -591,6 +591,162 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ManagedUserPoolClientRefreshTokenRotation struct {
+	// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature string `pulumi:"feature"`
+	// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds *int `pulumi:"retryGracePeriodSeconds"`
+}
+
+// ManagedUserPoolClientRefreshTokenRotationInput is an input type that accepts ManagedUserPoolClientRefreshTokenRotationArgs and ManagedUserPoolClientRefreshTokenRotationOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientRefreshTokenRotationInput` via:
+//
+//	ManagedUserPoolClientRefreshTokenRotationArgs{...}
+type ManagedUserPoolClientRefreshTokenRotationInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientRefreshTokenRotationOutput() ManagedUserPoolClientRefreshTokenRotationOutput
+	ToManagedUserPoolClientRefreshTokenRotationOutputWithContext(context.Context) ManagedUserPoolClientRefreshTokenRotationOutput
+}
+
+type ManagedUserPoolClientRefreshTokenRotationArgs struct {
+	// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds pulumi.IntPtrInput `pulumi:"retryGracePeriodSeconds"`
+}
+
+func (ManagedUserPoolClientRefreshTokenRotationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i ManagedUserPoolClientRefreshTokenRotationArgs) ToManagedUserPoolClientRefreshTokenRotationOutput() ManagedUserPoolClientRefreshTokenRotationOutput {
+	return i.ToManagedUserPoolClientRefreshTokenRotationOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientRefreshTokenRotationArgs) ToManagedUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientRefreshTokenRotationOutput)
+}
+
+func (i ManagedUserPoolClientRefreshTokenRotationArgs) ToManagedUserPoolClientRefreshTokenRotationPtrOutput() ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientRefreshTokenRotationArgs) ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientRefreshTokenRotationOutput).ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx)
+}
+
+// ManagedUserPoolClientRefreshTokenRotationPtrInput is an input type that accepts ManagedUserPoolClientRefreshTokenRotationArgs, ManagedUserPoolClientRefreshTokenRotationPtr and ManagedUserPoolClientRefreshTokenRotationPtrOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientRefreshTokenRotationPtrInput` via:
+//
+//	        ManagedUserPoolClientRefreshTokenRotationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedUserPoolClientRefreshTokenRotationPtrInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientRefreshTokenRotationPtrOutput() ManagedUserPoolClientRefreshTokenRotationPtrOutput
+	ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Context) ManagedUserPoolClientRefreshTokenRotationPtrOutput
+}
+
+type managedUserPoolClientRefreshTokenRotationPtrType ManagedUserPoolClientRefreshTokenRotationArgs
+
+func ManagedUserPoolClientRefreshTokenRotationPtr(v *ManagedUserPoolClientRefreshTokenRotationArgs) ManagedUserPoolClientRefreshTokenRotationPtrInput {
+	return (*managedUserPoolClientRefreshTokenRotationPtrType)(v)
+}
+
+func (*managedUserPoolClientRefreshTokenRotationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i *managedUserPoolClientRefreshTokenRotationPtrType) ToManagedUserPoolClientRefreshTokenRotationPtrOutput() ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i *managedUserPoolClientRefreshTokenRotationPtrType) ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+type ManagedUserPoolClientRefreshTokenRotationOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientRefreshTokenRotationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) ToManagedUserPoolClientRefreshTokenRotationOutput() ManagedUserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) ToManagedUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) ToManagedUserPoolClientRefreshTokenRotationPtrOutput() ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedUserPoolClientRefreshTokenRotation) *ManagedUserPoolClientRefreshTokenRotation {
+		return &v
+	}).(ManagedUserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) Feature() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientRefreshTokenRotation) string { return v.Feature }).(pulumi.StringOutput)
+}
+
+// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+func (o ManagedUserPoolClientRefreshTokenRotationOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientRefreshTokenRotation) *int { return v.RetryGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+type ManagedUserPoolClientRefreshTokenRotationPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientRefreshTokenRotationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationPtrOutput) ToManagedUserPoolClientRefreshTokenRotationPtrOutput() ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationPtrOutput) ToManagedUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientRefreshTokenRotationPtrOutput) Elem() ManagedUserPoolClientRefreshTokenRotationOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientRefreshTokenRotation) ManagedUserPoolClientRefreshTokenRotation {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedUserPoolClientRefreshTokenRotation
+		return ret
+	}).(ManagedUserPoolClientRefreshTokenRotationOutput)
+}
+
+// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+func (o ManagedUserPoolClientRefreshTokenRotationPtrOutput) Feature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientRefreshTokenRotation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Feature
+	}).(pulumi.StringPtrOutput)
+}
+
+// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+func (o ManagedUserPoolClientRefreshTokenRotationPtrOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientRefreshTokenRotation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryGracePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type ManagedUserPoolClientTokenValidityUnits struct {
 	// Time unit for the value in `accessTokenValidity` and defaults to `hours`.
 	AccessToken *string `pulumi:"accessToken"`
@@ -3714,6 +3870,162 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type UserPoolClientRefreshTokenRotation struct {
+	// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature string `pulumi:"feature"`
+	// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds *int `pulumi:"retryGracePeriodSeconds"`
+}
+
+// UserPoolClientRefreshTokenRotationInput is an input type that accepts UserPoolClientRefreshTokenRotationArgs and UserPoolClientRefreshTokenRotationOutput values.
+// You can construct a concrete instance of `UserPoolClientRefreshTokenRotationInput` via:
+//
+//	UserPoolClientRefreshTokenRotationArgs{...}
+type UserPoolClientRefreshTokenRotationInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput
+	ToUserPoolClientRefreshTokenRotationOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationOutput
+}
+
+type UserPoolClientRefreshTokenRotationArgs struct {
+	// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds pulumi.IntPtrInput `pulumi:"retryGracePeriodSeconds"`
+}
+
+func (UserPoolClientRefreshTokenRotationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput {
+	return i.ToUserPoolClientRefreshTokenRotationOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationOutput)
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientRefreshTokenRotationArgs) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationOutput).ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx)
+}
+
+// UserPoolClientRefreshTokenRotationPtrInput is an input type that accepts UserPoolClientRefreshTokenRotationArgs, UserPoolClientRefreshTokenRotationPtr and UserPoolClientRefreshTokenRotationPtrOutput values.
+// You can construct a concrete instance of `UserPoolClientRefreshTokenRotationPtrInput` via:
+//
+//	        UserPoolClientRefreshTokenRotationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolClientRefreshTokenRotationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput
+	ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Context) UserPoolClientRefreshTokenRotationPtrOutput
+}
+
+type userPoolClientRefreshTokenRotationPtrType UserPoolClientRefreshTokenRotationArgs
+
+func UserPoolClientRefreshTokenRotationPtr(v *UserPoolClientRefreshTokenRotationArgs) UserPoolClientRefreshTokenRotationPtrInput {
+	return (*userPoolClientRefreshTokenRotationPtrType)(v)
+}
+
+func (*userPoolClientRefreshTokenRotationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i *userPoolClientRefreshTokenRotationPtrType) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return i.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolClientRefreshTokenRotationPtrType) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+type UserPoolClientRefreshTokenRotationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationOutput() UserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientRefreshTokenRotationOutput) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientRefreshTokenRotation) *UserPoolClientRefreshTokenRotation {
+		return &v
+	}).(UserPoolClientRefreshTokenRotationPtrOutput)
+}
+
+// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+func (o UserPoolClientRefreshTokenRotationOutput) Feature() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientRefreshTokenRotation) string { return v.Feature }).(pulumi.StringOutput)
+}
+
+// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+func (o UserPoolClientRefreshTokenRotationOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolClientRefreshTokenRotation) *int { return v.RetryGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+type UserPoolClientRefreshTokenRotationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientRefreshTokenRotationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) ToUserPoolClientRefreshTokenRotationPtrOutput() UserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) ToUserPoolClientRefreshTokenRotationPtrOutputWithContext(ctx context.Context) UserPoolClientRefreshTokenRotationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientRefreshTokenRotationPtrOutput) Elem() UserPoolClientRefreshTokenRotationOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) UserPoolClientRefreshTokenRotation {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientRefreshTokenRotation
+		return ret
+	}).(UserPoolClientRefreshTokenRotationOutput)
+}
+
+// The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+func (o UserPoolClientRefreshTokenRotationPtrOutput) Feature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Feature
+	}).(pulumi.StringPtrOutput)
+}
+
+// A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+func (o UserPoolClientRefreshTokenRotationPtrOutput) RetryGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClientRefreshTokenRotation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryGracePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type UserPoolClientTokenValidityUnits struct {
 	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
 	AccessToken *string `pulumi:"accessToken"`
@@ -6571,6 +6883,8 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificat
 }
 
 type UserPoolUserPoolAddOns struct {
+	// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+	AdvancedSecurityAdditionalFlows *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows `pulumi:"advancedSecurityAdditionalFlows"`
 	// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
 }
@@ -6587,6 +6901,8 @@ type UserPoolUserPoolAddOnsInput interface {
 }
 
 type UserPoolUserPoolAddOnsArgs struct {
+	// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+	AdvancedSecurityAdditionalFlows UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput `pulumi:"advancedSecurityAdditionalFlows"`
 	// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode pulumi.StringInput `pulumi:"advancedSecurityMode"`
 }
@@ -6668,6 +6984,13 @@ func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutputWithConte
 	}).(UserPoolUserPoolAddOnsPtrOutput)
 }
 
+// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+func (o UserPoolUserPoolAddOnsOutput) AdvancedSecurityAdditionalFlows() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyT(func(v UserPoolUserPoolAddOns) *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows {
+		return v.AdvancedSecurityAdditionalFlows
+	}).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
 // Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 func (o UserPoolUserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolUserPoolAddOns) string { return v.AdvancedSecurityMode }).(pulumi.StringOutput)
@@ -6697,6 +7020,16 @@ func (o UserPoolUserPoolAddOnsPtrOutput) Elem() UserPoolUserPoolAddOnsOutput {
 	}).(UserPoolUserPoolAddOnsOutput)
 }
 
+// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyT(func(v *UserPoolUserPoolAddOns) *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedSecurityAdditionalFlows
+	}).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
 // Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUserPoolAddOns) *string {
@@ -6704,6 +7037,143 @@ func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtr
 			return nil
 		}
 		return &v.AdvancedSecurityMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows struct {
+	// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+	CustomAuthMode *string `pulumi:"customAuthMode"`
+}
+
+// UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsInput is an input type that accepts UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs and UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput values.
+// You can construct a concrete instance of `UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsInput` via:
+//
+//	UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs{...}
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsInput interface {
+	pulumi.Input
+
+	ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput
+	ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutputWithContext(context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput
+}
+
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs struct {
+	// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+	CustomAuthMode pulumi.StringPtrInput `pulumi:"customAuthMode"`
+}
+
+func (UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (i UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput {
+	return i.ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutputWithContext(context.Background())
+}
+
+func (i UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput)
+}
+
+func (i UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return i.ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput).ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx)
+}
+
+// UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput is an input type that accepts UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs, UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtr and UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput values.
+// You can construct a concrete instance of `UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput` via:
+//
+//	        UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput
+	ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput
+}
+
+type userPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrType UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs
+
+func UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtr(v *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput {
+	return (*userPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrType)(v)
+}
+
+func (*userPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (i *userPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrType) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return i.ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrType) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput {
+	return o
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput {
+	return o
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows) *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows {
+		return &v
+	}).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput)
+}
+
+// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput) CustomAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows) *string { return v.CustomAuthMode }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows)(nil)).Elem()
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput) ToUserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput {
+	return o
+}
+
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput) Elem() UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput {
+	return o.ApplyT(func(v *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows) UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows
+		return ret
+	}).(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput)
+}
+
+// Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+func (o UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput) CustomAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAuthMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8029,6 +8499,112 @@ func (o GetUserPoolClientAnalyticsConfigurationArrayOutput) Index(i pulumi.IntIn
 	}).(GetUserPoolClientAnalyticsConfigurationOutput)
 }
 
+type GetUserPoolClientRefreshTokenRotation struct {
+	// (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature string `pulumi:"feature"`
+	// (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds int `pulumi:"retryGracePeriodSeconds"`
+}
+
+// GetUserPoolClientRefreshTokenRotationInput is an input type that accepts GetUserPoolClientRefreshTokenRotationArgs and GetUserPoolClientRefreshTokenRotationOutput values.
+// You can construct a concrete instance of `GetUserPoolClientRefreshTokenRotationInput` via:
+//
+//	GetUserPoolClientRefreshTokenRotationArgs{...}
+type GetUserPoolClientRefreshTokenRotationInput interface {
+	pulumi.Input
+
+	ToGetUserPoolClientRefreshTokenRotationOutput() GetUserPoolClientRefreshTokenRotationOutput
+	ToGetUserPoolClientRefreshTokenRotationOutputWithContext(context.Context) GetUserPoolClientRefreshTokenRotationOutput
+}
+
+type GetUserPoolClientRefreshTokenRotationArgs struct {
+	// (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+	RetryGracePeriodSeconds pulumi.IntInput `pulumi:"retryGracePeriodSeconds"`
+}
+
+func (GetUserPoolClientRefreshTokenRotationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i GetUserPoolClientRefreshTokenRotationArgs) ToGetUserPoolClientRefreshTokenRotationOutput() GetUserPoolClientRefreshTokenRotationOutput {
+	return i.ToGetUserPoolClientRefreshTokenRotationOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolClientRefreshTokenRotationArgs) ToGetUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) GetUserPoolClientRefreshTokenRotationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolClientRefreshTokenRotationOutput)
+}
+
+// GetUserPoolClientRefreshTokenRotationArrayInput is an input type that accepts GetUserPoolClientRefreshTokenRotationArray and GetUserPoolClientRefreshTokenRotationArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolClientRefreshTokenRotationArrayInput` via:
+//
+//	GetUserPoolClientRefreshTokenRotationArray{ GetUserPoolClientRefreshTokenRotationArgs{...} }
+type GetUserPoolClientRefreshTokenRotationArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolClientRefreshTokenRotationArrayOutput() GetUserPoolClientRefreshTokenRotationArrayOutput
+	ToGetUserPoolClientRefreshTokenRotationArrayOutputWithContext(context.Context) GetUserPoolClientRefreshTokenRotationArrayOutput
+}
+
+type GetUserPoolClientRefreshTokenRotationArray []GetUserPoolClientRefreshTokenRotationInput
+
+func (GetUserPoolClientRefreshTokenRotationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (i GetUserPoolClientRefreshTokenRotationArray) ToGetUserPoolClientRefreshTokenRotationArrayOutput() GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return i.ToGetUserPoolClientRefreshTokenRotationArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolClientRefreshTokenRotationArray) ToGetUserPoolClientRefreshTokenRotationArrayOutputWithContext(ctx context.Context) GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolClientRefreshTokenRotationArrayOutput)
+}
+
+type GetUserPoolClientRefreshTokenRotationOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolClientRefreshTokenRotationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o GetUserPoolClientRefreshTokenRotationOutput) ToGetUserPoolClientRefreshTokenRotationOutput() GetUserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+func (o GetUserPoolClientRefreshTokenRotationOutput) ToGetUserPoolClientRefreshTokenRotationOutputWithContext(ctx context.Context) GetUserPoolClientRefreshTokenRotationOutput {
+	return o
+}
+
+// (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+func (o GetUserPoolClientRefreshTokenRotationOutput) Feature() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolClientRefreshTokenRotation) string { return v.Feature }).(pulumi.StringOutput)
+}
+
+// (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+func (o GetUserPoolClientRefreshTokenRotationOutput) RetryGracePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserPoolClientRefreshTokenRotation) int { return v.RetryGracePeriodSeconds }).(pulumi.IntOutput)
+}
+
+type GetUserPoolClientRefreshTokenRotationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolClientRefreshTokenRotationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolClientRefreshTokenRotation)(nil)).Elem()
+}
+
+func (o GetUserPoolClientRefreshTokenRotationArrayOutput) ToGetUserPoolClientRefreshTokenRotationArrayOutput() GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolClientRefreshTokenRotationArrayOutput) ToGetUserPoolClientRefreshTokenRotationArrayOutputWithContext(ctx context.Context) GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolClientRefreshTokenRotationArrayOutput) Index(i pulumi.IntInput) GetUserPoolClientRefreshTokenRotationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolClientRefreshTokenRotation {
+		return vs[0].([]GetUserPoolClientRefreshTokenRotation)[vs[1].(int)]
+	}).(GetUserPoolClientRefreshTokenRotationOutput)
+}
+
 type GetUserPoolClientTokenValidityUnit struct {
 	// (Optional) Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
 	AccessToken string `pulumi:"accessToken"`
@@ -9244,6 +9820,211 @@ func (o GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput) Index(i 
 	}).(GetUserPoolSchemaAttributeStringAttributeConstraintOutput)
 }
 
+type GetUserPoolUserPoolAddOn struct {
+	// A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+	AdvancedSecurityAdditionalFlows []GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow `pulumi:"advancedSecurityAdditionalFlows"`
+	// Mode for advanced security.
+	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
+}
+
+// GetUserPoolUserPoolAddOnInput is an input type that accepts GetUserPoolUserPoolAddOnArgs and GetUserPoolUserPoolAddOnOutput values.
+// You can construct a concrete instance of `GetUserPoolUserPoolAddOnInput` via:
+//
+//	GetUserPoolUserPoolAddOnArgs{...}
+type GetUserPoolUserPoolAddOnInput interface {
+	pulumi.Input
+
+	ToGetUserPoolUserPoolAddOnOutput() GetUserPoolUserPoolAddOnOutput
+	ToGetUserPoolUserPoolAddOnOutputWithContext(context.Context) GetUserPoolUserPoolAddOnOutput
+}
+
+type GetUserPoolUserPoolAddOnArgs struct {
+	// A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+	AdvancedSecurityAdditionalFlows GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayInput `pulumi:"advancedSecurityAdditionalFlows"`
+	// Mode for advanced security.
+	AdvancedSecurityMode pulumi.StringInput `pulumi:"advancedSecurityMode"`
+}
+
+func (GetUserPoolUserPoolAddOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolUserPoolAddOn)(nil)).Elem()
+}
+
+func (i GetUserPoolUserPoolAddOnArgs) ToGetUserPoolUserPoolAddOnOutput() GetUserPoolUserPoolAddOnOutput {
+	return i.ToGetUserPoolUserPoolAddOnOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolUserPoolAddOnArgs) ToGetUserPoolUserPoolAddOnOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolUserPoolAddOnOutput)
+}
+
+// GetUserPoolUserPoolAddOnArrayInput is an input type that accepts GetUserPoolUserPoolAddOnArray and GetUserPoolUserPoolAddOnArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolUserPoolAddOnArrayInput` via:
+//
+//	GetUserPoolUserPoolAddOnArray{ GetUserPoolUserPoolAddOnArgs{...} }
+type GetUserPoolUserPoolAddOnArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolUserPoolAddOnArrayOutput() GetUserPoolUserPoolAddOnArrayOutput
+	ToGetUserPoolUserPoolAddOnArrayOutputWithContext(context.Context) GetUserPoolUserPoolAddOnArrayOutput
+}
+
+type GetUserPoolUserPoolAddOnArray []GetUserPoolUserPoolAddOnInput
+
+func (GetUserPoolUserPoolAddOnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolUserPoolAddOn)(nil)).Elem()
+}
+
+func (i GetUserPoolUserPoolAddOnArray) ToGetUserPoolUserPoolAddOnArrayOutput() GetUserPoolUserPoolAddOnArrayOutput {
+	return i.ToGetUserPoolUserPoolAddOnArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolUserPoolAddOnArray) ToGetUserPoolUserPoolAddOnArrayOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolUserPoolAddOnArrayOutput)
+}
+
+type GetUserPoolUserPoolAddOnOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolUserPoolAddOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolUserPoolAddOn)(nil)).Elem()
+}
+
+func (o GetUserPoolUserPoolAddOnOutput) ToGetUserPoolUserPoolAddOnOutput() GetUserPoolUserPoolAddOnOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnOutput) ToGetUserPoolUserPoolAddOnOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnOutput {
+	return o
+}
+
+// A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+func (o GetUserPoolUserPoolAddOnOutput) AdvancedSecurityAdditionalFlows() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput {
+	return o.ApplyT(func(v GetUserPoolUserPoolAddOn) []GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow {
+		return v.AdvancedSecurityAdditionalFlows
+	}).(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput)
+}
+
+// Mode for advanced security.
+func (o GetUserPoolUserPoolAddOnOutput) AdvancedSecurityMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolUserPoolAddOn) string { return v.AdvancedSecurityMode }).(pulumi.StringOutput)
+}
+
+type GetUserPoolUserPoolAddOnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolUserPoolAddOnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolUserPoolAddOn)(nil)).Elem()
+}
+
+func (o GetUserPoolUserPoolAddOnArrayOutput) ToGetUserPoolUserPoolAddOnArrayOutput() GetUserPoolUserPoolAddOnArrayOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnArrayOutput) ToGetUserPoolUserPoolAddOnArrayOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnArrayOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnArrayOutput) Index(i pulumi.IntInput) GetUserPoolUserPoolAddOnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolUserPoolAddOn {
+		return vs[0].([]GetUserPoolUserPoolAddOn)[vs[1].(int)]
+	}).(GetUserPoolUserPoolAddOnOutput)
+}
+
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow struct {
+	// Mode of threat protection operation in custom authentication.
+	CustomAuthMode string `pulumi:"customAuthMode"`
+}
+
+// GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowInput is an input type that accepts GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs and GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput values.
+// You can construct a concrete instance of `GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowInput` via:
+//
+//	GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs{...}
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowInput interface {
+	pulumi.Input
+
+	ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput
+	ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutputWithContext(context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput
+}
+
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs struct {
+	// Mode of threat protection operation in custom authentication.
+	CustomAuthMode pulumi.StringInput `pulumi:"customAuthMode"`
+}
+
+func (GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow)(nil)).Elem()
+}
+
+func (i GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput {
+	return i.ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput)
+}
+
+// GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayInput is an input type that accepts GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray and GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayInput` via:
+//
+//	GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray{ GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs{...} }
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput
+	ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutputWithContext(context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput
+}
+
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray []GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowInput
+
+func (GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow)(nil)).Elem()
+}
+
+func (i GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput {
+	return i.ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput)
+}
+
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow)(nil)).Elem()
+}
+
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput {
+	return o
+}
+
+// Mode of threat protection operation in custom authentication.
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput) CustomAuthMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow) string { return v.CustomAuthMode }).(pulumi.StringOutput)
+}
+
+type GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow)(nil)).Elem()
+}
+
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput() GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput) ToGetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutputWithContext(ctx context.Context) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput {
+	return o
+}
+
+func (o GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput) Index(i pulumi.IntInput) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow {
+		return vs[0].([]GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlow)[vs[1].(int)]
+	}).(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoIdentityProviderInput)(nil)).Elem(), IdentityPoolCognitoIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), IdentityPoolCognitoIdentityProviderArray{})
@@ -9253,6 +10034,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotationInput)(nil)).Elem(), ManagedUserPoolClientRefreshTokenRotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientRefreshTokenRotationPtrInput)(nil)).Elem(), ManagedUserPoolClientRefreshTokenRotationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnitsInput)(nil)).Elem(), ManagedUserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), ManagedUserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerScopeInput)(nil)).Elem(), ResourceServerScopeArgs{})
@@ -9291,6 +10074,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput)(nil)).Elem(), UserPoolAdminCreateUserConfigInviteMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), UserPoolClientAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationPtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), UserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
@@ -9325,6 +10110,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserAttributeUpdateSettingsPtrInput)(nil)).Elem(), UserPoolUserAttributeUpdateSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsInput)(nil)).Elem(), UserPoolUserPoolAddOnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsPtrInput)(nil)).Elem(), UserPoolUserPoolAddOnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsInput)(nil)).Elem(), UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrInput)(nil)).Elem(), UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUsernameConfigurationInput)(nil)).Elem(), UserPoolUsernameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUsernameConfigurationPtrInput)(nil)).Elem(), UserPoolUsernameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplateInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
@@ -9345,6 +10132,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput)(nil)).Elem(), GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationArrayInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientRefreshTokenRotationInput)(nil)).Elem(), GetUserPoolClientRefreshTokenRotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientRefreshTokenRotationArrayInput)(nil)).Elem(), GetUserPoolClientRefreshTokenRotationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitArrayInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolDeviceConfigurationInput)(nil)).Elem(), GetUserPoolDeviceConfigurationArgs{})
@@ -9365,6 +10154,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput)(nil)).Elem(), GetUserPoolSchemaAttributeNumberAttributeConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraintInput)(nil)).Elem(), GetUserPoolSchemaAttributeStringAttributeConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput)(nil)).Elem(), GetUserPoolSchemaAttributeStringAttributeConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolUserPoolAddOnInput)(nil)).Elem(), GetUserPoolUserPoolAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolUserPoolAddOnArrayInput)(nil)).Elem(), GetUserPoolUserPoolAddOnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowInput)(nil)).Elem(), GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayInput)(nil)).Elem(), GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArray{})
 	pulumi.RegisterOutputType(IdentityPoolCognitoIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolCognitoIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingOutput{})
@@ -9373,6 +10166,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientRefreshTokenRotationOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientRefreshTokenRotationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientTokenValidityUnitsOutput{})
 	pulumi.RegisterOutputType(ManagedUserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeOutput{})
@@ -9411,6 +10206,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationOutput{})
+	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsOutput{})
 	pulumi.RegisterOutputType(UserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
@@ -9445,6 +10242,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolUserAttributeUpdateSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsOutput{})
+	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})
@@ -9465,6 +10264,8 @@ func init() {
 	pulumi.RegisterOutputType(GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolClientRefreshTokenRotationOutput{})
+	pulumi.RegisterOutputType(GetUserPoolClientRefreshTokenRotationArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolDeviceConfigurationOutput{})
@@ -9485,4 +10286,8 @@ func init() {
 	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeStringAttributeConstraintOutput{})
 	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolUserPoolAddOnOutput{})
+	pulumi.RegisterOutputType(GetUserPoolUserPoolAddOnArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowOutput{})
+	pulumi.RegisterOutputType(GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArrayOutput{})
 }

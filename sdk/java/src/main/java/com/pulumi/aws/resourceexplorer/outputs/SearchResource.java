@@ -33,7 +33,7 @@ public final class SearchResource {
      */
     private List<SearchResourceProperty> properties;
     /**
-     * @return Amazon Web Services Region in which the resource was created and exists.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -78,7 +78,7 @@ public final class SearchResource {
         return this.properties;
     }
     /**
-     * @return Amazon Web Services Region in which the resource was created and exists.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {

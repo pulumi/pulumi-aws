@@ -98,6 +98,9 @@ def get_instances(region: Optional[builtins.str] = None,
     pulumi.export("arn", example.arns[0])
     pulumi.export("identityStoreId", example.identity_store_ids[0])
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -124,6 +127,9 @@ def get_instances_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
     pulumi.export("arn", example.arns[0])
     pulumi.export("identityStoreId", example.identity_store_ids[0])
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

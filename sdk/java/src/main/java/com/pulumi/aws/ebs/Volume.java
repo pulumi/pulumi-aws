@@ -195,14 +195,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.outpostArn);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -281,6 +281,8 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+     * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
@@ -289,6 +291,8 @@ public class Volume extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
      * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 

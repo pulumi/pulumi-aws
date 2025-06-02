@@ -127,7 +127,7 @@ type LifecyclePolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayOutput `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
@@ -189,7 +189,7 @@ type lifecyclePolicyState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
@@ -216,7 +216,7 @@ type LifecyclePolicyState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
@@ -245,7 +245,7 @@ type lifecyclePolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
@@ -269,7 +269,7 @@ type LifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
@@ -395,7 +395,7 @@ func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailArrayO
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailArrayOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -31,7 +31,7 @@ class TestGridProjectArgs:
         The set of arguments for constructing a TestGridProject resource.
         :param pulumi.Input[builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TestGridProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
@@ -74,7 +74,7 @@ class TestGridProjectArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -122,7 +122,7 @@ class _TestGridProjectState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
         :param pulumi.Input[builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TestGridProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
@@ -182,7 +182,7 @@ class _TestGridProjectState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -271,7 +271,7 @@ class TestGridProject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
@@ -372,7 +372,7 @@ class TestGridProject(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
         :param pulumi.Input[builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[builtins.str] name: The name of the Selenium testing project.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
@@ -418,7 +418,7 @@ class TestGridProject(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

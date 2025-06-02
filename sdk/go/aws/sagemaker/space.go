@@ -61,7 +61,7 @@ type Space struct {
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
@@ -123,7 +123,7 @@ type spaceState struct {
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
@@ -150,7 +150,7 @@ type SpaceState struct {
 	HomeEfsFileSystemUid pulumi.StringPtrInput
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type spaceArgs struct {
 	DomainId string `pulumi:"domainId"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
@@ -197,7 +197,7 @@ type SpaceArgs struct {
 	DomainId pulumi.StringInput
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SpaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

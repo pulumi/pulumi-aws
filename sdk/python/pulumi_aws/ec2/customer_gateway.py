@@ -37,7 +37,7 @@ class CustomerGatewayArgs:
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "type", type)
@@ -133,7 +133,7 @@ class CustomerGatewayArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -175,7 +175,7 @@ class _CustomerGatewayState:
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
@@ -278,7 +278,7 @@ class _CustomerGatewayState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -372,7 +372,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
@@ -486,7 +486,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
@@ -560,7 +560,7 @@ class CustomerGateway(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

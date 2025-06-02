@@ -214,14 +214,14 @@ public class Preset extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -264,12 +264,16 @@ public class Preset extends com.pulumi.resources.CustomResource {
     /**
      * Codec options for the video parameters
      * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+     * 
      */
     @Export(name="videoCodecOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> videoCodecOptions;
 
     /**
      * @return Codec options for the video parameters
+     * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      * 
      */
     public Output<Optional<Map<String,String>>> videoCodecOptions() {

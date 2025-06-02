@@ -108,7 +108,8 @@ type LookupAmiArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
-	Region *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.
@@ -251,7 +252,8 @@ type LookupAmiOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
-	Region pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.

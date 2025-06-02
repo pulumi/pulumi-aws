@@ -64,8 +64,9 @@ type GetRandomPasswordArgs struct {
 	// Specifies whether to include the space character.
 	IncludeSpace *bool `pulumi:"includeSpace"`
 	// Length of the password.
-	PasswordLength *int    `pulumi:"passwordLength"`
-	Region         *string `pulumi:"region"`
+	PasswordLength *int `pulumi:"passwordLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
 }
@@ -111,8 +112,9 @@ type GetRandomPasswordOutputArgs struct {
 	// Specifies whether to include the space character.
 	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
 	// Length of the password.
-	PasswordLength pulumi.IntPtrInput    `pulumi:"passwordLength"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
+	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
 }

@@ -69,7 +69,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.rds.ParameterGroupParameter[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
@@ -155,7 +155,7 @@ export interface ParameterGroupState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     skipDestroy?: pulumi.Input<boolean>;
@@ -194,7 +194,7 @@ export interface ParameterGroupArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     skipDestroy?: pulumi.Input<boolean>;

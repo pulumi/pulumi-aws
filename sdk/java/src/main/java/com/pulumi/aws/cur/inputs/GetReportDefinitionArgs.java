@@ -17,13 +17,6 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetReportDefinitionArgs Empty = new GetReportDefinitionArgs();
 
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
-    }
-
     /**
      * Name of the report definition to match.
      * 
@@ -57,7 +50,6 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
     private GetReportDefinitionArgs() {}
 
     private GetReportDefinitionArgs(GetReportDefinitionArgs $) {
-        this.region = $.region;
         this.reportName = $.reportName;
         this.tags = $.tags;
     }
@@ -78,15 +70,6 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetReportDefinitionArgs defaults) {
             $ = new GetReportDefinitionArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        public Builder region(String region) {
-            return region(Output.of(region));
         }
 
         /**

@@ -28,7 +28,7 @@ class GetCostCategoryResult:
     """
     A collection of values returned by getCostCategory.
     """
-    def __init__(__self__, cost_category_arn=None, default_value=None, effective_end=None, effective_start=None, id=None, name=None, region=None, rule_version=None, rules=None, split_charge_rules=None, tags=None):
+    def __init__(__self__, cost_category_arn=None, default_value=None, effective_end=None, effective_start=None, id=None, name=None, rule_version=None, rules=None, split_charge_rules=None, tags=None):
         if cost_category_arn and not isinstance(cost_category_arn, str):
             raise TypeError("Expected argument 'cost_category_arn' to be a str")
         pulumi.set(__self__, "cost_category_arn", cost_category_arn)
@@ -47,9 +47,6 @@ class GetCostCategoryResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        pulumi.set(__self__, "region", region)
         if rule_version and not isinstance(rule_version, str):
             raise TypeError("Expected argument 'rule_version' to be a str")
         pulumi.set(__self__, "rule_version", rule_version)
@@ -106,11 +103,6 @@ class GetCostCategoryResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def region(self) -> builtins.str:
-        return pulumi.get(self, "region")
-
-    @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> builtins.str:
         """
@@ -155,7 +147,6 @@ class AwaitableGetCostCategoryResult(GetCostCategoryResult):
             effective_start=self.effective_start,
             id=self.id,
             name=self.name,
-            region=self.region,
             rule_version=self.rule_version,
             rules=self.rules,
             split_charge_rules=self.split_charge_rules,
@@ -163,7 +154,6 @@ class AwaitableGetCostCategoryResult(GetCostCategoryResult):
 
 
 def get_cost_category(cost_category_arn: Optional[builtins.str] = None,
-                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostCategoryResult:
     """
@@ -184,7 +174,6 @@ def get_cost_category(cost_category_arn: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['costCategoryArn'] = cost_category_arn
-    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:costexplorer/getCostCategory:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult).value
@@ -196,13 +185,11 @@ def get_cost_category(cost_category_arn: Optional[builtins.str] = None,
         effective_start=pulumi.get(__ret__, 'effective_start'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        region=pulumi.get(__ret__, 'region'),
         rule_version=pulumi.get(__ret__, 'rule_version'),
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[builtins.str]] = None,
-                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
@@ -223,7 +210,6 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[builtins.s
     """
     __args__ = dict()
     __args__['costCategoryArn'] = cost_category_arn
-    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:costexplorer/getCostCategory:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult)
@@ -234,7 +220,6 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[builtins.s
         effective_start=pulumi.get(__response__, 'effective_start'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        region=pulumi.get(__response__, 'region'),
         rule_version=pulumi.get(__response__, 'rule_version'),
         rules=pulumi.get(__response__, 'rules'),
         split_charge_rules=pulumi.get(__response__, 'split_charge_rules'),

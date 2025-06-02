@@ -64,7 +64,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
  */
 export interface VpcEndpointSubnetAssociationState {
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface VpcEndpointSubnetAssociationState {
  */
 export interface VpcEndpointSubnetAssociationArgs {
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

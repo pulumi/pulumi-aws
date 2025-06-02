@@ -56,6 +56,9 @@ export interface GetImageArgs {
      * Regular expression name of the image being searched for. Cannot be used with arn or name.
      */
     nameRegex?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
@@ -174,6 +177,9 @@ export interface GetImageOutputArgs {
      * Regular expression name of the image being searched for. Cannot be used with arn or name.
      */
     nameRegex?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The type of image which must be (PUBLIC, PRIVATE, or SHARED).

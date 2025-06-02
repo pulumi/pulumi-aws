@@ -26,7 +26,8 @@ func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulum
 type GetNatGatewaysArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
-	Region  *string                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
 	Tags map[string]string `pulumi:"tags"`
@@ -59,7 +60,8 @@ func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, op
 type GetNatGatewaysOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetNatGatewaysFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired NAT Gateways.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

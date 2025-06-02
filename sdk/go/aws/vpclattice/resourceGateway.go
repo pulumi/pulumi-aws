@@ -132,7 +132,7 @@ type ResourceGateway struct {
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -193,7 +193,7 @@ type resourceGatewayState struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -219,7 +219,7 @@ type ResourceGatewayState struct {
 	IpAddressType pulumi.StringPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -247,7 +247,7 @@ type resourceGatewayArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -268,7 +268,7 @@ type ResourceGatewayArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -385,7 +385,7 @@ func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

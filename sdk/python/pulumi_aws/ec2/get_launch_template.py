@@ -419,6 +419,7 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
     :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str id: ID of the specific launch template to retrieve.
     :param builtins.str name: Name of the launch template.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()
@@ -503,6 +504,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str id: ID of the specific launch template to retrieve.
     :param builtins.str name: Name of the launch template.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()

@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
 export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetReportDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cur/getReportDefinition:getReportDefinition", {
-        "region": args.region,
         "reportName": args.reportName,
         "tags": args.tags,
     }, opts);
@@ -35,7 +34,6 @@ export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi
  * A collection of arguments for invoking getReportDefinition.
  */
 export interface GetReportDefinitionArgs {
-    region?: string;
     /**
      * Name of the report definition to match.
      */
@@ -74,7 +72,6 @@ export interface GetReportDefinitionResult {
      * If true reports are updated after they have been finalized.
      */
     readonly refreshClosedReports: boolean;
-    readonly region: string;
     readonly reportName: string;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
@@ -122,7 +119,6 @@ export interface GetReportDefinitionResult {
 export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cur/getReportDefinition:getReportDefinition", {
-        "region": args.region,
         "reportName": args.reportName,
         "tags": args.tags,
     }, opts);
@@ -132,7 +128,6 @@ export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, o
  * A collection of arguments for invoking getReportDefinition.
  */
 export interface GetReportDefinitionOutputArgs {
-    region?: pulumi.Input<string>;
     /**
      * Name of the report definition to match.
      */

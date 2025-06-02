@@ -27,7 +27,7 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
         The set of arguments for constructing a NetworkInterfaceSecurityGroupAttachment resource.
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface to attach to.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -62,7 +62,7 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -80,7 +80,7 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
         """
         Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         """
         if network_interface_id is not None:
@@ -106,7 +106,7 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -209,7 +209,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         """
         ...
@@ -342,7 +342,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] network_interface_id: The ID of the network interface to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -366,7 +366,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

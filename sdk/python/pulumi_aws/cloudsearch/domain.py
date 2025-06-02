@@ -34,7 +34,7 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         """
         if endpoint_options is not None:
@@ -102,7 +102,7 @@ class DomainArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -145,7 +145,7 @@ class _DomainState:
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[builtins.str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -258,7 +258,7 @@ class _DomainState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -356,7 +356,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
         """
         ...
@@ -485,7 +485,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[builtins.str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -565,7 +565,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -599,6 +599,8 @@ type Group struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -679,7 +681,7 @@ type Group struct {
 	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrOutput `pulumi:"protectFromScaleIn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringOutput `pulumi:"serviceLinkedRoleArn"`
@@ -759,6 +761,8 @@ type groupState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *GroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -839,7 +843,7 @@ type groupState struct {
 	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
@@ -884,6 +888,8 @@ type GroupState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -964,7 +970,7 @@ type GroupState struct {
 	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput
@@ -1011,6 +1017,8 @@ type groupArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *GroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1089,7 +1097,7 @@ type groupArgs struct {
 	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
@@ -1131,6 +1139,8 @@ type GroupArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1209,7 +1219,7 @@ type GroupArgs struct {
 	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput
@@ -1348,6 +1358,11 @@ func (o GroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
 // Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 func (o GroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+func (o GroupOutput) CapacityReservationSpecification() GroupCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *Group) GroupCapacityReservationSpecificationOutput { return v.CapacityReservationSpecification }).(GroupCapacityReservationSpecificationOutput)
 }
 
 // Reserved.
@@ -1514,7 +1529,7 @@ func (o GroupOutput) ProtectFromScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.ProtectFromScaleIn }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -56,6 +56,9 @@ export interface GetTableItemArgs {
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
     projectionExpression?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The name of the table containing the requested item.
@@ -133,6 +136,9 @@ export interface GetTableItemOutputArgs {
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
     projectionExpression?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The name of the table containing the requested item.

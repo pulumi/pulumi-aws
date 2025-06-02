@@ -75,7 +75,7 @@ type Disk struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The name of the disk.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntOutput `pulumi:"sizeInGb"`
@@ -131,7 +131,7 @@ type diskState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The name of the disk.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb *int `pulumi:"sizeInGb"`
@@ -152,7 +152,7 @@ type DiskState struct {
 	CreatedAt pulumi.StringPtrInput
 	// The name of the disk.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntPtrInput
@@ -173,7 +173,7 @@ type diskArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// The name of the disk.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb int `pulumi:"sizeInGb"`
@@ -187,7 +187,7 @@ type DiskArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// The name of the disk.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntInput
@@ -302,7 +302,7 @@ func (o DiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DiskOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

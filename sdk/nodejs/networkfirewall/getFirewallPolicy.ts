@@ -75,6 +75,9 @@ export interface GetFirewallPolicyArgs {
      * One or more of these arguments is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Key-value tags for the firewall policy.
@@ -178,6 +181,9 @@ export interface GetFirewallPolicyOutputArgs {
      * One or more of these arguments is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value tags for the firewall policy.

@@ -85,7 +85,7 @@ type SubscriberNotification struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringOutput `pulumi:"subscriberEndpoint"`
@@ -132,7 +132,7 @@ type subscriberNotificationState struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId *string `pulumi:"endpointId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint *string `pulumi:"subscriberEndpoint"`
@@ -147,7 +147,7 @@ type SubscriberNotificationState struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringPtrInput
@@ -162,7 +162,7 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 type subscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration *SubscriberNotificationConfiguration `pulumi:"configuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The subscriber ID for the notification subscription.
 	SubscriberId string `pulumi:"subscriberId"`
@@ -172,7 +172,7 @@ type subscriberNotificationArgs struct {
 type SubscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration SubscriberNotificationConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The subscriber ID for the notification subscription.
 	SubscriberId pulumi.StringInput
@@ -277,7 +277,7 @@ func (o SubscriberNotificationOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SubscriberNotificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

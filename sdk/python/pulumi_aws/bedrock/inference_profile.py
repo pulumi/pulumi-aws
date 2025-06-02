@@ -35,7 +35,7 @@ class InferenceProfileArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         if description is not None:
@@ -93,7 +93,7 @@ class InferenceProfileArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -149,7 +149,7 @@ class _InferenceProfileState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['InferenceProfileModelArgs']]] models: A list of information about each model in the inference profile. See `models`.
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         :param pulumi.Input[builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -260,7 +260,7 @@ class _InferenceProfileState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -386,7 +386,7 @@ class InferenceProfile(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         ...
@@ -507,7 +507,7 @@ class InferenceProfile(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]] models: A list of information about each model in the inference profile. See `models`.
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         :param pulumi.Input[builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -586,7 +586,7 @@ class InferenceProfile(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

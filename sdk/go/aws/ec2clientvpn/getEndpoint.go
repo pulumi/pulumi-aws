@@ -89,7 +89,8 @@ type LookupEndpointArgs struct {
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetEndpointFilter `pulumi:"filters"`
-	Region  *string             `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,7 +107,9 @@ type LookupEndpointResult struct {
 	ClientConnectOptions []GetEndpointClientConnectOption `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions []GetEndpointClientLoginBannerOption `pulumi:"clientLoginBannerOptions"`
-	ClientVpnEndpointId      string                               `pulumi:"clientVpnEndpointId"`
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions []GetEndpointClientRouteEnforcementOption `pulumi:"clientRouteEnforcementOptions"`
+	ClientVpnEndpointId           string                                    `pulumi:"clientVpnEndpointId"`
 	// Information about the client connection logging options for the Client VPN endpoint.
 	ConnectionLogOptions []GetEndpointConnectionLogOption `pulumi:"connectionLogOptions"`
 	// Brief description of the endpoint.
@@ -155,7 +158,8 @@ type LookupEndpointOutputArgs struct {
 	ClientVpnEndpointId pulumi.StringPtrInput `pulumi:"clientVpnEndpointId"`
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetEndpointFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired endpoint.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -202,6 +206,13 @@ func (o LookupEndpointResultOutput) ClientConnectOptions() GetEndpointClientConn
 // Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 func (o LookupEndpointResultOutput) ClientLoginBannerOptions() GetEndpointClientLoginBannerOptionArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointClientLoginBannerOption { return v.ClientLoginBannerOptions }).(GetEndpointClientLoginBannerOptionArrayOutput)
+}
+
+// Options for enforce administrator defined routes on devices connected through the VPN.
+func (o LookupEndpointResultOutput) ClientRouteEnforcementOptions() GetEndpointClientRouteEnforcementOptionArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointClientRouteEnforcementOption {
+		return v.ClientRouteEnforcementOptions
+	}).(GetEndpointClientRouteEnforcementOptionArrayOutput)
 }
 
 func (o LookupEndpointResultOutput) ClientVpnEndpointId() pulumi.StringOutput {

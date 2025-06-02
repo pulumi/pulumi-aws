@@ -6,15 +6,20 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
 public final class GetTablePointInTimeRecovery {
     private Boolean enabled;
+    private Integer recoveryPeriodInDays;
 
     private GetTablePointInTimeRecovery() {}
     public Boolean enabled() {
         return this.enabled;
+    }
+    public Integer recoveryPeriodInDays() {
+        return this.recoveryPeriodInDays;
     }
 
     public static Builder builder() {
@@ -27,10 +32,12 @@ public final class GetTablePointInTimeRecovery {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
+        private Integer recoveryPeriodInDays;
         public Builder() {}
         public Builder(GetTablePointInTimeRecovery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.recoveryPeriodInDays = defaults.recoveryPeriodInDays;
         }
 
         @CustomType.Setter
@@ -41,9 +48,18 @@ public final class GetTablePointInTimeRecovery {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder recoveryPeriodInDays(Integer recoveryPeriodInDays) {
+            if (recoveryPeriodInDays == null) {
+              throw new MissingRequiredPropertyException("GetTablePointInTimeRecovery", "recoveryPeriodInDays");
+            }
+            this.recoveryPeriodInDays = recoveryPeriodInDays;
+            return this;
+        }
         public GetTablePointInTimeRecovery build() {
             final var _resultValue = new GetTablePointInTimeRecovery();
             _resultValue.enabled = enabled;
+            _resultValue.recoveryPeriodInDays = recoveryPeriodInDays;
             return _resultValue;
         }
     }

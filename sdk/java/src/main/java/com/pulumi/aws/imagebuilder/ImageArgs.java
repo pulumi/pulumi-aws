@@ -147,14 +147,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Region of the container image.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region of the container image.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -398,7 +398,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region of the container image.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region of the container image.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

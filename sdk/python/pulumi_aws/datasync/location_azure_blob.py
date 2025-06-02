@@ -38,7 +38,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,7 +123,7 @@ class LocationAzureBlobArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -191,7 +191,7 @@ class _LocationAzureBlobState:
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,7 +298,7 @@ class _LocationAzureBlobState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -415,7 +415,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -540,7 +540,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -616,7 +616,7 @@ class LocationAzureBlob(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

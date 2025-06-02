@@ -30,7 +30,7 @@ class DomainSamlOptionsArgs:
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -57,7 +57,7 @@ class DomainSamlOptionsArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -89,7 +89,7 @@ class _DomainSamlOptionsState:
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         if domain_name is not None:
@@ -117,7 +117,7 @@ class _DomainSamlOptionsState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -196,7 +196,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         ...
@@ -303,7 +303,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -329,7 +329,7 @@ class DomainSamlOptions(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

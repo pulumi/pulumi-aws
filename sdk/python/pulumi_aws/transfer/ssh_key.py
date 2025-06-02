@@ -29,7 +29,7 @@ class SshKeyArgs:
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "server_id", server_id)
@@ -77,7 +77,7 @@ class SshKeyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -97,7 +97,7 @@ class _SshKeyState:
         """
         Input properties used for looking up and filtering SshKey resources.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
@@ -128,7 +128,7 @@ class _SshKeyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -245,7 +245,7 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
@@ -378,7 +378,7 @@ class SshKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
@@ -405,7 +405,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

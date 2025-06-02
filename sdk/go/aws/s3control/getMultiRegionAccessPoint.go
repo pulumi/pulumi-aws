@@ -54,7 +54,7 @@ type LookupMultiRegionAccessPointArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The name of the Multi-Region Access Point.
 	Name string `pulumi:"name"`
-	// The name of the region.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -97,7 +97,7 @@ type LookupMultiRegionAccessPointOutputArgs struct {
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The name of the Multi-Region Access Point.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the region.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -114,7 +114,7 @@ export class CustomModel extends pulumi.CustomResource {
      */
     public readonly outputDataConfig!: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -272,7 +272,7 @@ export interface CustomModelState {
      */
     outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -343,7 +343,7 @@ export interface CustomModelArgs {
      */
     outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

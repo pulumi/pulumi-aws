@@ -106,7 +106,7 @@ type OntapStorageVirtualMachine struct {
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrOutput `pulumi:"rootVolumeSecurityStyle"`
@@ -172,7 +172,7 @@ type ontapStorageVirtualMachineState struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
@@ -199,7 +199,7 @@ type OntapStorageVirtualMachineState struct {
 	FileSystemId pulumi.StringPtrInput
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
@@ -226,7 +226,7 @@ type ontapStorageVirtualMachineArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
@@ -244,7 +244,7 @@ type OntapStorageVirtualMachineArgs struct {
 	FileSystemId pulumi.StringInput
 	// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o OntapStorageVirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OntapStorageVirtualMachineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

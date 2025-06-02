@@ -235,7 +235,7 @@ type Cluster struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrOutput `pulumi:"serviceConnectDefaults"`
@@ -285,7 +285,7 @@ type clusterState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
@@ -306,7 +306,7 @@ type ClusterState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
@@ -329,7 +329,7 @@ type clusterArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
@@ -347,7 +347,7 @@ type ClusterArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
@@ -461,7 +461,7 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

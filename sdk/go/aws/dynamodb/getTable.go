@@ -51,7 +51,8 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
 	// Name of the DynamoDB table.
-	Name                 string                        `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region               *string                       `pulumi:"region"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
 	Tags                 map[string]string             `pulumi:"tags"`
@@ -98,7 +99,8 @@ func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...
 // A collection of arguments for invoking getTable.
 type LookupTableOutputArgs struct {
 	// Name of the DynamoDB table.
-	Name                 pulumi.StringInput                   `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region               pulumi.StringPtrInput                `pulumi:"region"`
 	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
 	Tags                 pulumi.StringMapInput                `pulumi:"tags"`

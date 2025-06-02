@@ -28,6 +28,9 @@ export function getDefaultScraperConfiguration(args?: GetDefaultScraperConfigura
  * A collection of arguments for invoking getDefaultScraperConfiguration.
  */
 export interface GetDefaultScraperConfigurationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -69,5 +72,8 @@ export function getDefaultScraperConfigurationOutput(args?: GetDefaultScraperCon
  * A collection of arguments for invoking getDefaultScraperConfiguration.
  */
 export interface GetDefaultScraperConfigurationOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

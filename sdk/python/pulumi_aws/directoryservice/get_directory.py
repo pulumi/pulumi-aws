@@ -258,6 +258,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
 
 
     :param builtins.str directory_id: ID of the directory.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
@@ -304,6 +305,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str directory_id: ID of the directory.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()

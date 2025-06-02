@@ -28,7 +28,7 @@ type ContributorManagedInsightRule struct {
 
 	// ARN of the Contributor Managed Insight Rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
@@ -80,7 +80,7 @@ func GetContributorManagedInsightRule(ctx *pulumi.Context,
 type contributorManagedInsightRuleState struct {
 	// ARN of the Contributor Managed Insight Rule.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn *string           `pulumi:"resourceArn"`
@@ -97,7 +97,7 @@ type contributorManagedInsightRuleState struct {
 type ContributorManagedInsightRuleState struct {
 	// ARN of the Contributor Managed Insight Rule.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringPtrInput
@@ -116,7 +116,7 @@ func (ContributorManagedInsightRuleState) ElementType() reflect.Type {
 }
 
 type contributorManagedInsightRuleArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn string            `pulumi:"resourceArn"`
@@ -130,7 +130,7 @@ type contributorManagedInsightRuleArgs struct {
 
 // The set of arguments for constructing a ContributorManagedInsightRule resource.
 type ContributorManagedInsightRuleArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringInput
@@ -234,7 +234,7 @@ func (o ContributorManagedInsightRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContributorManagedInsightRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -169,7 +169,7 @@ type PeeringConnectionOptions struct {
 
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterOutput `pulumi:"accepter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterOutput `pulumi:"requester"`
@@ -212,7 +212,7 @@ func GetPeeringConnectionOptions(ctx *pulumi.Context,
 type peeringConnectionOptionsState struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
 	Accepter *PeeringConnectionOptionsAccepter `pulumi:"accepter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
 	Requester *PeeringConnectionOptionsRequester `pulumi:"requester"`
@@ -223,7 +223,7 @@ type peeringConnectionOptionsState struct {
 type PeeringConnectionOptionsState struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterPtrInput
@@ -238,7 +238,7 @@ func (PeeringConnectionOptionsState) ElementType() reflect.Type {
 type peeringConnectionOptionsArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
 	Accepter *PeeringConnectionOptionsAccepter `pulumi:"accepter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
 	Requester *PeeringConnectionOptionsRequester `pulumi:"requester"`
@@ -250,7 +250,7 @@ type peeringConnectionOptionsArgs struct {
 type PeeringConnectionOptionsArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
 	Accepter PeeringConnectionOptionsAccepterPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
 	Requester PeeringConnectionOptionsRequesterPtrInput
@@ -350,7 +350,7 @@ func (o PeeringConnectionOptionsOutput) Accepter() PeeringConnectionOptionsAccep
 	return o.ApplyT(func(v *PeeringConnectionOptions) PeeringConnectionOptionsAccepterOutput { return v.Accepter }).(PeeringConnectionOptionsAccepterOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PeeringConnectionOptionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

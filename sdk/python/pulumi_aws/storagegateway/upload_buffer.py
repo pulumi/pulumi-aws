@@ -29,7 +29,7 @@ class UploadBufferArgs:
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         if disk_id is not None:
@@ -79,7 +79,7 @@ class UploadBufferArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -100,7 +100,7 @@ class _UploadBufferState:
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
@@ -151,7 +151,7 @@ class _UploadBufferState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -217,7 +217,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -324,7 +324,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -364,7 +364,7 @@ class UploadBuffer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

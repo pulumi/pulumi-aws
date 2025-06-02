@@ -316,14 +316,16 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
         return this.protocol;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     public Output<String> region() {
@@ -405,8 +407,6 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * 
      * The following arguments are optional:
      * 
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
@@ -416,8 +416,6 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * or `egress` (outbound).
      * 
      * The following arguments are optional:
-     * 
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     public Output<String> type() {

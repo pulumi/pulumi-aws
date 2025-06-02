@@ -105,9 +105,6 @@ namespace Pulumi.Aws.CostExplorer
         [Input("filter")]
         public Inputs.GetTagsFilterArgs? Filter { get; set; }
 
-        [Input("region")]
-        public string? Region { get; set; }
-
         /// <summary>
         /// Value that you want to search for.
         /// </summary>
@@ -151,9 +148,6 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         [Input("filter")]
         public Input<Inputs.GetTagsFilterInputArgs>? Filter { get; set; }
-
-        [Input("region")]
-        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Value that you want to search for.
@@ -200,7 +194,6 @@ namespace Pulumi.Aws.CostExplorer
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Region;
         public readonly string? SearchString;
         public readonly ImmutableArray<Outputs.GetTagsSortByResult> SortBies;
         public readonly string? TagKey;
@@ -216,8 +209,6 @@ namespace Pulumi.Aws.CostExplorer
 
             string id,
 
-            string region,
-
             string? searchString,
 
             ImmutableArray<Outputs.GetTagsSortByResult> sortBies,
@@ -230,7 +221,6 @@ namespace Pulumi.Aws.CostExplorer
         {
             Filter = filter;
             Id = id;
-            Region = region;
             SearchString = searchString;
             SortBies = sortBies;
             TagKey = tagKey;

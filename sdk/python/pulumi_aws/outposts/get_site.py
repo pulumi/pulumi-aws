@@ -108,6 +108,7 @@ def get_site(id: Optional[builtins.str] = None,
 
     :param builtins.str id: Identifier of the Site.
     :param builtins.str name: Name of the Site.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -141,6 +142,7 @@ def get_site_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
 
     :param builtins.str id: Identifier of the Site.
     :param builtins.str name: Name of the Site.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id

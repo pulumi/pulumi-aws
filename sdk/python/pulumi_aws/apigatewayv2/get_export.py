@@ -152,6 +152,7 @@ def get_export(api_id: Optional[builtins.str] = None,
     :param builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
     :param builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
     :param builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
     :param builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
@@ -203,6 +204,7 @@ def get_export_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
     :param builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
     :param builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
     :param builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """

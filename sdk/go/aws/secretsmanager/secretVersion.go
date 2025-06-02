@@ -104,7 +104,7 @@ type SecretVersion struct {
 
 	// The ARN of the secret.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrOutput `pulumi:"secretBinary"`
@@ -166,7 +166,7 @@ func GetSecretVersion(ctx *pulumi.Context,
 type secretVersionState struct {
 	// The ARN of the secret.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
@@ -185,7 +185,7 @@ type secretVersionState struct {
 type SecretVersionState struct {
 	// The ARN of the secret.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
@@ -206,7 +206,7 @@ func (SecretVersionState) ElementType() reflect.Type {
 }
 
 type secretVersionArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
@@ -222,7 +222,7 @@ type secretVersionArgs struct {
 
 // The set of arguments for constructing a SecretVersion resource.
 type SecretVersionArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
@@ -328,7 +328,7 @@ func (o SecretVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecretVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

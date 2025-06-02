@@ -35,6 +35,9 @@ export function getUserGroups(args: GetUserGroupsArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUserGroups.
  */
 export interface GetUserGroupsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * User pool the client belongs to.
@@ -85,6 +88,9 @@ export function getUserGroupsOutput(args: GetUserGroupsOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getUserGroups.
  */
 export interface GetUserGroupsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * User pool the client belongs to.

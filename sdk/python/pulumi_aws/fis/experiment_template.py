@@ -43,7 +43,7 @@ class ExperimentTemplateArgs:
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -154,7 +154,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -208,7 +208,7 @@ class _ExperimentTemplateState:
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -303,7 +303,7 @@ class _ExperimentTemplateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -540,7 +540,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -785,7 +785,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -854,7 +854,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

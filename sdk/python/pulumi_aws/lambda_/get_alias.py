@@ -145,6 +145,7 @@ def get_alias(function_name: Optional[builtins.str] = None,
 
     :param builtins.str function_name: Name of the aliased Lambda function.
     :param builtins.str name: Name of the Lambda alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -182,6 +183,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str function_name: Name of the aliased Lambda function.
     :param builtins.str name: Name of the Lambda alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name

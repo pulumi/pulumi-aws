@@ -29,7 +29,7 @@ class GroupMembershipArgs:
         :param pulumi.Input[builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -77,7 +77,7 @@ class GroupMembershipArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -100,7 +100,7 @@ class _GroupMembershipState:
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
         :param pulumi.Input[builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -165,7 +165,7 @@ class _GroupMembershipState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -226,7 +226,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -335,7 +335,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[builtins.str] member_id: The identifier for a user in the Identity Store.
         :param pulumi.Input[builtins.str] membership_id: The identifier of the newly created group membership in the Identity Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -384,7 +384,7 @@ class GroupMembership(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

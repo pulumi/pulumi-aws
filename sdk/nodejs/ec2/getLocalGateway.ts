@@ -49,6 +49,9 @@ export interface GetLocalGatewayArgs {
      * Id of the specific Local Gateway to retrieve.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Current state of the desired Local Gateway.
@@ -129,6 +132,9 @@ export interface GetLocalGatewayOutputArgs {
      * Id of the specific Local Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Current state of the desired Local Gateway.

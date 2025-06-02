@@ -71,8 +71,9 @@ type LookupGroupArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
-	IdentityStoreId string  `pulumi:"identityStoreId"`
-	Region          *string `pulumi:"region"`
+	IdentityStoreId string `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroup.
@@ -111,8 +112,9 @@ type LookupGroupOutputArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
-	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {

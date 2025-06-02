@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ImageVersionState Empty = new ImageVersionState();
+
+    /**
+     * A list of aliases for the image version.
+     * 
+     */
+    @Import(name="aliases")
+    private @Nullable Output<List<String>> aliases;
+
+    /**
+     * @return A list of aliases for the image version.
+     * 
+     */
+    public Optional<Output<List<String>>> aliases() {
+        return Optional.ofNullable(this.aliases);
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
@@ -160,14 +176,14 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -222,6 +238,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     private ImageVersionState() {}
 
     private ImageVersionState(ImageVersionState $) {
+        this.aliases = $.aliases;
         this.arn = $.arn;
         this.baseImage = $.baseImage;
         this.containerImage = $.containerImage;
@@ -254,6 +271,37 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ImageVersionState defaults) {
             $ = new ImageVersionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(@Nullable Output<List<String>> aliases) {
+            $.aliases = aliases;
+            return this;
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(List<String> aliases) {
+            return aliases(Output.of(aliases));
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(String... aliases) {
+            return aliases(List.of(aliases));
         }
 
         /**
@@ -455,7 +503,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -466,7 +514,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

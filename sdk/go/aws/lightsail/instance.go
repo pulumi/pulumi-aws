@@ -170,7 +170,7 @@ type Instance struct {
 	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
 	// The amount of RAM in GB on the instance (e.g., 1.0).
 	RamSize pulumi.Float64Output `pulumi:"ramSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -258,7 +258,7 @@ type instanceState struct {
 	PublicIpAddress *string `pulumi:"publicIpAddress"`
 	// The amount of RAM in GB on the instance (e.g., 1.0).
 	RamSize *float64 `pulumi:"ramSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -308,7 +308,7 @@ type InstanceState struct {
 	PublicIpAddress pulumi.StringPtrInput
 	// The amount of RAM in GB on the instance (e.g., 1.0).
 	RamSize pulumi.Float64PtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -346,7 +346,7 @@ type instanceArgs struct {
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -377,7 +377,7 @@ type InstanceArgs struct {
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -554,7 +554,7 @@ func (o InstanceOutput) RamSize() pulumi.Float64Output {
 	return o.ApplyT(func(v *Instance) pulumi.Float64Output { return v.RamSize }).(pulumi.Float64Output)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

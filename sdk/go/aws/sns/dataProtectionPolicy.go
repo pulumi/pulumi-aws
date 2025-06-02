@@ -87,7 +87,7 @@ type DataProtectionPolicy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -131,7 +131,7 @@ type dataProtectionPolicyState struct {
 	Arn *string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -140,7 +140,7 @@ type DataProtectionPolicyState struct {
 	Arn pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -153,7 +153,7 @@ type dataProtectionPolicyArgs struct {
 	Arn string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -163,7 +163,7 @@ type DataProtectionPolicyArgs struct {
 	Arn pulumi.StringInput
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -264,7 +264,7 @@ func (o DataProtectionPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataProtectionPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -59,8 +59,13 @@ export interface GetContactFlowArgs {
     instanceId: string;
     /**
      * Returns information on a specific Contact Flow by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Tags to assign to the Contact Flow.
@@ -160,8 +165,13 @@ export interface GetContactFlowOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Contact Flow by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Tags to assign to the Contact Flow.

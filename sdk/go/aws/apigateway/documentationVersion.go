@@ -72,7 +72,7 @@ type DocumentationVersion struct {
 
 	// Description of the API documentation version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
@@ -118,7 +118,7 @@ func GetDocumentationVersion(ctx *pulumi.Context,
 type documentationVersionState struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId *string `pulumi:"restApiId"`
@@ -129,7 +129,7 @@ type documentationVersionState struct {
 type DocumentationVersionState struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringPtrInput
@@ -144,7 +144,7 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 type documentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId string `pulumi:"restApiId"`
@@ -156,7 +156,7 @@ type documentationVersionArgs struct {
 type DocumentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringInput
@@ -256,7 +256,7 @@ func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DocumentationVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

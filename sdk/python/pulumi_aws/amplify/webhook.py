@@ -29,7 +29,7 @@ class WebhookArgs:
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -78,7 +78,7 @@ class WebhookArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _WebhookState:
         :param pulumi.Input[builtins.str] arn: ARN for the webhook.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url: URL of the webhook.
         """
         if app_id is not None:
@@ -170,7 +170,7 @@ class _WebhookState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -234,7 +234,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -334,7 +334,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN for the webhook.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url: URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -385,7 +385,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

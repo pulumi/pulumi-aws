@@ -20,17 +20,13 @@ __all__ = ['EnrollmentStatusArgs', 'EnrollmentStatus']
 @pulumi.input_type
 class EnrollmentStatusArgs:
     def __init__(__self__, *,
-                 include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None):
+                 include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a EnrollmentStatus resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="includeMemberAccounts")
@@ -44,34 +40,18 @@ class EnrollmentStatusArgs:
     def include_member_accounts(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "include_member_accounts", value)
 
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
-
 
 @pulumi.input_type
 class _EnrollmentStatusState:
     def __init__(__self__, *,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
         :param pulumi.Input[builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -86,18 +66,6 @@ class _EnrollmentStatusState:
     @include_member_accounts.setter
     def include_member_accounts(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "include_member_accounts", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -116,7 +84,6 @@ class EnrollmentStatus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing AWS Cost Optimization Hub Enrollment Status.
@@ -154,7 +121,6 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -211,7 +177,6 @@ class EnrollmentStatus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,7 +187,6 @@ class EnrollmentStatus(pulumi.CustomResource):
             __props__ = EnrollmentStatusArgs.__new__(EnrollmentStatusArgs)
 
             __props__.__dict__["include_member_accounts"] = include_member_accounts
-            __props__.__dict__["region"] = region
             __props__.__dict__["status"] = None
         super(EnrollmentStatus, __self__).__init__(
             'aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus',
@@ -235,7 +199,6 @@ class EnrollmentStatus(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
-            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'EnrollmentStatus':
         """
         Get an existing EnrollmentStatus resource's state with the given name, id, and optional extra
@@ -245,14 +208,12 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EnrollmentStatusState.__new__(_EnrollmentStatusState)
 
         __props__.__dict__["include_member_accounts"] = include_member_accounts
-        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         return EnrollmentStatus(resource_name, opts=opts, __props__=__props__)
 
@@ -263,14 +224,6 @@ class EnrollmentStatus(pulumi.CustomResource):
         Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         return pulumi.get(self, "include_member_accounts")
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

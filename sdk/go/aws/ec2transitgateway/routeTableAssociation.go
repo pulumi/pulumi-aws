@@ -51,7 +51,7 @@ import (
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation pulumi.BoolPtrOutput `pulumi:"replaceExistingAssociation"`
@@ -101,7 +101,7 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
@@ -116,7 +116,7 @@ type routeTableAssociationState struct {
 }
 
 type RouteTableAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation pulumi.BoolPtrInput
@@ -135,7 +135,7 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
@@ -147,7 +147,7 @@ type routeTableAssociationArgs struct {
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
 	ReplaceExistingAssociation pulumi.BoolPtrInput
@@ -244,7 +244,7 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

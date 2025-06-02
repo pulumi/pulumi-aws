@@ -655,6 +655,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
     :param builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on the desired Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Instance.
     """
     __args__ = dict()
@@ -763,6 +764,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on the desired Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Instance.
     """
     __args__ = dict()

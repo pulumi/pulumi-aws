@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -84,6 +85,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment uriFragment;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -176,6 +182,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+    /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -204,6 +217,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment uriFragment;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch defaults) {
@@ -220,6 +234,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
     	      this.singleQueryArgument = defaults.singleQueryArgument;
+    	      this.uriFragment = defaults.uriFragment;
     	      this.uriPath = defaults.uriPath;
         }
 
@@ -302,6 +317,12 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
             return this;
         }
         @CustomType.Setter
+        public Builder uriFragment(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragment uriFragment) {
+
+            this.uriFragment = uriFragment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder uriPath(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath uriPath) {
 
             this.uriPath = uriPath;
@@ -321,6 +342,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
             _resultValue.queryString = queryString;
             _resultValue.singleHeader = singleHeader;
             _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriFragment = uriFragment;
             _resultValue.uriPath = uriPath;
             return _resultValue;
         }

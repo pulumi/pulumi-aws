@@ -141,7 +141,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
      */
     public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface DeploymentConfigState {
      */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface DeploymentConfigArgs {
      */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

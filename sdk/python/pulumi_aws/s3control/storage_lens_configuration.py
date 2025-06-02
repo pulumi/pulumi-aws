@@ -32,7 +32,7 @@ class StorageLensConfigurationArgs:
         :param pulumi.Input[builtins.str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "config_id", config_id)
@@ -84,7 +84,7 @@ class StorageLensConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _StorageLensConfigurationState:
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[builtins.str] config_id: The ID of the S3 Storage Lens configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -180,7 +180,7 @@ class _StorageLensConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -297,7 +297,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] config_id: The ID of the S3 Storage Lens configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -430,7 +430,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[builtins.str] config_id: The ID of the S3 Storage Lens configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -476,7 +476,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

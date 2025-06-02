@@ -52,7 +52,8 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 type LookupConnectionArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
@@ -97,7 +98,8 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 type LookupConnectionOutputArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`

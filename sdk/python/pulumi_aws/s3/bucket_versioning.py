@@ -33,7 +33,7 @@ class BucketVersioningInitArgs:
         :param pulumi.Input['BucketVersioningVersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "versioning_configuration", versioning_configuration)
@@ -96,7 +96,7 @@ class BucketVersioningInitArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -118,7 +118,7 @@ class _BucketVersioningState:
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['BucketVersioningVersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         if bucket is not None:
@@ -172,7 +172,7 @@ class _BucketVersioningState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -298,7 +298,7 @@ class BucketVersioning(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         ...
@@ -460,7 +460,7 @@ class BucketVersioning(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -502,7 +502,7 @@ class BucketVersioning(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

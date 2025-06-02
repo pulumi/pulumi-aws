@@ -215,7 +215,7 @@ type GameServerGroup struct {
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -301,7 +301,7 @@ type gameServerGroupState struct {
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
 	MinSize *int `pulumi:"minSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn *string `pulumi:"roleArn"`
@@ -340,7 +340,7 @@ type GameServerGroupState struct {
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
 	MinSize pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringPtrInput
@@ -379,7 +379,7 @@ type gameServerGroupArgs struct {
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
 	MinSize int `pulumi:"minSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn string `pulumi:"roleArn"`
@@ -414,7 +414,7 @@ type GameServerGroupArgs struct {
 	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
 	MinSize pulumi.IntInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringInput
@@ -568,7 +568,7 @@ func (o GameServerGroupOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *GameServerGroup) pulumi.IntOutput { return v.MinSize }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GameServerGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameServerGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

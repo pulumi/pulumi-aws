@@ -33,7 +33,7 @@ class DeploymentConfigArgs:
         :param pulumi.Input[builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -90,7 +90,7 @@ class DeploymentConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -141,7 +141,7 @@ class _DeploymentConfigState:
         :param pulumi.Input[builtins.str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -226,7 +226,7 @@ class _DeploymentConfigState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -358,7 +358,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -517,7 +517,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -579,7 +579,7 @@ class DeploymentConfig(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

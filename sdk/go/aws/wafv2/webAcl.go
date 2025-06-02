@@ -29,6 +29,8 @@ type WebAcl struct {
 	ChallengeConfig WebAclChallengeConfigPtrOutput `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrOutput `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -38,7 +40,7 @@ type WebAcl struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrOutput `pulumi:"ruleJson"`
@@ -109,6 +111,8 @@ type webAclState struct {
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -118,7 +122,7 @@ type webAclState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
@@ -151,6 +155,8 @@ type WebAclState struct {
 	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// Friendly description of the WebACL.
@@ -160,7 +166,7 @@ type WebAclState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
@@ -191,6 +197,8 @@ type webAclArgs struct {
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -199,7 +207,7 @@ type webAclArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
@@ -225,6 +233,8 @@ type WebAclArgs struct {
 	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
@@ -233,7 +243,7 @@ type WebAclArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
@@ -371,6 +381,11 @@ func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyArrayOutput
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyArrayOutput)
 }
 
+// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+func (o WebAclOutput) DataProtectionConfig() WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclDataProtectionConfigPtrOutput { return v.DataProtectionConfig }).(WebAclDataProtectionConfigPtrOutput)
+}
+
 // Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
@@ -395,7 +410,7 @@ func (o WebAclOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

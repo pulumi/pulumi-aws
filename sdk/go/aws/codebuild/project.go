@@ -353,7 +353,7 @@ type Project struct {
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
 	// times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
 	// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -470,7 +470,7 @@ type projectState struct {
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
 	// times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
 	// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -546,7 +546,7 @@ type ProjectState struct {
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
 	// times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
 	// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -620,7 +620,7 @@ type projectArgs struct {
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
 	// times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
 	// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -688,7 +688,7 @@ type ProjectArgs struct {
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
 	// times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
 	// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
@@ -898,7 +898,7 @@ func (o ProjectOutput) QueuedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.QueuedTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

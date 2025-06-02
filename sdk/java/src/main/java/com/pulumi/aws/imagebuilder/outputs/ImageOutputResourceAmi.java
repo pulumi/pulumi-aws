@@ -32,7 +32,7 @@ public final class ImageOutputResourceAmi {
      */
     private @Nullable String name;
     /**
-     * @return Region of the container image.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private @Nullable String region;
@@ -67,7 +67,7 @@ public final class ImageOutputResourceAmi {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Region of the container image.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {

@@ -323,6 +323,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
            [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
@@ -398,6 +399,7 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
            [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.

@@ -24,7 +24,7 @@ type BucketReplicationConfig struct {
 
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -89,7 +89,7 @@ func GetBucketReplicationConfig(ctx *pulumi.Context,
 type bucketReplicationConfigState struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket *string `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role *string `pulumi:"role"`
@@ -109,7 +109,7 @@ type bucketReplicationConfigState struct {
 type BucketReplicationConfigState struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringPtrInput
@@ -133,7 +133,7 @@ func (BucketReplicationConfigState) ElementType() reflect.Type {
 type bucketReplicationConfigArgs struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
@@ -154,7 +154,7 @@ type bucketReplicationConfigArgs struct {
 type BucketReplicationConfigArgs struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput
@@ -263,7 +263,7 @@ func (o BucketReplicationConfigOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketReplicationConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketReplicationConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

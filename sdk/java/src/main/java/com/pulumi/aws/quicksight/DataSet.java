@@ -468,12 +468,16 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     /**
      * Display name for the dataset.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -502,16 +506,12 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="physicalTableMaps", refs={List.class,DataSetPhysicalTableMap.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSetPhysicalTableMap>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<List<DataSetPhysicalTableMap>>> physicalTableMaps() {
@@ -532,14 +532,14 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshProperties);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

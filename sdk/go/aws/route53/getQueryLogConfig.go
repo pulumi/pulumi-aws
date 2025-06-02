@@ -92,7 +92,8 @@ type GetQueryLogConfigArgs struct {
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The name of the query logging configuration.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
@@ -137,7 +138,8 @@ type GetQueryLogConfigOutputArgs struct {
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters GetQueryLogConfigFilterArrayInput `pulumi:"filters"`
 	// The name of the query logging configuration.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"resolverQueryLogConfigId"`

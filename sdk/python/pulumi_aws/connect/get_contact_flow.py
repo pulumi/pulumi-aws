@@ -182,6 +182,9 @@ def get_contact_flow(contact_flow_id: Optional[builtins.str] = None,
     :param builtins.str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Contact Flow by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags to assign to the Contact Flow.
     :param builtins.str type: Type of Contact Flow.
     """
@@ -242,6 +245,9 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[buil
     :param builtins.str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Contact Flow by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags to assign to the Contact Flow.
     :param builtins.str type: Type of Contact Flow.
     """

@@ -69,7 +69,8 @@ type GetInstanceTypeOfferingsArgs struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType *string `pulumi:"locationType"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypeOfferings.
@@ -102,7 +103,8 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	Filters GetInstanceTypeOfferingsFilterArrayInput `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypeOfferingsOutputArgs) ElementType() reflect.Type {

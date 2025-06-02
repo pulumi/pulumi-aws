@@ -35,7 +35,7 @@ class ScraperArgs:
         :param pulumi.Input[builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input['ScraperSourceArgs'] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
@@ -97,7 +97,7 @@ class ScraperArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -169,7 +169,7 @@ class _ScraperState:
         :param pulumi.Input[builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the new scraper.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
@@ -240,7 +240,7 @@ class _ScraperState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -355,7 +355,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -454,7 +454,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the new scraper.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
@@ -507,7 +507,7 @@ class Scraper(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

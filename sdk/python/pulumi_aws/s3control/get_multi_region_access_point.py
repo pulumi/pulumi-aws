@@ -184,7 +184,7 @@ def get_multi_region_access_point(account_id: Optional[builtins.str] = None,
 
     :param builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
     :param builtins.str name: The name of the Multi-Region Access Point.
-    :param builtins.str region: The name of the region.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -224,7 +224,7 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
 
     :param builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
     :param builtins.str name: The name of the Multi-Region Access Point.
-    :param builtins.str region: The name of the region.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accountId'] = account_id

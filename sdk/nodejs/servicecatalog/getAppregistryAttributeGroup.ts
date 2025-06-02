@@ -47,6 +47,10 @@ export interface GetAppregistryAttributeGroupArgs {
      * Name of the Attribute Group to find.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `arn`, `id`, or `name` must be set.
+     */
     region?: string;
 }
 
@@ -114,5 +118,9 @@ export interface GetAppregistryAttributeGroupOutputArgs {
      * Name of the Attribute Group to find.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `arn`, `id`, or `name` must be set.
+     */
     region?: pulumi.Input<string>;
 }

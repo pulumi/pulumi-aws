@@ -142,7 +142,7 @@ type Instance struct {
 	MultiPartyConferenceEnabled pulumi.BoolPtrOutput `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The service role of the instance.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
@@ -218,7 +218,7 @@ type instanceState struct {
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The service role of the instance.
 	ServiceRole *string `pulumi:"serviceRole"`
@@ -256,7 +256,7 @@ type InstanceState struct {
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
 	OutboundCallsEnabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The service role of the instance.
 	ServiceRole pulumi.StringPtrInput
@@ -294,7 +294,7 @@ type instanceArgs struct {
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
@@ -323,7 +323,7 @@ type InstanceArgs struct {
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
 	OutboundCallsEnabled pulumi.BoolInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
@@ -477,7 +477,7 @@ func (o InstanceOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -49,7 +49,7 @@ class ServerlessCacheArgs:
         :param pulumi.Input[builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -178,7 +178,7 @@ class ServerlessCacheArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -310,7 +310,7 @@ class _ServerlessCacheState:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -515,7 +515,7 @@ class _ServerlessCacheState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -752,7 +752,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -975,7 +975,7 @@ class ServerlessCache(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -1115,7 +1115,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

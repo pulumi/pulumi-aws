@@ -185,6 +185,7 @@ def get_quicksight_user(aws_account_id: Optional[builtins.str] = None,
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_name: The name of the user that you want to match.
            
            The following arguments are optional:
@@ -233,6 +234,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[bu
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_name: The name of the user that you want to match.
            
            The following arguments are optional:

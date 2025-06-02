@@ -135,7 +135,7 @@ type RepositoryCreationTemplate struct {
 	LifecyclePolicy pulumi.StringPtrOutput `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringOutput `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringOutput    `pulumi:"registryId"`
@@ -194,7 +194,7 @@ type repositoryCreationTemplateState struct {
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix *string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
 	RegistryId       *string `pulumi:"registryId"`
@@ -218,7 +218,7 @@ type RepositoryCreationTemplateState struct {
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The registry ID the repository creation template applies to.
 	RegistryId       pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type repositoryCreationTemplateArgs struct {
 	LifecyclePolicy *string `pulumi:"lifecyclePolicy"`
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           *string `pulumi:"region"`
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
@@ -269,7 +269,7 @@ type RepositoryCreationTemplateArgs struct {
 	LifecyclePolicy pulumi.StringPtrInput
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region           pulumi.StringPtrInput
 	RepositoryPolicy pulumi.StringPtrInput
 	// A map of tags to assign to any created repositories.
@@ -400,7 +400,7 @@ func (o RepositoryCreationTemplateOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryCreationTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

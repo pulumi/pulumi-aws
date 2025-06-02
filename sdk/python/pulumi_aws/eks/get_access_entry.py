@@ -193,6 +193,7 @@ def get_access_entry(cluster_name: Optional[builtins.str] = None,
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
@@ -240,6 +241,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] =
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()

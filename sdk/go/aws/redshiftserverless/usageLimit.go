@@ -67,7 +67,7 @@ type UsageLimit struct {
 	BreachAction pulumi.StringPtrOutput `pulumi:"breachAction"`
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
 	Period pulumi.StringPtrOutput `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -122,7 +122,7 @@ type usageLimitState struct {
 	BreachAction *string `pulumi:"breachAction"`
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
 	Period *string `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -139,7 +139,7 @@ type UsageLimitState struct {
 	BreachAction pulumi.StringPtrInput
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
 	Period pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringPtrInput
@@ -158,7 +158,7 @@ type usageLimitArgs struct {
 	BreachAction *string `pulumi:"breachAction"`
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
 	Period *string `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -174,7 +174,7 @@ type UsageLimitArgs struct {
 	BreachAction pulumi.StringPtrInput
 	// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
 	Period pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringInput
@@ -289,7 +289,7 @@ func (o UsageLimitOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringPtrOutput { return v.Period }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UsageLimitOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

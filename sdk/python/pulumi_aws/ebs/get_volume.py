@@ -281,6 +281,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
            [describe-volumes in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -344,6 +345,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
            [describe-volumes in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()

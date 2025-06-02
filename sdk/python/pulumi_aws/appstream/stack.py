@@ -49,7 +49,7 @@ class StackArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -189,7 +189,7 @@ class StackArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -284,7 +284,7 @@ class _StackState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -454,7 +454,7 @@ class _StackState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -626,7 +626,7 @@ class Stack(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -810,7 +810,7 @@ class Stack(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
@@ -929,7 +929,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -127,7 +127,7 @@ type FargateProfile struct {
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
@@ -190,7 +190,7 @@ type fargateProfileState struct {
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn *string `pulumi:"podExecutionRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
@@ -215,7 +215,7 @@ type FargateProfileState struct {
 	FargateProfileName pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayInput
@@ -242,7 +242,7 @@ type fargateProfileArgs struct {
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
@@ -262,7 +262,7 @@ type FargateProfileArgs struct {
 	FargateProfileName pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 	Selectors FargateProfileSelectorArrayInput
@@ -381,7 +381,7 @@ func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FargateProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

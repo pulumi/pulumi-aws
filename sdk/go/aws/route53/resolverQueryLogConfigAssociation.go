@@ -51,7 +51,7 @@ import (
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringOutput `pulumi:"resolverQueryLogConfigId"`
@@ -95,7 +95,7 @@ func GetResolverQueryLogConfigAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
 type resolverQueryLogConfigAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
@@ -104,7 +104,7 @@ type resolverQueryLogConfigAssociationState struct {
 }
 
 type ResolverQueryLogConfigAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringPtrInput
@@ -117,7 +117,7 @@ func (ResolverQueryLogConfigAssociationState) ElementType() reflect.Type {
 }
 
 type resolverQueryLogConfigAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId string `pulumi:"resolverQueryLogConfigId"`
@@ -127,7 +127,7 @@ type resolverQueryLogConfigAssociationArgs struct {
 
 // The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
 type ResolverQueryLogConfigAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringInput
@@ -222,7 +222,7 @@ func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssocia
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverQueryLogConfigAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfigAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

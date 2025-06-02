@@ -6943,6 +6943,8 @@ type GetUserHierarchyGroupHierarchyPathLevelFife struct {
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name string `pulumi:"name"`
 }
 
@@ -6963,6 +6965,8 @@ type GetUserHierarchyGroupHierarchyPathLevelFifeArgs struct {
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7028,6 +7032,8 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Id() pulumi.StringOut
 }
 
 // Returns information on a specific hierarchy group by name
+//
+// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7058,6 +7064,8 @@ type GetUserHierarchyGroupHierarchyPathLevelFour struct {
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name string `pulumi:"name"`
 }
 
@@ -7078,6 +7086,8 @@ type GetUserHierarchyGroupHierarchyPathLevelFourArgs struct {
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7143,6 +7153,8 @@ func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Id() pulumi.StringOut
 }
 
 // Returns information on a specific hierarchy group by name
+//
+// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7173,6 +7185,8 @@ type GetUserHierarchyGroupHierarchyPathLevelOne struct {
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name string `pulumi:"name"`
 }
 
@@ -7193,6 +7207,8 @@ type GetUserHierarchyGroupHierarchyPathLevelOneArgs struct {
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7258,6 +7274,8 @@ func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Id() pulumi.StringOutp
 }
 
 // Returns information on a specific hierarchy group by name
+//
+// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7288,6 +7306,8 @@ type GetUserHierarchyGroupHierarchyPathLevelThree struct {
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name string `pulumi:"name"`
 }
 
@@ -7308,6 +7328,8 @@ type GetUserHierarchyGroupHierarchyPathLevelThreeArgs struct {
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7373,6 +7395,8 @@ func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Id() pulumi.StringOu
 }
 
 // Returns information on a specific hierarchy group by name
+//
+// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7403,6 +7427,8 @@ type GetUserHierarchyGroupHierarchyPathLevelTwo struct {
 	// The identifier of the hierarchy group.
 	Id string `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name string `pulumi:"name"`
 }
 
@@ -7423,6 +7449,8 @@ type GetUserHierarchyGroupHierarchyPathLevelTwoArgs struct {
 	// The identifier of the hierarchy group.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7488,6 +7516,8 @@ func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Id() pulumi.StringOutp
 }
 
 // Returns information on a specific hierarchy group by name
+//
+// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Name }).(pulumi.StringOutput)
 }

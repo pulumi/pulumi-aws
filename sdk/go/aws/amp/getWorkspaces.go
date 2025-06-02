@@ -79,7 +79,8 @@ func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.
 type GetWorkspacesArgs struct {
 	// Limits results to workspaces with aliases that begin with this value.
 	AliasPrefix *string `pulumi:"aliasPrefix"`
-	Region      *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getWorkspaces.
@@ -109,7 +110,8 @@ func GetWorkspacesOutput(ctx *pulumi.Context, args GetWorkspacesOutputArgs, opts
 type GetWorkspacesOutputArgs struct {
 	// Limits results to workspaces with aliases that begin with this value.
 	AliasPrefix pulumi.StringPtrInput `pulumi:"aliasPrefix"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetWorkspacesOutputArgs) ElementType() reflect.Type {

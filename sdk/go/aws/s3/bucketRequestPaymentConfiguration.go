@@ -70,7 +70,7 @@ type BucketRequestPaymentConfiguration struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -125,7 +125,7 @@ type bucketRequestPaymentConfigurationState struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -136,7 +136,7 @@ type BucketRequestPaymentConfigurationState struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -151,7 +151,7 @@ type bucketRequestPaymentConfigurationArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -163,7 +163,7 @@ type BucketRequestPaymentConfigurationArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -269,7 +269,7 @@ func (o BucketRequestPaymentConfigurationOutput) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketRequestPaymentConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

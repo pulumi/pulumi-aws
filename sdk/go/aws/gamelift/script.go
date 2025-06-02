@@ -58,7 +58,7 @@ type Script struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the script
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
@@ -106,7 +106,7 @@ type scriptState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the script
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
@@ -125,7 +125,7 @@ type ScriptState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the script
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
@@ -146,7 +146,7 @@ func (ScriptState) ElementType() reflect.Type {
 type scriptArgs struct {
 	// Name of the script
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
@@ -162,7 +162,7 @@ type scriptArgs struct {
 type ScriptArgs struct {
 	// Name of the script
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
@@ -271,7 +271,7 @@ func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScriptOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

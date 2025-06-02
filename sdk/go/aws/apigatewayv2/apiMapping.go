@@ -61,7 +61,7 @@ type ApiMapping struct {
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringOutput `pulumi:"stage"`
@@ -112,7 +112,7 @@ type apiMappingState struct {
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName *string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage *string `pulumi:"stage"`
@@ -125,7 +125,7 @@ type ApiMappingState struct {
 	ApiMappingKey pulumi.StringPtrInput
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringPtrInput
@@ -142,7 +142,7 @@ type apiMappingArgs struct {
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage string `pulumi:"stage"`
@@ -156,7 +156,7 @@ type ApiMappingArgs struct {
 	ApiMappingKey pulumi.StringPtrInput
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringInput
@@ -264,7 +264,7 @@ func (o ApiMappingOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApiMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

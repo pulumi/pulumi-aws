@@ -123,10 +123,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
+// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
 // ```
 type ConnectorProfile struct {
 	pulumi.CustomResourceState
@@ -146,7 +146,8 @@ type ConnectorProfile struct {
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	Name   pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -204,7 +205,8 @@ type connectorProfileState struct {
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	Name   *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 	Region *string `pulumi:"region"`
 }
 
@@ -224,7 +226,8 @@ type ConnectorProfileState struct {
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	Name   pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 	Region pulumi.StringPtrInput
 }
 
@@ -244,7 +247,8 @@ type connectorProfileArgs struct {
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	Name   *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 	Region *string `pulumi:"region"`
 }
 
@@ -261,7 +265,8 @@ type ConnectorProfileArgs struct {
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	Name   pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 	Region pulumi.StringPtrInput
 }
 
@@ -393,7 +398,8 @@ func (o ConnectorProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
 func (o ConnectorProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -52,6 +52,7 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceName string `pulumi:"serviceName"`
@@ -78,6 +79,7 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getService.
 type GetServiceOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`

@@ -36,7 +36,7 @@ class AgreementArgs:
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_role", access_role)
@@ -127,7 +127,7 @@ class AgreementArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -172,7 +172,7 @@ class _AgreementState:
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -289,7 +289,7 @@ class _AgreementState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -390,7 +390,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -518,7 +518,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -600,7 +600,7 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

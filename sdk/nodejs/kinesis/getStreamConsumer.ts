@@ -43,6 +43,9 @@ export interface GetStreamConsumerArgs {
      * Name of the stream consumer.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ARN of the data stream the consumer is registered with.
@@ -110,6 +113,9 @@ export interface GetStreamConsumerOutputArgs {
      * Name of the stream consumer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ARN of the data stream the consumer is registered with.

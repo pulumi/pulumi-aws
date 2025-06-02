@@ -71,7 +71,7 @@ type MemberDetectorFeature struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -124,7 +124,7 @@ type memberDetectorFeatureState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -139,7 +139,7 @@ type MemberDetectorFeatureState struct {
 	DetectorId pulumi.StringPtrInput
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
@@ -158,7 +158,7 @@ type memberDetectorFeatureArgs struct {
 	DetectorId string `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -174,7 +174,7 @@ type MemberDetectorFeatureArgs struct {
 	DetectorId pulumi.StringInput
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput
@@ -289,7 +289,7 @@ func (o MemberDetectorFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MemberDetectorFeatureOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

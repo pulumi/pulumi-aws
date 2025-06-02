@@ -105,6 +105,7 @@ def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterA
 
 
     :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -140,6 +141,7 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
 
     :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

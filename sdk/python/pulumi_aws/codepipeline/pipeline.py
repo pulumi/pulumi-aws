@@ -42,7 +42,7 @@ class PipelineArgs:
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
@@ -143,7 +143,7 @@ class PipelineArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -213,7 +213,7 @@ class _PipelineState:
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -315,7 +315,7 @@ class _PipelineState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -569,7 +569,7 @@ class Pipeline(pulumi.CustomResource):
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -808,7 +808,7 @@ class Pipeline(pulumi.CustomResource):
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -882,7 +882,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

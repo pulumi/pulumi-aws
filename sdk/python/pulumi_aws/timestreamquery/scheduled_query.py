@@ -49,7 +49,7 @@ class ScheduledQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]] last_run_summaries: Runtime summary for the last scheduled query run.
         :param pulumi.Input[builtins.str] name: Name of the scheduled query.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "error_report_configuration", error_report_configuration)
@@ -199,7 +199,7 @@ class ScheduledQueryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -265,7 +265,7 @@ class _ScheduledQueryState:
         :param pulumi.Input[builtins.str] previous_invocation_time: Last time the scheduled query was run.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -461,7 +461,7 @@ class _ScheduledQueryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -848,7 +848,7 @@ class ScheduledQuery(pulumi.CustomResource):
         :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
@@ -1254,7 +1254,7 @@ class ScheduledQuery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] previous_invocation_time: Last time the scheduled query was run.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1388,7 +1388,7 @@ class ScheduledQuery(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

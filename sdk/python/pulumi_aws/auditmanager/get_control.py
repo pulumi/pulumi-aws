@@ -187,6 +187,7 @@ def get_control(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the control.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
     """
     __args__ = dict()
@@ -257,6 +258,7 @@ def get_control_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the control.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
     """
     __args__ = dict()

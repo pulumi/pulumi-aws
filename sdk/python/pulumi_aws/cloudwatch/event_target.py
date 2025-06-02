@@ -62,7 +62,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
@@ -286,7 +286,7 @@ class EventTargetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -407,7 +407,7 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -622,7 +622,7 @@ class _EventTargetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -749,6 +749,12 @@ class EventTarget(pulumi.CustomResource):
         Provides an EventBridge Target resource.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** In order to be able to have your AWS Lambda function or
+           SNS topic invoked by an EventBridge rule, you must set up the right permissions
+           using `lambda.Permission`
+           or `sns.TopicPolicy`.
+           More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
 
         ## Example Usage
 
@@ -1203,7 +1209,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -1224,6 +1230,12 @@ class EventTarget(pulumi.CustomResource):
         Provides an EventBridge Target resource.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** In order to be able to have your AWS Lambda function or
+           SNS topic invoked by an EventBridge rule, you must set up the right permissions
+           using `lambda.Permission`
+           or `sns.TopicPolicy`.
+           More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
 
         ## Example Usage
 
@@ -1784,7 +1796,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -1931,7 +1943,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

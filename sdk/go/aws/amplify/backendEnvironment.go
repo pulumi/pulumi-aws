@@ -67,7 +67,7 @@ type BackendEnvironment struct {
 	DeploymentArtifacts pulumi.StringOutput `pulumi:"deploymentArtifacts"`
 	// Name for the backend environment.
 	EnvironmentName pulumi.StringOutput `pulumi:"environmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
@@ -117,7 +117,7 @@ type backendEnvironmentState struct {
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
 	// Name for the backend environment.
 	EnvironmentName *string `pulumi:"environmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS CloudFormation stack name of a backend environment.
 	StackName *string `pulumi:"stackName"`
@@ -132,7 +132,7 @@ type BackendEnvironmentState struct {
 	DeploymentArtifacts pulumi.StringPtrInput
 	// Name for the backend environment.
 	EnvironmentName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type backendEnvironmentArgs struct {
 	DeploymentArtifacts *string `pulumi:"deploymentArtifacts"`
 	// Name for the backend environment.
 	EnvironmentName string `pulumi:"environmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS CloudFormation stack name of a backend environment.
 	StackName *string `pulumi:"stackName"`
@@ -163,7 +163,7 @@ type BackendEnvironmentArgs struct {
 	DeploymentArtifacts pulumi.StringPtrInput
 	// Name for the backend environment.
 	EnvironmentName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS CloudFormation stack name of a backend environment.
 	StackName pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o BackendEnvironmentOutput) EnvironmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.EnvironmentName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BackendEnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

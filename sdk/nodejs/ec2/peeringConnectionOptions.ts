@@ -132,7 +132,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      */
     public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -185,7 +185,7 @@ export interface PeeringConnectionOptionsState {
      */
     accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface PeeringConnectionOptionsArgs {
      */
     accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

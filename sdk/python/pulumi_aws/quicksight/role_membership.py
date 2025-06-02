@@ -33,7 +33,7 @@ class RoleMembershipArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "member_name", member_name)
         pulumi.set(__self__, "role", role)
@@ -98,7 +98,7 @@ class RoleMembershipArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _RoleMembershipState:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
                The following arguments are optional:
@@ -176,7 +176,7 @@ class _RoleMembershipState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -242,7 +242,7 @@ class RoleMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
                The following arguments are optional:
@@ -342,7 +342,7 @@ class RoleMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID. Defaults to the account of the caller identity if not configured.
         :param pulumi.Input[builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[builtins.str] namespace: Name of the namespace. Defaults to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
                The following arguments are optional:
@@ -386,7 +386,7 @@ class RoleMembership(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

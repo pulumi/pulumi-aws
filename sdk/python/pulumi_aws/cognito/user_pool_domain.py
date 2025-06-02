@@ -31,7 +31,7 @@ class UserPoolDomainArgs:
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -94,7 +94,7 @@ class UserPoolDomainArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -126,7 +126,7 @@ class _UserPoolDomainState:
         :param pulumi.Input[builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] version: The app version.
@@ -242,7 +242,7 @@ class _UserPoolDomainState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -352,7 +352,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
         ...
@@ -488,7 +488,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cloudfront_distribution_zone_id: The Route 53 hosted zone ID of the CloudFront distribution.
         :param pulumi.Input[builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[builtins.int] managed_login_version: A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[builtins.str] version: The app version.
@@ -570,7 +570,7 @@ class UserPoolDomain(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -138,6 +138,10 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        /// 
+        /// &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+        /// 
+        /// &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
         /// </summary>
         [Output("allowedPrefixes")]
         public Output<ImmutableArray<string>> AllowedPrefixes { get; private set; } = null!;
@@ -188,7 +192,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string?> ProposalId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -244,6 +248,10 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        /// 
+        /// &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+        /// 
+        /// &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
         /// </summary>
         public InputList<string> AllowedPrefixes
         {
@@ -279,7 +287,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ProposalId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -297,6 +305,10 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        /// 
+        /// &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+        /// 
+        /// &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
         /// </summary>
         public InputList<string> AllowedPrefixes
         {
@@ -350,7 +362,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ProposalId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

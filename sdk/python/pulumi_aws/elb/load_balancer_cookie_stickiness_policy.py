@@ -35,7 +35,7 @@ class LoadBalancerCookieStickinessPolicyArgs:
         :param pulumi.Input[builtins.int] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
         :param pulumi.Input[builtins.str] name: The name of the stickiness policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "lb_port", lb_port)
         pulumi.set(__self__, "load_balancer", load_balancer)
@@ -102,7 +102,7 @@ class LoadBalancerCookieStickinessPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -129,7 +129,7 @@ class _LoadBalancerCookieStickinessPolicyState:
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the stickiness policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cookie_expiration_period is not None:
             pulumi.set(__self__, "cookie_expiration_period", cookie_expiration_period)
@@ -198,7 +198,7 @@ class _LoadBalancerCookieStickinessPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -254,7 +254,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the stickiness policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -357,7 +357,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the stickiness policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,7 +410,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -48,7 +48,7 @@ class StageArgs:
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
@@ -203,7 +203,7 @@ class StageArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -286,7 +286,7 @@ class _StageState:
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -473,7 +473,7 @@ class _StageState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -628,7 +628,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -785,7 +785,7 @@ class Stage(pulumi.CustomResource):
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -914,7 +914,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

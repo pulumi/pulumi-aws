@@ -324,6 +324,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
     :param builtins.str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
     :param builtins.str license_model: License model. (Default: `amazon-license`)
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool vpc: Enable to show only VPC offerings.
     """
     __args__ = dict()
@@ -392,6 +393,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
     :param builtins.str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
     :param builtins.str license_model: License model. (Default: `amazon-license`)
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool vpc: Enable to show only VPC offerings.
     """
     __args__ = dict()

@@ -34,7 +34,7 @@ class AliasArgs:
         :param pulumi.Input[builtins.str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         :param pulumi.Input[builtins.str] description: Description of the alias.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -100,7 +100,7 @@ class AliasArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -140,7 +140,7 @@ class _AliasState:
         :param pulumi.Input[builtins.str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         :param pulumi.Input[builtins.str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
         if arn is not None:
@@ -236,7 +236,7 @@ class _AliasState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -308,7 +308,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_name: Lambda Function name or ARN.
         :param pulumi.Input[builtins.str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
         ...
@@ -422,7 +422,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         :param pulumi.Input[builtins.str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         :param pulumi.Input[builtins.str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AliasRoutingConfigArgs', 'AliasRoutingConfigArgsDict']] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -491,7 +491,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -13,16 +13,12 @@ public final class ResponsePlanIncidentTemplateNotificationTarget {
     /**
      * @return The ARN of the Amazon SNS topic.
      * 
-     * The following arguments are optional:
-     * 
      */
     private String snsTopicArn;
 
     private ResponsePlanIncidentTemplateNotificationTarget() {}
     /**
      * @return The ARN of the Amazon SNS topic.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String snsTopicArn() {

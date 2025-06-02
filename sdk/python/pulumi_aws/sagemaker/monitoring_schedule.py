@@ -30,7 +30,7 @@ class MonitoringScheduleArgs:
         The set of arguments for constructing a MonitoringSchedule resource.
         :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs'] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
@@ -69,7 +69,7 @@ class MonitoringScheduleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -104,7 +104,7 @@ class _MonitoringScheduleState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
         :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs'] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -161,7 +161,7 @@ class _MonitoringScheduleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -236,7 +236,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -334,7 +334,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
         :param pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -378,7 +378,7 @@ class MonitoringSchedule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

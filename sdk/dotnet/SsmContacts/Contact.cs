@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SsmContacts
     /// <summary>
     /// Resource for managing an AWS SSM Contact.
     /// 
+    /// &gt; **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the Contact Resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -99,13 +101,13 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -184,7 +186,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -193,7 +195,7 @@ namespace Pulumi.Aws.SsmContacts
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -237,7 +239,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -246,7 +248,7 @@ namespace Pulumi.Aws.SsmContacts
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

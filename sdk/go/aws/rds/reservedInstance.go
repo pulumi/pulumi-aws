@@ -92,7 +92,7 @@ type ReservedInstance struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrOutput `pulumi:"reservationId"`
@@ -167,7 +167,7 @@ type reservedInstanceState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
@@ -210,7 +210,7 @@ type ReservedInstanceState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
@@ -237,7 +237,7 @@ type reservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId string `pulumi:"offeringId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
@@ -253,7 +253,7 @@ type ReservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
@@ -410,7 +410,7 @@ func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChar
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReservedInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -42,7 +42,7 @@ class ReplicationConfigArgs:
         :param pulumi.Input[builtins.str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[builtins.str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[builtins.str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[builtins.str] resource_identifier: Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         :param pulumi.Input[builtins.bool] start_replication: Whether to run or stop the serverless replication, default is false.
@@ -144,7 +144,7 @@ class ReplicationConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -234,7 +234,7 @@ class _ReplicationConfigState:
         Input properties used for looking up and filtering ReplicationConfig resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) for the serverless replication config.
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration block for provisioning an DMS Serverless replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[builtins.str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -304,7 +304,7 @@ class _ReplicationConfigState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -505,7 +505,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[builtins.str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -656,7 +656,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) for the serverless replication config.
         :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[builtins.str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[builtins.str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -709,7 +709,7 @@ class ReplicationConfig(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

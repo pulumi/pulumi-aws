@@ -25,7 +25,6 @@ export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,
-        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,7 +37,6 @@ export interface GetCostCategoryArgs {
      * Unique name for the Cost Category.
      */
     costCategoryArn: string;
-    region?: string;
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */
@@ -67,7 +65,6 @@ export interface GetCostCategoryResult {
      */
     readonly id: string;
     readonly name: string;
-    readonly region: string;
     /**
      * Rule schema version in this particular Cost Category.
      */
@@ -103,7 +100,6 @@ export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,
-        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -116,7 +112,6 @@ export interface GetCostCategoryOutputArgs {
      * Unique name for the Cost Category.
      */
     costCategoryArn: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */

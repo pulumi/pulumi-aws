@@ -109,7 +109,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -148,6 +148,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -261,7 +264,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -312,6 +315,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -398,7 +404,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -457,6 +463,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

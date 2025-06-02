@@ -63,7 +63,8 @@ type LookupVpcEndpointArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcEndpointFilter `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
@@ -133,7 +134,8 @@ type LookupVpcEndpointOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcEndpointFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`

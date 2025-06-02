@@ -92,7 +92,8 @@ type LookupRouteArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	Region             *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
@@ -157,7 +158,8 @@ type LookupRouteOutputArgs struct {
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.

@@ -34,7 +34,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,7 +82,7 @@ class ClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -145,7 +145,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -210,7 +210,7 @@ class _ClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -406,7 +406,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -605,7 +605,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -655,7 +655,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

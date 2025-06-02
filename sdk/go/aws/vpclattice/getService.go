@@ -53,7 +53,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
 	// Service name.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
@@ -96,7 +97,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
 	// Service name.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`

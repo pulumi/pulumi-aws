@@ -159,7 +159,7 @@ type EnvironmentEC2 struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
@@ -231,7 +231,7 @@ type environmentEC2State struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn *string `pulumi:"ownerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
@@ -268,7 +268,7 @@ type EnvironmentEC2State struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
@@ -307,7 +307,7 @@ type environmentEC2Args struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn *string `pulumi:"ownerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
@@ -339,7 +339,7 @@ type EnvironmentEC2Args struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
 	OwnerArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
@@ -482,7 +482,7 @@ func (o EnvironmentEC2Output) OwnerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.OwnerArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentEC2Output) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -87,6 +87,9 @@ def get_inference_profiles(region: Optional[builtins.str] = None,
 
     test = aws.bedrock.get_inference_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -112,6 +115,9 @@ def get_inference_profiles_output(region: Optional[pulumi.Input[Optional[builtin
 
     test = aws.bedrock.get_inference_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

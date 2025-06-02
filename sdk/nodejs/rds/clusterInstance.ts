@@ -218,7 +218,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -227,6 +227,9 @@ export class ClusterInstance extends pulumi.CustomResource {
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -470,7 +473,7 @@ export interface ClusterInstanceState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -479,6 +482,9 @@ export interface ClusterInstanceState {
     storageEncrypted?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -593,11 +599,14 @@ export interface ClusterInstanceArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

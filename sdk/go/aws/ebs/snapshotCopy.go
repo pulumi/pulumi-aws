@@ -84,7 +84,7 @@ type SnapshotCopy struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
@@ -158,7 +158,7 @@ type snapshotCopyState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion *string `pulumi:"sourceRegion"`
@@ -197,7 +197,7 @@ type SnapshotCopyState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type snapshotCopyArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion string `pulumi:"sourceRegion"`
@@ -257,7 +257,7 @@ type SnapshotCopyArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringInput
@@ -407,7 +407,7 @@ func (o SnapshotCopyOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotCopyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

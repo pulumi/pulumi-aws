@@ -66,7 +66,8 @@ type LookupServiceQuotaArgs struct {
 	//
 	// > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
 	QuotaName *string `pulumi:"quotaName"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Service code for the quota. Available values can be found with the `servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode string `pulumi:"serviceCode"`
 }
@@ -112,7 +113,8 @@ type LookupServiceQuotaOutputArgs struct {
 	//
 	// > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
 	QuotaName pulumi.StringPtrInput `pulumi:"quotaName"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service code for the quota. Available values can be found with the `servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
 }

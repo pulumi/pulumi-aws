@@ -126,6 +126,7 @@ def get_group_memberships(group_id: Optional[builtins.str] = None,
 
     :param builtins.str group_id: The identifier for a group in the Identity Store.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
@@ -170,6 +171,7 @@ def get_group_memberships_output(group_id: Optional[pulumi.Input[builtins.str]] 
 
     :param builtins.str group_id: The identifier for a group in the Identity Store.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['groupId'] = group_id

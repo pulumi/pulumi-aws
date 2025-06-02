@@ -87,6 +87,9 @@ def get_profiles_profiles(region: Optional[builtins.str] = None,
 
     example = aws.route53.get_profiles_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -112,6 +115,9 @@ def get_profiles_profiles_output(region: Optional[pulumi.Input[Optional[builtins
 
     example = aws.route53.get_profiles_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

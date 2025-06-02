@@ -139,7 +139,7 @@ import (
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -183,7 +183,7 @@ func GetWebAclAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAclAssociation resources.
 type webAclAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -192,7 +192,7 @@ type webAclAssociationState struct {
 }
 
 type WebAclAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringPtrInput
@@ -205,7 +205,7 @@ func (WebAclAssociationState) ElementType() reflect.Type {
 }
 
 type webAclAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -215,7 +215,7 @@ type webAclAssociationArgs struct {
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn pulumi.StringInput
@@ -310,7 +310,7 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAclAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

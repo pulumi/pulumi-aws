@@ -202,7 +202,7 @@ type ContactsRotation struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrOutput `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
@@ -260,7 +260,7 @@ type contactsRotationState struct {
 	//
 	// The following arguments are optional:
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime *string `pulumi:"startTime"`
@@ -283,7 +283,7 @@ type ContactsRotationState struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrInput
@@ -308,7 +308,7 @@ type contactsRotationArgs struct {
 	//
 	// The following arguments are optional:
 	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime *string `pulumi:"startTime"`
@@ -328,7 +328,7 @@ type ContactsRotationArgs struct {
 	//
 	// The following arguments are optional:
 	Recurrence ContactsRotationRecurrencePtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime pulumi.StringPtrInput
@@ -447,7 +447,7 @@ func (o ContactsRotationOutput) Recurrence() ContactsRotationRecurrencePtrOutput
 	return o.ApplyT(func(v *ContactsRotation) ContactsRotationRecurrencePtrOutput { return v.Recurrence }).(ContactsRotationRecurrencePtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactsRotationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

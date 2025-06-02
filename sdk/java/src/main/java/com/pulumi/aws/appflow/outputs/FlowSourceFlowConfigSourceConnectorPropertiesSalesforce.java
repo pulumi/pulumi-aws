@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
-    /**
-     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-     * 
-     */
     private @Nullable String dataTransferApi;
     /**
      * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
@@ -31,10 +27,6 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSalesforce() {}
-    /**
-     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-     * 
-     */
     public Optional<String> dataTransferApi() {
         return Optional.ofNullable(this.dataTransferApi);
     }

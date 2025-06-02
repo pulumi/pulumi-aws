@@ -36,6 +36,9 @@ export interface GetEventConnectionArgs {
      * Name of the connection.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -44,11 +47,11 @@ export interface GetEventConnectionArgs {
  */
 export interface GetEventConnectionResult {
     /**
-     * ARN (Amazon Resource Name) for the connection.
+     * ARN (Amazon Resource Name) of the connection.
      */
     readonly arn: string;
     /**
-     * Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
     readonly authorizationType: string;
     /**
@@ -56,12 +59,13 @@ export interface GetEventConnectionResult {
      */
     readonly id: string;
     /**
-     * Name of the connection.
+     * (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
      */
+    readonly kmsKeyIdentifier: string;
     readonly name: string;
     readonly region: string;
     /**
-     * ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+     * ARN of the secret created from the authorization parameters specified for the connection.
      */
     readonly secretArn: string;
 }
@@ -97,5 +101,8 @@ export interface GetEventConnectionOutputArgs {
      * Name of the connection.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

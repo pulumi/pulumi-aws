@@ -80,7 +80,7 @@ type InstanceAccessControlAttributes struct {
 	Attributes InstanceAccessControlAttributesAttributeArrayOutput `pulumi:"attributes"`
 	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region       pulumi.StringOutput `pulumi:"region"`
 	Status       pulumi.StringOutput `pulumi:"status"`
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
@@ -126,7 +126,7 @@ type instanceAccessControlAttributesState struct {
 	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
 	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn *string `pulumi:"instanceArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region       *string `pulumi:"region"`
 	Status       *string `pulumi:"status"`
 	StatusReason *string `pulumi:"statusReason"`
@@ -137,7 +137,7 @@ type InstanceAccessControlAttributesState struct {
 	Attributes InstanceAccessControlAttributesAttributeArrayInput
 	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region       pulumi.StringPtrInput
 	Status       pulumi.StringPtrInput
 	StatusReason pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type instanceAccessControlAttributesArgs struct {
 	Attributes []InstanceAccessControlAttributesAttribute `pulumi:"attributes"`
 	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -162,7 +162,7 @@ type InstanceAccessControlAttributesArgs struct {
 	Attributes InstanceAccessControlAttributesAttributeArrayInput
 	// The Amazon Resource Name (ARN) of the SSO Instance.
 	InstanceArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o InstanceAccessControlAttributesOutput) InstanceArn() pulumi.StringOutput
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceAccessControlAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceAccessControlAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

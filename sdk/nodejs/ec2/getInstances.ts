@@ -73,6 +73,9 @@ export interface GetInstancesArgs {
      * exactly match a pair on desired instances.
      */
     instanceTags?: {[key: string]: string};
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -171,5 +174,8 @@ export interface GetInstancesOutputArgs {
      * exactly match a pair on desired instances.
      */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

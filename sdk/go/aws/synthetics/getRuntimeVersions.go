@@ -50,6 +50,7 @@ func GetRuntimeVersions(ctx *pulumi.Context, args *GetRuntimeVersionsArgs, opts 
 
 // A collection of arguments for invoking getRuntimeVersions.
 type GetRuntimeVersionsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetRuntimeVersionsOutput(ctx *pulumi.Context, args GetRuntimeVersionsOutput
 
 // A collection of arguments for invoking getRuntimeVersions.
 type GetRuntimeVersionsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -97,6 +97,9 @@ export interface GetAvailabilityZoneArgs {
      * Full name of the availability zone to select.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
@@ -251,6 +254,9 @@ export interface GetAvailabilityZoneOutputArgs {
      * Full name of the availability zone to select.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.

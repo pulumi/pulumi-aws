@@ -78,7 +78,8 @@ func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...p
 type GetInstanceTypesArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters []GetInstanceTypesFilter `pulumi:"filters"`
-	Region  *string                  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypes.
@@ -104,7 +105,8 @@ func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs
 type GetInstanceTypesOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters GetInstanceTypesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput            `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypesOutputArgs) ElementType() reflect.Type {

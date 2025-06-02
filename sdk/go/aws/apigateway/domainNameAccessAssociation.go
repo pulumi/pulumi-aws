@@ -60,7 +60,7 @@ type DomainNameAccessAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the domain name.
 	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,7 +115,7 @@ type domainNameAccessAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// The ARN of the domain name.
 	DomainNameArn *string `pulumi:"domainNameArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -132,7 +132,7 @@ type DomainNameAccessAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// The ARN of the domain name.
 	DomainNameArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -151,7 +151,7 @@ type domainNameAccessAssociationArgs struct {
 	AccessAssociationSourceType string `pulumi:"accessAssociationSourceType"`
 	// The ARN of the domain name.
 	DomainNameArn string `pulumi:"domainNameArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,7 +165,7 @@ type DomainNameAccessAssociationArgs struct {
 	AccessAssociationSourceType pulumi.StringInput
 	// The ARN of the domain name.
 	DomainNameArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -278,7 +278,7 @@ func (o DomainNameAccessAssociationOutput) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainNameAccessAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

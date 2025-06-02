@@ -155,7 +155,7 @@ type EmailIdentity struct {
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -210,7 +210,7 @@ type emailIdentityState struct {
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType *string `pulumi:"identityType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -233,7 +233,7 @@ type EmailIdentityState struct {
 	EmailIdentity pulumi.StringPtrInput
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -256,7 +256,7 @@ type emailIdentityArgs struct {
 	//
 	// The following arguments are optional:
 	EmailIdentity string `pulumi:"emailIdentity"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -272,7 +272,7 @@ type EmailIdentityArgs struct {
 	//
 	// The following arguments are optional:
 	EmailIdentity pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -392,7 +392,7 @@ func (o EmailIdentityOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

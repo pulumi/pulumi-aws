@@ -353,8 +353,6 @@ type Budget struct {
 	Notifications BudgetNotificationArrayOutput `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayOutput `pulumi:"plannedLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -362,6 +360,9 @@ type Budget struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -429,8 +430,6 @@ type budgetState struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -438,6 +437,9 @@ type budgetState struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -470,8 +472,6 @@ type BudgetState struct {
 	Notifications BudgetNotificationArrayInput
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -479,6 +479,9 @@ type BudgetState struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -513,13 +516,14 @@ type budgetArgs struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -551,13 +555,14 @@ type BudgetArgs struct {
 	Notifications BudgetNotificationArrayInput
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -712,11 +717,6 @@ func (o BudgetOutput) PlannedLimits() BudgetPlannedLimitArrayOutput {
 	return o.ApplyT(func(v *Budget) BudgetPlannedLimitArrayOutput { return v.PlannedLimits }).(BudgetPlannedLimitArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-func (o BudgetOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
-}
-
 // Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BudgetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
@@ -733,6 +733,9 @@ func (o BudgetOutput) TimePeriodEnd() pulumi.StringPtrOutput {
 }
 
 // The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+//
+// For more detailed documentation about each argument, refer to the [AWS official
+// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 func (o BudgetOutput) TimePeriodStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.TimePeriodStart }).(pulumi.StringOutput)
 }

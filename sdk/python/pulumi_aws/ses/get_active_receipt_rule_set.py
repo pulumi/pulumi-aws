@@ -96,6 +96,9 @@ def get_active_receipt_rule_set(region: Optional[builtins.str] = None,
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -120,6 +123,9 @@ def get_active_receipt_rule_set_output(region: Optional[pulumi.Input[Optional[bu
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

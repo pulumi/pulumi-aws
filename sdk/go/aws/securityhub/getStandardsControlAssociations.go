@@ -56,6 +56,7 @@ func GetStandardsControlAssociations(ctx *pulumi.Context, args *GetStandardsCont
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId string `pulumi:"securityControlId"`
@@ -83,6 +84,7 @@ func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandard
 
 // A collection of arguments for invoking getStandardsControlAssociations.
 type GetStandardsControlAssociationsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`

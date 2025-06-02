@@ -89,7 +89,7 @@ type TransitVirtualInterface struct {
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
@@ -172,7 +172,7 @@ type transitVirtualInterfaceState struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
@@ -211,7 +211,7 @@ type TransitVirtualInterfaceState struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrInput
@@ -247,7 +247,7 @@ type transitVirtualInterfaceArgs struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled *bool `pulumi:"sitelinkEnabled"`
@@ -278,7 +278,7 @@ type TransitVirtualInterfaceArgs struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
 	SitelinkEnabled pulumi.BoolPtrInput
@@ -440,7 +440,7 @@ func (o TransitVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TransitVirtualInterfaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

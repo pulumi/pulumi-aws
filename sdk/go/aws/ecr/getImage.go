@@ -56,8 +56,9 @@ type GetImageArgs struct {
 	// Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	ImageTag *string `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-	MostRecent *bool   `pulumi:"mostRecent"`
-	Region     *string `pulumi:"region"`
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the ECR Repository.
@@ -100,8 +101,9 @@ type GetImageOutputArgs struct {
 	// Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 	// Name of the ECR Repository.

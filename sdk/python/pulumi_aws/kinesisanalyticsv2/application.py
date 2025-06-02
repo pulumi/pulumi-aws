@@ -43,7 +43,7 @@ class ApplicationArgs:
         :param pulumi.Input[builtins.str] description: A summary description of the application.
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] name: The name of the application.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -168,7 +168,7 @@ class ApplicationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -232,7 +232,7 @@ class _ApplicationState:
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[builtins.str] name: The name of the application.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -388,7 +388,7 @@ class _ApplicationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -724,7 +724,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A summary description of the application.
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] name: The name of the application.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -1052,7 +1052,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[builtins.str] name: The name of the application.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -1160,7 +1160,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

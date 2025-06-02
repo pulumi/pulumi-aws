@@ -30,6 +30,9 @@ export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificat
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Cognito user pool ID.
@@ -78,6 +81,9 @@ export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCert
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Cognito user pool ID.

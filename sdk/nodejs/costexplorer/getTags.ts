@@ -28,7 +28,6 @@ export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:costexplorer/getTags:getTags", {
         "filter": args.filter,
-        "region": args.region,
         "searchString": args.searchString,
         "sortBies": args.sortBies,
         "tagKey": args.tagKey,
@@ -44,7 +43,6 @@ export interface GetTagsArgs {
      * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
     filter?: inputs.costexplorer.GetTagsFilter;
-    region?: string;
     /**
      * Value that you want to search for.
      */
@@ -72,7 +70,6 @@ export interface GetTagsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly region: string;
     readonly searchString?: string;
     readonly sortBies?: outputs.costexplorer.GetTagsSortBy[];
     readonly tagKey?: string;
@@ -103,7 +100,6 @@ export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:costexplorer/getTags:getTags", {
         "filter": args.filter,
-        "region": args.region,
         "searchString": args.searchString,
         "sortBies": args.sortBies,
         "tagKey": args.tagKey,
@@ -119,7 +115,6 @@ export interface GetTagsOutputArgs {
      * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
     filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs>;
-    region?: pulumi.Input<string>;
     /**
      * Value that you want to search for.
      */

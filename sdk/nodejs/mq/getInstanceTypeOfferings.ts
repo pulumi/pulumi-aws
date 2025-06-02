@@ -56,6 +56,9 @@ export interface GetInstanceTypeOfferingsArgs {
      * Filter response by host instance type.
      */
     hostInstanceType?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Filter response by storage type.
@@ -138,6 +141,9 @@ export interface GetInstanceTypeOfferingsOutputArgs {
      * Filter response by host instance type.
      */
     hostInstanceType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Filter response by storage type.

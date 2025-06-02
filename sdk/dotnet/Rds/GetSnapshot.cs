@@ -196,6 +196,9 @@ namespace Pulumi.Aws.Rds
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -213,6 +216,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
+        /// 
+        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -262,6 +267,9 @@ namespace Pulumi.Aws.Rds
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -279,6 +287,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
+        /// 
+        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
         /// </summary>
         public InputMap<string> Tags
         {

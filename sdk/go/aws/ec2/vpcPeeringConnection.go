@@ -14,6 +14,11 @@ import (
 
 // Provides a resource to manage a VPC peering connection.
 //
+// > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+// can be done using the `autoAccept` attribute. Alternatively, the VPC Peering
+// Connection has to be made active manually using other means. See notes below for
+// more information.
+//
 // > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
 // both a standalone VPC Peering Connection Options and a VPC Peering Connection
 // resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -206,7 +211,7 @@ type VpcPeeringConnection struct {
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -270,7 +275,7 @@ type vpcPeeringConnectionState struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId *string `pulumi:"peerVpcId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -299,7 +304,7 @@ type VpcPeeringConnectionState struct {
 	PeerRegion pulumi.StringPtrInput
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -330,7 +335,7 @@ type vpcPeeringConnectionArgs struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId string `pulumi:"peerVpcId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -356,7 +361,7 @@ type VpcPeeringConnectionArgs struct {
 	PeerRegion pulumi.StringPtrInput
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -487,7 +492,7 @@ func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcPeeringConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

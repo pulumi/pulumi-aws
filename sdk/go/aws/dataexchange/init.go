@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventAction{}
 	case "aws:dataexchange/revision:Revision":
 		r = &Revision{}
+	case "aws:dataexchange/revisionAssets:RevisionAssets":
+		r = &RevisionAssets{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dataexchange/revision",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dataexchange/revisionAssets",
 		&module{version},
 	)
 }

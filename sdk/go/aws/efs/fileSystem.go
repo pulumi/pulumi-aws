@@ -116,7 +116,7 @@ type FileSystem struct {
 	Protection FileSystemProtectionOutput `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayOutput `pulumi:"sizeInBytes"`
@@ -189,7 +189,7 @@ type fileSystemState struct {
 	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes []FileSystemSizeInByte `pulumi:"sizeInBytes"`
@@ -233,7 +233,7 @@ type FileSystemState struct {
 	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayInput
@@ -269,7 +269,7 @@ type fileSystemArgs struct {
 	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -298,7 +298,7 @@ type FileSystemArgs struct {
 	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -466,7 +466,7 @@ func (o FileSystemOutput) ProvisionedThroughputInMibps() pulumi.Float64PtrOutput
 	return o.ApplyT(func(v *FileSystem) pulumi.Float64PtrOutput { return v.ProvisionedThroughputInMibps }).(pulumi.Float64PtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FileSystemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

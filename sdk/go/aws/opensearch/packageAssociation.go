@@ -71,7 +71,7 @@ type PackageAssociation struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringOutput `pulumi:"packageId"`
 	ReferencePath pulumi.StringOutput `pulumi:"referencePath"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -116,7 +116,7 @@ type packageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     *string `pulumi:"packageId"`
 	ReferencePath *string `pulumi:"referencePath"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -126,7 +126,7 @@ type PackageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringPtrInput
 	ReferencePath pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -139,7 +139,7 @@ type packageAssociationArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Internal ID of the package to associate with a domain.
 	PackageId string `pulumi:"packageId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -149,7 +149,7 @@ type PackageAssociationArgs struct {
 	DomainName pulumi.StringInput
 	// Internal ID of the package to associate with a domain.
 	PackageId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -254,7 +254,7 @@ func (o PackageAssociationOutput) ReferencePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.ReferencePath }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PackageAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

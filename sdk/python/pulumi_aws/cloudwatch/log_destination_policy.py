@@ -29,7 +29,7 @@ class LogDestinationPolicyArgs:
         :param pulumi.Input[builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_policy", access_policy)
         pulumi.set(__self__, "destination_name", destination_name)
@@ -78,7 +78,7 @@ class LogDestinationPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _LogDestinationPolicyState:
         :param pulumi.Input[builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -150,7 +150,7 @@ class _LogDestinationPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -210,7 +210,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -313,7 +313,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -353,7 +353,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -382,6 +382,7 @@ def get_load_balancer(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Full ARN of the load balancer.
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
@@ -463,6 +464,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]]
 
     :param builtins.str arn: Full ARN of the load balancer.
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.

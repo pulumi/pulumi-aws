@@ -120,7 +120,7 @@ type CaCertificate struct {
 	CustomerVersion pulumi.IntOutput `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringOutput `pulumi:"generationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
@@ -199,7 +199,7 @@ type caCertificateState struct {
 	CustomerVersion *int `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId *string `pulumi:"generationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
@@ -229,7 +229,7 @@ type CaCertificateState struct {
 	CustomerVersion pulumi.IntPtrInput
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
@@ -257,7 +257,7 @@ type caCertificateArgs struct {
 	CaCertificatePem string `pulumi:"caCertificatePem"`
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode *string `pulumi:"certificateMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
@@ -278,7 +278,7 @@ type CaCertificateArgs struct {
 	CaCertificatePem pulumi.StringInput
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
@@ -411,7 +411,7 @@ func (o CaCertificateOutput) GenerationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.GenerationId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CaCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

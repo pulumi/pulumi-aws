@@ -59,7 +59,7 @@ type AccessPoint struct {
 	OwnerId      pulumi.StringOutput `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
@@ -111,7 +111,7 @@ type accessPointState struct {
 	OwnerId      *string `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
@@ -131,7 +131,7 @@ type AccessPointState struct {
 	OwnerId      pulumi.StringPtrInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
@@ -150,7 +150,7 @@ type accessPointArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
@@ -164,7 +164,7 @@ type AccessPointArgs struct {
 	FileSystemId pulumi.StringInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
@@ -283,7 +283,7 @@ func (o AccessPointOutput) PosixUser() AccessPointPosixUserPtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointPosixUserPtrOutput { return v.PosixUser }).(AccessPointPosixUserPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessPointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

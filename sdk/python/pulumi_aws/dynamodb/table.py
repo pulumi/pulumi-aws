@@ -58,12 +58,12 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -220,7 +220,7 @@ class TableArgs:
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -280,7 +280,7 @@ class TableArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -479,12 +479,12 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -664,7 +664,7 @@ class _TableState:
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -724,7 +724,7 @@ class _TableState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1105,12 +1105,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1413,12 +1413,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1542,7 +1542,7 @@ class Table(pulumi.CustomResource):
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1582,7 +1582,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

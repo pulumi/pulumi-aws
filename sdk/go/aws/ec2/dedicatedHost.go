@@ -73,7 +73,7 @@ type DedicatedHost struct {
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -132,7 +132,7 @@ type dedicatedHostState struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,7 +159,7 @@ type DedicatedHostState struct {
 	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -186,7 +186,7 @@ type dedicatedHostArgs struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -208,7 +208,7 @@ type DedicatedHostArgs struct {
 	InstanceType pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -346,7 +346,7 @@ func (o DedicatedHostOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DedicatedHostOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

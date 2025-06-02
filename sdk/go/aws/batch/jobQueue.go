@@ -130,7 +130,7 @@ type JobQueue struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn pulumi.StringPtrOutput `pulumi:"schedulingPolicyArn"`
@@ -190,7 +190,7 @@ type jobQueueState struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority *int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
@@ -215,7 +215,7 @@ type JobQueueState struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type jobQueueArgs struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
@@ -264,7 +264,7 @@ type JobQueueArgs struct {
 	// The priority of the job queue. Job queues with a higher priority
 	// are evaluated first when associated with the same compute environment.
 	Priority pulumi.IntInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
 	SchedulingPolicyArn pulumi.StringPtrInput
@@ -388,7 +388,7 @@ func (o JobQueueOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o JobQueueOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

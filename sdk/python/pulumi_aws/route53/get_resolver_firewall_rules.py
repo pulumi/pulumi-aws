@@ -122,6 +122,7 @@ def get_resolver_firewall_rules(action: Optional[builtins.str] = None,
     :param builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
     :param builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
     :param builtins.int priority: The setting that determines the processing order of the rules in a rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['action'] = action
@@ -161,6 +162,7 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[bu
     :param builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
     :param builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
     :param builtins.int priority: The setting that determines the processing order of the rules in a rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['action'] = action

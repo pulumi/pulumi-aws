@@ -113,7 +113,7 @@ type NotificationRule struct {
 	EventTypeIds pulumi.StringArrayOutput `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringOutput `pulumi:"resource"`
@@ -175,7 +175,7 @@ type notificationRuleState struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource *string `pulumi:"resource"`
@@ -199,7 +199,7 @@ type NotificationRuleState struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type notificationRuleArgs struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource string `pulumi:"resource"`
@@ -246,7 +246,7 @@ type NotificationRuleArgs struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringInput
@@ -366,7 +366,7 @@ func (o NotificationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotificationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

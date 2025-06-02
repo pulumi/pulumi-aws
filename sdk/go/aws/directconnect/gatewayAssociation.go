@@ -172,6 +172,10 @@ type GatewayAssociation struct {
 	pulumi.CustomResourceState
 
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayOutput `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -190,7 +194,7 @@ type GatewayAssociation struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -228,6 +232,10 @@ func GetGatewayAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GatewayAssociation resources.
 type gatewayAssociationState struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -246,12 +254,16 @@ type gatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type GatewayAssociationState struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayInput
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -270,7 +282,7 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -280,6 +292,10 @@ func (GatewayAssociationState) ElementType() reflect.Type {
 
 type gatewayAssociationArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -292,13 +308,17 @@ type gatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GatewayAssociation resource.
 type GatewayAssociationArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayInput
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -311,7 +331,7 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -403,6 +423,10 @@ func (o GatewayAssociationOutput) ToGatewayAssociationOutputWithContext(ctx cont
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+//
+// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+//
+// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 func (o GatewayAssociationOutput) AllowedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringArrayOutput { return v.AllowedPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -445,7 +469,7 @@ func (o GatewayAssociationOutput) ProposalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.ProposalId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GatewayAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

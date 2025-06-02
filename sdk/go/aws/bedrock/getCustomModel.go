@@ -51,8 +51,9 @@ func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ..
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelArgs struct {
 	// Name or ARN of the custom model.
-	ModelId string  `pulumi:"modelId"`
-	Region  *string `pulumi:"region"`
+	ModelId string `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomModel.
@@ -104,8 +105,9 @@ func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputAr
 // A collection of arguments for invoking getCustomModel.
 type LookupCustomModelOutputArgs struct {
 	// Name or ARN of the custom model.
-	ModelId pulumi.StringInput    `pulumi:"modelId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCustomModelOutputArgs) ElementType() reflect.Type {

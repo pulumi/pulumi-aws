@@ -178,6 +178,7 @@ def get_secret_version(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
@@ -233,6 +234,7 @@ def get_secret_version_output(region: Optional[pulumi.Input[Optional[builtins.st
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.

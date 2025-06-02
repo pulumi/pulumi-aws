@@ -51,10 +51,13 @@ class ElasticClusterArgs:
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         pulumi.set(__self__, "admin_user_password", admin_user_password)
@@ -208,7 +211,7 @@ class ElasticClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -254,6 +257,9 @@ class ElasticClusterArgs:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -295,7 +301,7 @@ class _ElasticClusterState:
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -303,6 +309,9 @@ class _ElasticClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         if admin_user_name is not None:
             pulumi.set(__self__, "admin_user_name", admin_user_name)
@@ -465,7 +474,7 @@ class _ElasticClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -546,6 +555,9 @@ class _ElasticClusterState:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -614,7 +626,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -622,6 +634,9 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         ...
     @overload
@@ -771,7 +786,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -779,6 +794,9 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -888,7 +906,7 @@ class ElasticCluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -941,6 +959,9 @@ class ElasticCluster(pulumi.CustomResource):
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

@@ -65,7 +65,7 @@ type RouteResponse struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
@@ -118,7 +118,7 @@ type routeResponseState struct {
 	ApiId *string `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
@@ -133,7 +133,7 @@ type RouteResponseState struct {
 	ApiId pulumi.StringPtrInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapInput
@@ -152,7 +152,7 @@ type routeResponseArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
@@ -168,7 +168,7 @@ type RouteResponseArgs struct {
 	ApiId pulumi.StringInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapInput
@@ -275,7 +275,7 @@ func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

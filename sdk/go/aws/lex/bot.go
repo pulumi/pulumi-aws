@@ -117,7 +117,7 @@ type Bot struct {
 	NluIntentConfidenceThreshold pulumi.Float64PtrOutput `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrOutput `pulumi:"processBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// When you send a request to create or update a bot, Amazon Lex sets the status response
 	// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
@@ -205,7 +205,7 @@ type botState struct {
 	NluIntentConfidenceThreshold *float64 `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior *string `pulumi:"processBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// When you send a request to create or update a bot, Amazon Lex sets the status response
 	// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
@@ -255,7 +255,7 @@ type BotState struct {
 	NluIntentConfidenceThreshold pulumi.Float64PtrInput
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// When you send a request to create or update a bot, Amazon Lex sets the status response
 	// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
@@ -299,7 +299,7 @@ type botArgs struct {
 	NluIntentConfidenceThreshold *float64 `pulumi:"nluIntentConfidenceThreshold"`
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior *string `pulumi:"processBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
 	VoiceId *string `pulumi:"voiceId"`
@@ -333,7 +333,7 @@ type BotArgs struct {
 	NluIntentConfidenceThreshold pulumi.Float64PtrInput
 	// If you set the `processBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
 	ProcessBehavior pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
 	VoiceId pulumi.StringPtrInput
@@ -516,7 +516,7 @@ func (o BotOutput) ProcessBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.ProcessBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

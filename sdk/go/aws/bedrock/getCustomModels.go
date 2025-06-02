@@ -48,6 +48,7 @@ func GetCustomModels(ctx *pulumi.Context, args *GetCustomModelsArgs, opts ...pul
 
 // A collection of arguments for invoking getCustomModels.
 type GetCustomModelsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -70,6 +71,7 @@ func GetCustomModelsOutput(ctx *pulumi.Context, args GetCustomModelsOutputArgs, 
 
 // A collection of arguments for invoking getCustomModels.
 type GetCustomModelsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

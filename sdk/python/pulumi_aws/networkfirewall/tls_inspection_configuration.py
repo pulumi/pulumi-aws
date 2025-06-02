@@ -34,7 +34,7 @@ class TlsInspectionConfigurationArgs:
         :param pulumi.Input[builtins.str] description: Description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -94,7 +94,7 @@ class TlsInspectionConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -161,7 +161,7 @@ class _TlsInspectionConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -285,7 +285,7 @@ class _TlsInspectionConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -559,7 +559,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -834,7 +834,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TlsInspectionConfigurationEncryptionConfigurationArgs', 'TlsInspectionConfigurationEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[builtins.int] number_of_associations: Number of firewall policies that use this TLS inspection configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TlsInspectionConfigurationTlsInspectionConfigurationArgs', 'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict']] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -921,7 +921,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

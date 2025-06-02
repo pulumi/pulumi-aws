@@ -47,6 +47,9 @@ export interface GetUserArgs {
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Identifier for the user.
@@ -124,6 +127,9 @@ export interface GetUserOutputArgs {
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Identifier for the user.

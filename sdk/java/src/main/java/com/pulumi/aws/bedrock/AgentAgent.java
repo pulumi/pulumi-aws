@@ -292,14 +292,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.idleSessionTtlInSeconds;
     }
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     @Export(name="instruction", refs={String.class}, tree="[0]")
     private Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     public Output<String> instruction() {
@@ -334,6 +334,20 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.prepareAgent;
     }
     /**
+     * Timestamp of when the agent was last prepared.
+     * 
+     */
+    @Export(name="preparedAt", refs={String.class}, tree="[0]")
+    private Output<String> preparedAt;
+
+    /**
+     * @return Timestamp of when the agent was last prepared.
+     * 
+     */
+    public Output<String> preparedAt() {
+        return this.preparedAt;
+    }
+    /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
@@ -348,14 +362,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.promptOverrideConfigurations;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

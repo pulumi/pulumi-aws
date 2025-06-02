@@ -32,7 +32,7 @@ class CodeSigningConfigArgs:
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -85,7 +85,7 @@ class CodeSigningConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -126,7 +126,7 @@ class _CodeSigningConfigState:
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[builtins.str] last_modified: The date and time that the code signing configuration was last modified.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -225,7 +225,7 @@ class _CodeSigningConfigState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -310,7 +310,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -426,7 +426,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[builtins.str] last_modified: The date and time that the code signing configuration was last modified.
         :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -497,7 +497,7 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

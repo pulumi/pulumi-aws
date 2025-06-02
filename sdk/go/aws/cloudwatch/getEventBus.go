@@ -53,14 +53,17 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusArgs struct {
 	// Name of the event bus.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
-	// ARN of the event bus.
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn string `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+	DeadLetterConfigs []GetEventBusDeadLetterConfig `pulumi:"deadLetterConfigs"`
 	// Event bus description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -83,7 +86,8 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 // A collection of arguments for invoking getEventBus.
 type LookupEventBusOutputArgs struct {
 	// Name of the event bus.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -106,9 +110,14 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the event bus.
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+func (o LookupEventBusResultOutput) DeadLetterConfigs() GetEventBusDeadLetterConfigArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []GetEventBusDeadLetterConfig { return v.DeadLetterConfigs }).(GetEventBusDeadLetterConfigArrayOutput)
 }
 
 // Event bus description.

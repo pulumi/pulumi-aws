@@ -111,7 +111,7 @@ type VpcEndpointService struct {
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayOutput `pulumi:"privateDnsNameConfigurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The service name.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -182,7 +182,7 @@ type vpcEndpointServiceState struct {
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations []VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfigurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The service name.
 	ServiceName *string `pulumi:"serviceName"`
@@ -221,7 +221,7 @@ type VpcEndpointServiceState struct {
 	PrivateDnsName pulumi.StringPtrInput
 	// List of objects containing information about the endpoint service private DNS name configuration.
 	PrivateDnsNameConfigurations VpcEndpointServicePrivateDnsNameConfigurationArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The service name.
 	ServiceName pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type vpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName *string `pulumi:"privateDnsName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
@@ -276,7 +276,7 @@ type VpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayInput
@@ -425,7 +425,7 @@ func (o VpcEndpointServiceOutput) PrivateDnsNameConfigurations() VpcEndpointServ
 	}).(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

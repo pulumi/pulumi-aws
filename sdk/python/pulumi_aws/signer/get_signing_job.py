@@ -266,6 +266,7 @@ def get_signing_job(job_id: Optional[builtins.str] = None,
 
 
     :param builtins.str job_id: ID of the signing job on output.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['jobId'] = job_id
@@ -309,6 +310,7 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str job_id: ID of the signing job on output.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['jobId'] = job_id

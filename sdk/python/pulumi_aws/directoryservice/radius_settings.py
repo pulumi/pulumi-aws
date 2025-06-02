@@ -40,7 +40,7 @@ class RadiusSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
         pulumi.set(__self__, "authentication_protocol", authentication_protocol)
@@ -156,7 +156,7 @@ class RadiusSettingsArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -199,7 +199,7 @@ class _RadiusSettingsState:
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -312,7 +312,7 @@ class _RadiusSettingsState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -399,7 +399,7 @@ class RadiusSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -533,7 +533,7 @@ class RadiusSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -613,7 +613,7 @@ class RadiusSettings(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

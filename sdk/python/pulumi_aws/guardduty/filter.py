@@ -38,7 +38,7 @@ class FilterArgs:
         :param pulumi.Input[builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         :param pulumi.Input[builtins.str] description: Description of the filter.
         :param pulumi.Input[builtins.str] name: The name of your filter.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action", action)
@@ -130,7 +130,7 @@ class FilterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -173,7 +173,7 @@ class _FilterState:
         :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         :param pulumi.Input[builtins.str] name: The name of your filter.
         :param pulumi.Input[builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -286,7 +286,7 @@ class _FilterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -390,7 +390,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         :param pulumi.Input[builtins.str] name: The name of your filter.
         :param pulumi.Input[builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -531,7 +531,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         :param pulumi.Input[builtins.str] name: The name of your filter.
         :param pulumi.Input[builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -611,7 +611,7 @@ class Filter(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

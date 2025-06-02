@@ -15,8 +15,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS CloudFront KeyValueStore Key.
- * 
  * ## Example Usage
  * 
  * ### Basic Usage

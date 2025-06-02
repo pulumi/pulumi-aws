@@ -207,6 +207,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
@@ -270,6 +271,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()

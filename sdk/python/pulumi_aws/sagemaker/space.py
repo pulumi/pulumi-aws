@@ -35,7 +35,7 @@ class SpaceArgs:
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
@@ -96,7 +96,7 @@ class SpaceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -174,7 +174,7 @@ class _SpaceState:
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -260,7 +260,7 @@ class _SpaceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -396,7 +396,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -514,7 +514,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -577,7 +577,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

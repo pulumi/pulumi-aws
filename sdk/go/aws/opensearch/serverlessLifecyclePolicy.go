@@ -86,7 +86,7 @@ type ServerlessLifecyclePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	//
@@ -138,7 +138,7 @@ type serverlessLifecyclePolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion *string `pulumi:"policyVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	//
@@ -155,7 +155,7 @@ type ServerlessLifecyclePolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Version of the policy.
 	PolicyVersion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of lifecycle policy. Must be `retention`.
 	//
@@ -174,7 +174,7 @@ type serverlessLifecyclePolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	//
@@ -190,7 +190,7 @@ type ServerlessLifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of lifecycle policy. Must be `retention`.
 	//
@@ -305,7 +305,7 @@ func (o ServerlessLifecyclePolicyOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerlessLifecyclePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessLifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

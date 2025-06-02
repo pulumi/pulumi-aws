@@ -32,7 +32,7 @@ class RefreshScheduleArgs:
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
         :param pulumi.Input[builtins.str] schedule_id: The ID of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -86,7 +86,7 @@ class RefreshScheduleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -123,7 +123,7 @@ class _RefreshScheduleState:
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -182,7 +182,7 @@ class _RefreshScheduleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -307,7 +307,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -458,7 +458,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -504,7 +504,7 @@ class RefreshSchedule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

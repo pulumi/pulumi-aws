@@ -117,7 +117,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -241,7 +241,7 @@ export interface ThemeState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface ThemeArgs {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

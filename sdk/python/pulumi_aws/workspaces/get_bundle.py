@@ -177,6 +177,7 @@ def get_bundle(bundle_id: Optional[builtins.str] = None,
     :param builtins.str bundle_id: ID of the bundle.
     :param builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
     :param builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
@@ -229,6 +230,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[builtins.str]]] 
     :param builtins.str bundle_id: ID of the bundle.
     :param builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
     :param builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id

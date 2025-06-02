@@ -6913,6 +6913,8 @@ type DataSetOutputColumn struct {
 	// Field folder description.
 	Description *string `pulumi:"description"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	Type *string `pulumi:"type"`
 }
@@ -6932,6 +6934,8 @@ type DataSetOutputColumnArgs struct {
 	// Field folder description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -6993,6 +6997,8 @@ func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Display name for the dataset.
+//
+// The following arguments are optional:
 func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

@@ -32,14 +32,14 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -49,12 +49,16 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     /**
      * The ID of the routing table to associate with.
      * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+     * 
      */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
     /**
      * @return The ID of the routing table to associate with.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
      * 
      */
     public Output<String> routeTableId() {
@@ -125,7 +129,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -136,7 +140,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -148,6 +152,8 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
         /**
          * @param routeTableId The ID of the routing table to associate with.
          * 
+         * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
 
         /**
          * @param routeTableId The ID of the routing table to associate with.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
          * 
          * @return builder
          * 

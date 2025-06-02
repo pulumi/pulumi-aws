@@ -102,7 +102,7 @@ type Application struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -164,7 +164,7 @@ type applicationState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn *string `pulumi:"roleArn"`
@@ -194,7 +194,7 @@ type ApplicationState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type applicationArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn *string `pulumi:"roleArn"`
@@ -245,7 +245,7 @@ type ApplicationArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrInput
@@ -383,7 +383,7 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

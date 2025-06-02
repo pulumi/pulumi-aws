@@ -310,6 +310,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
     :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
     :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dagEdges'] = dag_edges
@@ -525,6 +526,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
     :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
     :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dagEdges'] = dag_edges

@@ -126,7 +126,8 @@ type GetVpcIpamsArgs struct {
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds []string `pulumi:"ipamIds"`
-	Region  *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpams.
@@ -157,7 +158,8 @@ type GetVpcIpamsOutputArgs struct {
 	Filters GetVpcIpamsFilterArrayInput `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds pulumi.StringArrayInput `pulumi:"ipamIds"`
-	Region  pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcIpamsOutputArgs) ElementType() reflect.Type {

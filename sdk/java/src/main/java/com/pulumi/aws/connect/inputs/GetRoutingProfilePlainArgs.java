@@ -46,9 +46,17 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -56,12 +64,16 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
+     * 
      */
     @Import(name="routingProfileId")
     private @Nullable String routingProfileId;
 
     /**
      * @return Returns information on a specific Routing Profile by Routing Profile id
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
      * 
      */
     public Optional<String> routingProfileId() {
@@ -133,6 +145,12 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
@@ -140,6 +158,8 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param routingProfileId Returns information on a specific Routing Profile by Routing Profile id
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
          * 
          * @return builder
          * 

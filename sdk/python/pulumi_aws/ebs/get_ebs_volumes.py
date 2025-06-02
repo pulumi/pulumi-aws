@@ -121,6 +121,7 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
 
 
     :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
            
@@ -169,6 +170,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
 
 
     :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
            

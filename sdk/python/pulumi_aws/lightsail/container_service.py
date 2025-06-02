@@ -46,7 +46,7 @@ class ContainerServiceArgs:
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
                configured with a provider
                `default_tags` configuration block
@@ -151,7 +151,7 @@ class ContainerServiceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -218,7 +218,7 @@ class _ContainerServiceState:
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type of the container service (i.e., ContainerService).
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
@@ -412,7 +412,7 @@ class _ContainerServiceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -522,6 +522,9 @@ class ContainerService(pulumi.CustomResource):
         > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 
+        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see
+        [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
+
         ## Example Usage
 
         ### Basic Usage
@@ -604,7 +607,7 @@ class ContainerService(pulumi.CustomResource):
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
@@ -625,6 +628,9 @@ class ContainerService(pulumi.CustomResource):
 
         > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
+
+        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see
+        [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
 
         ## Example Usage
 
@@ -803,7 +809,7 @@ class ContainerService(pulumi.CustomResource):
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
                Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type of the container service (i.e., ContainerService).
         :param pulumi.Input[builtins.int] scale: The scale specification for the container service. The scale specifies the allocated compute
                nodes of the container service.
@@ -940,7 +946,7 @@ class ContainerService(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

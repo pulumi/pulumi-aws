@@ -60,7 +60,7 @@ type TemplateAlias struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the template.
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
@@ -115,7 +115,7 @@ type templateAliasState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the template.
 	TemplateId *string `pulumi:"templateId"`
@@ -132,7 +132,7 @@ type TemplateAliasState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the template.
 	TemplateId pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type templateAliasArgs struct {
 	AliasName string `pulumi:"aliasName"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the template.
 	TemplateId string `pulumi:"templateId"`
@@ -167,7 +167,7 @@ type TemplateAliasArgs struct {
 	AliasName pulumi.StringInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the template.
 	TemplateId pulumi.StringInput
@@ -279,7 +279,7 @@ func (o TemplateAliasOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

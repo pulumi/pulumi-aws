@@ -50,6 +50,7 @@ func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the tracker.
 	Tags map[string]string `pulumi:"tags"`
@@ -90,6 +91,7 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the tracker.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

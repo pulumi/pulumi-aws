@@ -33,7 +33,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -88,7 +88,7 @@ class ClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -143,7 +143,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
@@ -240,7 +240,7 @@ class _ClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -358,7 +358,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -469,7 +469,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
@@ -539,7 +539,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

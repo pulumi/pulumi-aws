@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront
 {
     /// <summary>
-    /// Resource for managing an AWS CloudFront KeyValueStore Key.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage

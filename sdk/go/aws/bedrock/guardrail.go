@@ -126,7 +126,7 @@ type Guardrail struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
@@ -202,7 +202,7 @@ type guardrailState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
@@ -243,7 +243,7 @@ type GuardrailState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
@@ -282,7 +282,7 @@ type guardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
@@ -313,7 +313,7 @@ type GuardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
@@ -467,7 +467,7 @@ func (o GuardrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GuardrailOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

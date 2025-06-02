@@ -31,7 +31,7 @@ class CustomDomainAssociationArgs:
         :param pulumi.Input[builtins.str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[builtins.str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[builtins.bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "service_arn", service_arn)
@@ -80,7 +80,7 @@ class CustomDomainAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -105,7 +105,7 @@ class _CustomDomainAssociationState:
         :param pulumi.Input[builtins.str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         :param pulumi.Input[builtins.str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[builtins.bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[builtins.str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
@@ -176,7 +176,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -248,7 +248,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[builtins.bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: ARN of the App Runner service.
         """
         ...
@@ -348,7 +348,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         :param pulumi.Input[builtins.str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[builtins.bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[builtins.str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
@@ -401,7 +401,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

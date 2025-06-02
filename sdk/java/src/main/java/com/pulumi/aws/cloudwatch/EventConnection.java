@@ -248,6 +248,104 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### CMK Encryption
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.cloudwatch.EventConnection;
+ * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var test = new Key("test", KeyArgs.builder()
+ *             .deletionWindowInDays(7)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-policy-example"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:DescribeKey", 
+ *                                 "kms:Decrypt", 
+ *                                 "kms:GenerateDataKey"
+ *                             )),
+ *                             jsonProperty("Resource", "*"),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("StringLike", jsonObject(
+ *                                     jsonProperty("kms:ViaService", "secretsmanager.*.amazonaws.com"),
+ *                                     jsonProperty("kms:EncryptionContext:SecretARN", jsonArray("arn:aws:secretsmanager:*:*:secret:events!connection/*"))
+ *                                 ))
+ *                             ))
+ *                         )
+ *                     ))
+ *                 )))
+ *             .tags(Map.of("EventBridgeApiDestinations", "true"))
+ *             .build());
+ * 
+ *         var testEventConnection = new EventConnection("testEventConnection", EventConnectionArgs.builder()
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
+ *             .authParameters(EventConnectionAuthParametersArgs.builder()
+ *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
+ *                     .username("user")
+ *                     .password("Pass1234!")
+ *                     .build())
+ *                 .build())
+ *             .kmsKeyIdentifier(example.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
@@ -288,70 +386,84 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
         return this.authParameters;
     }
     /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
     /**
-     * @return Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * @return Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
     /**
-     * Enter a description for the connection. Maximum of 512 characters.
+     * Description for the connection. Maximum of 512 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Enter a description for the connection. Maximum of 512 characters.
+     * @return Description for the connection. Maximum of 512 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The parameters to use for invoking a private API. Documented below.
+     * Parameters to use for invoking a private API. Documented below.
      * 
      */
     @Export(name="invocationConnectivityParameters", refs={EventConnectionInvocationConnectivityParameters.class}, tree="[0]")
     private Output</* @Nullable */ EventConnectionInvocationConnectivityParameters> invocationConnectivityParameters;
 
     /**
-     * @return The parameters to use for invoking a private API. Documented below.
+     * @return Parameters to use for invoking a private API. Documented below.
      * 
      */
     public Output<Optional<EventConnectionInvocationConnectivityParameters>> invocationConnectivityParameters() {
         return Codegen.optional(this.invocationConnectivityParameters);
     }
     /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyIdentifier;
+
+    /**
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyIdentifier() {
+        return Codegen.optional(this.kmsKeyIdentifier);
+    }
+    /**
+     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * @return The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

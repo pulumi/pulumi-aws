@@ -34,7 +34,7 @@ class MediaInsightsPipelineConfigurationArgs:
         :param pulumi.Input[builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[builtins.str] name: Configuration name.
         :param pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs'] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the resource.
         """
         pulumi.set(__self__, "elements", elements)
@@ -100,7 +100,7 @@ class MediaInsightsPipelineConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -138,7 +138,7 @@ class _MediaInsightsPipelineConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[builtins.str] name: Configuration name.
         :param pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs'] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the resource.
         """
@@ -211,7 +211,7 @@ class _MediaInsightsPipelineConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -536,7 +536,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[builtins.str] name: Configuration name.
         :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the resource.
         """
@@ -882,7 +882,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[builtins.str] name: Configuration name.
         :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of tags for the resource.
         """
@@ -936,7 +936,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

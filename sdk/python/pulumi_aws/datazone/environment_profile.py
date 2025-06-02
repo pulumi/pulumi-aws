@@ -37,12 +37,10 @@ class EnvironmentProfileArgs:
         :param pulumi.Input[builtins.str] domain_identifier: Domain Identifier for environment profile.
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: Id of the AWS account being used.
         :param pulumi.Input[builtins.str] description: Description of environment profile.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         pulumi.set(__self__, "aws_account_region", aws_account_region)
@@ -101,8 +99,6 @@ class EnvironmentProfileArgs:
     def project_identifier(self) -> pulumi.Input[builtins.str]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 
@@ -150,7 +146,7 @@ class EnvironmentProfileArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -197,9 +193,7 @@ class _EnvironmentProfileState:
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -329,8 +323,6 @@ class _EnvironmentProfileState:
     def project_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 
@@ -342,7 +334,7 @@ class _EnvironmentProfileState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -497,9 +489,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         ...
@@ -696,9 +686,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -789,8 +777,6 @@ class EnvironmentProfile(pulumi.CustomResource):
     def project_identifier(self) -> pulumi.Output[builtins.str]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 
@@ -798,7 +784,7 @@ class EnvironmentProfile(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

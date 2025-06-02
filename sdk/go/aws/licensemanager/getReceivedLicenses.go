@@ -61,7 +61,8 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 type GetReceivedLicensesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
-	Region  *string                     `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicenses.
@@ -87,7 +88,8 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 type GetReceivedLicensesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput               `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReceivedLicensesOutputArgs) ElementType() reflect.Type {

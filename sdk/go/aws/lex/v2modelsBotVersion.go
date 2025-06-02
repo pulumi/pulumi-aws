@@ -68,7 +68,7 @@ type V2modelsBotVersion struct {
 	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapOutput `pulumi:"localeSpecification"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                 `pulumi:"region"`
 	Timeouts V2modelsBotVersionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -120,7 +120,7 @@ type v2modelsBotVersionState struct {
 	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                     `pulumi:"region"`
 	Timeouts *V2modelsBotVersionTimeouts `pulumi:"timeouts"`
 }
@@ -137,7 +137,7 @@ type V2modelsBotVersionState struct {
 	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts V2modelsBotVersionTimeoutsPtrInput
 }
@@ -158,7 +158,7 @@ type v2modelsBotVersionArgs struct {
 	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                     `pulumi:"region"`
 	Timeouts *V2modelsBotVersionTimeouts `pulumi:"timeouts"`
 }
@@ -176,7 +176,7 @@ type V2modelsBotVersionArgs struct {
 	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts V2modelsBotVersionTimeoutsPtrInput
 }
@@ -293,7 +293,7 @@ func (o V2modelsBotVersionOutput) LocaleSpecification() V2modelsBotVersionLocale
 	}).(V2modelsBotVersionLocaleSpecificationMapOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsBotVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

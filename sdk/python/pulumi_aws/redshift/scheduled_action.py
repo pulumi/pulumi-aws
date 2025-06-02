@@ -40,7 +40,7 @@ class ScheduledActionArgs:
         :param pulumi.Input[builtins.bool] enable: Whether to enable the scheduled action. Default is `true` .
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] name: The scheduled action name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         """
         pulumi.set(__self__, "iam_role", iam_role)
@@ -147,7 +147,7 @@ class ScheduledActionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -187,7 +187,7 @@ class _ScheduledActionState:
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
@@ -275,7 +275,7 @@ class _ScheduledActionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -417,7 +417,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']] target_action: Target action. Documented below.
@@ -581,7 +581,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']] target_action: Target action. Documented below.
@@ -645,7 +645,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

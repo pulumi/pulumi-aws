@@ -12245,6 +12245,3674 @@ func (o AgentKnowledgeBaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentPromptVariant struct {
+	// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
+	// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+	GenAiResource *AgentPromptVariantGenAiResource `pulumi:"genAiResource"`
+	// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+	InferenceConfiguration *AgentPromptVariantInferenceConfiguration `pulumi:"inferenceConfiguration"`
+	// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+	Metadatas []AgentPromptVariantMetadata `pulumi:"metadatas"`
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
+	ModelId *string `pulumi:"modelId"`
+	// Name of the prompt variant.
+	Name string `pulumi:"name"`
+	// Contains configurations for the prompt template. See Template Configuration for more information.
+	TemplateConfiguration *AgentPromptVariantTemplateConfiguration `pulumi:"templateConfiguration"`
+	// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
+	TemplateType string `pulumi:"templateType"`
+}
+
+// AgentPromptVariantInput is an input type that accepts AgentPromptVariantArgs and AgentPromptVariantOutput values.
+// You can construct a concrete instance of `AgentPromptVariantInput` via:
+//
+//	AgentPromptVariantArgs{...}
+type AgentPromptVariantInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantOutput() AgentPromptVariantOutput
+	ToAgentPromptVariantOutputWithContext(context.Context) AgentPromptVariantOutput
+}
+
+type AgentPromptVariantArgs struct {
+	// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
+	// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+	GenAiResource AgentPromptVariantGenAiResourcePtrInput `pulumi:"genAiResource"`
+	// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+	InferenceConfiguration AgentPromptVariantInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
+	// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+	Metadatas AgentPromptVariantMetadataArrayInput `pulumi:"metadatas"`
+	// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
+	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
+	// Name of the prompt variant.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Contains configurations for the prompt template. See Template Configuration for more information.
+	TemplateConfiguration AgentPromptVariantTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
+	// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
+	TemplateType pulumi.StringInput `pulumi:"templateType"`
+}
+
+func (AgentPromptVariantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariant)(nil)).Elem()
+}
+
+func (i AgentPromptVariantArgs) ToAgentPromptVariantOutput() AgentPromptVariantOutput {
+	return i.ToAgentPromptVariantOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantArgs) ToAgentPromptVariantOutputWithContext(ctx context.Context) AgentPromptVariantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantOutput)
+}
+
+// AgentPromptVariantArrayInput is an input type that accepts AgentPromptVariantArray and AgentPromptVariantArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantArrayInput` via:
+//
+//	AgentPromptVariantArray{ AgentPromptVariantArgs{...} }
+type AgentPromptVariantArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantArrayOutput() AgentPromptVariantArrayOutput
+	ToAgentPromptVariantArrayOutputWithContext(context.Context) AgentPromptVariantArrayOutput
+}
+
+type AgentPromptVariantArray []AgentPromptVariantInput
+
+func (AgentPromptVariantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariant)(nil)).Elem()
+}
+
+func (i AgentPromptVariantArray) ToAgentPromptVariantArrayOutput() AgentPromptVariantArrayOutput {
+	return i.ToAgentPromptVariantArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantArray) ToAgentPromptVariantArrayOutputWithContext(ctx context.Context) AgentPromptVariantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantArrayOutput)
+}
+
+type AgentPromptVariantOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariant)(nil)).Elem()
+}
+
+func (o AgentPromptVariantOutput) ToAgentPromptVariantOutput() AgentPromptVariantOutput {
+	return o
+}
+
+func (o AgentPromptVariantOutput) ToAgentPromptVariantOutputWithContext(ctx context.Context) AgentPromptVariantOutput {
+	return o
+}
+
+// Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+func (o AgentPromptVariantOutput) AdditionalModelRequestFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariant) *string { return v.AdditionalModelRequestFields }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
+func (o AgentPromptVariantOutput) GenAiResource() AgentPromptVariantGenAiResourcePtrOutput {
+	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantGenAiResource { return v.GenAiResource }).(AgentPromptVariantGenAiResourcePtrOutput)
+}
+
+// Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+func (o AgentPromptVariantOutput) InferenceConfiguration() AgentPromptVariantInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantInferenceConfiguration { return v.InferenceConfiguration }).(AgentPromptVariantInferenceConfigurationPtrOutput)
+}
+
+// A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+func (o AgentPromptVariantOutput) Metadatas() AgentPromptVariantMetadataArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariant) []AgentPromptVariantMetadata { return v.Metadatas }).(AgentPromptVariantMetadataArrayOutput)
+}
+
+// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
+func (o AgentPromptVariantOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariant) *string { return v.ModelId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the prompt variant.
+func (o AgentPromptVariantOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariant) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Contains configurations for the prompt template. See Template Configuration for more information.
+func (o AgentPromptVariantOutput) TemplateConfiguration() AgentPromptVariantTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariant) *AgentPromptVariantTemplateConfiguration { return v.TemplateConfiguration }).(AgentPromptVariantTemplateConfigurationPtrOutput)
+}
+
+// Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
+func (o AgentPromptVariantOutput) TemplateType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariant) string { return v.TemplateType }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariant)(nil)).Elem()
+}
+
+func (o AgentPromptVariantArrayOutput) ToAgentPromptVariantArrayOutput() AgentPromptVariantArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantArrayOutput) ToAgentPromptVariantArrayOutputWithContext(ctx context.Context) AgentPromptVariantArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariant {
+		return vs[0].([]AgentPromptVariant)[vs[1].(int)]
+	}).(AgentPromptVariantOutput)
+}
+
+type AgentPromptVariantGenAiResource struct {
+	// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+	Agent *AgentPromptVariantGenAiResourceAgent `pulumi:"agent"`
+}
+
+// AgentPromptVariantGenAiResourceInput is an input type that accepts AgentPromptVariantGenAiResourceArgs and AgentPromptVariantGenAiResourceOutput values.
+// You can construct a concrete instance of `AgentPromptVariantGenAiResourceInput` via:
+//
+//	AgentPromptVariantGenAiResourceArgs{...}
+type AgentPromptVariantGenAiResourceInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantGenAiResourceOutput() AgentPromptVariantGenAiResourceOutput
+	ToAgentPromptVariantGenAiResourceOutputWithContext(context.Context) AgentPromptVariantGenAiResourceOutput
+}
+
+type AgentPromptVariantGenAiResourceArgs struct {
+	// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+	Agent AgentPromptVariantGenAiResourceAgentPtrInput `pulumi:"agent"`
+}
+
+func (AgentPromptVariantGenAiResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantGenAiResource)(nil)).Elem()
+}
+
+func (i AgentPromptVariantGenAiResourceArgs) ToAgentPromptVariantGenAiResourceOutput() AgentPromptVariantGenAiResourceOutput {
+	return i.ToAgentPromptVariantGenAiResourceOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantGenAiResourceArgs) ToAgentPromptVariantGenAiResourceOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourceOutput)
+}
+
+func (i AgentPromptVariantGenAiResourceArgs) ToAgentPromptVariantGenAiResourcePtrOutput() AgentPromptVariantGenAiResourcePtrOutput {
+	return i.ToAgentPromptVariantGenAiResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantGenAiResourceArgs) ToAgentPromptVariantGenAiResourcePtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourceOutput).ToAgentPromptVariantGenAiResourcePtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantGenAiResourcePtrInput is an input type that accepts AgentPromptVariantGenAiResourceArgs, AgentPromptVariantGenAiResourcePtr and AgentPromptVariantGenAiResourcePtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantGenAiResourcePtrInput` via:
+//
+//	        AgentPromptVariantGenAiResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantGenAiResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantGenAiResourcePtrOutput() AgentPromptVariantGenAiResourcePtrOutput
+	ToAgentPromptVariantGenAiResourcePtrOutputWithContext(context.Context) AgentPromptVariantGenAiResourcePtrOutput
+}
+
+type agentPromptVariantGenAiResourcePtrType AgentPromptVariantGenAiResourceArgs
+
+func AgentPromptVariantGenAiResourcePtr(v *AgentPromptVariantGenAiResourceArgs) AgentPromptVariantGenAiResourcePtrInput {
+	return (*agentPromptVariantGenAiResourcePtrType)(v)
+}
+
+func (*agentPromptVariantGenAiResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantGenAiResource)(nil)).Elem()
+}
+
+func (i *agentPromptVariantGenAiResourcePtrType) ToAgentPromptVariantGenAiResourcePtrOutput() AgentPromptVariantGenAiResourcePtrOutput {
+	return i.ToAgentPromptVariantGenAiResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantGenAiResourcePtrType) ToAgentPromptVariantGenAiResourcePtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourcePtrOutput)
+}
+
+type AgentPromptVariantGenAiResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantGenAiResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantGenAiResource)(nil)).Elem()
+}
+
+func (o AgentPromptVariantGenAiResourceOutput) ToAgentPromptVariantGenAiResourceOutput() AgentPromptVariantGenAiResourceOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceOutput) ToAgentPromptVariantGenAiResourceOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceOutput) ToAgentPromptVariantGenAiResourcePtrOutput() AgentPromptVariantGenAiResourcePtrOutput {
+	return o.ToAgentPromptVariantGenAiResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantGenAiResourceOutput) ToAgentPromptVariantGenAiResourcePtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantGenAiResource) *AgentPromptVariantGenAiResource {
+		return &v
+	}).(AgentPromptVariantGenAiResourcePtrOutput)
+}
+
+// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+func (o AgentPromptVariantGenAiResourceOutput) Agent() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantGenAiResource) *AgentPromptVariantGenAiResourceAgent { return v.Agent }).(AgentPromptVariantGenAiResourceAgentPtrOutput)
+}
+
+type AgentPromptVariantGenAiResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantGenAiResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantGenAiResource)(nil)).Elem()
+}
+
+func (o AgentPromptVariantGenAiResourcePtrOutput) ToAgentPromptVariantGenAiResourcePtrOutput() AgentPromptVariantGenAiResourcePtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourcePtrOutput) ToAgentPromptVariantGenAiResourcePtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourcePtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourcePtrOutput) Elem() AgentPromptVariantGenAiResourceOutput {
+	return o.ApplyT(func(v *AgentPromptVariantGenAiResource) AgentPromptVariantGenAiResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantGenAiResource
+		return ret
+	}).(AgentPromptVariantGenAiResourceOutput)
+}
+
+// Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+func (o AgentPromptVariantGenAiResourcePtrOutput) Agent() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantGenAiResource) *AgentPromptVariantGenAiResourceAgent {
+		if v == nil {
+			return nil
+		}
+		return v.Agent
+	}).(AgentPromptVariantGenAiResourceAgentPtrOutput)
+}
+
+type AgentPromptVariantGenAiResourceAgent struct {
+	// ARN of the agent with which to use the prompt.
+	AgentIdentifier string `pulumi:"agentIdentifier"`
+}
+
+// AgentPromptVariantGenAiResourceAgentInput is an input type that accepts AgentPromptVariantGenAiResourceAgentArgs and AgentPromptVariantGenAiResourceAgentOutput values.
+// You can construct a concrete instance of `AgentPromptVariantGenAiResourceAgentInput` via:
+//
+//	AgentPromptVariantGenAiResourceAgentArgs{...}
+type AgentPromptVariantGenAiResourceAgentInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantGenAiResourceAgentOutput() AgentPromptVariantGenAiResourceAgentOutput
+	ToAgentPromptVariantGenAiResourceAgentOutputWithContext(context.Context) AgentPromptVariantGenAiResourceAgentOutput
+}
+
+type AgentPromptVariantGenAiResourceAgentArgs struct {
+	// ARN of the agent with which to use the prompt.
+	AgentIdentifier pulumi.StringInput `pulumi:"agentIdentifier"`
+}
+
+func (AgentPromptVariantGenAiResourceAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantGenAiResourceAgent)(nil)).Elem()
+}
+
+func (i AgentPromptVariantGenAiResourceAgentArgs) ToAgentPromptVariantGenAiResourceAgentOutput() AgentPromptVariantGenAiResourceAgentOutput {
+	return i.ToAgentPromptVariantGenAiResourceAgentOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantGenAiResourceAgentArgs) ToAgentPromptVariantGenAiResourceAgentOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourceAgentOutput)
+}
+
+func (i AgentPromptVariantGenAiResourceAgentArgs) ToAgentPromptVariantGenAiResourceAgentPtrOutput() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return i.ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantGenAiResourceAgentArgs) ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourceAgentOutput).ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantGenAiResourceAgentPtrInput is an input type that accepts AgentPromptVariantGenAiResourceAgentArgs, AgentPromptVariantGenAiResourceAgentPtr and AgentPromptVariantGenAiResourceAgentPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantGenAiResourceAgentPtrInput` via:
+//
+//	        AgentPromptVariantGenAiResourceAgentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantGenAiResourceAgentPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantGenAiResourceAgentPtrOutput() AgentPromptVariantGenAiResourceAgentPtrOutput
+	ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(context.Context) AgentPromptVariantGenAiResourceAgentPtrOutput
+}
+
+type agentPromptVariantGenAiResourceAgentPtrType AgentPromptVariantGenAiResourceAgentArgs
+
+func AgentPromptVariantGenAiResourceAgentPtr(v *AgentPromptVariantGenAiResourceAgentArgs) AgentPromptVariantGenAiResourceAgentPtrInput {
+	return (*agentPromptVariantGenAiResourceAgentPtrType)(v)
+}
+
+func (*agentPromptVariantGenAiResourceAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantGenAiResourceAgent)(nil)).Elem()
+}
+
+func (i *agentPromptVariantGenAiResourceAgentPtrType) ToAgentPromptVariantGenAiResourceAgentPtrOutput() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return i.ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantGenAiResourceAgentPtrType) ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantGenAiResourceAgentPtrOutput)
+}
+
+type AgentPromptVariantGenAiResourceAgentOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantGenAiResourceAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantGenAiResourceAgent)(nil)).Elem()
+}
+
+func (o AgentPromptVariantGenAiResourceAgentOutput) ToAgentPromptVariantGenAiResourceAgentOutput() AgentPromptVariantGenAiResourceAgentOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceAgentOutput) ToAgentPromptVariantGenAiResourceAgentOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceAgentOutput) ToAgentPromptVariantGenAiResourceAgentPtrOutput() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o.ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantGenAiResourceAgentOutput) ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantGenAiResourceAgent) *AgentPromptVariantGenAiResourceAgent {
+		return &v
+	}).(AgentPromptVariantGenAiResourceAgentPtrOutput)
+}
+
+// ARN of the agent with which to use the prompt.
+func (o AgentPromptVariantGenAiResourceAgentOutput) AgentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantGenAiResourceAgent) string { return v.AgentIdentifier }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantGenAiResourceAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantGenAiResourceAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantGenAiResourceAgent)(nil)).Elem()
+}
+
+func (o AgentPromptVariantGenAiResourceAgentPtrOutput) ToAgentPromptVariantGenAiResourceAgentPtrOutput() AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceAgentPtrOutput) ToAgentPromptVariantGenAiResourceAgentPtrOutputWithContext(ctx context.Context) AgentPromptVariantGenAiResourceAgentPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantGenAiResourceAgentPtrOutput) Elem() AgentPromptVariantGenAiResourceAgentOutput {
+	return o.ApplyT(func(v *AgentPromptVariantGenAiResourceAgent) AgentPromptVariantGenAiResourceAgent {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantGenAiResourceAgent
+		return ret
+	}).(AgentPromptVariantGenAiResourceAgentOutput)
+}
+
+// ARN of the agent with which to use the prompt.
+func (o AgentPromptVariantGenAiResourceAgentPtrOutput) AgentIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantGenAiResourceAgent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantInferenceConfiguration struct {
+	// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+	Text *AgentPromptVariantInferenceConfigurationText `pulumi:"text"`
+}
+
+// AgentPromptVariantInferenceConfigurationInput is an input type that accepts AgentPromptVariantInferenceConfigurationArgs and AgentPromptVariantInferenceConfigurationOutput values.
+// You can construct a concrete instance of `AgentPromptVariantInferenceConfigurationInput` via:
+//
+//	AgentPromptVariantInferenceConfigurationArgs{...}
+type AgentPromptVariantInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantInferenceConfigurationOutput() AgentPromptVariantInferenceConfigurationOutput
+	ToAgentPromptVariantInferenceConfigurationOutputWithContext(context.Context) AgentPromptVariantInferenceConfigurationOutput
+}
+
+type AgentPromptVariantInferenceConfigurationArgs struct {
+	// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+	Text AgentPromptVariantInferenceConfigurationTextPtrInput `pulumi:"text"`
+}
+
+func (AgentPromptVariantInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentPromptVariantInferenceConfigurationArgs) ToAgentPromptVariantInferenceConfigurationOutput() AgentPromptVariantInferenceConfigurationOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantInferenceConfigurationArgs) ToAgentPromptVariantInferenceConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationOutput)
+}
+
+func (i AgentPromptVariantInferenceConfigurationArgs) ToAgentPromptVariantInferenceConfigurationPtrOutput() AgentPromptVariantInferenceConfigurationPtrOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantInferenceConfigurationArgs) ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationOutput).ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantInferenceConfigurationPtrInput is an input type that accepts AgentPromptVariantInferenceConfigurationArgs, AgentPromptVariantInferenceConfigurationPtr and AgentPromptVariantInferenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantInferenceConfigurationPtrInput` via:
+//
+//	        AgentPromptVariantInferenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantInferenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantInferenceConfigurationPtrOutput() AgentPromptVariantInferenceConfigurationPtrOutput
+	ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(context.Context) AgentPromptVariantInferenceConfigurationPtrOutput
+}
+
+type agentPromptVariantInferenceConfigurationPtrType AgentPromptVariantInferenceConfigurationArgs
+
+func AgentPromptVariantInferenceConfigurationPtr(v *AgentPromptVariantInferenceConfigurationArgs) AgentPromptVariantInferenceConfigurationPtrInput {
+	return (*agentPromptVariantInferenceConfigurationPtrType)(v)
+}
+
+func (*agentPromptVariantInferenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantInferenceConfiguration)(nil)).Elem()
+}
+
+func (i *agentPromptVariantInferenceConfigurationPtrType) ToAgentPromptVariantInferenceConfigurationPtrOutput() AgentPromptVariantInferenceConfigurationPtrOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantInferenceConfigurationPtrType) ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationPtrOutput)
+}
+
+type AgentPromptVariantInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantInferenceConfigurationOutput) ToAgentPromptVariantInferenceConfigurationOutput() AgentPromptVariantInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationOutput) ToAgentPromptVariantInferenceConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationOutput) ToAgentPromptVariantInferenceConfigurationPtrOutput() AgentPromptVariantInferenceConfigurationPtrOutput {
+	return o.ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantInferenceConfigurationOutput) ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantInferenceConfiguration) *AgentPromptVariantInferenceConfiguration {
+		return &v
+	}).(AgentPromptVariantInferenceConfigurationPtrOutput)
+}
+
+// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+func (o AgentPromptVariantInferenceConfigurationOutput) Text() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantInferenceConfiguration) *AgentPromptVariantInferenceConfigurationText {
+		return v.Text
+	}).(AgentPromptVariantInferenceConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantInferenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantInferenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantInferenceConfigurationPtrOutput) ToAgentPromptVariantInferenceConfigurationPtrOutput() AgentPromptVariantInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationPtrOutput) ToAgentPromptVariantInferenceConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationPtrOutput) Elem() AgentPromptVariantInferenceConfigurationOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfiguration) AgentPromptVariantInferenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantInferenceConfiguration
+		return ret
+	}).(AgentPromptVariantInferenceConfigurationOutput)
+}
+
+// Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+func (o AgentPromptVariantInferenceConfigurationPtrOutput) Text() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfiguration) *AgentPromptVariantInferenceConfigurationText {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(AgentPromptVariantInferenceConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantInferenceConfigurationText struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens *int `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences []string `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature *float64 `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// AgentPromptVariantInferenceConfigurationTextInput is an input type that accepts AgentPromptVariantInferenceConfigurationTextArgs and AgentPromptVariantInferenceConfigurationTextOutput values.
+// You can construct a concrete instance of `AgentPromptVariantInferenceConfigurationTextInput` via:
+//
+//	AgentPromptVariantInferenceConfigurationTextArgs{...}
+type AgentPromptVariantInferenceConfigurationTextInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantInferenceConfigurationTextOutput() AgentPromptVariantInferenceConfigurationTextOutput
+	ToAgentPromptVariantInferenceConfigurationTextOutputWithContext(context.Context) AgentPromptVariantInferenceConfigurationTextOutput
+}
+
+type AgentPromptVariantInferenceConfigurationTextArgs struct {
+	// Maximum number of tokens to return in the response.
+	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// List of strings that define sequences after which the model will stop generating.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
+	// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// Percentage of most-likely candidates that the model considers for the next token.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (AgentPromptVariantInferenceConfigurationTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i AgentPromptVariantInferenceConfigurationTextArgs) ToAgentPromptVariantInferenceConfigurationTextOutput() AgentPromptVariantInferenceConfigurationTextOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationTextOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantInferenceConfigurationTextArgs) ToAgentPromptVariantInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationTextOutput)
+}
+
+func (i AgentPromptVariantInferenceConfigurationTextArgs) ToAgentPromptVariantInferenceConfigurationTextPtrOutput() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantInferenceConfigurationTextArgs) ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationTextOutput).ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantInferenceConfigurationTextPtrInput is an input type that accepts AgentPromptVariantInferenceConfigurationTextArgs, AgentPromptVariantInferenceConfigurationTextPtr and AgentPromptVariantInferenceConfigurationTextPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantInferenceConfigurationTextPtrInput` via:
+//
+//	        AgentPromptVariantInferenceConfigurationTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantInferenceConfigurationTextPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantInferenceConfigurationTextPtrOutput() AgentPromptVariantInferenceConfigurationTextPtrOutput
+	ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(context.Context) AgentPromptVariantInferenceConfigurationTextPtrOutput
+}
+
+type agentPromptVariantInferenceConfigurationTextPtrType AgentPromptVariantInferenceConfigurationTextArgs
+
+func AgentPromptVariantInferenceConfigurationTextPtr(v *AgentPromptVariantInferenceConfigurationTextArgs) AgentPromptVariantInferenceConfigurationTextPtrInput {
+	return (*agentPromptVariantInferenceConfigurationTextPtrType)(v)
+}
+
+func (*agentPromptVariantInferenceConfigurationTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantInferenceConfigurationText)(nil)).Elem()
+}
+
+func (i *agentPromptVariantInferenceConfigurationTextPtrType) ToAgentPromptVariantInferenceConfigurationTextPtrOutput() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return i.ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantInferenceConfigurationTextPtrType) ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantInferenceConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantInferenceConfigurationTextOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantInferenceConfigurationTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextOutput) ToAgentPromptVariantInferenceConfigurationTextOutput() AgentPromptVariantInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextOutput) ToAgentPromptVariantInferenceConfigurationTextOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextOutput) ToAgentPromptVariantInferenceConfigurationTextPtrOutput() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o.ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextOutput) ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantInferenceConfigurationText) *AgentPromptVariantInferenceConfigurationText {
+		return &v
+	}).(AgentPromptVariantInferenceConfigurationTextPtrOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentPromptVariantInferenceConfigurationTextOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantInferenceConfigurationText) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentPromptVariantInferenceConfigurationTextOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantInferenceConfigurationText) []string { return v.StopSequences }).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentPromptVariantInferenceConfigurationTextOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantInferenceConfigurationText) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentPromptVariantInferenceConfigurationTextOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantInferenceConfigurationText) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type AgentPromptVariantInferenceConfigurationTextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantInferenceConfigurationTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantInferenceConfigurationText)(nil)).Elem()
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) ToAgentPromptVariantInferenceConfigurationTextPtrOutput() AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) ToAgentPromptVariantInferenceConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantInferenceConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) Elem() AgentPromptVariantInferenceConfigurationTextOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfigurationText) AgentPromptVariantInferenceConfigurationText {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantInferenceConfigurationText
+		return ret
+	}).(AgentPromptVariantInferenceConfigurationTextOutput)
+}
+
+// Maximum number of tokens to return in the response.
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfigurationText) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of strings that define sequences after which the model will stop generating.
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfigurationText) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Percentage of most-likely candidates that the model considers for the next token.
+func (o AgentPromptVariantInferenceConfigurationTextPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantInferenceConfigurationText) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentPromptVariantMetadata struct {
+	// Key of a metadata tag for a prompt variant.
+	Key string `pulumi:"key"`
+	// Value of a metadata tag for a prompt variant.
+	Value string `pulumi:"value"`
+}
+
+// AgentPromptVariantMetadataInput is an input type that accepts AgentPromptVariantMetadataArgs and AgentPromptVariantMetadataOutput values.
+// You can construct a concrete instance of `AgentPromptVariantMetadataInput` via:
+//
+//	AgentPromptVariantMetadataArgs{...}
+type AgentPromptVariantMetadataInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantMetadataOutput() AgentPromptVariantMetadataOutput
+	ToAgentPromptVariantMetadataOutputWithContext(context.Context) AgentPromptVariantMetadataOutput
+}
+
+type AgentPromptVariantMetadataArgs struct {
+	// Key of a metadata tag for a prompt variant.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of a metadata tag for a prompt variant.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AgentPromptVariantMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantMetadata)(nil)).Elem()
+}
+
+func (i AgentPromptVariantMetadataArgs) ToAgentPromptVariantMetadataOutput() AgentPromptVariantMetadataOutput {
+	return i.ToAgentPromptVariantMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantMetadataArgs) ToAgentPromptVariantMetadataOutputWithContext(ctx context.Context) AgentPromptVariantMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantMetadataOutput)
+}
+
+// AgentPromptVariantMetadataArrayInput is an input type that accepts AgentPromptVariantMetadataArray and AgentPromptVariantMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantMetadataArrayInput` via:
+//
+//	AgentPromptVariantMetadataArray{ AgentPromptVariantMetadataArgs{...} }
+type AgentPromptVariantMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantMetadataArrayOutput() AgentPromptVariantMetadataArrayOutput
+	ToAgentPromptVariantMetadataArrayOutputWithContext(context.Context) AgentPromptVariantMetadataArrayOutput
+}
+
+type AgentPromptVariantMetadataArray []AgentPromptVariantMetadataInput
+
+func (AgentPromptVariantMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantMetadata)(nil)).Elem()
+}
+
+func (i AgentPromptVariantMetadataArray) ToAgentPromptVariantMetadataArrayOutput() AgentPromptVariantMetadataArrayOutput {
+	return i.ToAgentPromptVariantMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantMetadataArray) ToAgentPromptVariantMetadataArrayOutputWithContext(ctx context.Context) AgentPromptVariantMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantMetadataArrayOutput)
+}
+
+type AgentPromptVariantMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantMetadata)(nil)).Elem()
+}
+
+func (o AgentPromptVariantMetadataOutput) ToAgentPromptVariantMetadataOutput() AgentPromptVariantMetadataOutput {
+	return o
+}
+
+func (o AgentPromptVariantMetadataOutput) ToAgentPromptVariantMetadataOutputWithContext(ctx context.Context) AgentPromptVariantMetadataOutput {
+	return o
+}
+
+// Key of a metadata tag for a prompt variant.
+func (o AgentPromptVariantMetadataOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantMetadata) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of a metadata tag for a prompt variant.
+func (o AgentPromptVariantMetadataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantMetadata) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantMetadata)(nil)).Elem()
+}
+
+func (o AgentPromptVariantMetadataArrayOutput) ToAgentPromptVariantMetadataArrayOutput() AgentPromptVariantMetadataArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantMetadataArrayOutput) ToAgentPromptVariantMetadataArrayOutputWithContext(ctx context.Context) AgentPromptVariantMetadataArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantMetadataArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantMetadata {
+		return vs[0].([]AgentPromptVariantMetadata)[vs[1].(int)]
+	}).(AgentPromptVariantMetadataOutput)
+}
+
+type AgentPromptVariantTemplateConfiguration struct {
+	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	Chat *AgentPromptVariantTemplateConfigurationChat `pulumi:"chat"`
+	// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+	Text *AgentPromptVariantTemplateConfigurationText `pulumi:"text"`
+}
+
+// AgentPromptVariantTemplateConfigurationInput is an input type that accepts AgentPromptVariantTemplateConfigurationArgs and AgentPromptVariantTemplateConfigurationOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationArgs{...}
+type AgentPromptVariantTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationOutput() AgentPromptVariantTemplateConfigurationOutput
+	ToAgentPromptVariantTemplateConfigurationOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationOutput
+}
+
+type AgentPromptVariantTemplateConfigurationArgs struct {
+	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+	Chat AgentPromptVariantTemplateConfigurationChatPtrInput `pulumi:"chat"`
+	// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+	Text AgentPromptVariantTemplateConfigurationTextPtrInput `pulumi:"text"`
+}
+
+func (AgentPromptVariantTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfiguration)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationArgs) ToAgentPromptVariantTemplateConfigurationOutput() AgentPromptVariantTemplateConfigurationOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationArgs) ToAgentPromptVariantTemplateConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationArgs) ToAgentPromptVariantTemplateConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationArgs) ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationOutput).ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationArgs, AgentPromptVariantTemplateConfigurationPtr and AgentPromptVariantTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationPtrOutput
+	ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationPtrType AgentPromptVariantTemplateConfigurationArgs
+
+func AgentPromptVariantTemplateConfigurationPtr(v *AgentPromptVariantTemplateConfigurationArgs) AgentPromptVariantTemplateConfigurationPtrInput {
+	return (*agentPromptVariantTemplateConfigurationPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationPtrType) ToAgentPromptVariantTemplateConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationPtrType) ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationOutput) ToAgentPromptVariantTemplateConfigurationOutput() AgentPromptVariantTemplateConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationOutput) ToAgentPromptVariantTemplateConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationOutput) ToAgentPromptVariantTemplateConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationOutput) ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfiguration {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationPtrOutput)
+}
+
+// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+func (o AgentPromptVariantTemplateConfigurationOutput) Chat() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationChat {
+		return v.Chat
+	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
+}
+
+// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+func (o AgentPromptVariantTemplateConfigurationOutput) Text() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationText {
+		return v.Text
+	}).(AgentPromptVariantTemplateConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationPtrOutput) ToAgentPromptVariantTemplateConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationPtrOutput) ToAgentPromptVariantTemplateConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationPtrOutput) Elem() AgentPromptVariantTemplateConfigurationOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfiguration) AgentPromptVariantTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfiguration
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationOutput)
+}
+
+// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+func (o AgentPromptVariantTemplateConfigurationPtrOutput) Chat() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationChat {
+		if v == nil {
+			return nil
+		}
+		return v.Chat
+	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
+}
+
+// Contains configurations for the text in a message for a prompt. See Text Template Configuration
+func (o AgentPromptVariantTemplateConfigurationPtrOutput) Text() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfiguration) *AgentPromptVariantTemplateConfigurationText {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(AgentPromptVariantTemplateConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChat struct {
+	InputVariables []AgentPromptVariantTemplateConfigurationChatInputVariable `pulumi:"inputVariables"`
+	// A list of messages in the chat for the prompt. See Message for more information.
+	Messages []AgentPromptVariantTemplateConfigurationChatMessage `pulumi:"messages"`
+	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	Systems []AgentPromptVariantTemplateConfigurationChatSystem `pulumi:"systems"`
+	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	ToolConfiguration *AgentPromptVariantTemplateConfigurationChatToolConfiguration `pulumi:"toolConfiguration"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatArgs and AgentPromptVariantTemplateConfigurationChatOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatArgs{...}
+type AgentPromptVariantTemplateConfigurationChatInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatOutput() AgentPromptVariantTemplateConfigurationChatOutput
+	ToAgentPromptVariantTemplateConfigurationChatOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatArgs struct {
+	InputVariables AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput `pulumi:"inputVariables"`
+	// A list of messages in the chat for the prompt. See Message for more information.
+	Messages AgentPromptVariantTemplateConfigurationChatMessageArrayInput `pulumi:"messages"`
+	// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+	Systems AgentPromptVariantTemplateConfigurationChatSystemArrayInput `pulumi:"systems"`
+	// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+	ToolConfiguration AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput `pulumi:"toolConfiguration"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatArgs) ToAgentPromptVariantTemplateConfigurationChatOutput() AgentPromptVariantTemplateConfigurationChatOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatArgs) ToAgentPromptVariantTemplateConfigurationChatOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatArgs) ToAgentPromptVariantTemplateConfigurationChatPtrOutput() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatArgs) ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatOutput).ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatArgs, AgentPromptVariantTemplateConfigurationChatPtr and AgentPromptVariantTemplateConfigurationChatPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatPtrOutput() AgentPromptVariantTemplateConfigurationChatPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatPtrType AgentPromptVariantTemplateConfigurationChatArgs
+
+func AgentPromptVariantTemplateConfigurationChatPtr(v *AgentPromptVariantTemplateConfigurationChatArgs) AgentPromptVariantTemplateConfigurationChatPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatPtrType) ToAgentPromptVariantTemplateConfigurationChatPtrOutput() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatPtrType) ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatOutput) ToAgentPromptVariantTemplateConfigurationChatOutput() AgentPromptVariantTemplateConfigurationChatOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatOutput) ToAgentPromptVariantTemplateConfigurationChatOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatOutput) ToAgentPromptVariantTemplateConfigurationChatPtrOutput() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatOutput) ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChat) *AgentPromptVariantTemplateConfigurationChat {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatOutput) InputVariables() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatInputVariable {
+		return v.InputVariables
+	}).(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+// A list of messages in the chat for the prompt. See Message for more information.
+func (o AgentPromptVariantTemplateConfigurationChatOutput) Messages() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatMessage {
+		return v.Messages
+	}).(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput)
+}
+
+// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+func (o AgentPromptVariantTemplateConfigurationChatOutput) Systems() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatSystem {
+		return v.Systems
+	}).(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput)
+}
+
+// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+func (o AgentPromptVariantTemplateConfigurationChatOutput) ToolConfiguration() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChat) *AgentPromptVariantTemplateConfigurationChatToolConfiguration {
+		return v.ToolConfiguration
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChat)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) ToAgentPromptVariantTemplateConfigurationChatPtrOutput() AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) ToAgentPromptVariantTemplateConfigurationChatPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) AgentPromptVariantTemplateConfigurationChat {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChat
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) InputVariables() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatInputVariable {
+		if v == nil {
+			return nil
+		}
+		return v.InputVariables
+	}).(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+// A list of messages in the chat for the prompt. See Message for more information.
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Messages() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatMessage {
+		if v == nil {
+			return nil
+		}
+		return v.Messages
+	}).(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput)
+}
+
+// A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) Systems() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) []AgentPromptVariantTemplateConfigurationChatSystem {
+		if v == nil {
+			return nil
+		}
+		return v.Systems
+	}).(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput)
+}
+
+// Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+func (o AgentPromptVariantTemplateConfigurationChatPtrOutput) ToolConfiguration() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChat) *AgentPromptVariantTemplateConfigurationChatToolConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ToolConfiguration
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatInputVariable struct {
+	// The name of the variable.
+	Name string `pulumi:"name"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatInputVariableInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatInputVariableArgs and AgentPromptVariantTemplateConfigurationChatInputVariableOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatInputVariableInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatInputVariableArgs{...}
+type AgentPromptVariantTemplateConfigurationChatInputVariableInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatInputVariableOutput() AgentPromptVariantTemplateConfigurationChatInputVariableOutput
+	ToAgentPromptVariantTemplateConfigurationChatInputVariableOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatInputVariableArgs struct {
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatInputVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatInputVariableArgs) ToAgentPromptVariantTemplateConfigurationChatInputVariableOutput() AgentPromptVariantTemplateConfigurationChatInputVariableOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatInputVariableOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatInputVariableArgs) ToAgentPromptVariantTemplateConfigurationChatInputVariableOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatInputVariableOutput)
+}
+
+// AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatInputVariableArray and AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatInputVariableArray{ AgentPromptVariantTemplateConfigurationChatInputVariableArgs{...} }
+type AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput
+	ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatInputVariableArray []AgentPromptVariantTemplateConfigurationChatInputVariableInput
+
+func (AgentPromptVariantTemplateConfigurationChatInputVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatInputVariableArray) ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatInputVariableArray) ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatInputVariableOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatInputVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableOutput) ToAgentPromptVariantTemplateConfigurationChatInputVariableOutput() AgentPromptVariantTemplateConfigurationChatInputVariableOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableOutput) ToAgentPromptVariantTemplateConfigurationChatInputVariableOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableOutput {
+	return o
+}
+
+// The name of the variable.
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatInputVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatInputVariable)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) ToAgentPromptVariantTemplateConfigurationChatInputVariableArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantTemplateConfigurationChatInputVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantTemplateConfigurationChatInputVariable {
+		return vs[0].([]AgentPromptVariantTemplateConfigurationChatInputVariable)[vs[1].(int)]
+	}).(AgentPromptVariantTemplateConfigurationChatInputVariableOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessage struct {
+	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	Content *AgentPromptVariantTemplateConfigurationChatMessageContent `pulumi:"content"`
+	// The role that the message belongs to.
+	Role string `pulumi:"role"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageArgs and AgentPromptVariantTemplateConfigurationChatMessageOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatMessageArgs{...}
+type AgentPromptVariantTemplateConfigurationChatMessageInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageOutput() AgentPromptVariantTemplateConfigurationChatMessageOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageArgs struct {
+	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	Content AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
+	// The role that the message belongs to.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageArgs) ToAgentPromptVariantTemplateConfigurationChatMessageOutput() AgentPromptVariantTemplateConfigurationChatMessageOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageArgs) ToAgentPromptVariantTemplateConfigurationChatMessageOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageOutput)
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageArrayInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageArray and AgentPromptVariantTemplateConfigurationChatMessageArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageArrayInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatMessageArray{ AgentPromptVariantTemplateConfigurationChatMessageArgs{...} }
+type AgentPromptVariantTemplateConfigurationChatMessageArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutput() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageArrayOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageArray []AgentPromptVariantTemplateConfigurationChatMessageInput
+
+func (AgentPromptVariantTemplateConfigurationChatMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageArray) ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutput() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageArray) ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) ToAgentPromptVariantTemplateConfigurationChatMessageOutput() AgentPromptVariantTemplateConfigurationChatMessageOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) ToAgentPromptVariantTemplateConfigurationChatMessageOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageOutput {
+	return o
+}
+
+// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) Content() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessage) *AgentPromptVariantTemplateConfigurationChatMessageContent {
+		return v.Content
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+// The role that the message belongs to.
+func (o AgentPromptVariantTemplateConfigurationChatMessageOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessage) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatMessage)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageArrayOutput) ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutput() AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageArrayOutput) ToAgentPromptVariantTemplateConfigurationChatMessageArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantTemplateConfigurationChatMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantTemplateConfigurationChatMessage {
+		return vs[0].([]AgentPromptVariantTemplateConfigurationChatMessage)[vs[1].(int)]
+	}).(AgentPromptVariantTemplateConfigurationChatMessageOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContent struct {
+	CachePoint *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint `pulumi:"cachePoint"`
+	Text       *string                                                              `pulumi:"text"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageContentInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageContentArgs and AgentPromptVariantTemplateConfigurationChatMessageContentOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageContentInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatMessageContentArgs{...}
+type AgentPromptVariantTemplateConfigurationChatMessageContentInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentOutput() AgentPromptVariantTemplateConfigurationChatMessageContentOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentArgs struct {
+	CachePoint AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput `pulumi:"cachePoint"`
+	Text       pulumi.StringPtrInput                                                       `pulumi:"text"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentOutput() AgentPromptVariantTemplateConfigurationChatMessageContentOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentOutput).ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageContentArgs, AgentPromptVariantTemplateConfigurationChatMessageContentPtr and AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatMessageContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatMessageContentPtrType AgentPromptVariantTemplateConfigurationChatMessageContentArgs
+
+func AgentPromptVariantTemplateConfigurationChatMessageContentPtr(v *AgentPromptVariantTemplateConfigurationChatMessageContentArgs) AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatMessageContentPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatMessageContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatMessageContentPtrType) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatMessageContentPtrType) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentOutput() AgentPromptVariantTemplateConfigurationChatMessageContentOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatMessageContent) *AgentPromptVariantTemplateConfigurationChatMessageContent {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContent) *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContent) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatMessageContent)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatMessageContentOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContent) AgentPromptVariantTemplateConfigurationChatMessageContent {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatMessageContent
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContent) *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
+		if v == nil {
+			return nil
+		}
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageContentCachePointInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs and AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageContentCachePointInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs{...}
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput).ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs, AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtr and AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrType AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs
+
+func AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtr(v *AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystem struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint *AgentPromptVariantTemplateConfigurationChatSystemCachePoint `pulumi:"cachePoint"`
+	// The text in the system prompt.
+	Text *string `pulumi:"text"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatSystemInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatSystemArgs and AgentPromptVariantTemplateConfigurationChatSystemOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatSystemInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatSystemArgs{...}
+type AgentPromptVariantTemplateConfigurationChatSystemInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatSystemOutput() AgentPromptVariantTemplateConfigurationChatSystemOutput
+	ToAgentPromptVariantTemplateConfigurationChatSystemOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatSystemOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemArgs struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput `pulumi:"cachePoint"`
+	// The text in the system prompt.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemArgs) ToAgentPromptVariantTemplateConfigurationChatSystemOutput() AgentPromptVariantTemplateConfigurationChatSystemOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatSystemOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemArgs) ToAgentPromptVariantTemplateConfigurationChatSystemOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatSystemOutput)
+}
+
+// AgentPromptVariantTemplateConfigurationChatSystemArrayInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatSystemArray and AgentPromptVariantTemplateConfigurationChatSystemArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatSystemArrayInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatSystemArray{ AgentPromptVariantTemplateConfigurationChatSystemArgs{...} }
+type AgentPromptVariantTemplateConfigurationChatSystemArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutput() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput
+	ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatSystemArrayOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemArray []AgentPromptVariantTemplateConfigurationChatSystemInput
+
+func (AgentPromptVariantTemplateConfigurationChatSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemArray) ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutput() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemArray) ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) ToAgentPromptVariantTemplateConfigurationChatSystemOutput() AgentPromptVariantTemplateConfigurationChatSystemOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) ToAgentPromptVariantTemplateConfigurationChatSystemOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemOutput {
+	return o
+}
+
+// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystem) *AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+// The text in the system prompt.
+func (o AgentPromptVariantTemplateConfigurationChatSystemOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystem) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatSystem)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemArrayOutput) ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutput() AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemArrayOutput) ToAgentPromptVariantTemplateConfigurationChatSystemArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantTemplateConfigurationChatSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantTemplateConfigurationChatSystem {
+		return vs[0].([]AgentPromptVariantTemplateConfigurationChatSystem)[vs[1].(int)]
+	}).(AgentPromptVariantTemplateConfigurationChatSystemOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatSystemCachePointInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs and AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatSystemCachePointInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs{...}
+type AgentPromptVariantTemplateConfigurationChatSystemCachePointInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput
+	ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput).ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs, AgentPromptVariantTemplateConfigurationChatSystemCachePointPtr and AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatSystemCachePointPtrType AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs
+
+func AgentPromptVariantTemplateConfigurationChatSystemCachePointPtr(v *AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatSystemCachePointPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatSystemCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatSystemCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatSystemCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatSystemCachePoint) *AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatSystemCachePoint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatSystemCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatSystemCachePoint) AgentPromptVariantTemplateConfigurationChatSystemCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatSystemCachePoint
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatSystemCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfiguration struct {
+	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	ToolChoice *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice `pulumi:"toolChoice"`
+	// A list of tools to pass to a model. See Tool for more information.
+	Tools []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool `pulumi:"tools"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs struct {
+	// Defines which tools the model should request when invoked. See Tool Choice for more information.
+	ToolChoice AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput `pulumi:"toolChoice"`
+	// A list of tools to pass to a model. See Tool for more information.
+	Tools AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput `pulumi:"tools"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfiguration) *AgentPromptVariantTemplateConfigurationChatToolConfiguration {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput)
+}
+
+// Defines which tools the model should request when invoked. See Tool Choice for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) ToolChoice() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfiguration) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
+		return v.ToolChoice
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// A list of tools to pass to a model. See Tool for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput) Tools() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfiguration) []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
+		return v.Tools
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfiguration) AgentPromptVariantTemplateConfigurationChatToolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfiguration
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput)
+}
+
+// Defines which tools the model should request when invoked. See Tool Choice for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) ToolChoice() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfiguration) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
+		if v == nil {
+			return nil
+		}
+		return v.ToolChoice
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// A list of tools to pass to a model. See Tool for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput) Tools() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfiguration) []AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationTool struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint `pulumi:"cachePoint"`
+	// The specification for the tool. See Tool Specification for more information.
+	ToolSpec *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec `pulumi:"toolSpec"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs struct {
+	// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+	CachePoint AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput `pulumi:"cachePoint"`
+	// The specification for the tool. See Tool Specification for more information.
+	ToolSpec AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput `pulumi:"toolSpec"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray{ AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs{...} }
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray []AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput {
+	return o
+}
+
+// Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) CachePoint() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationTool) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+// The specification for the tool. See Tool Specification for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput) ToolSpec() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationTool) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
+		return v.ToolSpec
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationChatToolConfigurationTool)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantTemplateConfigurationChatToolConfigurationTool {
+		return vs[0].([]AgentPromptVariantTemplateConfigurationChatToolConfigurationTool)[vs[1].(int)]
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice struct {
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	Any *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny `pulumi:"any"`
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	Auto *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto `pulumi:"auto"`
+	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	Tool *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool `pulumi:"tool"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs struct {
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	Any AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput `pulumi:"any"`
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	Auto AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput `pulumi:"auto"`
+	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+	Tool AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput `pulumi:"tool"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
+}
+
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Any() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		return v.Any
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Auto() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		return v.Auto
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput) Tool() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		return v.Tool
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput)
+}
+
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Any() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		if v == nil {
+			return nil
+		}
+		return v.Any
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Auto() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		if v == nil {
+			return nil
+		}
+		return v.Auto
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Tool() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		if v == nil {
+			return nil
+		}
+		return v.Tool
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny struct {
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs struct {
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto struct {
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs struct {
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool struct {
+	// Name of the prompt.
+	//
+	// The following arguments are optional:
+	Name string `pulumi:"name"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs struct {
+	// Name of the prompt.
+	//
+	// The following arguments are optional:
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
+}
+
+// Name of the prompt.
+//
+// The following arguments are optional:
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
+}
+
+// Name of the prompt.
+//
+// The following arguments are optional:
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec struct {
+	// Description of the prompt.
+	Description *string `pulumi:"description"`
+	// The input schema of the tool. See Tool Input Schema for more information.
+	InputSchema *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema `pulumi:"inputSchema"`
+	// Name of the prompt.
+	//
+	// The following arguments are optional:
+	Name string `pulumi:"name"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs struct {
+	// Description of the prompt.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The input schema of the tool. See Tool Input Schema for more information.
+	InputSchema AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput `pulumi:"inputSchema"`
+	// Name of the prompt.
+	//
+	// The following arguments are optional:
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
+}
+
+// Description of the prompt.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input schema of the tool. See Tool Input Schema for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) InputSchema() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		return v.InputSchema
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// Name of the prompt.
+//
+// The following arguments are optional:
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
+}
+
+// Description of the prompt.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input schema of the tool. See Tool Input Schema for more information.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) InputSchema() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		if v == nil {
+			return nil
+		}
+		return v.InputSchema
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// Name of the prompt.
+//
+// The following arguments are optional:
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema struct {
+	// A JSON object defining the input schema for the tool.
+	Json *string `pulumi:"json"`
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{...}
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs struct {
+	// A JSON object defining the input schema for the tool.
+	Json pulumi.StringPtrInput `pulumi:"json"`
+}
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput).ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs, AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtr and AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput
+	ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs
+
+func AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtr(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput {
+	return (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrType) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
+}
+
+// A JSON object defining the input schema for the tool.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
+		return v.Json
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) ToAgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Elem() AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput)
+}
+
+// A JSON object defining the input schema for the tool.
+func (o AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationText struct {
+	CachePoint     *AgentPromptVariantTemplateConfigurationTextCachePoint     `pulumi:"cachePoint"`
+	InputVariables []AgentPromptVariantTemplateConfigurationTextInputVariable `pulumi:"inputVariables"`
+	Text           string                                                     `pulumi:"text"`
+}
+
+// AgentPromptVariantTemplateConfigurationTextInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextArgs and AgentPromptVariantTemplateConfigurationTextOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationTextArgs{...}
+type AgentPromptVariantTemplateConfigurationTextInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextOutput() AgentPromptVariantTemplateConfigurationTextOutput
+	ToAgentPromptVariantTemplateConfigurationTextOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextOutput
+}
+
+type AgentPromptVariantTemplateConfigurationTextArgs struct {
+	CachePoint     AgentPromptVariantTemplateConfigurationTextCachePointPtrInput      `pulumi:"cachePoint"`
+	InputVariables AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput `pulumi:"inputVariables"`
+	Text           pulumi.StringInput                                                 `pulumi:"text"`
+}
+
+func (AgentPromptVariantTemplateConfigurationTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationText)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextArgs) ToAgentPromptVariantTemplateConfigurationTextOutput() AgentPromptVariantTemplateConfigurationTextOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextArgs) ToAgentPromptVariantTemplateConfigurationTextOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextArgs) ToAgentPromptVariantTemplateConfigurationTextPtrOutput() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextArgs) ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextOutput).ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationTextPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextArgs, AgentPromptVariantTemplateConfigurationTextPtr and AgentPromptVariantTemplateConfigurationTextPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationTextPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextPtrOutput() AgentPromptVariantTemplateConfigurationTextPtrOutput
+	ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationTextPtrType AgentPromptVariantTemplateConfigurationTextArgs
+
+func AgentPromptVariantTemplateConfigurationTextPtr(v *AgentPromptVariantTemplateConfigurationTextArgs) AgentPromptVariantTemplateConfigurationTextPtrInput {
+	return (*agentPromptVariantTemplateConfigurationTextPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationText)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationTextPtrType) ToAgentPromptVariantTemplateConfigurationTextPtrOutput() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationTextPtrType) ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationText)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) ToAgentPromptVariantTemplateConfigurationTextOutput() AgentPromptVariantTemplateConfigurationTextOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) ToAgentPromptVariantTemplateConfigurationTextOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) ToAgentPromptVariantTemplateConfigurationTextPtrOutput() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationText) *AgentPromptVariantTemplateConfigurationText {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationTextPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) CachePoint() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationText) *AgentPromptVariantTemplateConfigurationTextCachePoint {
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) InputVariables() AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationText) []AgentPromptVariantTemplateConfigurationTextInputVariable {
+		return v.InputVariables
+	}).(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationText) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationText)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) ToAgentPromptVariantTemplateConfigurationTextPtrOutput() AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) ToAgentPromptVariantTemplateConfigurationTextPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) Elem() AgentPromptVariantTemplateConfigurationTextOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationText) AgentPromptVariantTemplateConfigurationText {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationText
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationTextOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) CachePoint() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationText) *AgentPromptVariantTemplateConfigurationTextCachePoint {
+		if v == nil {
+			return nil
+		}
+		return v.CachePoint
+	}).(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) InputVariables() AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationText) []AgentPromptVariantTemplateConfigurationTextInputVariable {
+		if v == nil {
+			return nil
+		}
+		return v.InputVariables
+	}).(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationText) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextCachePoint struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type string `pulumi:"type"`
+}
+
+// AgentPromptVariantTemplateConfigurationTextCachePointInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextCachePointArgs and AgentPromptVariantTemplateConfigurationTextCachePointOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextCachePointInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationTextCachePointArgs{...}
+type AgentPromptVariantTemplateConfigurationTextCachePointInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextCachePointOutput() AgentPromptVariantTemplateConfigurationTextCachePointOutput
+	ToAgentPromptVariantTemplateConfigurationTextCachePointOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextCachePointOutput
+}
+
+type AgentPromptVariantTemplateConfigurationTextCachePointArgs struct {
+	// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentPromptVariantTemplateConfigurationTextCachePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextCachePointArgs) ToAgentPromptVariantTemplateConfigurationTextCachePointOutput() AgentPromptVariantTemplateConfigurationTextCachePointOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextCachePointOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextCachePointArgs) ToAgentPromptVariantTemplateConfigurationTextCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextCachePointOutput)
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextCachePointArgs) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutput() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextCachePointArgs) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextCachePointOutput).ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(ctx)
+}
+
+// AgentPromptVariantTemplateConfigurationTextCachePointPtrInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextCachePointArgs, AgentPromptVariantTemplateConfigurationTextCachePointPtr and AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextCachePointPtrInput` via:
+//
+//	        AgentPromptVariantTemplateConfigurationTextCachePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPromptVariantTemplateConfigurationTextCachePointPtrInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutput() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput
+	ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput
+}
+
+type agentPromptVariantTemplateConfigurationTextCachePointPtrType AgentPromptVariantTemplateConfigurationTextCachePointArgs
+
+func AgentPromptVariantTemplateConfigurationTextCachePointPtr(v *AgentPromptVariantTemplateConfigurationTextCachePointArgs) AgentPromptVariantTemplateConfigurationTextCachePointPtrInput {
+	return (*agentPromptVariantTemplateConfigurationTextCachePointPtrType)(v)
+}
+
+func (*agentPromptVariantTemplateConfigurationTextCachePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (i *agentPromptVariantTemplateConfigurationTextCachePointPtrType) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutput() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPromptVariantTemplateConfigurationTextCachePointPtrType) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextCachePointOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextCachePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointOutput() AgentPromptVariantTemplateConfigurationTextCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutput() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o.ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPromptVariantTemplateConfigurationTextCachePoint) *AgentPromptVariantTemplateConfigurationTextCachePoint {
+		return &v
+	}).(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationTextCachePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationTextCachePoint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPromptVariantTemplateConfigurationTextCachePoint)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutput() AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) ToAgentPromptVariantTemplateConfigurationTextCachePointPtrOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) Elem() AgentPromptVariantTemplateConfigurationTextCachePointOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationTextCachePoint) AgentPromptVariantTemplateConfigurationTextCachePoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPromptVariantTemplateConfigurationTextCachePoint
+		return ret
+	}).(AgentPromptVariantTemplateConfigurationTextCachePointOutput)
+}
+
+// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+func (o AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPromptVariantTemplateConfigurationTextCachePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextInputVariable struct {
+	// The name of the variable.
+	Name string `pulumi:"name"`
+}
+
+// AgentPromptVariantTemplateConfigurationTextInputVariableInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextInputVariableArgs and AgentPromptVariantTemplateConfigurationTextInputVariableOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextInputVariableInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationTextInputVariableArgs{...}
+type AgentPromptVariantTemplateConfigurationTextInputVariableInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextInputVariableOutput() AgentPromptVariantTemplateConfigurationTextInputVariableOutput
+	ToAgentPromptVariantTemplateConfigurationTextInputVariableOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableOutput
+}
+
+type AgentPromptVariantTemplateConfigurationTextInputVariableArgs struct {
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AgentPromptVariantTemplateConfigurationTextInputVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextInputVariableArgs) ToAgentPromptVariantTemplateConfigurationTextInputVariableOutput() AgentPromptVariantTemplateConfigurationTextInputVariableOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextInputVariableOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextInputVariableArgs) ToAgentPromptVariantTemplateConfigurationTextInputVariableOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextInputVariableOutput)
+}
+
+// AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput is an input type that accepts AgentPromptVariantTemplateConfigurationTextInputVariableArray and AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput values.
+// You can construct a concrete instance of `AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput` via:
+//
+//	AgentPromptVariantTemplateConfigurationTextInputVariableArray{ AgentPromptVariantTemplateConfigurationTextInputVariableArgs{...} }
+type AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput interface {
+	pulumi.Input
+
+	ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput
+	ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutputWithContext(context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput
+}
+
+type AgentPromptVariantTemplateConfigurationTextInputVariableArray []AgentPromptVariantTemplateConfigurationTextInputVariableInput
+
+func (AgentPromptVariantTemplateConfigurationTextInputVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextInputVariableArray) ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return i.ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPromptVariantTemplateConfigurationTextInputVariableArray) ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextInputVariableOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextInputVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableOutput) ToAgentPromptVariantTemplateConfigurationTextInputVariableOutput() AgentPromptVariantTemplateConfigurationTextInputVariableOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableOutput) ToAgentPromptVariantTemplateConfigurationTextInputVariableOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableOutput {
+	return o
+}
+
+// The name of the variable.
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPromptVariantTemplateConfigurationTextInputVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPromptVariantTemplateConfigurationTextInputVariable)(nil)).Elem()
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput() AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) ToAgentPromptVariantTemplateConfigurationTextInputVariableArrayOutputWithContext(ctx context.Context) AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput {
+	return o
+}
+
+func (o AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) Index(i pulumi.IntInput) AgentPromptVariantTemplateConfigurationTextInputVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPromptVariantTemplateConfigurationTextInputVariable {
+		return vs[0].([]AgentPromptVariantTemplateConfigurationTextInputVariable)[vs[1].(int)]
+	}).(AgentPromptVariantTemplateConfigurationTextInputVariableOutput)
+}
+
 type CustomModelOutputDataConfig struct {
 	// The S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
@@ -17130,6 +20798,58 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseTimeoutsPtrInput)(nil)).Elem(), AgentKnowledgeBaseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInput)(nil)).Elem(), AgentPromptVariantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantArrayInput)(nil)).Elem(), AgentPromptVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantGenAiResourceInput)(nil)).Elem(), AgentPromptVariantGenAiResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantGenAiResourcePtrInput)(nil)).Elem(), AgentPromptVariantGenAiResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantGenAiResourceAgentInput)(nil)).Elem(), AgentPromptVariantGenAiResourceAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantGenAiResourceAgentPtrInput)(nil)).Elem(), AgentPromptVariantGenAiResourceAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInferenceConfigurationInput)(nil)).Elem(), AgentPromptVariantInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInferenceConfigurationPtrInput)(nil)).Elem(), AgentPromptVariantInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInferenceConfigurationTextInput)(nil)).Elem(), AgentPromptVariantInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantInferenceConfigurationTextPtrInput)(nil)).Elem(), AgentPromptVariantInferenceConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantMetadataInput)(nil)).Elem(), AgentPromptVariantMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantMetadataArrayInput)(nil)).Elem(), AgentPromptVariantMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatInputVariableInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatInputVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatInputVariableArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatInputVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentCachePointInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemCachePointInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextCachePointInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextCachePointPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextCachePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariableInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextInputVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextInputVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigPtrInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
@@ -17364,6 +21084,58 @@ func init() {
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantGenAiResourceOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantGenAiResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantGenAiResourceAgentOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantGenAiResourceAgentPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantInferenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantInferenceConfigurationTextOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantInferenceConfigurationTextPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantMetadataOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatInputVariableOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatInputVariableArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageContentOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageContentPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatMessageContentCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatSystemOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatSystemArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatSystemCachePointOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatSystemCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArrayOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextCachePointOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextInputVariableOutput{})
+	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelTimeoutsOutput{})

@@ -609,7 +609,7 @@ type Connection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrOutput `pulumi:"physicalConnectionRequirements"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -680,7 +680,7 @@ type connectionState struct {
 	Name *string `pulumi:"name"`
 	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -711,7 +711,7 @@ type ConnectionState struct {
 	Name pulumi.StringPtrInput
 	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -744,7 +744,7 @@ type connectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -772,7 +772,7 @@ type ConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -916,7 +916,7 @@ func (o ConnectionOutput) PhysicalConnectionRequirements() ConnectionPhysicalCon
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

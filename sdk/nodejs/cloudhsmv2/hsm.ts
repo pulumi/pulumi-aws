@@ -85,7 +85,8 @@ export class Hsm extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -162,7 +163,8 @@ export interface HsmState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     region?: pulumi.Input<string>;
     /**
@@ -188,7 +190,8 @@ export interface HsmArgs {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     region?: pulumi.Input<string>;
     /**

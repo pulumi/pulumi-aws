@@ -156,6 +156,7 @@ def get_user(access_string: Optional[builtins.str] = None,
 
 
     :param builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: Identifier for the user.
     :param builtins.str user_name: User name of the user.
     """
@@ -204,6 +205,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]
 
 
     :param builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: Identifier for the user.
     :param builtins.str user_name: User name of the user.
     """

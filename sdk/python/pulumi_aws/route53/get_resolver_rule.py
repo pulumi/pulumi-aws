@@ -179,6 +179,7 @@ def get_resolver_rule(domain_name: Optional[builtins.str] = None,
 
     :param builtins.str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param builtins.str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param builtins.str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
     :param builtins.str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
@@ -233,6 +234,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[builtin
 
     :param builtins.str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param builtins.str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param builtins.str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
     :param builtins.str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.

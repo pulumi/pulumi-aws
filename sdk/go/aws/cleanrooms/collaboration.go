@@ -107,7 +107,7 @@ type Collaboration struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
@@ -188,7 +188,7 @@ type collaborationState struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
 	Tags       map[string]string `pulumi:"tags"`
@@ -228,7 +228,7 @@ type CollaborationState struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
 	Tags       pulumi.StringMapInput
@@ -267,7 +267,7 @@ type collaborationArgs struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus string `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key value pairs which tag the collaboration.
 	Tags map[string]string `pulumi:"tags"`
@@ -301,7 +301,7 @@ type CollaborationArgs struct {
 	// Determines if members of the collaboration can enable query logs within their own.
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
 	Tags pulumi.StringMapInput
@@ -452,7 +452,7 @@ func (o CollaborationOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CollaborationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

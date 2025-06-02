@@ -156,14 +156,14 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -233,7 +233,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="version")
@@ -242,7 +242,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> version() {
@@ -513,7 +513,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
          * 
-         * The following attributes are optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
          * 
-         * The following attributes are optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

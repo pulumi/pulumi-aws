@@ -75,7 +75,7 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -131,7 +131,7 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -152,7 +152,7 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -175,7 +175,7 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of Redshift parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -193,7 +193,7 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of Redshift parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -313,7 +313,7 @@ func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -45,7 +45,7 @@ class ImageArgs:
         :param pulumi.Input[builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImageImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
@@ -173,7 +173,7 @@ class ImageArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -246,7 +246,7 @@ class _ImageState:
         :param pulumi.Input[builtins.str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[builtins.str] platform: Platform of the image.
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version of the image.
@@ -465,7 +465,7 @@ class _ImageState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -575,7 +575,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowArgs', 'ImageWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
@@ -716,7 +716,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] os_version: Operating System version of the image.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageOutputResourceArgs', 'ImageOutputResourceArgsDict']]]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[builtins.str] platform: Platform of the image.
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] version: Version of the image.
@@ -865,7 +865,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

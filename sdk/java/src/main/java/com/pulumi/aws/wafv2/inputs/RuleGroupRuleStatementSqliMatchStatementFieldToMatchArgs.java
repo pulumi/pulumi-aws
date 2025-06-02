@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementField
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -209,6 +210,21 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs exte
     }
 
     /**
+     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    @Import(name="uriFragment")
+    private @Nullable Output<RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs> uriFragment;
+
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs>> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+
+    /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -238,6 +254,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs exte
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
         this.singleQueryArgument = $.singleQueryArgument;
+        this.uriFragment = $.uriFragment;
         this.uriPath = $.uriPath;
     }
 
@@ -529,6 +546,27 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs exte
          */
         public Builder singleQueryArgument(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument) {
             return singleQueryArgument(Output.of(singleQueryArgument));
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(@Nullable Output<RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs> uriFragment) {
+            $.uriFragment = uriFragment;
+            return this;
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs uriFragment) {
+            return uriFragment(Output.of(uriFragment));
         }
 
         /**

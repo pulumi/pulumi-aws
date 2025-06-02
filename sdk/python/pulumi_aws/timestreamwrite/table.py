@@ -34,7 +34,7 @@ class TableArgs:
         :param pulumi.Input[builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input[builtins.str] table_name: The name of the Timestream table.
         :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TableRetentionPropertiesArgs'] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         :param pulumi.Input['TableSchemaArgs'] schema: The schema of the table. See Schema below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -92,7 +92,7 @@ class TableArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -154,7 +154,7 @@ class _TableState:
         :param pulumi.Input[builtins.str] arn: The ARN that uniquely identifies this table.
         :param pulumi.Input[builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TableRetentionPropertiesArgs'] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         :param pulumi.Input['TableSchemaArgs'] schema: The schema of the table. See Schema below for more details.
         :param pulumi.Input[builtins.str] table_name: The name of the Timestream table.
@@ -220,7 +220,7 @@ class _TableState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -367,7 +367,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         :param pulumi.Input[Union['TableSchemaArgs', 'TableSchemaArgsDict']] schema: The schema of the table. See Schema below for more details.
         :param pulumi.Input[builtins.str] table_name: The name of the Timestream table.
@@ -512,7 +512,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN that uniquely identifies this table.
         :param pulumi.Input[builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input[Union['TableMagneticStoreWritePropertiesArgs', 'TableMagneticStoreWritePropertiesArgsDict']] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TableRetentionPropertiesArgs', 'TableRetentionPropertiesArgsDict']] retention_properties: The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         :param pulumi.Input[Union['TableSchemaArgs', 'TableSchemaArgsDict']] schema: The schema of the table. See Schema below for more details.
         :param pulumi.Input[builtins.str] table_name: The name of the Timestream table.
@@ -562,7 +562,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

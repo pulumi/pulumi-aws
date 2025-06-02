@@ -8342,6 +8342,7 @@ func (o GetFirewallFirewallStatusSyncStateAttachmentArrayOutput) Index(i pulumi.
 }
 
 type GetFirewallPolicyFirewallPolicy struct {
+	PolicyVariables                 []GetFirewallPolicyFirewallPolicyPolicyVariable              `pulumi:"policyVariables"`
 	StatefulDefaultActions          []string                                                     `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           []GetFirewallPolicyFirewallPolicyStatefulEngineOption        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
@@ -8364,6 +8365,7 @@ type GetFirewallPolicyFirewallPolicyInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyArgs struct {
+	PolicyVariables                 GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput              `pulumi:"policyVariables"`
 	StatefulDefaultActions          pulumi.StringArrayInput                                              `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
@@ -8425,6 +8427,12 @@ func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicy
 	return o
 }
 
+func (o GetFirewallPolicyFirewallPolicyOutput) PolicyVariables() GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyPolicyVariable {
+		return v.PolicyVariables
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput)
+}
+
 func (o GetFirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
 }
@@ -8483,6 +8491,298 @@ func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) Get
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicy {
 		return vs[0].([]GetFirewallPolicyFirewallPolicy)[vs[1].(int)]
 	}).(GetFirewallPolicyFirewallPolicyOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariable struct {
+	RuleVariables []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable `pulumi:"ruleVariables"`
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableArgs and GetFirewallPolicyFirewallPolicyPolicyVariableOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableArgs{...}
+type GetFirewallPolicyFirewallPolicyPolicyVariableInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableArgs struct {
+	RuleVariables GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput `pulumi:"ruleVariables"`
+}
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariable)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableArray and GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableArray{ GetFirewallPolicyFirewallPolicyPolicyVariableArgs{...} }
+type GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableArray []GetFirewallPolicyFirewallPolicyPolicyVariableInput
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariable)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariable)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableOutput) RuleVariables() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyPolicyVariable) []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable {
+		return v.RuleVariables
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariable)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyPolicyVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyPolicyVariable {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyPolicyVariable)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable struct {
+	IpSets []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet `pulumi:"ipSets"`
+	Key    string                                                           `pulumi:"key"`
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs and GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs{...}
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs struct {
+	IpSets GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput `pulumi:"ipSets"`
+	Key    pulumi.StringInput                                                       `pulumi:"key"`
+}
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray and GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray{ GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs{...} }
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableInput
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput) IpSets() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable) []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet {
+		return v.IpSets
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariable)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet struct {
+	Definitions []string `pulumi:"definitions"`
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs and GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs{...}
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs struct {
+	Definitions pulumi.StringArrayInput `pulumi:"definitions"`
+}
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray and GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray{ GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs{...} }
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput
+	ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray []GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput) Definitions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet) []string { return v.Definitions }).(pulumi.StringArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput() GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput) ToGetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSet)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
@@ -9507,6 +9807,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallFirewallStatusSyncStateAttachmentArrayInput)(nil)).Elem(), GetFirewallFirewallStatusSyncStateAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
@@ -9657,6 +9963,12 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallFirewallStatusSyncStateAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})

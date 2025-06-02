@@ -67,7 +67,7 @@ type Ingestion struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType pulumi.StringOutput `pulumi:"ingestionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -128,7 +128,7 @@ type ingestionState struct {
 	Arn *string `pulumi:"arn"`
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType *string `pulumi:"ingestionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -148,7 +148,7 @@ type IngestionState struct {
 	Arn pulumi.StringPtrInput
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -170,7 +170,7 @@ type ingestionArgs struct {
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType string `pulumi:"ingestionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -187,7 +187,7 @@ type IngestionArgs struct {
 	AppBundleArn pulumi.StringInput
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -303,7 +303,7 @@ func (o IngestionOutput) IngestionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.IngestionType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IngestionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

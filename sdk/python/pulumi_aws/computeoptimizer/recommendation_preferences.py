@@ -40,7 +40,7 @@ class RecommendationPreferencesArgs:
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -141,7 +141,7 @@ class RecommendationPreferencesArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -206,7 +206,7 @@ class _RecommendationPreferencesState:
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
@@ -297,7 +297,7 @@ class _RecommendationPreferencesState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -431,7 +431,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
@@ -574,7 +574,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
@@ -640,7 +640,7 @@ class RecommendationPreferences(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

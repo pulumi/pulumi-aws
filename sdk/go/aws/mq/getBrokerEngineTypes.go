@@ -54,7 +54,8 @@ func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, o
 type GetBrokerEngineTypesArgs struct {
 	// The MQ engine type to return version details for.
 	EngineType *string `pulumi:"engineType"`
-	Region     *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerEngineTypes.
@@ -81,7 +82,8 @@ func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOu
 type GetBrokerEngineTypesOutputArgs struct {
 	// The MQ engine type to return version details for.
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerEngineTypesOutputArgs) ElementType() reflect.Type {

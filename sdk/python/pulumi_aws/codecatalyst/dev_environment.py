@@ -41,7 +41,7 @@ class DevEnvironmentArgs:
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         """
         pulumi.set(__self__, "ides", ides)
@@ -145,7 +145,7 @@ class DevEnvironmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -187,7 +187,7 @@ class _DevEnvironmentState:
                The following arguments are optional:
         :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -285,7 +285,7 @@ class _DevEnvironmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -371,7 +371,7 @@ class DevEnvironment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -494,7 +494,7 @@ class DevEnvironment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -564,7 +564,7 @@ class DevEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

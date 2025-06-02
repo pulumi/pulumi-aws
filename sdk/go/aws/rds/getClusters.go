@@ -61,7 +61,8 @@ func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.Invo
 type GetClustersArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetClustersFilter `pulumi:"filters"`
-	Region  *string             `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusters.
@@ -89,7 +90,8 @@ func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...
 type GetClustersOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetClustersFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetClustersOutputArgs) ElementType() reflect.Type {

@@ -47,6 +47,9 @@ export interface GetSolutionStackArgs {
      * a single solution stack, or use `mostRecent` to choose the most recent one.
      */
     nameRegex: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -109,5 +112,8 @@ export interface GetSolutionStackOutputArgs {
      * a single solution stack, or use `mostRecent` to choose the most recent one.
      */
     nameRegex: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

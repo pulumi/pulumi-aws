@@ -29,7 +29,7 @@ class BucketRequestPaymentConfigurationArgs:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "payer", payer)
@@ -78,7 +78,7 @@ class BucketRequestPaymentConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _BucketRequestPaymentConfigurationState:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -150,7 +150,7 @@ class _BucketRequestPaymentConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -210,7 +210,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -315,7 +315,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -355,7 +355,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

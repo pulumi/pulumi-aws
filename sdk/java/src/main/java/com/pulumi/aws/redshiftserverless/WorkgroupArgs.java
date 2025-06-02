@@ -143,14 +143,14 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -203,6 +203,21 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     * 
+     */
+    @Import(name="trackName")
+    private @Nullable Output<String> trackName;
+
+    /**
+     * @return The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     * 
+     */
+    public Optional<Output<String>> trackName() {
+        return Optional.ofNullable(this.trackName);
+    }
+
+    /**
      * The name of the workgroup.
      * 
      * The following arguments are optional:
@@ -236,6 +251,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
+        this.trackName = $.trackName;
         this.workgroupName = $.workgroupName;
     }
 
@@ -436,7 +452,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -447,7 +463,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -537,6 +553,27 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param trackName The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackName(@Nullable Output<String> trackName) {
+            $.trackName = trackName;
+            return this;
+        }
+
+        /**
+         * @param trackName The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackName(String trackName) {
+            return trackName(Output.of(trackName));
         }
 
         /**

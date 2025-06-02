@@ -46,7 +46,7 @@ class CustomModelArgs:
         :param pulumi.Input[builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
         :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
@@ -176,7 +176,7 @@ class CustomModelArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -277,7 +277,7 @@ class _CustomModelState:
         :param pulumi.Input[builtins.str] job_name: A name for the customization job.
         :param pulumi.Input[builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -452,7 +452,7 @@ class _CustomModelState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -631,7 +631,7 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         :param pulumi.Input[builtins.str] job_name: A name for the customization job.
         :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']] training_data_config: Information about the training dataset.
@@ -794,7 +794,7 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] job_name: A name for the customization job.
         :param pulumi.Input[builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -914,7 +914,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

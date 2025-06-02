@@ -35,7 +35,7 @@ class SchemaArgs:
         :param pulumi.Input[builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[builtins.str] schema_name: The Name of the schema.
         :param pulumi.Input[builtins.str] description: A description of the schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -116,7 +116,7 @@ class SchemaArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -174,7 +174,7 @@ class _SchemaState:
         :param pulumi.Input[builtins.str] description: A description of the schema.
         :param pulumi.Input[builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] registry_name: The name of the Glue Registry.
         :param pulumi.Input[builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
@@ -288,7 +288,7 @@ class _SchemaState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -426,7 +426,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         :param pulumi.Input[builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         :param pulumi.Input[builtins.str] description: A description of the schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[builtins.str] schema_name: The Name of the schema.
@@ -554,7 +554,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the schema.
         :param pulumi.Input[builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] registry_name: The name of the Glue Registry.
         :param pulumi.Input[builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
@@ -635,7 +635,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

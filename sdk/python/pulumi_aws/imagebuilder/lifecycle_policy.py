@@ -38,7 +38,7 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[builtins.str] description: description for the lifecycle policy.
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -126,7 +126,7 @@ class LifecyclePolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -194,7 +194,7 @@ class _LifecyclePolicyState:
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -290,7 +290,7 @@ class _LifecyclePolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -443,7 +443,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -598,7 +598,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -668,7 +668,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

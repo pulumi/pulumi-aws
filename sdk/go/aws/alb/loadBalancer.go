@@ -153,7 +153,7 @@ type LoadBalancer struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -167,6 +167,10 @@ type LoadBalancer struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrOutput `pulumi:"xffHeaderProcessingMode"`
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -260,7 +264,7 @@ type loadBalancerState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -274,6 +278,10 @@ type loadBalancerState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	VpcId   *string           `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode *string `pulumi:"xffHeaderProcessingMode"`
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId *string `pulumi:"zoneId"`
@@ -332,7 +340,7 @@ type LoadBalancerState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
@@ -346,6 +354,10 @@ type LoadBalancerState struct {
 	TagsAll pulumi.StringMapInput
 	VpcId   pulumi.StringPtrInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrInput
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringPtrInput
@@ -402,7 +414,7 @@ type loadBalancerArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -413,6 +425,10 @@ type loadBalancerArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode *string `pulumi:"xffHeaderProcessingMode"`
 }
 
@@ -464,7 +480,7 @@ type LoadBalancerArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
@@ -475,6 +491,10 @@ type LoadBalancerArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrInput
 }
 
@@ -697,7 +717,7 @@ func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoadBalancerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -732,6 +752,10 @@ func (o LoadBalancerOutput) VpcId() pulumi.StringOutput {
 }
 
 // Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+//
+// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+//
+// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 func (o LoadBalancerOutput) XffHeaderProcessingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.XffHeaderProcessingMode }).(pulumi.StringPtrOutput)
 }

@@ -92,9 +92,11 @@ type ShardGroup struct {
 	MinAcu pulumi.Float64Output `pulumi:"minAcu"`
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
@@ -158,9 +160,11 @@ type shardGroupState struct {
 	MinAcu *float64 `pulumi:"minAcu"`
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string   `pulumi:"tagsAll"`
@@ -186,9 +190,11 @@ type ShardGroupState struct {
 	MinAcu pulumi.Float64PtrInput
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
@@ -212,9 +218,11 @@ type shardGroupArgs struct {
 	MinAcu *float64 `pulumi:"minAcu"`
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags     map[string]string   `pulumi:"tags"`
 	Timeouts *ShardGroupTimeouts `pulumi:"timeouts"`
 }
@@ -233,9 +241,11 @@ type ShardGroupArgs struct {
 	MinAcu pulumi.Float64PtrInput
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags     pulumi.StringMapInput
 	Timeouts ShardGroupTimeoutsPtrInput
 }
@@ -372,12 +382,14 @@ func (o ShardGroupOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ShardGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 func (o ShardGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

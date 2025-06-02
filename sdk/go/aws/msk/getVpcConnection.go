@@ -51,7 +51,8 @@ func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opt
 // A collection of arguments for invoking getVpcConnection.
 type LookupVpcConnectionArgs struct {
 	// ARN of the VPC Connection.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags map[string]string `pulumi:"tags"`
@@ -89,7 +90,8 @@ func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutp
 // A collection of arguments for invoking getVpcConnection.
 type LookupVpcConnectionOutputArgs struct {
 	// ARN of the VPC Connection.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

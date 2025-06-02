@@ -130,6 +130,7 @@ def get_patch_baselines(default_baselines: Optional[builtins.bool] = None,
 
     :param builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
     :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaselines'] = default_baselines
@@ -183,6 +184,7 @@ def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional
 
     :param builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
     :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaselines'] = default_baselines

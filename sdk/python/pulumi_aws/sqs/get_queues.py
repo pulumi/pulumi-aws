@@ -99,6 +99,7 @@ def get_queues(queue_name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
@@ -130,6 +131,7 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[builtins
 
 
     :param builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix

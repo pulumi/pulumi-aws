@@ -164,6 +164,7 @@ def get_cluster_versions(cluster_type: Optional[builtins.str] = None,
            Currently, the only valid value is `eks`.
     :param builtins.bool default_only: Whether to show only the default versions of Kubernetes supported by EKS.
     :param builtins.bool include_all: Whether to include all kubernetes versions in the response.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version_status: Status of the EKS cluster versions to list.
            Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
     """
@@ -230,6 +231,7 @@ def get_cluster_versions_output(cluster_type: Optional[pulumi.Input[Optional[bui
            Currently, the only valid value is `eks`.
     :param builtins.bool default_only: Whether to show only the default versions of Kubernetes supported by EKS.
     :param builtins.bool include_all: Whether to include all kubernetes versions in the response.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version_status: Status of the EKS cluster versions to list.
            Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
     """

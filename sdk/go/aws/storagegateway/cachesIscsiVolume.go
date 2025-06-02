@@ -137,7 +137,7 @@ type CachesIscsiVolume struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
@@ -217,7 +217,7 @@ type cachesIscsiVolumeState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -256,7 +256,7 @@ type CachesIscsiVolumeState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type cachesIscsiVolumeArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -315,7 +315,7 @@ type CachesIscsiVolumeArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
@@ -456,7 +456,7 @@ func (o CachesIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.IntOutput { return v.NetworkInterfacePort }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CachesIscsiVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachesIscsiVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -88,7 +88,8 @@ type LookupResourceShareArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// Name of the resource share to retrieve.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
@@ -133,7 +134,8 @@ type LookupResourceShareOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
 	// Name of the resource share to retrieve.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`

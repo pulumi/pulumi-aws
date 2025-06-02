@@ -84,7 +84,7 @@ type OutboundConnection struct {
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoOutput `pulumi:"localDomainInfo"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoOutput `pulumi:"remoteDomainInfo"`
@@ -141,7 +141,7 @@ type outboundConnectionState struct {
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo *OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo *OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
@@ -160,7 +160,7 @@ type OutboundConnectionState struct {
 	ConnectionStatus pulumi.StringPtrInput
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoPtrInput
@@ -181,7 +181,7 @@ type outboundConnectionArgs struct {
 	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
@@ -199,7 +199,7 @@ type OutboundConnectionArgs struct {
 	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoInput
@@ -324,7 +324,7 @@ func (o OutboundConnectionOutput) LocalDomainInfo() OutboundConnectionLocalDomai
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionLocalDomainInfoOutput { return v.LocalDomainInfo }).(OutboundConnectionLocalDomainInfoOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OutboundConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

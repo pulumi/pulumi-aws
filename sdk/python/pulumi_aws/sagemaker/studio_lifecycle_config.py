@@ -30,7 +30,7 @@ class StudioLifecycleConfigArgs:
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
@@ -81,7 +81,7 @@ class StudioLifecycleConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -115,7 +115,7 @@ class _StudioLifecycleConfigState:
         """
         Input properties used for looking up and filtering StudioLifecycleConfig resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -153,7 +153,7 @@ class _StudioLifecycleConfigState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -262,7 +262,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -367,7 +367,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -399,7 +399,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

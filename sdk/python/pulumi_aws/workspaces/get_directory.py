@@ -28,7 +28,10 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
+    def __init__(__self__, active_directory_configs=None, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, user_identity_type=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_directory_description=None, workspace_directory_name=None, workspace_security_group_id=None, workspace_type=None):
+        if active_directory_configs and not isinstance(active_directory_configs, list):
+            raise TypeError("Expected argument 'active_directory_configs' to be a list")
+        pulumi.set(__self__, "active_directory_configs", active_directory_configs)
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -77,15 +80,35 @@ class GetDirectoryResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if user_identity_type and not isinstance(user_identity_type, str):
+            raise TypeError("Expected argument 'user_identity_type' to be a str")
+        pulumi.set(__self__, "user_identity_type", user_identity_type)
         if workspace_access_properties and not isinstance(workspace_access_properties, list):
             raise TypeError("Expected argument 'workspace_access_properties' to be a list")
         pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties and not isinstance(workspace_creation_properties, list):
             raise TypeError("Expected argument 'workspace_creation_properties' to be a list")
         pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+        if workspace_directory_description and not isinstance(workspace_directory_description, str):
+            raise TypeError("Expected argument 'workspace_directory_description' to be a str")
+        pulumi.set(__self__, "workspace_directory_description", workspace_directory_description)
+        if workspace_directory_name and not isinstance(workspace_directory_name, str):
+            raise TypeError("Expected argument 'workspace_directory_name' to be a str")
+        pulumi.set(__self__, "workspace_directory_name", workspace_directory_name)
         if workspace_security_group_id and not isinstance(workspace_security_group_id, str):
             raise TypeError("Expected argument 'workspace_security_group_id' to be a str")
         pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+        if workspace_type and not isinstance(workspace_type, str):
+            raise TypeError("Expected argument 'workspace_type' to be a str")
+        pulumi.set(__self__, "workspace_type", workspace_type)
+
+    @property
+    @pulumi.getter(name="activeDirectoryConfigs")
+    def active_directory_configs(self) -> Sequence['outputs.GetDirectoryActiveDirectoryConfigResult']:
+        """
+        Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
+        """
+        return pulumi.get(self, "active_directory_configs")
 
     @property
     @pulumi.getter
@@ -204,10 +227,18 @@ class GetDirectoryResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="userIdentityType")
+    def user_identity_type(self) -> builtins.str:
+        """
+        The user identity type for the WorkSpaces directory.
+        """
+        return pulumi.get(self, "user_identity_type")
+
+    @property
     @pulumi.getter(name="workspaceAccessProperties")
     def workspace_access_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceAccessPropertyResult']:
         """
-        (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        Specifies which devices and operating systems users can use to access their WorkSpaces.
         """
         return pulumi.get(self, "workspace_access_properties")
 
@@ -215,17 +246,41 @@ class GetDirectoryResult:
     @pulumi.getter(name="workspaceCreationProperties")
     def workspace_creation_properties(self) -> Sequence['outputs.GetDirectoryWorkspaceCreationPropertyResult']:
         """
-        The default properties that are used for creating WorkSpaces. Defined below.
+        The default properties that are used for creating WorkSpaces.
         """
         return pulumi.get(self, "workspace_creation_properties")
+
+    @property
+    @pulumi.getter(name="workspaceDirectoryDescription")
+    def workspace_directory_description(self) -> builtins.str:
+        """
+        The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        """
+        return pulumi.get(self, "workspace_directory_description")
+
+    @property
+    @pulumi.getter(name="workspaceDirectoryName")
+    def workspace_directory_name(self) -> builtins.str:
+        """
+        The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        """
+        return pulumi.get(self, "workspace_directory_name")
 
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
     def workspace_security_group_id(self) -> builtins.str:
         """
-        The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+        The identifier of the security group that is assigned to new WorkSpaces.
         """
         return pulumi.get(self, "workspace_security_group_id")
+
+    @property
+    @pulumi.getter(name="workspaceType")
+    def workspace_type(self) -> builtins.str:
+        """
+        The type of WorkSpaces directory.
+        """
+        return pulumi.get(self, "workspace_type")
 
 
 class AwaitableGetDirectoryResult(GetDirectoryResult):
@@ -234,6 +289,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
         if False:
             yield self
         return GetDirectoryResult(
+            active_directory_configs=self.active_directory_configs,
             alias=self.alias,
             certificate_based_auth_properties=self.certificate_based_auth_properties,
             customer_user_name=self.customer_user_name,
@@ -250,9 +306,13 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             self_service_permissions=self.self_service_permissions,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
+            user_identity_type=self.user_identity_type,
             workspace_access_properties=self.workspace_access_properties,
             workspace_creation_properties=self.workspace_creation_properties,
-            workspace_security_group_id=self.workspace_security_group_id)
+            workspace_directory_description=self.workspace_directory_description,
+            workspace_directory_name=self.workspace_directory_name,
+            workspace_security_group_id=self.workspace_security_group_id,
+            workspace_type=self.workspace_type)
 
 
 def get_directory(directory_id: Optional[builtins.str] = None,
@@ -273,6 +333,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
 
 
     :param builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
@@ -283,6 +344,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
 
     return AwaitableGetDirectoryResult(
+        active_directory_configs=pulumi.get(__ret__, 'active_directory_configs'),
         alias=pulumi.get(__ret__, 'alias'),
         certificate_based_auth_properties=pulumi.get(__ret__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__ret__, 'customer_user_name'),
@@ -299,9 +361,13 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
+        user_identity_type=pulumi.get(__ret__, 'user_identity_type'),
         workspace_access_properties=pulumi.get(__ret__, 'workspace_access_properties'),
         workspace_creation_properties=pulumi.get(__ret__, 'workspace_creation_properties'),
-        workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'))
+        workspace_directory_description=pulumi.get(__ret__, 'workspace_directory_description'),
+        workspace_directory_name=pulumi.get(__ret__, 'workspace_directory_name'),
+        workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'),
+        workspace_type=pulumi.get(__ret__, 'workspace_type'))
 def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = None,
                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -320,6 +386,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
@@ -329,6 +396,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
     return __ret__.apply(lambda __response__: GetDirectoryResult(
+        active_directory_configs=pulumi.get(__response__, 'active_directory_configs'),
         alias=pulumi.get(__response__, 'alias'),
         certificate_based_auth_properties=pulumi.get(__response__, 'certificate_based_auth_properties'),
         customer_user_name=pulumi.get(__response__, 'customer_user_name'),
@@ -345,6 +413,10 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
         self_service_permissions=pulumi.get(__response__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),
+        user_identity_type=pulumi.get(__response__, 'user_identity_type'),
         workspace_access_properties=pulumi.get(__response__, 'workspace_access_properties'),
         workspace_creation_properties=pulumi.get(__response__, 'workspace_creation_properties'),
-        workspace_security_group_id=pulumi.get(__response__, 'workspace_security_group_id')))
+        workspace_directory_description=pulumi.get(__response__, 'workspace_directory_description'),
+        workspace_directory_name=pulumi.get(__response__, 'workspace_directory_name'),
+        workspace_security_group_id=pulumi.get(__response__, 'workspace_security_group_id'),
+        workspace_type=pulumi.get(__response__, 'workspace_type')))

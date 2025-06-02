@@ -81,7 +81,8 @@ type LookupSecretArgs struct {
 	// ARN of the secret to retrieve.
 	Arn *string `pulumi:"arn"`
 	// Name of the secret to retrieve.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +124,8 @@ type LookupSecretOutputArgs struct {
 	// ARN of the secret to retrieve.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the secret to retrieve.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags of the secret.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

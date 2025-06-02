@@ -165,7 +165,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly cdcMinFileSize!: pulumi.Output<number | undefined>;
     /**
-     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
     public readonly cdcPath!: pulumi.Output<string | undefined>;
     /**
@@ -261,7 +261,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly externalId!: pulumi.Output<string>;
     /**
-     * JSON document that describes how AWS DMS should interpret the data.
+     * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
     public readonly externalTableDefinition!: pulumi.Output<string | undefined>;
     /**
@@ -297,7 +297,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly preserveTransactions!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -529,7 +529,7 @@ export interface S3EndpointState {
      */
     cdcMinFileSize?: pulumi.Input<number>;
     /**
-     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
     cdcPath?: pulumi.Input<string>;
     /**
@@ -625,7 +625,7 @@ export interface S3EndpointState {
      */
     externalId?: pulumi.Input<string>;
     /**
-     * JSON document that describes how AWS DMS should interpret the data.
+     * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
     externalTableDefinition?: pulumi.Input<string>;
     /**
@@ -661,7 +661,7 @@ export interface S3EndpointState {
      */
     preserveTransactions?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -753,7 +753,7 @@ export interface S3EndpointArgs {
      */
     cdcMinFileSize?: pulumi.Input<number>;
     /**
-     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      */
     cdcPath?: pulumi.Input<string>;
     /**
@@ -837,7 +837,7 @@ export interface S3EndpointArgs {
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
-     * JSON document that describes how AWS DMS should interpret the data.
+     * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      */
     externalTableDefinition?: pulumi.Input<string>;
     /**
@@ -873,7 +873,7 @@ export interface S3EndpointArgs {
      */
     preserveTransactions?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

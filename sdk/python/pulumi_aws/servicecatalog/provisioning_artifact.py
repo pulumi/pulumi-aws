@@ -40,7 +40,7 @@ class ProvisioningArtifactArgs:
         :param pulumi.Input[builtins.bool] disable_template_validation: Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
         :param pulumi.Input[builtins.str] guidance: Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         :param pulumi.Input[builtins.str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[builtins.str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
                
@@ -157,7 +157,7 @@ class ProvisioningArtifactArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -231,7 +231,7 @@ class _ProvisioningArtifactState:
         :param pulumi.Input[builtins.str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param pulumi.Input[builtins.str] product_id: Identifier of the product.
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Provisioning artifact identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[builtins.str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
                
@@ -377,7 +377,7 @@ class _ProvisioningArtifactState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -483,7 +483,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] guidance: Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         :param pulumi.Input[builtins.str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param pulumi.Input[builtins.str] product_id: Identifier of the product.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[builtins.str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
                
@@ -617,7 +617,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param pulumi.Input[builtins.str] product_id: Identifier of the product.
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Provisioning artifact identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[builtins.str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
                
@@ -719,7 +719,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

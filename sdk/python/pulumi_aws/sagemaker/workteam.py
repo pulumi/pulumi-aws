@@ -36,7 +36,7 @@ class WorkteamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[builtins.str] workteam_name: The name of the Workteam (must be unique).
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['WorkteamWorkerAccessConfigurationArgs'] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[builtins.str] workforce_name: The name of the workforce.
@@ -107,7 +107,7 @@ class WorkteamArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -172,7 +172,7 @@ class _WorkteamState:
         :param pulumi.Input[builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -255,7 +255,7 @@ class _WorkteamState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -405,7 +405,7 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         :param pulumi.Input[builtins.str] workforce_name: The name of the workforce.
@@ -547,7 +547,7 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -608,7 +608,7 @@ class Workteam(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

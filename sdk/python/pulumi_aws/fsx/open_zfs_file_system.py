@@ -63,7 +63,7 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -291,7 +291,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -449,7 +449,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -737,7 +737,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -974,7 +974,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -1169,7 +1169,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[builtins.str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -1363,7 +1363,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

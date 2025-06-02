@@ -52,7 +52,8 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueArgs struct {
 	// Name of the job queue.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -105,7 +106,8 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 // A collection of arguments for invoking getJobQueue.
 type LookupJobQueueOutputArgs struct {
 	// Name of the job queue.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`

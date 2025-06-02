@@ -50,6 +50,7 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

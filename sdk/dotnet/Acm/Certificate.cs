@@ -182,22 +182,12 @@ namespace Pulumi.Aws.Acm
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of an ACM PCA
-        /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string?> CertificateAuthorityArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Certificate's PEM-formatted public key
-        /// </summary>
         [Output("certificateBody")]
         public Output<string?> CertificateBody { get; private set; } = null!;
 
-        /// <summary>
-        /// Certificate's PEM-formatted chain
-        /// * Creating a private CA issued certificate
-        /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
@@ -215,19 +205,9 @@ namespace Pulumi.Aws.Acm
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Amount of time to start automatic renewal process before expiration.
-        /// Has no effect if less than 60 days.
-        /// Represented by either
-        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        /// or a string such as `2160h`.
-        /// </summary>
         [Output("earlyRenewalDuration")]
         public Output<string?> EarlyRenewalDuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        /// </summary>
         [Output("keyAlgorithm")]
         public Output<string> KeyAlgorithm { get; private set; } = null!;
 
@@ -243,9 +223,6 @@ namespace Pulumi.Aws.Acm
         [Output("notBefore")]
         public Output<string> NotBefore { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block used to set certificate options. Detailed below.
-        /// </summary>
         [Output("options")]
         public Output<Outputs.CertificateOptions> Options { get; private set; } = null!;
 
@@ -255,14 +232,12 @@ namespace Pulumi.Aws.Acm
         [Output("pendingRenewal")]
         public Output<bool> PendingRenewal { get; private set; } = null!;
 
-        /// <summary>
-        /// Certificate's PEM-formatted private key
-        /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * Creating an Amazon issued certificate
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -285,9 +260,6 @@ namespace Pulumi.Aws.Acm
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
 
@@ -315,16 +287,9 @@ namespace Pulumi.Aws.Acm
         [Output("validationEmails")]
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        /// * Importing an existing certificate
-        /// </summary>
         [Output("validationOptions")]
         public Output<ImmutableArray<Outputs.CertificateValidationOption>> ValidationOptions { get; private set; } = null!;
 
@@ -378,22 +343,12 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of an ACM PCA
-        /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
-        /// <summary>
-        /// Certificate's PEM-formatted public key
-        /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
-        /// <summary>
-        /// Certificate's PEM-formatted chain
-        /// * Creating a private CA issued certificate
-        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
@@ -403,34 +358,17 @@ namespace Pulumi.Aws.Acm
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Amount of time to start automatic renewal process before expiration.
-        /// Has no effect if less than 60 days.
-        /// Represented by either
-        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        /// or a string such as `2160h`.
-        /// </summary>
         [Input("earlyRenewalDuration")]
         public Input<string>? EarlyRenewalDuration { get; set; }
 
-        /// <summary>
-        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        /// </summary>
         [Input("keyAlgorithm")]
         public Input<string>? KeyAlgorithm { get; set; }
 
-        /// <summary>
-        /// Configuration block used to set certificate options. Detailed below.
-        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
-
-        /// <summary>
-        /// Certificate's PEM-formatted private key
-        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;
@@ -442,17 +380,14 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * Creating an Amazon issued certificate
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
-
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
@@ -471,19 +406,11 @@ namespace Pulumi.Aws.Acm
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
 
         [Input("validationOptions")]
         private InputList<Inputs.CertificateValidationOptionArgs>? _validationOptions;
-
-        /// <summary>
-        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        /// * Importing an existing certificate
-        /// </summary>
         public InputList<Inputs.CertificateValidationOptionArgs> ValidationOptions
         {
             get => _validationOptions ?? (_validationOptions = new InputList<Inputs.CertificateValidationOptionArgs>());
@@ -504,22 +431,12 @@ namespace Pulumi.Aws.Acm
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of an ACM PCA
-        /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }
 
-        /// <summary>
-        /// Certificate's PEM-formatted public key
-        /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
-        /// <summary>
-        /// Certificate's PEM-formatted chain
-        /// * Creating a private CA issued certificate
-        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
@@ -543,19 +460,9 @@ namespace Pulumi.Aws.Acm
             set => _domainValidationOptions = value;
         }
 
-        /// <summary>
-        /// Amount of time to start automatic renewal process before expiration.
-        /// Has no effect if less than 60 days.
-        /// Represented by either
-        /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        /// or a string such as `2160h`.
-        /// </summary>
         [Input("earlyRenewalDuration")]
         public Input<string>? EarlyRenewalDuration { get; set; }
 
-        /// <summary>
-        /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        /// </summary>
         [Input("keyAlgorithm")]
         public Input<string>? KeyAlgorithm { get; set; }
 
@@ -571,9 +478,6 @@ namespace Pulumi.Aws.Acm
         [Input("notBefore")]
         public Input<string>? NotBefore { get; set; }
 
-        /// <summary>
-        /// Configuration block used to set certificate options. Detailed below.
-        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
@@ -585,10 +489,6 @@ namespace Pulumi.Aws.Acm
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
-
-        /// <summary>
-        /// Certificate's PEM-formatted private key
-        /// </summary>
         public Input<string>? PrivateKey
         {
             get => _privateKey;
@@ -600,7 +500,8 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * Creating an Amazon issued certificate
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -631,10 +532,6 @@ namespace Pulumi.Aws.Acm
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
-
-        /// <summary>
-        /// Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
@@ -683,19 +580,11 @@ namespace Pulumi.Aws.Acm
             set => _validationEmails = value;
         }
 
-        /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
 
         [Input("validationOptions")]
         private InputList<Inputs.CertificateValidationOptionGetArgs>? _validationOptions;
-
-        /// <summary>
-        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        /// * Importing an existing certificate
-        /// </summary>
         public InputList<Inputs.CertificateValidationOptionGetArgs> ValidationOptions
         {
             get => _validationOptions ?? (_validationOptions = new InputList<Inputs.CertificateValidationOptionGetArgs>());

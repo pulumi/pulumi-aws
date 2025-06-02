@@ -72,7 +72,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -375,7 +375,7 @@ class SmbFileShareArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -503,7 +503,7 @@ class _SmbFileShareState:
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -843,7 +843,7 @@ class _SmbFileShareState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1035,7 +1035,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -1249,7 +1249,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
@@ -1476,7 +1476,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -57,7 +57,7 @@ type V2modelsIntent struct {
 	OutputContexts V2modelsIntentOutputContextArrayOutput `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrOutput `pulumi:"parentIntentSignature"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
 	SampleUtterances V2modelsIntentSampleUtteranceArrayOutput `pulumi:"sampleUtterances"`
@@ -140,7 +140,7 @@ type v2modelsIntentState struct {
 	OutputContexts []V2modelsIntentOutputContext `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
 	SampleUtterances []V2modelsIntentSampleUtterance `pulumi:"sampleUtterances"`
@@ -185,7 +185,7 @@ type V2modelsIntentState struct {
 	OutputContexts V2modelsIntentOutputContextArrayInput
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
 	SampleUtterances V2modelsIntentSampleUtteranceArrayInput
@@ -228,7 +228,7 @@ type v2modelsIntentArgs struct {
 	OutputContexts []V2modelsIntentOutputContext `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
 	SampleUtterances []V2modelsIntentSampleUtterance `pulumi:"sampleUtterances"`
@@ -268,7 +268,7 @@ type V2modelsIntentArgs struct {
 	OutputContexts V2modelsIntentOutputContextArrayInput
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
 	SampleUtterances V2modelsIntentSampleUtteranceArrayInput
@@ -450,7 +450,7 @@ func (o V2modelsIntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsIntent) pulumi.StringPtrOutput { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsIntentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsIntent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

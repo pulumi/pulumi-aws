@@ -254,6 +254,7 @@ def get_thesaurus(index_id: Optional[builtins.str] = None,
 
 
     :param builtins.str index_id: Identifier of the index that contains the Thesaurus.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Thesaurus you create.
     :param builtins.str thesaurus_id: Identifier of the Thesaurus.
     """
@@ -303,6 +304,7 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str index_id: Identifier of the index that contains the Thesaurus.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Thesaurus you create.
     :param builtins.str thesaurus_id: Identifier of the Thesaurus.
     """

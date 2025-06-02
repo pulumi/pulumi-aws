@@ -54,8 +54,9 @@ type LookupCertificateArgs struct {
 	// ARN of the certificate issued by the private certificate authority.
 	Arn string `pulumi:"arn"`
 	// ARN of the certificate authority.
-	CertificateAuthorityArn string  `pulumi:"certificateAuthorityArn"`
-	Region                  *string `pulumi:"region"`
+	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCertificate.
@@ -85,8 +86,9 @@ type LookupCertificateOutputArgs struct {
 	// ARN of the certificate issued by the private certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ARN of the certificate authority.
-	CertificateAuthorityArn pulumi.StringInput    `pulumi:"certificateAuthorityArn"`
-	Region                  pulumi.StringPtrInput `pulumi:"region"`
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {

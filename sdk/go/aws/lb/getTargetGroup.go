@@ -71,7 +71,8 @@ type LookupTargetGroupArgs struct {
 	Arn                            *string `pulumi:"arn"`
 	LoadBalancingAnomalyMitigation *string `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//
@@ -122,7 +123,8 @@ type LookupTargetGroupOutputArgs struct {
 	Arn                            pulumi.StringPtrInput `pulumi:"arn"`
 	LoadBalancingAnomalyMitigation pulumi.StringPtrInput `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//

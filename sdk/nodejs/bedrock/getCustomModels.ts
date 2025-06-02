@@ -31,6 +31,9 @@ export function getCustomModels(args?: GetCustomModelsArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getCustomModels.
  */
 export interface GetCustomModelsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -69,5 +72,8 @@ export function getCustomModelsOutput(args?: GetCustomModelsOutputArgs, opts?: p
  * A collection of arguments for invoking getCustomModels.
  */
 export interface GetCustomModelsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

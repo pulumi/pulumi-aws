@@ -542,7 +542,7 @@ type BucketLifecycleConfiguration struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringOutput `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules    BucketLifecycleConfigurationRuleArrayOutput   `pulumi:"rules"`
@@ -597,7 +597,7 @@ type bucketLifecycleConfigurationState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules    []BucketLifecycleConfigurationRule    `pulumi:"rules"`
@@ -611,7 +611,7 @@ type BucketLifecycleConfigurationState struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules    BucketLifecycleConfigurationRuleArrayInput
@@ -629,7 +629,7 @@ type bucketLifecycleConfigurationArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules    []BucketLifecycleConfigurationRule    `pulumi:"rules"`
@@ -644,7 +644,7 @@ type BucketLifecycleConfigurationArgs struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules    BucketLifecycleConfigurationRuleArrayInput
@@ -750,7 +750,7 @@ func (o BucketLifecycleConfigurationOutput) ExpectedBucketOwner() pulumi.StringO
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) pulumi.StringOutput { return v.ExpectedBucketOwner }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketLifecycleConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

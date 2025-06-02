@@ -57,7 +57,7 @@ type SearchArgs struct {
 	//
 	// The following arguments are optional:
 	QueryString string `pulumi:"queryString"`
-	// Amazon Web Services Region in which the resource was created and exists.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn *string `pulumi:"viewArn"`
@@ -92,7 +92,7 @@ type SearchOutputArgs struct {
 	//
 	// The following arguments are optional:
 	QueryString pulumi.StringInput `pulumi:"queryString"`
-	// Amazon Web Services Region in which the resource was created and exists.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn pulumi.StringPtrInput `pulumi:"viewArn"`

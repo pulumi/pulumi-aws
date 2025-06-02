@@ -152,7 +152,8 @@ type GetAvailabilityZonesArgs struct {
 	ExcludeZoneIds []string `pulumi:"excludeZoneIds"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetAvailabilityZonesFilter `pulumi:"filters"`
-	Region  *string                      `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -197,7 +198,8 @@ type GetAvailabilityZonesOutputArgs struct {
 	ExcludeZoneIds pulumi.StringArrayInput `pulumi:"excludeZoneIds"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetAvailabilityZonesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones

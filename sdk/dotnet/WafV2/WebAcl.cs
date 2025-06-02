@@ -55,6 +55,12 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Output("dataProtectionConfig")]
+        public Output<Outputs.WebAclDataProtectionConfig?> DataProtectionConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Output("defaultAction")]
@@ -82,7 +88,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Input("dataProtectionConfig")]
+        public Input<Inputs.WebAclDataProtectionConfigArgs>? DataProtectionConfig { get; set; }
+
+        /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
@@ -230,7 +242,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -346,6 +358,12 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Input("dataProtectionConfig")]
+        public Input<Inputs.WebAclDataProtectionConfigGetArgs>? DataProtectionConfig { get; set; }
+
+        /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction")]
@@ -373,7 +391,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

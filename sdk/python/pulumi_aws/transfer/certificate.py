@@ -34,7 +34,7 @@ class CertificateArgs:
         :param pulumi.Input[builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "certificate", certificate)
@@ -114,7 +114,7 @@ class CertificateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -160,7 +160,7 @@ class _CertificateState:
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] inactive_date: An date when the certificate becomes inactive
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -289,7 +289,7 @@ class _CertificateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -364,7 +364,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -473,7 +473,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] inactive_date: An date when the certificate becomes inactive
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -563,7 +563,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

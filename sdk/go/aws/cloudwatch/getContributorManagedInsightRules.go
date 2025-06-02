@@ -52,6 +52,7 @@ func GetContributorManagedInsightRules(ctx *pulumi.Context, args *GetContributor
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -79,6 +80,7 @@ func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContri
 
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`

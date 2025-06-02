@@ -61,7 +61,7 @@ type Alias struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the alias.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
@@ -110,7 +110,7 @@ type aliasState struct {
 	Description *string `pulumi:"description"`
 	// Name of the alias.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
@@ -127,7 +127,7 @@ type AliasState struct {
 	Description pulumi.StringPtrInput
 	// Name of the alias.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyPtrInput
@@ -146,7 +146,7 @@ type aliasArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the alias.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
@@ -160,7 +160,7 @@ type AliasArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the alias.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyInput
@@ -270,7 +270,7 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

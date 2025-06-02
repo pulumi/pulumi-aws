@@ -127,6 +127,7 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
 
 
     :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
@@ -167,6 +168,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
 
 
     :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()

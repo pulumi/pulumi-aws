@@ -63,7 +63,7 @@ type InputSecurityGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayOutput `pulumi:"inputs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -111,7 +111,7 @@ type inputSecurityGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs []string `pulumi:"inputs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -127,7 +127,7 @@ type InputSecurityGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The list of inputs currently using this InputSecurityGroup.
 	Inputs pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -143,7 +143,7 @@ func (InputSecurityGroupState) ElementType() reflect.Type {
 }
 
 type inputSecurityGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +155,7 @@ type inputSecurityGroupArgs struct {
 
 // The set of arguments for constructing a InputSecurityGroup resource.
 type InputSecurityGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -262,7 +262,7 @@ func (o InputSecurityGroupOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringArrayOutput { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InputSecurityGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

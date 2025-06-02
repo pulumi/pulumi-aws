@@ -77,7 +77,7 @@ type DomainIdentityVerification struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -118,7 +118,7 @@ type domainIdentityVerificationState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain name of the SES domain identity to verify.
 	Domain *string `pulumi:"domain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -127,7 +127,7 @@ type DomainIdentityVerificationState struct {
 	Arn pulumi.StringPtrInput
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -138,7 +138,7 @@ func (DomainIdentityVerificationState) ElementType() reflect.Type {
 type domainIdentityVerificationArgs struct {
 	// The domain name of the SES domain identity to verify.
 	Domain string `pulumi:"domain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -146,7 +146,7 @@ type domainIdentityVerificationArgs struct {
 type DomainIdentityVerificationArgs struct {
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -247,7 +247,7 @@ func (o DomainIdentityVerificationOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainIdentityVerificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

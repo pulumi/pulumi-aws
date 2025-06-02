@@ -103,6 +103,7 @@ def get_broker_engine_types(engine_type: Optional[builtins.str] = None,
 
 
     :param builtins.str engine_type: The MQ engine type to return version details for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
@@ -134,6 +135,7 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[b
 
 
     :param builtins.str engine_type: The MQ engine type to return version details for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type

@@ -64,7 +64,7 @@ type LocationObjectStorage struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
@@ -140,7 +140,7 @@ type locationObjectStorageState struct {
 	Arn *string `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName *string `pulumi:"bucketName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey *string `pulumi:"secretKey"`
@@ -171,7 +171,7 @@ type LocationObjectStorageState struct {
 	Arn pulumi.StringPtrInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type locationObjectStorageArgs struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName string `pulumi:"bucketName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey *string `pulumi:"secretKey"`
@@ -230,7 +230,7 @@ type LocationObjectStorageArgs struct {
 	AgentArns pulumi.StringArrayInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrInput
@@ -355,7 +355,7 @@ func (o LocationObjectStorageOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationObjectStorageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

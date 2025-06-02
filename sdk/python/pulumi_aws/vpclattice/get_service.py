@@ -183,6 +183,7 @@ def get_service(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Service name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, builtins.str] tags: List of tags associated with the service.
     """
@@ -227,6 +228,7 @@ def get_service_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
 
     :param builtins.str name: Service name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, builtins.str] tags: List of tags associated with the service.
     """

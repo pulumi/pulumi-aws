@@ -56,7 +56,7 @@ type LogDestination struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A name for the log destination.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -108,7 +108,7 @@ type logDestinationState struct {
 	Arn *string `pulumi:"arn"`
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn *string `pulumi:"roleArn"`
@@ -125,7 +125,7 @@ type LogDestinationState struct {
 	Arn pulumi.StringPtrInput
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringPtrInput
@@ -144,7 +144,7 @@ func (LogDestinationState) ElementType() reflect.Type {
 type logDestinationArgs struct {
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn string `pulumi:"roleArn"`
@@ -158,7 +158,7 @@ type logDestinationArgs struct {
 type LogDestinationArgs struct {
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringInput
@@ -265,7 +265,7 @@ func (o LogDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

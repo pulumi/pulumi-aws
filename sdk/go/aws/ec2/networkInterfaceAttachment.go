@@ -60,7 +60,7 @@ type NetworkInterfaceAttachment struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the Network Interface Attachment.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -113,7 +113,7 @@ type networkInterfaceAttachmentState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the Network Interface Attachment.
 	Status *string `pulumi:"status"`
@@ -128,7 +128,7 @@ type NetworkInterfaceAttachmentState struct {
 	InstanceId pulumi.StringPtrInput
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the Network Interface Attachment.
 	Status pulumi.StringPtrInput
@@ -145,7 +145,7 @@ type networkInterfaceAttachmentArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -157,7 +157,7 @@ type NetworkInterfaceAttachmentArgs struct {
 	InstanceId pulumi.StringInput
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -268,7 +268,7 @@ func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutp
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInterfaceAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -52,7 +52,7 @@ class PolicyArgs:
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -250,7 +250,7 @@ class PolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -367,7 +367,7 @@ class _PolicyState:
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -580,7 +580,7 @@ class _PolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -882,7 +882,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -1215,7 +1215,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -1374,7 +1374,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

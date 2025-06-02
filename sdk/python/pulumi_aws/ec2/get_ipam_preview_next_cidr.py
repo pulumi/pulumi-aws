@@ -127,6 +127,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[builtins.str]
     :param Sequence[builtins.str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param builtins.str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
     :param builtins.int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs
@@ -172,6 +173,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     :param Sequence[builtins.str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param builtins.str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
     :param builtins.int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs

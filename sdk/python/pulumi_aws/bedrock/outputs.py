@@ -96,6 +96,32 @@ __all__ = [
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration',
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping',
     'AgentKnowledgeBaseTimeouts',
+    'AgentPromptVariant',
+    'AgentPromptVariantGenAiResource',
+    'AgentPromptVariantGenAiResourceAgent',
+    'AgentPromptVariantInferenceConfiguration',
+    'AgentPromptVariantInferenceConfigurationText',
+    'AgentPromptVariantMetadata',
+    'AgentPromptVariantTemplateConfiguration',
+    'AgentPromptVariantTemplateConfigurationChat',
+    'AgentPromptVariantTemplateConfigurationChatInputVariable',
+    'AgentPromptVariantTemplateConfigurationChatMessage',
+    'AgentPromptVariantTemplateConfigurationChatMessageContent',
+    'AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint',
+    'AgentPromptVariantTemplateConfigurationChatSystem',
+    'AgentPromptVariantTemplateConfigurationChatSystemCachePoint',
+    'AgentPromptVariantTemplateConfigurationChatToolConfiguration',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationTool',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec',
+    'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema',
+    'AgentPromptVariantTemplateConfigurationText',
+    'AgentPromptVariantTemplateConfigurationTextCachePoint',
+    'AgentPromptVariantTemplateConfigurationTextInputVariable',
     'CustomModelOutputDataConfig',
     'CustomModelTimeouts',
     'CustomModelTrainingDataConfig',
@@ -4058,6 +4084,941 @@ class AgentKnowledgeBaseTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentPromptVariant(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateType":
+            suggest = "template_type"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+        elif key == "genAiResource":
+            suggest = "gen_ai_resource"
+        elif key == "inferenceConfiguration":
+            suggest = "inference_configuration"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "templateConfiguration":
+            suggest = "template_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 template_type: builtins.str,
+                 additional_model_request_fields: Optional[builtins.str] = None,
+                 gen_ai_resource: Optional['outputs.AgentPromptVariantGenAiResource'] = None,
+                 inference_configuration: Optional['outputs.AgentPromptVariantInferenceConfiguration'] = None,
+                 metadatas: Optional[Sequence['outputs.AgentPromptVariantMetadata']] = None,
+                 model_id: Optional[builtins.str] = None,
+                 template_configuration: Optional['outputs.AgentPromptVariantTemplateConfiguration'] = None):
+        """
+        :param builtins.str name: Name of the prompt variant.
+        :param builtins.str template_type: Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
+        :param builtins.str additional_model_request_fields: Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+        :param 'AgentPromptVariantGenAiResourceArgs' gen_ai_resource: Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+        :param 'AgentPromptVariantInferenceConfigurationArgs' inference_configuration: Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+        :param Sequence['AgentPromptVariantMetadataArgs'] metadatas: A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+        :param builtins.str model_id: Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+        :param 'AgentPromptVariantTemplateConfigurationArgs' template_configuration: Contains configurations for the prompt template. See Template Configuration for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_type", template_type)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if gen_ai_resource is not None:
+            pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
+        if inference_configuration is not None:
+            pulumi.set(__self__, "inference_configuration", inference_configuration)
+        if metadatas is not None:
+            pulumi.set(__self__, "metadatas", metadatas)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the prompt variant.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="templateType")
+    def template_type(self) -> builtins.str:
+        """
+        Type of prompt template to use. Valid values: `CHAT`, `TEXT`.
+        """
+        return pulumi.get(self, "template_type")
+
+    @property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[builtins.str]:
+        """
+        Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @property
+    @pulumi.getter(name="genAiResource")
+    def gen_ai_resource(self) -> Optional['outputs.AgentPromptVariantGenAiResource']:
+        """
+        Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+        """
+        return pulumi.get(self, "gen_ai_resource")
+
+    @property
+    @pulumi.getter(name="inferenceConfiguration")
+    def inference_configuration(self) -> Optional['outputs.AgentPromptVariantInferenceConfiguration']:
+        """
+        Contains inference configurations for the prompt variant. See Inference Configuration for more information.
+        """
+        return pulumi.get(self, "inference_configuration")
+
+    @property
+    @pulumi.getter
+    def metadatas(self) -> Optional[Sequence['outputs.AgentPromptVariantMetadata']]:
+        """
+        A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
+        """
+        return pulumi.get(self, "metadatas")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[builtins.str]:
+        """
+        Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+        """
+        return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfiguration']:
+        """
+        Contains configurations for the prompt template. See Template Configuration for more information.
+        """
+        return pulumi.get(self, "template_configuration")
+
+
+@pulumi.output_type
+class AgentPromptVariantGenAiResource(dict):
+    def __init__(__self__, *,
+                 agent: Optional['outputs.AgentPromptVariantGenAiResourceAgent'] = None):
+        """
+        :param 'AgentPromptVariantGenAiResourceAgentArgs' agent: Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+        """
+        if agent is not None:
+            pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> Optional['outputs.AgentPromptVariantGenAiResourceAgent']:
+        """
+        Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
+        """
+        return pulumi.get(self, "agent")
+
+
+@pulumi.output_type
+class AgentPromptVariantGenAiResourceAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentIdentifier":
+            suggest = "agent_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantGenAiResourceAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantGenAiResourceAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantGenAiResourceAgent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_identifier: builtins.str):
+        """
+        :param builtins.str agent_identifier: ARN of the agent with which to use the prompt.
+        """
+        pulumi.set(__self__, "agent_identifier", agent_identifier)
+
+    @property
+    @pulumi.getter(name="agentIdentifier")
+    def agent_identifier(self) -> builtins.str:
+        """
+        ARN of the agent with which to use the prompt.
+        """
+        return pulumi.get(self, "agent_identifier")
+
+
+@pulumi.output_type
+class AgentPromptVariantInferenceConfiguration(dict):
+    def __init__(__self__, *,
+                 text: Optional['outputs.AgentPromptVariantInferenceConfigurationText'] = None):
+        """
+        :param 'AgentPromptVariantInferenceConfigurationTextArgs' text: Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional['outputs.AgentPromptVariantInferenceConfigurationText']:
+        """
+        Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AgentPromptVariantInferenceConfigurationText(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "stopSequences":
+            suggest = "stop_sequences"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantInferenceConfigurationText. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantInferenceConfigurationText.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantInferenceConfigurationText.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens: Optional[builtins.int] = None,
+                 stop_sequences: Optional[Sequence[builtins.str]] = None,
+                 temperature: Optional[builtins.float] = None,
+                 top_p: Optional[builtins.float] = None):
+        """
+        :param builtins.int max_tokens: Maximum number of tokens to return in the response.
+        :param Sequence[builtins.str] stop_sequences: List of strings that define sequences after which the model will stop generating.
+        :param builtins.float temperature: Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        :param builtins.float top_p: Percentage of most-likely candidates that the model considers for the next token.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[builtins.int]:
+        """
+        Maximum number of tokens to return in the response.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of strings that define sequences after which the model will stop generating.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> Optional[builtins.float]:
+        """
+        Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.
+        """
+        return pulumi.get(self, "temperature")
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[builtins.float]:
+        """
+        Percentage of most-likely candidates that the model considers for the next token.
+        """
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class AgentPromptVariantMetadata(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: Key of a metadata tag for a prompt variant.
+        :param builtins.str value: Value of a metadata tag for a prompt variant.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        Key of a metadata tag for a prompt variant.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value of a metadata tag for a prompt variant.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfiguration(dict):
+    def __init__(__self__, *,
+                 chat: Optional['outputs.AgentPromptVariantTemplateConfigurationChat'] = None,
+                 text: Optional['outputs.AgentPromptVariantTemplateConfigurationText'] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatArgs' chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        :param 'AgentPromptVariantTemplateConfigurationTextArgs' text: Contains configurations for the text in a message for a prompt. See Text Template Configuration
+        """
+        if chat is not None:
+            pulumi.set(__self__, "chat", chat)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def chat(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChat']:
+        """
+        Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        """
+        return pulumi.get(self, "chat")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationText']:
+        """
+        Contains configurations for the text in a message for a prompt. See Text Template Configuration
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputVariables":
+            suggest = "input_variables"
+        elif key == "toolConfiguration":
+            suggest = "tool_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_variables: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']] = None,
+                 messages: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']] = None,
+                 systems: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']] = None,
+                 tool_configuration: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration'] = None):
+        """
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatMessageArgs'] messages: A list of messages in the chat for the prompt. See Message for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatSystemArgs'] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs' tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        """
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if systems is not None:
+            pulumi.set(__self__, "systems", systems)
+        if tool_configuration is not None:
+            pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatInputVariable']]:
+        return pulumi.get(self, "input_variables")
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatMessage']]:
+        """
+        A list of messages in the chat for the prompt. See Message for more information.
+        """
+        return pulumi.get(self, "messages")
+
+    @property
+    @pulumi.getter
+    def systems(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatSystem']]:
+        """
+        A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
+        """
+        return pulumi.get(self, "systems")
+
+    @property
+    @pulumi.getter(name="toolConfiguration")
+    def tool_configuration(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration']:
+        """
+        Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
+        """
+        return pulumi.get(self, "tool_configuration")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatInputVariable(dict):
+    def __init__(__self__, *,
+                 name: builtins.str):
+        """
+        :param builtins.str name: The name of the variable.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatMessage(dict):
+    def __init__(__self__, *,
+                 role: builtins.str,
+                 content: Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent'] = None):
+        """
+        :param builtins.str role: The role that the message belongs to.
+        :param 'AgentPromptVariantTemplateConfigurationChatMessageContentArgs' content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        """
+        pulumi.set(__self__, "role", role)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        The role that the message belongs to.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContent']:
+        """
+        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        """
+        return pulumi.get(self, "content")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatMessageContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChatMessageContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChatMessageContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChatMessageContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint'] = None,
+                 text: Optional[builtins.str] = None):
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint']:
+        return pulumi.get(self, "cache_point")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatMessageContentCachePoint(dict):
+    def __init__(__self__, *,
+                 type: builtins.str):
+        """
+        :param builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChatSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChatSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChatSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint'] = None,
+                 text: Optional[builtins.str] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        :param builtins.str text: The text in the system prompt.
+        """
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatSystemCachePoint']:
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        return pulumi.get(self, "cache_point")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        """
+        The text in the system prompt.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatSystemCachePoint(dict):
+    def __init__(__self__, *,
+                 type: builtins.str):
+        """
+        :param builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolChoice":
+            suggest = "tool_choice"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChatToolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_choice: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice'] = None,
+                 tools: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs' tool_choice: Defines which tools the model should request when invoked. See Tool Choice for more information.
+        :param Sequence['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs'] tools: A list of tools to pass to a model. See Tool for more information.
+        """
+        if tool_choice is not None:
+            pulumi.set(__self__, "tool_choice", tool_choice)
+        if tools is not None:
+            pulumi.set(__self__, "tools", tools)
+
+    @property
+    @pulumi.getter(name="toolChoice")
+    def tool_choice(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice']:
+        """
+        Defines which tools the model should request when invoked. See Tool Choice for more information.
+        """
+        return pulumi.get(self, "tool_choice")
+
+    @property
+    @pulumi.getter
+    def tools(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationTool']]:
+        """
+        A list of tools to pass to a model. See Tool for more information.
+        """
+        return pulumi.get(self, "tools")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationTool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+        elif key == "toolSpec":
+            suggest = "tool_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChatToolConfigurationTool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfigurationTool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfigurationTool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint'] = None,
+                 tool_spec: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec'] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs' cache_point: Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs' tool_spec: The specification for the tool. See Tool Specification for more information.
+        """
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if tool_spec is not None:
+            pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint']:
+        """
+        Creates a cache checkpoint within a tool designation. See Cache Point for more information.
+        """
+        return pulumi.get(self, "cache_point")
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec']:
+        """
+        The specification for the tool. See Tool Specification for more information.
+        """
+        return pulumi.get(self, "tool_spec")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint(dict):
+    def __init__(__self__, *,
+                 type: builtins.str):
+        """
+        :param builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoice(dict):
+    def __init__(__self__, *,
+                 any: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny'] = None,
+                 auto: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto'] = None,
+                 tool: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool'] = None):
+        """
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs' any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs' auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs' tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        """
+        if any is not None:
+            pulumi.set(__self__, "any", any)
+        if auto is not None:
+            pulumi.set(__self__, "auto", auto)
+        if tool is not None:
+            pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter
+    def any(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny']:
+        """
+        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        """
+        return pulumi.get(self, "any")
+
+    @property
+    @pulumi.getter
+    def auto(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto']:
+        """
+        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        """
+        return pulumi.get(self, "auto")
+
+    @property
+    @pulumi.getter
+    def tool(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool']:
+        """
+        Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
+        """
+        return pulumi.get(self, "tool")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAny(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAuto(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceTool(dict):
+    def __init__(__self__, *,
+                 name: builtins.str):
+        """
+        :param builtins.str name: Name of the prompt.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the prompt.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSchema":
+            suggest = "input_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 description: Optional[builtins.str] = None,
+                 input_schema: Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema'] = None):
+        """
+        :param builtins.str name: Name of the prompt.
+               
+               The following arguments are optional:
+        :param builtins.str description: Description of the prompt.
+        :param 'AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs' input_schema: The input schema of the tool. See Tool Input Schema for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_schema is not None:
+            pulumi.set(__self__, "input_schema", input_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the prompt.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        Description of the prompt.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema']:
+        """
+        The input schema of the tool. See Tool Input Schema for more information.
+        """
+        return pulumi.get(self, "input_schema")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema(dict):
+    def __init__(__self__, *,
+                 json: Optional[builtins.str] = None):
+        """
+        :param builtins.str json: A JSON object defining the input schema for the tool.
+        """
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional[builtins.str]:
+        """
+        A JSON object defining the input schema for the tool.
+        """
+        return pulumi.get(self, "json")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationText(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePoint":
+            suggest = "cache_point"
+        elif key == "inputVariables":
+            suggest = "input_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPromptVariantTemplateConfigurationText. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPromptVariantTemplateConfigurationText.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPromptVariantTemplateConfigurationText.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text: builtins.str,
+                 cache_point: Optional['outputs.AgentPromptVariantTemplateConfigurationTextCachePoint'] = None,
+                 input_variables: Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationTextInputVariable']] = None):
+        pulumi.set(__self__, "text", text)
+        if cache_point is not None:
+            pulumi.set(__self__, "cache_point", cache_point)
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+
+    @property
+    @pulumi.getter
+    def text(self) -> builtins.str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter(name="cachePoint")
+    def cache_point(self) -> Optional['outputs.AgentPromptVariantTemplateConfigurationTextCachePoint']:
+        return pulumi.get(self, "cache_point")
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[Sequence['outputs.AgentPromptVariantTemplateConfigurationTextInputVariable']]:
+        return pulumi.get(self, "input_variables")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationTextCachePoint(dict):
+    def __init__(__self__, *,
+                 type: builtins.str):
+        """
+        :param builtins.str type: Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentPromptVariantTemplateConfigurationTextInputVariable(dict):
+    def __init__(__self__, *,
+                 name: builtins.str):
+        """
+        :param builtins.str name: The name of the variable.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

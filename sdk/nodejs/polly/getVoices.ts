@@ -60,6 +60,9 @@ export interface GetVoicesArgs {
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
     languageCode?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
@@ -140,6 +143,9 @@ export interface GetVoicesOutputArgs {
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
     languageCode?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.

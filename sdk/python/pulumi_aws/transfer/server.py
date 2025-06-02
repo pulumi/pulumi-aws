@@ -66,7 +66,7 @@ class ServerArgs:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -329,7 +329,7 @@ class ServerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -495,7 +495,7 @@ class _ServerState:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -803,7 +803,7 @@ class _ServerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1102,7 +1102,7 @@ class Server(pulumi.CustomResource):
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -1402,7 +1402,7 @@ class Server(pulumi.CustomResource):
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -1616,7 +1616,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

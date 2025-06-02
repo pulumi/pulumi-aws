@@ -172,12 +172,10 @@ export class EnvironmentProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     public readonly projectIdentifier!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -284,12 +282,10 @@ export interface EnvironmentProfileState {
     name?: pulumi.Input<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     projectIdentifier?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -332,12 +328,10 @@ export interface EnvironmentProfileArgs {
     name?: pulumi.Input<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     projectIdentifier: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

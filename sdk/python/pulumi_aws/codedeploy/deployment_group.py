@@ -58,7 +58,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
@@ -283,7 +283,7 @@ class DeploymentGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -373,7 +373,7 @@ class _DeploymentGroupState:
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -635,7 +635,7 @@ class _DeploymentGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -901,7 +901,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupOnPremisesInstanceTagFilterArgs', 'DeploymentGroupOnPremisesInstanceTagFilterArgsDict']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
@@ -1197,7 +1197,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentGroupLoadBalancerInfoArgs', 'DeploymentGroupLoadBalancerInfoArgsDict']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupOnPremisesInstanceTagFilterArgs', 'DeploymentGroupOnPremisesInstanceTagFilterArgsDict']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[builtins.str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1373,7 +1373,7 @@ class DeploymentGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -153,7 +153,7 @@ type Repository struct {
 	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections RepositoryExternalConnectionsPtrOutput `pulumi:"externalConnections"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the repository to create.
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -213,7 +213,7 @@ type repositoryState struct {
 	DomainOwner *string `pulumi:"domainOwner"`
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the repository to create.
 	Repository *string `pulumi:"repository"`
@@ -238,7 +238,7 @@ type RepositoryState struct {
 	DomainOwner pulumi.StringPtrInput
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections RepositoryExternalConnectionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringPtrInput
@@ -263,7 +263,7 @@ type repositoryArgs struct {
 	DomainOwner *string `pulumi:"domainOwner"`
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections *RepositoryExternalConnections `pulumi:"externalConnections"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the repository to create.
 	Repository string `pulumi:"repository"`
@@ -283,7 +283,7 @@ type RepositoryArgs struct {
 	DomainOwner pulumi.StringPtrInput
 	// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
 	ExternalConnections RepositoryExternalConnectionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the repository to create.
 	Repository pulumi.StringInput
@@ -410,7 +410,7 @@ func (o RepositoryOutput) ExternalConnections() RepositoryExternalConnectionsPtr
 	return o.ApplyT(func(v *Repository) RepositoryExternalConnectionsPtrOutput { return v.ExternalConnections }).(RepositoryExternalConnectionsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -54,8 +54,9 @@ type LookupLambdaFunctionAssociationArgs struct {
 	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn string `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId string  `pulumi:"instanceId"`
-	Region     *string `pulumi:"region"`
+	InstanceId string `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLambdaFunctionAssociation.
@@ -81,8 +82,9 @@ type LookupLambdaFunctionAssociationOutputArgs struct {
 	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupLambdaFunctionAssociationOutputArgs) ElementType() reflect.Type {

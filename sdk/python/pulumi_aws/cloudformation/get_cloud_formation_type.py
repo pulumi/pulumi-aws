@@ -258,6 +258,7 @@ def get_cloud_formation_type(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param builtins.str version_id: Identifier of the CloudFormation Type version.
@@ -311,6 +312,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[builtins
 
 
     :param builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param builtins.str version_id: Identifier of the CloudFormation Type version.

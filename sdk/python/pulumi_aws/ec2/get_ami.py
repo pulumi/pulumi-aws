@@ -608,6 +608,7 @@ def get_ami(allow_unsafe_filter: Optional[builtins.bool] = None,
            a single AMI ID only, or use `most_recent` to choose the most recent one. If
            you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
            * `tags.#.value` - Value of the tag.
@@ -736,6 +737,7 @@ def get_ami_output(allow_unsafe_filter: Optional[pulumi.Input[Optional[builtins.
            a single AMI ID only, or use `most_recent` to choose the most recent one. If
            you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
            * `tags.#.value` - Value of the tag.

@@ -11650,7 +11650,7 @@ type GetCatalogTableTargetTable struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name string `pulumi:"name"`
-	// Region of the target table.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -11672,7 +11672,7 @@ type GetCatalogTableTargetTableArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Region of the target table.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -11742,7 +11742,7 @@ func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region of the target table.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetCatalogTableTargetTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Region }).(pulumi.StringOutput)
 }

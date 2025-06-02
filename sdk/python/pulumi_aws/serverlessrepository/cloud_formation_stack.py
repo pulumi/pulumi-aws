@@ -33,7 +33,7 @@ class CloudFormationStackArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -102,7 +102,7 @@ class CloudFormationStackArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -154,7 +154,7 @@ class _CloudFormationStackState:
         :param pulumi.Input[builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] outputs: A map of outputs from the stack.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -242,7 +242,7 @@ class _CloudFormationStackState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -339,7 +339,7 @@ class CloudFormationStack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -456,7 +456,7 @@ class CloudFormationStack(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] outputs: A map of outputs from the stack.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of Parameter structures that specify input parameters for the stack.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -520,7 +520,7 @@ class CloudFormationStack(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

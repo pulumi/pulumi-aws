@@ -262,7 +262,7 @@ type Selection struct {
 	NotResources pulumi.StringArrayOutput `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringOutput `pulumi:"planId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
@@ -316,7 +316,7 @@ type selectionState struct {
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId *string `pulumi:"planId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
@@ -335,7 +335,7 @@ type SelectionState struct {
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
@@ -358,7 +358,7 @@ type selectionArgs struct {
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId string `pulumi:"planId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
@@ -378,7 +378,7 @@ type SelectionArgs struct {
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
@@ -498,7 +498,7 @@ func (o SelectionOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SelectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

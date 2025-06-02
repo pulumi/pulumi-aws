@@ -112,6 +112,7 @@ def get_topic(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Friendly name of the topic to match.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -147,6 +148,7 @@ def get_topic_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Friendly name of the topic to match.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()

@@ -72,7 +72,7 @@ type Workgroup struct {
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -122,7 +122,7 @@ type workgroupState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
@@ -143,7 +143,7 @@ type WorkgroupState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type workgroupArgs struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
@@ -184,7 +184,7 @@ type WorkgroupArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
@@ -304,7 +304,7 @@ func (o WorkgroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkgroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

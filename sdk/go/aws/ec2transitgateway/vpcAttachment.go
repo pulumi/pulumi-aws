@@ -62,7 +62,7 @@ type VpcAttachment struct {
 	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrOutput `pulumi:"ipv6Support"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringOutput `pulumi:"securityGroupReferencingSupport"`
@@ -131,7 +131,7 @@ type vpcAttachmentState struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
@@ -162,7 +162,7 @@ type VpcAttachmentState struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
@@ -195,7 +195,7 @@ type vpcAttachmentArgs struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
@@ -221,7 +221,7 @@ type VpcAttachmentArgs struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
@@ -346,7 +346,7 @@ func (o VpcAttachmentOutput) Ipv6Support() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.Ipv6Support }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

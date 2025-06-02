@@ -149,6 +149,7 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
@@ -197,6 +198,7 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """

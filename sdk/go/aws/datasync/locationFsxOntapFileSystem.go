@@ -33,7 +33,7 @@ type LocationFsxOntapFileSystem struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -98,7 +98,7 @@ type locationFsxOntapFileSystemState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol *LocationFsxOntapFileSystemProtocol `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -125,7 +125,7 @@ type LocationFsxOntapFileSystemState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -151,7 +151,7 @@ func (LocationFsxOntapFileSystemState) ElementType() reflect.Type {
 type locationFsxOntapFileSystemArgs struct {
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocol `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -171,7 +171,7 @@ type locationFsxOntapFileSystemArgs struct {
 type LocationFsxOntapFileSystemArgs struct {
 	// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
 	Protocol LocationFsxOntapFileSystemProtocolInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
 	// * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -293,7 +293,7 @@ func (o LocationFsxOntapFileSystemOutput) Protocol() LocationFsxOntapFileSystemP
 	return o.ApplyT(func(v *LocationFsxOntapFileSystem) LocationFsxOntapFileSystemProtocolOutput { return v.Protocol }).(LocationFsxOntapFileSystemProtocolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationFsxOntapFileSystemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -41,7 +41,7 @@ class WorkflowArgs:
         :param pulumi.Input[builtins.str] description: Description of the workflow.
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         :param pulumi.Input[builtins.str] name: Name of the workflow.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         """
@@ -154,7 +154,7 @@ class WorkflowArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -214,7 +214,7 @@ class _WorkflowState:
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         :param pulumi.Input[builtins.str] name: Name of the workflow.
         :param pulumi.Input[builtins.str] owner: Owner of the workflow.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -351,7 +351,7 @@ class _WorkflowState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -498,7 +498,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the workflow.
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         :param pulumi.Input[builtins.str] name: Name of the workflow.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -658,7 +658,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         :param pulumi.Input[builtins.str] name: Name of the workflow.
         :param pulumi.Input[builtins.str] owner: Owner of the workflow.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[builtins.str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -754,7 +754,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

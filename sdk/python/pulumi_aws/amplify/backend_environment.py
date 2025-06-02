@@ -30,7 +30,7 @@ class BackendEnvironmentArgs:
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] environment_name: Name for the backend environment.
         :param pulumi.Input[builtins.str] deployment_artifacts: Name of deployment artifacts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -82,7 +82,7 @@ class BackendEnvironmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -118,7 +118,7 @@ class _BackendEnvironmentState:
         :param pulumi.Input[builtins.str] arn: ARN for a backend environment that is part of an Amplify app.
         :param pulumi.Input[builtins.str] deployment_artifacts: Name of deployment artifacts.
         :param pulumi.Input[builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         if app_id is not None:
@@ -186,7 +186,7 @@ class _BackendEnvironmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -249,7 +249,7 @@ class BackendEnvironment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] deployment_artifacts: Name of deployment artifacts.
         :param pulumi.Input[builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         ...
@@ -349,7 +349,7 @@ class BackendEnvironment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN for a backend environment that is part of an Amplify app.
         :param pulumi.Input[builtins.str] deployment_artifacts: Name of deployment artifacts.
         :param pulumi.Input[builtins.str] environment_name: Name for the backend environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,7 +400,7 @@ class BackendEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

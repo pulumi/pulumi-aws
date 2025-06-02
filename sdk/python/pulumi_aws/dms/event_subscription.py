@@ -35,7 +35,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -117,7 +117,7 @@ class EventSubscriptionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -169,7 +169,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -249,7 +249,7 @@ class _EventSubscriptionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -370,7 +370,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -493,7 +493,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[builtins.str] name: Name of event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         :param pulumi.Input[builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -552,7 +552,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

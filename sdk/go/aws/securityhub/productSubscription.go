@@ -105,7 +105,7 @@ type ProductSubscription struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringOutput `pulumi:"productArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -184,7 +184,7 @@ type productSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn *string `pulumi:"productArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -231,7 +231,7 @@ type ProductSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -280,7 +280,7 @@ type productSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn string `pulumi:"productArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -326,7 +326,7 @@ type ProductSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -465,7 +465,7 @@ func (o ProductSubscriptionOutput) ProductArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.ProductArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProductSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

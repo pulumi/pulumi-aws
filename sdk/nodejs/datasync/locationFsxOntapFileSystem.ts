@@ -62,7 +62,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<outputs.datasync.LocationFsxOntapFileSystemProtocol>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export interface LocationFsxOntapFileSystemState {
      */
     protocol?: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface LocationFsxOntapFileSystemArgs {
      */
     protocol: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

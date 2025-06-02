@@ -117,6 +117,7 @@ def get_local_gateways(filters: Optional[Sequence[Union['GetLocalGatewaysFilterA
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.
     """
@@ -159,6 +160,7 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[U
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.
     """

@@ -135,7 +135,7 @@ type ResolverRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
@@ -198,7 +198,7 @@ type resolverRuleState struct {
 	Name *string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
@@ -226,7 +226,7 @@ type ResolverRuleState struct {
 	Name pulumi.StringPtrInput
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
@@ -254,7 +254,7 @@ type resolverRuleArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
@@ -274,7 +274,7 @@ type ResolverRuleArgs struct {
 	DomainName pulumi.StringInput
 	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
@@ -395,7 +395,7 @@ func (o ResolverRuleOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

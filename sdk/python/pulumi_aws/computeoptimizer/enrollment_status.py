@@ -30,7 +30,7 @@ class EnrollmentStatusArgs:
         The set of arguments for constructing a EnrollmentStatus resource.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "status", status)
         if include_member_accounts is not None:
@@ -68,7 +68,7 @@ class EnrollmentStatusArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _EnrollmentStatusState:
         Input properties used for looking up and filtering EnrollmentStatus resources.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         :param pulumi.Input[builtins.int] number_of_member_accounts_opted_in: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         if include_member_accounts is not None:
@@ -140,7 +140,7 @@ class _EnrollmentStatusState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -204,7 +204,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         ...
@@ -292,7 +292,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         :param pulumi.Input[builtins.int] number_of_member_accounts_opted_in: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -326,7 +326,7 @@ class EnrollmentStatus(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

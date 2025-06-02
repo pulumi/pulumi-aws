@@ -54,7 +54,8 @@ func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulum
 type GetEventSourceArgs struct {
 	// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
 	NamePrefix *string `pulumi:"namePrefix"`
-	Region     *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventSource.
@@ -86,7 +87,8 @@ func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, op
 type GetEventSourceOutputArgs struct {
 	// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEventSourceOutputArgs) ElementType() reflect.Type {

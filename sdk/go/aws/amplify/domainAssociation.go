@@ -93,7 +93,7 @@ type DomainAssociation struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain pulumi.BoolPtrOutput `pulumi:"enableAutoSubDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
@@ -152,7 +152,7 @@ type domainAssociationState struct {
 	DomainName *string `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
@@ -173,7 +173,7 @@ type DomainAssociationState struct {
 	DomainName pulumi.StringPtrInput
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
@@ -194,7 +194,7 @@ type domainAssociationArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Setting for the subdomain. Documented below.
 	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
@@ -212,7 +212,7 @@ type DomainAssociationArgs struct {
 	DomainName pulumi.StringInput
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Setting for the subdomain. Documented below.
 	SubDomains DomainAssociationSubDomainArrayInput
@@ -337,7 +337,7 @@ func (o DomainAssociationOutput) EnableAutoSubDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.BoolPtrOutput { return v.EnableAutoSubDomain }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

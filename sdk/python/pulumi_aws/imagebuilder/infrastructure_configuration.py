@@ -49,7 +49,7 @@ class InfrastructureConfigurationArgs:
                
                The following arguments are optional:
         :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -189,7 +189,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -307,7 +307,7 @@ class _InfrastructureConfigurationState:
                
                The following arguments are optional:
         :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -493,7 +493,7 @@ class _InfrastructureConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -661,7 +661,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -825,7 +825,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -953,7 +953,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

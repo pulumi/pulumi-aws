@@ -117,6 +117,7 @@ def get_invocation(function_name: Optional[builtins.str] = None,
     :param builtins.str input: String in JSON format that is passed as payload to the lambda function.
     :param builtins.str qualifier: Qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -152,6 +153,7 @@ def get_invocation_output(function_name: Optional[pulumi.Input[builtins.str]] = 
     :param builtins.str input: String in JSON format that is passed as payload to the lambda function.
     :param builtins.str qualifier: Qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name

@@ -152,11 +152,13 @@ type ConformancePack struct {
 	InputParameters ConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
 	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	//
+	// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
 }
 
@@ -200,11 +202,13 @@ type conformancePackState struct {
 	InputParameters []ConformancePackInputParameter `pulumi:"inputParameters"`
 	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	//
+	// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 	TemplateS3Uri *string `pulumi:"templateS3Uri"`
 }
 
@@ -219,11 +223,13 @@ type ConformancePackState struct {
 	InputParameters ConformancePackInputParameterArrayInput
 	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	//
+	// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 	TemplateS3Uri pulumi.StringPtrInput
 }
 
@@ -240,11 +246,13 @@ type conformancePackArgs struct {
 	InputParameters []ConformancePackInputParameter `pulumi:"inputParameters"`
 	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	//
+	// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 	TemplateS3Uri *string `pulumi:"templateS3Uri"`
 }
 
@@ -258,11 +266,13 @@ type ConformancePackArgs struct {
 	InputParameters ConformancePackInputParameterArrayInput
 	// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+	//
+	// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 	TemplateS3Uri pulumi.StringPtrInput
 }
 
@@ -378,7 +388,7 @@ func (o ConformancePackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConformancePackOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -389,6 +399,8 @@ func (o ConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
 }
 
 // Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+//
+// > **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
 func (o ConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
 }

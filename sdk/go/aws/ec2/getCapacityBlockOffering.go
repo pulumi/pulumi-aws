@@ -61,8 +61,9 @@ type GetCapacityBlockOfferingArgs struct {
 	// The number of instances for which to reserve capacity.
 	InstanceCount int `pulumi:"instanceCount"`
 	// The instance type for which to reserve capacity.
-	InstanceType string  `pulumi:"instanceType"`
-	Region       *string `pulumi:"region"`
+	InstanceType string `pulumi:"instanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	StartDateRange *string `pulumi:"startDateRange"`
 }
@@ -107,8 +108,9 @@ type GetCapacityBlockOfferingOutputArgs struct {
 	// The number of instances for which to reserve capacity.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// The instance type for which to reserve capacity.
-	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	StartDateRange pulumi.StringPtrInput `pulumi:"startDateRange"`
 }

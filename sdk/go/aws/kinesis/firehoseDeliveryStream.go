@@ -1064,7 +1064,7 @@ type FirehoseDeliveryStream struct {
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput `pulumi:"opensearchserverlessConfiguration"`
 	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrOutput `pulumi:"redshiftConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
 	//
@@ -1139,7 +1139,7 @@ type firehoseDeliveryStreamState struct {
 	OpensearchserverlessConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfiguration `pulumi:"opensearchserverlessConfiguration"`
 	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
 	//
@@ -1182,7 +1182,7 @@ type FirehoseDeliveryStreamState struct {
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput
 	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
 	//
@@ -1229,7 +1229,7 @@ type firehoseDeliveryStreamArgs struct {
 	OpensearchserverlessConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfiguration `pulumi:"opensearchserverlessConfiguration"`
 	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
 	//
@@ -1271,7 +1271,7 @@ type FirehoseDeliveryStreamArgs struct {
 	OpensearchserverlessConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput
 	// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. See `redshiftConfiguration` block below for details.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
 	//
@@ -1455,7 +1455,7 @@ func (o FirehoseDeliveryStreamOutput) RedshiftConfiguration() FirehoseDeliverySt
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FirehoseDeliveryStreamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

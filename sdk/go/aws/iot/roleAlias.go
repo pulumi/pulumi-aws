@@ -30,7 +30,7 @@ type RoleAlias struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrOutput `pulumi:"credentialDuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -82,7 +82,7 @@ type roleAliasState struct {
 	Arn *string `pulumi:"arn"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn *string `pulumi:"roleArn"`
@@ -99,7 +99,7 @@ type RoleAliasState struct {
 	Arn pulumi.StringPtrInput
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringPtrInput
@@ -118,7 +118,7 @@ type roleAliasArgs struct {
 	Alias string `pulumi:"alias"`
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration *int `pulumi:"credentialDuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity of the role to which the alias refers.
 	RoleArn string `pulumi:"roleArn"`
@@ -132,7 +132,7 @@ type RoleAliasArgs struct {
 	Alias pulumi.StringInput
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
 	CredentialDuration pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity of the role to which the alias refers.
 	RoleArn pulumi.StringInput
@@ -242,7 +242,7 @@ func (o RoleAliasOutput) CredentialDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.IntPtrOutput { return v.CredentialDuration }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RoleAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

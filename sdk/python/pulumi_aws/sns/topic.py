@@ -27,6 +27,7 @@ class TopicArgs:
                  content_based_deduplication: Optional[pulumi.Input[builtins.bool]] = None,
                  delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[builtins.str]] = None,
                  fifo_topic: Optional[pulumi.Input[builtins.bool]] = None,
                  firehose_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firehose_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -57,6 +58,7 @@ class TopicArgs:
         :param pulumi.Input[builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[builtins.str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[builtins.str] display_name: The display name for the topic
+        :param pulumi.Input[builtins.str] fifo_throughput_scope: Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         :param pulumi.Input[builtins.bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[builtins.str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -71,7 +73,7 @@ class TopicArgs:
         :param pulumi.Input[builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -93,6 +95,8 @@ class TopicArgs:
             pulumi.set(__self__, "delivery_policy", delivery_policy)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if fifo_throughput_scope is not None:
+            pulumi.set(__self__, "fifo_throughput_scope", fifo_throughput_scope)
         if fifo_topic is not None:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
         if firehose_failure_feedback_role_arn is not None:
@@ -219,6 +223,18 @@ class TopicArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+        """
+        return pulumi.get(self, "fifo_throughput_scope")
+
+    @fifo_throughput_scope.setter
+    def fifo_throughput_scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fifo_throughput_scope", value)
 
     @property
     @pulumi.getter(name="fifoTopic")
@@ -392,7 +408,7 @@ class TopicArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -485,6 +501,7 @@ class _TopicState:
                  content_based_deduplication: Optional[pulumi.Input[builtins.bool]] = None,
                  delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[builtins.str]] = None,
                  fifo_topic: Optional[pulumi.Input[builtins.bool]] = None,
                  firehose_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firehose_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -519,6 +536,7 @@ class _TopicState:
         :param pulumi.Input[builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[builtins.str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[builtins.str] display_name: The display name for the topic
+        :param pulumi.Input[builtins.str] fifo_throughput_scope: Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         :param pulumi.Input[builtins.bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[builtins.str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -534,7 +552,7 @@ class _TopicState:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -561,6 +579,8 @@ class _TopicState:
             pulumi.set(__self__, "delivery_policy", delivery_policy)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if fifo_throughput_scope is not None:
+            pulumi.set(__self__, "fifo_throughput_scope", fifo_throughput_scope)
         if fifo_topic is not None:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
         if firehose_failure_feedback_role_arn is not None:
@@ -715,6 +735,18 @@ class _TopicState:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+        """
+        return pulumi.get(self, "fifo_throughput_scope")
+
+    @fifo_throughput_scope.setter
+    def fifo_throughput_scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fifo_throughput_scope", value)
 
     @property
     @pulumi.getter(name="fifoTopic")
@@ -900,7 +932,7 @@ class _TopicState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1006,6 +1038,7 @@ class Topic(pulumi.CustomResource):
                  content_based_deduplication: Optional[pulumi.Input[builtins.bool]] = None,
                  delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[builtins.str]] = None,
                  fifo_topic: Optional[pulumi.Input[builtins.bool]] = None,
                  firehose_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firehose_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1112,6 +1145,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[builtins.str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[builtins.str] display_name: The display name for the topic
+        :param pulumi.Input[builtins.str] fifo_throughput_scope: Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         :param pulumi.Input[builtins.bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[builtins.str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1126,7 +1160,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1237,6 +1271,7 @@ class Topic(pulumi.CustomResource):
                  content_based_deduplication: Optional[pulumi.Input[builtins.bool]] = None,
                  delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[builtins.str]] = None,
                  fifo_topic: Optional[pulumi.Input[builtins.bool]] = None,
                  firehose_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  firehose_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1274,6 +1309,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
             __props__.__dict__["delivery_policy"] = delivery_policy
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["fifo_throughput_scope"] = fifo_throughput_scope
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["firehose_failure_feedback_role_arn"] = firehose_failure_feedback_role_arn
             __props__.__dict__["firehose_success_feedback_role_arn"] = firehose_success_feedback_role_arn
@@ -1318,6 +1354,7 @@ class Topic(pulumi.CustomResource):
             content_based_deduplication: Optional[pulumi.Input[builtins.bool]] = None,
             delivery_policy: Optional[pulumi.Input[builtins.str]] = None,
             display_name: Optional[pulumi.Input[builtins.str]] = None,
+            fifo_throughput_scope: Optional[pulumi.Input[builtins.str]] = None,
             fifo_topic: Optional[pulumi.Input[builtins.bool]] = None,
             firehose_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             firehose_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1357,6 +1394,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[builtins.str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[builtins.str] display_name: The display name for the topic
+        :param pulumi.Input[builtins.str] fifo_throughput_scope: Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
         :param pulumi.Input[builtins.bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         :param pulumi.Input[builtins.str] firehose_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1372,7 +1410,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1394,6 +1432,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["content_based_deduplication"] = content_based_deduplication
         __props__.__dict__["delivery_policy"] = delivery_policy
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["fifo_throughput_scope"] = fifo_throughput_scope
         __props__.__dict__["fifo_topic"] = fifo_topic
         __props__.__dict__["firehose_failure_feedback_role_arn"] = firehose_failure_feedback_role_arn
         __props__.__dict__["firehose_success_feedback_role_arn"] = firehose_success_feedback_role_arn
@@ -1490,6 +1529,14 @@ class Topic(pulumi.CustomResource):
         The display name for the topic
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> pulumi.Output[builtins.str]:
+        """
+        Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+        """
+        return pulumi.get(self, "fifo_throughput_scope")
 
     @property
     @pulumi.getter(name="fifoTopic")
@@ -1615,7 +1662,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

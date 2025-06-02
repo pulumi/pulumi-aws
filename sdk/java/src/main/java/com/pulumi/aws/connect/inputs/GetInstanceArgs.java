@@ -19,12 +19,16 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific connect instance by alias
      * 
+     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+     * 
      */
     @Import(name="instanceAlias")
     private @Nullable Output<String> instanceAlias;
 
     /**
      * @return Returns information on a specific connect instance by alias
+     * 
+     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
      * 
      */
     public Optional<Output<String>> instanceAlias() {
@@ -46,9 +50,17 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.instanceId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -98,6 +110,8 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param instanceAlias Returns information on a specific connect instance by alias
          * 
+         * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+         * 
          * @return builder
          * 
          */
@@ -108,6 +122,8 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param instanceAlias Returns information on a specific connect instance by alias
+         * 
+         * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
          * 
          * @return builder
          * 
@@ -137,11 +153,23 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

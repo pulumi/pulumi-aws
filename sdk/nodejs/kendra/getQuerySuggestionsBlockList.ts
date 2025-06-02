@@ -44,6 +44,9 @@ export interface GetQuerySuggestionsBlockListArgs {
      * Identifier of the block list.
      */
     querySuggestionsBlockListId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that helps organize the block list you create.
@@ -148,6 +151,9 @@ export interface GetQuerySuggestionsBlockListOutputArgs {
      * Identifier of the block list.
      */
     querySuggestionsBlockListId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the block list you create.

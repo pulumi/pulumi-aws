@@ -36,7 +36,7 @@ class PortfolioShareArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
@@ -109,7 +109,7 @@ class PortfolioShareArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -172,7 +172,7 @@ class _PortfolioShareState:
         :param pulumi.Input[builtins.bool] accepted: Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -251,7 +251,7 @@ class _PortfolioShareState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -363,7 +363,7 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -487,7 +487,7 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] accepted: Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -546,7 +546,7 @@ class PortfolioShare(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

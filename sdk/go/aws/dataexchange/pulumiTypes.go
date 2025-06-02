@@ -924,6 +924,1196 @@ func (o EventActionEventRevisionPublishedPtrOutput) DataSetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type RevisionAssetsAsset struct {
+	// The ARN of the Data Exchange Revision Assets.
+	Arn *string `pulumi:"arn"`
+	// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+	CreateS3DataAccessFromS3Bucket *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket `pulumi:"createS3DataAccessFromS3Bucket"`
+	// The timestamp when the revision was created, in RFC3339 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The unique identifier for the revision.
+	Id *string `pulumi:"id"`
+	// A block to import assets from S3. See Import Assets from S3 for more details.
+	ImportAssetsFromS3 *RevisionAssetsAssetImportAssetsFromS3 `pulumi:"importAssetsFromS3"`
+	// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
+	ImportAssetsFromSignedUrl *RevisionAssetsAssetImportAssetsFromSignedUrl `pulumi:"importAssetsFromSignedUrl"`
+	Name                      *string                                       `pulumi:"name"`
+	// The timestamp when the revision was last updated, in RFC3339 format.
+	UpdatedAt *string `pulumi:"updatedAt"`
+}
+
+// RevisionAssetsAssetInput is an input type that accepts RevisionAssetsAssetArgs and RevisionAssetsAssetOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetInput` via:
+//
+//	RevisionAssetsAssetArgs{...}
+type RevisionAssetsAssetInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetOutput() RevisionAssetsAssetOutput
+	ToRevisionAssetsAssetOutputWithContext(context.Context) RevisionAssetsAssetOutput
+}
+
+type RevisionAssetsAssetArgs struct {
+	// The ARN of the Data Exchange Revision Assets.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+	CreateS3DataAccessFromS3Bucket RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput `pulumi:"createS3DataAccessFromS3Bucket"`
+	// The timestamp when the revision was created, in RFC3339 format.
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The unique identifier for the revision.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A block to import assets from S3. See Import Assets from S3 for more details.
+	ImportAssetsFromS3 RevisionAssetsAssetImportAssetsFromS3PtrInput `pulumi:"importAssetsFromS3"`
+	// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
+	ImportAssetsFromSignedUrl RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput `pulumi:"importAssetsFromSignedUrl"`
+	Name                      pulumi.StringPtrInput                                `pulumi:"name"`
+	// The timestamp when the revision was last updated, in RFC3339 format.
+	UpdatedAt pulumi.StringPtrInput `pulumi:"updatedAt"`
+}
+
+func (RevisionAssetsAssetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAsset)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetArgs) ToRevisionAssetsAssetOutput() RevisionAssetsAssetOutput {
+	return i.ToRevisionAssetsAssetOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetArgs) ToRevisionAssetsAssetOutputWithContext(ctx context.Context) RevisionAssetsAssetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetOutput)
+}
+
+// RevisionAssetsAssetArrayInput is an input type that accepts RevisionAssetsAssetArray and RevisionAssetsAssetArrayOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetArrayInput` via:
+//
+//	RevisionAssetsAssetArray{ RevisionAssetsAssetArgs{...} }
+type RevisionAssetsAssetArrayInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetArrayOutput() RevisionAssetsAssetArrayOutput
+	ToRevisionAssetsAssetArrayOutputWithContext(context.Context) RevisionAssetsAssetArrayOutput
+}
+
+type RevisionAssetsAssetArray []RevisionAssetsAssetInput
+
+func (RevisionAssetsAssetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RevisionAssetsAsset)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetArray) ToRevisionAssetsAssetArrayOutput() RevisionAssetsAssetArrayOutput {
+	return i.ToRevisionAssetsAssetArrayOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetArray) ToRevisionAssetsAssetArrayOutputWithContext(ctx context.Context) RevisionAssetsAssetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetArrayOutput)
+}
+
+type RevisionAssetsAssetOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAsset)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetOutput) ToRevisionAssetsAssetOutput() RevisionAssetsAssetOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetOutput) ToRevisionAssetsAssetOutputWithContext(ctx context.Context) RevisionAssetsAssetOutput {
+	return o
+}
+
+// The ARN of the Data Exchange Revision Assets.
+func (o RevisionAssetsAssetOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+func (o RevisionAssetsAssetOutput) CreateS3DataAccessFromS3Bucket() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
+		return v.CreateS3DataAccessFromS3Bucket
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput)
+}
+
+// The timestamp when the revision was created, in RFC3339 format.
+func (o RevisionAssetsAssetOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the revision.
+func (o RevisionAssetsAssetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A block to import assets from S3. See Import Assets from S3 for more details.
+func (o RevisionAssetsAssetOutput) ImportAssetsFromS3() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetImportAssetsFromS3 { return v.ImportAssetsFromS3 }).(RevisionAssetsAssetImportAssetsFromS3PtrOutput)
+}
+
+// A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
+func (o RevisionAssetsAssetOutput) ImportAssetsFromSignedUrl() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *RevisionAssetsAssetImportAssetsFromSignedUrl {
+		return v.ImportAssetsFromSignedUrl
+	}).(RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput)
+}
+
+func (o RevisionAssetsAssetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the revision was last updated, in RFC3339 format.
+func (o RevisionAssetsAssetOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAsset) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+type RevisionAssetsAssetArrayOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RevisionAssetsAsset)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetArrayOutput) ToRevisionAssetsAssetArrayOutput() RevisionAssetsAssetArrayOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetArrayOutput) ToRevisionAssetsAssetArrayOutputWithContext(ctx context.Context) RevisionAssetsAssetArrayOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetArrayOutput) Index(i pulumi.IntInput) RevisionAssetsAssetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RevisionAssetsAsset {
+		return vs[0].([]RevisionAssetsAsset)[vs[1].(int)]
+	}).(RevisionAssetsAssetOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3Bucket struct {
+	AccessPointAlias *string `pulumi:"accessPointAlias"`
+	AccessPointArn   *string `pulumi:"accessPointArn"`
+	// A block specifying the source bucket for the asset. This block supports the following:
+	AssetSource *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource `pulumi:"assetSource"`
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs and RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput` via:
+//
+//	RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{...}
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs struct {
+	AccessPointAlias pulumi.StringPtrInput `pulumi:"accessPointAlias"`
+	AccessPointArn   pulumi.StringPtrInput `pulumi:"accessPointArn"`
+	// A block specifying the source bucket for the asset. This block supports the following:
+	AssetSource RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput `pulumi:"assetSource"`
+}
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3Bucket)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput)
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput).ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs, RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtr and RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput` via:
+//
+//	        RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput
+}
+
+type revisionAssetsAssetCreateS3DataAccessFromS3BucketPtrType RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs
+
+func RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtr(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput {
+	return (*revisionAssetsAssetCreateS3DataAccessFromS3BucketPtrType)(v)
+}
+
+func (*revisionAssetsAssetCreateS3DataAccessFromS3BucketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetCreateS3DataAccessFromS3Bucket)(nil)).Elem()
+}
+
+func (i *revisionAssetsAssetCreateS3DataAccessFromS3BucketPtrType) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsAssetCreateS3DataAccessFromS3BucketPtrType) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3Bucket)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return o.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
+		return &v
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) AccessPointAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *string { return v.AccessPointAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+// A block specifying the source bucket for the asset. This block supports the following:
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput) AssetSource() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
+		return v.AssetSource
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetCreateS3DataAccessFromS3Bucket)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) Elem() RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) RevisionAssetsAssetCreateS3DataAccessFromS3Bucket {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsAssetCreateS3DataAccessFromS3Bucket
+		return ret
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AccessPointAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A block specifying the source bucket for the asset. This block supports the following:
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput) AssetSource() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3Bucket) *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
+		if v == nil {
+			return nil
+		}
+		return v.AssetSource
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource struct {
+	// The name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// List of key prefixes in the S3 bucket.
+	KeyPrefixes []string `pulumi:"keyPrefixes"`
+	// List of object keys in the S3 bucket.
+	Keys            []string                                                                     `pulumi:"keys"`
+	KmsKeysToGrants []RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant `pulumi:"kmsKeysToGrants"`
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs and RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceInput` via:
+//
+//	RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs{...}
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs struct {
+	// The name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// List of key prefixes in the S3 bucket.
+	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
+	// List of object keys in the S3 bucket.
+	Keys            pulumi.StringArrayInput                                                              `pulumi:"keys"`
+	KmsKeysToGrants RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput `pulumi:"kmsKeysToGrants"`
+}
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput)
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput).ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs, RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtr and RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput` via:
+//
+//	        RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput
+}
+
+type revisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrType RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs
+
+func RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtr(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput {
+	return (*revisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrType)(v)
+}
+
+func (*revisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource)(nil)).Elem()
+}
+
+func (i *revisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrType) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrType) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
+		return &v
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput)
+}
+
+// The name of the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// List of key prefixes in the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) KeyPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// List of object keys in the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput) KmsKeysToGrants() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant {
+		return v.KmsKeysToGrants
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) Elem() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource
+		return ret
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput)
+}
+
+// The name of the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of key prefixes in the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) KeyPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of object keys in the S3 bucket.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput) KmsKeysToGrants() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSource) []RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeysToGrants
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant struct {
+	// The ARN of the KMS key.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs and RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantInput` via:
+//
+//	RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs{...}
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs struct {
+	// The ARN of the KMS key.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput)
+}
+
+// RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput is an input type that accepts RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray and RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput` via:
+//
+//	RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray{ RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs{...} }
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput
+	ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutputWithContext(context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray []RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantInput
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return i.ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput {
+	return o
+}
+
+// The ARN of the KMS key.
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant) string {
+		return v.KmsKeyArn
+	}).(pulumi.StringOutput)
+}
+
+type RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput() RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput) ToRevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutputWithContext(ctx context.Context) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput) Index(i pulumi.IntInput) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant {
+		return vs[0].([]RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant)[vs[1].(int)]
+	}).(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3 struct {
+	// A block specifying the source bucket and key for the asset. This block supports the following:
+	AssetSource *RevisionAssetsAssetImportAssetsFromS3AssetSource `pulumi:"assetSource"`
+}
+
+// RevisionAssetsAssetImportAssetsFromS3Input is an input type that accepts RevisionAssetsAssetImportAssetsFromS3Args and RevisionAssetsAssetImportAssetsFromS3Output values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromS3Input` via:
+//
+//	RevisionAssetsAssetImportAssetsFromS3Args{...}
+type RevisionAssetsAssetImportAssetsFromS3Input interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromS3Output() RevisionAssetsAssetImportAssetsFromS3Output
+	ToRevisionAssetsAssetImportAssetsFromS3OutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromS3Output
+}
+
+type RevisionAssetsAssetImportAssetsFromS3Args struct {
+	// A block specifying the source bucket and key for the asset. This block supports the following:
+	AssetSource RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput `pulumi:"assetSource"`
+}
+
+func (RevisionAssetsAssetImportAssetsFromS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3Args) ToRevisionAssetsAssetImportAssetsFromS3Output() RevisionAssetsAssetImportAssetsFromS3Output {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3OutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3Args) ToRevisionAssetsAssetImportAssetsFromS3OutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3Output)
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3Args) ToRevisionAssetsAssetImportAssetsFromS3PtrOutput() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3Args) ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3Output).ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsAssetImportAssetsFromS3PtrInput is an input type that accepts RevisionAssetsAssetImportAssetsFromS3Args, RevisionAssetsAssetImportAssetsFromS3Ptr and RevisionAssetsAssetImportAssetsFromS3PtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromS3PtrInput` via:
+//
+//	        RevisionAssetsAssetImportAssetsFromS3Args{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsAssetImportAssetsFromS3PtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromS3PtrOutput() RevisionAssetsAssetImportAssetsFromS3PtrOutput
+	ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromS3PtrOutput
+}
+
+type revisionAssetsAssetImportAssetsFromS3PtrType RevisionAssetsAssetImportAssetsFromS3Args
+
+func RevisionAssetsAssetImportAssetsFromS3Ptr(v *RevisionAssetsAssetImportAssetsFromS3Args) RevisionAssetsAssetImportAssetsFromS3PtrInput {
+	return (*revisionAssetsAssetImportAssetsFromS3PtrType)(v)
+}
+
+func (*revisionAssetsAssetImportAssetsFromS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromS3)(nil)).Elem()
+}
+
+func (i *revisionAssetsAssetImportAssetsFromS3PtrType) ToRevisionAssetsAssetImportAssetsFromS3PtrOutput() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsAssetImportAssetsFromS3PtrType) ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3PtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3Output struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3Output) ToRevisionAssetsAssetImportAssetsFromS3Output() RevisionAssetsAssetImportAssetsFromS3Output {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3Output) ToRevisionAssetsAssetImportAssetsFromS3OutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3Output {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3Output) ToRevisionAssetsAssetImportAssetsFromS3PtrOutput() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return o.ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3Output) ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsAssetImportAssetsFromS3) *RevisionAssetsAssetImportAssetsFromS3 {
+		return &v
+	}).(RevisionAssetsAssetImportAssetsFromS3PtrOutput)
+}
+
+// A block specifying the source bucket and key for the asset. This block supports the following:
+func (o RevisionAssetsAssetImportAssetsFromS3Output) AssetSource() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3) *RevisionAssetsAssetImportAssetsFromS3AssetSource {
+		return v.AssetSource
+	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3PtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromS3)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) ToRevisionAssetsAssetImportAssetsFromS3PtrOutput() RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) ToRevisionAssetsAssetImportAssetsFromS3PtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3PtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) Elem() RevisionAssetsAssetImportAssetsFromS3Output {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3) RevisionAssetsAssetImportAssetsFromS3 {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsAssetImportAssetsFromS3
+		return ret
+	}).(RevisionAssetsAssetImportAssetsFromS3Output)
+}
+
+// A block specifying the source bucket and key for the asset. This block supports the following:
+func (o RevisionAssetsAssetImportAssetsFromS3PtrOutput) AssetSource() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3) *RevisionAssetsAssetImportAssetsFromS3AssetSource {
+		if v == nil {
+			return nil
+		}
+		return v.AssetSource
+	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3AssetSource struct {
+	// The name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// The key of the object in the S3 bucket.
+	Key string `pulumi:"key"`
+}
+
+// RevisionAssetsAssetImportAssetsFromS3AssetSourceInput is an input type that accepts RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs and RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromS3AssetSourceInput` via:
+//
+//	RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs{...}
+type RevisionAssetsAssetImportAssetsFromS3AssetSourceInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput
+	ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput
+}
+
+type RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs struct {
+	// The name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The key of the object in the S3 bucket.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3AssetSource)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput)
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput).ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput is an input type that accepts RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs, RevisionAssetsAssetImportAssetsFromS3AssetSourcePtr and RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput` via:
+//
+//	        RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput
+	ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput
+}
+
+type revisionAssetsAssetImportAssetsFromS3AssetSourcePtrType RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs
+
+func RevisionAssetsAssetImportAssetsFromS3AssetSourcePtr(v *RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput {
+	return (*revisionAssetsAssetImportAssetsFromS3AssetSourcePtrType)(v)
+}
+
+func (*revisionAssetsAssetImportAssetsFromS3AssetSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromS3AssetSource)(nil)).Elem()
+}
+
+func (i *revisionAssetsAssetImportAssetsFromS3AssetSourcePtrType) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsAssetImportAssetsFromS3AssetSourcePtrType) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3AssetSource)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourceOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o.ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsAssetImportAssetsFromS3AssetSource) *RevisionAssetsAssetImportAssetsFromS3AssetSource {
+		return &v
+	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput)
+}
+
+// The name of the S3 bucket.
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3AssetSource) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The key of the object in the S3 bucket.
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromS3AssetSource) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromS3AssetSource)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput() RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) ToRevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Elem() RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3AssetSource) RevisionAssetsAssetImportAssetsFromS3AssetSource {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsAssetImportAssetsFromS3AssetSource
+		return ret
+	}).(RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput)
+}
+
+// The name of the S3 bucket.
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3AssetSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key of the object in the S3 bucket.
+func (o RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromS3AssetSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromSignedUrl struct {
+	// The name of the file to import.
+	Filename string `pulumi:"filename"`
+}
+
+// RevisionAssetsAssetImportAssetsFromSignedUrlInput is an input type that accepts RevisionAssetsAssetImportAssetsFromSignedUrlArgs and RevisionAssetsAssetImportAssetsFromSignedUrlOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromSignedUrlInput` via:
+//
+//	RevisionAssetsAssetImportAssetsFromSignedUrlArgs{...}
+type RevisionAssetsAssetImportAssetsFromSignedUrlInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromSignedUrlOutput() RevisionAssetsAssetImportAssetsFromSignedUrlOutput
+	ToRevisionAssetsAssetImportAssetsFromSignedUrlOutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlOutput
+}
+
+type RevisionAssetsAssetImportAssetsFromSignedUrlArgs struct {
+	// The name of the file to import.
+	Filename pulumi.StringInput `pulumi:"filename"`
+}
+
+func (RevisionAssetsAssetImportAssetsFromSignedUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromSignedUrl)(nil)).Elem()
+}
+
+func (i RevisionAssetsAssetImportAssetsFromSignedUrlArgs) ToRevisionAssetsAssetImportAssetsFromSignedUrlOutput() RevisionAssetsAssetImportAssetsFromSignedUrlOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromSignedUrlOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromSignedUrlArgs) ToRevisionAssetsAssetImportAssetsFromSignedUrlOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromSignedUrlOutput)
+}
+
+func (i RevisionAssetsAssetImportAssetsFromSignedUrlArgs) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsAssetImportAssetsFromSignedUrlArgs) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromSignedUrlOutput).ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput is an input type that accepts RevisionAssetsAssetImportAssetsFromSignedUrlArgs, RevisionAssetsAssetImportAssetsFromSignedUrlPtr and RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput` via:
+//
+//	        RevisionAssetsAssetImportAssetsFromSignedUrlArgs{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput
+	ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput
+}
+
+type revisionAssetsAssetImportAssetsFromSignedUrlPtrType RevisionAssetsAssetImportAssetsFromSignedUrlArgs
+
+func RevisionAssetsAssetImportAssetsFromSignedUrlPtr(v *RevisionAssetsAssetImportAssetsFromSignedUrlArgs) RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput {
+	return (*revisionAssetsAssetImportAssetsFromSignedUrlPtrType)(v)
+}
+
+func (*revisionAssetsAssetImportAssetsFromSignedUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromSignedUrl)(nil)).Elem()
+}
+
+func (i *revisionAssetsAssetImportAssetsFromSignedUrlPtrType) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return i.ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsAssetImportAssetsFromSignedUrlPtrType) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromSignedUrlOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromSignedUrl)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlOutput() RevisionAssetsAssetImportAssetsFromSignedUrlOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return o.ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsAssetImportAssetsFromSignedUrl) *RevisionAssetsAssetImportAssetsFromSignedUrl {
+		return &v
+	}).(RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput)
+}
+
+// The name of the file to import.
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v RevisionAssetsAssetImportAssetsFromSignedUrl) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+type RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsAssetImportAssetsFromSignedUrl)(nil)).Elem()
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput() RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) ToRevisionAssetsAssetImportAssetsFromSignedUrlPtrOutputWithContext(ctx context.Context) RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) Elem() RevisionAssetsAssetImportAssetsFromSignedUrlOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromSignedUrl) RevisionAssetsAssetImportAssetsFromSignedUrl {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsAssetImportAssetsFromSignedUrl
+		return ret
+	}).(RevisionAssetsAssetImportAssetsFromSignedUrlOutput)
+}
+
+// The name of the file to import.
+func (o RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsAssetImportAssetsFromSignedUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+type RevisionAssetsTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// RevisionAssetsTimeoutsInput is an input type that accepts RevisionAssetsTimeoutsArgs and RevisionAssetsTimeoutsOutput values.
+// You can construct a concrete instance of `RevisionAssetsTimeoutsInput` via:
+//
+//	RevisionAssetsTimeoutsArgs{...}
+type RevisionAssetsTimeoutsInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsTimeoutsOutput() RevisionAssetsTimeoutsOutput
+	ToRevisionAssetsTimeoutsOutputWithContext(context.Context) RevisionAssetsTimeoutsOutput
+}
+
+type RevisionAssetsTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (RevisionAssetsTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsTimeouts)(nil)).Elem()
+}
+
+func (i RevisionAssetsTimeoutsArgs) ToRevisionAssetsTimeoutsOutput() RevisionAssetsTimeoutsOutput {
+	return i.ToRevisionAssetsTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsTimeoutsArgs) ToRevisionAssetsTimeoutsOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsTimeoutsOutput)
+}
+
+func (i RevisionAssetsTimeoutsArgs) ToRevisionAssetsTimeoutsPtrOutput() RevisionAssetsTimeoutsPtrOutput {
+	return i.ToRevisionAssetsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RevisionAssetsTimeoutsArgs) ToRevisionAssetsTimeoutsPtrOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsTimeoutsOutput).ToRevisionAssetsTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RevisionAssetsTimeoutsPtrInput is an input type that accepts RevisionAssetsTimeoutsArgs, RevisionAssetsTimeoutsPtr and RevisionAssetsTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RevisionAssetsTimeoutsPtrInput` via:
+//
+//	        RevisionAssetsTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RevisionAssetsTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRevisionAssetsTimeoutsPtrOutput() RevisionAssetsTimeoutsPtrOutput
+	ToRevisionAssetsTimeoutsPtrOutputWithContext(context.Context) RevisionAssetsTimeoutsPtrOutput
+}
+
+type revisionAssetsTimeoutsPtrType RevisionAssetsTimeoutsArgs
+
+func RevisionAssetsTimeoutsPtr(v *RevisionAssetsTimeoutsArgs) RevisionAssetsTimeoutsPtrInput {
+	return (*revisionAssetsTimeoutsPtrType)(v)
+}
+
+func (*revisionAssetsTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsTimeouts)(nil)).Elem()
+}
+
+func (i *revisionAssetsTimeoutsPtrType) ToRevisionAssetsTimeoutsPtrOutput() RevisionAssetsTimeoutsPtrOutput {
+	return i.ToRevisionAssetsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *revisionAssetsTimeoutsPtrType) ToRevisionAssetsTimeoutsPtrOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RevisionAssetsTimeoutsPtrOutput)
+}
+
+type RevisionAssetsTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RevisionAssetsTimeouts)(nil)).Elem()
+}
+
+func (o RevisionAssetsTimeoutsOutput) ToRevisionAssetsTimeoutsOutput() RevisionAssetsTimeoutsOutput {
+	return o
+}
+
+func (o RevisionAssetsTimeoutsOutput) ToRevisionAssetsTimeoutsOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsOutput {
+	return o
+}
+
+func (o RevisionAssetsTimeoutsOutput) ToRevisionAssetsTimeoutsPtrOutput() RevisionAssetsTimeoutsPtrOutput {
+	return o.ToRevisionAssetsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RevisionAssetsTimeoutsOutput) ToRevisionAssetsTimeoutsPtrOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RevisionAssetsTimeouts) *RevisionAssetsTimeouts {
+		return &v
+	}).(RevisionAssetsTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RevisionAssetsTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RevisionAssetsTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type RevisionAssetsTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RevisionAssetsTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RevisionAssetsTimeouts)(nil)).Elem()
+}
+
+func (o RevisionAssetsTimeoutsPtrOutput) ToRevisionAssetsTimeoutsPtrOutput() RevisionAssetsTimeoutsPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsTimeoutsPtrOutput) ToRevisionAssetsTimeoutsPtrOutputWithContext(ctx context.Context) RevisionAssetsTimeoutsPtrOutput {
+	return o
+}
+
+func (o RevisionAssetsTimeoutsPtrOutput) Elem() RevisionAssetsTimeoutsOutput {
+	return o.ApplyT(func(v *RevisionAssetsTimeouts) RevisionAssetsTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RevisionAssetsTimeouts
+		return ret
+	}).(RevisionAssetsTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RevisionAssetsTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RevisionAssetsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventActionActionInput)(nil)).Elem(), EventActionActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventActionActionPtrInput)(nil)).Elem(), EventActionActionArgs{})
@@ -937,6 +2127,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventActionEventPtrInput)(nil)).Elem(), EventActionEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventActionEventRevisionPublishedInput)(nil)).Elem(), EventActionEventRevisionPublishedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventActionEventRevisionPublishedPtrInput)(nil)).Elem(), EventActionEventRevisionPublishedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetInput)(nil)).Elem(), RevisionAssetsAssetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetArrayInput)(nil)).Elem(), RevisionAssetsAssetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayInput)(nil)).Elem(), RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3Input)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3PtrInput)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3AssetSourceInput)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrInput)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromSignedUrlInput)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromSignedUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsAssetImportAssetsFromSignedUrlPtrInput)(nil)).Elem(), RevisionAssetsAssetImportAssetsFromSignedUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsTimeoutsInput)(nil)).Elem(), RevisionAssetsTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RevisionAssetsTimeoutsPtrInput)(nil)).Elem(), RevisionAssetsTimeoutsArgs{})
 	pulumi.RegisterOutputType(EventActionActionOutput{})
 	pulumi.RegisterOutputType(EventActionActionPtrOutput{})
 	pulumi.RegisterOutputType(EventActionActionExportRevisionToS3Output{})
@@ -949,4 +2155,20 @@ func init() {
 	pulumi.RegisterOutputType(EventActionEventPtrOutput{})
 	pulumi.RegisterOutputType(EventActionEventRevisionPublishedOutput{})
 	pulumi.RegisterOutputType(EventActionEventRevisionPublishedPtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetArrayOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketPtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourcePtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArrayOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromS3Output{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromS3PtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromS3AssetSourceOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromS3AssetSourcePtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromSignedUrlOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsAssetImportAssetsFromSignedUrlPtrOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsTimeoutsOutput{})
+	pulumi.RegisterOutputType(RevisionAssetsTimeoutsPtrOutput{})
 }

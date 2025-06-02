@@ -106,7 +106,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface WorkflowState {
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface WorkflowArgs {
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

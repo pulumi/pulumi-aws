@@ -51,8 +51,9 @@ func GetInstanceType(ctx *pulumi.Context, args *GetInstanceTypeArgs, opts ...pul
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeArgs struct {
 	// Instance
-	InstanceType string  `pulumi:"instanceType"`
-	Region       *string `pulumi:"region"`
+	InstanceType string `pulumi:"instanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceType.
@@ -228,8 +229,9 @@ func GetInstanceTypeOutput(ctx *pulumi.Context, args GetInstanceTypeOutputArgs, 
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeOutputArgs struct {
 	// Instance
-	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypeOutputArgs) ElementType() reflect.Type {

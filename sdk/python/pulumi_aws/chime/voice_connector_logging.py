@@ -29,7 +29,7 @@ class VoiceConnectorLoggingArgs:
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "voice_connector_id", voice_connector_id)
         if enable_media_metric_logs is not None:
@@ -79,7 +79,7 @@ class VoiceConnectorLoggingArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _VoiceConnectorLoggingState:
         Input properties used for looking up and filtering VoiceConnectorLogging resources.
         :param pulumi.Input[builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         if enable_media_metric_logs is not None:
@@ -139,7 +139,7 @@ class _VoiceConnectorLoggingState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -201,7 +201,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         ...
@@ -293,7 +293,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -326,7 +326,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

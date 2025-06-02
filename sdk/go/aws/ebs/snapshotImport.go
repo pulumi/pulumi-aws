@@ -73,7 +73,7 @@ type SnapshotImport struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
@@ -144,7 +144,7 @@ type snapshotImportState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
@@ -183,7 +183,7 @@ type SnapshotImportState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
@@ -217,7 +217,7 @@ type snapshotImportArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
@@ -243,7 +243,7 @@ type SnapshotImportArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
@@ -396,7 +396,7 @@ func (o SnapshotImportOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotImportOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

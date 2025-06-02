@@ -14,6 +14,36 @@ import (
 
 // Provides a Glue Partition Resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewPartition(ctx, "example", &glue.PartitionArgs{
+//				DatabaseName: pulumi.String("some-database"),
+//				TableName:    pulumi.String("some-table"),
+//				PartitionValues: pulumi.StringArray{
+//					pulumi.String("some-value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
@@ -38,7 +68,7 @@ type Partition struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayOutput `pulumi:"partitionValues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
@@ -98,7 +128,7 @@ type partitionState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues []string `pulumi:"partitionValues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
@@ -120,7 +150,7 @@ type PartitionState struct {
 	Parameters pulumi.StringMapInput
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrInput
@@ -140,7 +170,7 @@ type partitionArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues []string `pulumi:"partitionValues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
@@ -157,7 +187,7 @@ type PartitionArgs struct {
 	Parameters pulumi.StringMapInput
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
 	StorageDescriptor PartitionStorageDescriptorPtrInput
@@ -286,7 +316,7 @@ func (o PartitionOutput) PartitionValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringArrayOutput { return v.PartitionValues }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PartitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

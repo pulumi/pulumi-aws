@@ -35,6 +35,21 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersSaslIam")
+    private @Nullable Output<String> bootstrapBrokersSaslIam;
+
+    /**
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersSaslIam() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslIam);
+    }
+
+    /**
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
@@ -80,14 +95,14 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -143,6 +158,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
 
     private ServerlessClusterState(ServerlessClusterState $) {
         this.arn = $.arn;
+        this.bootstrapBrokersSaslIam = $.bootstrapBrokersSaslIam;
         this.clientAuthentication = $.clientAuthentication;
         this.clusterName = $.clusterName;
         this.clusterUuid = $.clusterUuid;
@@ -189,6 +205,27 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIam(@Nullable Output<String> bootstrapBrokersSaslIam) {
+            $.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
+            return bootstrapBrokersSaslIam(Output.of(bootstrapBrokersSaslIam));
         }
 
         /**
@@ -255,7 +292,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -266,7 +303,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

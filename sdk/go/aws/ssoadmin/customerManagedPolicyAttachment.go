@@ -101,7 +101,7 @@ type CustomerManagedPolicyAttachment struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type customerManagedPolicyAttachmentState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -161,7 +161,7 @@ type CustomerManagedPolicyAttachmentState struct {
 	InstanceArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -176,7 +176,7 @@ type customerManagedPolicyAttachmentArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -188,7 +188,7 @@ type CustomerManagedPolicyAttachmentArgs struct {
 	InstanceArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -296,7 +296,7 @@ func (o CustomerManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringO
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomerManagedPolicyAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

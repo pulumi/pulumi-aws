@@ -44,6 +44,9 @@ export interface GetAuthorizationTokenArgs {
      * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -108,5 +111,8 @@ export interface GetAuthorizationTokenOutputArgs {
      * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

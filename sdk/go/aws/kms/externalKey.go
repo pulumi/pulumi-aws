@@ -72,7 +72,7 @@ type ExternalKey struct {
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -141,7 +141,7 @@ type externalKeyState struct {
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -174,7 +174,7 @@ type ExternalKeyState struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -203,7 +203,7 @@ type externalKeyArgs struct {
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -227,7 +227,7 @@ type ExternalKeyArgs struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -377,7 +377,7 @@ func (o ExternalKeyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ExternalKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

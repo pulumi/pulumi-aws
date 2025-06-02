@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDow
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -209,6 +210,21 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
     }
 
     /**
+     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    @Import(name="uriFragment")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs> uriFragment;
+
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs>> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+
+    /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -238,6 +254,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
         this.singleQueryArgument = $.singleQueryArgument;
+        this.uriFragment = $.uriFragment;
         this.uriPath = $.uriPath;
     }
 
@@ -529,6 +546,27 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
          */
         public Builder singleQueryArgument(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument) {
             return singleQueryArgument(Output.of(singleQueryArgument));
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs> uriFragment) {
+            $.uriFragment = uriFragment;
+            return this;
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs uriFragment) {
+            return uriFragment(Output.of(uriFragment));
         }
 
         /**

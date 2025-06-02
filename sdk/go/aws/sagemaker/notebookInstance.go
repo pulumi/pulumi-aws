@@ -121,7 +121,7 @@ type NotebookInstance struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringOutput `pulumi:"platformIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -200,7 +200,7 @@ type notebookInstanceState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier *string `pulumi:"platformIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
@@ -244,7 +244,7 @@ type NotebookInstanceState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
@@ -288,7 +288,7 @@ type notebookInstanceArgs struct {
 	Name *string `pulumi:"name"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier *string `pulumi:"platformIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -325,7 +325,7 @@ type NotebookInstanceArgs struct {
 	Name pulumi.StringPtrInput
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringInput
@@ -486,7 +486,7 @@ func (o NotebookInstanceOutput) PlatformIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.PlatformIdentifier }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotebookInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

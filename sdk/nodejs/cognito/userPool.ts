@@ -178,8 +178,6 @@ export class UserPool extends pulumi.CustomResource {
     public readonly mfaConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Name of the user pool.
-     *
-     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -187,7 +185,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -428,8 +426,6 @@ export interface UserPoolState {
     mfaConfiguration?: pulumi.Input<string>;
     /**
      * Name of the user pool.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -437,7 +433,7 @@ export interface UserPoolState {
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -556,8 +552,6 @@ export interface UserPoolArgs {
     mfaConfiguration?: pulumi.Input<string>;
     /**
      * Name of the user pool.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -565,7 +559,7 @@ export interface UserPoolArgs {
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

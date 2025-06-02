@@ -88,7 +88,7 @@ export class TableReplica extends pulumi.CustomResource {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     public readonly globalTableArn!: pulumi.Output<string>;
     /**
@@ -100,7 +100,7 @@ export class TableReplica extends pulumi.CustomResource {
      */
     public readonly pointInTimeRecovery!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface TableReplicaState {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     globalTableArn?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface TableReplicaState {
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface TableReplicaArgs {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     globalTableArn: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface TableReplicaArgs {
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -56,7 +56,8 @@ type LookupCustomKeyStoreArgs struct {
 	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
 	// The user-specified friendly name for the custom key store.
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
-	Region             *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomKeyStore.
@@ -90,7 +91,8 @@ type LookupCustomKeyStoreOutputArgs struct {
 	CustomKeyStoreId pulumi.StringPtrInput `pulumi:"customKeyStoreId"`
 	// The user-specified friendly name for the custom key store.
 	CustomKeyStoreName pulumi.StringPtrInput `pulumi:"customKeyStoreName"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCustomKeyStoreOutputArgs) ElementType() reflect.Type {

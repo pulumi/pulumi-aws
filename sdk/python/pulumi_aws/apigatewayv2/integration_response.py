@@ -33,7 +33,7 @@ class IntegrationResponseArgs:
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -101,7 +101,7 @@ class IntegrationResponseArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -150,7 +150,7 @@ class _IntegrationResponseState:
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -221,7 +221,7 @@ class _IntegrationResponseState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -300,7 +300,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -408,7 +408,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -461,7 +461,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

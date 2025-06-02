@@ -58,7 +58,7 @@ type ModelPackageGroup struct {
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
 	// The name of the model group.
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -105,7 +105,7 @@ type modelPackageGroupState struct {
 	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
 	// The name of the model group.
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -120,7 +120,7 @@ type ModelPackageGroupState struct {
 	ModelPackageGroupDescription pulumi.StringPtrInput
 	// The name of the model group.
 	ModelPackageGroupName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -137,7 +137,7 @@ type modelPackageGroupArgs struct {
 	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
 	// The name of the model group.
 	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -149,7 +149,7 @@ type ModelPackageGroupArgs struct {
 	ModelPackageGroupDescription pulumi.StringPtrInput
 	// The name of the model group.
 	ModelPackageGroupName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -257,7 +257,7 @@ func (o ModelPackageGroupOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ModelPackageGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

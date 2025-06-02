@@ -44,7 +44,7 @@ class RemediationConfigurationArgs:
         :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[builtins.int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Type of resource.
         :param pulumi.Input[builtins.int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[builtins.str] target_version: Version of the target. For example, version of the SSM document
@@ -159,7 +159,7 @@ class RemediationConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -227,7 +227,7 @@ class _RemediationConfigurationState:
         :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[builtins.int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Type of resource.
         :param pulumi.Input[builtins.int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[builtins.str] target_id: Target ID is the name of the public document.
@@ -337,7 +337,7 @@ class _RemediationConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -491,7 +491,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[builtins.int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Type of resource.
         :param pulumi.Input[builtins.int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[builtins.str] target_id: Target ID is the name of the public document.
@@ -652,7 +652,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[builtins.int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RemediationConfigurationParameterArgs', 'RemediationConfigurationParameterArgsDict']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Type of resource.
         :param pulumi.Input[builtins.int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[builtins.str] target_id: Target ID is the name of the public document.
@@ -731,7 +731,7 @@ class RemediationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

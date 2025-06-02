@@ -54,7 +54,8 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 // A collection of arguments for invoking getStream.
 type LookupStreamArgs struct {
 	// Name of the Kinesis Stream.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assigned to the stream.
 	Tags map[string]string `pulumi:"tags"`
@@ -103,7 +104,8 @@ func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts .
 // A collection of arguments for invoking getStream.
 type LookupStreamOutputArgs struct {
 	// Name of the Kinesis Stream.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assigned to the stream.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

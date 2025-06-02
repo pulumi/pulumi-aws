@@ -58,7 +58,7 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface ScraperState {
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface ScraperArgs {
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -26,7 +26,8 @@ func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.Invo
 type GetEndpointArgs struct {
 	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType *string `pulumi:"endpointType"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEndpoint.
@@ -57,7 +58,8 @@ func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...
 type GetEndpointOutputArgs struct {
 	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEndpointOutputArgs) ElementType() reflect.Type {

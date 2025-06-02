@@ -57,7 +57,8 @@ type LookupFunctionUrlArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFunctionUrl.
@@ -100,7 +101,8 @@ type LookupFunctionUrlOutputArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFunctionUrlOutputArgs) ElementType() reflect.Type {

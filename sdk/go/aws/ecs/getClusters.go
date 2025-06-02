@@ -50,6 +50,7 @@ func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getClusters.
 type GetClustersArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...
 
 // A collection of arguments for invoking getClusters.
 type GetClustersOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

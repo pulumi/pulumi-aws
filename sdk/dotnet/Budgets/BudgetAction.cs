@@ -205,12 +205,6 @@ namespace Pulumi.Aws.Budgets
         public Output<string> NotificationType { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
-
-        /// <summary>
         /// The status of the budget action.
         /// </summary>
         [Output("status")]
@@ -328,12 +322,6 @@ namespace Pulumi.Aws.Budgets
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
-        /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
         [Input("subscribers", required: true)]
         private InputList<Inputs.BudgetActionSubscriberArgs>? _subscribers;
 
@@ -425,12 +413,6 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
-
-        /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The status of the budget action.

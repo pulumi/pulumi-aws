@@ -87,7 +87,7 @@ type Membership struct {
 	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the membership.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -155,7 +155,7 @@ type membershipState struct {
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the membership.
 	Status *string `pulumi:"status"`
@@ -188,7 +188,7 @@ type MembershipState struct {
 	PaymentConfiguration MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the membership.
 	Status pulumi.StringPtrInput
@@ -211,7 +211,7 @@ type membershipArgs struct {
 	PaymentConfiguration       *MembershipPaymentConfiguration       `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus string `pulumi:"queryLogStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key value pairs which tag the membership.
 	Tags map[string]string `pulumi:"tags"`
@@ -226,7 +226,7 @@ type MembershipArgs struct {
 	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key value pairs which tag the membership.
 	Tags pulumi.StringMapInput
@@ -373,7 +373,7 @@ func (o MembershipOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

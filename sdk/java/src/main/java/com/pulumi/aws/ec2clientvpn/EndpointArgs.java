@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2clientvpn;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientConnectOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientLoginBannerOptionsArgs;
+import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientRouteEnforcementOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -85,6 +86,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    @Import(name="clientRouteEnforcementOptions")
+    private @Nullable Output<EndpointClientRouteEnforcementOptionsArgs> clientRouteEnforcementOptions;
+
+    /**
+     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    public Optional<Output<EndpointClientRouteEnforcementOptionsArgs>> clientRouteEnforcementOptions() {
+        return Optional.ofNullable(this.clientRouteEnforcementOptions);
+    }
+
+    /**
      * Information about the client connection logging options.
      * 
      */
@@ -145,14 +161,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -301,6 +317,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.clientCidrBlock = $.clientCidrBlock;
         this.clientConnectOptions = $.clientConnectOptions;
         this.clientLoginBannerOptions = $.clientLoginBannerOptions;
+        this.clientRouteEnforcementOptions = $.clientRouteEnforcementOptions;
         this.connectionLogOptions = $.connectionLogOptions;
         this.description = $.description;
         this.disconnectOnSessionTimeout = $.disconnectOnSessionTimeout;
@@ -430,6 +447,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientRouteEnforcementOptions(@Nullable Output<EndpointClientRouteEnforcementOptionsArgs> clientRouteEnforcementOptions) {
+            $.clientRouteEnforcementOptions = clientRouteEnforcementOptions;
+            return this;
+        }
+
+        /**
+         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientRouteEnforcementOptions(EndpointClientRouteEnforcementOptionsArgs clientRouteEnforcementOptions) {
+            return clientRouteEnforcementOptions(Output.of(clientRouteEnforcementOptions));
+        }
+
+        /**
          * @param connectionLogOptions Information about the client connection logging options.
          * 
          * @return builder
@@ -524,7 +562,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -535,7 +573,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

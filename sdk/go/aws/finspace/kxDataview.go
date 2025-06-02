@@ -97,7 +97,7 @@ type KxDataview struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrOutput `pulumi:"readWrite"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayOutput `pulumi:"segmentConfigurations"`
@@ -181,7 +181,7 @@ type kxDataviewState struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite *bool `pulumi:"readWrite"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
@@ -224,7 +224,7 @@ type KxDataviewState struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
@@ -265,7 +265,7 @@ type kxDataviewArgs struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite *bool `pulumi:"readWrite"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
@@ -300,7 +300,7 @@ type KxDataviewArgs struct {
 	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
 	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
 	ReadWrite pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
@@ -462,7 +462,7 @@ func (o KxDataviewOutput) ReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.BoolPtrOutput { return v.ReadWrite }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxDataviewOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -39,7 +39,7 @@ class IamPolicyAssignmentArgs:
         :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "assignment_name", assignment_name)
         pulumi.set(__self__, "assignment_status", assignment_status)
@@ -132,7 +132,7 @@ class IamPolicyAssignmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -163,7 +163,7 @@ class _IamPolicyAssignmentState:
         :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if assignment_id is not None:
             pulumi.set(__self__, "assignment_id", assignment_id)
@@ -272,7 +272,7 @@ class _IamPolicyAssignmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -333,7 +333,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -446,7 +446,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[builtins.str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[builtins.str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -524,7 +524,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

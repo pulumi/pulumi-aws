@@ -112,6 +112,7 @@ def get_kafka_version(preferred_versions: Optional[Sequence[builtins.str]] = Non
 
 
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
     """
     __args__ = dict()
@@ -150,6 +151,7 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
 
 
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
     """
     __args__ = dict()

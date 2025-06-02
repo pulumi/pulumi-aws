@@ -52,7 +52,8 @@ func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs,
 type GetPeeringAttachmentsArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentsFilter `pulumi:"filters"`
-	Region  *string                       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPeeringAttachments.
@@ -78,7 +79,8 @@ func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachments
 type GetPeeringAttachmentsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPeeringAttachmentsOutputArgs) ElementType() reflect.Type {

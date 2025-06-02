@@ -126,7 +126,7 @@ type PhoneNumber struct {
 	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
 	Statuses PhoneNumberStatusArrayOutput `pulumi:"statuses"`
@@ -189,7 +189,7 @@ type phoneNumberState struct {
 	PhoneNumber *string `pulumi:"phoneNumber"`
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix *string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
 	Statuses []PhoneNumberStatus `pulumi:"statuses"`
@@ -214,7 +214,7 @@ type PhoneNumberState struct {
 	PhoneNumber pulumi.StringPtrInput
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
 	Statuses PhoneNumberStatusArrayInput
@@ -239,7 +239,7 @@ type phoneNumberArgs struct {
 	Description *string `pulumi:"description"`
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix *string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -257,7 +257,7 @@ type PhoneNumberArgs struct {
 	Description pulumi.StringPtrInput
 	// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
 	Prefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -379,7 +379,7 @@ func (o PhoneNumberOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PhoneNumberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

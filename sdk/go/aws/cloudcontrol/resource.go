@@ -62,7 +62,7 @@ type Resource struct {
 	DesiredState pulumi.StringOutput `pulumi:"desiredState"`
 	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
 	Properties pulumi.StringOutput `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -123,7 +123,7 @@ type resourceState struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
 	Properties *string `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
@@ -142,7 +142,7 @@ type ResourceState struct {
 	DesiredState pulumi.StringPtrInput
 	// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
 	Properties pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
@@ -163,7 +163,7 @@ func (ResourceState) ElementType() reflect.Type {
 type resourceArgs struct {
 	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState string `pulumi:"desiredState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
@@ -181,7 +181,7 @@ type resourceArgs struct {
 type ResourceArgs struct {
 	// JSON string matching the CloudFormation resource type schema with desired configuration.
 	DesiredState pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
@@ -292,7 +292,7 @@ func (o ResourceOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -293,7 +293,7 @@ type Branch struct {
 	Framework pulumi.StringPtrOutput `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringOutput `pulumi:"sourceBranch"`
@@ -386,7 +386,7 @@ type branchState struct {
 	Framework *string `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Source branch if the branch is a pull request branch.
 	SourceBranch *string `pulumi:"sourceBranch"`
@@ -437,7 +437,7 @@ type BranchState struct {
 	Framework pulumi.StringPtrInput
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringPtrInput
@@ -484,7 +484,7 @@ type branchArgs struct {
 	Framework *string `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage *string `pulumi:"stage"`
@@ -524,7 +524,7 @@ type BranchArgs struct {
 	Framework pulumi.StringPtrInput
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrInput
@@ -711,7 +711,7 @@ func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BranchOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

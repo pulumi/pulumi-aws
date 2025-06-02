@@ -96,7 +96,13 @@ export class DefaultVpc extends pulumi.CustomResource {
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+     *
+     * * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+     * * The default value for `enableDnsHostnames` is `true`
+     *
+     * This resource supports the following additional arguments:
      */
     public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -203,7 +209,13 @@ export interface DefaultVpcState {
     mainRouteTableId?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+     *
+     * * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+     * * The default value for `enableDnsHostnames` is `true`
+     *
+     * This resource supports the following additional arguments:
      */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -227,7 +239,13 @@ export interface DefaultVpcArgs {
     ipv6IpamPoolId?: pulumi.Input<string>;
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+     *
+     * * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+     * * The default value for `enableDnsHostnames` is `true`
+     *
+     * This resource supports the following additional arguments:
      */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

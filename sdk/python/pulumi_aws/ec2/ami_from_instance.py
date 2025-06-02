@@ -41,7 +41,7 @@ class AmiFromInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
                inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -144,7 +144,7 @@ class AmiFromInstanceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -238,7 +238,7 @@ class _AmiFromInstanceState:
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -572,7 +572,7 @@ class _AmiFromInstanceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -765,7 +765,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
                inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -948,7 +948,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
                the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -1165,7 +1165,7 @@ class AmiFromInstance(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

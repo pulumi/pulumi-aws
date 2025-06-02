@@ -128,6 +128,7 @@ def get_resource(identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str role_arn: ARN of the IAM Role to assume for operations.
     :param builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
            
@@ -172,6 +173,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str role_arn: ARN of the IAM Role to assume for operations.
     :param builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
            

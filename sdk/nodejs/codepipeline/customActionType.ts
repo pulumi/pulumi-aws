@@ -87,7 +87,7 @@ export class CustomActionType extends pulumi.CustomResource {
     public /*out*/ readonly owner!: pulumi.Output<string>;
     public readonly providerName!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
@@ -182,7 +182,7 @@ export interface CustomActionTypeState {
     owner?: pulumi.Input<string>;
     providerName?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
@@ -210,7 +210,7 @@ export interface CustomActionTypeArgs {
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     providerName: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;

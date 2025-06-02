@@ -204,6 +204,7 @@ def get_authorizer(authorizer_id: Optional[builtins.str] = None,
 
 
     :param builtins.str authorizer_id: Authorizer identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
@@ -246,6 +247,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str authorizer_id: Authorizer identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()

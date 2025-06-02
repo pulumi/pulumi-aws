@@ -157,6 +157,7 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -208,6 +209,7 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union[
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier

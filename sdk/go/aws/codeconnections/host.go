@@ -64,7 +64,7 @@ type Host struct {
 	ProviderEndpoint pulumi.StringOutput `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput    `pulumi:"region"`
 	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -117,7 +117,7 @@ type hostState struct {
 	ProviderEndpoint *string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType *string `pulumi:"providerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string           `pulumi:"region"`
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -135,7 +135,7 @@ type HostState struct {
 	ProviderEndpoint pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
@@ -155,7 +155,7 @@ type hostArgs struct {
 	ProviderEndpoint string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType string `pulumi:"providerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string           `pulumi:"region"`
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *HostTimeouts     `pulumi:"timeouts"`
@@ -171,7 +171,7 @@ type HostArgs struct {
 	ProviderEndpoint pulumi.StringInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts HostTimeoutsPtrInput
@@ -286,7 +286,7 @@ func (o HostOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

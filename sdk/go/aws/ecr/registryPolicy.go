@@ -92,7 +92,7 @@ type RegistryPolicy struct {
 
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID where the registry was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
@@ -133,7 +133,7 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 type registryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The registry ID where the registry was created.
 	RegistryId *string `pulumi:"registryId"`
@@ -142,7 +142,7 @@ type registryPolicyState struct {
 type RegistryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The registry ID where the registry was created.
 	RegistryId pulumi.StringPtrInput
@@ -155,7 +155,7 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 type registryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -163,7 +163,7 @@ type registryPolicyArgs struct {
 type RegistryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -259,7 +259,7 @@ func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegistryPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

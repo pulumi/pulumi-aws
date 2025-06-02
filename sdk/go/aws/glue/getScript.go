@@ -262,7 +262,8 @@ type GetScriptArgs struct {
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
 	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language *string `pulumi:"language"`
-	Region   *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getScript.
@@ -296,7 +297,8 @@ type GetScriptOutputArgs struct {
 	DagNodes GetScriptDagNodeArrayInput `pulumi:"dagNodes"`
 	// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
 	Language pulumi.StringPtrInput `pulumi:"language"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetScriptOutputArgs) ElementType() reflect.Type {

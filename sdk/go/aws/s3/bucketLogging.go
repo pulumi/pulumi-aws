@@ -97,7 +97,7 @@ type BucketLogging struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
@@ -161,7 +161,7 @@ type bucketLoggingState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket *string `pulumi:"targetBucket"`
@@ -178,7 +178,7 @@ type BucketLoggingState struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type bucketLoggingArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket string `pulumi:"targetBucket"`
@@ -217,7 +217,7 @@ type BucketLoggingArgs struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringInput
@@ -326,7 +326,7 @@ func (o BucketLoggingOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLogging) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketLoggingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLogging) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

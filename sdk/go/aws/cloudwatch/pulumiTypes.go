@@ -188,6 +188,143 @@ func (o CompositeAlarmActionsSuppressorPtrOutput) WaitPeriod() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+type EventBusDeadLetterConfig struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn *string `pulumi:"arn"`
+}
+
+// EventBusDeadLetterConfigInput is an input type that accepts EventBusDeadLetterConfigArgs and EventBusDeadLetterConfigOutput values.
+// You can construct a concrete instance of `EventBusDeadLetterConfigInput` via:
+//
+//	EventBusDeadLetterConfigArgs{...}
+type EventBusDeadLetterConfigInput interface {
+	pulumi.Input
+
+	ToEventBusDeadLetterConfigOutput() EventBusDeadLetterConfigOutput
+	ToEventBusDeadLetterConfigOutputWithContext(context.Context) EventBusDeadLetterConfigOutput
+}
+
+type EventBusDeadLetterConfigArgs struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (EventBusDeadLetterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (i EventBusDeadLetterConfigArgs) ToEventBusDeadLetterConfigOutput() EventBusDeadLetterConfigOutput {
+	return i.ToEventBusDeadLetterConfigOutputWithContext(context.Background())
+}
+
+func (i EventBusDeadLetterConfigArgs) ToEventBusDeadLetterConfigOutputWithContext(ctx context.Context) EventBusDeadLetterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusDeadLetterConfigOutput)
+}
+
+func (i EventBusDeadLetterConfigArgs) ToEventBusDeadLetterConfigPtrOutput() EventBusDeadLetterConfigPtrOutput {
+	return i.ToEventBusDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventBusDeadLetterConfigArgs) ToEventBusDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventBusDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusDeadLetterConfigOutput).ToEventBusDeadLetterConfigPtrOutputWithContext(ctx)
+}
+
+// EventBusDeadLetterConfigPtrInput is an input type that accepts EventBusDeadLetterConfigArgs, EventBusDeadLetterConfigPtr and EventBusDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `EventBusDeadLetterConfigPtrInput` via:
+//
+//	        EventBusDeadLetterConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventBusDeadLetterConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventBusDeadLetterConfigPtrOutput() EventBusDeadLetterConfigPtrOutput
+	ToEventBusDeadLetterConfigPtrOutputWithContext(context.Context) EventBusDeadLetterConfigPtrOutput
+}
+
+type eventBusDeadLetterConfigPtrType EventBusDeadLetterConfigArgs
+
+func EventBusDeadLetterConfigPtr(v *EventBusDeadLetterConfigArgs) EventBusDeadLetterConfigPtrInput {
+	return (*eventBusDeadLetterConfigPtrType)(v)
+}
+
+func (*eventBusDeadLetterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (i *eventBusDeadLetterConfigPtrType) ToEventBusDeadLetterConfigPtrOutput() EventBusDeadLetterConfigPtrOutput {
+	return i.ToEventBusDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventBusDeadLetterConfigPtrType) ToEventBusDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventBusDeadLetterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBusDeadLetterConfigPtrOutput)
+}
+
+type EventBusDeadLetterConfigOutput struct{ *pulumi.OutputState }
+
+func (EventBusDeadLetterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (o EventBusDeadLetterConfigOutput) ToEventBusDeadLetterConfigOutput() EventBusDeadLetterConfigOutput {
+	return o
+}
+
+func (o EventBusDeadLetterConfigOutput) ToEventBusDeadLetterConfigOutputWithContext(ctx context.Context) EventBusDeadLetterConfigOutput {
+	return o
+}
+
+func (o EventBusDeadLetterConfigOutput) ToEventBusDeadLetterConfigPtrOutput() EventBusDeadLetterConfigPtrOutput {
+	return o.ToEventBusDeadLetterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventBusDeadLetterConfigOutput) ToEventBusDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventBusDeadLetterConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBusDeadLetterConfig) *EventBusDeadLetterConfig {
+		return &v
+	}).(EventBusDeadLetterConfigPtrOutput)
+}
+
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
+func (o EventBusDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventBusDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type EventBusDeadLetterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventBusDeadLetterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (o EventBusDeadLetterConfigPtrOutput) ToEventBusDeadLetterConfigPtrOutput() EventBusDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o EventBusDeadLetterConfigPtrOutput) ToEventBusDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventBusDeadLetterConfigPtrOutput {
+	return o
+}
+
+func (o EventBusDeadLetterConfigPtrOutput) Elem() EventBusDeadLetterConfigOutput {
+	return o.ApplyT(func(v *EventBusDeadLetterConfig) EventBusDeadLetterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventBusDeadLetterConfig
+		return ret
+	}).(EventBusDeadLetterConfigOutput)
+}
+
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
+func (o EventBusDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBusDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventConnectionAuthParameters struct {
 	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
 	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
@@ -7022,7 +7159,7 @@ type MetricAlarmMetricQuery struct {
 	Metric *MetricAlarmMetricQueryMetric `pulumi:"metric"`
 	// Granularity in seconds of returned data points.
 	// For metrics with regular resolution, valid values are any multiple of `60`.
-	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 	//
@@ -7054,7 +7191,7 @@ type MetricAlarmMetricQueryArgs struct {
 	Metric MetricAlarmMetricQueryMetricPtrInput `pulumi:"metric"`
 	// Granularity in seconds of returned data points.
 	// For metrics with regular resolution, valid values are any multiple of `60`.
-	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
 	//
@@ -7140,7 +7277,7 @@ func (o MetricAlarmMetricQueryOutput) Metric() MetricAlarmMetricQueryMetricPtrOu
 
 // Granularity in seconds of returned data points.
 // For metrics with regular resolution, valid values are any multiple of `60`.
-// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 func (o MetricAlarmMetricQueryOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
@@ -7183,7 +7320,7 @@ type MetricAlarmMetricQueryMetric struct {
 	Namespace *string `pulumi:"namespace"`
 	// Granularity in seconds of returned data points.
 	// For metrics with regular resolution, valid values are any multiple of `60`.
-	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 	Period int `pulumi:"period"`
 	// The statistic to apply to this metric.
 	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
@@ -7214,7 +7351,7 @@ type MetricAlarmMetricQueryMetricArgs struct {
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// Granularity in seconds of returned data points.
 	// For metrics with regular resolution, valid values are any multiple of `60`.
-	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+	// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntInput `pulumi:"period"`
 	// The statistic to apply to this metric.
 	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
@@ -7319,7 +7456,7 @@ func (o MetricAlarmMetricQueryMetricOutput) Namespace() pulumi.StringPtrOutput {
 
 // Granularity in seconds of returned data points.
 // For metrics with regular resolution, valid values are any multiple of `60`.
-// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 func (o MetricAlarmMetricQueryMetricOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) int { return v.Period }).(pulumi.IntOutput)
 }
@@ -7393,7 +7530,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Namespace() pulumi.StringPtrOutpu
 
 // Granularity in seconds of returned data points.
 // For metrics with regular resolution, valid values are any multiple of `60`.
-// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
 func (o MetricAlarmMetricQueryMetricPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *int {
 		if v == nil {
@@ -8068,6 +8205,103 @@ func (o GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput) Index(
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContributorManagedInsightRulesManagedRuleRuleState {
 		return vs[0].([]GetContributorManagedInsightRulesManagedRuleRuleState)[vs[1].(int)]
 	}).(GetContributorManagedInsightRulesManagedRuleRuleStateOutput)
+}
+
+type GetEventBusDeadLetterConfig struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn string `pulumi:"arn"`
+}
+
+// GetEventBusDeadLetterConfigInput is an input type that accepts GetEventBusDeadLetterConfigArgs and GetEventBusDeadLetterConfigOutput values.
+// You can construct a concrete instance of `GetEventBusDeadLetterConfigInput` via:
+//
+//	GetEventBusDeadLetterConfigArgs{...}
+type GetEventBusDeadLetterConfigInput interface {
+	pulumi.Input
+
+	ToGetEventBusDeadLetterConfigOutput() GetEventBusDeadLetterConfigOutput
+	ToGetEventBusDeadLetterConfigOutputWithContext(context.Context) GetEventBusDeadLetterConfigOutput
+}
+
+type GetEventBusDeadLetterConfigArgs struct {
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetEventBusDeadLetterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (i GetEventBusDeadLetterConfigArgs) ToGetEventBusDeadLetterConfigOutput() GetEventBusDeadLetterConfigOutput {
+	return i.ToGetEventBusDeadLetterConfigOutputWithContext(context.Background())
+}
+
+func (i GetEventBusDeadLetterConfigArgs) ToGetEventBusDeadLetterConfigOutputWithContext(ctx context.Context) GetEventBusDeadLetterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusDeadLetterConfigOutput)
+}
+
+// GetEventBusDeadLetterConfigArrayInput is an input type that accepts GetEventBusDeadLetterConfigArray and GetEventBusDeadLetterConfigArrayOutput values.
+// You can construct a concrete instance of `GetEventBusDeadLetterConfigArrayInput` via:
+//
+//	GetEventBusDeadLetterConfigArray{ GetEventBusDeadLetterConfigArgs{...} }
+type GetEventBusDeadLetterConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetEventBusDeadLetterConfigArrayOutput() GetEventBusDeadLetterConfigArrayOutput
+	ToGetEventBusDeadLetterConfigArrayOutputWithContext(context.Context) GetEventBusDeadLetterConfigArrayOutput
+}
+
+type GetEventBusDeadLetterConfigArray []GetEventBusDeadLetterConfigInput
+
+func (GetEventBusDeadLetterConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (i GetEventBusDeadLetterConfigArray) ToGetEventBusDeadLetterConfigArrayOutput() GetEventBusDeadLetterConfigArrayOutput {
+	return i.ToGetEventBusDeadLetterConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventBusDeadLetterConfigArray) ToGetEventBusDeadLetterConfigArrayOutputWithContext(ctx context.Context) GetEventBusDeadLetterConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusDeadLetterConfigArrayOutput)
+}
+
+type GetEventBusDeadLetterConfigOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusDeadLetterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (o GetEventBusDeadLetterConfigOutput) ToGetEventBusDeadLetterConfigOutput() GetEventBusDeadLetterConfigOutput {
+	return o
+}
+
+func (o GetEventBusDeadLetterConfigOutput) ToGetEventBusDeadLetterConfigOutputWithContext(ctx context.Context) GetEventBusDeadLetterConfigOutput {
+	return o
+}
+
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
+func (o GetEventBusDeadLetterConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusDeadLetterConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type GetEventBusDeadLetterConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusDeadLetterConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusDeadLetterConfig)(nil)).Elem()
+}
+
+func (o GetEventBusDeadLetterConfigArrayOutput) ToGetEventBusDeadLetterConfigArrayOutput() GetEventBusDeadLetterConfigArrayOutput {
+	return o
+}
+
+func (o GetEventBusDeadLetterConfigArrayOutput) ToGetEventBusDeadLetterConfigArrayOutputWithContext(ctx context.Context) GetEventBusDeadLetterConfigArrayOutput {
+	return o
+}
+
+func (o GetEventBusDeadLetterConfigArrayOutput) Index(i pulumi.IntInput) GetEventBusDeadLetterConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventBusDeadLetterConfig {
+		return vs[0].([]GetEventBusDeadLetterConfig)[vs[1].(int)]
+	}).(GetEventBusDeadLetterConfigOutput)
 }
 
 type GetEventBusesEventBus struct {
@@ -9642,6 +9876,8 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorPtrInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusDeadLetterConfigInput)(nil)).Elem(), EventBusDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusDeadLetterConfigPtrInput)(nil)).Elem(), EventBusDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
@@ -9748,6 +9984,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusDeadLetterConfigInput)(nil)).Elem(), GetEventBusDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusDeadLetterConfigArrayInput)(nil)).Elem(), GetEventBusDeadLetterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusInput)(nil)).Elem(), GetEventBusesEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusArrayInput)(nil)).Elem(), GetEventBusesEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationArgs{})
@@ -9773,6 +10011,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
 	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorPtrOutput{})
+	pulumi.RegisterOutputType(EventBusDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(EventBusDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
@@ -9879,6 +10119,8 @@ func init() {
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput{})
+	pulumi.RegisterOutputType(GetEventBusDeadLetterConfigOutput{})
+	pulumi.RegisterOutputType(GetEventBusDeadLetterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationOutput{})

@@ -121,6 +121,7 @@ def get_instance_storage_config(association_id: Optional[builtins.str] = None,
 
     :param builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     __args__ = dict()
@@ -160,6 +161,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[bui
 
     :param builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     __args__ = dict()

@@ -94,7 +94,8 @@ type LookupRouteTableArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetRouteTableFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags map[string]string `pulumi:"tags"`
@@ -132,7 +133,8 @@ type LookupRouteTableOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetRouteTableFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags pulumi.StringMapInput `pulumi:"tags"`

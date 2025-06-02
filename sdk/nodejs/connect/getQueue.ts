@@ -57,12 +57,17 @@ export interface GetQueueArgs {
     instanceId: string;
     /**
      * Returns information on a specific Queue by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      */
     name?: string;
     /**
      * Returns information on a specific Queue by Queue id
      */
     queueId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags assigned to the Queue.
@@ -164,12 +169,17 @@ export interface GetQueueOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Queue by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      */
     name?: pulumi.Input<string>;
     /**
      * Returns information on a specific Queue by Queue id
      */
     queueId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the Queue.

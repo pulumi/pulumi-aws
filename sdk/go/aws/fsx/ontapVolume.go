@@ -113,7 +113,7 @@ type OntapVolume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
@@ -200,7 +200,7 @@ type ontapVolumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
@@ -255,7 +255,7 @@ type OntapVolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
@@ -308,7 +308,7 @@ type ontapVolumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType *string `pulumi:"ontapVolumeType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle *string `pulumi:"securityStyle"`
@@ -354,7 +354,7 @@ type OntapVolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 	OntapVolumeType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
 	SecurityStyle pulumi.StringPtrInput
@@ -521,7 +521,7 @@ func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.OntapVolumeType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OntapVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

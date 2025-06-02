@@ -67,8 +67,9 @@ type GetReservedCacheNodeOfferingArgs struct {
 	OfferingType string `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription string  `pulumi:"productDescription"`
-	Region             *string `pulumi:"region"`
+	ProductDescription string `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedCacheNodeOffering.
@@ -111,8 +112,9 @@ type GetReservedCacheNodeOfferingOutputArgs struct {
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription pulumi.StringInput    `pulumi:"productDescription"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedCacheNodeOfferingOutputArgs) ElementType() reflect.Type {

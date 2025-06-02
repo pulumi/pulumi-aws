@@ -116,7 +116,7 @@ type Bucket struct {
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
@@ -258,7 +258,7 @@ type bucketState struct {
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
@@ -362,7 +362,7 @@ type BucketState struct {
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
@@ -460,7 +460,7 @@ type bucketArgs struct {
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
@@ -545,7 +545,7 @@ type BucketArgs struct {
 	//
 	// Deprecated: policy is deprecated. Use the s3.BucketPolicy resource instead.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketReplicationConfig` instead.
@@ -776,7 +776,7 @@ func (o BucketOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

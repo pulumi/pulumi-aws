@@ -93,7 +93,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly quietTime!: pulumi.Output<outputs.pinpoint.AppQuietTime | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export interface AppState {
      */
     quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface AppArgs {
      */
     quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

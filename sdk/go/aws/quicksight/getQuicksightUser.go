@@ -58,7 +58,8 @@ type GetQuicksightUserArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the user that you want to match.
 	//
 	// The following arguments are optional:
@@ -105,7 +106,8 @@ type GetQuicksightUserOutputArgs struct {
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the user that you want to match.
 	//
 	// The following arguments are optional:

@@ -48,7 +48,7 @@ class TeamsChannelConfigurationArgs:
         :param pulumi.Input[builtins.str] channel_name: Name of the Microsoft Teams channel.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[builtins.str] team_name: Name of the Microsoft Teams team.
@@ -180,7 +180,7 @@ class TeamsChannelConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -274,7 +274,7 @@ class _TeamsChannelConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -406,7 +406,7 @@ class _TeamsChannelConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -571,7 +571,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[builtins.str] team_id: ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
@@ -723,7 +723,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
         :param pulumi.Input[builtins.str] logging_level: Logging levels include `ERROR`, `INFO`, or `NONE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sns_topic_arns: ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -816,7 +816,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

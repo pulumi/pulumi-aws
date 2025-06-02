@@ -442,7 +442,7 @@ type ScheduledQuery struct {
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayOutput `pulumi:"recentlyFailedRuns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationOutput `pulumi:"scheduleConfiguration"`
@@ -531,7 +531,7 @@ type scheduledQueryState struct {
 	QueryString *string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration *ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
@@ -573,7 +573,7 @@ type ScheduledQueryState struct {
 	QueryString pulumi.StringPtrInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationPtrInput
@@ -611,7 +611,7 @@ type scheduledQueryArgs struct {
 	QueryString string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
@@ -642,7 +642,7 @@ type ScheduledQueryArgs struct {
 	QueryString pulumi.StringInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationInput
@@ -806,7 +806,7 @@ func (o ScheduledQueryOutput) RecentlyFailedRuns() ScheduledQueryRecentlyFailedR
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryRecentlyFailedRunArrayOutput { return v.RecentlyFailedRuns }).(ScheduledQueryRecentlyFailedRunArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScheduledQueryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

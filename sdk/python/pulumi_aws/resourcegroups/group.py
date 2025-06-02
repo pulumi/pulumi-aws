@@ -33,7 +33,7 @@ class GroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[builtins.str] description: A description of the resource group.
         :param pulumi.Input[builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -90,7 +90,7 @@ class GroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -140,7 +140,7 @@ class _GroupState:
         :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationArgs']]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[builtins.str] description: A description of the resource group.
         :param pulumi.Input[builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['GroupResourceQueryArgs'] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -214,7 +214,7 @@ class _GroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -312,7 +312,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[builtins.str] description: A description of the resource group.
         :param pulumi.Input[builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -424,7 +424,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationArgs', 'GroupConfigurationArgsDict']]]] configurations: A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         :param pulumi.Input[builtins.str] description: A description of the resource group.
         :param pulumi.Input[builtins.str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -479,7 +479,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

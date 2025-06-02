@@ -54,7 +54,8 @@ type LookupBotAliasArgs struct {
 	// Name of the bot.
 	BotName string `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -95,7 +96,8 @@ type LookupBotAliasOutputArgs struct {
 	// Name of the bot.
 	BotName pulumi.StringInput `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

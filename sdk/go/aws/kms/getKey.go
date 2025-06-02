@@ -79,7 +79,7 @@ type LookupKeyArgs struct {
 	// * Alias name. E.g.: `alias/my-key`
 	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId string `pulumi:"keyId"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -152,7 +152,7 @@ type LookupKeyOutputArgs struct {
 	// * Alias name. E.g.: `alias/my-key`
 	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

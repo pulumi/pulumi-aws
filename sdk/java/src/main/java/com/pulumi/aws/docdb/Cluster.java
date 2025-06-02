@@ -6,6 +6,7 @@ package com.pulumi.aws.docdb;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.docdb.ClusterArgs;
 import com.pulumi.aws.docdb.inputs.ClusterState;
+import com.pulumi.aws.docdb.outputs.ClusterMasterUserSecret;
 import com.pulumi.aws.docdb.outputs.ClusterRestoreToPointInTime;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -376,8 +377,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * 
+     */
+    @Export(name="manageMasterUserPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * 
+     */
+    public Output<Optional<Boolean>> manageMasterUserPassword() {
+        return Codegen.optional(this.manageMasterUserPassword);
+    }
+    /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
@@ -385,11 +400,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
      * 
      */
     public Output<Optional<String>> masterPassword() {
         return Codegen.optional(this.masterPassword);
+    }
+    @Export(name="masterUserSecrets", refs={List.class,ClusterMasterUserSecret.class}, tree="[0,1]")
+    private Output<List<ClusterMasterUserSecret>> masterUserSecrets;
+
+    public Output<List<ClusterMasterUserSecret>> masterUserSecrets() {
+        return this.masterUserSecrets;
     }
     /**
      * Username for the master DB user.
@@ -464,14 +485,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.readerEndpoint;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -579,6 +600,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of VPC security groups to associate
      * with the Cluster
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
+     * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
@@ -586,6 +610,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * @return List of VPC security groups to associate
      * with the Cluster
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

@@ -138,7 +138,7 @@ type PlatformApplication struct {
 	PlatformCredential pulumi.StringOutput `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrOutput `pulumi:"platformPrincipal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"successFeedbackRoleArn"`
@@ -219,7 +219,7 @@ type platformApplicationState struct {
 	PlatformCredential *string `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
@@ -254,7 +254,7 @@ type PlatformApplicationState struct {
 	PlatformCredential pulumi.StringPtrInput
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type platformApplicationArgs struct {
 	PlatformCredential string `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
@@ -325,7 +325,7 @@ type PlatformApplicationArgs struct {
 	PlatformCredential pulumi.StringInput
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
@@ -482,7 +482,7 @@ func (o PlatformApplicationOutput) PlatformPrincipal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.PlatformPrincipal }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PlatformApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

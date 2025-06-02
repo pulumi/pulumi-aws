@@ -193,6 +193,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
 
     :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param builtins.str name: Name of the resource share to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param builtins.str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, builtins.str] tags: Tags attached to the resource share.
@@ -255,6 +256,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param builtins.str name: Name of the resource share to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param builtins.str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, builtins.str] tags: Tags attached to the resource share.

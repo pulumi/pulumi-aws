@@ -187,14 +187,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -268,12 +268,16 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * The user type.
      * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+     * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
      * @return The user type.
+     * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      * 
      */
     public Optional<Output<String>> userType() {
@@ -562,7 +566,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -573,7 +577,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -673,6 +677,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userType The user type.
          * 
+         * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+         * 
          * @return builder
          * 
          */
@@ -683,6 +689,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userType The user type.
+         * 
+         * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
          * 
          * @return builder
          * 

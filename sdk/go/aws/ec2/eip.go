@@ -256,9 +256,15 @@ type Eip struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringOutput `pulumi:"publicIpv4Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+	// See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -332,9 +338,15 @@ type eipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+	// See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -379,9 +391,15 @@ type EipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+	// See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -411,9 +429,15 @@ type eipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+	// See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -438,9 +462,15 @@ type EipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+	// See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapInput
 }
 
@@ -626,12 +656,18 @@ func (o EipOutput) PublicIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIpv4Pool }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
+// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+// See the relevant [AssociateAddress API Call][1] for more information.
+//
+// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 func (o EipOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

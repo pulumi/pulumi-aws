@@ -103,6 +103,7 @@ def get_bot_association(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -140,6 +141,7 @@ def get_bot_association_output(instance_id: Optional[pulumi.Input[builtins.str]]
 
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
     :param Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

@@ -51,8 +51,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
-	Region            *string `pulumi:"region"`
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -113,8 +114,9 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
-	Region            pulumi.StringPtrInput `pulumi:"region"`
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

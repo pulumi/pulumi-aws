@@ -80,7 +80,7 @@ type ResourceShareAccepter struct {
 	InvitationArn pulumi.StringOutput `pulumi:"invitationArn"`
 	// The account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId pulumi.StringOutput `pulumi:"receiverAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
@@ -133,7 +133,7 @@ type resourceShareAccepterState struct {
 	InvitationArn *string `pulumi:"invitationArn"`
 	// The account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId *string `pulumi:"receiverAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of the resource ARNs shared via the resource share.
 	Resources []string `pulumi:"resources"`
@@ -154,7 +154,7 @@ type ResourceShareAccepterState struct {
 	InvitationArn pulumi.StringPtrInput
 	// The account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayInput
@@ -175,7 +175,7 @@ func (ResourceShareAccepterState) ElementType() reflect.Type {
 }
 
 type resourceShareAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the resource share.
 	ShareArn string `pulumi:"shareArn"`
@@ -183,7 +183,7 @@ type resourceShareAccepterArgs struct {
 
 // The set of arguments for constructing a ResourceShareAccepter resource.
 type ResourceShareAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the resource share.
 	ShareArn pulumi.StringInput
@@ -286,7 +286,7 @@ func (o ResourceShareAccepterOutput) ReceiverAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ReceiverAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceShareAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

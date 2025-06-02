@@ -100,7 +100,7 @@ type AmiFromInstance struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
@@ -203,7 +203,7 @@ type amiFromInstanceState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
@@ -274,7 +274,7 @@ type AmiFromInstanceState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
@@ -320,7 +320,7 @@ type amiFromInstanceArgs struct {
 	EphemeralBlockDevices []AmiFromInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Boolean that overrides the behavior of stopping
 	// the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -347,7 +347,7 @@ type AmiFromInstanceArgs struct {
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayInput
 	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Boolean that overrides the behavior of stopping
 	// the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -556,7 +556,7 @@ func (o AmiFromInstanceOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RamdiskId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AmiFromInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

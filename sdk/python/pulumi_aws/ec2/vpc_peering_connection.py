@@ -42,7 +42,7 @@ class VpcPeeringConnectionArgs:
                Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,7 +143,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -202,7 +202,7 @@ class _VpcPeeringConnectionState:
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -311,7 +311,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -387,6 +387,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a resource to manage a VPC peering connection.
+
+        > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+        can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+        Connection has to be made active manually using other means. See notes below for
+        more information.
 
         > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
         both a standalone VPC Peering Connection Options and a VPC Peering Connection
@@ -489,7 +494,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -503,6 +508,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a VPC peering connection.
+
+        > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+        can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+        Connection has to be made active manually using other means. See notes below for
+        more information.
 
         > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
         both a standalone VPC Peering Connection Options and a VPC Peering Connection
@@ -680,7 +690,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -759,7 +769,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

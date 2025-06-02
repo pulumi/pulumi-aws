@@ -265,7 +265,7 @@ type ExperimentTemplate struct {
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrOutput `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -332,7 +332,7 @@ type experimentTemplateState struct {
 	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
@@ -358,7 +358,7 @@ type ExperimentTemplateState struct {
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringPtrInput
@@ -388,7 +388,7 @@ type experimentTemplateArgs struct {
 	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -414,7 +414,7 @@ type ExperimentTemplateArgs struct {
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringInput
@@ -542,7 +542,7 @@ func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfig
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ExperimentTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

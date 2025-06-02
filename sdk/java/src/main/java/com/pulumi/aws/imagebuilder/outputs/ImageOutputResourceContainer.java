@@ -18,7 +18,7 @@ public final class ImageOutputResourceContainer {
      */
     private @Nullable List<String> imageUris;
     /**
-     * @return Region of the container image.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private @Nullable String region;
@@ -32,7 +32,7 @@ public final class ImageOutputResourceContainer {
         return this.imageUris == null ? List.of() : this.imageUris;
     }
     /**
-     * @return Region of the container image.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {

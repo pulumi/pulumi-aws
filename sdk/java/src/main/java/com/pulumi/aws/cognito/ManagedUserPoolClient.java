@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cognito.ManagedUserPoolClientArgs;
 import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientState;
 import com.pulumi.aws.cognito.outputs.ManagedUserPoolClientAnalyticsConfiguration;
+import com.pulumi.aws.cognito.outputs.ManagedUserPoolClientRefreshTokenRotation;
 import com.pulumi.aws.cognito.outputs.ManagedUserPoolClientTokenValidityUnits;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -348,6 +349,20 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.readAttributes;
     }
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    @Export(name="refreshTokenRotation", refs={ManagedUserPoolClientRefreshTokenRotation.class}, tree="[0]")
+    private Output</* @Nullable */ ManagedUserPoolClientRefreshTokenRotation> refreshTokenRotation;
+
+    /**
+     * @return A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    public Output<Optional<ManagedUserPoolClientRefreshTokenRotation>> refreshTokenRotation() {
+        return Codegen.optional(this.refreshTokenRotation);
+    }
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
@@ -362,14 +377,14 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.refreshTokenValidity;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

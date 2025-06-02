@@ -122,7 +122,7 @@ type PipelineDefinition struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayOutput `pulumi:"pipelineObjects"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -172,7 +172,7 @@ type pipelineDefinitionState struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -187,7 +187,7 @@ type PipelineDefinitionState struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -206,7 +206,7 @@ type pipelineDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -222,7 +222,7 @@ type PipelineDefinitionArgs struct {
 	//
 	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -335,7 +335,7 @@ func (o PipelineDefinitionOutput) PipelineObjects() PipelineDefinitionPipelineOb
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionPipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineDefinitionPipelineObjectArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PipelineDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

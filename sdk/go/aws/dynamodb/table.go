@@ -257,7 +257,7 @@ type Table struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrOutput `pulumi:"onDemandThroughput"`
@@ -267,7 +267,7 @@ type Table struct {
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
@@ -351,7 +351,7 @@ type tableState struct {
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
@@ -361,7 +361,7 @@ type tableState struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
@@ -416,7 +416,7 @@ type TableState struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrInput
@@ -426,7 +426,7 @@ type TableState struct {
 	RangeKey pulumi.StringPtrInput
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
@@ -483,7 +483,7 @@ type tableArgs struct {
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
@@ -493,7 +493,7 @@ type tableArgs struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
@@ -541,7 +541,7 @@ type TableArgs struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrInput
@@ -551,7 +551,7 @@ type TableArgs struct {
 	RangeKey pulumi.StringPtrInput
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
@@ -710,7 +710,7 @@ func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput
 
 // Unique within a region name of the table.
 //
-// Optional arguments:
+// The following arguments are optional:
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -735,7 +735,7 @@ func (o TableOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.ReadCapacity }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

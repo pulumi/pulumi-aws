@@ -44,7 +44,7 @@ type Deployment struct {
 
 	// The unique ID of the operation associated with deployment.
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
@@ -88,7 +88,7 @@ func GetDeployment(ctx *pulumi.Context,
 type deploymentState struct {
 	// The unique ID of the operation associated with deployment.
 	OperationId *string `pulumi:"operationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn *string `pulumi:"serviceArn"`
@@ -100,7 +100,7 @@ type deploymentState struct {
 type DeploymentState struct {
 	// The unique ID of the operation associated with deployment.
 	OperationId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringPtrInput
@@ -114,7 +114,7 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn string              `pulumi:"serviceArn"`
@@ -123,7 +123,7 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringInput
@@ -222,7 +222,7 @@ func (o DeploymentOutput) OperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.OperationId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

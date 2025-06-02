@@ -27,7 +27,7 @@ class ResolverQueryLogConfigAssociationArgs:
         The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -62,7 +62,7 @@ class ResolverQueryLogConfigAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -79,7 +79,7 @@ class _ResolverQueryLogConfigAssociationState:
                  resource_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
@@ -94,7 +94,7 @@ class _ResolverQueryLogConfigAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -161,7 +161,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
@@ -247,7 +247,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
@@ -264,7 +264,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

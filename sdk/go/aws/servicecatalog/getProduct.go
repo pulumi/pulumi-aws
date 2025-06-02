@@ -59,7 +59,8 @@ type LookupProductArgs struct {
 	// ID of the product.
 	//
 	// The following arguments are optional:
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags applied to the product.
 	Tags map[string]string `pulumi:"tags"`
@@ -114,7 +115,8 @@ type LookupProductOutputArgs struct {
 	// ID of the product.
 	//
 	// The following arguments are optional:
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags applied to the product.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

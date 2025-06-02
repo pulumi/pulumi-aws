@@ -282,6 +282,7 @@ def get_index(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Returns information on a specific Index by id.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Indices you create.
     """
     __args__ = dict()
@@ -329,6 +330,7 @@ def get_index_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: Returns information on a specific Index by id.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Indices you create.
     """
     __args__ = dict()

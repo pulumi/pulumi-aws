@@ -60,7 +60,7 @@ type SmsChannel struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Maximum number of promotional messages that can be sent per second.
 	PromotionalMessagesPerSecond pulumi.IntOutput `pulumi:"promotionalMessagesPerSecond"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the sender for your messages.
 	SenderId pulumi.StringPtrOutput `pulumi:"senderId"`
@@ -109,7 +109,7 @@ type smsChannelState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Maximum number of promotional messages that can be sent per second.
 	PromotionalMessagesPerSecond *int `pulumi:"promotionalMessagesPerSecond"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the sender for your messages.
 	SenderId *string `pulumi:"senderId"`
@@ -126,7 +126,7 @@ type SmsChannelState struct {
 	Enabled pulumi.BoolPtrInput
 	// Maximum number of promotional messages that can be sent per second.
 	PromotionalMessagesPerSecond pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the sender for your messages.
 	SenderId pulumi.StringPtrInput
@@ -145,7 +145,7 @@ type smsChannelArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Whether the channel is enabled or disabled. By default, it is set to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the sender for your messages.
 	SenderId *string `pulumi:"senderId"`
@@ -159,7 +159,7 @@ type SmsChannelArgs struct {
 	ApplicationId pulumi.StringInput
 	// Whether the channel is enabled or disabled. By default, it is set to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the sender for your messages.
 	SenderId pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (o SmsChannelOutput) PromotionalMessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.PromotionalMessagesPerSecond }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SmsChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

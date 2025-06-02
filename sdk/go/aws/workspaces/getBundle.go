@@ -84,7 +84,8 @@ type GetBundleArgs struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name *string `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-	Owner  *string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -125,7 +126,8 @@ type GetBundleOutputArgs struct {
 	// Name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
-	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

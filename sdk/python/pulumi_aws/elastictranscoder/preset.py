@@ -40,10 +40,12 @@ class PresetArgs:
         :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PresetThumbnailsArgs'] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input['PresetVideoArgs'] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
+               
+               See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         :param pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         pulumi.set(__self__, "container", container)
@@ -132,7 +134,7 @@ class PresetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -178,6 +180,8 @@ class PresetArgs:
     def video_codec_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Codec options for the video parameters
+
+        See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         """
         return pulumi.get(self, "video_codec_options")
 
@@ -221,10 +225,12 @@ class _PresetState:
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PresetThumbnailsArgs'] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input['PresetVideoArgs'] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
+               
+               See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         :param pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         if arn is not None:
@@ -328,7 +334,7 @@ class _PresetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -374,6 +380,8 @@ class _PresetState:
     def video_codec_options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Codec options for the video parameters
+
+        See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         """
         return pulumi.get(self, "video_codec_options")
 
@@ -494,10 +502,12 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
+               
+               See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PresetVideoWatermarkArgs', 'PresetVideoWatermarkArgsDict']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         ...
@@ -665,10 +675,12 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
+               
+               See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PresetVideoWatermarkArgs', 'PresetVideoWatermarkArgsDict']]]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -741,7 +753,7 @@ class Preset(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -771,6 +783,8 @@ class Preset(pulumi.CustomResource):
     def video_codec_options(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Codec options for the video parameters
+
+        See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         """
         return pulumi.get(self, "video_codec_options")
 

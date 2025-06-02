@@ -371,14 +371,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -448,12 +448,20 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+     * 
      */
     @Import(name="xffHeaderProcessingMode")
     private @Nullable Output<String> xffHeaderProcessingMode;
 
     /**
      * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
      * 
      */
     public Optional<Output<String>> xffHeaderProcessingMode() {
@@ -996,7 +1004,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1007,7 +1015,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1133,6 +1141,10 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
          * 
+         * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+         * 
          * @return builder
          * 
          */
@@ -1143,6 +1155,10 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+         * 
+         * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
          * 
          * @return builder
          * 

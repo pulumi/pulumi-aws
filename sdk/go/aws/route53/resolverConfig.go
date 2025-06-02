@@ -64,7 +64,7 @@ type ResolverConfig struct {
 	AutodefinedReverseFlag pulumi.StringOutput `pulumi:"autodefinedReverseFlag"`
 	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -110,7 +110,7 @@ type resolverConfigState struct {
 	AutodefinedReverseFlag *string `pulumi:"autodefinedReverseFlag"`
 	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId *string `pulumi:"resourceId"`
@@ -121,7 +121,7 @@ type ResolverConfigState struct {
 	AutodefinedReverseFlag pulumi.StringPtrInput
 	// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (ResolverConfigState) ElementType() reflect.Type {
 type resolverConfigArgs struct {
 	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag string `pulumi:"autodefinedReverseFlag"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId string `pulumi:"resourceId"`
@@ -144,7 +144,7 @@ type resolverConfigArgs struct {
 type ResolverConfigArgs struct {
 	// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
 	AutodefinedReverseFlag pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringInput
@@ -247,7 +247,7 @@ func (o ResolverConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

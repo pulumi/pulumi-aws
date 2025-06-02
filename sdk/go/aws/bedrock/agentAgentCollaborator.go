@@ -191,7 +191,7 @@ type AgentAgentCollaborator struct {
 	CollaboratorName pulumi.StringOutput `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringOutput                     `pulumi:"relayConversationHistory"`
@@ -248,7 +248,7 @@ type agentAgentCollaboratorState struct {
 	CollaboratorName *string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
@@ -267,7 +267,7 @@ type AgentAgentCollaboratorState struct {
 	CollaboratorName pulumi.StringPtrInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringPtrInput
@@ -288,7 +288,7 @@ type agentAgentCollaboratorArgs struct {
 	CollaboratorName         string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
@@ -306,7 +306,7 @@ type AgentAgentCollaboratorArgs struct {
 	CollaboratorName         pulumi.StringInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringPtrInput
@@ -434,7 +434,7 @@ func (o AgentAgentCollaboratorOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentCollaboratorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

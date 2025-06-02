@@ -135,7 +135,7 @@ import (
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                    pulumi.StringOutput `pulumi:"region"`
 	ReplicationSubnetGroupArn pulumi.StringOutput `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
@@ -191,7 +191,7 @@ func GetReplicationSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationSubnetGroup resources.
 type replicationSubnetGroupState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                    *string `pulumi:"region"`
 	ReplicationSubnetGroupArn *string `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
@@ -209,7 +209,7 @@ type replicationSubnetGroupState struct {
 }
 
 type ReplicationSubnetGroupState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                    pulumi.StringPtrInput
 	ReplicationSubnetGroupArn pulumi.StringPtrInput
 	// Description for the subnet group.
@@ -231,7 +231,7 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 }
 
 type replicationSubnetGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`
@@ -245,7 +245,7 @@ type replicationSubnetGroupArgs struct {
 
 // The set of arguments for constructing a ReplicationSubnetGroup resource.
 type ReplicationSubnetGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription pulumi.StringInput
@@ -344,7 +344,7 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationSubnetGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

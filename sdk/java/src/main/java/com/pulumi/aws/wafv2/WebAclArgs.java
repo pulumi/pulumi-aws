@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclDataProtectionConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
@@ -86,6 +87,21 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    @Import(name="dataProtectionConfig")
+    private @Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig;
+
+    /**
+     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclDataProtectionConfigArgs>> dataProtectionConfig() {
+        return Optional.ofNullable(this.dataProtectionConfig);
+    }
+
+    /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
@@ -146,14 +162,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -257,6 +273,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         this.captchaConfig = $.captchaConfig;
         this.challengeConfig = $.challengeConfig;
         this.customResponseBodies = $.customResponseBodies;
+        this.dataProtectionConfig = $.dataProtectionConfig;
         this.defaultAction = $.defaultAction;
         this.description = $.description;
         this.name = $.name;
@@ -383,6 +400,27 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionConfig(@Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig) {
+            $.dataProtectionConfig = dataProtectionConfig;
+            return this;
+        }
+
+        /**
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionConfig(WebAclDataProtectionConfigArgs dataProtectionConfig) {
+            return dataProtectionConfig(Output.of(dataProtectionConfig));
+        }
+
+        /**
          * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
          * 
          * @return builder
@@ -467,7 +505,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -478,7 +516,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

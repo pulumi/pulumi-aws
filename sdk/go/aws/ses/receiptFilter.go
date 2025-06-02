@@ -60,7 +60,7 @@ type ReceiptFilter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Block or Allow
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -108,7 +108,7 @@ type receiptFilterState struct {
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type ReceiptFilterState struct {
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -136,7 +136,7 @@ type receiptFilterArgs struct {
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -148,7 +148,7 @@ type ReceiptFilterArgs struct {
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -259,7 +259,7 @@ func (o ReceiptFilterOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReceiptFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

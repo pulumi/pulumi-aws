@@ -80,11 +80,13 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      */
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
@@ -133,11 +135,13 @@ export interface RouteTableAssociationState {
      */
     gatewayId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     routeTableId?: pulumi.Input<string>;
     /**
@@ -155,11 +159,13 @@ export interface RouteTableAssociationArgs {
      */
     gatewayId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     routeTableId: pulumi.Input<string>;
     /**

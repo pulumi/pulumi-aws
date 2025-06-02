@@ -303,6 +303,7 @@ def get_node_group(cluster_name: Optional[builtins.str] = None,
 
     :param builtins.str cluster_name: Name of the cluster.
     :param builtins.str node_group_name: Name of the node group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
@@ -356,6 +357,7 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[builtins.str]] = N
 
     :param builtins.str cluster_name: Name of the cluster.
     :param builtins.str node_group_name: Name of the node group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()

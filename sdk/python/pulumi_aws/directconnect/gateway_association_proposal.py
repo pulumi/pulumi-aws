@@ -31,7 +31,7 @@ class GatewayAssociationProposalArgs:
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
@@ -93,7 +93,7 @@ class GatewayAssociationProposalArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _GatewayAssociationProposalState:
         :param pulumi.Input[builtins.str] associated_gateway_type: The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allowed_prefixes is not None:
             pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
@@ -213,7 +213,7 @@ class _GatewayAssociationProposalState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -274,7 +274,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -388,7 +388,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] associated_gateway_type: The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -455,7 +455,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

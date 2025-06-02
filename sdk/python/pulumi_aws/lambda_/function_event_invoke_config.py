@@ -37,7 +37,7 @@ class FunctionEventInvokeConfigArgs:
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "function_name", function_name)
         if destination_config is not None:
@@ -117,7 +117,7 @@ class FunctionEventInvokeConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -144,7 +144,7 @@ class _FunctionEventInvokeConfigState:
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if destination_config is not None:
             pulumi.set(__self__, "destination_config", destination_config)
@@ -225,7 +225,7 @@ class _FunctionEventInvokeConfigState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -357,7 +357,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -534,7 +534,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -594,7 +594,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

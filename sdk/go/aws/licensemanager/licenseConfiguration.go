@@ -90,7 +90,7 @@ type LicenseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -147,7 +147,7 @@ type licenseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -172,7 +172,7 @@ type LicenseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -197,7 +197,7 @@ type licenseConfigurationArgs struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -217,7 +217,7 @@ type LicenseConfigurationArgs struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -350,7 +350,7 @@ func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LicenseConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -78,7 +78,7 @@ type ConfiguredTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -142,7 +142,7 @@ type configuredTableState struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -168,7 +168,7 @@ type ConfiguredTableState struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -194,7 +194,7 @@ type configuredTableArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -214,7 +214,7 @@ type ConfiguredTableArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -341,7 +341,7 @@ func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfiguredTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

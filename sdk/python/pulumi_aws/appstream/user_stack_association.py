@@ -32,7 +32,7 @@ class UserStackAssociationArgs:
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -85,7 +85,7 @@ class UserStackAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _UserStackAssociationState:
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -151,7 +151,7 @@ class _UserStackAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -240,7 +240,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -343,7 +343,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -373,7 +373,7 @@ class UserStackAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

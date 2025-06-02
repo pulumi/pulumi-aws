@@ -88,7 +88,7 @@ type ResiliencyPolicy struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -150,7 +150,7 @@ type resiliencyPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,7 +180,7 @@ type ResiliencyPolicyState struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -210,7 +210,7 @@ type resiliencyPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy *ResiliencyPolicyPolicy `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -235,7 +235,7 @@ type ResiliencyPolicyArgs struct {
 	//
 	// The following arguments are optional:
 	Policy ResiliencyPolicyPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -367,7 +367,7 @@ func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyPolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyPolicyPtrOutput { return v.Policy }).(ResiliencyPolicyPolicyPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResiliencyPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResiliencyPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

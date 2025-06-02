@@ -41,6 +41,9 @@ export interface GetMaintenanceWindowsArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ssm.GetMaintenanceWindowsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -93,5 +96,8 @@ export interface GetMaintenanceWindowsOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetMaintenanceWindowsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

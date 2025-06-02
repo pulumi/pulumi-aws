@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-        /// </summary>
         [Input("dataTransferApi")]
         public Input<string>? DataTransferApi { get; set; }
 

@@ -108,7 +108,7 @@ export class Product extends pulumi.CustomResource {
      */
     public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -247,7 +247,7 @@ export interface ProductState {
      */
     provisioningArtifactParameters?: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -311,7 +311,7 @@ export interface ProductArgs {
      */
     provisioningArtifactParameters: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

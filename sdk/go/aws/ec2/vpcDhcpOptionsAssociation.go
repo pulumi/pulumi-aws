@@ -58,7 +58,7 @@ type VpcDhcpOptionsAssociation struct {
 
 	// The ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -102,7 +102,7 @@ func GetVpcDhcpOptionsAssociation(ctx *pulumi.Context,
 type vpcDhcpOptionsAssociationState struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
 	VpcId *string `pulumi:"vpcId"`
@@ -111,7 +111,7 @@ type vpcDhcpOptionsAssociationState struct {
 type VpcDhcpOptionsAssociationState struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
 	VpcId pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (VpcDhcpOptionsAssociationState) ElementType() reflect.Type {
 type vpcDhcpOptionsAssociationArgs struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
 	VpcId string `pulumi:"vpcId"`
@@ -134,7 +134,7 @@ type vpcDhcpOptionsAssociationArgs struct {
 type VpcDhcpOptionsAssociationArgs struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
 	VpcId pulumi.StringInput
@@ -232,7 +232,7 @@ func (o VpcDhcpOptionsAssociationOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptionsAssociation) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcDhcpOptionsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptionsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

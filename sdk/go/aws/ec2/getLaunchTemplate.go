@@ -88,7 +88,8 @@ type LookupLaunchTemplateArgs struct {
 	// ID of the specific launch template to retrieve.
 	Id *string `pulumi:"id"`
 	// Name of the launch template.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +154,8 @@ type LookupLaunchTemplateOutputArgs struct {
 	// ID of the specific launch template to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the launch template.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

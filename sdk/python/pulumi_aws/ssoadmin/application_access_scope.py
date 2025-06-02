@@ -31,7 +31,7 @@ class ApplicationAccessScopeArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "scope", scope)
@@ -82,7 +82,7 @@ class ApplicationAccessScopeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _ApplicationAccessScopeState:
         Input properties used for looking up and filtering ApplicationAccessScope resources.
         :param pulumi.Input[builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
                
                The following arguments are optional:
@@ -144,7 +144,7 @@ class _ApplicationAccessScopeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -212,7 +212,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
                
                The following arguments are optional:
@@ -312,7 +312,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
                
                The following arguments are optional:
@@ -347,7 +347,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

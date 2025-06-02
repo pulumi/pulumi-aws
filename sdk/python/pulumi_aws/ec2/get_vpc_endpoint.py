@@ -309,6 +309,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
 
     :param Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC Endpoint to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param builtins.str state: State of the specific VPC Endpoint to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -381,6 +382,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
 
     :param Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC Endpoint to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param builtins.str state: State of the specific VPC Endpoint to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match

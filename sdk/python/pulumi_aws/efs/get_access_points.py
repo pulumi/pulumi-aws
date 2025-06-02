@@ -109,6 +109,7 @@ def get_access_points(file_system_id: Optional[builtins.str] = None,
 
 
     :param builtins.str file_system_id: EFS File System identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
@@ -139,6 +140,7 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str file_system_id: EFS File System identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id

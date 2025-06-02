@@ -266,6 +266,7 @@ def get_domain_name(domain_name: Optional[builtins.str] = None,
 
     :param builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of tags for the resource.
     """
     __args__ = dict()
@@ -315,6 +316,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[builtins.str]] = N
 
     :param builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of tags for the resource.
     """
     __args__ = dict()

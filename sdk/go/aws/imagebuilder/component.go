@@ -78,7 +78,7 @@ type Component struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -96,7 +96,7 @@ type Component struct {
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -156,7 +156,7 @@ type componentState struct {
 	Owner *string `pulumi:"owner"`
 	// Platform of the component.
 	Platform *string `pulumi:"platform"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -174,7 +174,7 @@ type componentState struct {
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version *string `pulumi:"version"`
 }
 
@@ -199,7 +199,7 @@ type ComponentState struct {
 	Owner pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
@@ -217,7 +217,7 @@ type ComponentState struct {
 	Uri pulumi.StringPtrInput
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringPtrInput
 }
 
@@ -238,7 +238,7 @@ type componentArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -252,7 +252,7 @@ type componentArgs struct {
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version string `pulumi:"version"`
 }
 
@@ -270,7 +270,7 @@ type ComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
@@ -284,7 +284,7 @@ type ComponentArgs struct {
 	Uri pulumi.StringPtrInput
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringInput
 }
 
@@ -425,7 +425,7 @@ func (o ComponentOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ComponentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -464,7 +464,7 @@ func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
 
 // Version of the component.
 //
-// The following attributes are optional:
+// The following arguments are optional:
 func (o ComponentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

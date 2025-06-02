@@ -135,7 +135,7 @@ type MailFrom struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringOutput `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -183,7 +183,7 @@ type mailFromState struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain *string `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -196,7 +196,7 @@ type MailFromState struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -213,7 +213,7 @@ type mailFromArgs struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain string `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -227,7 +227,7 @@ type MailFromArgs struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -335,7 +335,7 @@ func (o MailFromOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.MailFromDomain }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MailFromOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

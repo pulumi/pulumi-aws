@@ -64,7 +64,7 @@ type HumanTaskUI struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringOutput `pulumi:"humanTaskUiName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -114,7 +114,7 @@ type humanTaskUIState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName *string `pulumi:"humanTaskUiName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,7 +129,7 @@ type HumanTaskUIState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -146,7 +146,7 @@ func (HumanTaskUIState) ElementType() reflect.Type {
 type humanTaskUIArgs struct {
 	// The name of the Human Task UI.
 	HumanTaskUiName string `pulumi:"humanTaskUiName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -158,7 +158,7 @@ type humanTaskUIArgs struct {
 type HumanTaskUIArgs struct {
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,7 +263,7 @@ func (o HumanTaskUIOutput) HumanTaskUiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.HumanTaskUiName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HumanTaskUIOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

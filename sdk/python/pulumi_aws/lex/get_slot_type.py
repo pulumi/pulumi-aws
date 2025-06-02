@@ -181,6 +181,7 @@ def get_slot_type(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the slot type. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the slot type.
     """
     __args__ = dict()
@@ -220,6 +221,7 @@ def get_slot_type_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the slot type. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the slot type.
     """
     __args__ = dict()

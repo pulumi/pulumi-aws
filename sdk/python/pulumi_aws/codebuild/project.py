@@ -75,7 +75,7 @@ class ProjectArgs:
                and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -341,7 +341,7 @@ class ProjectArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -497,7 +497,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -791,7 +791,7 @@ class _ProjectState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1204,7 +1204,7 @@ class Project(pulumi.CustomResource):
                and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -1603,7 +1603,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -1806,7 +1806,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

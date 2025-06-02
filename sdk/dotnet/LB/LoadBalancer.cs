@@ -316,7 +316,7 @@ namespace Pulumi.Aws.LB
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -356,6 +356,10 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Output("xffHeaderProcessingMode")]
         public Output<string?> XffHeaderProcessingMode { get; private set; } = null!;
@@ -555,7 +559,7 @@ namespace Pulumi.Aws.LB
         public Input<bool>? PreserveHostHeader { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -610,6 +614,10 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }
@@ -779,7 +787,7 @@ namespace Pulumi.Aws.LB
         public Input<bool>? PreserveHostHeader { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -849,6 +857,10 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }

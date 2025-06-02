@@ -131,6 +131,7 @@ def get_authorization_token(domain: Optional[builtins.str] = None,
     :param builtins.str domain: Name of the domain that is in scope for the generated authorization token.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -169,6 +170,7 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[builtins.str]] 
     :param builtins.str domain: Name of the domain that is in scope for the generated authorization token.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain

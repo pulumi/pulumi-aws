@@ -58,7 +58,8 @@ func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption
 type GetEipsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetEipsFilter `pulumi:"filters"`
-	Region  *string         `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,7 +90,8 @@ func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.I
 type GetEipsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetEipsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

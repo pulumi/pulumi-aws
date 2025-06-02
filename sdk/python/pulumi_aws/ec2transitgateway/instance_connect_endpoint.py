@@ -32,7 +32,7 @@ class InstanceConnectEndpointArgs:
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -76,7 +76,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -144,7 +144,7 @@ class _InstanceConnectEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,7 +268,7 @@ class _InstanceConnectEndpointState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -382,7 +382,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -497,7 +497,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that created the EC2 Instance Connect Endpoint.
         :param pulumi.Input[builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -584,7 +584,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

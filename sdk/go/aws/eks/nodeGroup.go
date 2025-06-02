@@ -246,7 +246,7 @@ type NodeGroup struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigOutput `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
@@ -342,7 +342,7 @@ type nodeGroupState struct {
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
@@ -397,7 +397,7 @@ type NodeGroupState struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
@@ -454,7 +454,7 @@ type nodeGroupArgs struct {
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
@@ -502,7 +502,7 @@ type NodeGroupArgs struct {
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
 	ReleaseVersion pulumi.StringPtrInput
@@ -676,7 +676,7 @@ func (o NodeGroupOutput) NodeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeRoleArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NodeGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

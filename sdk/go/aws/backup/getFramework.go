@@ -51,7 +51,8 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkArgs struct {
 	// Backup framework name.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 	Tags map[string]string `pulumi:"tags"`
@@ -92,7 +93,8 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkOutputArgs struct {
 	// Backup framework name.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -78,7 +78,8 @@ type GetInstanceTypeOfferingsArgs struct {
 	EngineType *string `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
-	Region           *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType *string `pulumi:"storageType"`
 }
@@ -113,7 +114,8 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType pulumi.StringPtrInput `pulumi:"hostInstanceType"`
-	Region           pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }

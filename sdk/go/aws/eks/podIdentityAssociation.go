@@ -108,7 +108,7 @@ type PodIdentityAssociation struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -172,7 +172,7 @@ type podIdentityAssociationState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn *string `pulumi:"roleArn"`
@@ -195,7 +195,7 @@ type PodIdentityAssociationState struct {
 	ClusterName pulumi.StringPtrInput
 	// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringPtrInput
@@ -218,7 +218,7 @@ type podIdentityAssociationArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
 	Namespace string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn string `pulumi:"roleArn"`
@@ -236,7 +236,7 @@ type PodIdentityAssociationArgs struct {
 	ClusterName pulumi.StringInput
 	// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
 	Namespace pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringInput
@@ -355,7 +355,7 @@ func (o PodIdentityAssociationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PodIdentityAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

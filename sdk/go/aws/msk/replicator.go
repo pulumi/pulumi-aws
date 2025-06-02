@@ -108,7 +108,7 @@ type Replicator struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListOutput `pulumi:"replicationInfoList"`
@@ -171,7 +171,7 @@ type replicatorState struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList *ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
@@ -193,7 +193,7 @@ type ReplicatorState struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListPtrInput
@@ -216,7 +216,7 @@ type replicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
@@ -234,7 +234,7 @@ type ReplicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListInput
@@ -352,7 +352,7 @@ func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicatorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

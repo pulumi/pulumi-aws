@@ -68,7 +68,7 @@ type SlackChannelConfiguration struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringOutput `pulumi:"slackChannelId"`
@@ -143,7 +143,7 @@ type slackChannelConfigurationState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId *string `pulumi:"slackChannelId"`
@@ -177,7 +177,7 @@ type SlackChannelConfigurationState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringPtrInput
@@ -213,7 +213,7 @@ type slackChannelConfigurationArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId string `pulumi:"slackChannelId"`
@@ -240,7 +240,7 @@ type SlackChannelConfigurationArgs struct {
 	IamRoleArn pulumi.StringInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringInput
@@ -369,7 +369,7 @@ func (o SlackChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SlackChannelConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -15,18 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const example = new aws.sagemaker.ImageVersion("example", {
+ *     imageName: test.id,
+ *     baseImage: "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+ * });
+ * ```
+ *
+ * ### With Aliases
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
  * const test = new aws.sagemaker.ImageVersion("test", {
  *     imageName: testAwsSagemakerImage.id,
  *     baseImage: "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+ *     aliases: [
+ *         "latest",
+ *         "stable",
+ *     ],
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
  *
  * ```sh
- * $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+ * $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
  * ```
  */
 export class ImageVersion extends pulumi.CustomResource {
@@ -57,6 +73,10 @@ export class ImageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageVersion.__pulumiType;
     }
 
+    /**
+     * A list of aliases for the image version.
+     */
+    public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      */
@@ -95,7 +115,7 @@ export class ImageVersion extends pulumi.CustomResource {
      */
     public readonly programmingLang!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -124,6 +144,7 @@ export class ImageVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageVersionState | undefined;
+            resourceInputs["aliases"] = state ? state.aliases : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["baseImage"] = state ? state.baseImage : undefined;
             resourceInputs["containerImage"] = state ? state.containerImage : undefined;
@@ -146,6 +167,7 @@ export class ImageVersion extends pulumi.CustomResource {
             if ((!args || args.imageName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
             resourceInputs["baseImage"] = args ? args.baseImage : undefined;
             resourceInputs["horovod"] = args ? args.horovod : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
@@ -170,6 +192,10 @@ export class ImageVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ImageVersion resources.
  */
 export interface ImageVersionState {
+    /**
+     * A list of aliases for the image version.
+     */
+    aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      */
@@ -208,7 +234,7 @@ export interface ImageVersionState {
      */
     programmingLang?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -229,6 +255,10 @@ export interface ImageVersionState {
  * The set of arguments for constructing a ImageVersion resource.
  */
 export interface ImageVersionArgs {
+    /**
+     * A list of aliases for the image version.
+     */
+    aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The registry path of the container image on which this image version is based.
      */
@@ -258,7 +288,7 @@ export interface ImageVersionArgs {
      */
     programmingLang?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

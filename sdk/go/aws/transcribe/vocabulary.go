@@ -90,7 +90,7 @@ type Vocabulary struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -147,7 +147,7 @@ type vocabularyState struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -169,7 +169,7 @@ type VocabularyState struct {
 	LanguageCode pulumi.StringPtrInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -191,7 +191,7 @@ type vocabularyArgs struct {
 	LanguageCode string `pulumi:"languageCode"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -209,7 +209,7 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -328,7 +328,7 @@ func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VocabularyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

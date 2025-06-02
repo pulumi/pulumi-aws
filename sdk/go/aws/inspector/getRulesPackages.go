@@ -76,6 +76,7 @@ func GetRulesPackages(ctx *pulumi.Context, args *GetRulesPackagesArgs, opts ...p
 
 // A collection of arguments for invoking getRulesPackages.
 type GetRulesPackagesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -99,6 +100,7 @@ func GetRulesPackagesOutput(ctx *pulumi.Context, args GetRulesPackagesOutputArgs
 
 // A collection of arguments for invoking getRulesPackages.
 type GetRulesPackagesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

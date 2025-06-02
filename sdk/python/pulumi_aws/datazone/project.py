@@ -37,7 +37,7 @@ class ProjectArgs:
         :param pulumi.Input[builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -108,7 +108,7 @@ class ProjectArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -166,7 +166,7 @@ class _ProjectState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         if created_at is not None:
@@ -308,7 +308,7 @@ class _ProjectState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -382,7 +382,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         ...
@@ -498,7 +498,7 @@ class Project(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -597,7 +597,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

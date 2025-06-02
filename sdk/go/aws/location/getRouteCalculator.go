@@ -51,8 +51,9 @@ func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts 
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorArgs struct {
 	// Name of the route calculator resource.
-	CalculatorName string  `pulumi:"calculatorName"`
-	Region         *string `pulumi:"region"`
+	CalculatorName string `pulumi:"calculatorName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the route calculator.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,8 +90,9 @@ func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutput
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorOutputArgs struct {
 	// Name of the route calculator resource.
-	CalculatorName pulumi.StringInput    `pulumi:"calculatorName"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
+	CalculatorName pulumi.StringInput `pulumi:"calculatorName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the route calculator.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

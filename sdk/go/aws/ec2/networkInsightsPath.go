@@ -68,7 +68,7 @@ type NetworkInsightsPath struct {
 	//
 	// The following arguments are optional:
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source pulumi.StringOutput `pulumi:"source"`
@@ -134,7 +134,7 @@ type networkInsightsPathState struct {
 	//
 	// The following arguments are optional:
 	Protocol *string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source *string `pulumi:"source"`
@@ -165,7 +165,7 @@ type NetworkInsightsPathState struct {
 	//
 	// The following arguments are optional:
 	Protocol pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source pulumi.StringPtrInput
@@ -196,7 +196,7 @@ type networkInsightsPathArgs struct {
 	//
 	// The following arguments are optional:
 	Protocol string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source string `pulumi:"source"`
@@ -220,7 +220,7 @@ type NetworkInsightsPathArgs struct {
 	//
 	// The following arguments are optional:
 	Protocol pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
 	Source pulumi.StringInput
@@ -359,7 +359,7 @@ func (o NetworkInsightsPathOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInsightsPathOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

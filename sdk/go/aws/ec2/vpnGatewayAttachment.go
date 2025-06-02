@@ -70,7 +70,7 @@ import (
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -114,7 +114,7 @@ func GetVpnGatewayAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGatewayAttachment resources.
 type vpnGatewayAttachmentState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -123,7 +123,7 @@ type vpnGatewayAttachmentState struct {
 }
 
 type VpnGatewayAttachmentState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC.
 	VpcId pulumi.StringPtrInput
@@ -136,7 +136,7 @@ func (VpnGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type vpnGatewayAttachmentArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
@@ -146,7 +146,7 @@ type vpnGatewayAttachmentArgs struct {
 
 // The set of arguments for constructing a VpnGatewayAttachment resource.
 type VpnGatewayAttachmentArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC.
 	VpcId pulumi.StringInput
@@ -241,7 +241,7 @@ func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx 
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpnGatewayAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

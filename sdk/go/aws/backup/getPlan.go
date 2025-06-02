@@ -51,7 +51,8 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
 	// Backup plan ID.
-	PlanId string  `pulumi:"planId"`
+	PlanId string `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -87,7 +88,8 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
 	// Backup plan ID.
-	PlanId pulumi.StringInput    `pulumi:"planId"`
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

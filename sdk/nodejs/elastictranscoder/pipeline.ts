@@ -102,7 +102,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly outputBucket!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -115,6 +115,8 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly thumbnailConfig!: pulumi.Output<outputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
+     *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -213,7 +215,7 @@ export interface PipelineState {
      */
     outputBucket?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -226,6 +228,8 @@ export interface PipelineState {
     thumbnailConfig?: pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
+     *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -270,7 +274,7 @@ export interface PipelineArgs {
      */
     outputBucket?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -283,6 +287,8 @@ export interface PipelineArgs {
     thumbnailConfig?: pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
+     *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which

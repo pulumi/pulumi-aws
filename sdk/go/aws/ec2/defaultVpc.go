@@ -86,7 +86,13 @@ type DefaultVpc struct {
 	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
 	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+	//
+	// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+	// * The default value for `enableDnsHostnames` is `true`
+	//
+	// This resource supports the following additional arguments:
 	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -145,7 +151,13 @@ type defaultVpcState struct {
 	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
 	MainRouteTableId                *string `pulumi:"mainRouteTableId"`
 	OwnerId                         *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+	//
+	// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+	// * The default value for `enableDnsHostnames` is `true`
+	//
+	// This resource supports the following additional arguments:
 	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -175,7 +187,13 @@ type DefaultVpcState struct {
 	Ipv6NetmaskLength               pulumi.IntPtrInput
 	MainRouteTableId                pulumi.StringPtrInput
 	OwnerId                         pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+	//
+	// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+	// * The default value for `enableDnsHostnames` is `true`
+	//
+	// This resource supports the following additional arguments:
 	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -196,7 +214,13 @@ type defaultVpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	Ipv6IpamPoolId                  *string `pulumi:"ipv6IpamPoolId"`
 	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+	//
+	// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+	// * The default value for `enableDnsHostnames` is `true`
+	//
+	// This resource supports the following additional arguments:
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -213,7 +237,13 @@ type DefaultVpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	Ipv6IpamPoolId                  pulumi.StringPtrInput
 	Ipv6NetmaskLength               pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+	//
+	// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+	// * The default value for `enableDnsHostnames` is `true`
+	//
+	// This resource supports the following additional arguments:
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 }
@@ -388,7 +418,13 @@ func (o DefaultVpcOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
+//
+// * The `cidrBlock` and `instanceTenancy` arguments become computed attributes
+// * The default value for `enableDnsHostnames` is `true`
+//
+// This resource supports the following additional arguments:
 func (o DefaultVpcOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -84,6 +84,9 @@ def get_serial_console_access(region: Optional[builtins.str] = None,
 
     current = aws.ec2.get_serial_console_access()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -107,6 +110,9 @@ def get_serial_console_access_output(region: Optional[pulumi.Input[Optional[buil
 
     current = aws.ec2.get_serial_console_access()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

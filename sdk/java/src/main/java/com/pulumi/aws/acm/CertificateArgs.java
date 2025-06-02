@@ -19,49 +19,23 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateArgs Empty = new CertificateArgs();
 
-    /**
-     * ARN of an ACM PCA
-     * 
-     */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of an ACM PCA
-     * 
-     */
     public Optional<Output<String>> certificateAuthorityArn() {
         return Optional.ofNullable(this.certificateAuthorityArn);
     }
 
-    /**
-     * Certificate&#39;s PEM-formatted public key
-     * 
-     */
     @Import(name="certificateBody")
     private @Nullable Output<String> certificateBody;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted public key
-     * 
-     */
     public Optional<Output<String>> certificateBody() {
         return Optional.ofNullable(this.certificateBody);
     }
 
-    /**
-     * Certificate&#39;s PEM-formatted chain
-     * * Creating a private CA issued certificate
-     * 
-     */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted chain
-     * * Creating a private CA issued certificate
-     * 
-     */
     public Optional<Output<String>> certificateChain() {
         return Optional.ofNullable(this.certificateChain);
     }
@@ -81,100 +55,54 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     * 
-     */
     @Import(name="earlyRenewalDuration")
     private @Nullable Output<String> earlyRenewalDuration;
 
-    /**
-     * @return Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     * 
-     */
     public Optional<Output<String>> earlyRenewalDuration() {
         return Optional.ofNullable(this.earlyRenewalDuration);
     }
 
-    /**
-     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     * 
-     */
     @Import(name="keyAlgorithm")
     private @Nullable Output<String> keyAlgorithm;
 
-    /**
-     * @return Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     * 
-     */
     public Optional<Output<String>> keyAlgorithm() {
         return Optional.ofNullable(this.keyAlgorithm);
     }
 
-    /**
-     * Configuration block used to set certificate options. Detailed below.
-     * 
-     */
     @Import(name="options")
     private @Nullable Output<CertificateOptionsArgs> options;
 
-    /**
-     * @return Configuration block used to set certificate options. Detailed below.
-     * 
-     */
     public Optional<Output<CertificateOptionsArgs>> options() {
         return Optional.ofNullable(this.options);
     }
 
-    /**
-     * Certificate&#39;s PEM-formatted private key
-     * 
-     */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted private key
-     * 
-     */
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * Creating an Amazon issued certificate
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * Creating an Amazon issued certificate
      * 
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-     * 
-     */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
@@ -194,34 +122,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     * 
-     */
     @Import(name="validationMethod")
     private @Nullable Output<String> validationMethod;
 
-    /**
-     * @return Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     * 
-     */
     public Optional<Output<String>> validationMethod() {
         return Optional.ofNullable(this.validationMethod);
     }
 
-    /**
-     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     * 
-     */
     @Import(name="validationOptions")
     private @Nullable Output<List<CertificateValidationOptionArgs>> validationOptions;
 
-    /**
-     * @return Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     * 
-     */
     public Optional<Output<List<CertificateValidationOptionArgs>>> validationOptions() {
         return Optional.ofNullable(this.validationOptions);
     }
@@ -262,67 +172,29 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of an ACM PCA
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(@Nullable Output<String> certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of an ACM PCA
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             return certificateAuthorityArn(Output.of(certificateAuthorityArn));
         }
 
-        /**
-         * @param certificateBody Certificate&#39;s PEM-formatted public key
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(@Nullable Output<String> certificateBody) {
             $.certificateBody = certificateBody;
             return this;
         }
 
-        /**
-         * @param certificateBody Certificate&#39;s PEM-formatted public key
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(String certificateBody) {
             return certificateBody(Output.of(certificateBody));
         }
 
-        /**
-         * @param certificateChain Certificate&#39;s PEM-formatted chain
-         * * Creating a private CA issued certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(@Nullable Output<String> certificateChain) {
             $.certificateChain = certificateChain;
             return this;
         }
 
-        /**
-         * @param certificateChain Certificate&#39;s PEM-formatted chain
-         * * Creating a private CA issued certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateChain(String certificateChain) {
             return certificateChain(Output.of(certificateChain));
         }
@@ -348,100 +220,45 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
-         * Has no effect if less than 60 days.
-         * Represented by either
-         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-         * or a string such as `2160h`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder earlyRenewalDuration(@Nullable Output<String> earlyRenewalDuration) {
             $.earlyRenewalDuration = earlyRenewalDuration;
             return this;
         }
 
-        /**
-         * @param earlyRenewalDuration Amount of time to start automatic renewal process before expiration.
-         * Has no effect if less than 60 days.
-         * Represented by either
-         * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-         * or a string such as `2160h`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder earlyRenewalDuration(String earlyRenewalDuration) {
             return earlyRenewalDuration(Output.of(earlyRenewalDuration));
         }
 
-        /**
-         * @param keyAlgorithm Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAlgorithm(@Nullable Output<String> keyAlgorithm) {
             $.keyAlgorithm = keyAlgorithm;
             return this;
         }
 
-        /**
-         * @param keyAlgorithm Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyAlgorithm(String keyAlgorithm) {
             return keyAlgorithm(Output.of(keyAlgorithm));
         }
 
-        /**
-         * @param options Configuration block used to set certificate options. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(@Nullable Output<CertificateOptionsArgs> options) {
             $.options = options;
             return this;
         }
 
-        /**
-         * @param options Configuration block used to set certificate options. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder options(CertificateOptionsArgs options) {
             return options(Output.of(options));
         }
 
-        /**
-         * @param privateKey Certificate&#39;s PEM-formatted private key
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(@Nullable Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
-        /**
-         * @param privateKey Certificate&#39;s PEM-formatted private key
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * * Creating an Amazon issued certificate
          * 
          * @return builder
          * 
@@ -452,7 +269,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * * Creating an Amazon issued certificate
          * 
          * @return builder
          * 
@@ -461,33 +279,15 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<List<String>> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
@@ -513,57 +313,24 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationMethod(@Nullable Output<String> validationMethod) {
             $.validationMethod = validationMethod;
             return this;
         }
 
-        /**
-         * @param validationMethod Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationMethod(String validationMethod) {
             return validationMethod(Output.of(validationMethod));
         }
 
-        /**
-         * @param validationOptions Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-         * * Importing an existing certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationOptions(@Nullable Output<List<CertificateValidationOptionArgs>> validationOptions) {
             $.validationOptions = validationOptions;
             return this;
         }
 
-        /**
-         * @param validationOptions Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-         * * Importing an existing certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationOptions(List<CertificateValidationOptionArgs> validationOptions) {
             return validationOptions(Output.of(validationOptions));
         }
 
-        /**
-         * @param validationOptions Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-         * * Importing an existing certificate
-         * 
-         * @return builder
-         * 
-         */
         public Builder validationOptions(CertificateValidationOptionArgs... validationOptions) {
             return validationOptions(List.of(validationOptions));
         }

@@ -100,6 +100,9 @@ export interface GetRouteArgs {
      * Network Interface ID of the Route belonging to the Route Table.
      */
     networkInterfaceId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the specific Route Table containing the Route entry.
@@ -237,6 +240,9 @@ export interface GetRouteOutputArgs {
      * Network Interface ID of the Route belonging to the Route Table.
      */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the specific Route Table containing the Route entry.

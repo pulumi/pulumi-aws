@@ -83,7 +83,7 @@ type UserDefinedFunction struct {
 	OwnerName pulumi.StringOutput `pulumi:"ownerName"`
 	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringOutput `pulumi:"ownerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration block for Resource URIs. See resource uris below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayOutput `pulumi:"resourceUris"`
@@ -147,7 +147,7 @@ type userDefinedFunctionState struct {
 	OwnerName *string `pulumi:"ownerName"`
 	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType *string `pulumi:"ownerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration block for Resource URIs. See resource uris below for more details.
 	ResourceUris []UserDefinedFunctionResourceUri `pulumi:"resourceUris"`
@@ -170,7 +170,7 @@ type UserDefinedFunctionState struct {
 	OwnerName pulumi.StringPtrInput
 	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration block for Resource URIs. See resource uris below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayInput
@@ -193,7 +193,7 @@ type userDefinedFunctionArgs struct {
 	OwnerName string `pulumi:"ownerName"`
 	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType string `pulumi:"ownerType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration block for Resource URIs. See resource uris below for more details.
 	ResourceUris []UserDefinedFunctionResourceUri `pulumi:"resourceUris"`
@@ -213,7 +213,7 @@ type UserDefinedFunctionArgs struct {
 	OwnerName pulumi.StringInput
 	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration block for Resource URIs. See resource uris below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayInput
@@ -346,7 +346,7 @@ func (o UserDefinedFunctionOutput) OwnerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.OwnerType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserDefinedFunctionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

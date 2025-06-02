@@ -34,7 +34,8 @@ class WorkgroupArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 track_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
@@ -48,10 +49,11 @@ class WorkgroupArgs:
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -77,6 +79,8 @@ class WorkgroupArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if track_name is not None:
+            pulumi.set(__self__, "track_name", track_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -192,7 +196,7 @@ class WorkgroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -236,6 +240,18 @@ class WorkgroupArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        """
+        return pulumi.get(self, "track_name")
+
+    @track_name.setter
+    def track_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "track_name", value)
+
 
 @pulumi.input_type
 class _WorkgroupState:
@@ -255,6 +271,7 @@ class _WorkgroupState:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 track_name: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup_id: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -269,11 +286,12 @@ class _WorkgroupState:
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
         :param pulumi.Input[builtins.str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
                
@@ -309,6 +327,8 @@ class _WorkgroupState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if track_name is not None:
+            pulumi.set(__self__, "track_name", track_name)
         if workgroup_id is not None:
             pulumi.set(__self__, "workgroup_id", workgroup_id)
         if workgroup_name is not None:
@@ -438,7 +458,7 @@ class _WorkgroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -495,6 +515,18 @@ class _WorkgroupState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        """
+        return pulumi.get(self, "track_name")
+
+    @track_name.setter
+    def track_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "track_name", value)
+
+    @property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -539,6 +571,7 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 track_name: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -573,10 +606,11 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
                
                The following arguments are optional:
@@ -636,6 +670,7 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 track_name: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -660,6 +695,7 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["track_name"] = track_name
             if workgroup_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workgroup_name'")
             __props__.__dict__["workgroup_name"] = workgroup_name
@@ -692,6 +728,7 @@ class Workgroup(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            track_name: Optional[pulumi.Input[builtins.str]] = None,
             workgroup_id: Optional[pulumi.Input[builtins.str]] = None,
             workgroup_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Workgroup':
         """
@@ -711,11 +748,12 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[Union['WorkgroupPricePerformanceTargetArgs', 'WorkgroupPricePerformanceTargetArgsDict']] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
         :param pulumi.Input[builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] track_name: The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
         :param pulumi.Input[builtins.str] workgroup_id: The Redshift Workgroup ID.
         :param pulumi.Input[builtins.str] workgroup_name: The name of the workgroup.
                
@@ -740,6 +778,7 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["track_name"] = track_name
         __props__.__dict__["workgroup_id"] = workgroup_id
         __props__.__dict__["workgroup_name"] = workgroup_name
         return Workgroup(resource_name, opts=opts, __props__=__props__)
@@ -828,7 +867,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -863,6 +902,14 @@ class Workgroup(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        """
+        return pulumi.get(self, "track_name")
 
     @property
     @pulumi.getter(name="workgroupId")

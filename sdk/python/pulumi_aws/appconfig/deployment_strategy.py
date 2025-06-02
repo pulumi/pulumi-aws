@@ -38,7 +38,7 @@ class DeploymentStrategyArgs:
         :param pulumi.Input[builtins.int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
@@ -145,7 +145,7 @@ class DeploymentStrategyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -189,7 +189,7 @@ class _DeploymentStrategyState:
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -305,7 +305,7 @@ class _DeploymentStrategyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -404,7 +404,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -529,7 +529,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[builtins.str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         :param pulumi.Input[builtins.str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -611,7 +611,7 @@ class DeploymentStrategy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

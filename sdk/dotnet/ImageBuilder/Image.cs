@@ -130,7 +130,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// Region of the container image.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
 
         /// <summary>
-        /// Region of the container image.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Platform { get; set; }
 
         /// <summary>
-        /// Region of the container image.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

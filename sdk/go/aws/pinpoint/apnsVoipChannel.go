@@ -91,7 +91,7 @@ type ApnsVoipChannel struct {
 	//
 	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
@@ -182,7 +182,7 @@ type apnsVoipChannelState struct {
 	//
 	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -214,7 +214,7 @@ type ApnsVoipChannelState struct {
 	//
 	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -250,7 +250,7 @@ type apnsVoipChannelArgs struct {
 	//
 	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -283,7 +283,7 @@ type ApnsVoipChannelArgs struct {
 	//
 	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -419,7 +419,7 @@ func (o ApnsVoipChannelOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApnsVoipChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

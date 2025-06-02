@@ -143,7 +143,7 @@ type SshKey struct {
 
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringOutput `pulumi:"body"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -193,7 +193,7 @@ func GetSshKey(ctx *pulumi.Context,
 type sshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body *string `pulumi:"body"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
@@ -205,7 +205,7 @@ type sshKeyState struct {
 type SshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
@@ -221,7 +221,7 @@ func (SshKeyState) ElementType() reflect.Type {
 type sshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body string `pulumi:"body"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
@@ -233,7 +233,7 @@ type sshKeyArgs struct {
 type SshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
@@ -333,7 +333,7 @@ func (o SshKeyOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SshKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

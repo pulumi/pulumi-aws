@@ -14,6 +14,12 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
+    /// &gt; **Note:** In order to be able to have your AWS Lambda function or
+    ///    SNS topic invoked by an EventBridge rule, you must set up the right permissions
+    ///    using `aws.lambda.Permission`
+    ///    or `aws.sns.TopicPolicy`.
+    ///    More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
+    /// 
     /// ## Example Usage
     /// 
     /// ### Kinesis Usage
@@ -939,7 +945,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetRedshiftTarget?> RedshiftTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -1114,7 +1120,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRedshiftTargetArgs>? RedshiftTarget { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -1257,7 +1263,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRedshiftTargetGetArgs>? RedshiftTarget { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

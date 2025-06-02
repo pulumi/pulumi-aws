@@ -718,7 +718,7 @@ class GetUserAddressResult(dict):
         :param builtins.str locality: The address locality.
         :param builtins.str postal_code: The postal code of the address.
         :param builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param builtins.str region: The region of the address.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str street_address: The street of the address.
         :param builtins.str type: The type of phone number.
         """
@@ -775,7 +775,7 @@ class GetUserAddressResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        The region of the address.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1271,7 +1271,7 @@ class GetUsersUserAddressResult(dict):
         :param builtins.str locality: Address locality.
         :param builtins.str postal_code: Postal code of the address.
         :param builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param builtins.str region: Region of the address.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str street_address: Street of the address.
         :param builtins.str type: Type of phone number.
         """
@@ -1328,7 +1328,7 @@ class GetUsersUserAddressResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        Region of the address.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

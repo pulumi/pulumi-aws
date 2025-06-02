@@ -133,7 +133,7 @@ type User struct {
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password            pulumi.StringPtrOutput `pulumi:"password"`
 	PreferredMfaSetting pulumi.StringOutput    `pulumi:"preferredMfaSetting"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// current user status.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -218,7 +218,7 @@ type userState struct {
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password            *string `pulumi:"password"`
 	PreferredMfaSetting *string `pulumi:"preferredMfaSetting"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// current user status.
 	Status *string `pulumi:"status"`
@@ -257,7 +257,7 @@ type UserState struct {
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password            pulumi.StringPtrInput
 	PreferredMfaSetting pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// current user status.
 	Status pulumi.StringPtrInput
@@ -296,7 +296,7 @@ type userArgs struct {
 	MessageAction *string `pulumi:"messageAction"`
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password *string `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword *string `pulumi:"temporaryPassword"`
@@ -328,7 +328,7 @@ type UserArgs struct {
 	MessageAction pulumi.StringPtrInput
 	// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporaryPassword` value. You can suppress sending the welcome message with the `messageAction` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporaryPassword`.
 	Password pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user's temporary password. Conflicts with `password`.
 	TemporaryPassword pulumi.StringPtrInput
@@ -482,7 +482,7 @@ func (o UserOutput) PreferredMfaSetting() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.PreferredMfaSetting }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

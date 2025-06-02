@@ -113,9 +113,6 @@ namespace Pulumi.Aws.Budgets
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
 
-        [Input("region")]
-        public string? Region { get; set; }
-
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -155,9 +152,6 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
-
-        [Input("region")]
-        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -225,7 +219,6 @@ namespace Pulumi.Aws.Budgets
         /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetPlannedLimitResult> PlannedLimits;
-        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
@@ -273,8 +266,6 @@ namespace Pulumi.Aws.Budgets
 
             ImmutableArray<Outputs.GetBudgetPlannedLimitResult> plannedLimits,
 
-            string region,
-
             ImmutableDictionary<string, string> tags,
 
             string timePeriodEnd,
@@ -297,7 +288,6 @@ namespace Pulumi.Aws.Budgets
             NamePrefix = namePrefix;
             Notifications = notifications;
             PlannedLimits = plannedLimits;
-            Region = region;
             Tags = tags;
             TimePeriodEnd = timePeriodEnd;
             TimePeriodStart = timePeriodStart;

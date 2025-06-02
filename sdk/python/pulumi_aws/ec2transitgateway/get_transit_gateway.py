@@ -284,6 +284,7 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
 
     :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway
     """
     __args__ = dict()
@@ -347,6 +348,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway
     """
     __args__ = dict()

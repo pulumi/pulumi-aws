@@ -86,6 +86,8 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
@@ -94,7 +96,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -145,6 +147,8 @@ export interface OrganizationConfigurationState {
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
@@ -153,7 +157,7 @@ export interface OrganizationConfigurationState {
      */
     detectorId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }
@@ -170,6 +174,8 @@ export interface OrganizationConfigurationArgs {
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
+     * > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
+     *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
@@ -178,7 +184,7 @@ export interface OrganizationConfigurationArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

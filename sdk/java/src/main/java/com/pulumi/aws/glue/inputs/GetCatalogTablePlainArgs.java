@@ -77,14 +77,14 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Region of the target table.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region of the target table.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -180,7 +180,7 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param region Region of the target table.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

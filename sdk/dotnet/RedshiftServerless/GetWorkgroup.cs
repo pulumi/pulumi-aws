@@ -160,6 +160,10 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
+        /// The name of the track for the workgroup.
+        /// </summary>
+        public readonly string TrackName;
+        /// <summary>
         /// The Redshift Workgroup ID.
         /// </summary>
         public readonly string WorkgroupId;
@@ -185,6 +189,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
             ImmutableArray<string> subnetIds,
 
+            string trackName,
+
             string workgroupId,
 
             string workgroupName)
@@ -198,6 +204,7 @@ namespace Pulumi.Aws.RedshiftServerless
             Region = region;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            TrackName = trackName;
             WorkgroupId = workgroupId;
             WorkgroupName = workgroupName;
         }

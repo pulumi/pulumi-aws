@@ -51,8 +51,9 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointArgs struct {
 	// ID that identifies the file system.
-	AccessPointId string  `pulumi:"accessPointId"`
-	Region        *string `pulumi:"region"`
+	AccessPointId string `pulumi:"accessPointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -90,8 +91,9 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointOutputArgs struct {
 	// ID that identifies the file system.
-	AccessPointId pulumi.StringInput    `pulumi:"accessPointId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

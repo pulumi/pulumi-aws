@@ -28,7 +28,7 @@ class EventBusPolicyArgs:
         :param pulumi.Input[builtins.str] policy: The text of the policy.
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if event_bus_name is not None:
@@ -65,7 +65,7 @@ class EventBusPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -85,7 +85,7 @@ class _EventBusPolicyState:
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] policy: The text of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if event_bus_name is not None:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
@@ -123,7 +123,7 @@ class _EventBusPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -265,7 +265,7 @@ class EventBusPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] policy: The text of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -446,7 +446,7 @@ class EventBusPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[builtins.str] policy: The text of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -478,7 +478,7 @@ class EventBusPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

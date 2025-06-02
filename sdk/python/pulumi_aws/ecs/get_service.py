@@ -179,6 +179,7 @@ def get_service(cluster_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_arn: ARN of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the ECS Service
     :param Mapping[str, builtins.str] tags: Resource tags.
     """
@@ -223,6 +224,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str cluster_arn: ARN of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the ECS Service
     :param Mapping[str, builtins.str] tags: Resource tags.
     """

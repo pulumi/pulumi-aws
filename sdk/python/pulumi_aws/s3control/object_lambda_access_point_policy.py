@@ -29,7 +29,7 @@ class ObjectLambdaAccessPointPolicyArgs:
         :param pulumi.Input[builtins.str] policy: The Object Lambda Access Point resource policy document.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] name: The name of the Object Lambda Access Point.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         if account_id is not None:
@@ -79,7 +79,7 @@ class ObjectLambdaAccessPointPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _ObjectLambdaAccessPointPolicyState:
         :param pulumi.Input[builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[builtins.str] name: The name of the Object Lambda Access Point.
         :param pulumi.Input[builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -167,7 +167,7 @@ class _ObjectLambdaAccessPointPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -242,7 +242,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[builtins.str] name: The name of the Object Lambda Access Point.
         :param pulumi.Input[builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -361,7 +361,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[builtins.str] name: The name of the Object Lambda Access Point.
         :param pulumi.Input[builtins.str] policy: The Object Lambda Access Point resource policy document.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,7 +410,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -55,9 +55,9 @@ type GetAppregistryAttributeGroupAssociationsArgs struct {
 	// ID of the application to which attribute groups are associated.
 	Id *string `pulumi:"id"`
 	// Name of the application to which attribute groups are associated.
-	//
-	// The following arguments are optional:
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id`or `name` must be set.
 	Region *string `pulumi:"region"`
 }
 
@@ -84,9 +84,9 @@ type GetAppregistryAttributeGroupAssociationsOutputArgs struct {
 	// ID of the application to which attribute groups are associated.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the application to which attribute groups are associated.
-	//
-	// The following arguments are optional:
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id`or `name` must be set.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

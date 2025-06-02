@@ -14,6 +14,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -125,14 +126,14 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
         return this.customEvents;
     }
     /**
-     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
     @Export(name="cwLogEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cwLogEnabled;
 
     /**
-     * @return Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * @return Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> cwLogEnabled() {
@@ -152,19 +153,17 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
     public Output<String> cwLogGroup() {
         return this.cwLogGroup;
     }
-    /**
-     * The top-level internet domain name for which your application has administrative authority.
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
-    private Output<String> domain;
+    private Output</* @Nullable */ String> domain;
 
-    /**
-     * @return The top-level internet domain name for which your application has administrative authority.
-     * 
-     */
-    public Output<String> domain() {
-        return this.domain;
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
+    }
+    @Export(name="domainLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> domainLists;
+
+    public Output<Optional<List<String>>> domainLists() {
+        return Codegen.optional(this.domainLists);
     }
     /**
      * The name of the log stream.
@@ -181,14 +180,14 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -235,7 +234,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppMonitor(java.lang.String name, AppMonitorArgs args) {
+    public AppMonitor(java.lang.String name, @Nullable AppMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,7 +243,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppMonitor(java.lang.String name, AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AppMonitor(java.lang.String name, @Nullable AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rum/appMonitor:AppMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -252,7 +251,7 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
         super("aws:rum/appMonitor:AppMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static AppMonitorArgs makeArgs(AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static AppMonitorArgs makeArgs(@Nullable AppMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -36,7 +36,7 @@ class EnvironmentBlueprintConfigurationArgs:
         :param pulumi.Input[builtins.str] environment_blueprint_id: ID of the Environment Blueprint
         :param pulumi.Input[builtins.str] manage_access_role_arn: ARN of the manage access role with which this blueprint is created.
         :param pulumi.Input[builtins.str] provisioning_role_arn: ARN of the provisioning role with which this blueprint is created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] regional_parameters: Parameters for each region in which the blueprint is enabled
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -117,7 +117,7 @@ class EnvironmentBlueprintConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -157,7 +157,7 @@ class _EnvironmentBlueprintConfigurationState:
         :param pulumi.Input[builtins.str] environment_blueprint_id: ID of the Environment Blueprint
         :param pulumi.Input[builtins.str] manage_access_role_arn: ARN of the manage access role with which this blueprint is created.
         :param pulumi.Input[builtins.str] provisioning_role_arn: ARN of the provisioning role with which this blueprint is created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] regional_parameters: Parameters for each region in which the blueprint is enabled
         """
         if domain_id is not None:
@@ -241,7 +241,7 @@ class _EnvironmentBlueprintConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -298,7 +298,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_id: ID of the Environment Blueprint
         :param pulumi.Input[builtins.str] manage_access_role_arn: ARN of the manage access role with which this blueprint is created.
         :param pulumi.Input[builtins.str] provisioning_role_arn: ARN of the provisioning role with which this blueprint is created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] regional_parameters: Parameters for each region in which the blueprint is enabled
         """
         ...
@@ -395,7 +395,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_id: ID of the Environment Blueprint
         :param pulumi.Input[builtins.str] manage_access_role_arn: ARN of the manage access role with which this blueprint is created.
         :param pulumi.Input[builtins.str] provisioning_role_arn: ARN of the provisioning role with which this blueprint is created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] regional_parameters: Parameters for each region in which the blueprint is enabled
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -457,7 +457,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

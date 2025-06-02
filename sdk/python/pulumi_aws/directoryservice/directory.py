@@ -46,7 +46,7 @@ class DirectoryArgs:
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -180,7 +180,7 @@ class DirectoryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -282,7 +282,7 @@ class _DirectoryState:
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group created by the directory.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -452,7 +452,7 @@ class _DirectoryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -683,7 +683,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -910,7 +910,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group created by the directory.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -1027,7 +1027,7 @@ class Directory(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

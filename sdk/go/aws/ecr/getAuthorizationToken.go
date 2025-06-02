@@ -48,6 +48,7 @@ func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs,
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId *string `pulumi:"registryId"`
@@ -82,6 +83,7 @@ func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationToken
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`

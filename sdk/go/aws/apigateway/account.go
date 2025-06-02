@@ -116,7 +116,7 @@ type Account struct {
 	CloudwatchRoleArn pulumi.StringOutput `pulumi:"cloudwatchRoleArn"`
 	// A list of features supported for the account.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
@@ -158,7 +158,7 @@ type accountState struct {
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
 	// A list of features supported for the account.
 	Features []string `pulumi:"features"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
@@ -171,7 +171,7 @@ type AccountState struct {
 	CloudwatchRoleArn pulumi.StringPtrInput
 	// A list of features supported for the account.
 	Features pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Account-Level throttle settings. See exported fields below.
 	ThrottleSettings AccountThrottleSettingArrayInput
@@ -184,7 +184,7 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -192,7 +192,7 @@ type accountArgs struct {
 type AccountArgs struct {
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -298,7 +298,7 @@ func (o AccountOutput) Features() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

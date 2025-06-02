@@ -109,7 +109,7 @@ import (
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID the scanning configuration applies to.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
@@ -152,7 +152,7 @@ func GetRegistryScanningConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryScanningConfiguration resources.
 type registryScanningConfigurationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The registry ID the scanning configuration applies to.
 	RegistryId *string `pulumi:"registryId"`
@@ -163,7 +163,7 @@ type registryScanningConfigurationState struct {
 }
 
 type RegistryScanningConfigurationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The registry ID the scanning configuration applies to.
 	RegistryId pulumi.StringPtrInput
@@ -178,7 +178,7 @@ func (RegistryScanningConfigurationState) ElementType() reflect.Type {
 }
 
 type registryScanningConfigurationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 	Rules []RegistryScanningConfigurationRule `pulumi:"rules"`
@@ -188,7 +188,7 @@ type registryScanningConfigurationArgs struct {
 
 // The set of arguments for constructing a RegistryScanningConfiguration resource.
 type RegistryScanningConfigurationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 	Rules RegistryScanningConfigurationRuleArrayInput
@@ -283,7 +283,7 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegistryScanningConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

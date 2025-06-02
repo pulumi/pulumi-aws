@@ -46,7 +46,7 @@ class TrafficMirrorFilterRuleArgs:
         :param pulumi.Input[builtins.str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs'] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs'] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -180,7 +180,7 @@ class TrafficMirrorFilterRuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -223,7 +223,7 @@ class _TrafficMirrorFilterRuleState:
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs'] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -322,7 +322,7 @@ class _TrafficMirrorFilterRuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -479,7 +479,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -638,7 +638,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -710,7 +710,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

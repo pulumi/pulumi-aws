@@ -215,7 +215,7 @@ type RouteTable struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
@@ -267,7 +267,7 @@ type routeTableState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
@@ -287,7 +287,7 @@ type RouteTableState struct {
 	OwnerId pulumi.StringPtrInput
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
@@ -307,7 +307,7 @@ func (RouteTableState) ElementType() reflect.Type {
 type routeTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
@@ -322,7 +322,7 @@ type routeTableArgs struct {
 type RouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
@@ -435,7 +435,7 @@ func (o RouteTableOutput) PropagatingVgws() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringArrayOutput { return v.PropagatingVgws }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

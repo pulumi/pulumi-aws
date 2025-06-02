@@ -71,7 +71,7 @@ type SnapshotScheduleAssociation struct {
 
 	// The cluster identifier.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringOutput `pulumi:"scheduleIdentifier"`
@@ -115,7 +115,7 @@ func GetSnapshotScheduleAssociation(ctx *pulumi.Context,
 type snapshotScheduleAssociationState struct {
 	// The cluster identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot schedule identifier.
 	ScheduleIdentifier *string `pulumi:"scheduleIdentifier"`
@@ -124,7 +124,7 @@ type snapshotScheduleAssociationState struct {
 type SnapshotScheduleAssociationState struct {
 	// The cluster identifier.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (SnapshotScheduleAssociationState) ElementType() reflect.Type {
 type snapshotScheduleAssociationArgs struct {
 	// The cluster identifier.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The snapshot schedule identifier.
 	ScheduleIdentifier string `pulumi:"scheduleIdentifier"`
@@ -147,7 +147,7 @@ type snapshotScheduleAssociationArgs struct {
 type SnapshotScheduleAssociationArgs struct {
 	// The cluster identifier.
 	ClusterIdentifier pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The snapshot schedule identifier.
 	ScheduleIdentifier pulumi.StringInput
@@ -245,7 +245,7 @@ func (o SnapshotScheduleAssociationOutput) ClusterIdentifier() pulumi.StringOutp
 	return o.ApplyT(func(v *SnapshotScheduleAssociation) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SnapshotScheduleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotScheduleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

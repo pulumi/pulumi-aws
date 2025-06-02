@@ -48,6 +48,9 @@ export interface GetNetworkInsightsPathArgs {
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags assigned to the resource.
@@ -156,6 +159,9 @@ export interface GetNetworkInsightsPathOutputArgs {
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.

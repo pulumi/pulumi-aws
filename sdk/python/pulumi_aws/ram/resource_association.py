@@ -27,7 +27,7 @@ class ResourceAssociationArgs:
         The set of arguments for constructing a ResourceAssociation resource.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "resource_share_arn", resource_share_arn)
@@ -62,7 +62,7 @@ class ResourceAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -79,7 +79,7 @@ class _ResourceAssociationState:
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceAssociation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
@@ -94,7 +94,7 @@ class _ResourceAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -163,7 +163,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
@@ -251,7 +251,7 @@ class ResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
@@ -268,7 +268,7 @@ class ResourceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

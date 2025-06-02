@@ -50,6 +50,7 @@ func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getLinks.
 type GetLinksArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getLinks.
 type GetLinksOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

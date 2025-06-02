@@ -51,7 +51,7 @@ class PermissionsArgs:
         :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
         :param pulumi.Input['PermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -210,7 +210,7 @@ class PermissionsArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -277,7 +277,7 @@ class _PermissionsState:
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -438,7 +438,7 @@ class _PermissionsState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -670,7 +670,7 @@ class Permissions(pulumi.CustomResource):
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -941,7 +941,7 @@ class Permissions(pulumi.CustomResource):
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -1054,7 +1054,7 @@ class Permissions(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

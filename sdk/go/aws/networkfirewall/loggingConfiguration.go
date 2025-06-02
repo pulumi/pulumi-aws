@@ -142,7 +142,7 @@ type LoggingConfiguration struct {
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -186,7 +186,7 @@ type loggingConfigurationState struct {
 	FirewallArn *string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration *LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -195,7 +195,7 @@ type LoggingConfigurationState struct {
 	FirewallArn pulumi.StringPtrInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -208,7 +208,7 @@ type loggingConfigurationArgs struct {
 	FirewallArn string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -218,7 +218,7 @@ type LoggingConfigurationArgs struct {
 	FirewallArn pulumi.StringInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -321,7 +321,7 @@ func (o LoggingConfigurationOutput) LoggingConfiguration() LoggingConfigurationL
 	}).(LoggingConfigurationLoggingConfigurationOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoggingConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

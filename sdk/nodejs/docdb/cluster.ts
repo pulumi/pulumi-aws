@@ -159,10 +159,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+     */
+    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.docdb.ClusterMasterUserSecret[]>;
     /**
      * Username for the master DB user.
      */
@@ -185,7 +190,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -219,6 +224,9 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -255,7 +263,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["manageMasterUserPassword"] = state ? state.manageMasterUserPassword : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
+            resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
@@ -288,6 +298,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -305,6 +316,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
+            resourceInputs["masterUserSecrets"] = undefined /*out*/;
             resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -406,10 +418,15 @@ export interface ClusterState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string>;
+    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterMasterUserSecret>[]>;
     /**
      * Username for the master DB user.
      */
@@ -432,7 +449,7 @@ export interface ClusterState {
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -466,6 +483,9 @@ export interface ClusterState {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -545,8 +565,12 @@ export interface ClusterArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string>;
     /**
@@ -567,7 +591,7 @@ export interface ClusterArgs {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -597,6 +621,9 @@ export interface ClusterArgs {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

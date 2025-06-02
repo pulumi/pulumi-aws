@@ -31,7 +31,10 @@ class ClusterActivityStreamArgs:
         :param pulumi.Input[builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         :param pulumi.Input[builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "mode", mode)
@@ -82,6 +85,9 @@ class ClusterActivityStreamArgs:
     def engine_native_audit_fields_included(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         """
         return pulumi.get(self, "engine_native_audit_fields_included")
 
@@ -93,7 +99,7 @@ class ClusterActivityStreamArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -114,10 +120,13 @@ class _ClusterActivityStreamState:
         """
         Input properties used for looking up and filtering ClusterActivityStream resources.
         :param pulumi.Input[builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         :param pulumi.Input[builtins.str] kinesis_stream_name: The name of the Amazon Kinesis data stream to be used for the database activity stream.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         """
         if engine_native_audit_fields_included is not None:
@@ -138,6 +147,9 @@ class _ClusterActivityStreamState:
     def engine_native_audit_fields_included(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         """
         return pulumi.get(self, "engine_native_audit_fields_included")
 
@@ -185,7 +197,7 @@ class _ClusterActivityStreamState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -271,9 +283,12 @@ class ClusterActivityStream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         """
         ...
@@ -397,10 +412,13 @@ class ClusterActivityStream(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         :param pulumi.Input[builtins.str] kinesis_stream_name: The name of the Amazon Kinesis data stream to be used for the database activity stream.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -420,6 +438,9 @@ class ClusterActivityStream(pulumi.CustomResource):
     def engine_native_audit_fields_included(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         """
         return pulumi.get(self, "engine_native_audit_fields_included")
 
@@ -451,7 +472,7 @@ class ClusterActivityStream(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -116,7 +116,7 @@ type WorkspaceSamlConfiguration struct {
 	NameAssertion pulumi.StringOutput `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrOutput `pulumi:"orgAssertion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrOutput `pulumi:"roleAssertion"`
@@ -186,7 +186,7 @@ type workspaceSamlConfigurationState struct {
 	NameAssertion *string `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
@@ -221,7 +221,7 @@ type WorkspaceSamlConfigurationState struct {
 	NameAssertion pulumi.StringPtrInput
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrInput
@@ -260,7 +260,7 @@ type workspaceSamlConfigurationArgs struct {
 	NameAssertion *string `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
@@ -294,7 +294,7 @@ type WorkspaceSamlConfigurationArgs struct {
 	NameAssertion pulumi.StringPtrInput
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrInput
@@ -446,7 +446,7 @@ func (o WorkspaceSamlConfigurationOutput) OrgAssertion() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.OrgAssertion }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceSamlConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

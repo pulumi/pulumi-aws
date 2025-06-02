@@ -19,6 +19,9 @@ import (
 // > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
 // see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 //
+// > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `publicDomainNames` with your container service. For more information, see
+// [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -190,7 +193,7 @@ type ContainerService struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrOutput `pulumi:"publicDomainNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
@@ -279,7 +282,7 @@ type containerServiceState struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType *string `pulumi:"resourceType"`
@@ -333,7 +336,7 @@ type ContainerServiceState struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Lightsail resource type of the container service (i.e., ContainerService).
 	ResourceType pulumi.StringPtrInput
@@ -377,7 +380,7 @@ type containerServiceArgs struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
@@ -408,7 +411,7 @@ type ContainerServiceArgs struct {
 	// service. If you don't specify public domain names, then you can use the default domain of the container service.
 	// Defined below.
 	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
@@ -571,7 +574,7 @@ func (o ContainerServiceOutput) PublicDomainNames() ContainerServicePublicDomain
 	return o.ApplyT(func(v *ContainerService) ContainerServicePublicDomainNamesPtrOutput { return v.PublicDomainNames }).(ContainerServicePublicDomainNamesPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

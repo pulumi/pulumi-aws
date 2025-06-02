@@ -55,7 +55,9 @@ type LookupServerlessCollectionArgs struct {
 	// ID of the collection.
 	Id *string `pulumi:"id"`
 	// Name of the collection.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id` or `name` is required.
 	Region *string `pulumi:"region"`
 }
 
@@ -103,7 +105,9 @@ type LookupServerlessCollectionOutputArgs struct {
 	// ID of the collection.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the collection.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id` or `name` is required.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

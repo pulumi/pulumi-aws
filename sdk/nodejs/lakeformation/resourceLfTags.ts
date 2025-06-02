@@ -133,7 +133,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
      */
     public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export interface ResourceLfTagsState {
      */
     lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface ResourceLfTagsArgs {
      */
     lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

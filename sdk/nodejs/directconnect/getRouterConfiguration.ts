@@ -37,6 +37,9 @@ export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: 
  * A collection of arguments for invoking getRouterConfiguration.
  */
 export interface GetRouterConfigurationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -119,6 +122,9 @@ export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputA
  * A collection of arguments for invoking getRouterConfiguration.
  */
 export interface GetRouterConfigurationOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`

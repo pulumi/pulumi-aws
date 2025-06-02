@@ -195,6 +195,7 @@ def get_addon(addon_name: Optional[builtins.str] = None,
     :param builtins.str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str cluster_name: Name of the EKS Cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -240,6 +241,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str cluster_name: Name of the EKS Cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name

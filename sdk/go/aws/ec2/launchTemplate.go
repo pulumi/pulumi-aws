@@ -92,7 +92,7 @@ type LaunchTemplate struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrOutput `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
@@ -210,7 +210,7 @@ type launchTemplateState struct {
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
@@ -299,7 +299,7 @@ type LaunchTemplateState struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
@@ -388,7 +388,7 @@ type launchTemplateArgs struct {
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
@@ -472,7 +472,7 @@ type LaunchTemplateArgs struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
@@ -740,7 +740,7 @@ func (o LaunchTemplateOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LaunchTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

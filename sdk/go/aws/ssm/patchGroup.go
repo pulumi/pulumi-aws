@@ -56,7 +56,7 @@ type PatchGroup struct {
 	BaselineId pulumi.StringOutput `pulumi:"baselineId"`
 	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringOutput `pulumi:"patchGroup"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -100,7 +100,7 @@ type patchGroupState struct {
 	BaselineId *string `pulumi:"baselineId"`
 	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup *string `pulumi:"patchGroup"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -109,7 +109,7 @@ type PatchGroupState struct {
 	BaselineId pulumi.StringPtrInput
 	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -122,7 +122,7 @@ type patchGroupArgs struct {
 	BaselineId string `pulumi:"baselineId"`
 	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup string `pulumi:"patchGroup"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type PatchGroupArgs struct {
 	BaselineId pulumi.StringInput
 	// The name of the patch group that should be registered with the patch baseline.
 	PatchGroup pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -233,7 +233,7 @@ func (o PatchGroupOutput) PatchGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchGroup) pulumi.StringOutput { return v.PatchGroup }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PatchGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

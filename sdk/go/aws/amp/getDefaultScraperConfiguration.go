@@ -48,6 +48,7 @@ func GetDefaultScraperConfiguration(ctx *pulumi.Context, args *GetDefaultScraper
 
 // A collection of arguments for invoking getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -71,6 +72,7 @@ func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, args GetDefaultSc
 
 // A collection of arguments for invoking getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

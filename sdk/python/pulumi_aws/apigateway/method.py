@@ -42,7 +42,7 @@ class MethodArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -171,7 +171,7 @@ class MethodArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -242,7 +242,7 @@ class _MethodState:
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -353,7 +353,7 @@ class _MethodState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -513,7 +513,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -681,7 +681,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -761,7 +761,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

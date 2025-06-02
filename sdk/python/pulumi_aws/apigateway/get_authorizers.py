@@ -96,6 +96,7 @@ def get_authorizers(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
@@ -125,6 +126,7 @@ def get_authorizers_output(region: Optional[pulumi.Input[Optional[builtins.str]]
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()

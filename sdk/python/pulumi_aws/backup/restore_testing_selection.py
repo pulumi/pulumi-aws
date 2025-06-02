@@ -39,7 +39,7 @@ class RestoreTestingSelectionArgs:
         :param pulumi.Input[builtins.str] name: The name of the backup restore testing selection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
         :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions for the protected resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
@@ -135,7 +135,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -187,7 +187,7 @@ class _RestoreTestingSelectionState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
         :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[builtins.str] protected_resource_type: The type of the protected resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[builtins.str] restore_testing_plan_name: The name of the restore testing plan.
         :param pulumi.Input[builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
@@ -275,7 +275,7 @@ class _RestoreTestingSelectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -389,7 +389,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
         :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[builtins.str] protected_resource_type: The type of the protected resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[builtins.str] restore_testing_plan_name: The name of the restore testing plan.
         :param pulumi.Input[builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
@@ -525,7 +525,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
         :param pulumi.Input[Union['RestoreTestingSelectionProtectedResourceConditionsArgs', 'RestoreTestingSelectionProtectedResourceConditionsArgsDict']] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[builtins.str] protected_resource_type: The type of the protected resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[builtins.str] restore_testing_plan_name: The name of the restore testing plan.
         :param pulumi.Input[builtins.int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
@@ -589,7 +589,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

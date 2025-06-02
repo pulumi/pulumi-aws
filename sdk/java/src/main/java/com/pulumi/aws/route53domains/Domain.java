@@ -435,12 +435,16 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
+     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * 
      */
     @Export(name="transferLock", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> transferLock;
 
     /**
      * @return Whether the domain is locked for transfer. Default: `true`.
+     * 
+     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
      * 
      */
     public Output<Boolean> transferLock() {

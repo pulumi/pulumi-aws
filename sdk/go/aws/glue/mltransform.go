@@ -168,7 +168,7 @@ type MLTransform struct {
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersOutput `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -243,7 +243,7 @@ type mltransformState struct {
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters *MLTransformParameters `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn *string `pulumi:"roleArn"`
@@ -280,7 +280,7 @@ type MLTransformState struct {
 	NumberOfWorkers pulumi.IntPtrInput
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type mltransformArgs struct {
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParameters `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn string `pulumi:"roleArn"`
@@ -347,7 +347,7 @@ type MLTransformArgs struct {
 	NumberOfWorkers pulumi.IntPtrInput
 	// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
 	Parameters MLTransformParametersInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this ML Transform.
 	RoleArn pulumi.StringInput
@@ -496,7 +496,7 @@ func (o MLTransformOutput) Parameters() MLTransformParametersOutput {
 	return o.ApplyT(func(v *MLTransform) MLTransformParametersOutput { return v.Parameters }).(MLTransformParametersOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MLTransformOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

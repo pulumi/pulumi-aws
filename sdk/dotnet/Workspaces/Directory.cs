@@ -177,6 +177,60 @@ namespace Pulumi.Aws.Workspaces
     /// });
     /// ```
     /// 
+    /// ### WorkSpaces Pools
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Workspaces.Directory("example", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         WorkspaceType = "POOLS",
+    ///         WorkspaceDirectoryName = "Pool directory",
+    ///         WorkspaceDirectoryDescription = "WorkSpaces Pools directory",
+    ///         UserIdentityType = "CUSTOMER_MANAGED",
+    ///         ActiveDirectoryConfig = new Aws.Workspaces.Inputs.DirectoryActiveDirectoryConfigArgs
+    ///         {
+    ///             DomainName = "example.internal",
+    ///             ServiceAccountSecretArn = exampleAwsSecretsmanagerSecret.Arn,
+    ///         },
+    ///         WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
+    ///         {
+    ///             DeviceTypeAndroid = "ALLOW",
+    ///             DeviceTypeChromeos = "ALLOW",
+    ///             DeviceTypeIos = "ALLOW",
+    ///             DeviceTypeLinux = "DENY",
+    ///             DeviceTypeOsx = "ALLOW",
+    ///             DeviceTypeWeb = "DENY",
+    ///             DeviceTypeWindows = "DENY",
+    ///             DeviceTypeZeroclient = "DENY",
+    ///         },
+    ///         WorkspaceCreationProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceCreationPropertiesArgs
+    ///         {
+    ///             CustomSecurityGroupId = exampleAwsSecurityGroup.Id,
+    ///             DefaultOu = "OU=AWS,DC=Workgroup,DC=Example,DC=com",
+    ///             EnableInternetAccess = true,
+    ///         },
+    ///         SamlProperties = new Aws.Workspaces.Inputs.DirectorySamlPropertiesArgs
+    ///         {
+    ///             RelayStateParameterName = "RelayState",
+    ///             UserAccessUrl = "https://sso.example.com/",
+    ///             Status = "ENABLED",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### IP Groups
     /// 
     /// ```csharp
@@ -215,6 +269,12 @@ namespace Pulumi.Aws.Workspaces
     [AwsResourceType("aws:workspaces/directory:Directory")]
     public partial class Directory : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// </summary>
+        [Output("activeDirectoryConfig")]
+        public Output<Outputs.DirectoryActiveDirectoryConfig?> ActiveDirectoryConfig { get; private set; } = null!;
+
         /// <summary>
         /// The directory alias.
         /// </summary>
@@ -270,7 +330,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableArray<string>> IpGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -288,7 +348,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.DirectorySamlProperties> SamlProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Output("selfServicePermissions")]
         public Output<Outputs.DirectorySelfServicePermissions> SelfServicePermissions { get; private set; } = null!;
@@ -312,6 +372,14 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+        /// 
+        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// </summary>
+        [Output("userIdentityType")]
+        public Output<string> UserIdentityType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
         [Output("workspaceAccessProperties")]
@@ -324,10 +392,28 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.DirectoryWorkspaceCreationProperties> WorkspaceCreationProperties { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Output("workspaceDirectoryDescription")]
+        public Output<string?> WorkspaceDirectoryDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Output("workspaceDirectoryName")]
+        public Output<string?> WorkspaceDirectoryName { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
         [Output("workspaceSecurityGroupId")]
         public Output<string> WorkspaceSecurityGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+        /// </summary>
+        [Output("workspaceType")]
+        public Output<string?> WorkspaceType { get; private set; } = null!;
 
 
         /// <summary>
@@ -337,7 +423,7 @@ namespace Pulumi.Aws.Workspaces
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Directory(string name, DirectoryArgs args, CustomResourceOptions? options = null)
+        public Directory(string name, DirectoryArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:workspaces/directory:Directory", name, args ?? new DirectoryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -376,6 +462,12 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// </summary>
+        [Input("activeDirectoryConfig")]
+        public Input<Inputs.DirectoryActiveDirectoryConfigArgs>? ActiveDirectoryConfig { get; set; }
+
+        /// <summary>
         /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         /// </summary>
         [Input("certificateBasedAuthProperties")]
@@ -384,8 +476,8 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
-        [Input("directoryId", required: true)]
-        public Input<string> DirectoryId { get; set; } = null!;
+        [Input("directoryId")]
+        public Input<string>? DirectoryId { get; set; }
 
         [Input("ipGroupIds")]
         private InputList<string>? _ipGroupIds;
@@ -400,7 +492,7 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -412,7 +504,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectorySamlPropertiesArgs>? SamlProperties { get; set; }
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsArgs>? SelfServicePermissions { get; set; }
@@ -442,6 +534,14 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
+        /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+        /// 
+        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// </summary>
+        [Input("userIdentityType")]
+        public Input<string>? UserIdentityType { get; set; }
+
+        /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
         [Input("workspaceAccessProperties")]
@@ -453,6 +553,24 @@ namespace Pulumi.Aws.Workspaces
         [Input("workspaceCreationProperties")]
         public Input<Inputs.DirectoryWorkspaceCreationPropertiesArgs>? WorkspaceCreationProperties { get; set; }
 
+        /// <summary>
+        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Input("workspaceDirectoryDescription")]
+        public Input<string>? WorkspaceDirectoryDescription { get; set; }
+
+        /// <summary>
+        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Input("workspaceDirectoryName")]
+        public Input<string>? WorkspaceDirectoryName { get; set; }
+
+        /// <summary>
+        /// Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+        /// </summary>
+        [Input("workspaceType")]
+        public Input<string>? WorkspaceType { get; set; }
+
         public DirectoryArgs()
         {
         }
@@ -461,6 +579,12 @@ namespace Pulumi.Aws.Workspaces
 
     public sealed class DirectoryState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        /// </summary>
+        [Input("activeDirectoryConfig")]
+        public Input<Inputs.DirectoryActiveDirectoryConfigGetArgs>? ActiveDirectoryConfig { get; set; }
+
         /// <summary>
         /// The directory alias.
         /// </summary>
@@ -528,7 +652,7 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -546,7 +670,7 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectorySamlPropertiesGetArgs>? SamlProperties { get; set; }
 
         /// <summary>
-        /// Permissions to enable or disable self-service capabilities. Defined below.
+        /// Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
         public Input<Inputs.DirectorySelfServicePermissionsGetArgs>? SelfServicePermissions { get; set; }
@@ -588,6 +712,14 @@ namespace Pulumi.Aws.Workspaces
         }
 
         /// <summary>
+        /// Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+        /// 
+        /// &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+        /// </summary>
+        [Input("userIdentityType")]
+        public Input<string>? UserIdentityType { get; set; }
+
+        /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
         [Input("workspaceAccessProperties")]
@@ -600,10 +732,28 @@ namespace Pulumi.Aws.Workspaces
         public Input<Inputs.DirectoryWorkspaceCreationPropertiesGetArgs>? WorkspaceCreationProperties { get; set; }
 
         /// <summary>
+        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Input("workspaceDirectoryDescription")]
+        public Input<string>? WorkspaceDirectoryDescription { get; set; }
+
+        /// <summary>
+        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        [Input("workspaceDirectoryName")]
+        public Input<string>? WorkspaceDirectoryName { get; set; }
+
+        /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
         [Input("workspaceSecurityGroupId")]
         public Input<string>? WorkspaceSecurityGroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+        /// </summary>
+        [Input("workspaceType")]
+        public Input<string>? WorkspaceType { get; set; }
 
         public DirectoryState()
         {

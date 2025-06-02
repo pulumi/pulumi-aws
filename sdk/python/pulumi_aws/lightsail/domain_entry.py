@@ -33,7 +33,7 @@ class DomainEntryArgs:
         :param pulumi.Input[builtins.str] type: Type of record
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "target", target)
@@ -109,7 +109,7 @@ class DomainEntryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -132,7 +132,7 @@ class _DomainEntryState:
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -189,7 +189,7 @@ class _DomainEntryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -267,7 +267,7 @@ class DomainEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -372,7 +372,7 @@ class DomainEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The name of the Lightsail domain in which to create the entry
         :param pulumi.Input[builtins.bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[builtins.str] name: Name of the entry record
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: Target of the domain entry
         :param pulumi.Input[builtins.str] type: Type of record
         """
@@ -416,7 +416,7 @@ class DomainEntry(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -27,7 +27,7 @@ class LogDeliveryDestinationPolicyArgs:
         The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
         pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
@@ -62,7 +62,7 @@ class LogDeliveryDestinationPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -81,7 +81,7 @@ class _LogDeliveryDestinationPolicyState:
         Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if delivery_destination_name is not None:
             pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
@@ -118,7 +118,7 @@ class _LogDeliveryDestinationPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -165,7 +165,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -253,7 +253,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] delivery_destination_name: The name of the delivery destination to assign this policy to.
         :param pulumi.Input[builtins.str] delivery_destination_policy: The contents of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,7 +284,7 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

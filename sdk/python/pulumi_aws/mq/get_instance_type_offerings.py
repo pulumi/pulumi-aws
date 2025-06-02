@@ -134,6 +134,7 @@ def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
 
     :param builtins.str engine_type: Filter response by engine type.
     :param builtins.str host_instance_type: Filter response by host instance type.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Filter response by storage type.
     """
     __args__ = dict()
@@ -177,6 +178,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
 
     :param builtins.str engine_type: Filter response by engine type.
     :param builtins.str host_instance_type: Filter response by host instance type.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Filter response by storage type.
     """
     __args__ = dict()

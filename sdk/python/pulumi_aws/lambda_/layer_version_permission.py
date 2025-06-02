@@ -36,7 +36,7 @@ class LayerVersionPermissionArgs:
         :param pulumi.Input[builtins.str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[builtins.int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         :param pulumi.Input[builtins.str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         pulumi.set(__self__, "action", action)
@@ -127,7 +127,7 @@ class LayerVersionPermissionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -168,7 +168,7 @@ class _LayerVersionPermissionState:
         :param pulumi.Input[builtins.str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         :param pulumi.Input[builtins.str] policy: Full Lambda Layer Permission policy.
         :param pulumi.Input[builtins.str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision_id: A unique identifier for the current revision of the policy.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[builtins.str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -259,7 +259,7 @@ class _LayerVersionPermissionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -366,7 +366,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
         :param pulumi.Input[builtins.str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         :param pulumi.Input[builtins.str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[builtins.str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[builtins.int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -490,7 +490,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         :param pulumi.Input[builtins.str] policy: Full Lambda Layer Permission policy.
         :param pulumi.Input[builtins.str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision_id: A unique identifier for the current revision of the policy.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[builtins.str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -556,7 +556,7 @@ class LayerVersionPermission(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -57,8 +57,9 @@ func LookupInferenceProfile(ctx *pulumi.Context, args *LookupInferenceProfileArg
 // A collection of arguments for invoking getInferenceProfile.
 type LookupInferenceProfileArgs struct {
 	// Inference Profile identifier.
-	InferenceProfileId string  `pulumi:"inferenceProfileId"`
-	Region             *string `pulumi:"region"`
+	InferenceProfileId string `pulumi:"inferenceProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInferenceProfile.
@@ -97,8 +98,9 @@ func LookupInferenceProfileOutput(ctx *pulumi.Context, args LookupInferenceProfi
 // A collection of arguments for invoking getInferenceProfile.
 type LookupInferenceProfileOutputArgs struct {
 	// Inference Profile identifier.
-	InferenceProfileId pulumi.StringInput    `pulumi:"inferenceProfileId"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	InferenceProfileId pulumi.StringInput `pulumi:"inferenceProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupInferenceProfileOutputArgs) ElementType() reflect.Type {

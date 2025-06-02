@@ -29,7 +29,7 @@ class ProxyProtocolPolicyArgs:
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_ports", instance_ports)
         pulumi.set(__self__, "load_balancer", load_balancer)
@@ -66,7 +66,7 @@ class ProxyProtocolPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -87,7 +87,7 @@ class _ProxyProtocolPolicyState:
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if instance_ports is not None:
             pulumi.set(__self__, "instance_ports", instance_ports)
@@ -126,7 +126,7 @@ class _ProxyProtocolPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -185,7 +185,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -285,7 +285,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,7 +318,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

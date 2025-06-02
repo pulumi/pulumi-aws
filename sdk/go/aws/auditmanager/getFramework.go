@@ -55,7 +55,8 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 type LookupFrameworkArgs struct {
 	FrameworkType string `pulumi:"frameworkType"`
 	// Name of the framework.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -85,7 +86,8 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 type LookupFrameworkOutputArgs struct {
 	FrameworkType pulumi.StringInput `pulumi:"frameworkType"`
 	// Name of the framework.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

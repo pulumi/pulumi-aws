@@ -29,7 +29,7 @@ class DataCatalogEncryptionSettingsArgs:
         The set of arguments for constructing a DataCatalogEncryptionSettings resource.
         :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         :param pulumi.Input[builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
         if catalog_id is not None:
@@ -65,7 +65,7 @@ class DataCatalogEncryptionSettingsArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -84,7 +84,7 @@ class _DataCatalogEncryptionSettingsState:
         Input properties used for looking up and filtering DataCatalogEncryptionSettings resources.
         :param pulumi.Input[builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -121,7 +121,7 @@ class _DataCatalogEncryptionSettingsState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -174,7 +174,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -266,7 +266,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,7 +297,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

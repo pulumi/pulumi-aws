@@ -56,7 +56,7 @@ type InternetGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -129,7 +129,7 @@ type internetGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -173,7 +173,7 @@ type InternetGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -217,7 +217,7 @@ func (InternetGatewayState) ElementType() reflect.Type {
 }
 
 type internetGatewayArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -256,7 +256,7 @@ type internetGatewayArgs struct {
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -390,7 +390,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InternetGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

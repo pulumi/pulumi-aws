@@ -27,7 +27,7 @@ class VpcEndpointRouteTableAssociationArgs:
         The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
         :param pulumi.Input[builtins.str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -62,7 +62,7 @@ class VpcEndpointRouteTableAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -79,7 +79,7 @@ class _VpcEndpointRouteTableAssociationState:
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
@@ -94,7 +94,7 @@ class _VpcEndpointRouteTableAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -161,7 +161,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
@@ -247,7 +247,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
@@ -264,7 +264,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

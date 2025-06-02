@@ -32,7 +32,7 @@ class MedicalVocabularyArgs:
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Medical Vocabulary.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "language_code", language_code)
@@ -85,7 +85,7 @@ class MedicalVocabularyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -122,7 +122,7 @@ class _MedicalVocabularyState:
         :param pulumi.Input[builtins.str] arn: ARN of the MedicalVocabulary.
         :param pulumi.Input[builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Medical Vocabulary.
@@ -186,7 +186,7 @@ class _MedicalVocabularyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -298,7 +298,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Medical Vocabulary.
@@ -423,7 +423,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the MedicalVocabulary.
         :param pulumi.Input[builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Medical Vocabulary.
@@ -472,7 +472,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

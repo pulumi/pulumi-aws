@@ -107,7 +107,7 @@ export class Workforce extends pulumi.CustomResource {
      */
     public readonly oidcConfig!: pulumi.Output<outputs.sagemaker.WorkforceOidcConfig | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export interface WorkforceState {
      */
     oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -218,7 +218,7 @@ export interface WorkforceArgs {
      */
     oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

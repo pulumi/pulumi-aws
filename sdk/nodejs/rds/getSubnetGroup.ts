@@ -34,6 +34,9 @@ export interface GetSubnetGroupArgs {
      * Name of the RDS database subnet group.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -102,5 +105,8 @@ export interface GetSubnetGroupOutputArgs {
      * Name of the RDS database subnet group.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

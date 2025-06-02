@@ -99,6 +99,20 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersSaslIam", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersSaslIam;
+
+    /**
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersSaslIam() {
+        return this.bootstrapBrokersSaslIam;
+    }
+    /**
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
@@ -141,14 +155,14 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
         return this.clusterUuid;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

@@ -37,7 +37,7 @@ class UsagePlanArgs:
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
         """
@@ -122,7 +122,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -176,7 +176,7 @@ class _UsagePlanState:
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
@@ -278,7 +278,7 @@ class _UsagePlanState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -356,7 +356,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle_settings: The throttling limits of the usage plan.
         """
@@ -452,7 +452,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the usage plan.
         :param pulumi.Input[builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle_settings: The throttling limits of the usage plan.
@@ -525,7 +525,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

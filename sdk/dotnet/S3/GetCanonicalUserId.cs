@@ -36,8 +36,8 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Task<GetCanonicalUserIdResult> InvokeAsync(GetCanonicalUserIdArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", args ?? new GetCanonicalUserIdArgs(), options.WithDefaults());
+        public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -64,8 +64,8 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Output<GetCanonicalUserIdResult> Invoke(GetCanonicalUserIdInvokeArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", args ?? new GetCanonicalUserIdInvokeArgs(), options.WithDefaults());
+        public static Output<GetCanonicalUserIdResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -92,31 +92,8 @@ namespace Pulumi.Aws.S3
         /// });
         /// ```
         /// </summary>
-        public static Output<GetCanonicalUserIdResult> Invoke(GetCanonicalUserIdInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", args ?? new GetCanonicalUserIdInvokeArgs(), options.WithDefaults());
-    }
-
-
-    public sealed class GetCanonicalUserIdArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("region")]
-        public string? Region { get; set; }
-
-        public GetCanonicalUserIdArgs()
-        {
-        }
-        public static new GetCanonicalUserIdArgs Empty => new GetCanonicalUserIdArgs();
-    }
-
-    public sealed class GetCanonicalUserIdInvokeArgs : global::Pulumi.InvokeArgs
-    {
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        public GetCanonicalUserIdInvokeArgs()
-        {
-        }
-        public static new GetCanonicalUserIdInvokeArgs Empty => new GetCanonicalUserIdInvokeArgs();
+        public static Output<GetCanonicalUserIdResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -131,19 +108,15 @@ namespace Pulumi.Aws.S3
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Region;
 
         [OutputConstructor]
         private GetCanonicalUserIdResult(
             string displayName,
 
-            string id,
-
-            string region)
+            string id)
         {
             DisplayName = displayName;
             Id = id;
-            Region = region;
         }
     }
 }

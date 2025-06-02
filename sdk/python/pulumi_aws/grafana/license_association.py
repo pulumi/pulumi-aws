@@ -29,7 +29,7 @@ class LicenseAssociationArgs:
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -78,7 +78,7 @@ class LicenseAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _LicenseAssociationState:
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         if free_trial_expiration is not None:
@@ -170,7 +170,7 @@ class _LicenseAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -249,7 +249,7 @@ class LicenseAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         ...
@@ -366,7 +366,7 @@ class LicenseAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -417,7 +417,7 @@ class LicenseAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

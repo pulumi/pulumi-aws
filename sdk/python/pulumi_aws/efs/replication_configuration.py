@@ -29,7 +29,7 @@ class ReplicationConfigurationArgs:
         The set of arguments for constructing a ReplicationConfiguration resource.
         :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
         :param pulumi.Input[builtins.str] source_file_system_id: The ID of the file system that is to be replicated.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source_file_system_id", source_file_system_id)
@@ -64,7 +64,7 @@ class ReplicationConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -90,7 +90,7 @@ class _ReplicationConfigurationState:
                * `destination[0].status` - The status of the replication.
         :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
         :param pulumi.Input[builtins.str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         :param pulumi.Input[builtins.str] source_file_system_id: The ID of the file system that is to be replicated.
         :param pulumi.Input[builtins.str] source_file_system_region: The AWS Region in which the source Amazon EFS file system is located.
@@ -152,7 +152,7 @@ class _ReplicationConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -269,7 +269,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']] destination: A destination configuration block (documented below).
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_file_system_id: The ID of the file system that is to be replicated.
         """
         ...
@@ -404,7 +404,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                * `destination[0].status` - The status of the replication.
         :param pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']] destination: A destination configuration block (documented below).
         :param pulumi.Input[builtins.str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         :param pulumi.Input[builtins.str] source_file_system_id: The ID of the file system that is to be replicated.
         :param pulumi.Input[builtins.str] source_file_system_region: The AWS Region in which the source Amazon EFS file system is located.
@@ -452,7 +452,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

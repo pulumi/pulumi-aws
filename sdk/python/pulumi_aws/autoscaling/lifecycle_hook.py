@@ -38,7 +38,7 @@ class LifecycleHookArgs:
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -146,7 +146,7 @@ class LifecycleHookArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -188,7 +188,7 @@ class _LifecycleHookState:
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         if autoscaling_group_name is not None:
@@ -298,7 +298,7 @@ class _LifecycleHookState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -397,7 +397,7 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         ...
@@ -538,7 +538,7 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the lifecycle hook.
         :param pulumi.Input[builtins.str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[builtins.str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -616,7 +616,7 @@ class LifecycleHook(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

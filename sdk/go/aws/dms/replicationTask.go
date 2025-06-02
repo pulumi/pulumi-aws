@@ -69,7 +69,7 @@ type ReplicationTask struct {
 	CdcStartTime pulumi.StringPtrOutput `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringOutput `pulumi:"migrationType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringOutput `pulumi:"replicationInstanceArn"`
@@ -151,7 +151,7 @@ type replicationTaskState struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType *string `pulumi:"migrationType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn *string `pulumi:"replicationInstanceArn"`
@@ -186,7 +186,7 @@ type ReplicationTaskState struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type replicationTaskArgs struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType string `pulumi:"migrationType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
@@ -255,7 +255,7 @@ type ReplicationTaskArgs struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
@@ -379,7 +379,7 @@ func (o ReplicationTaskOutput) MigrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.MigrationType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationTaskOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

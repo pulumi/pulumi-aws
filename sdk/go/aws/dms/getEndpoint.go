@@ -53,9 +53,10 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointArgs struct {
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-	EndpointId string            `pulumi:"endpointId"`
-	Region     *string           `pulumi:"region"`
-	Tags       map[string]string `pulumi:"tags"`
+	EndpointId string `pulumi:"endpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEndpoint.
@@ -102,9 +103,10 @@ func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, op
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointOutputArgs struct {
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-	EndpointId pulumi.StringInput    `pulumi:"endpointId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
-	Tags       pulumi.StringMapInput `pulumi:"tags"`
+	EndpointId pulumi.StringInput `pulumi:"endpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupEndpointOutputArgs) ElementType() reflect.Type {

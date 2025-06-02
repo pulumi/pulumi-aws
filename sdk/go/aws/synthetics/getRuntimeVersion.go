@@ -85,7 +85,8 @@ type GetRuntimeVersionArgs struct {
 	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
 	//
 	// The following arguments are optional:
-	Prefix string  `pulumi:"prefix"`
+	Prefix string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version *string `pulumi:"version"`
@@ -125,7 +126,8 @@ type GetRuntimeVersionOutputArgs struct {
 	// Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
 	//
 	// The following arguments are optional:
-	Prefix pulumi.StringInput    `pulumi:"prefix"`
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version pulumi.StringPtrInput `pulumi:"version"`

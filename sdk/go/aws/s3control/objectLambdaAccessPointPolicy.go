@@ -116,7 +116,7 @@ type ObjectLambdaAccessPointPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -161,7 +161,7 @@ type objectLambdaAccessPointPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -174,7 +174,7 @@ type ObjectLambdaAccessPointPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -189,7 +189,7 @@ type objectLambdaAccessPointPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -201,7 +201,7 @@ type ObjectLambdaAccessPointPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -312,7 +312,7 @@ func (o ObjectLambdaAccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ObjectLambdaAccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

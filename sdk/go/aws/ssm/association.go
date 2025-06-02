@@ -192,7 +192,7 @@ type Association struct {
 	OutputLocation AssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
@@ -264,7 +264,7 @@ type associationState struct {
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
@@ -307,7 +307,7 @@ type AssociationState struct {
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
@@ -350,7 +350,7 @@ type associationArgs struct {
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters map[string]string `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
@@ -388,7 +388,7 @@ type AssociationArgs struct {
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
 	Parameters pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
@@ -551,7 +551,7 @@ func (o AssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

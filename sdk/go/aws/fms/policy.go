@@ -111,7 +111,7 @@ type Policy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken pulumi.StringOutput `pulumi:"policyUpdateToken"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrOutput     `pulumi:"remediationEnabled"`
@@ -183,7 +183,7 @@ type policyState struct {
 	Name *string `pulumi:"name"`
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken *string `pulumi:"policyUpdateToken"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
@@ -220,7 +220,7 @@ type PolicyState struct {
 	Name pulumi.StringPtrInput
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
@@ -258,7 +258,7 @@ type policyArgs struct {
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
@@ -291,7 +291,7 @@ type PolicyArgs struct {
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
@@ -439,7 +439,7 @@ func (o PolicyOutput) PolicyUpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyUpdateToken }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -229,7 +229,7 @@ type Trigger struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrOutput `pulumi:"predicate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
@@ -297,7 +297,7 @@ type triggerState struct {
 	Name *string `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
@@ -330,7 +330,7 @@ type TriggerState struct {
 	Name pulumi.StringPtrInput
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput
@@ -365,7 +365,7 @@ type triggerArgs struct {
 	Name *string `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
@@ -393,7 +393,7 @@ type TriggerArgs struct {
 	Name pulumi.StringPtrInput
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
 	Predicate TriggerPredicatePtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput
@@ -529,7 +529,7 @@ func (o TriggerOutput) Predicate() TriggerPredicatePtrOutput {
 	return o.ApplyT(func(v *Trigger) TriggerPredicatePtrOutput { return v.Predicate }).(TriggerPredicatePtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TriggerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -96,7 +96,7 @@ type DataShareConsumerAssociation struct {
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringOutput `pulumi:"producerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -149,7 +149,7 @@ type dataShareConsumerAssociationState struct {
 	ManagedBy *string `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn *string `pulumi:"producerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -170,7 +170,7 @@ type DataShareConsumerAssociationState struct {
 	ManagedBy pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -191,7 +191,7 @@ type dataShareConsumerAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn string `pulumi:"dataShareArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -209,7 +209,7 @@ type DataShareConsumerAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -337,7 +337,7 @@ func (o DataShareConsumerAssociationOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareConsumerAssociation) pulumi.StringOutput { return v.ProducerArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataShareConsumerAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareConsumerAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -145,7 +145,8 @@ type GetElasticIpArgs struct {
 	Id *string `pulumi:"id"`
 	// Public IP of the specific EIP to retrieve.
 	PublicIp *string `pulumi:"publicIp"`
-	Region   *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
 	//
 	// The arguments of this data source act as filters for querying the available
@@ -212,7 +213,8 @@ type GetElasticIpOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Public IP of the specific EIP to retrieve.
 	PublicIp pulumi.StringPtrInput `pulumi:"publicIp"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
 	//
 	// The arguments of this data source act as filters for querying the available

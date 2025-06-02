@@ -48,14 +48,14 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     @Import(name="authorizationType")
     private @Nullable Output<String> authorizationType;
 
     /**
-     * @return Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * @return Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     public Optional<Output<String>> authorizationType() {
@@ -63,14 +63,14 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Enter a description for the connection. Maximum of 512 characters.
+     * Description for the connection. Maximum of 512 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Enter a description for the connection. Maximum of 512 characters.
+     * @return Description for the connection. Maximum of 512 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -78,14 +78,14 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The parameters to use for invoking a private API. Documented below.
+     * Parameters to use for invoking a private API. Documented below.
      * 
      */
     @Import(name="invocationConnectivityParameters")
     private @Nullable Output<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters;
 
     /**
-     * @return The parameters to use for invoking a private API. Documented below.
+     * @return Parameters to use for invoking a private API. Documented below.
      * 
      */
     public Optional<Output<EventConnectionInvocationConnectivityParametersArgs>> invocationConnectivityParameters() {
@@ -93,14 +93,29 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
+     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * @return The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +123,14 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -145,6 +160,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         this.authorizationType = $.authorizationType;
         this.description = $.description;
         this.invocationConnectivityParameters = $.invocationConnectivityParameters;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.name = $.name;
         this.region = $.region;
         this.secretArn = $.secretArn;
@@ -211,7 +227,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizationType Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+         * @param authorizationType Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
          * 
          * @return builder
          * 
@@ -222,7 +238,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizationType Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+         * @param authorizationType Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
          * 
          * @return builder
          * 
@@ -232,7 +248,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Enter a description for the connection. Maximum of 512 characters.
+         * @param description Description for the connection. Maximum of 512 characters.
          * 
          * @return builder
          * 
@@ -243,7 +259,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Enter a description for the connection. Maximum of 512 characters.
+         * @param description Description for the connection. Maximum of 512 characters.
          * 
          * @return builder
          * 
@@ -253,7 +269,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param invocationConnectivityParameters The parameters to use for invoking a private API. Documented below.
+         * @param invocationConnectivityParameters Parameters to use for invoking a private API. Documented below.
          * 
          * @return builder
          * 
@@ -264,7 +280,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param invocationConnectivityParameters The parameters to use for invoking a private API. Documented below.
+         * @param invocationConnectivityParameters Parameters to use for invoking a private API. Documented below.
          * 
          * @return builder
          * 
@@ -274,7 +290,28 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
+        }
+
+        /**
+         * @param name The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
          * 
          * @return builder
          * 
@@ -285,7 +322,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+         * @param name The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
          * 
          * @return builder
          * 
@@ -295,7 +332,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -306,7 +343,7 @@ public final class EventConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

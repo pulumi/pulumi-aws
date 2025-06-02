@@ -43,7 +43,7 @@ type Cluster struct {
 	HsmType pulumi.StringOutput `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
@@ -105,7 +105,7 @@ type clusterState struct {
 	HsmType *string `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode *string `pulumi:"mode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
@@ -132,7 +132,7 @@ type ClusterState struct {
 	HsmType pulumi.StringPtrInput
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringPtrInput
@@ -157,7 +157,7 @@ type clusterArgs struct {
 	HsmType string `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode *string `pulumi:"mode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
@@ -173,7 +173,7 @@ type ClusterArgs struct {
 	HsmType pulumi.StringInput
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o ClusterOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

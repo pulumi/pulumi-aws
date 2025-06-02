@@ -27,7 +27,7 @@ class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
-    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, refresh_closed_reports=None, region=None, report_name=None, report_versioning=None, s3_bucket=None, s3_prefix=None, s3_region=None, tags=None, time_unit=None):
+    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, refresh_closed_reports=None, report_name=None, report_versioning=None, s3_bucket=None, s3_prefix=None, s3_region=None, tags=None, time_unit=None):
         if additional_artifacts and not isinstance(additional_artifacts, list):
             raise TypeError("Expected argument 'additional_artifacts' to be a list")
         pulumi.set(__self__, "additional_artifacts", additional_artifacts)
@@ -46,9 +46,6 @@ class GetReportDefinitionResult:
         if refresh_closed_reports and not isinstance(refresh_closed_reports, bool):
             raise TypeError("Expected argument 'refresh_closed_reports' to be a bool")
         pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        pulumi.set(__self__, "region", region)
         if report_name and not isinstance(report_name, str):
             raise TypeError("Expected argument 'report_name' to be a str")
         pulumi.set(__self__, "report_name", report_name)
@@ -120,11 +117,6 @@ class GetReportDefinitionResult:
         return pulumi.get(self, "refresh_closed_reports")
 
     @property
-    @pulumi.getter
-    def region(self) -> builtins.str:
-        return pulumi.get(self, "region")
-
-    @property
     @pulumi.getter(name="reportName")
     def report_name(self) -> builtins.str:
         return pulumi.get(self, "report_name")
@@ -190,7 +182,6 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
             format=self.format,
             id=self.id,
             refresh_closed_reports=self.refresh_closed_reports,
-            region=self.region,
             report_name=self.report_name,
             report_versioning=self.report_versioning,
             s3_bucket=self.s3_bucket,
@@ -200,8 +191,7 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
             time_unit=self.time_unit)
 
 
-def get_report_definition(region: Optional[builtins.str] = None,
-                          report_name: Optional[builtins.str] = None,
+def get_report_definition(report_name: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportDefinitionResult:
     """
@@ -225,7 +215,6 @@ def get_report_definition(region: Optional[builtins.str] = None,
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the resource.
     """
     __args__ = dict()
-    __args__['region'] = region
     __args__['reportName'] = report_name
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -238,7 +227,6 @@ def get_report_definition(region: Optional[builtins.str] = None,
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
         refresh_closed_reports=pulumi.get(__ret__, 'refresh_closed_reports'),
-        region=pulumi.get(__ret__, 'region'),
         report_name=pulumi.get(__ret__, 'report_name'),
         report_versioning=pulumi.get(__ret__, 'report_versioning'),
         s3_bucket=pulumi.get(__ret__, 's3_bucket'),
@@ -246,8 +234,7 @@ def get_report_definition(region: Optional[builtins.str] = None,
         s3_region=pulumi.get(__ret__, 's3_region'),
         tags=pulumi.get(__ret__, 'tags'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
-def get_report_definition_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
-                                 report_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_report_definition_output(report_name: Optional[pulumi.Input[builtins.str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportDefinitionResult]:
     """
@@ -271,7 +258,6 @@ def get_report_definition_output(region: Optional[pulumi.Input[Optional[builtins
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the resource.
     """
     __args__ = dict()
-    __args__['region'] = region
     __args__['reportName'] = report_name
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -283,7 +269,6 @@ def get_report_definition_output(region: Optional[pulumi.Input[Optional[builtins
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
         refresh_closed_reports=pulumi.get(__response__, 'refresh_closed_reports'),
-        region=pulumi.get(__response__, 'region'),
         report_name=pulumi.get(__response__, 'report_name'),
         report_versioning=pulumi.get(__response__, 'report_versioning'),
         s3_bucket=pulumi.get(__response__, 's3_bucket'),

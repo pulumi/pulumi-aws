@@ -61,7 +61,7 @@ type IdentityProviderConfig struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the EKS Identity Provider Configuration.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -113,7 +113,7 @@ type identityProviderConfigState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc *IdentityProviderConfigOidc `pulumi:"oidc"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of the EKS Identity Provider Configuration.
 	Status *string `pulumi:"status"`
@@ -130,7 +130,7 @@ type IdentityProviderConfigState struct {
 	ClusterName pulumi.StringPtrInput
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of the EKS Identity Provider Configuration.
 	Status pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type identityProviderConfigArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidc `pulumi:"oidc"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -161,7 +161,7 @@ type IdentityProviderConfigArgs struct {
 	ClusterName pulumi.StringInput
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -269,7 +269,7 @@ func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigOidcOutput { return v.Oidc }).(IdentityProviderConfigOidcOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityProviderConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

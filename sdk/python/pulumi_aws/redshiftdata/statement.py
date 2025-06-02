@@ -40,7 +40,7 @@ class StatementArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] db_user: The database user name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param pulumi.Input[builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
@@ -128,7 +128,7 @@ class StatementArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -203,7 +203,7 @@ class _StatementState:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -282,7 +282,7 @@ class _StatementState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -413,7 +413,7 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -544,7 +544,7 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -602,7 +602,7 @@ class Statement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

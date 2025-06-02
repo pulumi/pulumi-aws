@@ -54,6 +54,7 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
 	ResourceId string `pulumi:"resourceId"`
@@ -82,6 +83,7 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`

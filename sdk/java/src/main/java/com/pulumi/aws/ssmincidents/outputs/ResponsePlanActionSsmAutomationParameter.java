@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ResponsePlanActionSsmAutomationParameter {
     /**
-     * @return The name of the response plan.
+     * @return The name of parameter.
      * 
      */
     private String name;
@@ -24,7 +24,7 @@ public final class ResponsePlanActionSsmAutomationParameter {
 
     private ResponsePlanActionSsmAutomationParameter() {}
     /**
-     * @return The name of the response plan.
+     * @return The name of parameter.
      * 
      */
     public String name() {

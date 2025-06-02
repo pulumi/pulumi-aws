@@ -36,6 +36,9 @@ export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getVirtualCluster.
  */
 export interface GetVirtualClusterArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Key-value mapping of resource tags.
@@ -111,6 +114,9 @@ export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?
  * A collection of arguments for invoking getVirtualCluster.
  */
 export interface GetVirtualClusterOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags.

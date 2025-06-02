@@ -134,6 +134,7 @@ def get_connector(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the connector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -169,6 +170,7 @@ def get_connector_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the connector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()

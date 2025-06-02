@@ -51,7 +51,7 @@ class ConnectorArgs:
         :param pulumi.Input[builtins.str] description: A summary description of the connector.
         :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the connector.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
@@ -214,7 +214,7 @@ class ConnectorArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -280,7 +280,7 @@ class _ConnectorState:
         :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
@@ -460,7 +460,7 @@ class _ConnectorState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -632,7 +632,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
@@ -829,7 +829,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
@@ -953,7 +953,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

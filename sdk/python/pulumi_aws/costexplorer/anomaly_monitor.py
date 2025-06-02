@@ -24,7 +24,6 @@ class AnomalyMonitorArgs:
                  monitor_dimension: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
@@ -32,7 +31,6 @@ class AnomalyMonitorArgs:
         :param pulumi.Input[builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
         :param pulumi.Input[builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         :param pulumi.Input[builtins.str] name: The name of the monitor.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "monitor_type", monitor_type)
@@ -42,8 +40,6 @@ class AnomalyMonitorArgs:
             pulumi.set(__self__, "monitor_specification", monitor_specification)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -97,18 +93,6 @@ class AnomalyMonitorArgs:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,7 +112,6 @@ class _AnomalyMonitorState:
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -138,7 +121,6 @@ class _AnomalyMonitorState:
         :param pulumi.Input[builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         :param pulumi.Input[builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         :param pulumi.Input[builtins.str] name: The name of the monitor.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -152,8 +134,6 @@ class _AnomalyMonitorState:
             pulumi.set(__self__, "monitor_type", monitor_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -221,18 +201,6 @@ class _AnomalyMonitorState:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -266,7 +234,6 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -326,7 +293,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         :param pulumi.Input[builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         :param pulumi.Input[builtins.str] name: The name of the monitor.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -405,7 +371,6 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,7 +387,6 @@ class AnomalyMonitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'monitor_type'")
             __props__.__dict__["monitor_type"] = monitor_type
             __props__.__dict__["name"] = name
-            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -441,7 +405,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_specification: Optional[pulumi.Input[builtins.str]] = None,
             monitor_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'AnomalyMonitor':
         """
@@ -456,7 +419,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         :param pulumi.Input[builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         :param pulumi.Input[builtins.str] name: The name of the monitor.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -469,7 +431,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         __props__.__dict__["monitor_specification"] = monitor_specification
         __props__.__dict__["monitor_type"] = monitor_type
         __props__.__dict__["name"] = name
-        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return AnomalyMonitor(resource_name, opts=opts, __props__=__props__)
@@ -513,14 +474,6 @@ class AnomalyMonitor(pulumi.CustomResource):
         The name of the monitor.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

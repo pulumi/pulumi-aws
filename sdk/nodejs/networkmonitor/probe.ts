@@ -84,8 +84,6 @@ export class Probe extends pulumi.CustomResource {
     public readonly monitorName!: pulumi.Output<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     public readonly packetSize!: pulumi.Output<number>;
     public /*out*/ readonly probeId!: pulumi.Output<string>;
@@ -94,7 +92,7 @@ export class Probe extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -193,8 +191,6 @@ export interface ProbeState {
     monitorName?: pulumi.Input<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     packetSize?: pulumi.Input<number>;
     probeId?: pulumi.Input<string>;
@@ -203,7 +199,7 @@ export interface ProbeState {
      */
     protocol?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -239,8 +235,6 @@ export interface ProbeArgs {
     monitorName: pulumi.Input<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     packetSize?: pulumi.Input<number>;
     /**
@@ -248,7 +242,7 @@ export interface ProbeArgs {
      */
     protocol: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

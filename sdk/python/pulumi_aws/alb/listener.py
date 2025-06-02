@@ -63,7 +63,7 @@ class ListenerArgs:
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -238,7 +238,7 @@ class ListenerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -560,7 +560,7 @@ class _ListenerState:
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -754,7 +754,7 @@ class _ListenerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1296,7 +1296,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -1686,7 +1686,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -1821,7 +1821,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

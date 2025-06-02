@@ -33,6 +33,9 @@ export interface GetHttpNamespaceArgs {
      * Name of the http namespace.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags for the resource.
@@ -96,6 +99,9 @@ export interface GetHttpNamespaceOutputArgs {
      * Name of the http namespace.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.

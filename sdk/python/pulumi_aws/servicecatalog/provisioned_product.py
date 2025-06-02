@@ -52,7 +52,7 @@ class ProvisionedProductArgs:
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -226,7 +226,7 @@ class ProvisionedProductArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -324,7 +324,7 @@ class _ProvisionedProductState:
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[builtins.str] status: Current status of the provisioned product. See meanings below.
@@ -622,7 +622,7 @@ class _ProvisionedProductState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -792,7 +792,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -974,7 +974,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[builtins.str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         :param pulumi.Input[builtins.str] status: Current status of the provisioned product. See meanings below.
@@ -1174,7 +1174,7 @@ class ProvisionedProduct(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

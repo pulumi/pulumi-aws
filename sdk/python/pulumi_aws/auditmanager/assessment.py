@@ -36,7 +36,7 @@ class AssessmentArgs:
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[builtins.str] description: Description of the assessment.
         :param pulumi.Input[builtins.str] name: Name of the assessment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
@@ -111,7 +111,7 @@ class AssessmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -180,7 +180,7 @@ class _AssessmentState:
         :param pulumi.Input[builtins.str] description: Description of the assessment.
         :param pulumi.Input[builtins.str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[builtins.str] name: Name of the assessment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
         :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -278,7 +278,7 @@ class _AssessmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -419,7 +419,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the assessment.
         :param pulumi.Input[builtins.str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[builtins.str] name: Name of the assessment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
@@ -552,7 +552,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the assessment.
         :param pulumi.Input[builtins.str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[builtins.str] name: Name of the assessment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentRoleArgs', 'AssessmentRoleArgsDict']]]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssessmentRolesAllArgs', 'AssessmentRolesAllArgsDict']]]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
         :param pulumi.Input[Union['AssessmentScopeArgs', 'AssessmentScopeArgsDict']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -623,7 +623,7 @@ class Assessment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

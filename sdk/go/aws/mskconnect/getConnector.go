@@ -51,7 +51,8 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 // A collection of arguments for invoking getConnector.
 type LookupConnectorArgs struct {
 	// Name of the connector.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -85,7 +86,8 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorOutputArgs struct {
 	// Name of the connector.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

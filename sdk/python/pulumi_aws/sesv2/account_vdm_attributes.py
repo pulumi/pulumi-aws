@@ -33,7 +33,7 @@ class AccountVdmAttributesArgs:
                The following arguments are optional:
         :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vdm_enabled", vdm_enabled)
         if dashboard_attributes is not None:
@@ -85,7 +85,7 @@ class AccountVdmAttributesArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -105,7 +105,7 @@ class _AccountVdmAttributesState:
         Input properties used for looking up and filtering AccountVdmAttributes resources.
         :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -147,7 +147,7 @@ class _AccountVdmAttributesState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -214,7 +214,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -311,7 +311,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -346,7 +346,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -29,7 +29,7 @@ class Disk_attachmentArgs:
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "disk_path", disk_path)
@@ -77,7 +77,7 @@ class Disk_attachmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _Disk_attachmentState:
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
@@ -149,7 +149,7 @@ class _Disk_attachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -211,7 +211,7 @@ class Disk_attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -318,7 +318,7 @@ class Disk_attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] disk_name: The name of the Lightsail Disk.
         :param pulumi.Input[builtins.str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[builtins.str] instance_name: The name of the Lightsail Instance to attach to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,7 +358,7 @@ class Disk_attachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

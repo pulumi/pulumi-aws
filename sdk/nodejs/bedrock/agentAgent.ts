@@ -147,7 +147,7 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     public readonly instruction!: pulumi.Output<string>;
     /**
@@ -159,11 +159,15 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
+     * Timestamp of when the agent was last prepared.
+     */
+    public /*out*/ readonly preparedAt!: pulumi.Output<string>;
+    /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -207,6 +211,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["instruction"] = state ? state.instruction : undefined;
             resourceInputs["memoryConfigurations"] = state ? state.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
+            resourceInputs["preparedAt"] = state ? state.preparedAt : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
@@ -243,6 +248,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["preparedAt"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -301,7 +307,7 @@ export interface AgentAgentState {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**
@@ -313,11 +319,15 @@ export interface AgentAgentState {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
+     * Timestamp of when the agent was last prepared.
+     */
+    preparedAt?: pulumi.Input<string>;
+    /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -374,7 +384,7 @@ export interface AgentAgentArgs {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**
@@ -390,7 +400,7 @@ export interface AgentAgentArgs {
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -35,7 +35,7 @@ class InvocationArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -105,7 +105,7 @@ class InvocationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -154,7 +154,7 @@ class _InvocationState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -229,7 +229,7 @@ class _InvocationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -350,7 +350,7 @@ class Invocation(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
@@ -490,7 +490,7 @@ class Invocation(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[builtins.str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -546,7 +546,7 @@ class Invocation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

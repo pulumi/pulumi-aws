@@ -47,7 +47,7 @@ class SamplingRuleArgs:
         :param pulumi.Input[builtins.str] url_path: Matches the path from a request URL.
         :param pulumi.Input[builtins.int] version: The version of the sampling rule format (`1` )
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Matches attributes derived from the request.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -206,7 +206,7 @@ class SamplingRuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -266,7 +266,7 @@ class _SamplingRuleState:
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -386,7 +386,7 @@ class _SamplingRuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -565,7 +565,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -728,7 +728,7 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[builtins.str] http_method: Matches the HTTP method of a request.
         :param pulumi.Input[builtins.int] priority: The priority of the sampling rule.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         :param pulumi.Input[builtins.str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
         :param pulumi.Input[builtins.str] rule_name: The name of the sampling rule.
@@ -813,7 +813,7 @@ class SamplingRule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -75,6 +75,9 @@ export interface GetVpcIpamPoolArgs {
      * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags to assigned to the resource.
@@ -221,6 +224,9 @@ export interface GetVpcIpamPoolOutputArgs {
      * ID of the IPAM pool you would like information on.
      */
     ipamPoolId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags to assigned to the resource.

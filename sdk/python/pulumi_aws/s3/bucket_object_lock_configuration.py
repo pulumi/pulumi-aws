@@ -33,7 +33,7 @@ class BucketObjectLockConfigurationInitArgs:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['BucketObjectLockConfigurationRuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[builtins.str] token: This argument is deprecated and no longer needed to enable Object Lock.
                To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioning` resource.
@@ -90,7 +90,7 @@ class BucketObjectLockConfigurationInitArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -138,7 +138,7 @@ class _BucketObjectLockConfigurationState:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['BucketObjectLockConfigurationRuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[builtins.str] token: This argument is deprecated and no longer needed to enable Object Lock.
                To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioning` resource.
@@ -196,7 +196,7 @@ class _BucketObjectLockConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -294,7 +294,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketObjectLockConfigurationRuleArgs', 'BucketObjectLockConfigurationRuleArgsDict']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[builtins.str] token: This argument is deprecated and no longer needed to enable Object Lock.
                To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioning` resource.
@@ -419,7 +419,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketObjectLockConfigurationRuleArgs', 'BucketObjectLockConfigurationRuleArgsDict']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[builtins.str] token: This argument is deprecated and no longer needed to enable Object Lock.
                To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioning` resource.
@@ -464,7 +464,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

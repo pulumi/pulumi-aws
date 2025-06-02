@@ -215,11 +215,13 @@ type FlowLog struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -283,11 +285,13 @@ type flowLogState struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -322,11 +326,13 @@ type FlowLogState struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -363,11 +369,13 @@ type flowLogArgs struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
@@ -399,11 +407,13 @@ type FlowLogArgs struct {
 	// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
 	// When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
 	MaxAggregationInterval pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
@@ -549,7 +559,7 @@ func (o FlowLogOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.IntPtrOutput { return v.MaxAggregationInterval }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FlowLogOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -560,6 +570,8 @@ func (o FlowLogOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 func (o FlowLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

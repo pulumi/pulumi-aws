@@ -77,8 +77,6 @@ type ReportDefinition struct {
 	Format pulumi.StringOutput `pulumi:"format"`
 	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 	RefreshClosedReports pulumi.BoolPtrOutput `pulumi:"refreshClosedReports"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 	ReportName pulumi.StringOutput `pulumi:"reportName"`
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -160,8 +158,6 @@ type reportDefinitionState struct {
 	Format *string `pulumi:"format"`
 	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 	RefreshClosedReports *bool `pulumi:"refreshClosedReports"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 	ReportName *string `pulumi:"reportName"`
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -193,8 +189,6 @@ type ReportDefinitionState struct {
 	Format pulumi.StringPtrInput
 	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 	RefreshClosedReports pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 	ReportName pulumi.StringPtrInput
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -228,8 +222,6 @@ type reportDefinitionArgs struct {
 	Format string `pulumi:"format"`
 	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 	RefreshClosedReports *bool `pulumi:"refreshClosedReports"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 	ReportName string `pulumi:"reportName"`
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -258,8 +250,6 @@ type ReportDefinitionArgs struct {
 	Format pulumi.StringInput
 	// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 	RefreshClosedReports pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
 	ReportName pulumi.StringInput
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -391,11 +381,6 @@ func (o ReportDefinitionOutput) Format() pulumi.StringOutput {
 // Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
 func (o ReportDefinitionOutput) RefreshClosedReports() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.BoolPtrOutput { return v.RefreshClosedReports }).(pulumi.BoolPtrOutput)
-}
-
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-func (o ReportDefinitionOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.

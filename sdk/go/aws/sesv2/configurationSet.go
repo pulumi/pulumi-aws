@@ -78,7 +78,7 @@ type ConfigurationSet struct {
 	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsOutput `pulumi:"reputationOptions"`
@@ -134,7 +134,7 @@ type configurationSetState struct {
 	ConfigurationSetName *string `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
@@ -158,7 +158,7 @@ type ConfigurationSetState struct {
 	ConfigurationSetName pulumi.StringPtrInput
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
@@ -184,7 +184,7 @@ type configurationSetArgs struct {
 	ConfigurationSetName string `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
@@ -206,7 +206,7 @@ type ConfigurationSetArgs struct {
 	ConfigurationSetName pulumi.StringInput
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
@@ -324,7 +324,7 @@ func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOption
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

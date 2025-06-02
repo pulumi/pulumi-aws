@@ -21,7 +21,7 @@ public final class GetMultiRegionAccessPointRegion {
      */
     private String bucketAccountId;
     /**
-     * @return The name of the region.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -42,7 +42,7 @@ public final class GetMultiRegionAccessPointRegion {
         return this.bucketAccountId;
     }
     /**
-     * @return The name of the region.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {

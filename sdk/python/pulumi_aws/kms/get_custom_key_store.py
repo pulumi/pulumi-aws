@@ -143,6 +143,7 @@ def get_custom_key_store(custom_key_store_id: Optional[builtins.str] = None,
 
     :param builtins.str custom_key_store_id: The ID for the custom key store.
     :param builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id
@@ -181,6 +182,7 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
 
     :param builtins.str custom_key_store_id: The ID for the custom key store.
     :param builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id

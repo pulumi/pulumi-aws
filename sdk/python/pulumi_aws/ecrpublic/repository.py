@@ -31,7 +31,7 @@ class RepositoryArgs:
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
@@ -81,7 +81,7 @@ class RepositoryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -118,7 +118,7 @@ class _RepositoryState:
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[builtins.str] arn: Full ARN of the repository.
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[builtins.str] repository_uri: The URI of the repository.
@@ -181,7 +181,7 @@ class _RepositoryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -300,7 +300,7 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -413,7 +413,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: Full ARN of the repository.
         :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository.
         :param pulumi.Input[builtins.str] repository_uri: The URI of the repository.
@@ -460,7 +460,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

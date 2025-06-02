@@ -41,7 +41,7 @@ class ExportTaskArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         pulumi.set(__self__, "export_task_identifier", export_task_identifier)
@@ -136,7 +136,7 @@ class ExportTaskArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -194,7 +194,7 @@ class _ExportTaskState:
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         :param pulumi.Input[builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] snapshot_time: Time that the snapshot was created.
@@ -318,7 +318,7 @@ class _ExportTaskState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -573,7 +573,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
@@ -791,7 +791,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         :param pulumi.Input[builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] snapshot_time: Time that the snapshot was created.
@@ -879,7 +879,7 @@ class ExportTask(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

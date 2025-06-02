@@ -60,7 +60,8 @@ type GetLocalGatewaysArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
-	Region  *string                  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
 	Tags map[string]string `pulumi:"tags"`
@@ -93,7 +94,8 @@ type GetLocalGatewaysOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetLocalGatewaysFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput            `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

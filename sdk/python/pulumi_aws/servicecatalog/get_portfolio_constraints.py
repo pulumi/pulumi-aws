@@ -130,6 +130,7 @@ def get_portfolio_constraints(accept_language: Optional[builtins.str] = None,
            
            The following arguments are optional:
     :param builtins.str product_id: Product identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -171,6 +172,7 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
            
            The following arguments are optional:
     :param builtins.str product_id: Product identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

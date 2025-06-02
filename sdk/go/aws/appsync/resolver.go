@@ -203,7 +203,7 @@ type Resolver struct {
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrOutput `pulumi:"requestTemplate"`
@@ -274,7 +274,7 @@ type resolverState struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
@@ -307,7 +307,7 @@ type ResolverState struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
@@ -342,7 +342,7 @@ type resolverArgs struct {
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate *string `pulumi:"requestTemplate"`
@@ -374,7 +374,7 @@ type ResolverArgs struct {
 	MaxBatchSize pulumi.IntPtrInput
 	// The caching configuration for the resolver. See Pipeline Config.
 	PipelineConfig ResolverPipelineConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
 	RequestTemplate pulumi.StringPtrInput
@@ -520,7 +520,7 @@ func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -60,7 +60,7 @@ type GroupMembership struct {
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -109,7 +109,7 @@ type groupMembershipState struct {
 	MemberName *string `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -123,7 +123,7 @@ type GroupMembershipState struct {
 	MemberName pulumi.StringPtrInput
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -140,7 +140,7 @@ type groupMembershipArgs struct {
 	MemberName string `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -154,7 +154,7 @@ type GroupMembershipArgs struct {
 	MemberName pulumi.StringInput
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -269,7 +269,7 @@ func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

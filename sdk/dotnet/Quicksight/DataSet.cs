@@ -351,6 +351,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -366,8 +368,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.DataSetRefreshProperties?> RefreshProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -528,6 +528,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -549,8 +551,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapArgs> PhysicalTableMaps
         {
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DataSetRefreshPropertiesArgs>? RefreshProperties { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -682,6 +682,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -711,8 +713,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapGetArgs> PhysicalTableMaps
         {
@@ -727,7 +727,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DataSetRefreshPropertiesGetArgs>? RefreshProperties { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

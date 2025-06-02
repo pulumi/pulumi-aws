@@ -106,7 +106,7 @@ type ContainerPolicy struct {
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type containerPolicyState struct {
 	ContainerName *string `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -159,7 +159,7 @@ type ContainerPolicyState struct {
 	ContainerName pulumi.StringPtrInput
 	// The contents of the policy.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -172,7 +172,7 @@ type containerPolicyArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -182,7 +182,7 @@ type ContainerPolicyArgs struct {
 	ContainerName pulumi.StringInput
 	// The contents of the policy.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -283,7 +283,7 @@ func (o ContainerPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -76,6 +76,9 @@ export interface GetClusterSnapshotArgs {
      * If more than one result is returned, use the most recent Snapshot.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
@@ -234,6 +237,9 @@ export interface GetClusterSnapshotOutputArgs {
      * If more than one result is returned, use the most recent Snapshot.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType

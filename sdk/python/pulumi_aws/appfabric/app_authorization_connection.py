@@ -32,7 +32,7 @@ class AppAuthorizationConnectionArgs:
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_authorization_arn", app_authorization_arn)
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
@@ -83,7 +83,7 @@ class AppAuthorizationConnectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _AppAuthorizationConnectionState:
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         if app is not None:
@@ -187,7 +187,7 @@ class _AppAuthorizationConnectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -250,7 +250,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -342,7 +342,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -394,7 +394,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

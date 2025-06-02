@@ -62,8 +62,9 @@ type GetClusterCredentialsArgs struct {
 	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
 	DbUser string `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds *int    `pulumi:"durationSeconds"`
-	Region          *string `pulumi:"region"`
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterCredentials.
@@ -105,8 +106,9 @@ type GetClusterCredentialsOutputArgs struct {
 	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
 	DbUser pulumi.StringInput `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetClusterCredentialsOutputArgs) ElementType() reflect.Type {

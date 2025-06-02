@@ -51,7 +51,8 @@ func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getApi.
 type LookupApiArgs struct {
 	// API identifier.
-	ApiId  string  `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -106,7 +107,8 @@ func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulu
 // A collection of arguments for invoking getApi.
 type LookupApiOutputArgs struct {
 	// API identifier.
-	ApiId  pulumi.StringInput    `pulumi:"apiId"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

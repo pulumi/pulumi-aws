@@ -99,9 +99,17 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.mostRecent);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -129,6 +137,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
      * 
+     * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
@@ -136,6 +146,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     * 
+     * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -232,6 +244,12 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
@@ -253,6 +271,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired DB snapshot.
+         * 
+         * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
          * 
          * @return builder
          * 

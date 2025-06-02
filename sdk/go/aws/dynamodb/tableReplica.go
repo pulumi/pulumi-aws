@@ -84,13 +84,13 @@ type TableReplica struct {
 	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
@@ -139,13 +139,13 @@ type tableReplicaState struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn *string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
@@ -162,13 +162,13 @@ type TableReplicaState struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringPtrInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
@@ -187,13 +187,13 @@ type tableReplicaArgs struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
@@ -207,13 +207,13 @@ type TableReplicaArgs struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
@@ -320,7 +320,7 @@ func (o TableReplicaOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 
 // ARN of the _main_ or global table which this resource will replicate.
 //
-// Optional arguments:
+// The following arguments are optional:
 func (o TableReplicaOutput) GlobalTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.GlobalTableArn }).(pulumi.StringOutput)
 }
@@ -335,7 +335,7 @@ func (o TableReplicaOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.BoolPtrOutput { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableReplicaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

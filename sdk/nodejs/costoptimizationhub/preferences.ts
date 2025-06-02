@@ -71,10 +71,6 @@ export class Preferences extends pulumi.CustomResource {
      */
     public readonly memberAccountDiscountVisibility!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    public readonly region!: pulumi.Output<string>;
-    /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */
     public readonly savingsEstimationMode!: pulumi.Output<string>;
@@ -93,12 +89,10 @@ export class Preferences extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PreferencesState | undefined;
             resourceInputs["memberAccountDiscountVisibility"] = state ? state.memberAccountDiscountVisibility : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["savingsEstimationMode"] = state ? state.savingsEstimationMode : undefined;
         } else {
             const args = argsOrState as PreferencesArgs | undefined;
             resourceInputs["memberAccountDiscountVisibility"] = args ? args.memberAccountDiscountVisibility : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["savingsEstimationMode"] = args ? args.savingsEstimationMode : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -115,10 +109,6 @@ export interface PreferencesState {
      */
     memberAccountDiscountVisibility?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
-    /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */
     savingsEstimationMode?: pulumi.Input<string>;
@@ -132,10 +122,6 @@ export interface PreferencesArgs {
      * Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
      */
     memberAccountDiscountVisibility?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      */

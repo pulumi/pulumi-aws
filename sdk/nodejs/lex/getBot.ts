@@ -36,6 +36,9 @@ export interface GetBotArgs {
      * Name of the bot. The name is case sensitive.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Version or alias of the bot.
@@ -149,6 +152,9 @@ export interface GetBotOutputArgs {
      * Name of the bot. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Version or alias of the bot.

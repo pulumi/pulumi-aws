@@ -154,6 +154,7 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
     :param builtins.str id: Id of the specific security group to retrieve.
     :param builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param builtins.str vpc_id: Id of the VPC that the desired security group belongs to.
@@ -216,6 +217,7 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param builtins.str id: Id of the specific security group to retrieve.
     :param builtins.str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param builtins.str vpc_id: Id of the VPC that the desired security group belongs to.

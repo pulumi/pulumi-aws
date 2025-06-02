@@ -38,6 +38,9 @@ export interface GetIndexArgs {
      * Returns information on a specific Index by id.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that helps organize the Indices you create.
@@ -154,6 +157,9 @@ export interface GetIndexOutputArgs {
      * Returns information on a specific Index by id.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the Indices you create.

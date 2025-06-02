@@ -86,7 +86,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      */
     public readonly ownerId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
+     * The following arguments are still supported:
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -163,7 +166,10 @@ export interface DefaultVpcDhcpOptionsState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
+     * The following arguments are still supported:
      */
     region?: pulumi.Input<string>;
     /**
@@ -182,7 +188,10 @@ export interface DefaultVpcDhcpOptionsArgs {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
+     * The following arguments are still supported:
      */
     region?: pulumi.Input<string>;
     /**

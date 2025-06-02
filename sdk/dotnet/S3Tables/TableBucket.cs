@@ -56,6 +56,13 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
@@ -68,7 +75,7 @@ namespace Pulumi.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,7 +87,7 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -132,6 +139,13 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TableBucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
@@ -144,13 +158,13 @@ namespace Pulumi.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -176,6 +190,13 @@ namespace Pulumi.Aws.S3Tables
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.TableBucketEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
@@ -188,7 +209,7 @@ namespace Pulumi.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -200,7 +221,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<string>? OwnerAccountId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

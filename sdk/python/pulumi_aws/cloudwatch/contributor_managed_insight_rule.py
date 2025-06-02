@@ -31,7 +31,7 @@ class ContributorManagedInsightRuleArgs:
         :param pulumi.Input[builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "template_name", template_name)
@@ -72,7 +72,7 @@ class ContributorManagedInsightRuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -113,7 +113,7 @@ class _ContributorManagedInsightRuleState:
         """
         Input properties used for looking up and filtering ContributorManagedInsightRule resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Contributor Managed Insight Rule.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         :param pulumi.Input[builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
@@ -152,7 +152,7 @@ class _ContributorManagedInsightRuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -250,7 +250,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         :param pulumi.Input[builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
@@ -342,7 +342,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Contributor Managed Insight Rule.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         :param pulumi.Input[builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
@@ -374,7 +374,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

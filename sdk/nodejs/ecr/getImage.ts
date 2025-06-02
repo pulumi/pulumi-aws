@@ -47,6 +47,9 @@ export interface GetImageArgs {
      * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the Registry where the repository resides.
@@ -132,6 +135,9 @@ export interface GetImageOutputArgs {
      * Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the Registry where the repository resides.

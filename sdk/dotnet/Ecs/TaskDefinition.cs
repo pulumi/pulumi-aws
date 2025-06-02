@@ -434,7 +434,7 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -489,6 +489,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// 
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
@@ -622,7 +624,7 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.TaskDefinitionProxyConfigurationArgs>? ProxyConfiguration { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -680,6 +682,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// 
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
@@ -790,7 +794,7 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.TaskDefinitionProxyConfigurationGetArgs>? ProxyConfiguration { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -866,6 +870,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// 
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeGetArgs> Volumes
         {

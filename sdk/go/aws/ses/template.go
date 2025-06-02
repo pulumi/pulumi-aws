@@ -58,7 +58,7 @@ type Template struct {
 	Html pulumi.StringPtrOutput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The subject line of the email.
 	Subject pulumi.StringPtrOutput `pulumi:"subject"`
@@ -102,7 +102,7 @@ type templateState struct {
 	Html *string `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The subject line of the email.
 	Subject *string `pulumi:"subject"`
@@ -117,7 +117,7 @@ type TemplateState struct {
 	Html pulumi.StringPtrInput
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The subject line of the email.
 	Subject pulumi.StringPtrInput
@@ -134,7 +134,7 @@ type templateArgs struct {
 	Html *string `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The subject line of the email.
 	Subject *string `pulumi:"subject"`
@@ -148,7 +148,7 @@ type TemplateArgs struct {
 	Html pulumi.StringPtrInput
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The subject line of the email.
 	Subject pulumi.StringPtrInput
@@ -258,7 +258,7 @@ func (o TemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

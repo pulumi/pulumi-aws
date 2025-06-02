@@ -228,10 +228,6 @@ export class AnomalySubscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    public readonly region!: pulumi.Output<string>;
-    /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
     public readonly subscribers!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionSubscriber[]>;
@@ -266,7 +262,6 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["frequency"] = state ? state.frequency : undefined;
             resourceInputs["monitorArnLists"] = state ? state.monitorArnLists : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subscribers"] = state ? state.subscribers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -286,7 +281,6 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["monitorArnLists"] = args ? args.monitorArnLists : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thresholdExpression"] = args ? args.thresholdExpression : undefined;
@@ -322,10 +316,6 @@ export interface AnomalySubscriptionState {
      * The name for the subscription.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
@@ -364,10 +354,6 @@ export interface AnomalySubscriptionArgs {
      * The name for the subscription.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */

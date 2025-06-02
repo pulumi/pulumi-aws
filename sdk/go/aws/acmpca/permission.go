@@ -69,7 +69,7 @@ type Permission struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the calling account
 	SourceAccount pulumi.StringOutput `pulumi:"sourceAccount"`
@@ -122,7 +122,7 @@ type permissionState struct {
 	Policy *string `pulumi:"policy"`
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the calling account
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -137,7 +137,7 @@ type PermissionState struct {
 	Policy pulumi.StringPtrInput
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the calling account
 	SourceAccount pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type permissionArgs struct {
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the calling account
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -168,7 +168,7 @@ type PermissionArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
 	Principal pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the calling account
 	SourceAccount pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

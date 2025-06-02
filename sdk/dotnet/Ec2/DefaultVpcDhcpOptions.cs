@@ -92,7 +92,10 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+        /// Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
+        /// The following arguments are still supported:
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -159,7 +162,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+        /// Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
+        /// The following arguments are still supported:
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -221,7 +227,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
+        /// Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
+        /// The following arguments are still supported:
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

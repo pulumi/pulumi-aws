@@ -366,6 +366,7 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_id: Group identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
@@ -420,6 +421,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str cluster_id: Group identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()

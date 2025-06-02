@@ -61,7 +61,8 @@ func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVi
 type GetOntapStorageVirtualMachinesArgs struct {
 	// Configuration block. Detailed below.
 	Filters []GetOntapStorageVirtualMachinesFilter `pulumi:"filters"`
-	Region  *string                                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOntapStorageVirtualMachines.
@@ -87,7 +88,8 @@ func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStor
 type GetOntapStorageVirtualMachinesOutputArgs struct {
 	// Configuration block. Detailed below.
 	Filters GetOntapStorageVirtualMachinesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOntapStorageVirtualMachinesOutputArgs) ElementType() reflect.Type {

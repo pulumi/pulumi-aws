@@ -70,7 +70,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
@@ -344,7 +344,7 @@ class ClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -519,7 +519,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -840,7 +840,7 @@ class _ClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1067,7 +1067,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
@@ -1272,7 +1272,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -1486,7 +1486,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -29,7 +29,7 @@ class AccountRegistrationArgs:
         :param pulumi.Input[builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if delegated_admin_account is not None:
             pulumi.set(__self__, "delegated_admin_account", delegated_admin_account)
@@ -80,7 +80,7 @@ class AccountRegistrationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _AccountRegistrationState:
         :param pulumi.Input[builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the account registration request.
         """
         if delegated_admin_account is not None:
@@ -156,7 +156,7 @@ class _AccountRegistrationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -224,7 +224,7 @@ class AccountRegistration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -321,7 +321,7 @@ class AccountRegistration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[builtins.str] kms_key: KMS key identifier.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of the account registration request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -363,7 +363,7 @@ class AccountRegistration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

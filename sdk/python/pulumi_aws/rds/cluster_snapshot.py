@@ -29,7 +29,7 @@ class ClusterSnapshotArgs:
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -70,7 +70,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -137,7 +137,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
@@ -308,7 +308,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -445,7 +445,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -575,7 +575,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
@@ -692,7 +692,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -218,7 +218,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -239,6 +239,8 @@ export class Gateway extends pulumi.CustomResource {
     public readonly smbSecurityStrategy!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -402,7 +404,7 @@ export interface GatewayState {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -423,6 +425,8 @@ export interface GatewayState {
     smbSecurityStrategy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -484,7 +488,7 @@ export interface GatewayArgs {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -505,6 +509,8 @@ export interface GatewayArgs {
     smbSecurityStrategy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

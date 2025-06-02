@@ -36,7 +36,7 @@ class ReplicatorArgs:
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "kafka_clusters", kafka_clusters)
@@ -114,7 +114,7 @@ class ReplicatorArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -153,7 +153,7 @@ class _ReplicatorState:
         :param pulumi.Input[builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -230,7 +230,7 @@ class _ReplicatorState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -379,7 +379,7 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -532,7 +532,7 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -588,7 +588,7 @@ class Replicator(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

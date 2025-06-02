@@ -116,7 +116,7 @@ type DevEndpoint struct {
 	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayOutput `pulumi:"publicKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -203,7 +203,7 @@ type devEndpointState struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys []string `pulumi:"publicKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn *string `pulumi:"roleArn"`
@@ -258,7 +258,7 @@ type DevEndpointState struct {
 	PublicKey pulumi.StringPtrInput
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringPtrInput
@@ -307,7 +307,7 @@ type devEndpointArgs struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys []string `pulumi:"publicKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn string `pulumi:"roleArn"`
@@ -343,7 +343,7 @@ type DevEndpointArgs struct {
 	PublicKey pulumi.StringPtrInput
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringInput
@@ -516,7 +516,7 @@ func (o DevEndpointOutput) PublicKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.PublicKeys }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DevEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

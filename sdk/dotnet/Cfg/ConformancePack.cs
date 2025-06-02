@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -170,6 +170,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        /// 
+        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         /// </summary>
         [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
@@ -251,7 +253,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -264,6 +266,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        /// 
+        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }
@@ -313,7 +317,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -326,6 +330,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        /// 
+        /// &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }

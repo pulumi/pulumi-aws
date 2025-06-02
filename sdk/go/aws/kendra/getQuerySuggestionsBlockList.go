@@ -54,8 +54,9 @@ type LookupQuerySuggestionsBlockListArgs struct {
 	// Identifier of the index that contains the block list.
 	IndexId string `pulumi:"indexId"`
 	// Identifier of the block list.
-	QuerySuggestionsBlockListId string  `pulumi:"querySuggestionsBlockListId"`
-	Region                      *string `pulumi:"region"`
+	QuerySuggestionsBlockListId string `pulumi:"querySuggestionsBlockListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the block list you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -107,8 +108,9 @@ type LookupQuerySuggestionsBlockListOutputArgs struct {
 	// Identifier of the index that contains the block list.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
 	// Identifier of the block list.
-	QuerySuggestionsBlockListId pulumi.StringInput    `pulumi:"querySuggestionsBlockListId"`
-	Region                      pulumi.StringPtrInput `pulumi:"region"`
+	QuerySuggestionsBlockListId pulumi.StringInput `pulumi:"querySuggestionsBlockListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the block list you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

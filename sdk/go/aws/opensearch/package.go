@@ -91,7 +91,7 @@ type Package struct {
 	PackageSource PackagePackageSourceOutput `pulumi:"packageSource"`
 	// The type of package.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type packageState struct {
 	PackageSource *PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType *string `pulumi:"packageType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -161,7 +161,7 @@ type PackageState struct {
 	PackageSource PackagePackageSourcePtrInput
 	// The type of package.
 	PackageType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -178,7 +178,7 @@ type packageArgs struct {
 	PackageSource PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType string `pulumi:"packageType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -192,7 +192,7 @@ type PackageArgs struct {
 	PackageSource PackagePackageSourceInput
 	// The type of package.
 	PackageType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -312,7 +312,7 @@ func (o PackageOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PackageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

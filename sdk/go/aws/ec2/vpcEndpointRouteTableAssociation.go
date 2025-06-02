@@ -51,7 +51,7 @@ import (
 type VpcEndpointRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
@@ -95,7 +95,7 @@ func GetVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
 type vpcEndpointRouteTableAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId *string `pulumi:"routeTableId"`
@@ -104,7 +104,7 @@ type vpcEndpointRouteTableAssociationState struct {
 }
 
 type VpcEndpointRouteTableAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId pulumi.StringPtrInput
@@ -117,7 +117,7 @@ func (VpcEndpointRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type vpcEndpointRouteTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId string `pulumi:"routeTableId"`
@@ -127,7 +127,7 @@ type vpcEndpointRouteTableAssociationArgs struct {
 
 // The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
 type VpcEndpointRouteTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
 	RouteTableId pulumi.StringInput
@@ -222,7 +222,7 @@ func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociati
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointRouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointRouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

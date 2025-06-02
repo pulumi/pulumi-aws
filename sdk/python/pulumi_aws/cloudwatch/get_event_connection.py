@@ -27,7 +27,7 @@ class GetEventConnectionResult:
     """
     A collection of values returned by getEventConnection.
     """
-    def __init__(__self__, arn=None, authorization_type=None, id=None, name=None, region=None, secret_arn=None):
+    def __init__(__self__, arn=None, authorization_type=None, id=None, kms_key_identifier=None, name=None, region=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetEventConnectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,7 +54,7 @@ class GetEventConnectionResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN (Amazon Resource Name) for the connection.
+        ARN (Amazon Resource Name) of the connection.
         """
         return pulumi.get(self, "arn")
 
@@ -59,7 +62,7 @@ class GetEventConnectionResult:
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> builtins.str:
         """
-        Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -72,11 +75,16 @@ class GetEventConnectionResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> builtins.str:
+        """
+        (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        Name of the connection.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -88,7 +96,7 @@ class GetEventConnectionResult:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> builtins.str:
         """
-        ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+        ARN of the secret created from the authorization parameters specified for the connection.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -102,6 +110,7 @@ class AwaitableGetEventConnectionResult(GetEventConnectionResult):
             arn=self.arn,
             authorization_type=self.authorization_type,
             id=self.id,
+            kms_key_identifier=self.kms_key_identifier,
             name=self.name,
             region=self.region,
             secret_arn=self.secret_arn)
@@ -126,6 +135,7 @@ def get_event_connection(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -137,6 +147,7 @@ def get_event_connection(name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
@@ -159,6 +170,7 @@ def get_event_connection_output(name: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str name: Name of the connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -169,6 +181,7 @@ def get_event_connection_output(name: Optional[pulumi.Input[builtins.str]] = Non
         arn=pulumi.get(__response__, 'arn'),
         authorization_type=pulumi.get(__response__, 'authorization_type'),
         id=pulumi.get(__response__, 'id'),
+        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         secret_arn=pulumi.get(__response__, 'secret_arn')))

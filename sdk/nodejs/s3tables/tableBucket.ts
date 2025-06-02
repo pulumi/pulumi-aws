@@ -66,6 +66,11 @@ export class TableBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
+    /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
@@ -76,7 +81,7 @@ export class TableBucket extends pulumi.CustomResource {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -84,7 +89,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -103,12 +108,14 @@ export class TableBucket extends pulumi.CustomResource {
             const state = argsOrState as TableBucketState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as TableBucketArgs | undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -134,6 +141,11 @@ export interface TableBucketState {
      */
     createdAt?: pulumi.Input<string>;
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration>;
+    /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
@@ -144,7 +156,7 @@ export interface TableBucketState {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -152,7 +164,7 @@ export interface TableBucketState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }
@@ -162,6 +174,11 @@ export interface TableBucketState {
  */
 export interface TableBucketArgs {
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryptionConfiguration` below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration>;
+    /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
@@ -172,11 +189,11 @@ export interface TableBucketArgs {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

@@ -120,6 +120,7 @@ def get_scheduling_policy(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the scheduling policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
@@ -154,6 +155,7 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str arn: ARN of the scheduling policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()

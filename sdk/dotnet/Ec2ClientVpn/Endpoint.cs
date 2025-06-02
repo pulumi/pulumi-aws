@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<Outputs.EndpointClientLoginBannerOptions> ClientLoginBannerOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Output("clientRouteEnforcementOptions")]
+        public Output<Outputs.EndpointClientRouteEnforcementOptions> ClientRouteEnforcementOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Output("connectionLogOptions")]
@@ -119,7 +125,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -267,6 +273,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<Inputs.EndpointClientLoginBannerOptionsArgs>? ClientLoginBannerOptions { get; set; }
 
         /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Input("clientRouteEnforcementOptions")]
+        public Input<Inputs.EndpointClientRouteEnforcementOptionsArgs>? ClientRouteEnforcementOptions { get; set; }
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions", required: true)]
@@ -297,7 +309,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -413,6 +425,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<Inputs.EndpointClientLoginBannerOptionsGetArgs>? ClientLoginBannerOptions { get; set; }
 
         /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Input("clientRouteEnforcementOptions")]
+        public Input<Inputs.EndpointClientRouteEnforcementOptionsGetArgs>? ClientRouteEnforcementOptions { get; set; }
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions")]
@@ -449,7 +467,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

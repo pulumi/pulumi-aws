@@ -491,7 +491,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -541,6 +541,12 @@ export class Cluster extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     *
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -958,7 +964,7 @@ export interface ClusterState {
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -1008,6 +1014,12 @@ export interface ClusterState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     *
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -1223,7 +1235,7 @@ export interface ClusterArgs {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -1269,6 +1281,12 @@ export interface ClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     *
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

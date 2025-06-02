@@ -29,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, &s3.GetCanonicalUserIdArgs{}, nil)
+//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			example, err := cloudfront.GetLogDeliveryCanonicalUserId(ctx, map[string]interface{}{}, nil)
+//			example, err := cloudfront.GetLogDeliveryCanonicalUserId(ctx, &cloudfront.GetLogDeliveryCanonicalUserIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -79,27 +79,46 @@ import (
 //	}
 //
 // ```
-func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
+func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDeliveryCanonicalUserIdResult
-	err := ctx.Invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", nil, &rv, opts...)
+	err := ctx.Invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getLogDeliveryCanonicalUserId.
+type GetLogDeliveryCanonicalUserIdArgs struct {
+	// Region you'd like the zone for. By default, fetches the current region.
+	Region *string `pulumi:"region"`
+}
+
 // A collection of values returned by getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
-func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogDeliveryCanonicalUserIdResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogDeliveryCanonicalUserIdResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", nil, GetLogDeliveryCanonicalUserIdResultOutput{}, options).(GetLogDeliveryCanonicalUserIdResultOutput), nil
-	}).(GetLogDeliveryCanonicalUserIdResultOutput)
+func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliveryCanonicalUserIdOutputArgs, opts ...pulumi.InvokeOption) GetLogDeliveryCanonicalUserIdResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetLogDeliveryCanonicalUserIdResultOutput, error) {
+			args := v.(GetLogDeliveryCanonicalUserIdArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, GetLogDeliveryCanonicalUserIdResultOutput{}, options).(GetLogDeliveryCanonicalUserIdResultOutput), nil
+		}).(GetLogDeliveryCanonicalUserIdResultOutput)
+}
+
+// A collection of arguments for invoking getLogDeliveryCanonicalUserId.
+type GetLogDeliveryCanonicalUserIdOutputArgs struct {
+	// Region you'd like the zone for. By default, fetches the current region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetLogDeliveryCanonicalUserIdOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDeliveryCanonicalUserIdArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getLogDeliveryCanonicalUserId.
@@ -120,6 +139,10 @@ func (o GetLogDeliveryCanonicalUserIdResultOutput) ToGetLogDeliveryCanonicalUser
 // The provider-assigned unique ID for this managed resource.
 func (o GetLogDeliveryCanonicalUserIdResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDeliveryCanonicalUserIdResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLogDeliveryCanonicalUserIdResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogDeliveryCanonicalUserIdResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 func init() {

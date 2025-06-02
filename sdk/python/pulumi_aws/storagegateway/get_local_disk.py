@@ -120,6 +120,7 @@ def get_local_disk(disk_node: Optional[builtins.str] = None,
     :param builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
     :param builtins.str gateway_arn: ARN of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node
@@ -158,6 +159,7 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[builtins.str
     :param builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
     :param builtins.str gateway_arn: ARN of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node

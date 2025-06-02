@@ -78,7 +78,7 @@ type Canary struct {
 	Handler pulumi.StringOutput `pulumi:"handler"`
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigOutput `pulumi:"runConfig"`
@@ -177,7 +177,7 @@ type canaryState struct {
 	Handler *string `pulumi:"handler"`
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
@@ -232,7 +232,7 @@ type CanaryState struct {
 	Handler pulumi.StringPtrInput
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigPtrInput
@@ -287,7 +287,7 @@ type canaryArgs struct {
 	Handler string `pulumi:"handler"`
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
@@ -331,7 +331,7 @@ type CanaryArgs struct {
 	Handler pulumi.StringInput
 	// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for individual canary runs. Detailed below.
 	RunConfig CanaryRunConfigPtrInput
@@ -491,7 +491,7 @@ func (o CanaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CanaryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

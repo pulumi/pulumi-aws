@@ -32,7 +32,7 @@ class ResourceServerArgs:
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
         """
         pulumi.set(__self__, "identifier", identifier)
@@ -84,7 +84,7 @@ class ResourceServerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -118,7 +118,7 @@ class _ResourceServerState:
         Input properties used for looking up and filtering ResourceServer resources.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceServerScopeArgs']]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
@@ -164,7 +164,7 @@ class _ResourceServerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -268,7 +268,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
         """
@@ -385,7 +385,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: An identifier for the resource server.
         :param pulumi.Input[builtins.str] name: A name for the resource server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[builtins.str] user_pool_id: User pool the client belongs to.
@@ -422,7 +422,7 @@ class ResourceServer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

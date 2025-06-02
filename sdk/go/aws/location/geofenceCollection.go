@@ -62,7 +62,7 @@ type GeofenceCollection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,7 +116,7 @@ type geofenceCollectionState struct {
 	Description *string `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -138,7 +138,7 @@ type GeofenceCollectionState struct {
 	Description pulumi.StringPtrInput
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -160,7 +160,7 @@ type geofenceCollectionArgs struct {
 	Description *string `pulumi:"description"`
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -176,7 +176,7 @@ type GeofenceCollectionArgs struct {
 	Description pulumi.StringPtrInput
 	// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -296,7 +296,7 @@ func (o GeofenceCollectionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GeofenceCollectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

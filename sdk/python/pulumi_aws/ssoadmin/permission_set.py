@@ -32,7 +32,7 @@ class PermissionSetArgs:
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -91,7 +91,7 @@ class PermissionSetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _PermissionSetState:
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -247,7 +247,7 @@ class _PermissionSetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -351,7 +351,7 @@ class PermissionSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -465,7 +465,7 @@ class PermissionSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -531,7 +531,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

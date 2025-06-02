@@ -55,7 +55,7 @@ type TapePool struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrOutput `pulumi:"retentionLockTimeInDays"`
@@ -109,7 +109,7 @@ type tapePoolState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName *string `pulumi:"poolName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
@@ -128,7 +128,7 @@ type TapePoolState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrInput
@@ -149,7 +149,7 @@ func (TapePoolState) ElementType() reflect.Type {
 type tapePoolArgs struct {
 	// The name of the new custom tape pool.
 	PoolName string `pulumi:"poolName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays *int `pulumi:"retentionLockTimeInDays"`
@@ -165,7 +165,7 @@ type tapePoolArgs struct {
 type TapePoolArgs struct {
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
 	RetentionLockTimeInDays pulumi.IntPtrInput
@@ -274,7 +274,7 @@ func (o TapePoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TapePoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

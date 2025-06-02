@@ -44,7 +44,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_name", service_name)
@@ -168,7 +168,7 @@ class ServiceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -216,7 +216,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[builtins.str] service_name: Name of the service.
         :param pulumi.Input[builtins.str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
@@ -346,7 +346,7 @@ class _ServiceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -574,7 +574,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         :param pulumi.Input[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: Name of the service.
         :param pulumi.Input[Union['ServiceSourceConfigurationArgs', 'ServiceSourceConfigurationArgsDict']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
                
@@ -787,7 +787,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceInstanceConfigurationArgs', 'ServiceInstanceConfigurationArgsDict']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         :param pulumi.Input[Union['ServiceObservabilityConfigurationArgs', 'ServiceObservabilityConfigurationArgsDict']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[builtins.str] service_name: Name of the service.
         :param pulumi.Input[builtins.str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
@@ -879,7 +879,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

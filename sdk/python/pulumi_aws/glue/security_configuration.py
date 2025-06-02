@@ -29,7 +29,7 @@ class SecurityConfigurationArgs:
         The set of arguments for constructing a SecurityConfiguration resource.
         :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
@@ -65,7 +65,7 @@ class SecurityConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -84,7 +84,7 @@ class _SecurityConfigurationState:
         Input properties used for looking up and filtering SecurityConfiguration resources.
         :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -121,7 +121,7 @@ class _SecurityConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -177,7 +177,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -272,7 +272,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security configuration.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,7 +303,7 @@ class SecurityConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

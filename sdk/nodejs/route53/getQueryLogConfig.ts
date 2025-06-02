@@ -65,6 +65,9 @@ export interface GetQueryLogConfigArgs {
      * The name of the query logging configuration.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
@@ -170,6 +173,9 @@ export interface GetQueryLogConfigOutputArgs {
      * The name of the query logging configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.

@@ -60,7 +60,7 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,7 +108,7 @@ type vaultState struct {
 	Name *string `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,7 +127,7 @@ type VaultState struct {
 	Name pulumi.StringPtrInput
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -146,7 +146,7 @@ type vaultArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -160,7 +160,7 @@ type VaultArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the backup vault to create.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -278,7 +278,7 @@ func (o VaultOutput) RecoveryPoints() pulumi.IntOutput {
 	return o.ApplyT(func(v *Vault) pulumi.IntOutput { return v.RecoveryPoints }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -63,7 +63,7 @@ type App struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
@@ -124,7 +124,7 @@ type appState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain ID.
 	DomainId *string `pulumi:"domainId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
@@ -147,7 +147,7 @@ type AppState struct {
 	Arn pulumi.StringPtrInput
 	// The domain ID.
 	DomainId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
@@ -172,7 +172,7 @@ type appArgs struct {
 	AppType string `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
@@ -192,7 +192,7 @@ type AppArgs struct {
 	AppType pulumi.StringInput
 	// The domain ID.
 	DomainId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
@@ -311,7 +311,7 @@ func (o AppOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

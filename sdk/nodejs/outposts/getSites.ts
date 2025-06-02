@@ -28,6 +28,9 @@ export function getSites(args?: GetSitesArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getSites.
  */
 export interface GetSitesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -69,5 +72,8 @@ export function getSitesOutput(args?: GetSitesOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getSites.
  */
 export interface GetSitesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

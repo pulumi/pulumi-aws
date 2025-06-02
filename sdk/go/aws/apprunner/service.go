@@ -187,7 +187,7 @@ type Service struct {
 	NetworkConfiguration ServiceNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
@@ -257,7 +257,7 @@ type serviceState struct {
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId *string `pulumi:"serviceId"`
@@ -292,7 +292,7 @@ type ServiceState struct {
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringPtrInput
@@ -329,7 +329,7 @@ type serviceArgs struct {
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
@@ -355,7 +355,7 @@ type ServiceArgs struct {
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
 	// The observability configuration of your service. See Observability Configuration below for more details.
 	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name of the service.
 	ServiceName pulumi.StringInput
@@ -489,7 +489,7 @@ func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigur
 	return o.ApplyT(func(v *Service) ServiceObservabilityConfigurationPtrOutput { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

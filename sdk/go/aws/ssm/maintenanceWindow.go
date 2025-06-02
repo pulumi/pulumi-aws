@@ -67,7 +67,7 @@ type MaintenanceWindow struct {
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
@@ -136,7 +136,7 @@ type maintenanceWindowState struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule *string `pulumi:"schedule"`
@@ -167,7 +167,7 @@ type MaintenanceWindowState struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type maintenanceWindowArgs struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule string `pulumi:"schedule"`
@@ -232,7 +232,7 @@ type MaintenanceWindowArgs struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringInput
@@ -368,7 +368,7 @@ func (o MaintenanceWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MaintenanceWindowOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

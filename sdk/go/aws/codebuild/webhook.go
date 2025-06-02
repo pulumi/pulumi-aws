@@ -85,7 +85,7 @@ type Webhook struct {
 	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrOutput `pulumi:"scopeConfiguration"`
@@ -144,7 +144,7 @@ type webhookState struct {
 	PayloadUrl *string `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName *string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
@@ -167,7 +167,7 @@ type WebhookState struct {
 	PayloadUrl pulumi.StringPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
@@ -192,7 +192,7 @@ type webhookArgs struct {
 	ManualCreation *bool `pulumi:"manualCreation"`
 	// The name of the build project.
 	ProjectName string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
@@ -210,7 +210,7 @@ type WebhookArgs struct {
 	ManualCreation pulumi.BoolPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
@@ -333,7 +333,7 @@ func (o WebhookOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebhookOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

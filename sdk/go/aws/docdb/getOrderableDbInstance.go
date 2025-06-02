@@ -67,7 +67,8 @@ type GetOrderableDbInstanceArgs struct {
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
-	Region                   *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Enable to show only VPC.
 	Vpc *bool `pulumi:"vpc"`
 }
@@ -108,7 +109,8 @@ type GetOrderableDbInstanceOutputArgs struct {
 	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
 	// Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
-	Region                   pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Enable to show only VPC.
 	Vpc pulumi.BoolPtrInput `pulumi:"vpc"`
 }

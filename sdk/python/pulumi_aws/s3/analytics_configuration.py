@@ -32,7 +32,7 @@ class AnalyticsConfigurationArgs:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs'] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -85,7 +85,7 @@ class AnalyticsConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -119,7 +119,7 @@ class _AnalyticsConfigurationState:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs'] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         if bucket is not None:
@@ -173,7 +173,7 @@ class _AnalyticsConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -267,7 +267,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         ...
@@ -393,7 +393,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -435,7 +435,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

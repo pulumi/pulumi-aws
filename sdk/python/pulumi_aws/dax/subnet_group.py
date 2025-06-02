@@ -29,7 +29,7 @@ class SubnetGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         :param pulumi.Input[builtins.str] description: A description of the subnet group.
         :param pulumi.Input[builtins.str] name: The name of the subnet group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is not None:
@@ -79,7 +79,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -100,7 +100,7 @@ class _SubnetGroupState:
         Input properties used for looking up and filtering SubnetGroup resources.
         :param pulumi.Input[builtins.str] description: A description of the subnet group.
         :param pulumi.Input[builtins.str] name: The name of the subnet group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID of the subnet group.
         """
@@ -143,7 +143,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -216,7 +216,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A description of the subnet group.
         :param pulumi.Input[builtins.str] name: The name of the subnet group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         """
         ...
@@ -309,7 +309,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A description of the subnet group.
         :param pulumi.Input[builtins.str] name: The name of the subnet group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID of the subnet group.
         """
@@ -344,7 +344,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -154,7 +154,7 @@ type FileSystemAssociation struct {
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -225,7 +225,7 @@ type fileSystemAssociationState struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password *string `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -248,7 +248,7 @@ type FileSystemAssociationState struct {
 	LocationArn pulumi.StringPtrInput
 	// The password of the user credential.
 	Password pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -273,7 +273,7 @@ type fileSystemAssociationArgs struct {
 	LocationArn string `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password string `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -293,7 +293,7 @@ type FileSystemAssociationArgs struct {
 	LocationArn pulumi.StringInput
 	// The password of the user credential.
 	Password pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -418,7 +418,7 @@ func (o FileSystemAssociationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FileSystemAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

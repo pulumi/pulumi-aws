@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionC
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs;
+import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionSsmParameterConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -98,18 +99,14 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     }
 
     /**
-     * AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -131,6 +128,21 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         return Optional.ofNullable(this.s3ExportConfiguration);
     }
 
+    /**
+     * Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * 
+     */
+    @Import(name="ssmParameterConfigurations")
+    private @Nullable Output<List<DistributionConfigurationDistributionSsmParameterConfigurationArgs>> ssmParameterConfigurations;
+
+    /**
+     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * 
+     */
+    public Optional<Output<List<DistributionConfigurationDistributionSsmParameterConfigurationArgs>>> ssmParameterConfigurations() {
+        return Optional.ofNullable(this.ssmParameterConfigurations);
+    }
+
     private DistributionConfigurationDistributionArgs() {}
 
     private DistributionConfigurationDistributionArgs(DistributionConfigurationDistributionArgs $) {
@@ -141,6 +153,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         this.licenseConfigurationArns = $.licenseConfigurationArns;
         this.region = $.region;
         this.s3ExportConfiguration = $.s3ExportConfiguration;
+        this.ssmParameterConfigurations = $.ssmParameterConfigurations;
     }
 
     public static Builder builder() {
@@ -297,9 +310,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param region AWS Region for the distribution.
-         * 
-         * The following arguments are optional:
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -310,9 +321,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param region AWS Region for the distribution.
-         * 
-         * The following arguments are optional:
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -340,6 +349,37 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
          */
         public Builder s3ExportConfiguration(DistributionConfigurationDistributionS3ExportConfigurationArgs s3ExportConfiguration) {
             return s3ExportConfiguration(Output.of(s3ExportConfiguration));
+        }
+
+        /**
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssmParameterConfigurations(@Nullable Output<List<DistributionConfigurationDistributionSsmParameterConfigurationArgs>> ssmParameterConfigurations) {
+            $.ssmParameterConfigurations = ssmParameterConfigurations;
+            return this;
+        }
+
+        /**
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssmParameterConfigurations(List<DistributionConfigurationDistributionSsmParameterConfigurationArgs> ssmParameterConfigurations) {
+            return ssmParameterConfigurations(Output.of(ssmParameterConfigurations));
+        }
+
+        /**
+         * @param ssmParameterConfigurations Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssmParameterConfigurations(DistributionConfigurationDistributionSsmParameterConfigurationArgs... ssmParameterConfigurations) {
+            return ssmParameterConfigurations(List.of(ssmParameterConfigurations));
         }
 
         public DistributionConfigurationDistributionArgs build() {

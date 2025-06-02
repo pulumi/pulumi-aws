@@ -30,6 +30,9 @@ export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getClusters.
  */
 export interface GetClustersArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -73,5 +76,8 @@ export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getClusters.
  */
 export interface GetClustersOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

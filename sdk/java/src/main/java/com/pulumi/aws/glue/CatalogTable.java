@@ -182,7 +182,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
-     * The follow arguments are optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
@@ -191,7 +191,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
-     * The follow arguments are optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> databaseName() {
@@ -296,14 +296,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.partitionKeys);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

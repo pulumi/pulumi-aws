@@ -56,7 +56,8 @@ type GetExportArgs struct {
 	ExportType string `pulumi:"exportType"`
 	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters map[string]string `pulumi:"parameters"`
-	Region     *string           `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 	// Name of the Stage that will be exported.
@@ -98,7 +99,8 @@ type GetExportOutputArgs struct {
 	ExportType pulumi.StringInput `pulumi:"exportType"`
 	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 	// Name of the Stage that will be exported.

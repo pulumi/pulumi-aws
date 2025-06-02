@@ -85,7 +85,10 @@ type LookupContactFlowModuleArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
-	Name   *string `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,7 +132,10 @@ type LookupContactFlowModuleOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

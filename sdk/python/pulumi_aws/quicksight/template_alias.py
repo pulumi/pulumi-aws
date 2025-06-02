@@ -33,7 +33,7 @@ class TemplateAliasArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "alias_name", alias_name)
         pulumi.set(__self__, "template_id", template_id)
@@ -97,7 +97,7 @@ class TemplateAliasArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _TemplateAliasState:
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -179,7 +179,7 @@ class _TemplateAliasState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -255,7 +255,7 @@ class TemplateAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -359,7 +359,7 @@ class TemplateAlias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -405,7 +405,7 @@ class TemplateAlias(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -192,6 +192,7 @@ def get_virtual_service(mesh_name: Optional[builtins.str] = None,
     :param builtins.str mesh_name: Name of the service mesh in which the virtual service exists.
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the virtual service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()
@@ -248,6 +249,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[builtins.str]] =
     :param builtins.str mesh_name: Name of the service mesh in which the virtual service exists.
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the virtual service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()

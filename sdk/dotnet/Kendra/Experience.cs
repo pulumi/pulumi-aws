@@ -69,6 +69,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ExperienceConfiguration> Configuration { get; private set; } = null!;
@@ -104,7 +106,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -171,6 +173,8 @@ namespace Pulumi.Aws.Kendra
     {
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationArgs>? Configuration { get; set; }
@@ -194,7 +198,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -223,6 +227,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationGetArgs>? Configuration { get; set; }
@@ -264,7 +270,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

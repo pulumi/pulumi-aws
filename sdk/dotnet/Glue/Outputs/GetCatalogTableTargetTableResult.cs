@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Region of the target table.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         public readonly string Region;
 

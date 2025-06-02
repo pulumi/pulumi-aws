@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2clientvpn.inputs.EndpointState;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointAuthenticationOption;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientConnectOptions;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientLoginBannerOptions;
+import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientRouteEnforcementOptions;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointConnectionLogOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -156,6 +157,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.clientLoginBannerOptions;
     }
     /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    @Export(name="clientRouteEnforcementOptions", refs={EndpointClientRouteEnforcementOptions.class}, tree="[0]")
+    private Output<EndpointClientRouteEnforcementOptions> clientRouteEnforcementOptions;
+
+    /**
+     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    public Output<EndpointClientRouteEnforcementOptions> clientRouteEnforcementOptions() {
+        return this.clientRouteEnforcementOptions;
+    }
+    /**
      * Information about the client connection logging options.
      * 
      */
@@ -226,14 +241,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsServers);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

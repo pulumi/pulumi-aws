@@ -70,7 +70,7 @@ type RiskConfiguration struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrOutput `pulumi:"riskExceptionConfiguration"`
@@ -117,7 +117,7 @@ type riskConfigurationState struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
@@ -132,7 +132,7 @@ type RiskConfigurationState struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
@@ -151,7 +151,7 @@ type riskConfigurationArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
@@ -167,7 +167,7 @@ type RiskConfigurationArgs struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
@@ -281,7 +281,7 @@ func (o RiskConfigurationOutput) CompromisedCredentialsRiskConfiguration() RiskC
 	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RiskConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

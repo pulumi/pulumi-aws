@@ -29,7 +29,7 @@ class InstanceAccessControlAttributesArgs:
         The set of arguments for constructing a InstanceAccessControlAttributes resource.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -64,7 +64,7 @@ class InstanceAccessControlAttributesArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -85,7 +85,7 @@ class _InstanceAccessControlAttributesState:
         Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -126,7 +126,7 @@ class _InstanceAccessControlAttributesState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -203,7 +203,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -307,7 +307,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,7 +340,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

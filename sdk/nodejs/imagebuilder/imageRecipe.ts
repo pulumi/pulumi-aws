@@ -117,7 +117,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -250,7 +250,7 @@ export interface ImageRecipeState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface ImageRecipeState {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface ImageRecipeArgs {
      */
     parentImage: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface ImageRecipeArgs {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version: pulumi.Input<string>;
     /**

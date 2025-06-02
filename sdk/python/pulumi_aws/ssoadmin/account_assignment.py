@@ -34,7 +34,7 @@ class AccountAssignmentArgs:
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         :param pulumi.Input[builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
         :param pulumi.Input[builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -111,7 +111,7 @@ class AccountAssignmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -148,7 +148,7 @@ class _AccountAssignmentState:
         :param pulumi.Input[builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         :param pulumi.Input[builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
@@ -219,7 +219,7 @@ class _AccountAssignmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -340,7 +340,7 @@ class AccountAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         :param pulumi.Input[builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
@@ -494,7 +494,7 @@ class AccountAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         :param pulumi.Input[builtins.str] principal_type: The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[builtins.str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
@@ -547,7 +547,7 @@ class AccountAssignment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

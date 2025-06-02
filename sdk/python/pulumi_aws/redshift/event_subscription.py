@@ -35,7 +35,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         :param pulumi.Input[builtins.str] source_type: The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
@@ -111,7 +111,7 @@ class EventSubscriptionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -191,7 +191,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -290,7 +290,7 @@ class _EventSubscriptionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -439,7 +439,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -573,7 +573,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -644,7 +644,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

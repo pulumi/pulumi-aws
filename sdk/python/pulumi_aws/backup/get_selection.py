@@ -132,6 +132,7 @@ def get_selection(plan_id: Optional[builtins.str] = None,
 
 
     :param builtins.str plan_id: Backup plan ID associated with the selection of resources.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str selection_id: Backup selection ID.
     """
     __args__ = dict()
@@ -168,6 +169,7 @@ def get_selection_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str plan_id: Backup plan ID associated with the selection of resources.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str selection_id: Backup selection ID.
     """
     __args__ = dict()

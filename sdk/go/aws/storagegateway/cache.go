@@ -57,7 +57,7 @@ type Cache struct {
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -101,7 +101,7 @@ type cacheState struct {
 	DiskId *string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type CacheState struct {
 	DiskId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -123,7 +123,7 @@ type cacheArgs struct {
 	DiskId string `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -133,7 +133,7 @@ type CacheArgs struct {
 	DiskId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -234,7 +234,7 @@ func (o CacheOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CacheOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

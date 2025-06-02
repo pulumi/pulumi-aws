@@ -35,7 +35,7 @@ class SharedDirectoryArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "target", target)
@@ -100,7 +100,7 @@ class SharedDirectoryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -123,7 +123,7 @@ class _SharedDirectoryState:
         :param pulumi.Input[builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input[builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
@@ -182,7 +182,7 @@ class _SharedDirectoryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -268,7 +268,7 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input[builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
                The following arguments are optional:
@@ -380,7 +380,7 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input[builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         :param pulumi.Input[Union['SharedDirectoryTargetArgs', 'SharedDirectoryTargetArgsDict']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
@@ -426,7 +426,7 @@ class SharedDirectory(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

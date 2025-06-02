@@ -26,7 +26,7 @@ class ReplicationConfigurationArgs:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         if region is not None:
@@ -38,7 +38,7 @@ class ReplicationConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -67,7 +67,7 @@ class _ReplicationConfigurationState:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
@@ -82,7 +82,7 @@ class _ReplicationConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -201,7 +201,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         ...
@@ -334,7 +334,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
@@ -351,7 +351,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

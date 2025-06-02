@@ -40,7 +40,7 @@ class AgentDataSourceArgs:
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -128,7 +128,7 @@ class AgentDataSourceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -193,7 +193,7 @@ class _AgentDataSourceState:
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -296,7 +296,7 @@ class _AgentDataSourceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -393,7 +393,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -513,7 +513,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -587,7 +587,7 @@ class AgentDataSource(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

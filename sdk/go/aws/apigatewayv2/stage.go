@@ -84,7 +84,7 @@ type Stage struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
@@ -158,7 +158,7 @@ type stageState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -200,7 +200,7 @@ type StageState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -237,7 +237,7 @@ type stageArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -269,7 +269,7 @@ type StageArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -428,7 +428,7 @@ func (o StageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

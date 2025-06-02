@@ -68,7 +68,7 @@ type ReplicationConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigOutput `pulumi:"computeConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringOutput `pulumi:"replicationConfigIdentifier"`
@@ -146,7 +146,7 @@ type replicationConfigState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier *string `pulumi:"replicationConfigIdentifier"`
@@ -177,7 +177,7 @@ type ReplicationConfigState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringPtrInput
@@ -210,7 +210,7 @@ func (ReplicationConfigState) ElementType() reflect.Type {
 type replicationConfigArgs struct {
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfig `pulumi:"computeConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier string `pulumi:"replicationConfigIdentifier"`
@@ -238,7 +238,7 @@ type replicationConfigArgs struct {
 type ReplicationConfigArgs struct {
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Unique identifier that you want to use to create the config.
 	ReplicationConfigIdentifier pulumi.StringInput
@@ -359,7 +359,7 @@ func (o ReplicationConfigOutput) ComputeConfig() ReplicationConfigComputeConfigO
 	return o.ApplyT(func(v *ReplicationConfig) ReplicationConfigComputeConfigOutput { return v.ComputeConfig }).(ReplicationConfigComputeConfigOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -32,7 +32,7 @@ class ProxyEndpointArgs:
         :param pulumi.Input[builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
@@ -89,7 +89,7 @@ class ProxyEndpointArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _ProxyEndpointState:
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
         :param pulumi.Input[builtins.str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         :param pulumi.Input[builtins.bool] is_default: Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID of the DB proxy endpoint.
@@ -252,7 +252,7 @@ class _ProxyEndpointState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -372,7 +372,7 @@ class ProxyEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
@@ -491,7 +491,7 @@ class ProxyEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
         :param pulumi.Input[builtins.str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         :param pulumi.Input[builtins.bool] is_default: Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID of the DB proxy endpoint.
@@ -560,7 +560,7 @@ class ProxyEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -51,7 +51,8 @@ func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opt
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationArgs struct {
 	// The AppIntegrations Event Integration name.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -87,7 +88,8 @@ func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutp
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationOutputArgs struct {
 	// The AppIntegrations Event Integration name.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

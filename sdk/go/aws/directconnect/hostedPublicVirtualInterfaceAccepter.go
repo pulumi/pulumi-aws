@@ -80,7 +80,7 @@ type HostedPublicVirtualInterfaceAccepter struct {
 
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -125,7 +125,7 @@ func GetHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 type hostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -138,7 +138,7 @@ type hostedPublicVirtualInterfaceAccepterState struct {
 type HostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -153,7 +153,7 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 }
 
 type hostedPublicVirtualInterfaceAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -163,7 +163,7 @@ type hostedPublicVirtualInterfaceAccepterArgs struct {
 
 // The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
 type HostedPublicVirtualInterfaceAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,7 +263,7 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedPublicVirtualInterfaceAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

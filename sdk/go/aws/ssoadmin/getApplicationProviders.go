@@ -50,6 +50,7 @@ func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersA
 
 // A collection of arguments for invoking getApplicationProviders.
 type GetApplicationProvidersArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvi
 
 // A collection of arguments for invoking getApplicationProviders.
 type GetApplicationProvidersOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

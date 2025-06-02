@@ -158,6 +158,7 @@ def get_route_calculator(calculator_name: Optional[builtins.str] = None,
 
 
     :param builtins.str calculator_name: Name of the route calculator resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the route calculator.
     """
     __args__ = dict()
@@ -195,6 +196,7 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str calculator_name: Name of the route calculator resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the route calculator.
     """
     __args__ = dict()

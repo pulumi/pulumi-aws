@@ -99,7 +99,7 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -118,6 +118,10 @@ export class Workgroup extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     */
+    public readonly trackName!: pulumi.Output<string>;
     /**
      * The Redshift Workgroup ID.
      */
@@ -157,6 +161,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trackName"] = state ? state.trackName : undefined;
             resourceInputs["workgroupId"] = state ? state.workgroupId : undefined;
             resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
         } else {
@@ -179,6 +184,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trackName"] = args ? args.trackName : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
@@ -235,7 +241,7 @@ export interface WorkgroupState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -254,6 +260,10 @@ export interface WorkgroupState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     */
+    trackName?: pulumi.Input<string>;
     /**
      * The Redshift Workgroup ID.
      */
@@ -303,7 +313,7 @@ export interface WorkgroupArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -318,6 +328,10 @@ export interface WorkgroupArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     */
+    trackName?: pulumi.Input<string>;
     /**
      * The name of the workgroup.
      *

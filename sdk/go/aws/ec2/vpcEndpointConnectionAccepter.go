@@ -74,7 +74,7 @@ import (
 type VpcEndpointConnectionAccepter struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS VPC Endpoint ID.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
@@ -120,7 +120,7 @@ func GetVpcEndpointConnectionAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
 type vpcEndpointConnectionAccepterState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS VPC Endpoint ID.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
@@ -131,7 +131,7 @@ type vpcEndpointConnectionAccepterState struct {
 }
 
 type VpcEndpointConnectionAccepterState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS VPC Endpoint ID.
 	VpcEndpointId pulumi.StringPtrInput
@@ -146,7 +146,7 @@ func (VpcEndpointConnectionAccepterState) ElementType() reflect.Type {
 }
 
 type vpcEndpointConnectionAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS VPC Endpoint ID.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
@@ -156,7 +156,7 @@ type vpcEndpointConnectionAccepterArgs struct {
 
 // The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
 type VpcEndpointConnectionAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS VPC Endpoint ID.
 	VpcEndpointId pulumi.StringInput
@@ -251,7 +251,7 @@ func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutp
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointConnectionAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

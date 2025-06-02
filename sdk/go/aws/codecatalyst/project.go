@@ -62,7 +62,7 @@ type Project struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the project in the space.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
@@ -112,7 +112,7 @@ type projectState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the project in the space.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the space.
 	SpaceName *string `pulumi:"spaceName"`
@@ -127,7 +127,7 @@ type ProjectState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the project in the space.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type projectArgs struct {
 	//
 	// The following arguments are optional:
 	DisplayName string `pulumi:"displayName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the space.
 	SpaceName string `pulumi:"spaceName"`
@@ -158,7 +158,7 @@ type ProjectArgs struct {
 	//
 	// The following arguments are optional:
 	DisplayName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringInput
@@ -268,7 +268,7 @@ func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

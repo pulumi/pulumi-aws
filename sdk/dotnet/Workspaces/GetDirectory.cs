@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -122,6 +125,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -147,6 +153,10 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetDirectoryResult
     {
+        /// <summary>
+        /// Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDirectoryActiveDirectoryConfigResult> ActiveDirectoryConfigs;
         /// <summary>
         /// Directory alias.
         /// </summary>
@@ -200,20 +210,38 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// The user identity type for the WorkSpaces directory.
+        /// </summary>
+        public readonly string UserIdentityType;
+        /// <summary>
+        /// Specifies which devices and operating systems users can use to access their WorkSpaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> WorkspaceAccessProperties;
         /// <summary>
-        /// The default properties that are used for creating WorkSpaces. Defined below.
+        /// The default properties that are used for creating WorkSpaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> WorkspaceCreationProperties;
         /// <summary>
-        /// The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+        /// The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        public readonly string WorkspaceDirectoryDescription;
+        /// <summary>
+        /// The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+        /// </summary>
+        public readonly string WorkspaceDirectoryName;
+        /// <summary>
+        /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
         public readonly string WorkspaceSecurityGroupId;
+        /// <summary>
+        /// The type of WorkSpaces directory.
+        /// </summary>
+        public readonly string WorkspaceType;
 
         [OutputConstructor]
         private GetDirectoryResult(
+            ImmutableArray<Outputs.GetDirectoryActiveDirectoryConfigResult> activeDirectoryConfigs,
+
             string alias,
 
             ImmutableArray<Outputs.GetDirectoryCertificateBasedAuthPropertyResult> certificateBasedAuthProperties,
@@ -246,12 +274,21 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableDictionary<string, string> tags,
 
+            string userIdentityType,
+
             ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> workspaceAccessProperties,
 
             ImmutableArray<Outputs.GetDirectoryWorkspaceCreationPropertyResult> workspaceCreationProperties,
 
-            string workspaceSecurityGroupId)
+            string workspaceDirectoryDescription,
+
+            string workspaceDirectoryName,
+
+            string workspaceSecurityGroupId,
+
+            string workspaceType)
         {
+            ActiveDirectoryConfigs = activeDirectoryConfigs;
             Alias = alias;
             CertificateBasedAuthProperties = certificateBasedAuthProperties;
             CustomerUserName = customerUserName;
@@ -268,9 +305,13 @@ namespace Pulumi.Aws.Workspaces
             SelfServicePermissions = selfServicePermissions;
             SubnetIds = subnetIds;
             Tags = tags;
+            UserIdentityType = userIdentityType;
             WorkspaceAccessProperties = workspaceAccessProperties;
             WorkspaceCreationProperties = workspaceCreationProperties;
+            WorkspaceDirectoryDescription = workspaceDirectoryDescription;
+            WorkspaceDirectoryName = workspaceDirectoryName;
             WorkspaceSecurityGroupId = workspaceSecurityGroupId;
+            WorkspaceType = workspaceType;
         }
     }
 }

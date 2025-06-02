@@ -7849,6 +7849,112 @@ func (o KeyValueStoreTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KeyvaluestoreKeysExclusiveResourceKeyValuePair struct {
+	// Key to put.
+	Key string `pulumi:"key"`
+	// Value to put.
+	Value string `pulumi:"value"`
+}
+
+// KeyvaluestoreKeysExclusiveResourceKeyValuePairInput is an input type that accepts KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs and KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput values.
+// You can construct a concrete instance of `KeyvaluestoreKeysExclusiveResourceKeyValuePairInput` via:
+//
+//	KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs{...}
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairInput interface {
+	pulumi.Input
+
+	ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput
+	ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutputWithContext(context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput
+}
+
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs struct {
+	// Key to put.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value to put.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyvaluestoreKeysExclusiveResourceKeyValuePair)(nil)).Elem()
+}
+
+func (i KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput {
+	return i.ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutputWithContext(ctx context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput)
+}
+
+// KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput is an input type that accepts KeyvaluestoreKeysExclusiveResourceKeyValuePairArray and KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput` via:
+//
+//	KeyvaluestoreKeysExclusiveResourceKeyValuePairArray{ KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs{...} }
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput
+	ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutputWithContext(context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput
+}
+
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairArray []KeyvaluestoreKeysExclusiveResourceKeyValuePairInput
+
+func (KeyvaluestoreKeysExclusiveResourceKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyvaluestoreKeysExclusiveResourceKeyValuePair)(nil)).Elem()
+}
+
+func (i KeyvaluestoreKeysExclusiveResourceKeyValuePairArray) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
+	return i.ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i KeyvaluestoreKeysExclusiveResourceKeyValuePairArray) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutputWithContext(ctx context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput)
+}
+
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyvaluestoreKeysExclusiveResourceKeyValuePair)(nil)).Elem()
+}
+
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput {
+	return o
+}
+
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairOutputWithContext(ctx context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput {
+	return o
+}
+
+// Key to put.
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyvaluestoreKeysExclusiveResourceKeyValuePair) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value to put.
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyvaluestoreKeysExclusiveResourceKeyValuePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyvaluestoreKeysExclusiveResourceKeyValuePair)(nil)).Elem()
+}
+
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput() KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
+	return o
+}
+
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput) ToKeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutputWithContext(ctx context.Context) KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput {
+	return o
+}
+
+func (o KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput) Index(i pulumi.IntInput) KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyvaluestoreKeysExclusiveResourceKeyValuePair {
+		return vs[0].([]KeyvaluestoreKeysExclusiveResourceKeyValuePair)[vs[1].(int)]
+	}).(KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput)
+}
+
 type MonitoringSubscriptionMonitoringSubscription struct {
 	// A subscription configuration for additional CloudWatch metrics. See below.
 	RealtimeMetricsSubscriptionConfig MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig `pulumi:"realtimeMetricsSubscriptionConfig"`
@@ -16051,6 +16157,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreTimeoutsInput)(nil)).Elem(), KeyValueStoreTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreTimeoutsPtrInput)(nil)).Elem(), KeyValueStoreTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyvaluestoreKeysExclusiveResourceKeyValuePairInput)(nil)).Elem(), KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayInput)(nil)).Elem(), KeyvaluestoreKeysExclusiveResourceKeyValuePairArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
@@ -16277,6 +16385,8 @@ func init() {
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput{})
 	pulumi.RegisterOutputType(KeyValueStoreTimeoutsOutput{})
 	pulumi.RegisterOutputType(KeyValueStoreTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(KeyvaluestoreKeysExclusiveResourceKeyValuePairOutput{})
+	pulumi.RegisterOutputType(KeyvaluestoreKeysExclusiveResourceKeyValuePairArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})

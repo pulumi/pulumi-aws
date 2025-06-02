@@ -103,7 +103,7 @@ export class RoutingProfile extends pulumi.CustomResource {
      */
     public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface RoutingProfileState {
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface RoutingProfileArgs {
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

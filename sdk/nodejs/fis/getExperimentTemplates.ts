@@ -61,6 +61,9 @@ export function getExperimentTemplates(args?: GetExperimentTemplatesArgs, opts?:
  * A collection of arguments for invoking getExperimentTemplates.
  */
 export interface GetExperimentTemplatesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match
@@ -141,6 +144,9 @@ export function getExperimentTemplatesOutput(args?: GetExperimentTemplatesOutput
  * A collection of arguments for invoking getExperimentTemplates.
  */
 export interface GetExperimentTemplatesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match

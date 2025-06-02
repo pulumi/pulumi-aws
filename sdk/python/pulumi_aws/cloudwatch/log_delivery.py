@@ -35,7 +35,7 @@ class LogDeliveryArgs:
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -104,7 +104,7 @@ class LogDeliveryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _LogDeliveryState:
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -244,7 +244,7 @@ class _LogDeliveryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -338,7 +338,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -452,7 +452,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -516,7 +516,7 @@ class LogDelivery(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -87,7 +87,7 @@ type VpcIpv6CidrBlockAssociation struct {
 	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 	Ipv6Pool pulumi.StringOutput `pulumi:"ipv6Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -140,7 +140,7 @@ type vpcIpv6CidrBlockAssociationState struct {
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 	Ipv6Pool *string `pulumi:"ipv6Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId *string `pulumi:"vpcId"`
@@ -161,7 +161,7 @@ type VpcIpv6CidrBlockAssociationState struct {
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 	Ipv6Pool pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type vpcIpv6CidrBlockAssociationArgs struct {
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 	Ipv6Pool *string `pulumi:"ipv6Pool"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the VPC to make the association with.
 	VpcId string `pulumi:"vpcId"`
@@ -200,7 +200,7 @@ type VpcIpv6CidrBlockAssociationArgs struct {
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
 	Ipv6Pool pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the VPC to make the association with.
 	VpcId pulumi.StringInput
@@ -328,7 +328,7 @@ func (o VpcIpv6CidrBlockAssociationOutput) Ipv6Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6Pool }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpv6CidrBlockAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

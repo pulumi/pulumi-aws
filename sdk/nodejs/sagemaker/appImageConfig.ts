@@ -102,7 +102,7 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export interface AppImageConfigState {
      */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface AppImageConfigArgs {
      */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

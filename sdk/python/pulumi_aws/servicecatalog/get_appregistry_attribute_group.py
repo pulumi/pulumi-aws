@@ -133,6 +133,8 @@ def get_appregistry_attribute_group(arn: Optional[builtins.str] = None,
     :param builtins.str arn: ARN of the Attribute Group to find.
     :param builtins.str id: ID of the Attribute Group to find.
     :param builtins.str name: Name of the Attribute Group to find.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `arn`, `id`, or `name` must be set.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -173,6 +175,8 @@ def get_appregistry_attribute_group_output(arn: Optional[pulumi.Input[Optional[b
     :param builtins.str arn: ARN of the Attribute Group to find.
     :param builtins.str id: ID of the Attribute Group to find.
     :param builtins.str name: Name of the Attribute Group to find.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `arn`, `id`, or `name` must be set.
     """
     __args__ = dict()
     __args__['arn'] = arn

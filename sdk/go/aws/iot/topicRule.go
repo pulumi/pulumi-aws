@@ -156,7 +156,7 @@ type TopicRule struct {
 	Lambdas      TopicRuleLambdaArrayOutput      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringOutput           `pulumi:"region"`
 	Republishes TopicRuleRepublishArrayOutput `pulumi:"republishes"`
 	S3          TopicRuleS3ArrayOutput        `pulumi:"s3"`
@@ -236,7 +236,7 @@ type topicRuleState struct {
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
@@ -278,7 +278,7 @@ type TopicRuleState struct {
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
@@ -322,7 +322,7 @@ type topicRuleArgs struct {
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
@@ -361,7 +361,7 @@ type TopicRuleArgs struct {
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
@@ -541,7 +541,7 @@ func (o TopicRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TopicRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

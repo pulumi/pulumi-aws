@@ -68,7 +68,7 @@ type DevicePool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
@@ -125,7 +125,7 @@ type devicePoolState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn *string `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
@@ -147,7 +147,7 @@ type DevicePoolState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
@@ -171,7 +171,7 @@ type devicePoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn string `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
@@ -189,7 +189,7 @@ type DevicePoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
@@ -309,7 +309,7 @@ func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DevicePoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

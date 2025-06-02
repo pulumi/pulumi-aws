@@ -55,8 +55,9 @@ func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFi
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupArgs struct {
 	// The ID of the rule group.
-	FirewallRuleGroupId string  `pulumi:"firewallRuleGroupId"`
-	Region              *string `pulumi:"region"`
+	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRuleGroup.
@@ -99,8 +100,9 @@ func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResol
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupOutputArgs struct {
 	// The ID of the rule group.
-	FirewallRuleGroupId pulumi.StringInput    `pulumi:"firewallRuleGroupId"`
-	Region              pulumi.StringPtrInput `pulumi:"region"`
+	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallRuleGroupOutputArgs) ElementType() reflect.Type {

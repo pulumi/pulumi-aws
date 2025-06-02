@@ -86,7 +86,8 @@ type LookupNatGatewayArgs struct {
 	// NAT Gateway whose data will be exported as attributes.
 	Filters []GetNatGatewayFilter `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
 	State *string `pulumi:"state"`
@@ -146,7 +147,8 @@ type LookupNatGatewayOutputArgs struct {
 	// NAT Gateway whose data will be exported as attributes.
 	Filters GetNatGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
 	State pulumi.StringPtrInput `pulumi:"state"`

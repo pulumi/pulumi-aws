@@ -113,14 +113,14 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -167,12 +167,16 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
     /**
      * Codec options for the video parameters
      * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+     * 
      */
     @Import(name="videoCodecOptions")
     private @Nullable Output<Map<String,String>> videoCodecOptions;
 
     /**
      * @return Codec options for the video parameters
+     * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      * 
      */
     public Optional<Output<Map<String,String>>> videoCodecOptions() {
@@ -356,7 +360,7 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -367,7 +371,7 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -430,6 +434,8 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param videoCodecOptions Codec options for the video parameters
          * 
+         * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+         * 
          * @return builder
          * 
          */
@@ -440,6 +446,8 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param videoCodecOptions Codec options for the video parameters
+         * 
+         * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
          * 
          * @return builder
          * 

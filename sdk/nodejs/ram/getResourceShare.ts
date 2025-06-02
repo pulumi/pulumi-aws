@@ -61,6 +61,9 @@ export interface GetResourceShareArgs {
      * Name of the resource share to retrieve.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
@@ -164,6 +167,9 @@ export interface GetResourceShareOutputArgs {
      * Name of the resource share to retrieve.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.

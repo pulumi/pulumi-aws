@@ -29,16 +29,13 @@ class GetTagsResult:
     """
     A collection of values returned by getTags.
     """
-    def __init__(__self__, filter=None, id=None, region=None, search_string=None, sort_bies=None, tag_key=None, tags=None, time_period=None):
+    def __init__(__self__, filter=None, id=None, search_string=None, sort_bies=None, tag_key=None, tags=None, time_period=None):
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        pulumi.set(__self__, "region", region)
         if search_string and not isinstance(search_string, str):
             raise TypeError("Expected argument 'search_string' to be a str")
         pulumi.set(__self__, "search_string", search_string)
@@ -67,11 +64,6 @@ class GetTagsResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def region(self) -> builtins.str:
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="searchString")
@@ -110,7 +102,6 @@ class AwaitableGetTagsResult(GetTagsResult):
         return GetTagsResult(
             filter=self.filter,
             id=self.id,
-            region=self.region,
             search_string=self.search_string,
             sort_bies=self.sort_bies,
             tag_key=self.tag_key,
@@ -119,7 +110,6 @@ class AwaitableGetTagsResult(GetTagsResult):
 
 
 def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']] = None,
-             region: Optional[builtins.str] = None,
              search_string: Optional[builtins.str] = None,
              sort_bies: Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]] = None,
              tag_key: Optional[builtins.str] = None,
@@ -149,7 +139,6 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
     """
     __args__ = dict()
     __args__['filter'] = filter
-    __args__['region'] = region
     __args__['searchString'] = search_string
     __args__['sortBies'] = sort_bies
     __args__['tagKey'] = tag_key
@@ -160,14 +149,12 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
     return AwaitableGetTagsResult(
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
-        region=pulumi.get(__ret__, 'region'),
         search_string=pulumi.get(__ret__, 'search_string'),
         sort_bies=pulumi.get(__ret__, 'sort_bies'),
         tag_key=pulumi.get(__ret__, 'tag_key'),
         tags=pulumi.get(__ret__, 'tags'),
         time_period=pulumi.get(__ret__, 'time_period'))
 def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
-                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     search_string: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     sort_bies: Optional[pulumi.Input[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
                     tag_key: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -197,7 +184,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
     """
     __args__ = dict()
     __args__['filter'] = filter
-    __args__['region'] = region
     __args__['searchString'] = search_string
     __args__['sortBies'] = sort_bies
     __args__['tagKey'] = tag_key
@@ -207,7 +193,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
     return __ret__.apply(lambda __response__: GetTagsResult(
         filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
-        region=pulumi.get(__response__, 'region'),
         search_string=pulumi.get(__response__, 'search_string'),
         sort_bies=pulumi.get(__response__, 'sort_bies'),
         tag_key=pulumi.get(__response__, 'tag_key'),

@@ -53,7 +53,7 @@ type SingleScramSecretAssociation struct {
 
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
@@ -97,7 +97,7 @@ func GetSingleScramSecretAssociation(ctx *pulumi.Context,
 type singleScramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn *string `pulumi:"clusterArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn *string `pulumi:"secretArn"`
@@ -106,7 +106,7 @@ type singleScramSecretAssociationState struct {
 type SingleScramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringPtrInput
@@ -119,7 +119,7 @@ func (SingleScramSecretAssociationState) ElementType() reflect.Type {
 type singleScramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn string `pulumi:"clusterArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn string `pulumi:"secretArn"`
@@ -129,7 +129,7 @@ type singleScramSecretAssociationArgs struct {
 type SingleScramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringInput
@@ -227,7 +227,7 @@ func (o SingleScramSecretAssociationOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SingleScramSecretAssociation) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SingleScramSecretAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SingleScramSecretAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -77,7 +77,7 @@ type CustomLogSource struct {
 	EventClasses pulumi.StringArrayOutput `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayOutput `pulumi:"providerDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
@@ -128,7 +128,7 @@ type customLogSourceState struct {
 	EventClasses []string `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails []CustomLogSourceProviderDetail `pulumi:"providerDetails"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
@@ -147,7 +147,7 @@ type CustomLogSourceState struct {
 	EventClasses pulumi.StringArrayInput
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
@@ -166,7 +166,7 @@ type customLogSourceArgs struct {
 	Configuration *CustomLogSourceConfiguration `pulumi:"configuration"`
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses []string `pulumi:"eventClasses"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
@@ -182,7 +182,7 @@ type CustomLogSourceArgs struct {
 	Configuration CustomLogSourceConfigurationPtrInput
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
@@ -299,7 +299,7 @@ func (o CustomLogSourceOutput) ProviderDetails() CustomLogSourceProviderDetailAr
 	return o.ApplyT(func(v *CustomLogSource) CustomLogSourceProviderDetailArrayOutput { return v.ProviderDetails }).(CustomLogSourceProviderDetailArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomLogSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLogSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

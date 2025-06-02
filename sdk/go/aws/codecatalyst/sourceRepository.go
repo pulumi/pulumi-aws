@@ -62,7 +62,7 @@ type SourceRepository struct {
 	//
 	// The following arguments are optional:
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the CodeCatalyst space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
@@ -112,7 +112,7 @@ type sourceRepositoryState struct {
 	//
 	// The following arguments are optional:
 	ProjectName *string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the CodeCatalyst space.
 	SpaceName *string `pulumi:"spaceName"`
@@ -127,7 +127,7 @@ type SourceRepositoryState struct {
 	//
 	// The following arguments are optional:
 	ProjectName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the CodeCatalyst space.
 	SpaceName pulumi.StringPtrInput
@@ -146,7 +146,7 @@ type sourceRepositoryArgs struct {
 	//
 	// The following arguments are optional:
 	ProjectName string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the CodeCatalyst space.
 	SpaceName string `pulumi:"spaceName"`
@@ -162,7 +162,7 @@ type SourceRepositoryArgs struct {
 	//
 	// The following arguments are optional:
 	ProjectName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the CodeCatalyst space.
 	SpaceName pulumi.StringInput
@@ -272,7 +272,7 @@ func (o SourceRepositoryOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceRepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceRepository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

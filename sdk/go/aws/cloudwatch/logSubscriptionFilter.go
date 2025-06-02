@@ -65,7 +65,7 @@ type LogSubscriptionFilter struct {
 	LogGroup pulumi.StringOutput `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -120,7 +120,7 @@ type logSubscriptionFilterState struct {
 	LogGroup *string `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn *string `pulumi:"roleArn"`
@@ -137,7 +137,7 @@ type LogSubscriptionFilterState struct {
 	LogGroup pulumi.StringPtrInput
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringPtrInput
@@ -158,7 +158,7 @@ type logSubscriptionFilterArgs struct {
 	LogGroup string `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn *string `pulumi:"roleArn"`
@@ -176,7 +176,7 @@ type LogSubscriptionFilterArgs struct {
 	LogGroup pulumi.StringInput
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringPtrInput
@@ -294,7 +294,7 @@ func (o LogSubscriptionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogSubscriptionFilterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

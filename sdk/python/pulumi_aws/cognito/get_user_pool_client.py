@@ -28,7 +28,7 @@ class GetUserPoolClientResult:
     """
     A collection of values returned by getUserPoolClient.
     """
-    def __init__(__self__, access_token_validity=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, analytics_configurations=None, callback_urls=None, client_id=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, generate_secret=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, region=None, supported_identity_providers=None, token_validity_units=None, user_pool_id=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, analytics_configurations=None, callback_urls=None, client_id=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, generate_secret=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_rotations=None, refresh_token_validity=None, region=None, supported_identity_providers=None, token_validity_units=None, user_pool_id=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -86,6 +86,9 @@ class GetUserPoolClientResult:
         if read_attributes and not isinstance(read_attributes, list):
             raise TypeError("Expected argument 'read_attributes' to be a list")
         pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotations and not isinstance(refresh_token_rotations, list):
+            raise TypeError("Expected argument 'refresh_token_rotations' to be a list")
+        pulumi.set(__self__, "refresh_token_rotations", refresh_token_rotations)
         if refresh_token_validity and not isinstance(refresh_token_validity, int):
             raise TypeError("Expected argument 'refresh_token_validity' to be a int")
         pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
@@ -249,6 +252,14 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "read_attributes")
 
     @property
+    @pulumi.getter(name="refreshTokenRotations")
+    def refresh_token_rotations(self) -> Sequence['outputs.GetUserPoolClientRefreshTokenRotationResult']:
+        """
+        (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotations")
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> builtins.int:
         """
@@ -316,6 +327,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             name=self.name,
             prevent_user_existence_errors=self.prevent_user_existence_errors,
             read_attributes=self.read_attributes,
+            refresh_token_rotations=self.refresh_token_rotations,
             refresh_token_validity=self.refresh_token_validity,
             region=self.region,
             supported_identity_providers=self.supported_identity_providers,
@@ -343,6 +355,7 @@ def get_user_pool_client(client_id: Optional[builtins.str] = None,
 
 
     :param builtins.str client_id: Client Id of the user pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
@@ -372,6 +385,7 @@ def get_user_pool_client(client_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         prevent_user_existence_errors=pulumi.get(__ret__, 'prevent_user_existence_errors'),
         read_attributes=pulumi.get(__ret__, 'read_attributes'),
+        refresh_token_rotations=pulumi.get(__ret__, 'refresh_token_rotations'),
         refresh_token_validity=pulumi.get(__ret__, 'refresh_token_validity'),
         region=pulumi.get(__ret__, 'region'),
         supported_identity_providers=pulumi.get(__ret__, 'supported_identity_providers'),
@@ -397,6 +411,7 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str client_id: Client Id of the user pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
@@ -425,6 +440,7 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] 
         name=pulumi.get(__response__, 'name'),
         prevent_user_existence_errors=pulumi.get(__response__, 'prevent_user_existence_errors'),
         read_attributes=pulumi.get(__response__, 'read_attributes'),
+        refresh_token_rotations=pulumi.get(__response__, 'refresh_token_rotations'),
         refresh_token_validity=pulumi.get(__response__, 'refresh_token_validity'),
         region=pulumi.get(__response__, 'region'),
         supported_identity_providers=pulumi.get(__response__, 'supported_identity_providers'),

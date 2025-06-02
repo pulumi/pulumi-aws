@@ -57,7 +57,7 @@ type PolicyStore struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrOutput `pulumi:"validationSettings"`
@@ -99,7 +99,7 @@ type policyStoreState struct {
 	Description *string `pulumi:"description"`
 	// The ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Validation settings for the policy store.
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
@@ -112,7 +112,7 @@ type PolicyStoreState struct {
 	Description pulumi.StringPtrInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrInput
@@ -125,7 +125,7 @@ func (PolicyStoreState) ElementType() reflect.Type {
 type policyStoreArgs struct {
 	// A description of the Policy Store.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Validation settings for the policy store.
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
@@ -135,7 +135,7 @@ type policyStoreArgs struct {
 type PolicyStoreArgs struct {
 	// A description of the Policy Store.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrInput
@@ -243,7 +243,7 @@ func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

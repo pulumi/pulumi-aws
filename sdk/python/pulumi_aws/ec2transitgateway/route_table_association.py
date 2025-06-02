@@ -28,7 +28,7 @@ class RouteTableAssociationArgs:
         The set of arguments for constructing a RouteTableAssociation resource.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
@@ -66,7 +66,7 @@ class RouteTableAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _RouteTableAssociationState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource
         :param pulumi.Input[builtins.str] resource_type: Type of the resource
@@ -122,7 +122,7 @@ class _RouteTableAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -226,7 +226,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
@@ -320,7 +320,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource
         :param pulumi.Input[builtins.str] resource_type: Type of the resource
@@ -343,7 +343,7 @@ class RouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

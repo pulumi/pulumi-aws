@@ -205,6 +205,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
            whose data will be exported as attributes.
     :param builtins.str id: ID of the prefix list to select.
     :param builtins.str name: Name of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -270,6 +271,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
            whose data will be exported as attributes.
     :param builtins.str id: ID of the prefix list to select.
     :param builtins.str name: Name of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()

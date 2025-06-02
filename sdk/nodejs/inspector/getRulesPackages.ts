@@ -45,6 +45,9 @@ export function getRulesPackages(args?: GetRulesPackagesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getRulesPackages.
  */
 export interface GetRulesPackagesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -103,5 +106,8 @@ export function getRulesPackagesOutput(args?: GetRulesPackagesOutputArgs, opts?:
  * A collection of arguments for invoking getRulesPackages.
  */
 export interface GetRulesPackagesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

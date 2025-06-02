@@ -161,7 +161,7 @@ type Environment struct {
 	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
 	// SQS queues in use by this Environment.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -263,7 +263,7 @@ type environmentState struct {
 	PollInterval *string `pulumi:"pollInterval"`
 	// SQS queues in use by this Environment.
 	Queues []string `pulumi:"queues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -333,7 +333,7 @@ type EnvironmentState struct {
 	PollInterval pulumi.StringPtrInput
 	// SQS queues in use by this Environment.
 	Queues pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -388,7 +388,7 @@ type environmentArgs struct {
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
 	PollInterval *string `pulumi:"pollInterval"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -436,7 +436,7 @@ type EnvironmentArgs struct {
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
 	PollInterval pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -633,7 +633,7 @@ func (o EnvironmentOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

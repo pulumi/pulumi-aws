@@ -30,7 +30,7 @@ class TrustStoreRevocationArgs:
         :param pulumi.Input[builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] trust_store_arn: Trust Store ARN.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
         pulumi.set(__self__, "revocations_s3_bucket", revocations_s3_bucket)
@@ -81,7 +81,7 @@ class TrustStoreRevocationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -113,7 +113,7 @@ class _TrustStoreRevocationState:
                  trust_store_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustStoreRevocation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
@@ -137,7 +137,7 @@ class _TrustStoreRevocationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -249,7 +249,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
@@ -354,7 +354,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
@@ -377,7 +377,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

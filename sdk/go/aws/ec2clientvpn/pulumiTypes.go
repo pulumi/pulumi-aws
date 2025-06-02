@@ -458,6 +458,143 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type EndpointClientRouteEnforcementOptions struct {
+	// Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+	Enforced *bool `pulumi:"enforced"`
+}
+
+// EndpointClientRouteEnforcementOptionsInput is an input type that accepts EndpointClientRouteEnforcementOptionsArgs and EndpointClientRouteEnforcementOptionsOutput values.
+// You can construct a concrete instance of `EndpointClientRouteEnforcementOptionsInput` via:
+//
+//	EndpointClientRouteEnforcementOptionsArgs{...}
+type EndpointClientRouteEnforcementOptionsInput interface {
+	pulumi.Input
+
+	ToEndpointClientRouteEnforcementOptionsOutput() EndpointClientRouteEnforcementOptionsOutput
+	ToEndpointClientRouteEnforcementOptionsOutputWithContext(context.Context) EndpointClientRouteEnforcementOptionsOutput
+}
+
+type EndpointClientRouteEnforcementOptionsArgs struct {
+	// Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+	Enforced pulumi.BoolPtrInput `pulumi:"enforced"`
+}
+
+func (EndpointClientRouteEnforcementOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (i EndpointClientRouteEnforcementOptionsArgs) ToEndpointClientRouteEnforcementOptionsOutput() EndpointClientRouteEnforcementOptionsOutput {
+	return i.ToEndpointClientRouteEnforcementOptionsOutputWithContext(context.Background())
+}
+
+func (i EndpointClientRouteEnforcementOptionsArgs) ToEndpointClientRouteEnforcementOptionsOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientRouteEnforcementOptionsOutput)
+}
+
+func (i EndpointClientRouteEnforcementOptionsArgs) ToEndpointClientRouteEnforcementOptionsPtrOutput() EndpointClientRouteEnforcementOptionsPtrOutput {
+	return i.ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointClientRouteEnforcementOptionsArgs) ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientRouteEnforcementOptionsOutput).ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx)
+}
+
+// EndpointClientRouteEnforcementOptionsPtrInput is an input type that accepts EndpointClientRouteEnforcementOptionsArgs, EndpointClientRouteEnforcementOptionsPtr and EndpointClientRouteEnforcementOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointClientRouteEnforcementOptionsPtrInput` via:
+//
+//	        EndpointClientRouteEnforcementOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointClientRouteEnforcementOptionsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointClientRouteEnforcementOptionsPtrOutput() EndpointClientRouteEnforcementOptionsPtrOutput
+	ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Context) EndpointClientRouteEnforcementOptionsPtrOutput
+}
+
+type endpointClientRouteEnforcementOptionsPtrType EndpointClientRouteEnforcementOptionsArgs
+
+func EndpointClientRouteEnforcementOptionsPtr(v *EndpointClientRouteEnforcementOptionsArgs) EndpointClientRouteEnforcementOptionsPtrInput {
+	return (*endpointClientRouteEnforcementOptionsPtrType)(v)
+}
+
+func (*endpointClientRouteEnforcementOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (i *endpointClientRouteEnforcementOptionsPtrType) ToEndpointClientRouteEnforcementOptionsPtrOutput() EndpointClientRouteEnforcementOptionsPtrOutput {
+	return i.ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointClientRouteEnforcementOptionsPtrType) ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientRouteEnforcementOptionsPtrOutput)
+}
+
+type EndpointClientRouteEnforcementOptionsOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientRouteEnforcementOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (o EndpointClientRouteEnforcementOptionsOutput) ToEndpointClientRouteEnforcementOptionsOutput() EndpointClientRouteEnforcementOptionsOutput {
+	return o
+}
+
+func (o EndpointClientRouteEnforcementOptionsOutput) ToEndpointClientRouteEnforcementOptionsOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsOutput {
+	return o
+}
+
+func (o EndpointClientRouteEnforcementOptionsOutput) ToEndpointClientRouteEnforcementOptionsPtrOutput() EndpointClientRouteEnforcementOptionsPtrOutput {
+	return o.ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointClientRouteEnforcementOptionsOutput) ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointClientRouteEnforcementOptions) *EndpointClientRouteEnforcementOptions {
+		return &v
+	}).(EndpointClientRouteEnforcementOptionsPtrOutput)
+}
+
+// Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+func (o EndpointClientRouteEnforcementOptionsOutput) Enforced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointClientRouteEnforcementOptions) *bool { return v.Enforced }).(pulumi.BoolPtrOutput)
+}
+
+type EndpointClientRouteEnforcementOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointClientRouteEnforcementOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointClientRouteEnforcementOptions)(nil)).Elem()
+}
+
+func (o EndpointClientRouteEnforcementOptionsPtrOutput) ToEndpointClientRouteEnforcementOptionsPtrOutput() EndpointClientRouteEnforcementOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientRouteEnforcementOptionsPtrOutput) ToEndpointClientRouteEnforcementOptionsPtrOutputWithContext(ctx context.Context) EndpointClientRouteEnforcementOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointClientRouteEnforcementOptionsPtrOutput) Elem() EndpointClientRouteEnforcementOptionsOutput {
+	return o.ApplyT(func(v *EndpointClientRouteEnforcementOptions) EndpointClientRouteEnforcementOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointClientRouteEnforcementOptions
+		return ret
+	}).(EndpointClientRouteEnforcementOptionsOutput)
+}
+
+// Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+func (o EndpointClientRouteEnforcementOptionsPtrOutput) Enforced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointClientRouteEnforcementOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforced
+	}).(pulumi.BoolPtrOutput)
+}
+
 type EndpointConnectionLogOptions struct {
 	// The name of the CloudWatch Logs log group.
 	CloudwatchLogGroup *string `pulumi:"cloudwatchLogGroup"`
@@ -951,6 +1088,100 @@ func (o GetEndpointClientLoginBannerOptionArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetEndpointClientLoginBannerOptionOutput)
 }
 
+type GetEndpointClientRouteEnforcementOption struct {
+	Enforced bool `pulumi:"enforced"`
+}
+
+// GetEndpointClientRouteEnforcementOptionInput is an input type that accepts GetEndpointClientRouteEnforcementOptionArgs and GetEndpointClientRouteEnforcementOptionOutput values.
+// You can construct a concrete instance of `GetEndpointClientRouteEnforcementOptionInput` via:
+//
+//	GetEndpointClientRouteEnforcementOptionArgs{...}
+type GetEndpointClientRouteEnforcementOptionInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientRouteEnforcementOptionOutput() GetEndpointClientRouteEnforcementOptionOutput
+	ToGetEndpointClientRouteEnforcementOptionOutputWithContext(context.Context) GetEndpointClientRouteEnforcementOptionOutput
+}
+
+type GetEndpointClientRouteEnforcementOptionArgs struct {
+	Enforced pulumi.BoolInput `pulumi:"enforced"`
+}
+
+func (GetEndpointClientRouteEnforcementOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientRouteEnforcementOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientRouteEnforcementOptionArgs) ToGetEndpointClientRouteEnforcementOptionOutput() GetEndpointClientRouteEnforcementOptionOutput {
+	return i.ToGetEndpointClientRouteEnforcementOptionOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientRouteEnforcementOptionArgs) ToGetEndpointClientRouteEnforcementOptionOutputWithContext(ctx context.Context) GetEndpointClientRouteEnforcementOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientRouteEnforcementOptionOutput)
+}
+
+// GetEndpointClientRouteEnforcementOptionArrayInput is an input type that accepts GetEndpointClientRouteEnforcementOptionArray and GetEndpointClientRouteEnforcementOptionArrayOutput values.
+// You can construct a concrete instance of `GetEndpointClientRouteEnforcementOptionArrayInput` via:
+//
+//	GetEndpointClientRouteEnforcementOptionArray{ GetEndpointClientRouteEnforcementOptionArgs{...} }
+type GetEndpointClientRouteEnforcementOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointClientRouteEnforcementOptionArrayOutput() GetEndpointClientRouteEnforcementOptionArrayOutput
+	ToGetEndpointClientRouteEnforcementOptionArrayOutputWithContext(context.Context) GetEndpointClientRouteEnforcementOptionArrayOutput
+}
+
+type GetEndpointClientRouteEnforcementOptionArray []GetEndpointClientRouteEnforcementOptionInput
+
+func (GetEndpointClientRouteEnforcementOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientRouteEnforcementOption)(nil)).Elem()
+}
+
+func (i GetEndpointClientRouteEnforcementOptionArray) ToGetEndpointClientRouteEnforcementOptionArrayOutput() GetEndpointClientRouteEnforcementOptionArrayOutput {
+	return i.ToGetEndpointClientRouteEnforcementOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointClientRouteEnforcementOptionArray) ToGetEndpointClientRouteEnforcementOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientRouteEnforcementOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientRouteEnforcementOptionArrayOutput)
+}
+
+type GetEndpointClientRouteEnforcementOptionOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientRouteEnforcementOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointClientRouteEnforcementOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientRouteEnforcementOptionOutput) ToGetEndpointClientRouteEnforcementOptionOutput() GetEndpointClientRouteEnforcementOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientRouteEnforcementOptionOutput) ToGetEndpointClientRouteEnforcementOptionOutputWithContext(ctx context.Context) GetEndpointClientRouteEnforcementOptionOutput {
+	return o
+}
+
+func (o GetEndpointClientRouteEnforcementOptionOutput) Enforced() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointClientRouteEnforcementOption) bool { return v.Enforced }).(pulumi.BoolOutput)
+}
+
+type GetEndpointClientRouteEnforcementOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointClientRouteEnforcementOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointClientRouteEnforcementOption)(nil)).Elem()
+}
+
+func (o GetEndpointClientRouteEnforcementOptionArrayOutput) ToGetEndpointClientRouteEnforcementOptionArrayOutput() GetEndpointClientRouteEnforcementOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientRouteEnforcementOptionArrayOutput) ToGetEndpointClientRouteEnforcementOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientRouteEnforcementOptionArrayOutput {
+	return o
+}
+
+func (o GetEndpointClientRouteEnforcementOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointClientRouteEnforcementOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointClientRouteEnforcementOption {
+		return vs[0].([]GetEndpointClientRouteEnforcementOption)[vs[1].(int)]
+	}).(GetEndpointClientRouteEnforcementOptionOutput)
+}
+
 type GetEndpointConnectionLogOption struct {
 	CloudwatchLogGroup  string `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream string `pulumi:"cloudwatchLogStream"`
@@ -1170,6 +1401,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientConnectOptionsPtrInput)(nil)).Elem(), EndpointClientConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientLoginBannerOptionsInput)(nil)).Elem(), EndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), EndpointClientLoginBannerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientRouteEnforcementOptionsInput)(nil)).Elem(), EndpointClientRouteEnforcementOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientRouteEnforcementOptionsPtrInput)(nil)).Elem(), EndpointClientRouteEnforcementOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsPtrInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAuthenticationOptionInput)(nil)).Elem(), GetEndpointAuthenticationOptionArgs{})
@@ -1178,6 +1411,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientConnectOptionArrayInput)(nil)).Elem(), GetEndpointClientConnectOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientLoginBannerOptionInput)(nil)).Elem(), GetEndpointClientLoginBannerOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientLoginBannerOptionArrayInput)(nil)).Elem(), GetEndpointClientLoginBannerOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientRouteEnforcementOptionInput)(nil)).Elem(), GetEndpointClientRouteEnforcementOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientRouteEnforcementOptionArrayInput)(nil)).Elem(), GetEndpointClientRouteEnforcementOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionLogOptionInput)(nil)).Elem(), GetEndpointConnectionLogOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionLogOptionArrayInput)(nil)).Elem(), GetEndpointConnectionLogOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterInput)(nil)).Elem(), GetEndpointFilterArgs{})
@@ -1188,6 +1423,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointClientConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointClientLoginBannerOptionsOutput{})
 	pulumi.RegisterOutputType(EndpointClientLoginBannerOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointClientRouteEnforcementOptionsOutput{})
+	pulumi.RegisterOutputType(EndpointClientRouteEnforcementOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointAuthenticationOptionOutput{})
@@ -1196,6 +1433,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEndpointClientConnectOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointClientLoginBannerOptionOutput{})
 	pulumi.RegisterOutputType(GetEndpointClientLoginBannerOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientRouteEnforcementOptionOutput{})
+	pulumi.RegisterOutputType(GetEndpointClientRouteEnforcementOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionLogOptionOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionLogOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointFilterOutput{})

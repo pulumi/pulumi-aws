@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Macie2
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationAdminAccount resource with the given unique name, arguments, and options.
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.Macie2
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationAdminAccountArgs()
         {
         }
@@ -120,6 +132,12 @@ namespace Pulumi.Aws.Macie2
         /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationAdminAccountState()
         {

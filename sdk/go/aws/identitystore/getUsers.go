@@ -59,7 +59,7 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 type GetUsersArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId string `pulumi:"identityStoreId"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -87,7 +87,7 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 type GetUsersOutputArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

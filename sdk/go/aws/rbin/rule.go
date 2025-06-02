@@ -75,7 +75,7 @@ type Rule struct {
 	LockEndTime pulumi.StringOutput `pulumi:"lockEndTime"`
 	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState pulumi.StringOutput `pulumi:"lockState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayOutput `pulumi:"resourceTags"`
@@ -136,7 +136,7 @@ type ruleState struct {
 	LockEndTime *string `pulumi:"lockEndTime"`
 	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState *string `pulumi:"lockState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags []RuleResourceTag `pulumi:"resourceTags"`
@@ -162,7 +162,7 @@ type RuleState struct {
 	LockEndTime pulumi.StringPtrInput
 	// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pendingUnlock`, `unlocked`.
 	LockState pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayInput
@@ -187,7 +187,7 @@ type ruleArgs struct {
 	Description *string `pulumi:"description"`
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration *RuleLockConfiguration `pulumi:"lockConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags []RuleResourceTag `pulumi:"resourceTags"`
@@ -206,7 +206,7 @@ type RuleArgs struct {
 	Description pulumi.StringPtrInput
 	// Information about the retention rule lock configuration. See `lockConfiguration` below.
 	LockConfiguration RuleLockConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
 	ResourceTags RuleResourceTagArrayInput
@@ -330,7 +330,7 @@ func (o RuleOutput) LockState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LockState }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

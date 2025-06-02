@@ -101,6 +101,7 @@ def get_lbs(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Load Balancers.
     """
@@ -136,6 +137,7 @@ def get_lbs_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Load Balancers.
     """

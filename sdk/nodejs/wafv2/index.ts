@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
 export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
 export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
 export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
@@ -60,6 +65,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:wafv2/apiKey:ApiKey":
+                return new ApiKey(name, <any>undefined, { urn })
             case "aws:wafv2/ipSet:IpSet":
                 return new IpSet(name, <any>undefined, { urn })
             case "aws:wafv2/regexPatternSet:RegexPatternSet":
@@ -77,6 +84,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "wafv2/apiKey", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/ipSet", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/regexPatternSet", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/ruleGroup", _module)

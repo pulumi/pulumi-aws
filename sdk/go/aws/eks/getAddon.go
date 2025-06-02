@@ -56,9 +56,10 @@ type LookupAddonArgs struct {
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName string `pulumi:"addonName"`
 	// Name of the EKS Cluster.
-	ClusterName string            `pulumi:"clusterName"`
-	Region      *string           `pulumi:"region"`
-	Tags        map[string]string `pulumi:"tags"`
+	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAddon.
@@ -101,9 +102,10 @@ type LookupAddonOutputArgs struct {
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName pulumi.StringInput `pulumi:"addonName"`
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
-	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAddonOutputArgs) ElementType() reflect.Type {

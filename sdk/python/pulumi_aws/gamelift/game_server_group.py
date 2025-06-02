@@ -51,7 +51,7 @@ class GameServerGroupArgs:
                Protected instances cannot be terminated while there are active game servers running except in the event
                of a forced game server group deletion.
                Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
                By default, all GameLift FleetIQ-supported Availability Zones are used.
@@ -187,7 +187,7 @@ class GameServerGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -257,7 +257,7 @@ class _GameServerGroupState:
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -418,7 +418,7 @@ class _GameServerGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -613,7 +613,7 @@ class GameServerGroup(pulumi.CustomResource):
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -841,7 +841,7 @@ class GameServerGroup(pulumi.CustomResource):
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         :param pulumi.Input[builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
                During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
@@ -952,7 +952,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -36,7 +36,6 @@ public final class GetCostCategoryResult {
      */
     private String id;
     private String name;
-    private String region;
     /**
      * @return Rule schema version in this particular Cost Category.
      * 
@@ -93,9 +92,6 @@ public final class GetCostCategoryResult {
     public String name() {
         return this.name;
     }
-    public String region() {
-        return this.region;
-    }
     /**
      * @return Rule schema version in this particular Cost Category.
      * 
@@ -140,7 +136,6 @@ public final class GetCostCategoryResult {
         private String effectiveStart;
         private String id;
         private String name;
-        private String region;
         private String ruleVersion;
         private List<GetCostCategoryRule> rules;
         private List<GetCostCategorySplitChargeRule> splitChargeRules;
@@ -154,7 +149,6 @@ public final class GetCostCategoryResult {
     	      this.effectiveStart = defaults.effectiveStart;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
-    	      this.region = defaults.region;
     	      this.ruleVersion = defaults.ruleVersion;
     	      this.rules = defaults.rules;
     	      this.splitChargeRules = defaults.splitChargeRules;
@@ -210,14 +204,6 @@ public final class GetCostCategoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder region(String region) {
-            if (region == null) {
-              throw new MissingRequiredPropertyException("GetCostCategoryResult", "region");
-            }
-            this.region = region;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ruleVersion(String ruleVersion) {
             if (ruleVersion == null) {
               throw new MissingRequiredPropertyException("GetCostCategoryResult", "ruleVersion");
@@ -263,7 +249,6 @@ public final class GetCostCategoryResult {
             _resultValue.effectiveStart = effectiveStart;
             _resultValue.id = id;
             _resultValue.name = name;
-            _resultValue.region = region;
             _resultValue.ruleVersion = ruleVersion;
             _resultValue.rules = rules;
             _resultValue.splitChargeRules = splitChargeRules;

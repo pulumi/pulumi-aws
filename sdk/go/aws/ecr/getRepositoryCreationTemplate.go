@@ -51,7 +51,8 @@ func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositor
 // A collection of arguments for invoking getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateArgs struct {
 	// The repository name prefix that the template matches against.
-	Prefix string  `pulumi:"prefix"`
+	Prefix string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -95,7 +96,8 @@ func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepo
 // A collection of arguments for invoking getRepositoryCreationTemplate.
 type LookupRepositoryCreationTemplateOutputArgs struct {
 	// The repository name prefix that the template matches against.
-	Prefix pulumi.StringInput    `pulumi:"prefix"`
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`

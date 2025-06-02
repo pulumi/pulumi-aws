@@ -185,6 +185,7 @@ def get_inference_profile(inference_profile_id: Optional[builtins.str] = None,
 
 
     :param builtins.str inference_profile_id: Inference Profile identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id
@@ -224,6 +225,7 @@ def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[bui
 
 
     :param builtins.str inference_profile_id: Inference Profile identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id

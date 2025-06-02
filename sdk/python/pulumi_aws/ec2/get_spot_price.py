@@ -138,6 +138,7 @@ def get_spot_price(availability_zone: Optional[builtins.str] = None,
     :param builtins.str availability_zone: Availability zone in which to query Spot price information.
     :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param builtins.str instance_type: Type of instance for which to query Spot Price information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -181,6 +182,7 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[buil
     :param builtins.str availability_zone: Availability zone in which to query Spot price information.
     :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param builtins.str instance_type: Type of instance for which to query Spot Price information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone

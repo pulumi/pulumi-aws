@@ -35,8 +35,6 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the keyspace to be created.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -44,22 +42,20 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name of the keyspace to be created.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -164,8 +160,6 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the keyspace to be created.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -177,8 +171,6 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the keyspace to be created.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -187,7 +179,7 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -198,7 +190,7 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

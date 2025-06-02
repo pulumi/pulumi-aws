@@ -91,7 +91,7 @@ type NotificationChannel struct {
 
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrOutput `pulumi:"filters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -131,7 +131,7 @@ func GetNotificationChannel(ctx *pulumi.Context,
 type notificationChannelState struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -142,7 +142,7 @@ type notificationChannelState struct {
 type NotificationChannelState struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -157,7 +157,7 @@ func (NotificationChannelState) ElementType() reflect.Type {
 type notificationChannelArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -169,7 +169,7 @@ type notificationChannelArgs struct {
 type NotificationChannelArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -269,7 +269,7 @@ func (o NotificationChannelOutput) Filters() NotificationChannelFiltersPtrOutput
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelFiltersPtrOutput { return v.Filters }).(NotificationChannelFiltersPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotificationChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

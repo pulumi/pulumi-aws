@@ -205,6 +205,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
 
     :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table to retrieve.
     :param builtins.str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
@@ -267,6 +268,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
 
     :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table to retrieve.
     :param builtins.str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.

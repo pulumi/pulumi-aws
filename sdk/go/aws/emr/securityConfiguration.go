@@ -77,7 +77,7 @@ type SecurityConfiguration struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -123,7 +123,7 @@ type securityConfigurationState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -137,7 +137,7 @@ type SecurityConfigurationState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -153,7 +153,7 @@ type securityConfigurationArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -166,7 +166,7 @@ type SecurityConfigurationArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -278,7 +278,7 @@ func (o SecurityConfigurationOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecurityConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

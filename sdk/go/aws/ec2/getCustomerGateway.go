@@ -78,7 +78,8 @@ type LookupCustomerGatewayArgs struct {
 	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
 	// ID of the gateway.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +124,8 @@ type LookupCustomerGatewayOutputArgs struct {
 	// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
 	Filters GetCustomerGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the gateway.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

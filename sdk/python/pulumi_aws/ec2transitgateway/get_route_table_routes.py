@@ -113,6 +113,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
 
 
     :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -153,6 +154,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union[
 
 
     :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,

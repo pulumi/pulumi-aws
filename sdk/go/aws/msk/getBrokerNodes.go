@@ -51,8 +51,9 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn string  `pulumi:"clusterArn"`
-	Region     *string `pulumi:"region"`
+	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerNodes.
@@ -76,8 +77,9 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesOutputArgs struct {
 	// ARN of the cluster the nodes belong to.
-	ClusterArn pulumi.StringInput    `pulumi:"clusterArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerNodesOutputArgs) ElementType() reflect.Type {

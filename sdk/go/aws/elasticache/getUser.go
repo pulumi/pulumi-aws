@@ -56,7 +56,8 @@ type LookupUserArgs struct {
 	Engine              *string                     `pulumi:"engine"`
 	NoPasswordRequired  *bool                       `pulumi:"noPasswordRequired"`
 	Passwords           []string                    `pulumi:"passwords"`
-	Region              *string                     `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier for the user.
 	UserId string `pulumi:"userId"`
 	// User name of the user.
@@ -97,7 +98,8 @@ type LookupUserOutputArgs struct {
 	Engine              pulumi.StringPtrInput               `pulumi:"engine"`
 	NoPasswordRequired  pulumi.BoolPtrInput                 `pulumi:"noPasswordRequired"`
 	Passwords           pulumi.StringArrayInput             `pulumi:"passwords"`
-	Region              pulumi.StringPtrInput               `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
 	// User name of the user.

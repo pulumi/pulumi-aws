@@ -121,6 +121,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
 
 
     :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
     __args__ = dict()
@@ -155,6 +156,7 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
 
 
     :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
     __args__ = dict()

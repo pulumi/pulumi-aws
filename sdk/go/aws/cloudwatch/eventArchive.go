@@ -116,7 +116,7 @@ type EventArchive struct {
 	EventSourceArn pulumi.StringOutput `pulumi:"eventSourceArn"`
 	// The name of the new event archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
@@ -165,7 +165,7 @@ type eventArchiveState struct {
 	EventSourceArn *string `pulumi:"eventSourceArn"`
 	// The name of the new event archive. The archive name cannot exceed 48 characters.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -182,7 +182,7 @@ type EventArchiveState struct {
 	EventSourceArn pulumi.StringPtrInput
 	// The name of the new event archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 	RetentionDays pulumi.IntPtrInput
@@ -201,7 +201,7 @@ type eventArchiveArgs struct {
 	EventSourceArn string `pulumi:"eventSourceArn"`
 	// The name of the new event archive. The archive name cannot exceed 48 characters.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -217,7 +217,7 @@ type EventArchiveArgs struct {
 	EventSourceArn pulumi.StringInput
 	// The name of the new event archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
 	RetentionDays pulumi.IntPtrInput
@@ -335,7 +335,7 @@ func (o EventArchiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventArchiveOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

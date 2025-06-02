@@ -34,10 +34,8 @@ class CustomPluginArgs:
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "location", location)
@@ -102,7 +100,7 @@ class CustomPluginArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -115,8 +113,6 @@ class CustomPluginArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "tags")
 
@@ -146,11 +142,9 @@ class _CustomPluginState:
         :param pulumi.Input[builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: the state of the custom plugin.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -250,7 +244,7 @@ class _CustomPluginState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -275,8 +269,6 @@ class _CustomPluginState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "tags")
 
@@ -351,10 +343,8 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -474,11 +464,9 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: the state of the custom plugin.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -549,7 +537,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -566,8 +554,6 @@ class CustomPlugin(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "tags")
 

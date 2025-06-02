@@ -675,12 +675,33 @@ class TableOnDemandThroughput(dict):
 
 @pulumi.output_type
 class TablePointInTimeRecovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryPeriodInDays":
+            suggest = "recovery_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TablePointInTimeRecovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TablePointInTimeRecovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TablePointInTimeRecovery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: builtins.bool):
+                 enabled: builtins.bool,
+                 recovery_period_in_days: Optional[builtins.int] = None):
         """
         :param builtins.bool enabled: Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
+        :param builtins.int recovery_period_in_days: Number of preceding days for which continuous backups are taken and maintained. Default is 35.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if recovery_period_in_days is not None:
+            pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter
@@ -689,6 +710,14 @@ class TablePointInTimeRecovery(dict):
         Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> Optional[builtins.int]:
+        """
+        Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+        """
+        return pulumi.get(self, "recovery_period_in_days")
 
 
 @pulumi.output_type
@@ -1095,13 +1124,20 @@ class GetTableOnDemandThroughputResult(dict):
 @pulumi.output_type
 class GetTablePointInTimeRecoveryResult(dict):
     def __init__(__self__, *,
-                 enabled: builtins.bool):
+                 enabled: builtins.bool,
+                 recovery_period_in_days: builtins.int):
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter
     def enabled(self) -> builtins.bool:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> builtins.int:
+        return pulumi.get(self, "recovery_period_in_days")
 
 
 @pulumi.output_type

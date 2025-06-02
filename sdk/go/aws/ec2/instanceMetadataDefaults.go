@@ -55,7 +55,7 @@ type InstanceMetadataDefaults struct {
 	HttpTokens pulumi.StringOutput `pulumi:"httpTokens"`
 	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	InstanceMetadataTags pulumi.StringOutput `pulumi:"instanceMetadataTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -97,7 +97,7 @@ type instanceMetadataDefaultsState struct {
 	HttpTokens *string `pulumi:"httpTokens"`
 	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type InstanceMetadataDefaultsState struct {
 	HttpTokens pulumi.StringPtrInput
 	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	InstanceMetadataTags pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type instanceMetadataDefaultsArgs struct {
 	HttpTokens *string `pulumi:"httpTokens"`
 	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -141,7 +141,7 @@ type InstanceMetadataDefaultsArgs struct {
 	HttpTokens pulumi.StringPtrInput
 	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
 	InstanceMetadataTags pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -252,7 +252,7 @@ func (o InstanceMetadataDefaultsOutput) InstanceMetadataTags() pulumi.StringOutp
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.InstanceMetadataTags }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceMetadataDefaultsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceMetadataDefaults) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

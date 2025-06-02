@@ -39,7 +39,7 @@ class LaunchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -136,7 +136,7 @@ class LaunchArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -201,7 +201,7 @@ class _LaunchState:
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[builtins.str] status: The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         :param pulumi.Input[builtins.str] status_reason: If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
@@ -368,7 +368,7 @@ class _LaunchState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -739,7 +739,7 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1113,7 +1113,7 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[builtins.str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[builtins.str] status: The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         :param pulumi.Input[builtins.str] status_reason: If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
@@ -1228,7 +1228,7 @@ class Launch(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -36,7 +36,7 @@ type Profile struct {
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -89,7 +89,7 @@ type profileState struct {
 	ProfileId *string `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType *string `pulumi:"profileType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -107,7 +107,7 @@ type ProfileState struct {
 	ProfileId pulumi.StringPtrInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -125,7 +125,7 @@ type profileArgs struct {
 	CertificateIds []string `pulumi:"certificateIds"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType string `pulumi:"profileType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,7 +139,7 @@ type ProfileArgs struct {
 	CertificateIds pulumi.StringArrayInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -257,7 +257,7 @@ func (o ProfileOutput) ProfileType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

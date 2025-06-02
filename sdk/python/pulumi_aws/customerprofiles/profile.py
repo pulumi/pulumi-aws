@@ -70,7 +70,7 @@ class ProfileArgs:
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -377,7 +377,7 @@ class ProfileArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -449,7 +449,7 @@ class _ProfileState:
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         if account_number is not None:
@@ -757,7 +757,7 @@ class _ProfileState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -855,7 +855,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         ...
@@ -1021,7 +1021,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1227,7 +1227,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

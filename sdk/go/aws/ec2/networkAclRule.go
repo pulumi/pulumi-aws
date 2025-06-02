@@ -102,7 +102,7 @@ type NetworkAclRule struct {
 	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
 	// The protocol. A value of -1 means all protocols.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
@@ -176,7 +176,7 @@ type networkAclRuleState struct {
 	NetworkAclId *string `pulumi:"networkAclId"`
 	// The protocol. A value of -1 means all protocols.
 	Protocol *string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 	RuleAction *string `pulumi:"ruleAction"`
@@ -209,7 +209,7 @@ type NetworkAclRuleState struct {
 	NetworkAclId pulumi.StringPtrInput
 	// The protocol. A value of -1 means all protocols.
 	Protocol pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 	RuleAction pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type networkAclRuleArgs struct {
 	NetworkAclId string `pulumi:"networkAclId"`
 	// The protocol. A value of -1 means all protocols.
 	Protocol string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 	RuleAction string `pulumi:"ruleAction"`
@@ -280,7 +280,7 @@ type NetworkAclRuleArgs struct {
 	NetworkAclId pulumi.StringInput
 	// The protocol. A value of -1 means all protocols.
 	Protocol pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
 	RuleAction pulumi.StringInput
@@ -423,7 +423,7 @@ func (o NetworkAclRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkAclRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

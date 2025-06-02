@@ -195,6 +195,7 @@ def get_repository_creation_template(prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str prefix: The repository name prefix that the template matches against.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: A map of tags to assign to any created repositories.
     """
     __args__ = dict()
@@ -235,6 +236,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[builti
 
 
     :param builtins.str prefix: The repository name prefix that the template matches against.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: A map of tags to assign to any created repositories.
     """
     __args__ = dict()

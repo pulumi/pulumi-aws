@@ -33,7 +33,7 @@ class MembershipArgs:
         :param pulumi.Input[builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         """
         pulumi.set(__self__, "collaboration_id", collaboration_id)
@@ -96,7 +96,7 @@ class MembershipArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -148,7 +148,7 @@ class _MembershipState:
         :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] member_abilities: The list of abilities for the invited member.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the membership.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         :param pulumi.Input[builtins.str] update_time: The date and time the membership was last updated.
@@ -319,7 +319,7 @@ class _MembershipState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -428,7 +428,7 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         """
         ...
@@ -567,7 +567,7 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] member_abilities: The list of abilities for the invited member.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the membership.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         :param pulumi.Input[builtins.str] update_time: The date and time the membership was last updated.
@@ -683,7 +683,7 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -62,7 +62,7 @@ class ReplicationInstanceArgs:
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
@@ -270,7 +270,7 @@ class ReplicationInstanceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -357,7 +357,7 @@ class _ReplicationInstanceState:
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
@@ -557,7 +557,7 @@ class _ReplicationInstanceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -796,7 +796,7 @@ class ReplicationInstance(pulumi.CustomResource):
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
                
@@ -1009,7 +1009,7 @@ class ReplicationInstance(pulumi.CustomResource):
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
@@ -1149,7 +1149,7 @@ class ReplicationInstance(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

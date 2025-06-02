@@ -76,7 +76,7 @@ type ResourcePolicy struct {
 
 	// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -120,7 +120,7 @@ func GetResourcePolicy(ctx *pulumi.Context,
 type resourcePolicyState struct {
 	// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -129,7 +129,7 @@ type resourcePolicyState struct {
 type ResourcePolicyState struct {
 	// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
 	ResourceArn pulumi.StringPtrInput
@@ -142,7 +142,7 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 type resourcePolicyArgs struct {
 	// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -152,7 +152,7 @@ type resourcePolicyArgs struct {
 type ResourcePolicyArgs struct {
 	// The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
 	ResourceArn pulumi.StringInput
@@ -250,7 +250,7 @@ func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

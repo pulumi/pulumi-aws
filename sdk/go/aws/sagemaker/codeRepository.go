@@ -117,7 +117,7 @@ type CodeRepository struct {
 	CodeRepositoryName pulumi.StringOutput `pulumi:"codeRepositoryName"`
 	// Specifies details about the repository. see Git Config details below.
 	GitConfig CodeRepositoryGitConfigOutput `pulumi:"gitConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -167,7 +167,7 @@ type codeRepositoryState struct {
 	CodeRepositoryName *string `pulumi:"codeRepositoryName"`
 	// Specifies details about the repository. see Git Config details below.
 	GitConfig *CodeRepositoryGitConfig `pulumi:"gitConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -182,7 +182,7 @@ type CodeRepositoryState struct {
 	CodeRepositoryName pulumi.StringPtrInput
 	// Specifies details about the repository. see Git Config details below.
 	GitConfig CodeRepositoryGitConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -199,7 +199,7 @@ type codeRepositoryArgs struct {
 	CodeRepositoryName string `pulumi:"codeRepositoryName"`
 	// Specifies details about the repository. see Git Config details below.
 	GitConfig CodeRepositoryGitConfig `pulumi:"gitConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -211,7 +211,7 @@ type CodeRepositoryArgs struct {
 	CodeRepositoryName pulumi.StringInput
 	// Specifies details about the repository. see Git Config details below.
 	GitConfig CodeRepositoryGitConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -319,7 +319,7 @@ func (o CodeRepositoryOutput) GitConfig() CodeRepositoryGitConfigOutput {
 	return o.ApplyT(func(v *CodeRepository) CodeRepositoryGitConfigOutput { return v.GitConfig }).(CodeRepositoryGitConfigOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CodeRepositoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

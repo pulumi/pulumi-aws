@@ -27,7 +27,7 @@ class LogStreamArgs:
         The set of arguments for constructing a LogStream resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         if name is not None:
@@ -63,7 +63,7 @@ class LogStreamArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -84,7 +84,7 @@ class _LogStreamState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -135,7 +135,7 @@ class _LogStreamState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -181,7 +181,7 @@ class LogStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -269,7 +269,7 @@ class LogStream(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,7 +309,7 @@ class LogStream(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

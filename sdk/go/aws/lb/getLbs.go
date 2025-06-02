@@ -55,6 +55,7 @@ func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) 
 
 // A collection of arguments for invoking getLbs.
 type GetLbsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Load Balancers.
@@ -82,6 +83,7 @@ func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.Inv
 
 // A collection of arguments for invoking getLbs.
 type GetLbsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Load Balancers.

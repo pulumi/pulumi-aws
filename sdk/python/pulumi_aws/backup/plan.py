@@ -32,7 +32,7 @@ class PlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[builtins.str] name: The display name of a backup plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rules", rules)
@@ -85,7 +85,7 @@ class PlanArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -122,7 +122,7 @@ class _PlanState:
         :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[builtins.str] arn: The ARN of the backup plan.
         :param pulumi.Input[builtins.str] name: The display name of a backup plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -185,7 +185,7 @@ class _PlanState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -293,7 +293,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[builtins.str] name: The display name of a backup plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -405,7 +405,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[builtins.str] arn: The ARN of the backup plan.
         :param pulumi.Input[builtins.str] name: The display name of a backup plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanRuleArgs', 'PlanRuleArgsDict']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -453,7 +453,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

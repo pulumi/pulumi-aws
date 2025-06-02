@@ -82,7 +82,7 @@ type Table struct {
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
 	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionOutput `pulumi:"schemaDefinition"`
@@ -153,7 +153,7 @@ type tableState struct {
 	KeyspaceName *string `pulumi:"keyspaceName"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Describes the schema of the table.
 	SchemaDefinition *TableSchemaDefinition `pulumi:"schemaDefinition"`
@@ -186,7 +186,7 @@ type TableState struct {
 	KeyspaceName pulumi.StringPtrInput
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionPtrInput
@@ -221,7 +221,7 @@ type tableArgs struct {
 	KeyspaceName string `pulumi:"keyspaceName"`
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinition `pulumi:"schemaDefinition"`
@@ -251,7 +251,7 @@ type TableArgs struct {
 	KeyspaceName pulumi.StringInput
 	// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionInput
@@ -392,7 +392,7 @@ func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryOutput {
 	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

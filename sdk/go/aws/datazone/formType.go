@@ -181,7 +181,7 @@ type FormType struct {
 	OriginProjectId pulumi.StringOutput `pulumi:"originProjectId"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Revision of the Form Type.
 	Revision pulumi.StringOutput       `pulumi:"revision"`
@@ -244,7 +244,7 @@ type formTypeState struct {
 	OriginProjectId *string `pulumi:"originProjectId"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Revision of the Form Type.
 	Revision *string           `pulumi:"revision"`
@@ -272,7 +272,7 @@ type FormTypeState struct {
 	OriginProjectId pulumi.StringPtrInput
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Revision of the Form Type.
 	Revision pulumi.StringPtrInput
@@ -295,7 +295,7 @@ type formTypeArgs struct {
 	Name *string `pulumi:"name"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string           `pulumi:"region"`
 	Status   *string           `pulumi:"status"`
 	Timeouts *FormTypeTimeouts `pulumi:"timeouts"`
@@ -313,7 +313,7 @@ type FormTypeArgs struct {
 	Name pulumi.StringPtrInput
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
 	Timeouts FormTypeTimeoutsPtrInput
@@ -455,7 +455,7 @@ func (o FormTypeOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FormTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

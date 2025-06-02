@@ -57,8 +57,9 @@ type GetLaunchPathsArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId string  `pulumi:"productId"`
-	Region    *string `pulumi:"region"`
+	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLaunchPaths.
@@ -88,8 +89,9 @@ type GetLaunchPathsOutputArgs struct {
 	// Product identifier.
 	//
 	// The following arguments are optional:
-	ProductId pulumi.StringInput    `pulumi:"productId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLaunchPathsOutputArgs) ElementType() reflect.Type {

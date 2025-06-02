@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.s3tables.inputs;
 
+import com.pulumi.aws.s3tables.inputs.TableEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -59,6 +60,23 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdBy() {
         return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    public Optional<Output<TableEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -196,14 +214,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -213,7 +231,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="tableBucketArn")
@@ -222,7 +240,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> tableBucketArn() {
@@ -282,6 +300,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.createdAt = $.createdAt;
         this.createdBy = $.createdBy;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.format = $.format;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
         this.metadataLocation = $.metadataLocation;
@@ -376,6 +395,29 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdBy(String createdBy) {
             return createdBy(Output.of(createdBy));
+        }
+
+        /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(TableEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**
@@ -561,7 +603,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -572,7 +614,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -584,7 +626,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -597,7 +639,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

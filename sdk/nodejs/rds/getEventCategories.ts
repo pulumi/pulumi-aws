@@ -50,6 +50,9 @@ export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.
  * A collection of arguments for invoking getEventCategories.
  */
 export interface GetEventCategoriesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
@@ -118,6 +121,9 @@ export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, op
  * A collection of arguments for invoking getEventCategories.
  */
 export interface GetEventCategoriesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.

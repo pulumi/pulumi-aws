@@ -78,8 +78,6 @@ type Preferences struct {
 
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringOutput `pulumi:"memberAccountDiscountVisibility"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
 	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringOutput `pulumi:"savingsEstimationMode"`
 }
@@ -116,8 +114,6 @@ func GetPreferences(ctx *pulumi.Context,
 type preferencesState struct {
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility *string `pulumi:"memberAccountDiscountVisibility"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
 }
@@ -125,8 +121,6 @@ type preferencesState struct {
 type PreferencesState struct {
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrInput
 }
@@ -138,8 +132,6 @@ func (PreferencesState) ElementType() reflect.Type {
 type preferencesArgs struct {
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility *string `pulumi:"memberAccountDiscountVisibility"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
 }
@@ -148,8 +140,6 @@ type preferencesArgs struct {
 type PreferencesArgs struct {
 	// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 	MemberAccountDiscountVisibility pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrInput
 }
@@ -244,11 +234,6 @@ func (o PreferencesOutput) ToPreferencesOutputWithContext(ctx context.Context) P
 // Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
 func (o PreferencesOutput) MemberAccountDiscountVisibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preferences) pulumi.StringOutput { return v.MemberAccountDiscountVisibility }).(pulumi.StringOutput)
-}
-
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-func (o PreferencesOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *Preferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.

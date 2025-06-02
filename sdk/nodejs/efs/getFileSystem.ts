@@ -51,6 +51,9 @@ export interface GetFileSystemArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Restricts the list to the file system with these tags.
@@ -167,6 +170,9 @@ export interface GetFileSystemOutputArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Restricts the list to the file system with these tags.

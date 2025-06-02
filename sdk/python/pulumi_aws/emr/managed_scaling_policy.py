@@ -29,7 +29,7 @@ class ManagedScalingPolicyArgs:
         The set of arguments for constructing a ManagedScalingPolicy resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "compute_limits", compute_limits)
@@ -64,7 +64,7 @@ class ManagedScalingPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -83,7 +83,7 @@ class _ManagedScalingPolicyState:
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -120,7 +120,7 @@ class _ManagedScalingPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -180,7 +180,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -281,7 +281,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]] compute_limits: Configuration block with compute limit settings. Described below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,7 +312,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

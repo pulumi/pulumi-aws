@@ -84,7 +84,7 @@ type KxVolume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayOutput `pulumi:"nas1Configurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
@@ -170,7 +170,7 @@ type kxVolumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
@@ -215,7 +215,7 @@ type KxVolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of volume creation.
 	// * `CREATING` – The volume creation is in progress.
@@ -257,7 +257,7 @@ type kxVolumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags map[string]string `pulumi:"tags"`
@@ -282,7 +282,7 @@ type KxVolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags pulumi.StringMapInput
@@ -429,7 +429,7 @@ func (o KxVolumeOutput) Nas1Configurations() KxVolumeNas1ConfigurationArrayOutpu
 	return o.ApplyT(func(v *KxVolume) KxVolumeNas1ConfigurationArrayOutput { return v.Nas1Configurations }).(KxVolumeNas1ConfigurationArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -35,7 +35,7 @@ class SourceApiAssociationArgs:
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -96,7 +96,7 @@ class SourceApiAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -167,7 +167,7 @@ class _SourceApiAssociationState:
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -256,7 +256,7 @@ class _SourceApiAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -352,7 +352,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -461,7 +461,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_api_arn: ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         :param pulumi.Input[builtins.str] source_api_id: ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         """
@@ -525,7 +525,7 @@ class SourceApiAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

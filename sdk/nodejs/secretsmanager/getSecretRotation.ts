@@ -35,6 +35,9 @@ export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -93,6 +96,9 @@ export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.

@@ -36,7 +36,7 @@ class LinkArgs:
                
                The following arguments are optional:
         :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "label_template", label_template)
@@ -103,7 +103,7 @@ class LinkArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -145,7 +145,7 @@ class _LinkState:
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[builtins.str] link_id: ID string that AWS generated as part of the link ARN.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -240,7 +240,7 @@ class _LinkState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -394,7 +394,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
                
@@ -556,7 +556,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[builtins.str] link_id: ID string that AWS generated as part of the link ARN.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -625,7 +625,7 @@ class Link(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

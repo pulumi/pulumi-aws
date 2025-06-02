@@ -16,14 +16,14 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
     public static final ResponsePlanActionSsmAutomationParameterArgs Empty = new ResponsePlanActionSsmAutomationParameterArgs();
 
     /**
-     * The name of the response plan.
+     * The name of parameter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the response plan.
+     * @return The name of parameter.
      * 
      */
     public Output<String> name() {
@@ -71,7 +71,7 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the response plan.
+         * @param name The name of parameter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the response plan.
+         * @param name The name of parameter.
          * 
          * @return builder
          * 

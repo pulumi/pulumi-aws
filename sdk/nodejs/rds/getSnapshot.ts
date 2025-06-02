@@ -82,6 +82,9 @@ export interface GetSnapshotArgs {
      * recent Snapshot.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
@@ -92,6 +95,8 @@ export interface GetSnapshotArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     *
+     * > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      */
     tags?: {[key: string]: string};
 }
@@ -260,6 +265,9 @@ export interface GetSnapshotOutputArgs {
      * recent Snapshot.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
@@ -270,6 +278,8 @@ export interface GetSnapshotOutputArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     *
+     * > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

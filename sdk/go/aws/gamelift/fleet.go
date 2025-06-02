@@ -88,7 +88,7 @@ type Fleet struct {
 	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
@@ -164,7 +164,7 @@ type fleetState struct {
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
@@ -208,7 +208,7 @@ type FleetState struct {
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
 	// Operating system of the fleet's computing resources.
 	OperatingSystem pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
@@ -249,7 +249,7 @@ type fleetArgs struct {
 	Name *string `pulumi:"name"`
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
@@ -283,7 +283,7 @@ type FleetArgs struct {
 	Name pulumi.StringPtrInput
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
@@ -451,7 +451,7 @@ func (o FleetOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

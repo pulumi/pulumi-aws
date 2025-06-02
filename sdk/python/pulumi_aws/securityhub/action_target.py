@@ -29,7 +29,7 @@ class ActionTargetArgs:
         :param pulumi.Input[builtins.str] description: The name of the custom action target.
         :param pulumi.Input[builtins.str] identifier: The ID for the custom action target.
         :param pulumi.Input[builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "identifier", identifier)
@@ -78,7 +78,7 @@ class ActionTargetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _ActionTargetState:
         :param pulumi.Input[builtins.str] description: The name of the custom action target.
         :param pulumi.Input[builtins.str] identifier: The ID for the custom action target.
         :param pulumi.Input[builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,7 +166,7 @@ class _ActionTargetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -216,7 +216,7 @@ class ActionTarget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The name of the custom action target.
         :param pulumi.Input[builtins.str] identifier: The ID for the custom action target.
         :param pulumi.Input[builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -312,7 +312,7 @@ class ActionTarget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The name of the custom action target.
         :param pulumi.Input[builtins.str] identifier: The ID for the custom action target.
         :param pulumi.Input[builtins.str] name: The description for the custom action target.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,7 +361,7 @@ class ActionTarget(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

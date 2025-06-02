@@ -100,7 +100,7 @@ type Endpoint struct {
 	RedisSettings    EndpointRedisSettingsPtrOutput    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsOutput `pulumi:"redshiftSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
@@ -204,7 +204,7 @@ type endpointState struct {
 	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
@@ -263,7 +263,7 @@ type EndpointState struct {
 	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
@@ -324,7 +324,7 @@ type endpointArgs struct {
 	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
@@ -380,7 +380,7 @@ type EndpointArgs struct {
 	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
@@ -577,7 +577,7 @@ func (o EndpointOutput) RedshiftSettings() EndpointRedshiftSettingsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRedshiftSettingsOutput { return v.RedshiftSettings }).(EndpointRedshiftSettingsOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

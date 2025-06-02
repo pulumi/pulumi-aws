@@ -58,7 +58,7 @@ type SubnetGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the subnet group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -103,7 +103,7 @@ type subnetGroupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the subnet group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -116,7 +116,7 @@ type SubnetGroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the subnet group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
@@ -133,7 +133,7 @@ type subnetGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the subnet group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -145,7 +145,7 @@ type SubnetGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the subnet group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
@@ -248,7 +248,7 @@ func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SubnetGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

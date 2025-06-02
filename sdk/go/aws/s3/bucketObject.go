@@ -302,7 +302,7 @@ type BucketObject struct {
 	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
@@ -321,6 +321,8 @@ type BucketObject struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
@@ -397,7 +399,7 @@ type bucketObjectState struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
@@ -416,6 +418,8 @@ type bucketObjectState struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -460,7 +464,7 @@ type BucketObjectState struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
@@ -479,6 +483,8 @@ type BucketObjectState struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -525,7 +531,7 @@ type bucketObjectArgs struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
@@ -540,6 +546,8 @@ type bucketObjectArgs struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -583,7 +591,7 @@ type BucketObjectArgs struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
@@ -598,6 +606,8 @@ type BucketObjectArgs struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -785,7 +795,7 @@ func (o BucketObjectOutput) ObjectLockRetainUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketObjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -828,6 +838,8 @@ func (o BucketObjectOutput) VersionId() pulumi.StringOutput {
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 //
 // If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+//
+// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 func (o BucketObjectOutput) WebsiteRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }

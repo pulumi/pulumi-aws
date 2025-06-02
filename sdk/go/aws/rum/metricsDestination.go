@@ -59,7 +59,7 @@ type MetricsDestination struct {
 	DestinationArn pulumi.StringPtrOutput `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -107,7 +107,7 @@ type metricsDestinationState struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -120,7 +120,7 @@ type MetricsDestinationState struct {
 	DestinationArn pulumi.StringPtrInput
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -137,7 +137,7 @@ type metricsDestinationArgs struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -151,7 +151,7 @@ type MetricsDestinationArgs struct {
 	DestinationArn pulumi.StringPtrInput
 	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
 	IamRoleArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -262,7 +262,7 @@ func (o MetricsDestinationOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MetricsDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricsDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

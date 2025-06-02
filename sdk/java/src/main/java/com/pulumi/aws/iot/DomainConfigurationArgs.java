@@ -20,6 +20,36 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
     public static final DomainConfigurationArgs Empty = new DomainConfigurationArgs();
 
     /**
+     * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     * 
+     */
+    @Import(name="applicationProtocol")
+    private @Nullable Output<String> applicationProtocol;
+
+    /**
+     * @return An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     * 
+     */
+    public Optional<Output<String>> applicationProtocol() {
+        return Optional.ofNullable(this.applicationProtocol);
+    }
+
+    /**
+     * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     * 
+     */
+    @Import(name="authenticationType")
+    private @Nullable Output<String> authenticationType;
+
+    /**
+     * @return An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     * 
+     */
+    public Optional<Output<String>> authenticationType() {
+        return Optional.ofNullable(this.authenticationType);
+    }
+
+    /**
      * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
@@ -65,14 +95,14 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -172,6 +202,8 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
     private DomainConfigurationArgs() {}
 
     private DomainConfigurationArgs(DomainConfigurationArgs $) {
+        this.applicationProtocol = $.applicationProtocol;
+        this.authenticationType = $.authenticationType;
         this.authorizerConfig = $.authorizerConfig;
         this.domainName = $.domainName;
         this.name = $.name;
@@ -200,6 +232,48 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
 
         public Builder(DomainConfigurationArgs defaults) {
             $ = new DomainConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param applicationProtocol An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationProtocol(@Nullable Output<String> applicationProtocol) {
+            $.applicationProtocol = applicationProtocol;
+            return this;
+        }
+
+        /**
+         * @param applicationProtocol An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationProtocol(String applicationProtocol) {
+            return applicationProtocol(Output.of(applicationProtocol));
+        }
+
+        /**
+         * @param authenticationType An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationType(@Nullable Output<String> authenticationType) {
+            $.authenticationType = authenticationType;
+            return this;
+        }
+
+        /**
+         * @param authenticationType An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationType(String authenticationType) {
+            return authenticationType(Output.of(authenticationType));
         }
 
         /**
@@ -266,7 +340,7 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -277,7 +351,7 @@ public final class DomainConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

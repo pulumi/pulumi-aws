@@ -36,6 +36,9 @@ export interface GetSelectionArgs {
      * Backup plan ID associated with the selection of resources.
      */
     planId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Backup selection ID.
@@ -99,6 +102,9 @@ export interface GetSelectionOutputArgs {
      * Backup plan ID associated with the selection of resources.
      */
     planId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Backup selection ID.

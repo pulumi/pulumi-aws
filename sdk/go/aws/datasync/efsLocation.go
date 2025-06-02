@@ -71,7 +71,7 @@ type EfsLocation struct {
 	FileSystemAccessRoleArn pulumi.StringPtrOutput `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrOutput `pulumi:"inTransitEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
@@ -130,7 +130,7 @@ type efsLocationState struct {
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption *string `pulumi:"inTransitEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
@@ -154,7 +154,7 @@ type EfsLocationState struct {
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
@@ -180,7 +180,7 @@ type efsLocationArgs struct {
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption *string `pulumi:"inTransitEncryption"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
@@ -200,7 +200,7 @@ type EfsLocationArgs struct {
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
 	InTransitEncryption pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
@@ -325,7 +325,7 @@ func (o EfsLocationOutput) InTransitEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringPtrOutput { return v.InTransitEncryption }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EfsLocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

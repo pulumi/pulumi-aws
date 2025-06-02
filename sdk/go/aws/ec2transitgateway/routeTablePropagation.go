@@ -51,7 +51,7 @@ import (
 type RouteTablePropagation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -99,7 +99,7 @@ func GetRouteTablePropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTablePropagation resources.
 type routeTablePropagationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the resource
 	ResourceId *string `pulumi:"resourceId"`
@@ -112,7 +112,7 @@ type routeTablePropagationState struct {
 }
 
 type RouteTablePropagationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the resource
 	ResourceId pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (RouteTablePropagationState) ElementType() reflect.Type {
 }
 
 type routeTablePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
@@ -139,7 +139,7 @@ type routeTablePropagationArgs struct {
 
 // The set of arguments for constructing a RouteTablePropagation resource.
 type RouteTablePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
@@ -234,7 +234,7 @@ func (o RouteTablePropagationOutput) ToRouteTablePropagationOutputWithContext(ct
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteTablePropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

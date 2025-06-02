@@ -169,7 +169,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -178,6 +178,8 @@ export class FlowLog extends pulumi.CustomResource {
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -299,7 +301,7 @@ export interface FlowLogState {
      */
     maxAggregationInterval?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -308,6 +310,8 @@ export interface FlowLogState {
     subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -371,7 +375,7 @@ export interface FlowLogArgs {
      */
     maxAggregationInterval?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -380,6 +384,8 @@ export interface FlowLogArgs {
     subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

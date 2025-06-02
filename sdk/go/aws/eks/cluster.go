@@ -490,7 +490,7 @@ type Cluster struct {
 	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
 	// Platform version for the cluster.
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrOutput `pulumi:"remoteNetworkConfig"`
@@ -585,7 +585,7 @@ type clusterState struct {
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
 	// Platform version for the cluster.
 	PlatformVersion *string `pulumi:"platformVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
@@ -645,7 +645,7 @@ type ClusterState struct {
 	OutpostConfig ClusterOutpostConfigPtrInput
 	// Platform version for the cluster.
 	PlatformVersion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
@@ -694,7 +694,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
@@ -736,7 +736,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
 	OutpostConfig ClusterOutpostConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
@@ -929,7 +929,7 @@ func (o ClusterOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

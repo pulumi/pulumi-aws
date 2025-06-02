@@ -48,6 +48,10 @@ export interface GetPermissionSetArgs {
      * Name of the SSO Permission Set.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **NOTE:** Either `arn` or `name` must be configured.
+     */
     region?: string;
     /**
      * Key-value map of resource tags.
@@ -129,6 +133,10 @@ export interface GetPermissionSetOutputArgs {
      * Name of the SSO Permission Set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **NOTE:** Either `arn` or `name` must be configured.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.

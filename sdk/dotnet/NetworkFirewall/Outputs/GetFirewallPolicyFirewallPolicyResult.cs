@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyResult
     {
+        public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> PolicyVariables;
         public readonly ImmutableArray<string> StatefulDefaultActions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult> StatefulEngineOptions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult> StatefulRuleGroupReferences;
@@ -24,6 +25,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyResult(
+            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> policyVariables,
+
             ImmutableArray<string> statefulDefaultActions,
 
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult> statefulEngineOptions,
@@ -40,6 +43,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             string tlsInspectionConfigurationArn)
         {
+            PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;

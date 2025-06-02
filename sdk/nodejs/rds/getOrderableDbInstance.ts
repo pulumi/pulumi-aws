@@ -118,6 +118,9 @@ export interface GetOrderableDbInstanceArgs {
      * Whether a DB instance can have a read replica.
      */
     readReplicaCapable?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
@@ -360,6 +363,9 @@ export interface GetOrderableDbInstanceOutputArgs {
      * Whether a DB instance can have a read replica.
      */
     readReplicaCapable?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.

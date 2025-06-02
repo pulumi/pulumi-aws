@@ -118,7 +118,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly profileUrl!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -141,6 +141,8 @@ export class User extends pulumi.CustomResource {
     public readonly userName!: pulumi.Output<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     public readonly userType!: pulumi.Output<string | undefined>;
 
@@ -257,7 +259,7 @@ export interface UserState {
      */
     profileUrl?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -280,6 +282,8 @@ export interface UserState {
     userName?: pulumi.Input<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     userType?: pulumi.Input<string>;
 }
@@ -329,7 +333,7 @@ export interface UserArgs {
      */
     profileUrl?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -348,6 +352,8 @@ export interface UserArgs {
     userName: pulumi.Input<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     userType?: pulumi.Input<string>;
 }

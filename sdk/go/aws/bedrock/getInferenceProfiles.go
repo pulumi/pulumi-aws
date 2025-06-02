@@ -50,6 +50,7 @@ func GetInferenceProfiles(ctx *pulumi.Context, args *GetInferenceProfilesArgs, o
 
 // A collection of arguments for invoking getInferenceProfiles.
 type GetInferenceProfilesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetInferenceProfilesOutput(ctx *pulumi.Context, args GetInferenceProfilesOu
 
 // A collection of arguments for invoking getInferenceProfiles.
 type GetInferenceProfilesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

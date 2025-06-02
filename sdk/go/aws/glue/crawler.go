@@ -296,7 +296,7 @@ type Crawler struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrOutput `pulumi:"recrawlPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -311,6 +311,8 @@ type Crawler struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -384,7 +386,7 @@ type crawlerState struct {
 	Name *string `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role *string `pulumi:"role"`
@@ -399,6 +401,8 @@ type crawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -437,7 +441,7 @@ type CrawlerState struct {
 	Name pulumi.StringPtrInput
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringPtrInput
@@ -452,6 +456,8 @@ type CrawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -492,7 +498,7 @@ type crawlerArgs struct {
 	Name *string `pulumi:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role string `pulumi:"role"`
@@ -507,6 +513,8 @@ type crawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -542,7 +550,7 @@ type CrawlerArgs struct {
 	Name pulumi.StringPtrInput
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringInput
@@ -557,6 +565,8 @@ type CrawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapInput
 }
 
@@ -727,7 +737,7 @@ func (o CrawlerOutput) RecrawlPolicy() CrawlerRecrawlPolicyPtrOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerRecrawlPolicyPtrOutput { return v.RecrawlPolicy }).(CrawlerRecrawlPolicyPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CrawlerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -763,6 +773,8 @@ func (o CrawlerOutput) TablePrefix() pulumi.StringPtrOutput {
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 func (o CrawlerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

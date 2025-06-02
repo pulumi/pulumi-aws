@@ -35,6 +35,9 @@ export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getUserPool.
  */
 export interface GetUserPoolArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The cognito pool ID
@@ -113,8 +116,10 @@ export interface GetUserPoolResult {
     readonly smsVerificationMessage: string;
     /**
      * Map of tags assigned to the resource.
+     * * userPoolAddOns - The user pool add-ons configuration.
      */
     readonly tags: {[key: string]: string};
+    readonly userPoolAddOns: outputs.cognito.GetUserPoolUserPoolAddOn[];
     readonly userPoolId: string;
     /**
      * (Deprecated) Map of tags assigned to the resource.
@@ -155,6 +160,9 @@ export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getUserPool.
  */
 export interface GetUserPoolOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The cognito pool ID

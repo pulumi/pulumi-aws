@@ -58,7 +58,8 @@ type LookupNetworkInsightsPathArgs struct {
 	Filters []GetNetworkInsightsPathFilter `pulumi:"filters"`
 	// ID of the Network Insights Path to select.
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
-	Region                *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -115,7 +116,8 @@ type LookupNetworkInsightsPathOutputArgs struct {
 	Filters GetNetworkInsightsPathFilterArrayInput `pulumi:"filters"`
 	// ID of the Network Insights Path to select.
 	NetworkInsightsPathId pulumi.StringPtrInput `pulumi:"networkInsightsPathId"`
-	Region                pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

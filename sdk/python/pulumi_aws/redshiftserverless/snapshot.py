@@ -28,7 +28,7 @@ class SnapshotArgs:
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -66,7 +66,7 @@ class SnapshotArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -111,7 +111,7 @@ class _SnapshotState:
         :param pulumi.Input[builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -238,7 +238,7 @@ class _SnapshotState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -307,7 +307,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -418,7 +418,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -507,7 +507,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -41,7 +41,7 @@ class CatalogDatabaseArgs:
         :param pulumi.Input[builtins.str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
@@ -154,7 +154,7 @@ class CatalogDatabaseArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -212,7 +212,7 @@ class _CatalogDatabaseState:
         :param pulumi.Input[builtins.str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
@@ -342,7 +342,7 @@ class _CatalogDatabaseState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -449,7 +449,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
@@ -578,7 +578,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[builtins.str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
@@ -669,7 +669,7 @@ class CatalogDatabase(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

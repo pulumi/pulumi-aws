@@ -115,6 +115,7 @@ def get_producer_data_shares(producer_arn: Optional[builtins.str] = None,
     :param builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
     """
     __args__ = dict()
@@ -152,6 +153,7 @@ def get_producer_data_shares_output(producer_arn: Optional[pulumi.Input[builtins
     :param builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
     """
     __args__ = dict()

@@ -31,7 +31,7 @@ class GroupArgs:
         :param pulumi.Input[builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[builtins.str] description: A description for the group.
         :param pulumi.Input[builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         if aws_account_id is not None:
@@ -95,7 +95,7 @@ class GroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _GroupState:
         :param pulumi.Input[builtins.str] description: A description for the group.
         :param pulumi.Input[builtins.str] group_name: A name for the group.
         :param pulumi.Input[builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,7 +199,7 @@ class _GroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -246,7 +246,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description for the group.
         :param pulumi.Input[builtins.str] group_name: A name for the group.
         :param pulumi.Input[builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -339,7 +339,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description for the group.
         :param pulumi.Input[builtins.str] group_name: A name for the group.
         :param pulumi.Input[builtins.str] namespace: The namespace. Currently, you should set this to `default`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,7 +397,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

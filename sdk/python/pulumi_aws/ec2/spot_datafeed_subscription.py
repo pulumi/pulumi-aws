@@ -27,7 +27,7 @@ class SpotDatafeedSubscriptionArgs:
         The set of arguments for constructing a SpotDatafeedSubscription resource.
         :param pulumi.Input[builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
@@ -63,7 +63,7 @@ class SpotDatafeedSubscriptionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -82,7 +82,7 @@ class _SpotDatafeedSubscriptionState:
         Input properties used for looking up and filtering SpotDatafeedSubscription resources.
         :param pulumi.Input[builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -119,7 +119,7 @@ class _SpotDatafeedSubscriptionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -168,7 +168,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -256,7 +256,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -287,7 +287,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

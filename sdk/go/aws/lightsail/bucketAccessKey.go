@@ -64,7 +64,7 @@ type BucketAccessKey struct {
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The timestamp when the access key was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
@@ -111,7 +111,7 @@ type bucketAccessKeyState struct {
 	BucketName *string `pulumi:"bucketName"`
 	// The timestamp when the access key was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
@@ -126,7 +126,7 @@ type BucketAccessKeyState struct {
 	BucketName pulumi.StringPtrInput
 	// The timestamp when the access key was created.
 	CreatedAt pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey pulumi.StringPtrInput
@@ -141,7 +141,7 @@ func (BucketAccessKeyState) ElementType() reflect.Type {
 type bucketAccessKeyArgs struct {
 	// The name of the bucket that the new access key will belong to, and grant access to.
 	BucketName string `pulumi:"bucketName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -149,7 +149,7 @@ type bucketAccessKeyArgs struct {
 type BucketAccessKeyArgs struct {
 	// The name of the bucket that the new access key will belong to, and grant access to.
 	BucketName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -255,7 +255,7 @@ func (o BucketAccessKeyOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketAccessKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

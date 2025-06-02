@@ -72,7 +72,7 @@ type DevEnvironment struct {
 	PersistentStorage DevEnvironmentPersistentStorageOutput `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayOutput `pulumi:"repositories"`
@@ -138,7 +138,7 @@ type devEnvironmentState struct {
 	PersistentStorage *DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName *string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
@@ -160,7 +160,7 @@ type DevEnvironmentState struct {
 	PersistentStorage DevEnvironmentPersistentStoragePtrInput
 	// The name of the project in the space.
 	ProjectName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayInput
@@ -186,7 +186,7 @@ type devEnvironmentArgs struct {
 	PersistentStorage DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName string `pulumi:"projectName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
@@ -209,7 +209,7 @@ type DevEnvironmentArgs struct {
 	PersistentStorage DevEnvironmentPersistentStorageInput
 	// The name of the project in the space.
 	ProjectName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayInput
@@ -335,7 +335,7 @@ func (o DevEnvironmentOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DevEnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

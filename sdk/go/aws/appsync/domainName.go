@@ -61,7 +61,7 @@ type DomainName struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -111,7 +111,7 @@ type domainNameState struct {
 	DomainName *string `pulumi:"domainName"`
 	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -126,7 +126,7 @@ type DomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// ID of your Amazon Route 53 hosted zone.
 	HostedZoneId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -141,7 +141,7 @@ type domainNameArgs struct {
 	Description *string `pulumi:"description"`
 	// Domain name.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -153,7 +153,7 @@ type DomainNameArgs struct {
 	Description pulumi.StringPtrInput
 	// Domain name.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -269,7 +269,7 @@ func (o DomainNameOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainNameOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

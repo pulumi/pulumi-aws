@@ -43,7 +43,7 @@ class InputArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] input_security_groups: List of input security groups.
         :param pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
         :param pulumi.Input[builtins.str] name: Name of the input.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role this input assumes during and after creation.
         :param pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,7 +149,7 @@ class InputArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -238,7 +238,7 @@ class _InputState:
         :param pulumi.Input[builtins.str] input_source_type: Source type of the input.
         :param pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
         :param pulumi.Input[builtins.str] name: Name of the input.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role this input assumes during and after creation.
         :param pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -406,7 +406,7 @@ class _InputState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -546,7 +546,7 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] input_security_groups: List of input security groups.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
         :param pulumi.Input[builtins.str] name: Name of the input.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role this input assumes during and after creation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -694,7 +694,7 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_source_type: Source type of the input.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputMediaConnectFlowArgs', 'InputMediaConnectFlowArgsDict']]]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
         :param pulumi.Input[builtins.str] name: Name of the input.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role this input assumes during and after creation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputSourceArgs', 'InputSourceArgsDict']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -810,7 +810,7 @@ class Input(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

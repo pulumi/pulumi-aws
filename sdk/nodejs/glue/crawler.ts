@@ -235,7 +235,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -264,6 +264,8 @@ export class Crawler extends pulumi.CustomResource {
     public readonly tablePrefix!: pulumi.Output<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -417,7 +419,7 @@ export interface CrawlerState {
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -446,6 +448,8 @@ export interface CrawlerState {
     tablePrefix?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -519,7 +523,7 @@ export interface CrawlerArgs {
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -548,6 +552,8 @@ export interface CrawlerArgs {
     tablePrefix?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

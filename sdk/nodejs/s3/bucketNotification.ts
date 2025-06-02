@@ -326,7 +326,7 @@ export class BucketNotification extends pulumi.CustomResource {
      */
     public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -393,7 +393,7 @@ export interface BucketNotificationState {
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -425,7 +425,7 @@ export interface BucketNotificationArgs {
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -51,7 +51,8 @@ func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, o
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityArgs struct {
 	// Name of the domain
-	Domain string  `pulumi:"domain"`
+	Domain string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -80,7 +81,8 @@ func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOu
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityOutputArgs struct {
 	// Name of the domain
-	Domain pulumi.StringInput    `pulumi:"domain"`
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

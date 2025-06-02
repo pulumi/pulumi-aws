@@ -395,8 +395,6 @@ class Endpoints(dict):
                  internetmonitor: Optional[builtins.str] = None,
                  invoicing: Optional[builtins.str] = None,
                  iot: Optional[builtins.str] = None,
-                 iotanalytics: Optional[builtins.str] = None,
-                 iotevents: Optional[builtins.str] = None,
                  ivs: Optional[builtins.str] = None,
                  ivschat: Optional[builtins.str] = None,
                  kafka: Optional[builtins.str] = None,
@@ -443,6 +441,8 @@ class Endpoints(dict):
                  networkfirewall: Optional[builtins.str] = None,
                  networkmanager: Optional[builtins.str] = None,
                  networkmonitor: Optional[builtins.str] = None,
+                 notifications: Optional[builtins.str] = None,
+                 notificationscontacts: Optional[builtins.str] = None,
                  oam: Optional[builtins.str] = None,
                  opensearch: Optional[builtins.str] = None,
                  opensearchingestion: Optional[builtins.str] = None,
@@ -692,8 +692,6 @@ class Endpoints(dict):
         :param builtins.str internetmonitor: Use this to override the default service endpoint URL
         :param builtins.str invoicing: Use this to override the default service endpoint URL
         :param builtins.str iot: Use this to override the default service endpoint URL
-        :param builtins.str iotanalytics: Use this to override the default service endpoint URL
-        :param builtins.str iotevents: Use this to override the default service endpoint URL
         :param builtins.str ivs: Use this to override the default service endpoint URL
         :param builtins.str ivschat: Use this to override the default service endpoint URL
         :param builtins.str kafka: Use this to override the default service endpoint URL
@@ -740,6 +738,8 @@ class Endpoints(dict):
         :param builtins.str networkfirewall: Use this to override the default service endpoint URL
         :param builtins.str networkmanager: Use this to override the default service endpoint URL
         :param builtins.str networkmonitor: Use this to override the default service endpoint URL
+        :param builtins.str notifications: Use this to override the default service endpoint URL
+        :param builtins.str notificationscontacts: Use this to override the default service endpoint URL
         :param builtins.str oam: Use this to override the default service endpoint URL
         :param builtins.str opensearch: Use this to override the default service endpoint URL
         :param builtins.str opensearchingestion: Use this to override the default service endpoint URL
@@ -1141,10 +1141,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "invoicing", invoicing)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
-        if iotanalytics is not None:
-            pulumi.set(__self__, "iotanalytics", iotanalytics)
-        if iotevents is not None:
-            pulumi.set(__self__, "iotevents", iotevents)
         if ivs is not None:
             pulumi.set(__self__, "ivs", ivs)
         if ivschat is not None:
@@ -1237,6 +1233,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
             pulumi.set(__self__, "networkmonitor", networkmonitor)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if notificationscontacts is not None:
+            pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -2648,22 +2648,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def iotanalytics(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotanalytics")
-
-    @property
-    @pulumi.getter
-    def iotevents(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotevents")
-
-    @property
-    @pulumi.getter
     def ivs(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3029,6 +3013,22 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "networkmonitor")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter
+    def notificationscontacts(self) -> Optional[builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notificationscontacts")
 
     @property
     @pulumi.getter

@@ -68,7 +68,7 @@ type LookupUserArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//
@@ -132,7 +132,7 @@ type LookupUserOutputArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//

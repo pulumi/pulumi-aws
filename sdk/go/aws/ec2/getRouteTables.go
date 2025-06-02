@@ -78,7 +78,8 @@ func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulum
 type GetRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	Region  *string                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
 	Tags map[string]string `pulumi:"tags"`
@@ -111,7 +112,8 @@ func GetRouteTablesOutput(ctx *pulumi.Context, args GetRouteTablesOutputArgs, op
 type GetRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetRouteTablesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

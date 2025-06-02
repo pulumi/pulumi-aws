@@ -60,7 +60,8 @@ type GetImageArgs struct {
 	Name *string `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex *string `pulumi:"nameRegex"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type *string `pulumi:"type"`
 }
@@ -121,7 +122,8 @@ type GetImageOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }

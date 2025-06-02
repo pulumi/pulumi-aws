@@ -99,7 +99,7 @@ type StorageLensConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
@@ -151,7 +151,7 @@ type storageLensConfigurationState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration *StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
@@ -168,7 +168,7 @@ type StorageLensConfigurationState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationPtrInput
@@ -187,7 +187,7 @@ type storageLensConfigurationArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId string `pulumi:"configId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
@@ -201,7 +201,7 @@ type StorageLensConfigurationArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationInput
@@ -311,7 +311,7 @@ func (o StorageLensConfigurationOutput) ConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.ConfigId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StorageLensConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

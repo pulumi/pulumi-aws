@@ -40,6 +40,9 @@ export interface GetResourceArgs {
      * Full path of the resource.  If no path is found, an error will be returned.
      */
     path: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * REST API id that owns the resource. If no REST API is found, an error will be returned.
@@ -103,6 +106,9 @@ export interface GetResourceOutputArgs {
      * Full path of the resource.  If no path is found, an error will be returned.
      */
     path: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * REST API id that owns the resource. If no REST API is found, an error will be returned.

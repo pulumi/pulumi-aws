@@ -54,7 +54,8 @@ type LookupDomainNameArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -111,7 +112,8 @@ type LookupDomainNameOutputArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput `pulumi:"domainNameId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

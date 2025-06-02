@@ -123,7 +123,7 @@ type Stack struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
@@ -193,7 +193,7 @@ type stackState struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
@@ -234,7 +234,7 @@ type StackState struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
@@ -275,7 +275,7 @@ type stackArgs struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
@@ -312,7 +312,7 @@ type StackArgs struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
@@ -468,7 +468,7 @@ func (o StackOutput) RedirectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StackOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

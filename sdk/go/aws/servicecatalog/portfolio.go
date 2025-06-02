@@ -60,7 +60,7 @@ type Portfolio struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -109,7 +109,7 @@ type portfolioState struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -126,7 +126,7 @@ type PortfolioState struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -145,7 +145,7 @@ type portfolioArgs struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName string `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,7 +159,7 @@ type PortfolioArgs struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -275,7 +275,7 @@ func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PortfolioOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

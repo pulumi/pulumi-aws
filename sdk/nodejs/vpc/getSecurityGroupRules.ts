@@ -42,6 +42,9 @@ export interface GetSecurityGroupRulesArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.vpc.GetSecurityGroupRulesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match
@@ -98,6 +101,9 @@ export interface GetSecurityGroupRulesOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRulesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match

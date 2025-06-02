@@ -182,6 +182,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     :param Sequence[builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -247,6 +248,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     :param Sequence[builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

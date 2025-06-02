@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScop
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -84,6 +85,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment uriFragment;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -176,6 +182,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+    /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -204,6 +217,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment uriFragment;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch defaults) {
@@ -220,6 +234,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
     	      this.singleQueryArgument = defaults.singleQueryArgument;
+    	      this.uriFragment = defaults.uriFragment;
     	      this.uriPath = defaults.uriPath;
         }
 
@@ -302,6 +317,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             return this;
         }
         @CustomType.Setter
+        public Builder uriFragment(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment uriFragment) {
+
+            this.uriFragment = uriFragment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath uriPath) {
 
             this.uriPath = uriPath;
@@ -321,6 +342,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
             _resultValue.queryString = queryString;
             _resultValue.singleHeader = singleHeader;
             _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriFragment = uriFragment;
             _resultValue.uriPath = uriPath;
             return _resultValue;
         }

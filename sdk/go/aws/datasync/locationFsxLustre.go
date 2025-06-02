@@ -59,7 +59,7 @@ type LocationFsxLustre struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
@@ -115,7 +115,7 @@ type locationFsxLustreState struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -136,7 +136,7 @@ type LocationFsxLustreState struct {
 	CreationTime pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -157,7 +157,7 @@ func (LocationFsxLustreState) ElementType() reflect.Type {
 type locationFsxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -171,7 +171,7 @@ type locationFsxLustreArgs struct {
 type LocationFsxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
 	FsxFilesystemArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -283,7 +283,7 @@ func (o LocationFsxLustreOutput) FsxFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationFsxLustreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxLustre) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

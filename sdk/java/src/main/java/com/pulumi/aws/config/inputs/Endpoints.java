@@ -775,16 +775,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    private @Nullable String iotanalytics;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    private @Nullable String iotevents;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     private @Nullable String ivs;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1011,6 +1001,16 @@ public final class Endpoints {
      * 
      */
     private @Nullable String networkmonitor;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String notifications;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String notificationscontacts;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2561,20 +2561,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> iotanalytics() {
-        return Optional.ofNullable(this.iotanalytics);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<String> iotevents() {
-        return Optional.ofNullable(this.iotevents);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> ivs() {
         return Optional.ofNullable(this.ivs);
     }
@@ -2892,6 +2878,20 @@ public final class Endpoints {
      */
     public Optional<String> networkmonitor() {
         return Optional.ofNullable(this.networkmonitor);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> notifications() {
+        return Optional.ofNullable(this.notifications);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> notificationscontacts() {
+        return Optional.ofNullable(this.notificationscontacts);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3727,8 +3727,6 @@ public final class Endpoints {
         private @Nullable String internetmonitor;
         private @Nullable String invoicing;
         private @Nullable String iot;
-        private @Nullable String iotanalytics;
-        private @Nullable String iotevents;
         private @Nullable String ivs;
         private @Nullable String ivschat;
         private @Nullable String kafka;
@@ -3775,6 +3773,8 @@ public final class Endpoints {
         private @Nullable String networkfirewall;
         private @Nullable String networkmanager;
         private @Nullable String networkmonitor;
+        private @Nullable String notifications;
+        private @Nullable String notificationscontacts;
         private @Nullable String oam;
         private @Nullable String opensearch;
         private @Nullable String opensearchingestion;
@@ -4026,8 +4026,6 @@ public final class Endpoints {
     	      this.internetmonitor = defaults.internetmonitor;
     	      this.invoicing = defaults.invoicing;
     	      this.iot = defaults.iot;
-    	      this.iotanalytics = defaults.iotanalytics;
-    	      this.iotevents = defaults.iotevents;
     	      this.ivs = defaults.ivs;
     	      this.ivschat = defaults.ivschat;
     	      this.kafka = defaults.kafka;
@@ -4074,6 +4072,8 @@ public final class Endpoints {
     	      this.networkfirewall = defaults.networkfirewall;
     	      this.networkmanager = defaults.networkmanager;
     	      this.networkmonitor = defaults.networkmonitor;
+    	      this.notifications = defaults.notifications;
+    	      this.notificationscontacts = defaults.notificationscontacts;
     	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchingestion = defaults.opensearchingestion;
@@ -5085,18 +5085,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder iotanalytics(@Nullable String iotanalytics) {
-
-            this.iotanalytics = iotanalytics;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotevents(@Nullable String iotevents) {
-
-            this.iotevents = iotevents;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ivs(@Nullable String ivs) {
 
             this.ivs = ivs;
@@ -5370,6 +5358,18 @@ public final class Endpoints {
         public Builder networkmonitor(@Nullable String networkmonitor) {
 
             this.networkmonitor = networkmonitor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notifications(@Nullable String notifications) {
+
+            this.notifications = notifications;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notificationscontacts(@Nullable String notificationscontacts) {
+
+            this.notificationscontacts = notificationscontacts;
             return this;
         }
         @CustomType.Setter
@@ -6102,8 +6102,6 @@ public final class Endpoints {
             _resultValue.internetmonitor = internetmonitor;
             _resultValue.invoicing = invoicing;
             _resultValue.iot = iot;
-            _resultValue.iotanalytics = iotanalytics;
-            _resultValue.iotevents = iotevents;
             _resultValue.ivs = ivs;
             _resultValue.ivschat = ivschat;
             _resultValue.kafka = kafka;
@@ -6150,6 +6148,8 @@ public final class Endpoints {
             _resultValue.networkfirewall = networkfirewall;
             _resultValue.networkmanager = networkmanager;
             _resultValue.networkmonitor = networkmonitor;
+            _resultValue.notifications = notifications;
+            _resultValue.notificationscontacts = notificationscontacts;
             _resultValue.oam = oam;
             _resultValue.opensearch = opensearch;
             _resultValue.opensearchingestion = opensearchingestion;

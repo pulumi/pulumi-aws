@@ -226,6 +226,8 @@ namespace Pulumi.Aws.Route53Domains
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
+        /// 
+        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         /// </summary>
         [Output("transferLock")]
         public Output<bool> TransferLock { get; private set; } = null!;
@@ -389,6 +391,8 @@ namespace Pulumi.Aws.Route53Domains
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
+        /// 
+        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }
@@ -568,6 +572,8 @@ namespace Pulumi.Aws.Route53Domains
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
+        /// 
+        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }

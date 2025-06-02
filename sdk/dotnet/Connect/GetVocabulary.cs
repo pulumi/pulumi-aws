@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -182,6 +185,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Vocabulary by Vocabulary id
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
         /// </summary>
         [Input("vocabularyId")]
         public string? VocabularyId { get; set; }
@@ -206,6 +211,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -223,6 +231,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Vocabulary by Vocabulary id
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
         /// </summary>
         [Input("vocabularyId")]
         public Input<string>? VocabularyId { get; set; }

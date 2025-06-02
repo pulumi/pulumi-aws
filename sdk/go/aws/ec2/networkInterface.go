@@ -121,7 +121,7 @@ type NetworkInterface struct {
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntOutput `pulumi:"privateIpsCount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -212,7 +212,7 @@ type networkInterfaceState struct {
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -271,7 +271,7 @@ type NetworkInterfaceState struct {
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
@@ -325,7 +325,7 @@ type networkInterfaceArgs struct {
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -374,7 +374,7 @@ type NetworkInterfaceArgs struct {
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
@@ -583,7 +583,7 @@ func (o NetworkInterfaceOutput) PrivateIpsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.PrivateIpsCount }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInterfaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

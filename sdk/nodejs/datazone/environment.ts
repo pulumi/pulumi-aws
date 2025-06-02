@@ -135,7 +135,7 @@ export class Environment extends pulumi.CustomResource {
     public /*out*/ readonly providerEnvironment!: pulumi.Output<string>;
     public /*out*/ readonly provisionedResources!: pulumi.Output<outputs.datazone.EnvironmentProvisionedResource[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.datazone.EnvironmentTimeouts | undefined>;
@@ -268,7 +268,7 @@ export interface EnvironmentState {
     providerEnvironment?: pulumi.Input<string>;
     provisionedResources?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProvisionedResource>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
@@ -321,7 +321,7 @@ export interface EnvironmentArgs {
      */
     projectIdentifier: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;

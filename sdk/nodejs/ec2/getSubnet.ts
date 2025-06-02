@@ -102,6 +102,9 @@ export interface GetSubnetArgs {
      * IPv6 CIDR block of the desired subnet.
      */
     ipv6CidrBlock?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * State that the desired subnet must have.
@@ -288,6 +291,9 @@ export interface GetSubnetOutputArgs {
      * IPv6 CIDR block of the desired subnet.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * State that the desired subnet must have.

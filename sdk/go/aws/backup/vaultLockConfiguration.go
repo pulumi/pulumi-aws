@@ -63,7 +63,7 @@ type VaultLockConfiguration struct {
 	MaxRetentionDays pulumi.IntPtrOutput `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrOutput `pulumi:"minRetentionDays"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type vaultLockConfigurationState struct {
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -125,7 +125,7 @@ type VaultLockConfigurationState struct {
 	MaxRetentionDays pulumi.IntPtrInput
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -142,7 +142,7 @@ type vaultLockConfigurationArgs struct {
 	MaxRetentionDays *int `pulumi:"maxRetentionDays"`
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays *int `pulumi:"minRetentionDays"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -156,7 +156,7 @@ type VaultLockConfigurationArgs struct {
 	MaxRetentionDays pulumi.IntPtrInput
 	// The minimum retention period that the vault retains its recovery points.
 	MinRetentionDays pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -272,7 +272,7 @@ func (o VaultLockConfigurationOutput) MinRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.IntPtrOutput { return v.MinRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VaultLockConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLockConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

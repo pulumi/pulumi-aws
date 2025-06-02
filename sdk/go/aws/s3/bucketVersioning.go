@@ -182,7 +182,7 @@ type BucketVersioning struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrOutput `pulumi:"mfa"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the versioning parameters. See below.
 	VersioningConfiguration BucketVersioningVersioningConfigurationOutput `pulumi:"versioningConfiguration"`
@@ -239,7 +239,7 @@ type bucketVersioningState struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa *string `pulumi:"mfa"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the versioning parameters. See below.
 	VersioningConfiguration *BucketVersioningVersioningConfiguration `pulumi:"versioningConfiguration"`
@@ -252,7 +252,7 @@ type BucketVersioningState struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the versioning parameters. See below.
 	VersioningConfiguration BucketVersioningVersioningConfigurationPtrInput
@@ -269,7 +269,7 @@ type bucketVersioningArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa *string `pulumi:"mfa"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the versioning parameters. See below.
 	VersioningConfiguration BucketVersioningVersioningConfiguration `pulumi:"versioningConfiguration"`
@@ -283,7 +283,7 @@ type BucketVersioningArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the versioning parameters. See below.
 	VersioningConfiguration BucketVersioningVersioningConfigurationInput
@@ -391,7 +391,7 @@ func (o BucketVersioningOutput) Mfa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringPtrOutput { return v.Mfa }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketVersioningOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

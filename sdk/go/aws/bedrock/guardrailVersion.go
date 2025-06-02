@@ -60,7 +60,7 @@ type GuardrailVersion struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringOutput `pulumi:"guardrailArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrOutput              `pulumi:"skipDestroy"`
@@ -108,7 +108,7 @@ type guardrailVersionState struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn *string `pulumi:"guardrailArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy *bool                     `pulumi:"skipDestroy"`
@@ -124,7 +124,7 @@ type GuardrailVersionState struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrInput
@@ -144,7 +144,7 @@ type guardrailVersionArgs struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn string `pulumi:"guardrailArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy *bool                     `pulumi:"skipDestroy"`
@@ -159,7 +159,7 @@ type GuardrailVersionArgs struct {
 	//
 	// The following arguments are optional:
 	GuardrailArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
 	SkipDestroy pulumi.BoolPtrInput
@@ -265,7 +265,7 @@ func (o GuardrailVersionOutput) GuardrailArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.GuardrailArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GuardrailVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GuardrailVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

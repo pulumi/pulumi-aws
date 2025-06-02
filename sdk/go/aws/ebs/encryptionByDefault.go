@@ -53,7 +53,7 @@ type EncryptionByDefault struct {
 
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -89,14 +89,14 @@ func GetEncryptionByDefault(ctx *pulumi.Context,
 type encryptionByDefaultState struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type EncryptionByDefaultState struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -107,7 +107,7 @@ func (EncryptionByDefaultState) ElementType() reflect.Type {
 type encryptionByDefaultArgs struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -115,7 +115,7 @@ type encryptionByDefaultArgs struct {
 type EncryptionByDefaultArgs struct {
 	// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -211,7 +211,7 @@ func (o EncryptionByDefaultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionByDefault) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EncryptionByDefaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EncryptionByDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

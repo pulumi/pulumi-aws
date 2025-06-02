@@ -338,7 +338,7 @@ type TlsInspectionConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations pulumi.IntOutput `pulumi:"numberOfAssociations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                         `pulumi:"region"`
 	Tags     pulumi.StringMapOutput                      `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
@@ -397,7 +397,7 @@ type tlsInspectionConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations *int `pulumi:"numberOfAssociations"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Tags     map[string]string                   `pulumi:"tags"`
 	TagsAll  map[string]string                   `pulumi:"tagsAll"`
@@ -427,7 +427,7 @@ type TlsInspectionConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
@@ -453,7 +453,7 @@ type tlsInspectionConfigurationArgs struct {
 	EncryptionConfigurations []TlsInspectionConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Descriptive name of the TLS inspection configuration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Tags     map[string]string                   `pulumi:"tags"`
 	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
@@ -471,7 +471,7 @@ type TlsInspectionConfigurationArgs struct {
 	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayInput
 	// Descriptive name of the TLS inspection configuration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
@@ -609,7 +609,7 @@ func (o TlsInspectionConfigurationOutput) NumberOfAssociations() pulumi.IntOutpu
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.IntOutput { return v.NumberOfAssociations }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TlsInspectionConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

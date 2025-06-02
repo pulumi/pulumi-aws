@@ -54,7 +54,8 @@ type LookupClusterArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// State of the cluster to be found.
 	ClusterState *string `pulumi:"clusterState"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCluster.
@@ -89,7 +90,8 @@ type LookupClusterOutputArgs struct {
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// State of the cluster to be found.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {

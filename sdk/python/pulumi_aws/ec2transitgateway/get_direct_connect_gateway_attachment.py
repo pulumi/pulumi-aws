@@ -136,6 +136,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[builtins.str] 
 
     :param builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """
@@ -180,6 +181,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
 
     :param builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """

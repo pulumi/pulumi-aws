@@ -31,7 +31,7 @@ class VpcEndpointConnectionNotificationArgs:
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
@@ -74,7 +74,7 @@ class VpcEndpointConnectionNotificationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -124,7 +124,7 @@ class _VpcEndpointConnectionNotificationState:
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[builtins.str] notification_type: The type of notification.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The state of the notification.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -186,7 +186,7 @@ class _VpcEndpointConnectionNotificationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -291,7 +291,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
@@ -412,7 +412,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         :param pulumi.Input[builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[builtins.str] notification_type: The type of notification.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The state of the notification.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
@@ -460,7 +460,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

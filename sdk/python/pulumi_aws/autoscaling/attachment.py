@@ -29,7 +29,7 @@ class AttachmentArgs:
         :param pulumi.Input[builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[builtins.str] elb: Name of the ELB.
         :param pulumi.Input[builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
@@ -79,7 +79,7 @@ class AttachmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -100,7 +100,7 @@ class _AttachmentState:
         :param pulumi.Input[builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[builtins.str] elb: Name of the ELB.
         :param pulumi.Input[builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -151,7 +151,7 @@ class _AttachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -203,7 +203,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[builtins.str] elb: Name of the ELB.
         :param pulumi.Input[builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -296,7 +296,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[builtins.str] elb: Name of the ELB.
         :param pulumi.Input[builtins.str] lb_target_group_arn: ARN of a load balancer target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,7 +336,7 @@ class Attachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

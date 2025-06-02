@@ -33,7 +33,7 @@ class VocabularyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
@@ -90,7 +90,7 @@ class VocabularyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -141,7 +141,7 @@ class _VocabularyState:
         :param pulumi.Input[builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Vocabulary.
@@ -219,7 +219,7 @@ class _VocabularyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -333,7 +333,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Vocabulary.
@@ -460,7 +460,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[builtins.str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[builtins.str] vocabulary_name: The name of the Vocabulary.
@@ -518,7 +518,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

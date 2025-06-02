@@ -32,7 +32,7 @@ class ServerlessClusterArgs:
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         :param pulumi.Input[builtins.str] cluster_name: The name of the serverless cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
@@ -84,7 +84,7 @@ class ServerlessClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -109,6 +109,7 @@ class ServerlessClusterArgs:
 class _ServerlessClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 bootstrap_brokers_sasl_iam: Optional[pulumi.Input[builtins.str]] = None,
                  client_authentication: Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_uuid: Optional[pulumi.Input[builtins.str]] = None,
@@ -119,16 +120,19 @@ class _ServerlessClusterState:
         """
         Input properties used for looking up and filtering ServerlessCluster resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the serverless cluster.
+        :param pulumi.Input[builtins.str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[builtins.str] cluster_name: The name of the serverless cluster.
         :param pulumi.Input[builtins.str] cluster_uuid: UUID of the serverless cluster, for use in IAM policies.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if bootstrap_brokers_sasl_iam is not None:
+            pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
         if cluster_name is not None:
@@ -155,6 +159,18 @@ class _ServerlessClusterState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslIam")
+    def bootstrap_brokers_sasl_iam(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam")
+
+    @bootstrap_brokers_sasl_iam.setter
+    def bootstrap_brokers_sasl_iam(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bootstrap_brokers_sasl_iam", value)
 
     @property
     @pulumi.getter(name="clientAuthentication")
@@ -196,7 +212,7 @@ class _ServerlessClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -291,7 +307,7 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[builtins.str] cluster_name: The name of the serverless cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information. See below.
         """
@@ -374,6 +390,7 @@ class ServerlessCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_configs'")
             __props__.__dict__["vpc_configs"] = vpc_configs
             __props__.__dict__["arn"] = None
+            __props__.__dict__["bootstrap_brokers_sasl_iam"] = None
             __props__.__dict__["cluster_uuid"] = None
             __props__.__dict__["tags_all"] = None
         super(ServerlessCluster, __self__).__init__(
@@ -387,6 +404,7 @@ class ServerlessCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            bootstrap_brokers_sasl_iam: Optional[pulumi.Input[builtins.str]] = None,
             client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
             cluster_name: Optional[pulumi.Input[builtins.str]] = None,
             cluster_uuid: Optional[pulumi.Input[builtins.str]] = None,
@@ -402,10 +420,11 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The ARN of the serverless cluster.
+        :param pulumi.Input[builtins.str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[builtins.str] cluster_name: The name of the serverless cluster.
         :param pulumi.Input[builtins.str] cluster_uuid: UUID of the serverless cluster, for use in IAM policies.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information. See below.
@@ -415,6 +434,7 @@ class ServerlessCluster(pulumi.CustomResource):
         __props__ = _ServerlessClusterState.__new__(_ServerlessClusterState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["bootstrap_brokers_sasl_iam"] = bootstrap_brokers_sasl_iam
         __props__.__dict__["client_authentication"] = client_authentication
         __props__.__dict__["cluster_name"] = cluster_name
         __props__.__dict__["cluster_uuid"] = cluster_uuid
@@ -431,6 +451,14 @@ class ServerlessCluster(pulumi.CustomResource):
         The ARN of the serverless cluster.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslIam")
+    def bootstrap_brokers_sasl_iam(self) -> pulumi.Output[builtins.str]:
+        """
+        One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @property
     @pulumi.getter(name="clientAuthentication")
@@ -460,7 +488,7 @@ class ServerlessCluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

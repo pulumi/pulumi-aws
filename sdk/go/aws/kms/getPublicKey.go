@@ -75,7 +75,8 @@ type GetPublicKeyArgs struct {
 	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId  string  `pulumi:"keyId"`
+	KeyId string `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -120,7 +121,8 @@ type GetPublicKeyOutputArgs struct {
 	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId  pulumi.StringInput    `pulumi:"keyId"`
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -72,7 +72,7 @@ type SecurityProfile struct {
 	OrganizationResourceId pulumi.StringOutput `pulumi:"organizationResourceId"`
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringOutput `pulumi:"securityProfileId"`
@@ -128,7 +128,7 @@ type securityProfileState struct {
 	OrganizationResourceId *string `pulumi:"organizationResourceId"`
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions []string `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identifier for the Security Profile.
 	SecurityProfileId *string `pulumi:"securityProfileId"`
@@ -152,7 +152,7 @@ type SecurityProfileState struct {
 	OrganizationResourceId pulumi.StringPtrInput
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringPtrInput
@@ -176,7 +176,7 @@ type securityProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions []string `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Security Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -193,7 +193,7 @@ type SecurityProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Security Profile. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -317,7 +317,7 @@ func (o SecurityProfileOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecurityProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

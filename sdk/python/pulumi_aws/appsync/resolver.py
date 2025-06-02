@@ -47,7 +47,7 @@ class ResolverArgs:
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -191,7 +191,7 @@ class ResolverArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -277,7 +277,7 @@ class _ResolverState:
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -427,7 +427,7 @@ class _ResolverState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -639,7 +639,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -864,7 +864,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -968,7 +968,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

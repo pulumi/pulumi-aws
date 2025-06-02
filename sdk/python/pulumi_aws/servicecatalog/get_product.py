@@ -247,6 +247,7 @@ def get_product(accept_language: Optional[builtins.str] = None,
     :param builtins.str id: ID of the product.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the product.
     """
     __args__ = dict()
@@ -300,6 +301,7 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[builtins.
     :param builtins.str id: ID of the product.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the product.
     """
     __args__ = dict()

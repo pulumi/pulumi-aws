@@ -70,7 +70,7 @@ type ConfigurationTemplate struct {
 	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -122,7 +122,7 @@ type configurationTemplateState struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -142,7 +142,7 @@ type ConfigurationTemplateState struct {
 	EnvironmentId pulumi.StringPtrInput
 	// A unique name for this Template.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -166,7 +166,7 @@ type configurationTemplateArgs struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -187,7 +187,7 @@ type ConfigurationTemplateArgs struct {
 	EnvironmentId pulumi.StringPtrInput
 	// A unique name for this Template.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
@@ -305,7 +305,7 @@ func (o ConfigurationTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

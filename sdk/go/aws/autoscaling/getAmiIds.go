@@ -80,8 +80,9 @@ type GetAmiIdsArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// List of autoscaling group names
-	Names  []string `pulumi:"names"`
-	Region *string  `pulumi:"region"`
+	Names []string `pulumi:"names"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAmiIds.
@@ -110,8 +111,9 @@ type GetAmiIdsOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
 	// List of autoscaling group names
-	Names  pulumi.StringArrayInput `pulumi:"names"`
-	Region pulumi.StringPtrInput   `pulumi:"region"`
+	Names pulumi.StringArrayInput `pulumi:"names"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAmiIdsOutputArgs) ElementType() reflect.Type {

@@ -181,6 +181,7 @@ def get_namespace(namespace_name: Optional[builtins.str] = None,
 
 
     :param builtins.str namespace_name: The name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -217,6 +218,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str namespace_name: The name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name

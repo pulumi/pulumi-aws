@@ -52,7 +52,8 @@ func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArg
 type LookupDataLakeSettingsArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataLakeSettings.
@@ -96,7 +97,8 @@ func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettin
 type LookupDataLakeSettingsOutputArgs struct {
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataLakeSettingsOutputArgs) ElementType() reflect.Type {

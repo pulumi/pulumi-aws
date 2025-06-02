@@ -36,6 +36,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+     * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
      * 
@@ -46,6 +48,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     /**
      * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+     * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
      * 
      * @deprecated
      * datasources is deprecated. Use &#34;aws.guardduty.OrganizationConfigurationFeature&#34; resources instead.
@@ -72,14 +76,14 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -139,6 +143,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         /**
          * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
          * 
+         * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -153,6 +159,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
         /**
          * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+         * 
+         * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
          * 
          * @return builder
          * 
@@ -187,7 +195,7 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -198,7 +206,7 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

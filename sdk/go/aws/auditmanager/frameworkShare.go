@@ -64,7 +64,7 @@ type FrameworkShare struct {
 	//
 	// The following arguments are optional:
 	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the share request.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -119,7 +119,7 @@ type frameworkShareState struct {
 	//
 	// The following arguments are optional:
 	FrameworkId *string `pulumi:"frameworkId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of the share request.
 	Status *string `pulumi:"status"`
@@ -136,7 +136,7 @@ type FrameworkShareState struct {
 	//
 	// The following arguments are optional:
 	FrameworkId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of the share request.
 	Status pulumi.StringPtrInput
@@ -157,7 +157,7 @@ type frameworkShareArgs struct {
 	//
 	// The following arguments are optional:
 	FrameworkId string `pulumi:"frameworkId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -173,7 +173,7 @@ type FrameworkShareArgs struct {
 	//
 	// The following arguments are optional:
 	FrameworkId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -286,7 +286,7 @@ func (o FrameworkShareOutput) FrameworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.FrameworkId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FrameworkShareOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrameworkShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

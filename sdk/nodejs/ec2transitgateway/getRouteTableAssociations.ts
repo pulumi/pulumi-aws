@@ -43,6 +43,9 @@ export interface GetRouteTableAssociationsArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2transitgateway.GetRouteTableAssociationsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
@@ -104,6 +107,9 @@ export interface GetRouteTableAssociationsOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableAssociationsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.

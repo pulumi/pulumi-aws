@@ -33,12 +33,16 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
     /**
      * Display name for the dataset.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -102,6 +106,8 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         /**
          * @param name Display name for the dataset.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -112,6 +118,8 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
 
         /**
          * @param name Display name for the dataset.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

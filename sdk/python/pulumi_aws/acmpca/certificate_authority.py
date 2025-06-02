@@ -37,7 +37,7 @@ class CertificateAuthorityArgs:
         :param pulumi.Input[builtins.bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         :param pulumi.Input[builtins.str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
@@ -113,7 +113,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -202,7 +202,7 @@ class _CertificateAuthorityState:
         :param pulumi.Input[builtins.str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[builtins.str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[builtins.str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -369,7 +369,7 @@ class _CertificateAuthorityState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -569,7 +569,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         :param pulumi.Input[builtins.str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
@@ -774,7 +774,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[builtins.str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[builtins.int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[builtins.str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -889,7 +889,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

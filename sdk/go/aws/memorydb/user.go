@@ -76,7 +76,7 @@ type User struct {
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -135,7 +135,7 @@ type userState struct {
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ type UserState struct {
 	AuthenticationMode UserAuthenticationModePtrInput
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -177,7 +177,7 @@ type userArgs struct {
 	AccessString string `pulumi:"accessString"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationMode `pulumi:"authenticationMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -193,7 +193,7 @@ type UserArgs struct {
 	AccessString pulumi.StringInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -310,7 +310,7 @@ func (o UserOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

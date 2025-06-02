@@ -39,7 +39,7 @@ class RuleArgs:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -137,7 +137,7 @@ class RuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -193,7 +193,7 @@ class _RuleState:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_id: The ID of the config rule
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -301,7 +301,7 @@ class _RuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -503,7 +503,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -706,7 +706,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_id: The ID of the config rule
         :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -783,7 +783,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

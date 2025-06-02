@@ -39,6 +39,9 @@ export interface GetConnectionArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Tags assigned to the resource
@@ -125,6 +128,9 @@ export interface GetConnectionOutputArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Tags assigned to the resource

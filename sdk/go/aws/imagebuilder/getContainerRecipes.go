@@ -61,7 +61,8 @@ type GetContainerRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
 	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner  *string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -92,7 +93,8 @@ type GetContainerRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetContainerRecipesFilterArrayInput `pulumi:"filters"`
 	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -54,7 +54,8 @@ func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOp
 type GetQueuesArgs struct {
 	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix *string `pulumi:"queueNamePrefix"`
-	Region          *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getQueues.
@@ -80,7 +81,8 @@ func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulu
 type GetQueuesOutputArgs struct {
 	// A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 	QueueNamePrefix pulumi.StringPtrInput `pulumi:"queueNamePrefix"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetQueuesOutputArgs) ElementType() reflect.Type {

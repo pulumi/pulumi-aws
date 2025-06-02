@@ -34,6 +34,9 @@ export interface GetAccessPointsArgs {
      * EFS File System identifier.
      */
     fileSystemId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -86,5 +89,8 @@ export interface GetAccessPointsOutputArgs {
      * EFS File System identifier.
      */
     fileSystemId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

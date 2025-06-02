@@ -33,6 +33,9 @@ export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi
  * A collection of arguments for invoking getReplicationGroup.
  */
 export interface GetReplicationGroupArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Identifier for the replication group.
@@ -149,6 +152,9 @@ export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, o
  * A collection of arguments for invoking getReplicationGroup.
  */
 export interface GetReplicationGroupOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Identifier for the replication group.

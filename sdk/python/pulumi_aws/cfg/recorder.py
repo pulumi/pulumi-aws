@@ -33,7 +33,7 @@ class RecorderArgs:
         :param pulumi.Input[builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input['RecorderRecordingModeArgs'] recording_mode: Recording mode - see below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if name is not None:
@@ -97,7 +97,7 @@ class RecorderArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -119,7 +119,7 @@ class _RecorderState:
         :param pulumi.Input[builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input['RecorderRecordingModeArgs'] recording_mode: Recording mode - see below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         if name is not None:
@@ -173,7 +173,7 @@ class _RecorderState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -295,7 +295,7 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
         :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         ...
@@ -449,7 +449,7 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
         :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -491,7 +491,7 @@ class Recorder(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

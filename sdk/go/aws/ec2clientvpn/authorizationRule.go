@@ -70,7 +70,7 @@ type AuthorizationRule struct {
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
 	// A brief description of the authorization rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringOutput `pulumi:"targetNetworkCidr"`
@@ -120,7 +120,7 @@ type authorizationRuleState struct {
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
 	// A brief description of the authorization rule.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr *string `pulumi:"targetNetworkCidr"`
@@ -135,7 +135,7 @@ type AuthorizationRuleState struct {
 	ClientVpnEndpointId pulumi.StringPtrInput
 	// A brief description of the authorization rule.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type authorizationRuleArgs struct {
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
 	// A brief description of the authorization rule.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr string `pulumi:"targetNetworkCidr"`
@@ -170,7 +170,7 @@ type AuthorizationRuleArgs struct {
 	ClientVpnEndpointId pulumi.StringInput
 	// A brief description of the authorization rule.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringInput
@@ -283,7 +283,7 @@ func (o AuthorizationRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthorizationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

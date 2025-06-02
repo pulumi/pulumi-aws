@@ -81,7 +81,8 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 type LookupWorkspaceArgs struct {
 	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId *string `pulumi:"directoryId"`
-	Region      *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags for the WorkSpace.
 	Tags map[string]string `pulumi:"tags"`
 	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
@@ -125,7 +126,8 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 type LookupWorkspaceOutputArgs struct {
 	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags for the WorkSpace.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.

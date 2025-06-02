@@ -76,7 +76,8 @@ type LookupListenerArgs struct {
 	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// Port of the listener. Required if `arn` is not set.
-	Port   *int              `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -114,7 +115,8 @@ type LookupListenerOutputArgs struct {
 	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
 	// Port of the listener. Required if `arn` is not set.
-	Port   pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }

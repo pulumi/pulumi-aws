@@ -126,6 +126,7 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
 
     :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -164,6 +165,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

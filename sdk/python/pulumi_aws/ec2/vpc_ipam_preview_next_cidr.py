@@ -29,7 +29,7 @@ class VpcIpamPreviewNextCidrArgs:
         :param pulumi.Input[builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if disallowed_cidrs is not None:
@@ -79,7 +79,7 @@ class VpcIpamPreviewNextCidrArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -102,7 +102,7 @@ class _VpcIpamPreviewNextCidrState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -167,7 +167,7 @@ class _VpcIpamPreviewNextCidrState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -221,7 +221,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -319,7 +319,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -368,7 +368,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

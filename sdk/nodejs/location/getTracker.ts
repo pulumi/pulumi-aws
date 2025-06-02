@@ -31,6 +31,9 @@ export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getTracker.
  */
 export interface GetTrackerArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Key-value map of resource tags for the tracker.
@@ -108,6 +111,9 @@ export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getTracker.
  */
 export interface GetTrackerOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the tracker.

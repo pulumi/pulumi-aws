@@ -182,6 +182,7 @@ def get_listener(arn: Optional[builtins.str] = None,
     :param builtins.str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param builtins.str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
     :param builtins.int port: Port of the listener. Required if `arn` is not set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -237,6 +238,7 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
     :param builtins.str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param builtins.str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
     :param builtins.int port: Port of the listener. Required if `arn` is not set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

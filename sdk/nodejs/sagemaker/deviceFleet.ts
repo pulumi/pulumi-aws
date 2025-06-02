@@ -85,7 +85,7 @@ export class DeviceFleet extends pulumi.CustomResource {
      */
     public readonly outputConfig!: pulumi.Output<outputs.sagemaker.DeviceFleetOutputConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface DeviceFleetState {
      */
     outputConfig?: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface DeviceFleetArgs {
      */
     outputConfig: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

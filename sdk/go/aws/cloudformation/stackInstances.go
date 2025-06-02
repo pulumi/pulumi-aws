@@ -184,7 +184,7 @@ type StackInstances struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
@@ -243,7 +243,7 @@ type stackInstancesState struct {
 	OperationPreferences *StackInstancesOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions []string `pulumi:"regions"`
@@ -270,7 +270,7 @@ type StackInstancesState struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapInput
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayInput
@@ -301,7 +301,7 @@ type stackInstancesArgs struct {
 	OperationPreferences *StackInstancesOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions []string `pulumi:"regions"`
@@ -325,7 +325,7 @@ type StackInstancesArgs struct {
 	OperationPreferences StackInstancesOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
 	ParameterOverrides pulumi.StringMapInput
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Regions where you want to create stack instances in the specified `accounts`.
 	Regions pulumi.StringArrayInput
@@ -449,7 +449,7 @@ func (o StackInstancesOutput) ParameterOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackInstances) pulumi.StringMapOutput { return v.ParameterOverrides }).(pulumi.StringMapOutput)
 }
 
-// Region that the stack instance is associated with.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StackInstancesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackInstances) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

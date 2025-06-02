@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         }
 
         /// <summary>
-        /// Region of the container image.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -32,7 +32,9 @@ class OrganizationConfigurationArgs:
                Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+               
+               > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -75,6 +77,8 @@ class OrganizationConfigurationArgs:
     def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "datasources")
 
@@ -86,7 +90,7 @@ class OrganizationConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -107,8 +111,10 @@ class _OrganizationConfigurationState:
         :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
                Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+               
+               > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if auto_enable_organization_members is not None:
             pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
@@ -141,6 +147,8 @@ class _OrganizationConfigurationState:
     def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "datasources")
 
@@ -164,7 +172,7 @@ class _OrganizationConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -231,8 +239,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
                Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+               
+               > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -342,8 +352,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
                Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+               
+               > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the GuardDuty account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -370,6 +382,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def datasources(self) -> pulumi.Output['outputs.OrganizationConfigurationDatasources']:
         """
         Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+
+        > **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
         """
         return pulumi.get(self, "datasources")
 
@@ -385,7 +399,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

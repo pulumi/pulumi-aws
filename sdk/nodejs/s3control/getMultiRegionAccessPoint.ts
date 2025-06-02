@@ -43,7 +43,7 @@ export interface GetMultiRegionAccessPointArgs {
      */
     name: string;
     /**
-     * The name of the region.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -127,7 +127,7 @@ export interface GetMultiRegionAccessPointOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the region.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

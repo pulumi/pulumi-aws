@@ -53,22 +53,24 @@ func LookupEventConnection(ctx *pulumi.Context, args *LookupEventConnectionArgs,
 // A collection of arguments for invoking getEventConnection.
 type LookupEventConnectionArgs struct {
 	// Name of the connection.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventConnection.
 type LookupEventConnectionResult struct {
-	// ARN (Amazon Resource Name) for the connection.
+	// ARN (Amazon Resource Name) of the connection.
 	Arn string `pulumi:"arn"`
-	// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+	// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Name of the connection.
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
-	// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+	// (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
+	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
+	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
+	// ARN of the secret created from the authorization parameters specified for the connection.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -84,7 +86,8 @@ func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnection
 // A collection of arguments for invoking getEventConnection.
 type LookupEventConnectionOutputArgs struct {
 	// Name of the connection.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -107,12 +110,12 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWi
 	return o
 }
 
-// ARN (Amazon Resource Name) for the connection.
+// ARN (Amazon Resource Name) of the connection.
 func (o LookupEventConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 func (o LookupEventConnectionResultOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
@@ -122,7 +125,11 @@ func (o LookupEventConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the connection.
+// (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
+func (o LookupEventConnectionResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.KmsKeyIdentifier }).(pulumi.StringOutput)
+}
+
 func (o LookupEventConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,7 +138,7 @@ func (o LookupEventConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+// ARN of the secret created from the authorization parameters specified for the connection.
 func (o LookupEventConnectionResultOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.SecretArn }).(pulumi.StringOutput)
 }

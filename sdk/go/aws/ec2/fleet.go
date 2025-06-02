@@ -79,7 +79,7 @@ type Fleet struct {
 	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrOutput `pulumi:"onDemandOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
@@ -157,7 +157,7 @@ type fleetState struct {
 	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
@@ -200,7 +200,7 @@ type FleetState struct {
 	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
@@ -245,7 +245,7 @@ type fleetArgs struct {
 	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
@@ -285,7 +285,7 @@ type FleetArgs struct {
 	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
@@ -439,7 +439,7 @@ func (o FleetOutput) OnDemandOptions() FleetOnDemandOptionsPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetOnDemandOptionsPtrOutput { return v.OnDemandOptions }).(FleetOnDemandOptionsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

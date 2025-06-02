@@ -269,6 +269,7 @@ def get_patch_baseline(default_baseline: Optional[builtins.bool] = None,
     :param builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
@@ -338,6 +339,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     :param builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline

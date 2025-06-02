@@ -255,7 +255,7 @@ export class StreamProcessor extends pulumi.CustomResource {
      */
     public readonly output!: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -376,7 +376,7 @@ export interface StreamProcessorState {
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -440,7 +440,7 @@ export interface StreamProcessorArgs {
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

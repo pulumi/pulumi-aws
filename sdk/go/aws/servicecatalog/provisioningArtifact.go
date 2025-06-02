@@ -81,7 +81,7 @@ type ProvisioningArtifact struct {
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
@@ -144,7 +144,7 @@ type provisioningArtifactState struct {
 	ProductId *string `pulumi:"productId"`
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
@@ -175,7 +175,7 @@ type ProvisioningArtifactState struct {
 	ProductId pulumi.StringPtrInput
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type provisioningArtifactArgs struct {
 	Name *string `pulumi:"name"`
 	// Identifier of the product.
 	ProductId string `pulumi:"productId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
@@ -234,7 +234,7 @@ type ProvisioningArtifactArgs struct {
 	Name pulumi.StringPtrInput
 	// Identifier of the product.
 	ProductId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
@@ -378,7 +378,7 @@ func (o ProvisioningArtifactOutput) ProvisioningArtifactId() pulumi.StringOutput
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProvisioningArtifactOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -282,6 +282,7 @@ def get_image(arn: Optional[builtins.str] = None,
     :param builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
     :param builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
     :param builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
     """
     __args__ = dict()
@@ -341,6 +342,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     :param builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
     :param builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
     :param builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
     """
     __args__ = dict()

@@ -192,6 +192,8 @@ export class Domain extends pulumi.CustomResource {
     public readonly timeouts!: pulumi.Output<outputs.route53domains.DomainTimeouts | undefined>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     public readonly transferLock!: pulumi.Output<boolean>;
     /**
@@ -374,6 +376,8 @@ export interface DomainState {
     timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     transferLock?: pulumi.Input<boolean>;
     /**
@@ -445,6 +449,8 @@ export interface DomainArgs {
     timeouts?: pulumi.Input<inputs.route53domains.DomainTimeouts>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     transferLock?: pulumi.Input<boolean>;
 }

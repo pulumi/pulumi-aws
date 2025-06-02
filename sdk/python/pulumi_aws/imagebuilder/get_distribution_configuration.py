@@ -162,7 +162,7 @@ def get_distribution_configuration(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the distribution configuration.
-    :param builtins.str region: AWS Region of distribution.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()
@@ -200,7 +200,7 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[builtins.st
 
 
     :param builtins.str arn: ARN of the distribution configuration.
-    :param builtins.str region: AWS Region of distribution.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()

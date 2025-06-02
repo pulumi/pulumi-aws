@@ -53,14 +53,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * AWS Region of the Snowflake account.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region of the Snowflake account.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     public Optional<Output<String>> region() {
@@ -176,7 +178,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param region AWS Region of the Snowflake account.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 
@@ -187,7 +190,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param region AWS Region of the Snowflake account.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 

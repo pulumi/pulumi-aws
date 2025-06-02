@@ -60,6 +60,9 @@ export interface GetEndpointArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2clientvpn.GetEndpointFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
@@ -91,6 +94,10 @@ export interface GetEndpointResult {
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
     readonly clientLoginBannerOptions: outputs.ec2clientvpn.GetEndpointClientLoginBannerOption[];
+    /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     */
+    readonly clientRouteEnforcementOptions: outputs.ec2clientvpn.GetEndpointClientRouteEnforcementOption[];
     readonly clientVpnEndpointId: string;
     /**
      * Information about the client connection logging options for the Client VPN endpoint.
@@ -205,6 +212,9 @@ export interface GetEndpointOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.GetEndpointFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.

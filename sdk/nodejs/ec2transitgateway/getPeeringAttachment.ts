@@ -60,6 +60,9 @@ export interface GetPeeringAttachmentArgs {
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
@@ -154,6 +157,9 @@ export interface GetPeeringAttachmentOutputArgs {
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match

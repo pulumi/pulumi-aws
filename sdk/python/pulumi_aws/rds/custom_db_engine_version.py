@@ -44,7 +44,7 @@ class CustomDbEngineVersionArgs:
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         :param pulumi.Input[builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         :param pulumi.Input[builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -186,7 +186,7 @@ class CustomDbEngineVersionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -271,7 +271,7 @@ class _CustomDbEngineVersionState:
         :param pulumi.Input[builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] manifest_computed: The returned manifest file, in JSON format, service generated and often different from input `manifest`.
         :param pulumi.Input[builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         :param pulumi.Input[builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -502,7 +502,7 @@ class _CustomDbEngineVersionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -679,7 +679,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         :param pulumi.Input[builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         :param pulumi.Input[builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -892,7 +892,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] manifest: The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         :param pulumi.Input[builtins.str] manifest_computed: The returned manifest file, in JSON format, service generated and often different from input `manifest`.
         :param pulumi.Input[builtins.str] manifest_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         :param pulumi.Input[builtins.str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1048,7 +1048,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

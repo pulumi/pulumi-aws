@@ -29,7 +29,7 @@ class MemberArgs:
         :param pulumi.Input[builtins.str] account_id: The ID of the member AWS account.
         :param pulumi.Input[builtins.str] email: The email of the member AWS account.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         if email is not None:
@@ -79,7 +79,7 @@ class MemberArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -104,7 +104,7 @@ class _MemberState:
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         :param pulumi.Input[builtins.str] master_id: The ID of the master Security Hub AWS account.
         :param pulumi.Input[builtins.str] member_status: The status of the member account relationship.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -183,7 +183,7 @@ class _MemberState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -233,7 +233,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: The ID of the member AWS account.
         :param pulumi.Input[builtins.str] email: The email of the member AWS account.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -330,7 +330,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         :param pulumi.Input[builtins.str] master_id: The ID of the master Security Hub AWS account.
         :param pulumi.Input[builtins.str] member_status: The status of the member account relationship.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -388,7 +388,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

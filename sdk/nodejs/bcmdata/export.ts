@@ -90,10 +90,6 @@ export class Export extends pulumi.CustomResource {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
@@ -112,14 +108,12 @@ export class Export extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExportState | undefined;
             resourceInputs["export"] = state ? state.export : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ExportArgs | undefined;
             resourceInputs["export"] = args ? args.export : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -137,10 +131,6 @@ export interface ExportState {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
@@ -154,10 +144,6 @@ export interface ExportArgs {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
 }

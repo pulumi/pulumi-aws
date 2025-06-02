@@ -83,10 +83,13 @@ type LookupQueueArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Queue by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId *string `pulumi:"queueId"`
-	Region  *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the Queue.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -130,10 +133,13 @@ type LookupQueueOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Queue by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the Queue.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

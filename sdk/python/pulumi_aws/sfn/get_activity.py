@@ -108,6 +108,7 @@ def get_activity(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN that identifies the activity.
     :param builtins.str name: Name that identifies the activity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -141,6 +142,7 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
     :param builtins.str arn: ARN that identifies the activity.
     :param builtins.str name: Name that identifies the activity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

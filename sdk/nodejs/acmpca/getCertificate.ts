@@ -40,6 +40,9 @@ export interface GetCertificateArgs {
      * ARN of the certificate authority.
      */
     certificateAuthorityArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -99,5 +102,8 @@ export interface GetCertificateOutputArgs {
      * ARN of the certificate authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

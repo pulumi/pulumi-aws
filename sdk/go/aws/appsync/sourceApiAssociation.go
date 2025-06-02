@@ -63,7 +63,7 @@ type SourceApiAssociation struct {
 	MergedApiArn pulumi.StringOutput `pulumi:"mergedApiArn"`
 	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 	MergedApiId pulumi.StringOutput `pulumi:"mergedApiId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiArn                pulumi.StringOutput                                       `pulumi:"sourceApiArn"`
@@ -113,7 +113,7 @@ type sourceApiAssociationState struct {
 	MergedApiArn *string `pulumi:"mergedApiArn"`
 	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 	MergedApiId *string `pulumi:"mergedApiId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
@@ -134,7 +134,7 @@ type SourceApiAssociationState struct {
 	MergedApiArn pulumi.StringPtrInput
 	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 	MergedApiId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiArn                pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type sourceApiAssociationArgs struct {
 	MergedApiArn *string `pulumi:"mergedApiArn"`
 	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 	MergedApiId *string `pulumi:"mergedApiId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
@@ -173,7 +173,7 @@ type SourceApiAssociationArgs struct {
 	MergedApiArn pulumi.StringPtrInput
 	// ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
 	MergedApiId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiArn                pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o SourceApiAssociationOutput) MergedApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.MergedApiId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceApiAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

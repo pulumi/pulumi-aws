@@ -33,7 +33,7 @@ class DeliveryChannelArgs:
         The set of arguments for constructing a DeliveryChannel resource.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
@@ -81,7 +81,7 @@ class DeliveryChannelArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -151,7 +151,7 @@ class _DeliveryChannelState:
         """
         Input properties used for looking up and filtering DeliveryChannel resources.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -189,7 +189,7 @@ class _DeliveryChannelState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -329,7 +329,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -461,7 +461,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -493,7 +493,7 @@ class DeliveryChannel(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

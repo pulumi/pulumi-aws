@@ -139,7 +139,7 @@ type WindowsFileSystem struct {
 	PreferredFileServerIp pulumi.StringOutput `pulumi:"preferredFileServerIp"`
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId pulumi.StringOutput `pulumi:"preferredSubnetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
 	RemoteAdministrationEndpoint pulumi.StringOutput `pulumi:"remoteAdministrationEndpoint"`
@@ -239,7 +239,7 @@ type windowsFileSystemState struct {
 	PreferredFileServerIp *string `pulumi:"preferredFileServerIp"`
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
 	RemoteAdministrationEndpoint *string `pulumi:"remoteAdministrationEndpoint"`
@@ -304,7 +304,7 @@ type WindowsFileSystemState struct {
 	PreferredFileServerIp pulumi.StringPtrInput
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
 	RemoteAdministrationEndpoint pulumi.StringPtrInput
@@ -363,7 +363,7 @@ type windowsFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -413,7 +413,7 @@ type WindowsFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -613,7 +613,7 @@ func (o WindowsFileSystemOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.PreferredSubnetId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WindowsFileSystemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

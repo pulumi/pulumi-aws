@@ -183,7 +183,7 @@ type WebAcl struct {
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// The name or description of the web ACL.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
@@ -239,7 +239,7 @@ type webAclState struct {
 	MetricName *string `pulumi:"metricName"`
 	// The name or description of the web ACL.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -260,7 +260,7 @@ type WebAclState struct {
 	MetricName pulumi.StringPtrInput
 	// The name or description of the web ACL.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules WebAclRuleArrayInput
@@ -283,7 +283,7 @@ type webAclArgs struct {
 	MetricName string `pulumi:"metricName"`
 	// The name or description of the web ACL.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -301,7 +301,7 @@ type WebAclArgs struct {
 	MetricName pulumi.StringInput
 	// The name or description of the web ACL.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules WebAclRuleArrayInput
@@ -421,7 +421,7 @@ func (o WebAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebAclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -39,7 +39,7 @@ class ResourceConfigurationArgs:
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -123,7 +123,7 @@ class ResourceConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -226,7 +226,7 @@ class _ResourceConfigurationState:
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -327,7 +327,7 @@ class _ResourceConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -516,7 +516,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -687,7 +687,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -760,7 +760,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

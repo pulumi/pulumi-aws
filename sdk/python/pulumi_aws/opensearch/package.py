@@ -33,7 +33,7 @@ class PackageArgs:
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
         :param pulumi.Input[builtins.str] package_description: Description of the package.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "package_name", package_name)
         pulumi.set(__self__, "package_source", package_source)
@@ -95,7 +95,7 @@ class PackageArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -121,7 +121,7 @@ class _PackageState:
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if available_package_version is not None:
             pulumi.set(__self__, "available_package_version", available_package_version)
@@ -211,7 +211,7 @@ class _PackageState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -273,7 +273,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -387,7 +387,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -451,7 +451,7 @@ class Package(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

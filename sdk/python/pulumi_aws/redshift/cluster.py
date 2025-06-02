@@ -37,7 +37,7 @@ class ClusterArgs:
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -82,7 +82,8 @@ class ClusterArgs:
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
@@ -109,12 +110,15 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -384,14 +388,15 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+    def encrypted(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+    def encrypted(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "encrypted", value)
 
     @property
@@ -600,7 +605,7 @@ class ClusterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -661,6 +666,9 @@ class ClusterArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 
@@ -704,7 +712,7 @@ class _ClusterState:
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  dns_name: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -758,7 +766,8 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
@@ -788,12 +797,15 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -1144,14 +1156,15 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+    def encrypted(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+    def encrypted(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "encrypted", value)
 
     @property
@@ -1396,7 +1409,7 @@ class _ClusterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1457,6 +1470,9 @@ class _ClusterState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 
@@ -1509,7 +1525,7 @@ class Cluster(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1596,7 +1612,8 @@ class Cluster(pulumi.CustomResource):
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
@@ -1624,12 +1641,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
@@ -1708,7 +1728,7 @@ class Cluster(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1826,7 +1846,7 @@ class Cluster(pulumi.CustomResource):
             default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             dns_name: Optional[pulumi.Input[builtins.str]] = None,
             elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-            encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+            encrypted: Optional[pulumi.Input[builtins.str]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
             enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1885,7 +1905,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
@@ -1915,12 +1936,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -2145,9 +2169,10 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[Optional[builtins.bool]]:
+    def encrypted(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
@@ -2317,7 +2342,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -2358,6 +2383,9 @@ class Cluster(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 

@@ -223,7 +223,7 @@ type InstanceLoggingConfiguration struct {
 
 	// A block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsOutput `pulumi:"accessLogs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringOutput `pulumi:"verifiedaccessInstanceId"`
@@ -267,7 +267,7 @@ func GetInstanceLoggingConfiguration(ctx *pulumi.Context,
 type instanceLoggingConfigurationState struct {
 	// A block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs *InstanceLoggingConfigurationAccessLogs `pulumi:"accessLogs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Verified Access instance.
 	VerifiedaccessInstanceId *string `pulumi:"verifiedaccessInstanceId"`
@@ -276,7 +276,7 @@ type instanceLoggingConfigurationState struct {
 type InstanceLoggingConfigurationState struct {
 	// A block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringPtrInput
@@ -289,7 +289,7 @@ func (InstanceLoggingConfigurationState) ElementType() reflect.Type {
 type instanceLoggingConfigurationArgs struct {
 	// A block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogs `pulumi:"accessLogs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Verified Access instance.
 	VerifiedaccessInstanceId string `pulumi:"verifiedaccessInstanceId"`
@@ -299,7 +299,7 @@ type instanceLoggingConfigurationArgs struct {
 type InstanceLoggingConfigurationArgs struct {
 	// A block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringInput
@@ -399,7 +399,7 @@ func (o InstanceLoggingConfigurationOutput) AccessLogs() InstanceLoggingConfigur
 	}).(InstanceLoggingConfigurationAccessLogsOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceLoggingConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

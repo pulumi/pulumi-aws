@@ -43,7 +43,7 @@ class TaskArgs:
         :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Task.
         :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] task_mode: One of the following task modes for your data transfer:
@@ -162,7 +162,7 @@ class TaskArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -247,7 +247,7 @@ class _TaskState:
         :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Task.
         :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -374,7 +374,7 @@ class _TaskState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -564,7 +564,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Task.
         :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -751,7 +751,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Task.
         :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -841,7 +841,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

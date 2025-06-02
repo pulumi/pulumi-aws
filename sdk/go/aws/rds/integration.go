@@ -186,11 +186,13 @@ type Integration struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -258,11 +260,13 @@ type integrationState struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -292,11 +296,13 @@ type IntegrationState struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -328,11 +334,13 @@ type integrationArgs struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the Redshift data warehouse to use as the target for replication.
 	//
@@ -359,11 +367,13 @@ type IntegrationArgs struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapInput
 	// ARN of the Redshift data warehouse to use as the target for replication.
 	//
@@ -492,7 +502,7 @@ func (o IntegrationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IntegrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -503,6 +513,8 @@ func (o IntegrationOutput) SourceArn() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 func (o IntegrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

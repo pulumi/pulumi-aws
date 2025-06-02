@@ -102,7 +102,7 @@ type AccessPointPolicy struct {
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -148,7 +148,7 @@ type accessPointPolicyState struct {
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
 	// The policy that you want to apply to the specified access point.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -159,7 +159,7 @@ type AccessPointPolicyState struct {
 	HasPublicAccessPolicy pulumi.BoolPtrInput
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -172,7 +172,7 @@ type accessPointPolicyArgs struct {
 	AccessPointArn string `pulumi:"accessPointArn"`
 	// The policy that you want to apply to the specified access point.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -182,7 +182,7 @@ type AccessPointPolicyArgs struct {
 	AccessPointArn pulumi.StringInput
 	// The policy that you want to apply to the specified access point.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -288,7 +288,7 @@ func (o AccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

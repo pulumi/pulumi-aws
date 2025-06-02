@@ -95,7 +95,7 @@ type OrganizationCustomRule struct {
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
@@ -159,7 +159,7 @@ type organizationCustomRuleState struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
@@ -188,7 +188,7 @@ type OrganizationCustomRuleState struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
@@ -219,7 +219,7 @@ type organizationCustomRuleArgs struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
@@ -247,7 +247,7 @@ type OrganizationCustomRuleArgs struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
@@ -383,7 +383,7 @@ func (o OrganizationCustomRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationCustomRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

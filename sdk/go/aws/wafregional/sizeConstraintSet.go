@@ -62,7 +62,7 @@ type SizeConstraintSet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the Size Constraint Set.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the parts of web requests that you want to inspect the size of.
 	SizeConstraints SizeConstraintSetSizeConstraintArrayOutput `pulumi:"sizeConstraints"`
@@ -101,7 +101,7 @@ type sizeConstraintSetState struct {
 	Arn *string `pulumi:"arn"`
 	// The name or description of the Size Constraint Set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the parts of web requests that you want to inspect the size of.
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
@@ -111,7 +111,7 @@ type SizeConstraintSetState struct {
 	Arn pulumi.StringPtrInput
 	// The name or description of the Size Constraint Set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the parts of web requests that you want to inspect the size of.
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
@@ -124,7 +124,7 @@ func (SizeConstraintSetState) ElementType() reflect.Type {
 type sizeConstraintSetArgs struct {
 	// The name or description of the Size Constraint Set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the parts of web requests that you want to inspect the size of.
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
@@ -134,7 +134,7 @@ type sizeConstraintSetArgs struct {
 type SizeConstraintSetArgs struct {
 	// The name or description of the Size Constraint Set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the parts of web requests that you want to inspect the size of.
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
@@ -236,7 +236,7 @@ func (o SizeConstraintSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SizeConstraintSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

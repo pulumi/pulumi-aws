@@ -67,7 +67,7 @@ type InvitationAccepter struct {
 
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -106,14 +106,14 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 type invitationAccepterState struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn *string `pulumi:"graphArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type InvitationAccepterState struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -124,7 +124,7 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 type invitationAccepterArgs struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn string `pulumi:"graphArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type invitationAccepterArgs struct {
 type InvitationAccepterArgs struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -228,7 +228,7 @@ func (o InvitationAccepterOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InvitationAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

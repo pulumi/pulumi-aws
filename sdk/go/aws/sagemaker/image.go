@@ -61,7 +61,7 @@ type Image struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -115,7 +115,7 @@ type imageState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName *string `pulumi:"imageName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
@@ -134,7 +134,7 @@ type ImageState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type imageArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName string `pulumi:"imageName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -171,7 +171,7 @@ type ImageArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
@@ -286,7 +286,7 @@ func (o ImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

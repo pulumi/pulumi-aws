@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistribut
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionLaunchTemplateConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionS3ExportConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionSsmParameterConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -42,7 +43,7 @@ public final class GetDistributionConfigurationDistribution {
      */
     private List<String> licenseConfigurationArns;
     /**
-     * @return AWS Region of distribution.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -51,6 +52,11 @@ public final class GetDistributionConfigurationDistribution {
      * 
      */
     private List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations;
+    /**
+     * @return Nested list of SSM parameter configuration.
+     * 
+     */
+    private List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
 
     private GetDistributionConfigurationDistribution() {}
     /**
@@ -89,7 +95,7 @@ public final class GetDistributionConfigurationDistribution {
         return this.licenseConfigurationArns;
     }
     /**
-     * @return AWS Region of distribution.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {
@@ -101,6 +107,13 @@ public final class GetDistributionConfigurationDistribution {
      */
     public List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations() {
         return this.s3ExportConfigurations;
+    }
+    /**
+     * @return Nested list of SSM parameter configuration.
+     * 
+     */
+    public List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations() {
+        return this.ssmParameterConfigurations;
     }
 
     public static Builder builder() {
@@ -119,6 +132,7 @@ public final class GetDistributionConfigurationDistribution {
         private List<String> licenseConfigurationArns;
         private String region;
         private List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations;
+        private List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -129,6 +143,7 @@ public final class GetDistributionConfigurationDistribution {
     	      this.licenseConfigurationArns = defaults.licenseConfigurationArns;
     	      this.region = defaults.region;
     	      this.s3ExportConfigurations = defaults.s3ExportConfigurations;
+    	      this.ssmParameterConfigurations = defaults.ssmParameterConfigurations;
         }
 
         @CustomType.Setter
@@ -205,6 +220,17 @@ public final class GetDistributionConfigurationDistribution {
         public Builder s3ExportConfigurations(GetDistributionConfigurationDistributionS3ExportConfiguration... s3ExportConfigurations) {
             return s3ExportConfigurations(List.of(s3ExportConfigurations));
         }
+        @CustomType.Setter
+        public Builder ssmParameterConfigurations(List<GetDistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations) {
+            if (ssmParameterConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "ssmParameterConfigurations");
+            }
+            this.ssmParameterConfigurations = ssmParameterConfigurations;
+            return this;
+        }
+        public Builder ssmParameterConfigurations(GetDistributionConfigurationDistributionSsmParameterConfiguration... ssmParameterConfigurations) {
+            return ssmParameterConfigurations(List.of(ssmParameterConfigurations));
+        }
         public GetDistributionConfigurationDistribution build() {
             final var _resultValue = new GetDistributionConfigurationDistribution();
             _resultValue.amiDistributionConfigurations = amiDistributionConfigurations;
@@ -214,6 +240,7 @@ public final class GetDistributionConfigurationDistribution {
             _resultValue.licenseConfigurationArns = licenseConfigurationArns;
             _resultValue.region = region;
             _resultValue.s3ExportConfigurations = s3ExportConfigurations;
+            _resultValue.ssmParameterConfigurations = ssmParameterConfigurations;
             return _resultValue;
         }
     }

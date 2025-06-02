@@ -916,7 +916,8 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMap
 type MultiRegionAccessPointDetails struct {
 	Name              string                                          `pulumi:"name"`
 	PublicAccessBlock *MultiRegionAccessPointDetailsPublicAccessBlock `pulumi:"publicAccessBlock"`
-	Regions           []MultiRegionAccessPointDetailsRegion           `pulumi:"regions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Regions []MultiRegionAccessPointDetailsRegion `pulumi:"regions"`
 }
 
 // MultiRegionAccessPointDetailsInput is an input type that accepts MultiRegionAccessPointDetailsArgs and MultiRegionAccessPointDetailsOutput values.
@@ -933,7 +934,8 @@ type MultiRegionAccessPointDetailsInput interface {
 type MultiRegionAccessPointDetailsArgs struct {
 	Name              pulumi.StringInput                                     `pulumi:"name"`
 	PublicAccessBlock MultiRegionAccessPointDetailsPublicAccessBlockPtrInput `pulumi:"publicAccessBlock"`
-	Regions           MultiRegionAccessPointDetailsRegionArrayInput          `pulumi:"regions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Regions MultiRegionAccessPointDetailsRegionArrayInput `pulumi:"regions"`
 }
 
 func (MultiRegionAccessPointDetailsArgs) ElementType() reflect.Type {
@@ -1023,6 +1025,7 @@ func (o MultiRegionAccessPointDetailsOutput) PublicAccessBlock() MultiRegionAcce
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointDetailsOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion { return v.Regions }).(MultiRegionAccessPointDetailsRegionArrayOutput)
 }
@@ -1069,6 +1072,7 @@ func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionA
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion {
 		if v == nil {
@@ -1259,7 +1263,8 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicB
 type MultiRegionAccessPointDetailsRegion struct {
 	Bucket          string  `pulumi:"bucket"`
 	BucketAccountId *string `pulumi:"bucketAccountId"`
-	Region          *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // MultiRegionAccessPointDetailsRegionInput is an input type that accepts MultiRegionAccessPointDetailsRegionArgs and MultiRegionAccessPointDetailsRegionOutput values.
@@ -1276,7 +1281,8 @@ type MultiRegionAccessPointDetailsRegionInput interface {
 type MultiRegionAccessPointDetailsRegionArgs struct {
 	Bucket          pulumi.StringInput    `pulumi:"bucket"`
 	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (MultiRegionAccessPointDetailsRegionArgs) ElementType() reflect.Type {
@@ -1338,6 +1344,7 @@ func (o MultiRegionAccessPointDetailsRegionOutput) BucketAccountId() pulumi.Stri
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointDetailsRegionOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -5755,7 +5762,7 @@ type GetMultiRegionAccessPointRegion struct {
 	Bucket string `pulumi:"bucket"`
 	// The AWS account ID that owns the bucket.
 	BucketAccountId string `pulumi:"bucketAccountId"`
-	// The name of the region.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -5775,7 +5782,7 @@ type GetMultiRegionAccessPointRegionArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The AWS account ID that owns the bucket.
 	BucketAccountId pulumi.StringInput `pulumi:"bucketAccountId"`
-	// The name of the region.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -5840,7 +5847,7 @@ func (o GetMultiRegionAccessPointRegionOutput) BucketAccountId() pulumi.StringOu
 	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.BucketAccountId }).(pulumi.StringOutput)
 }
 
-// The name of the region.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetMultiRegionAccessPointRegionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Region }).(pulumi.StringOutput)
 }

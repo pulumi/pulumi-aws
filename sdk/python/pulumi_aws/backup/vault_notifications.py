@@ -29,7 +29,7 @@ class VaultNotificationsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
@@ -77,7 +77,7 @@ class VaultNotificationsArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _VaultNotificationsState:
         :param pulumi.Input[builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         if backup_vault_arn is not None:
@@ -153,7 +153,7 @@ class _VaultNotificationsState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -230,7 +230,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         ...
@@ -344,7 +344,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -386,7 +386,7 @@ class VaultNotifications(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

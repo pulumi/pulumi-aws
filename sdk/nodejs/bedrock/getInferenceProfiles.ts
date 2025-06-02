@@ -33,6 +33,9 @@ export function getInferenceProfiles(args?: GetInferenceProfilesArgs, opts?: pul
  * A collection of arguments for invoking getInferenceProfiles.
  */
 export interface GetInferenceProfilesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -76,5 +79,8 @@ export function getInferenceProfilesOutput(args?: GetInferenceProfilesOutputArgs
  * A collection of arguments for invoking getInferenceProfiles.
  */
 export interface GetInferenceProfilesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

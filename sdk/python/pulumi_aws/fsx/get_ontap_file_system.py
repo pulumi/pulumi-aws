@@ -344,6 +344,7 @@ def get_ontap_file_system(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags associated with the file system.
     """
     __args__ = dict()
@@ -398,6 +399,7 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags associated with the file system.
     """
     __args__ = dict()

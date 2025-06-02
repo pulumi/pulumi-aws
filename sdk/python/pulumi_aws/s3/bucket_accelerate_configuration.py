@@ -29,7 +29,7 @@ class BucketAccelerateConfigurationArgs:
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "status", status)
@@ -78,7 +78,7 @@ class BucketAccelerateConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _BucketAccelerateConfigurationState:
         Input properties used for looking up and filtering BucketAccelerateConfiguration resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         if bucket is not None:
@@ -138,7 +138,7 @@ class _BucketAccelerateConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -208,7 +208,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         ...
@@ -312,7 +312,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -345,7 +345,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

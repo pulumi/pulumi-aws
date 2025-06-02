@@ -57,7 +57,9 @@ type LookupAppregistryAttributeGroupArgs struct {
 	// ID of the Attribute Group to find.
 	Id *string `pulumi:"id"`
 	// Name of the Attribute Group to find.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `arn`, `id`, or `name` must be set.
 	Region *string `pulumi:"region"`
 }
 
@@ -91,7 +93,9 @@ type LookupAppregistryAttributeGroupOutputArgs struct {
 	// ID of the Attribute Group to find.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Attribute Group to find.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `arn`, `id`, or `name` must be set.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

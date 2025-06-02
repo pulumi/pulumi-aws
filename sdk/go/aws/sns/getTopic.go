@@ -53,7 +53,8 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
 	// Friendly name of the topic to match.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -83,7 +84,8 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
 	// Friendly name of the topic to match.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

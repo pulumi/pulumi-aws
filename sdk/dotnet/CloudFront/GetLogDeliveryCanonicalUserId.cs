@@ -76,8 +76,8 @@ namespace Pulumi.Aws.CloudFront
         /// });
         /// ```
         /// </summary>
-        public static Task<GetLogDeliveryCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetLogDeliveryCanonicalUserIdResult> InvokeAsync(GetLogDeliveryCanonicalUserIdArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -144,8 +144,8 @@ namespace Pulumi.Aws.CloudFront
         /// });
         /// ```
         /// </summary>
-        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -212,8 +212,37 @@ namespace Pulumi.Aws.CloudFront
         /// });
         /// ```
         /// </summary>
-        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetLogDeliveryCanonicalUserIdArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region you'd like the zone for. By default, fetches the current region.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetLogDeliveryCanonicalUserIdArgs()
+        {
+        }
+        public static new GetLogDeliveryCanonicalUserIdArgs Empty => new GetLogDeliveryCanonicalUserIdArgs();
+    }
+
+    public sealed class GetLogDeliveryCanonicalUserIdInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region you'd like the zone for. By default, fetches the current region.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetLogDeliveryCanonicalUserIdInvokeArgs()
+        {
+        }
+        public static new GetLogDeliveryCanonicalUserIdInvokeArgs Empty => new GetLogDeliveryCanonicalUserIdInvokeArgs();
     }
 
 
@@ -224,11 +253,16 @@ namespace Pulumi.Aws.CloudFront
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Region;
 
         [OutputConstructor]
-        private GetLogDeliveryCanonicalUserIdResult(string id)
+        private GetLogDeliveryCanonicalUserIdResult(
+            string id,
+
+            string? region)
         {
             Id = id;
+            Region = region;
         }
     }
 }

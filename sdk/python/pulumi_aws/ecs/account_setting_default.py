@@ -27,7 +27,7 @@ class AccountSettingDefaultArgs:
         The set of arguments for constructing a AccountSettingDefault resource.
         :param pulumi.Input[builtins.str] value: State of the setting.
         :param pulumi.Input[builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -63,7 +63,7 @@ class AccountSettingDefaultArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -82,7 +82,7 @@ class _AccountSettingDefaultState:
         """
         Input properties used for looking up and filtering AccountSettingDefault resources.
         :param pulumi.Input[builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: State of the setting.
         """
         if name is not None:
@@ -119,7 +119,7 @@ class _AccountSettingDefaultState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -159,6 +159,8 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Enable the long task ARN format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,6 +168,17 @@ class AccountSettingDefault(pulumi.CustomResource):
         test = aws.ecs.AccountSettingDefault("test",
             name="taskLongArnFormat",
             value="enabled")
+        ```
+
+        ### Set the default log driver mode to non-blocking
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.AccountSettingDefault("test",
+            name="defaultLogDriverMode",
+            value="non-blocking")
         ```
 
         ## Import
@@ -179,7 +192,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: State of the setting.
         """
         ...
@@ -197,6 +210,8 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Enable the long task ARN format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,6 +219,17 @@ class AccountSettingDefault(pulumi.CustomResource):
         test = aws.ecs.AccountSettingDefault("test",
             name="taskLongArnFormat",
             value="enabled")
+        ```
+
+        ### Set the default log driver mode to non-blocking
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.AccountSettingDefault("test",
+            name="defaultLogDriverMode",
+            value="non-blocking")
         ```
 
         ## Import
@@ -269,7 +295,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the account setting to set.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: State of the setting.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -299,7 +325,7 @@ class AccountSettingDefault(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

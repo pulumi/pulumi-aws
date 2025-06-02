@@ -82,6 +82,9 @@ export interface GetListenerRuleArgs {
      * Must be set if `listenerArn` is set, otherwise must not be set.
      */
     priority?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -190,5 +193,8 @@ export interface GetListenerRuleOutputArgs {
      * Must be set if `listenerArn` is set, otherwise must not be set.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

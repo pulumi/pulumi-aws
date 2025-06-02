@@ -27,7 +27,7 @@ class ApplicationSnapshotArgs:
         The set of arguments for constructing a ApplicationSnapshot resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "snapshot_name", snapshot_name)
@@ -62,7 +62,7 @@ class ApplicationSnapshotArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -83,7 +83,7 @@ class _ApplicationSnapshotState:
         Input properties used for looking up and filtering ApplicationSnapshot resources.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.int] application_version_id: The current application version ID when the snapshot was created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
@@ -126,7 +126,7 @@ class _ApplicationSnapshotState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -195,7 +195,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
         ...
@@ -287,7 +287,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.int] application_version_id: The current application version ID when the snapshot was created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
@@ -322,7 +322,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
