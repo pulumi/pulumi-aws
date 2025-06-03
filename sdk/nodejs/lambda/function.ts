@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
  *
@@ -376,7 +374,7 @@ export class Function extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly role!: pulumi.Output<ARN>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
@@ -681,7 +679,7 @@ export interface FunctionState {
      *
      * The following arguments are optional:
      */
-    role?: pulumi.Input<ARN>;
+    role?: pulumi.Input<string>;
     /**
      * Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
@@ -849,7 +847,7 @@ export interface FunctionArgs {
      *
      * The following arguments are optional:
      */
-    role: pulumi.Input<ARN>;
+    role: pulumi.Input<string>;
     /**
      * Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
