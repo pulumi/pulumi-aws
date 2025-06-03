@@ -47,6 +47,8 @@ class VolumeArgs:
         :param pulumi.Input[builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
                
+               > **NOTE:** At least one of `size` or `snapshot_id` is required.
+               
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -211,6 +213,8 @@ class VolumeArgs:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 
+        > **NOTE:** At least one of `size` or `snapshot_id` is required.
+
         > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
@@ -255,6 +259,8 @@ class _VolumeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+               
+               > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
@@ -467,6 +473,8 @@ class _VolumeState:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 
+        > **NOTE:** At least one of `size` or `snapshot_id` is required.
+
         > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
@@ -534,6 +542,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+               
+               > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
@@ -668,6 +678,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[builtins.str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+               
+               > **NOTE:** At least one of `size` or `snapshot_id` is required.
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
@@ -810,6 +822,8 @@ class Volume(pulumi.CustomResource):
     def type(self) -> pulumi.Output[builtins.str]:
         """
         Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+
+        > **NOTE:** At least one of `size` or `snapshot_id` is required.
 
         > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """

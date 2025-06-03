@@ -83,8 +83,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("packetSize")]
         public Output<int> PacketSize { get; private set; } = null!;
@@ -185,8 +183,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }
@@ -252,8 +248,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }

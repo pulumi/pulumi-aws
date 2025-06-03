@@ -148,7 +148,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Version of the component.
         /// 
-        /// The following attributes are optional:
+        /// The following arguments are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Version of the component.
         /// 
-        /// The following attributes are optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Version of the component.
         /// 
-        /// The following attributes are optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

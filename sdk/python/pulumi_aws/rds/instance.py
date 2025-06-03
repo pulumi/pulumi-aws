@@ -129,6 +129,9 @@ class InstanceArgs:
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -577,6 +580,9 @@ class InstanceArgs:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully
@@ -1425,6 +1431,9 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -1923,6 +1932,9 @@ class _InstanceState:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully
@@ -3144,6 +3156,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -3832,6 +3847,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -4187,6 +4205,9 @@ class Instance(pulumi.CustomResource):
     def customer_owned_ip_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully

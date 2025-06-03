@@ -1,0 +1,84 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 2 Jun 2025 13:51:55 -0400
+Subject: [PATCH] Patch workspacesweb etc tags_all attributes
+
+
+diff --git a/internal/service/notifications/notification_configuration.go b/internal/service/notifications/notification_configuration.go
+index 7777c71500..b809182b00 100644
+--- a/internal/service/notifications/notification_configuration.go
++++ b/internal/service/notifications/notification_configuration.go
+@@ -71,7 +71,7 @@ func (r *notificationConfigurationResource) Schema(ctx context.Context, request
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/notificationscontacts/email_contact.go b/internal/service/notificationscontacts/email_contact.go
+index 7339d1d7a0..0724844b46 100644
+--- a/internal/service/notificationscontacts/email_contact.go
++++ b/internal/service/notificationscontacts/email_contact.go
+@@ -67,7 +67,7 @@ func (r *emailContactResource) Schema(ctx context.Context, request resource.Sche
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/verifiedpermissions/policy_store.go b/internal/service/verifiedpermissions/policy_store.go
+index 6ac7fcb7a3..6c098b6f70 100644
+--- a/internal/service/verifiedpermissions/policy_store.go
++++ b/internal/service/verifiedpermissions/policy_store.go
+@@ -63,7 +63,7 @@ func (r *resourcePolicyStore) Schema(ctx context.Context, request resource.Schem
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"validation_settings": schema.ListNestedBlock{
+diff --git a/internal/service/workspacesweb/browser_settings.go b/internal/service/workspacesweb/browser_settings.go
+index 940e8e952d..f6cd293311 100644
+--- a/internal/service/workspacesweb/browser_settings.go
++++ b/internal/service/workspacesweb/browser_settings.go
+@@ -81,7 +81,7 @@ func (r *browserSettingsResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/workspacesweb/network_settings.go b/internal/service/workspacesweb/network_settings.go
+index 432fef097f..ce4a47ec03 100644
+--- a/internal/service/workspacesweb/network_settings.go
++++ b/internal/service/workspacesweb/network_settings.go
+@@ -79,7 +79,7 @@ func (r *networkSettingsResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrVPCID: schema.StringAttribute{
+ 				Required: true,
+ 			},
+diff --git a/internal/service/workspacesweb/user_settings.go b/internal/service/workspacesweb/user_settings.go
+index 1b9ce94e67..061ccc1aa9 100644
+--- a/internal/service/workspacesweb/user_settings.go
++++ b/internal/service/workspacesweb/user_settings.go
+@@ -110,7 +110,7 @@ func (r *userSettingsResource) Schema(ctx context.Context, request resource.Sche
+ 				Required:   true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"upload_allowed": schema.StringAttribute{
+ 				CustomType: fwtypes.StringEnumType[awstypes.EnabledType](),
+ 				Required:   true,

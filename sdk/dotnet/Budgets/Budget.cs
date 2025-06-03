@@ -375,6 +375,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Output("timePeriodStart")]
         public Output<string> TimePeriodStart { get; private set; } = null!;
@@ -537,6 +540,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Input("timePeriodStart")]
         public Input<string>? TimePeriodStart { get; set; }
@@ -680,6 +686,9 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// 
+        /// For more detailed documentation about each argument, refer to the [AWS official
+        /// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         /// </summary>
         [Input("timePeriodStart")]
         public Input<string>? TimePeriodStart { get; set; }

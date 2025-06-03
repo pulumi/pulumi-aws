@@ -58,12 +58,16 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+     * 
      */
     @Import(name="datasources")
     private @Nullable Output<OrganizationConfigurationDatasourcesArgs> datasources;
 
     /**
      * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+     * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
      * 
      */
     public Optional<Output<OrganizationConfigurationDatasourcesArgs>> datasources() {
@@ -165,6 +169,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         /**
          * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
          * 
+         * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -175,6 +181,8 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
         /**
          * @param datasources Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+         * 
+         * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
          * 
          * @return builder
          * 

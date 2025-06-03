@@ -48,14 +48,14 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Import(name="adminGroups")
     private @Nullable Output<List<String>> adminGroups;
 
     /**
-     * @return Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * @return Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Optional<Output<List<String>>> adminGroups() {
@@ -78,14 +78,14 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Author group associated with your Active Directory.
+     * Author group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     @Import(name="authorGroups")
     private @Nullable Output<List<String>> authorGroups;
 
     /**
-     * @return Author group associated with your Active Directory.
+     * @return Author group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     public Optional<Output<List<String>>> authorGroups() {
@@ -232,14 +232,14 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Reader group associated with your Active Directory.
+     * Reader group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     @Import(name="readerGroups")
     private @Nullable Output<List<String>> readerGroups;
 
     /**
-     * @return Reader group associated with your Active Directory.
+     * @return Reader group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     public Optional<Output<List<String>>> readerGroups() {
@@ -343,7 +343,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authorGroups Author group associated with your Active Directory.
+         * @param authorGroups Author group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authorGroups Author group associated with your Active Directory.
+         * @param authorGroups Author group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param authorGroups Author group associated with your Active Directory.
+         * @param authorGroups Author group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Directory.
+         * @param readerGroups Reader group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Directory.
+         * @param readerGroups Reader group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Directory.
+         * @param readerGroups Reader group associated with your Active Directory or IAM Identity Center account.
          * 
          * @return builder
          * 

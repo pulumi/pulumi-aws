@@ -74,6 +74,8 @@ class BucketObjectArgs:
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         pulumi.set(__self__, "bucket", bucket)
         if acl is not None:
@@ -408,6 +410,8 @@ class BucketObjectArgs:
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         return pulumi.get(self, "website_redirect")
 
@@ -479,6 +483,8 @@ class _BucketObjectState:
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -860,6 +866,8 @@ class _BucketObjectState:
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         return pulumi.get(self, "website_redirect")
 
@@ -1047,6 +1055,8 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         ...
     @overload
@@ -1324,6 +1334,8 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1576,6 +1588,8 @@ class BucketObject(pulumi.CustomResource):
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         return pulumi.get(self, "website_redirect")
 

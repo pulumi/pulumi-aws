@@ -85,6 +85,8 @@ type LookupContactFlowArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
 	Name *string `pulumi:"name"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,6 +129,8 @@ type LookupContactFlowOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Tags to assign to the Contact Flow.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -131,7 +131,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -271,7 +271,7 @@ export interface ComponentState {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version?: pulumi.Input<string>;
 }
@@ -325,7 +325,7 @@ export interface ComponentArgs {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version: pulumi.Input<string>;
 }

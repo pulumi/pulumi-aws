@@ -81,6 +81,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
@@ -128,6 +130,8 @@ export interface RouteTableAssociationState {
     gatewayId?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     routeTableId?: pulumi.Input<string>;
     /**
@@ -146,6 +150,8 @@ export interface RouteTableAssociationArgs {
     gatewayId?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
+     *
+     * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
     routeTableId: pulumi.Input<string>;
     /**

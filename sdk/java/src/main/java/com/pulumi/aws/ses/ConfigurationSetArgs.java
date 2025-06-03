@@ -36,7 +36,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
     /**
      * Name of the configuration set.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
@@ -45,7 +45,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Name of the configuration set.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -149,7 +149,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param name Name of the configuration set.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param name Name of the configuration set.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

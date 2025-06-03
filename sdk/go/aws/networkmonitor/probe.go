@@ -74,8 +74,6 @@ type Probe struct {
 	// The name of the monitor.
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
 	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	//
-	// The following arguments are optional:
 	PacketSize pulumi.IntOutput    `pulumi:"packetSize"`
 	ProbeId    pulumi.StringOutput `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
@@ -143,8 +141,6 @@ type probeState struct {
 	// The name of the monitor.
 	MonitorName *string `pulumi:"monitorName"`
 	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	//
-	// The following arguments are optional:
 	PacketSize *int    `pulumi:"packetSize"`
 	ProbeId    *string `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
@@ -171,8 +167,6 @@ type ProbeState struct {
 	// The name of the monitor.
 	MonitorName pulumi.StringPtrInput
 	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	//
-	// The following arguments are optional:
 	PacketSize pulumi.IntPtrInput
 	ProbeId    pulumi.StringPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
@@ -200,8 +194,6 @@ type probeArgs struct {
 	// The name of the monitor.
 	MonitorName string `pulumi:"monitorName"`
 	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	//
-	// The following arguments are optional:
 	PacketSize *int `pulumi:"packetSize"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol string `pulumi:"protocol"`
@@ -220,8 +212,6 @@ type ProbeArgs struct {
 	// The name of the monitor.
 	MonitorName pulumi.StringInput
 	// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-	//
-	// The following arguments are optional:
 	PacketSize pulumi.IntPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringInput
@@ -343,8 +333,6 @@ func (o ProbeOutput) MonitorName() pulumi.StringOutput {
 }
 
 // The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-//
-// The following arguments are optional:
 func (o ProbeOutput) PacketSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Probe) pulumi.IntOutput { return v.PacketSize }).(pulumi.IntOutput)
 }

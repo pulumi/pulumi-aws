@@ -57,6 +57,12 @@ type PolicyStore struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrOutput `pulumi:"validationSettings"`
 }
@@ -97,6 +103,12 @@ type policyStoreState struct {
 	Description *string `pulumi:"description"`
 	// The ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Validation settings for the policy store.
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
@@ -108,6 +120,12 @@ type PolicyStoreState struct {
 	Description pulumi.StringPtrInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrInput
 }
@@ -119,6 +137,8 @@ func (PolicyStoreState) ElementType() reflect.Type {
 type policyStoreArgs struct {
 	// A description of the Policy Store.
 	Description *string `pulumi:"description"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Validation settings for the policy store.
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
@@ -127,6 +147,8 @@ type policyStoreArgs struct {
 type PolicyStoreArgs struct {
 	// A description of the Policy Store.
 	Description pulumi.StringPtrInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Validation settings for the policy store.
 	ValidationSettings PolicyStoreValidationSettingsPtrInput
 }
@@ -231,6 +253,18 @@ func (o PolicyStoreOutput) Description() pulumi.StringPtrOutput {
 // The ID of the Policy Store.
 func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o PolicyStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o PolicyStoreOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Validation settings for the policy store.

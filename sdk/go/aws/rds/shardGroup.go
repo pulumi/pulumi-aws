@@ -93,6 +93,8 @@ type ShardGroup struct {
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -159,6 +161,8 @@ type shardGroupState struct {
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -187,6 +191,8 @@ type ShardGroupState struct {
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -213,6 +219,8 @@ type shardGroupArgs struct {
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags     map[string]string   `pulumi:"tags"`
 	Timeouts *ShardGroupTimeouts `pulumi:"timeouts"`
 }
@@ -232,6 +240,8 @@ type ShardGroupArgs struct {
 	// Indicates whether the DB shard group is publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 	Tags     pulumi.StringMapInput
 	Timeouts ShardGroupTimeoutsPtrInput
 }
@@ -369,6 +379,8 @@ func (o ShardGroupOutput) PubliclyAccessible() pulumi.BoolOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
 func (o ShardGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ShardGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

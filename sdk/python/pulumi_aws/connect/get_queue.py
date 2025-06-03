@@ -198,6 +198,8 @@ def get_queue(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Queue by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
     :param builtins.str queue_id: Returns information on a specific Queue by Queue id
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Queue.
     """
@@ -254,6 +256,8 @@ def get_queue_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Queue by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
     :param builtins.str queue_id: Returns information on a specific Queue by Queue id
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Queue.
     """

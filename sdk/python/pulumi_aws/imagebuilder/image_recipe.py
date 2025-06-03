@@ -38,7 +38,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[builtins.str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[builtins.str] description: Description of the image recipe.
         :param pulumi.Input[builtins.str] name: Name of the image recipe.
@@ -95,7 +95,7 @@ class ImageRecipeArgs:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -223,7 +223,7 @@ class _ImageRecipeState:
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -423,7 +423,7 @@ class _ImageRecipeState:
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -517,7 +517,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -672,7 +672,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -807,7 +807,7 @@ class ImageRecipe(pulumi.CustomResource):
         """
         The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 

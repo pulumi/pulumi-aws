@@ -1609,6 +1609,8 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
             suggest = "snapshot_id"
         elif key == "tagSpecifications":
             suggest = "tag_specifications"
+        elif key == "volumeInitializationRate":
+            suggest = "volume_initialization_rate"
         elif key == "volumeType":
             suggest = "volume_type"
 
@@ -1633,6 +1635,7 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
                  snapshot_id: Optional[builtins.str] = None,
                  tag_specifications: Optional[Sequence['outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification']] = None,
                  throughput: Optional[builtins.int] = None,
+                 volume_initialization_rate: Optional[builtins.int] = None,
                  volume_type: Optional[builtins.str] = None):
         """
         :param builtins.str role_arn: Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
@@ -1644,6 +1647,7 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
         :param builtins.str snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
         :param Sequence['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs'] tag_specifications: The tags to apply to the volume. See below.
         :param builtins.int throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+        :param builtins.int volume_initialization_rate: Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
         :param builtins.str volume_type: Volume type.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1663,6 +1667,8 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -1737,6 +1743,14 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
         Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         """
         return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[builtins.int]:
+        """
+        Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
 
     @property
     @pulumi.getter(name="volumeType")

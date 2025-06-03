@@ -83,6 +83,8 @@ type OrganizationConfiguration struct {
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers pulumi.StringOutput `pulumi:"autoEnableOrganizationMembers"`
 	// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+	//
+	// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 	Datasources OrganizationConfigurationDatasourcesOutput `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -128,6 +130,8 @@ type organizationConfigurationState struct {
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers *string `pulumi:"autoEnableOrganizationMembers"`
 	// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+	//
+	// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId *string `pulumi:"detectorId"`
@@ -141,6 +145,8 @@ type OrganizationConfigurationState struct {
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers pulumi.StringPtrInput
 	// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+	//
+	// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringPtrInput
@@ -158,6 +164,8 @@ type organizationConfigurationArgs struct {
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers *string `pulumi:"autoEnableOrganizationMembers"`
 	// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+	//
+	// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`
@@ -172,6 +180,8 @@ type OrganizationConfigurationArgs struct {
 	// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
 	AutoEnableOrganizationMembers pulumi.StringPtrInput
 	// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+	//
+	// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringInput
@@ -277,6 +287,8 @@ func (o OrganizationConfigurationOutput) AutoEnableOrganizationMembers() pulumi.
 }
 
 // Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.OrganizationConfigurationFeature` resources.
+//
+// > **NOTE:** One of `autoEnable` or `autoEnableOrganizationMembers` must be specified.
 func (o OrganizationConfigurationOutput) Datasources() OrganizationConfigurationDatasourcesOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationDatasourcesOutput { return v.Datasources }).(OrganizationConfigurationDatasourcesOutput)
 }

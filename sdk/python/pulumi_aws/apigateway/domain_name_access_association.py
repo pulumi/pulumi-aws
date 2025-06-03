@@ -217,7 +217,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         example = aws.apigateway.DomainNameAccessAssociation("example",
             access_association_source=example_aws_vpc_endpoint["id"],
             access_association_source_type="VPCE",
-            domain_name_arn=example_aws_api_gateway_domain_name["domainNameArn"])
+            domain_name_arn=example_aws_api_gateway_domain_name["arn"])
         ```
 
         ## Import
@@ -253,7 +253,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         example = aws.apigateway.DomainNameAccessAssociation("example",
             access_association_source=example_aws_vpc_endpoint["id"],
             access_association_source_type="VPCE",
-            domain_name_arn=example_aws_api_gateway_domain_name["domainNameArn"])
+            domain_name_arn=example_aws_api_gateway_domain_name["arn"])
         ```
 
         ## Import

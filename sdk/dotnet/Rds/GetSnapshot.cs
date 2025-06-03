@@ -210,6 +210,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
+        /// 
+        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -273,6 +275,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
+        /// 
+        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
         /// </summary>
         public InputMap<string> Tags
         {

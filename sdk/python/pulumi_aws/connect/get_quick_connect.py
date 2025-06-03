@@ -162,6 +162,8 @@ def get_quick_connect(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Quick Connect by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
     :param builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Quick Connect.
     """
@@ -215,6 +217,8 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[builtins.str]] =
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Quick Connect by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
     :param builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Quick Connect.
     """

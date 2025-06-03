@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
  * 
+ * &gt; NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the ResponsePlan Resource.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -168,9 +170,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ssmincidents/responsePlan:ResponsePlan")
 public class ResponsePlan extends com.pulumi.resources.CustomResource {
+    /**
+     * The actions that the response plan starts at the beginning of an incident.
+     * 
+     */
     @Export(name="action", refs={ResponsePlanAction.class}, tree="[0]")
     private Output</* @Nullable */ ResponsePlanAction> action;
 
+    /**
+     * @return The actions that the response plan starts at the beginning of an incident.
+     * 
+     */
     public Output<Optional<ResponsePlanAction>> action() {
         return Codegen.optional(this.action);
     }
@@ -188,33 +198,73 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The Chatbot chat channel used for collaboration during an incident.
+     * 
+     */
     @Export(name="chatChannels", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> chatChannels;
 
+    /**
+     * @return The Chatbot chat channel used for collaboration during an incident.
+     * 
+     */
     public Output<Optional<List<String>>> chatChannels() {
         return Codegen.optional(this.chatChannels);
     }
+    /**
+     * The long format of the response plan name. This field can contain spaces.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
+    /**
+     * @return The long format of the response plan name. This field can contain spaces.
+     * 
+     */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
     }
+    /**
+     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * 
+     */
     @Export(name="engagements", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> engagements;
 
+    /**
+     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * 
+     */
     public Output<Optional<List<String>>> engagements() {
         return Codegen.optional(this.engagements);
     }
+    /**
+     * The `incident_template` configuration block is required and supports the following arguments:
+     * 
+     */
     @Export(name="incidentTemplate", refs={ResponsePlanIncidentTemplate.class}, tree="[0]")
     private Output<ResponsePlanIncidentTemplate> incidentTemplate;
 
+    /**
+     * @return The `incident_template` configuration block is required and supports the following arguments:
+     * 
+     */
     public Output<ResponsePlanIncidentTemplate> incidentTemplate() {
         return this.incidentTemplate;
     }
+    /**
+     * Information about third-party services integrated into the response plan. The following values are supported:
+     * 
+     */
     @Export(name="integration", refs={ResponsePlanIntegration.class}, tree="[0]")
     private Output</* @Nullable */ ResponsePlanIntegration> integration;
 
+    /**
+     * @return Information about third-party services integrated into the response plan. The following values are supported:
+     * 
+     */
     public Output<Optional<ResponsePlanIntegration>> integration() {
         return Codegen.optional(this.integration);
     }
@@ -232,9 +282,17 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The tags applied to the response plan.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return The tags applied to the response plan.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

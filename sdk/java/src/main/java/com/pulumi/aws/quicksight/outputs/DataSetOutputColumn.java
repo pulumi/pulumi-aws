@@ -19,6 +19,8 @@ public final class DataSetOutputColumn {
     /**
      * @return Display name for the dataset.
      * 
+     * The following arguments are optional:
+     * 
      */
     private @Nullable String name;
     private @Nullable String type;
@@ -33,6 +35,8 @@ public final class DataSetOutputColumn {
     }
     /**
      * @return Display name for the dataset.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<String> name() {

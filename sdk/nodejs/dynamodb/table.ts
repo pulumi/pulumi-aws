@@ -223,7 +223,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -423,7 +423,7 @@ export interface TableState {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -543,7 +543,7 @@ export interface TableArgs {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

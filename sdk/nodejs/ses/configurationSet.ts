@@ -100,7 +100,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface ConfigurationSetState {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface ConfigurationSetArgs {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

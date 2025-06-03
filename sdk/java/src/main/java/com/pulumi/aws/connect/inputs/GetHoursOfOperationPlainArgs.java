@@ -49,12 +49,16 @@ public final class GetHoursOfOperationPlainArgs extends com.pulumi.resources.Inv
     /**
      * Returns information on a specific Hours of Operation by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Returns information on a specific Hours of Operation by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
      * 
      */
     public Optional<String> name() {
@@ -127,6 +131,8 @@ public final class GetHoursOfOperationPlainArgs extends com.pulumi.resources.Inv
 
         /**
          * @param name Returns information on a specific Hours of Operation by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
          * 
          * @return builder
          * 

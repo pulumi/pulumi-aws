@@ -239,6 +239,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+     * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
@@ -247,6 +249,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
      * 
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
@@ -598,6 +602,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
          * 
+         * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+         * 
          * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
          * 
          * @return builder
@@ -610,6 +616,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * 
+         * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
          * 
          * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
          * 

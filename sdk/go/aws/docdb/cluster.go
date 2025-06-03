@@ -145,6 +145,9 @@ type Cluster struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of VPC security groups to associate
 	// with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -266,6 +269,9 @@ type clusterState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of VPC security groups to associate
 	// with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -351,6 +357,9 @@ type ClusterState struct {
 	TagsAll pulumi.StringMapInput
 	// List of VPC security groups to associate
 	// with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -425,6 +434,9 @@ type clusterArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -496,6 +508,9 @@ type ClusterArgs struct {
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate
 	// with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -772,6 +787,9 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 
 // List of VPC security groups to associate
 // with the Cluster
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
 func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

@@ -24,8 +24,8 @@ class RegionSettingsArgs:
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
         """
         The set of arguments for constructing a RegionSettings resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         """
         pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
         if resource_type_management_preference is not None:
@@ -35,7 +35,7 @@ class RegionSettingsArgs:
     @pulumi.getter(name="resourceTypeOptInPreference")
     def resource_type_opt_in_preference(self) -> pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]:
         """
-        A map of services along with the opt-in preferences for the Region.
+        A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         return pulumi.get(self, "resource_type_opt_in_preference")
 
@@ -47,7 +47,7 @@ class RegionSettingsArgs:
     @pulumi.getter(name="resourceTypeManagementPreference")
     def resource_type_management_preference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]]:
         """
-        A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+        A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         """
         return pulumi.get(self, "resource_type_management_preference")
 
@@ -63,8 +63,8 @@ class _RegionSettingsState:
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
         """
         Input properties used for looking up and filtering RegionSettings resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         if resource_type_management_preference is not None:
             pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
@@ -75,7 +75,7 @@ class _RegionSettingsState:
     @pulumi.getter(name="resourceTypeManagementPreference")
     def resource_type_management_preference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]]:
         """
-        A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+        A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         """
         return pulumi.get(self, "resource_type_management_preference")
 
@@ -87,7 +87,7 @@ class _RegionSettingsState:
     @pulumi.getter(name="resourceTypeOptInPreference")
     def resource_type_opt_in_preference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]]:
         """
-        A map of services along with the opt-in preferences for the Region.
+        A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         return pulumi.get(self, "resource_type_opt_in_preference")
 
@@ -117,24 +117,28 @@ class RegionSettings(pulumi.CustomResource):
         test = aws.backup.RegionSettings("test",
             resource_type_opt_in_preference={
                 "Aurora": True,
+                "CloudFormation": True,
                 "DocumentDB": True,
+                "DSQL": True,
                 "DynamoDB": True,
                 "EBS": True,
                 "EC2": True,
                 "EFS": True,
                 "FSx": True,
                 "Neptune": True,
-                "RDS": True,
-                "Storage Gateway": True,
-                "VirtualMachine": True,
-                "CloudFormation": True,
                 "Redshift": True,
-                "S3": True,
-                "SAP HANA on Amazon EC2": True,
+                "Redshift Serverless": False,
+                "RDS": False,
+                "S3": False,
+                "SAP HANA on Amazon EC2": False,
+                "Storage Gateway": False,
+                "VirtualMachine": False,
             },
             resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
+                "CloudFormation": True,
+                "DSQL": True,
+                "DynamoDB": False,
+                "EFS": False,
             })
         ```
 
@@ -148,8 +152,8 @@ class RegionSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         ...
     @overload
@@ -169,24 +173,28 @@ class RegionSettings(pulumi.CustomResource):
         test = aws.backup.RegionSettings("test",
             resource_type_opt_in_preference={
                 "Aurora": True,
+                "CloudFormation": True,
                 "DocumentDB": True,
+                "DSQL": True,
                 "DynamoDB": True,
                 "EBS": True,
                 "EC2": True,
                 "EFS": True,
                 "FSx": True,
                 "Neptune": True,
-                "RDS": True,
-                "Storage Gateway": True,
-                "VirtualMachine": True,
-                "CloudFormation": True,
                 "Redshift": True,
-                "S3": True,
-                "SAP HANA on Amazon EC2": True,
+                "Redshift Serverless": False,
+                "RDS": False,
+                "S3": False,
+                "SAP HANA on Amazon EC2": False,
+                "Storage Gateway": False,
+                "VirtualMachine": False,
             },
             resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
+                "CloudFormation": True,
+                "DSQL": True,
+                "DynamoDB": False,
+                "EFS": False,
             })
         ```
 
@@ -247,8 +255,8 @@ class RegionSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_management_preference: A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] resource_type_opt_in_preference: A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,7 +270,7 @@ class RegionSettings(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypeManagementPreference")
     def resource_type_management_preference(self) -> pulumi.Output[Mapping[str, builtins.bool]]:
         """
-        A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+        A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         """
         return pulumi.get(self, "resource_type_management_preference")
 
@@ -270,7 +278,7 @@ class RegionSettings(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypeOptInPreference")
     def resource_type_opt_in_preference(self) -> pulumi.Output[Mapping[str, builtins.bool]]:
         """
-        A map of services along with the opt-in preferences for the Region.
+        A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
         """
         return pulumi.get(self, "resource_type_opt_in_preference")
 

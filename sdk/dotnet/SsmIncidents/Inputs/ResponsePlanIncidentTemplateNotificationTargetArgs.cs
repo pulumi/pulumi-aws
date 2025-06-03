@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
     {
         /// <summary>
         /// The ARN of the Amazon SNS topic.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;

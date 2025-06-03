@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -29,6 +30,11 @@ public final class GetPolicyStoreResult {
      * 
      */
     private String lastUpdatedDate;
+    /**
+     * @return Map of key-value pairs associated with the policy store.
+     * 
+     */
+    private Map<String,String> tags;
     /**
      * @return Validation settings for the policy store.
      * 
@@ -64,6 +70,13 @@ public final class GetPolicyStoreResult {
         return this.lastUpdatedDate;
     }
     /**
+     * @return Map of key-value pairs associated with the policy store.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Validation settings for the policy store.
      * 
      */
@@ -85,6 +98,7 @@ public final class GetPolicyStoreResult {
         private String description;
         private String id;
         private String lastUpdatedDate;
+        private Map<String,String> tags;
         private List<GetPolicyStoreValidationSetting> validationSettings;
         public Builder() {}
         public Builder(GetPolicyStoreResult defaults) {
@@ -94,6 +108,7 @@ public final class GetPolicyStoreResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
+    	      this.tags = defaults.tags;
     	      this.validationSettings = defaults.validationSettings;
         }
 
@@ -138,6 +153,14 @@ public final class GetPolicyStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPolicyStoreResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder validationSettings(List<GetPolicyStoreValidationSetting> validationSettings) {
             if (validationSettings == null) {
               throw new MissingRequiredPropertyException("GetPolicyStoreResult", "validationSettings");
@@ -155,6 +178,7 @@ public final class GetPolicyStoreResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.tags = tags;
             _resultValue.validationSettings = validationSettings;
             return _resultValue;
         }

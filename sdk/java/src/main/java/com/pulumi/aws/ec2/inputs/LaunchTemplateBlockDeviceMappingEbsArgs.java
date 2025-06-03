@@ -115,6 +115,21 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     }
 
     /**
+     * The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+     * 
+     */
+    @Import(name="volumeInitializationRate")
+    private @Nullable Output<Integer> volumeInitializationRate;
+
+    /**
+     * @return The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+     * 
+     */
+    public Optional<Output<Integer>> volumeInitializationRate() {
+        return Optional.ofNullable(this.volumeInitializationRate);
+    }
+
+    /**
      * The size of the volume in gigabytes.
      * 
      */
@@ -155,6 +170,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         this.kmsKeyId = $.kmsKeyId;
         this.snapshotId = $.snapshotId;
         this.throughput = $.throughput;
+        this.volumeInitializationRate = $.volumeInitializationRate;
         this.volumeSize = $.volumeSize;
         this.volumeType = $.volumeType;
     }
@@ -309,6 +325,27 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
          */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
+        }
+
+        /**
+         * @param volumeInitializationRate The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeInitializationRate(@Nullable Output<Integer> volumeInitializationRate) {
+            $.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+
+        /**
+         * @param volumeInitializationRate The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeInitializationRate(Integer volumeInitializationRate) {
+            return volumeInitializationRate(Output.of(volumeInitializationRate));
         }
 
         /**

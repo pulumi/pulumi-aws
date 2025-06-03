@@ -359,6 +359,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
         """
         Provides a resource to manage a VPC peering connection.
 
+        > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+        can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+        Connection has to be made active manually using other means. See notes below for
+        more information.
+
         > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
         both a standalone VPC Peering Connection Options and a VPC Peering Connection
         resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -473,6 +478,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a VPC peering connection.
+
+        > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+        can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+        Connection has to be made active manually using other means. See notes below for
+        more information.
 
         > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
         both a standalone VPC Peering Connection Options and a VPC Peering Connection

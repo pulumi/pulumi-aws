@@ -244,6 +244,8 @@ export class DataSet extends pulumi.CustomResource {
     public readonly logicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[]>;
     /**
      * Display name for the dataset.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
@@ -253,8 +255,6 @@ export class DataSet extends pulumi.CustomResource {
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetPermission[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-     *
-     * The following arguments are optional:
      */
     public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
     /**
@@ -385,6 +385,8 @@ export interface DataSetState {
     logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMap>[]>;
     /**
      * Display name for the dataset.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     outputColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetOutputColumn>[]>;
@@ -394,8 +396,6 @@ export interface DataSetState {
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-     *
-     * The following arguments are optional:
      */
     physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**
@@ -460,6 +460,8 @@ export interface DataSetArgs {
     logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMap>[]>;
     /**
      * Display name for the dataset.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -468,8 +470,6 @@ export interface DataSetArgs {
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-     *
-     * The following arguments are optional:
      */
     physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**

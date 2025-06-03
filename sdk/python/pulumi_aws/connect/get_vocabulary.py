@@ -199,6 +199,8 @@ def get_vocabulary(instance_id: Optional[builtins.str] = None,
     :param builtins.str name: Returns information on a specific Vocabulary by name
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the Vocabulary.
     :param builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
+           
+           > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -255,6 +257,8 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[builtins.str]] = No
     :param builtins.str name: Returns information on a specific Vocabulary by name
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the Vocabulary.
     :param builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
+           
+           > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

@@ -155,6 +155,8 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// Codec options for the video parameters
+        /// 
+        /// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         /// </summary>
         [Output("videoCodecOptions")]
         public Output<ImmutableDictionary<string, string>?> VideoCodecOptions { get; private set; } = null!;
@@ -261,6 +263,8 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// Codec options for the video parameters
+        /// 
+        /// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         /// </summary>
         public InputMap<string> VideoCodecOptions
         {
@@ -344,6 +348,8 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// Codec options for the video parameters
+        /// 
+        /// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
         /// </summary>
         public InputMap<string> VideoCodecOptions
         {

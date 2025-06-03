@@ -49,12 +49,16 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
     /**
      * Returns information on a specific Contact Flow Module by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Returns information on a specific Contact Flow Module by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
      * 
      */
     public Optional<String> name() {
@@ -127,6 +131,8 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
 
         /**
          * @param name Returns information on a specific Contact Flow Module by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
          * 
          * @return builder
          * 

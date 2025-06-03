@@ -53,6 +53,9 @@ class ElasticClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         pulumi.set(__self__, "admin_user_password", admin_user_password)
@@ -238,6 +241,9 @@ class ElasticClusterArgs:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -285,6 +291,9 @@ class _ElasticClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         if admin_user_name is not None:
             pulumi.set(__self__, "admin_user_name", admin_user_name)
@@ -518,6 +527,9 @@ class _ElasticClusterState:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -592,6 +604,9 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         ...
     @overload
@@ -745,6 +760,9 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -899,6 +917,9 @@ class ElasticCluster(pulumi.CustomResource):
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
         List of VPC security groups to associate with the Elastic DocumentDB Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

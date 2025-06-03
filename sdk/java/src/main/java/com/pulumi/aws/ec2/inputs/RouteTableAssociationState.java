@@ -33,12 +33,16 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
     /**
      * The ID of the routing table to associate with.
      * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+     * 
      */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
     /**
      * @return The ID of the routing table to associate with.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
      * 
      */
     public Optional<Output<String>> routeTableId() {
@@ -110,6 +114,8 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
         /**
          * @param routeTableId The ID of the routing table to associate with.
          * 
+         * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
 
         /**
          * @param routeTableId The ID of the routing table to associate with.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
          * 
          * @return builder
          * 

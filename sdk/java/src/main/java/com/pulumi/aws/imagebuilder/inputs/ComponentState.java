@@ -273,7 +273,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
     /**
      * Version of the component.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="version")
@@ -282,7 +282,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Version of the component.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> version() {
@@ -690,7 +690,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version Version of the component.
          * 
-         * The following attributes are optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version Version of the component.
          * 
-         * The following attributes are optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

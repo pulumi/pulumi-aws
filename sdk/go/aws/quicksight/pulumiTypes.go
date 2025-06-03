@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccountSettingsTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AccountSettingsTimeoutsInput is an input type that accepts AccountSettingsTimeoutsArgs and AccountSettingsTimeoutsOutput values.
+// You can construct a concrete instance of `AccountSettingsTimeoutsInput` via:
+//
+//	AccountSettingsTimeoutsArgs{...}
+type AccountSettingsTimeoutsInput interface {
+	pulumi.Input
+
+	ToAccountSettingsTimeoutsOutput() AccountSettingsTimeoutsOutput
+	ToAccountSettingsTimeoutsOutputWithContext(context.Context) AccountSettingsTimeoutsOutput
+}
+
+type AccountSettingsTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AccountSettingsTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSettingsTimeouts)(nil)).Elem()
+}
+
+func (i AccountSettingsTimeoutsArgs) ToAccountSettingsTimeoutsOutput() AccountSettingsTimeoutsOutput {
+	return i.ToAccountSettingsTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AccountSettingsTimeoutsArgs) ToAccountSettingsTimeoutsOutputWithContext(ctx context.Context) AccountSettingsTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsTimeoutsOutput)
+}
+
+func (i AccountSettingsTimeoutsArgs) ToAccountSettingsTimeoutsPtrOutput() AccountSettingsTimeoutsPtrOutput {
+	return i.ToAccountSettingsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSettingsTimeoutsArgs) ToAccountSettingsTimeoutsPtrOutputWithContext(ctx context.Context) AccountSettingsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsTimeoutsOutput).ToAccountSettingsTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AccountSettingsTimeoutsPtrInput is an input type that accepts AccountSettingsTimeoutsArgs, AccountSettingsTimeoutsPtr and AccountSettingsTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AccountSettingsTimeoutsPtrInput` via:
+//
+//	        AccountSettingsTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountSettingsTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAccountSettingsTimeoutsPtrOutput() AccountSettingsTimeoutsPtrOutput
+	ToAccountSettingsTimeoutsPtrOutputWithContext(context.Context) AccountSettingsTimeoutsPtrOutput
+}
+
+type accountSettingsTimeoutsPtrType AccountSettingsTimeoutsArgs
+
+func AccountSettingsTimeoutsPtr(v *AccountSettingsTimeoutsArgs) AccountSettingsTimeoutsPtrInput {
+	return (*accountSettingsTimeoutsPtrType)(v)
+}
+
+func (*accountSettingsTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSettingsTimeouts)(nil)).Elem()
+}
+
+func (i *accountSettingsTimeoutsPtrType) ToAccountSettingsTimeoutsPtrOutput() AccountSettingsTimeoutsPtrOutput {
+	return i.ToAccountSettingsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSettingsTimeoutsPtrType) ToAccountSettingsTimeoutsPtrOutputWithContext(ctx context.Context) AccountSettingsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsTimeoutsPtrOutput)
+}
+
+type AccountSettingsTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AccountSettingsTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSettingsTimeouts)(nil)).Elem()
+}
+
+func (o AccountSettingsTimeoutsOutput) ToAccountSettingsTimeoutsOutput() AccountSettingsTimeoutsOutput {
+	return o
+}
+
+func (o AccountSettingsTimeoutsOutput) ToAccountSettingsTimeoutsOutputWithContext(ctx context.Context) AccountSettingsTimeoutsOutput {
+	return o
+}
+
+func (o AccountSettingsTimeoutsOutput) ToAccountSettingsTimeoutsPtrOutput() AccountSettingsTimeoutsPtrOutput {
+	return o.ToAccountSettingsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSettingsTimeoutsOutput) ToAccountSettingsTimeoutsPtrOutputWithContext(ctx context.Context) AccountSettingsTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSettingsTimeouts) *AccountSettingsTimeouts {
+		return &v
+	}).(AccountSettingsTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccountSettingsTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccountSettingsTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AccountSettingsTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSettingsTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSettingsTimeouts)(nil)).Elem()
+}
+
+func (o AccountSettingsTimeoutsPtrOutput) ToAccountSettingsTimeoutsPtrOutput() AccountSettingsTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccountSettingsTimeoutsPtrOutput) ToAccountSettingsTimeoutsPtrOutputWithContext(ctx context.Context) AccountSettingsTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccountSettingsTimeoutsPtrOutput) Elem() AccountSettingsTimeoutsOutput {
+	return o.ApplyT(func(v *AccountSettingsTimeouts) AccountSettingsTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AccountSettingsTimeouts
+		return ret
+	}).(AccountSettingsTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccountSettingsTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccountSettingsTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type AnalysisParameters struct {
 	// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 	DateTimeParameters []AnalysisParametersDateTimeParameter `pulumi:"dateTimeParameters"`
@@ -6913,6 +7069,8 @@ type DataSetOutputColumn struct {
 	// Field folder description.
 	Description *string `pulumi:"description"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	Type *string `pulumi:"type"`
 }
@@ -6932,6 +7090,8 @@ type DataSetOutputColumnArgs struct {
 	// Field folder description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -6993,6 +7153,8 @@ func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Display name for the dataset.
+//
+// The following arguments are optional:
 func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -23127,6 +23289,8 @@ func (o GetThemePermissionArrayOutput) Index(i pulumi.IntInput) GetThemePermissi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingsTimeoutsInput)(nil)).Elem(), AccountSettingsTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingsTimeoutsPtrInput)(nil)).Elem(), AccountSettingsTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersInput)(nil)).Elem(), AnalysisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersPtrInput)(nil)).Elem(), AnalysisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersDateTimeParameterInput)(nil)).Elem(), AnalysisParametersDateTimeParameterArgs{})
@@ -23458,6 +23622,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationUiColorPaletteArrayInput)(nil)).Elem(), GetThemeConfigurationUiColorPaletteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemePermissionInput)(nil)).Elem(), GetThemePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemePermissionArrayInput)(nil)).Elem(), GetThemePermissionArray{})
+	pulumi.RegisterOutputType(AccountSettingsTimeoutsOutput{})
+	pulumi.RegisterOutputType(AccountSettingsTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersDateTimeParameterOutput{})

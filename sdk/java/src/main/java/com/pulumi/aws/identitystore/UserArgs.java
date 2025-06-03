@@ -222,12 +222,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The user type.
      * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+     * 
      */
     @Import(name="userType")
     private @Nullable Output<String> userType;
 
     /**
      * @return The user type.
+     * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      * 
      */
     public Optional<Output<String>> userType() {
@@ -551,6 +555,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userType The user type.
          * 
+         * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+         * 
          * @return builder
          * 
          */
@@ -561,6 +567,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userType The user type.
+         * 
+         * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
          * 
          * @return builder
          * 

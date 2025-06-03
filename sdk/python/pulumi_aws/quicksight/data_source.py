@@ -511,7 +511,7 @@ class DataSource(pulumi.CustomResource):
             parameters={
                 "s3": {
                     "manifest_file_location": {
-                        "bucket": example.arn,
+                        "bucket": example.bucket,
                         "key": example_bucket_objectv2.key,
                     },
                     "role_arn": example_role.arn,
@@ -647,7 +647,7 @@ class DataSource(pulumi.CustomResource):
             parameters={
                 "s3": {
                     "manifest_file_location": {
-                        "bucket": example.arn,
+                        "bucket": example.bucket,
                         "key": example_bucket_objectv2.key,
                     },
                     "role_arn": example_role.arn,

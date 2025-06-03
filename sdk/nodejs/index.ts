@@ -223,6 +223,7 @@ import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
+import * as notifications from "./notifications";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
@@ -447,6 +448,7 @@ export {
     networkfirewall,
     networkmanager,
     networkmonitor,
+    notifications,
     oam,
     opensearch,
     opensearchingest,

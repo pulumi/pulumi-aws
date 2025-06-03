@@ -50,12 +50,16 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
     /**
      * Returns information on a specific Hours of Operation by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Returns information on a specific Hours of Operation by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -149,6 +153,8 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param name Returns information on a specific Hours of Operation by name
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -159,6 +165,8 @@ public final class GetHoursOfOperationArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param name Returns information on a specific Hours of Operation by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
          * 
          * @return builder
          * 

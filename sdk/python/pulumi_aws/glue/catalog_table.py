@@ -41,7 +41,7 @@ class CatalogTableArgs:
         The set of arguments for constructing a CatalogTable resource.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
                
-               The follow arguments are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[builtins.str] description: Description of the table.
         :param pulumi.Input[builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
@@ -93,7 +93,7 @@ class CatalogTableArgs:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 
-        The follow arguments are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -295,7 +295,7 @@ class _CatalogTableState:
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
                
-               The follow arguments are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the table.
         :param pulumi.Input[builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input['CatalogTableOpenTableFormatInputArgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
@@ -373,7 +373,7 @@ class _CatalogTableState:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 
-        The follow arguments are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -642,7 +642,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
                
-               The follow arguments are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the table.
         :param pulumi.Input[builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
@@ -834,7 +834,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
                
-               The follow arguments are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the table.
         :param pulumi.Input[builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
@@ -893,7 +893,7 @@ class CatalogTable(pulumi.CustomResource):
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 
-        The follow arguments are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "database_name")
 

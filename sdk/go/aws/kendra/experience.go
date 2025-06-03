@@ -69,6 +69,8 @@ type Experience struct {
 	// ARN of the Experience.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationOutput `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -127,6 +129,8 @@ type experienceState struct {
 	// ARN of the Experience.
 	Arn *string `pulumi:"arn"`
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -150,6 +154,8 @@ type ExperienceState struct {
 	// ARN of the Experience.
 	Arn pulumi.StringPtrInput
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -175,6 +181,8 @@ func (ExperienceState) ElementType() reflect.Type {
 
 type experienceArgs struct {
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -191,6 +199,8 @@ type experienceArgs struct {
 // The set of arguments for constructing a Experience resource.
 type ExperienceArgs struct {
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -297,6 +307,8 @@ func (o ExperienceOutput) Arn() pulumi.StringOutput {
 }
 
 // Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+//
+// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 func (o ExperienceOutput) Configuration() ExperienceConfigurationOutput {
 	return o.ApplyT(func(v *Experience) ExperienceConfigurationOutput { return v.Configuration }).(ExperienceConfigurationOutput)
 }

@@ -122,6 +122,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
      * 
+     * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
@@ -129,6 +131,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     * 
+     * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -240,6 +244,8 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired DB snapshot.
+         * 
+         * &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
          * 
          * @return builder
          * 

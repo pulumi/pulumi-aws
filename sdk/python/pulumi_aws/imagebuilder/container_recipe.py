@@ -44,7 +44,7 @@ class ContainerRecipeArgs:
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: The description of the container recipe.
         :param pulumi.Input[builtins.str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[builtins.str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
@@ -133,7 +133,7 @@ class ContainerRecipeArgs:
         """
         Version of the container recipe.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -295,7 +295,7 @@ class _ContainerRecipeState:
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -565,7 +565,7 @@ class _ContainerRecipeState:
         """
         Version of the container recipe.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -668,7 +668,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -847,7 +847,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1027,7 +1027,7 @@ class ContainerRecipe(pulumi.CustomResource):
         """
         Version of the container recipe.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 

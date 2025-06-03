@@ -88,6 +88,9 @@ export class ClusterActivityStream extends pulumi.CustomResource {
 
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     public readonly engineNativeAuditFieldsIncluded!: pulumi.Output<boolean | undefined>;
     /**
@@ -153,6 +156,9 @@ export class ClusterActivityStream extends pulumi.CustomResource {
 export interface ClusterActivityStreamState {
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
     /**
@@ -179,6 +185,9 @@ export interface ClusterActivityStreamState {
 export interface ClusterActivityStreamArgs {
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
     /**

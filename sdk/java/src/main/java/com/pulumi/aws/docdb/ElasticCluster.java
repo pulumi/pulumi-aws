@@ -295,12 +295,18 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
+     * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to associate with the Elastic DocumentDB Cluster
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

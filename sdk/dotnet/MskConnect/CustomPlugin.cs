@@ -108,8 +108,6 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -195,8 +193,6 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -259,8 +255,6 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputMap<string> Tags
         {

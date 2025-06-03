@@ -513,6 +513,12 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of VPC security groups to associate with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the AWS official documentation:
+	//
+	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -705,6 +711,12 @@ type clusterState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of VPC security groups to associate with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the AWS official documentation:
+	//
+	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -858,6 +870,12 @@ type ClusterState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the AWS official documentation:
+	//
+	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -994,6 +1012,12 @@ type clusterArgs struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the AWS official documentation:
+	//
+	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -1127,6 +1151,12 @@ type ClusterArgs struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the AWS official documentation:
+	//
+	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -1578,6 +1608,12 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // List of VPC security groups to associate with the Cluster
+//
+// For more detailed documentation about each argument, refer to
+// the AWS official documentation:
+//
+// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
 func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

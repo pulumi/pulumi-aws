@@ -57,6 +57,8 @@ export interface GetContactFlowModuleArgs {
     instanceId: string;
     /**
      * Returns information on a specific Contact Flow Module by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
      */
     name?: string;
     /**
@@ -154,6 +156,8 @@ export interface GetContactFlowModuleOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Contact Flow Module by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
      */
     name?: pulumi.Input<string>;
     /**

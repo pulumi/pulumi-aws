@@ -377,6 +377,8 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly trackLatest!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
+     *
+     * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
      */
     public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
@@ -559,6 +561,8 @@ export interface TaskDefinitionState {
     trackLatest?: pulumi.Input<boolean>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
+     *
+     * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }
@@ -649,6 +653,8 @@ export interface TaskDefinitionArgs {
     trackLatest?: pulumi.Input<boolean>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
+     *
+     * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }

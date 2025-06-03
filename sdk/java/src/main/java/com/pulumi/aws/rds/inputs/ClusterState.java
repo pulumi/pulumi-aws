@@ -1094,12 +1094,24 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * List of VPC security groups to associate with the Cluster
      * 
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     * 
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
+     * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
      * @return List of VPC security groups to associate with the Cluster
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     * 
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -2776,6 +2788,12 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcSecurityGroupIds List of VPC security groups to associate with the Cluster
          * 
+         * For more detailed documentation about each argument, refer to
+         * the AWS official documentation:
+         * 
+         * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+         * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
+         * 
          * @return builder
          * 
          */
@@ -2787,6 +2805,12 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcSecurityGroupIds List of VPC security groups to associate with the Cluster
          * 
+         * For more detailed documentation about each argument, refer to
+         * the AWS official documentation:
+         * 
+         * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+         * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
+         * 
          * @return builder
          * 
          */
@@ -2796,6 +2820,12 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcSecurityGroupIds List of VPC security groups to associate with the Cluster
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the AWS official documentation:
+         * 
+         * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+         * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
          * 
          * @return builder
          * 

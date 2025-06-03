@@ -474,6 +474,9 @@ type Instance struct {
 	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	//
 	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
@@ -759,6 +762,9 @@ type instanceState struct {
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	//
 	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
@@ -1004,6 +1010,9 @@ type InstanceState struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	//
 	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 	// Replicate database managed by the provider will promote the database to a fully
@@ -1251,6 +1260,9 @@ type instanceArgs struct {
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
 	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+	//
 	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
@@ -1472,6 +1484,9 @@ type InstanceArgs struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	//
 	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 	// Replicate database managed by the provider will promote the database to a fully
@@ -1828,6 +1843,9 @@ func (o InstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
 }
 
 // Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+//
+// For more detailed documentation about each argument, refer to the [AWS official
+// documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 //
 // > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
 // Replicate database managed by the provider will promote the database to a fully

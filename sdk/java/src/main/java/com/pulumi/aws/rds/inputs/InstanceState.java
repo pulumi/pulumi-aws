@@ -291,6 +291,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * 
      * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
@@ -301,6 +304,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
@@ -1876,6 +1882,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param customerOwnedIpEnabled Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
          * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+         * 
          * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
          * Replicate database managed by the provider will promote the database to a fully
          * standalone database.
@@ -1890,6 +1899,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customerOwnedIpEnabled Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+         * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
          * &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
          * Replicate database managed by the provider will promote the database to a fully

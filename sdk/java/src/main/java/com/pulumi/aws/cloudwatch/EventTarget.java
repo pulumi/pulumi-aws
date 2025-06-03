@@ -33,6 +33,12 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
+ * &gt; **Note:** In order to be able to have your AWS Lambda function or
+ *    SNS topic invoked by an EventBridge rule, you must set up the right permissions
+ *    using `aws.lambda.Permission`
+ *    or `aws.sns.TopicPolicy`.
+ *    More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
+ * 
  * ## Example Usage
  * 
  * ### Kinesis Usage

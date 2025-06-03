@@ -193,7 +193,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
     /**
      * Name of the configuration set.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -202,7 +202,7 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the configuration set.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

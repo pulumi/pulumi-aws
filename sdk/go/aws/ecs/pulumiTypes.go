@@ -4203,6 +4203,8 @@ type ServiceVolumeConfigurationManagedEbsVolume struct {
 	TagSpecifications []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
+	// Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// Volume type.
 	VolumeType *string `pulumi:"volumeType"`
 }
@@ -4237,6 +4239,8 @@ type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
 	TagSpecifications ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
+	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// Volume type.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -4365,6 +4369,11 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Throughput() pulumi.In
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
+}
+
 // Volume type.
 func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
@@ -4481,6 +4490,16 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Throughput() pulumi
 			return nil
 		}
 		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// Volume Initialization Rate in MiB/s. You must also specify a `snapshotId`.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeInitializationRate
 	}).(pulumi.IntPtrOutput)
 }
 

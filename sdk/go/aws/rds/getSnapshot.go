@@ -96,6 +96,8 @@ type LookupSnapshotArgs struct {
 	SnapshotType *string `pulumi:"snapshotType"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired DB snapshot.
+	//
+	// > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -178,6 +180,8 @@ type LookupSnapshotOutputArgs struct {
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired DB snapshot.
+	//
+	// > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

@@ -56,6 +56,8 @@ export interface GetQueueArgs {
     instanceId: string;
     /**
      * Returns information on a specific Queue by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      */
     name?: string;
     /**
@@ -160,6 +162,8 @@ export interface GetQueueOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Queue by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `queueId` is required.
      */
     name?: pulumi.Input<string>;
     /**

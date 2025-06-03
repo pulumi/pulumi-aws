@@ -50,6 +50,8 @@ class RegisteredDomainArgs:
         :param pulumi.Input['RegisteredDomainTechContactArgs'] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[builtins.bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[builtins.bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
+               
+               > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if admin_contact is not None:
@@ -226,6 +228,8 @@ class RegisteredDomainArgs:
     def transfer_lock(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the domain is locked for transfer. Default: `true`.
+
+        > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
         return pulumi.get(self, "transfer_lock")
 
@@ -285,6 +289,8 @@ class _RegisteredDomainState:
         :param pulumi.Input['RegisteredDomainTechContactArgs'] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[builtins.bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[builtins.bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
+               
+               > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         :param pulumi.Input[builtins.str] updated_date: The last updated date of the domain as found in the response to a WHOIS query.
         :param pulumi.Input[builtins.str] whois_server: The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         """
@@ -598,6 +604,8 @@ class _RegisteredDomainState:
     def transfer_lock(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the domain is locked for transfer. Default: `true`.
+
+        > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
         return pulumi.get(self, "transfer_lock")
 
@@ -701,6 +709,8 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.Input[Union['RegisteredDomainTechContactArgs', 'RegisteredDomainTechContactArgsDict']] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[builtins.bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[builtins.bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
+               
+               > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
         ...
     @overload
@@ -870,6 +880,8 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.Input[Union['RegisteredDomainTechContactArgs', 'RegisteredDomainTechContactArgsDict']] tech_contact: Details about the domain technical contact. See Contact Blocks for more details.
         :param pulumi.Input[builtins.bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[builtins.bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
+               
+               > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         :param pulumi.Input[builtins.str] updated_date: The last updated date of the domain as found in the response to a WHOIS query.
         :param pulumi.Input[builtins.str] whois_server: The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         """
@@ -1077,6 +1089,8 @@ class RegisteredDomain(pulumi.CustomResource):
     def transfer_lock(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Whether the domain is locked for transfer. Default: `true`.
+
+        > **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
         """
         return pulumi.get(self, "transfer_lock")
 

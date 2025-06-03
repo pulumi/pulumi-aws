@@ -172,6 +172,10 @@ type GatewayAssociation struct {
 	pulumi.CustomResourceState
 
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayOutput `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -228,6 +232,10 @@ func GetGatewayAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GatewayAssociation resources.
 type gatewayAssociationState struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -252,6 +260,10 @@ type gatewayAssociationState struct {
 
 type GatewayAssociationState struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayInput
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -280,6 +292,10 @@ func (GatewayAssociationState) ElementType() reflect.Type {
 
 type gatewayAssociationArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes []string `pulumi:"allowedPrefixes"`
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -299,6 +315,10 @@ type gatewayAssociationArgs struct {
 // The set of arguments for constructing a GatewayAssociation resource.
 type GatewayAssociationArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	//
+	// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+	//
+	// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 	AllowedPrefixes pulumi.StringArrayInput
 	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
 	// Used for single account Direct Connect gateway associations.
@@ -403,6 +423,10 @@ func (o GatewayAssociationOutput) ToGatewayAssociationOutputWithContext(ctx cont
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+//
+// > **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
+//
+// > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
 func (o GatewayAssociationOutput) AllowedPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringArrayOutput { return v.AllowedPrefixes }).(pulumi.StringArrayOutput)
 }

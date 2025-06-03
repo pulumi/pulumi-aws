@@ -158,7 +158,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -323,7 +323,7 @@ export interface ContainerRecipeState {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -387,7 +387,7 @@ export interface ContainerRecipeArgs {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version: pulumi.Input<string>;
     /**

@@ -4892,6 +4892,143 @@ func (o LoadBalancerIpamPoolsPtrOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type LoadBalancerMinimumLoadBalancerCapacity struct {
+	// The number of capacity units.
+	CapacityUnits int `pulumi:"capacityUnits"`
+}
+
+// LoadBalancerMinimumLoadBalancerCapacityInput is an input type that accepts LoadBalancerMinimumLoadBalancerCapacityArgs and LoadBalancerMinimumLoadBalancerCapacityOutput values.
+// You can construct a concrete instance of `LoadBalancerMinimumLoadBalancerCapacityInput` via:
+//
+//	LoadBalancerMinimumLoadBalancerCapacityArgs{...}
+type LoadBalancerMinimumLoadBalancerCapacityInput interface {
+	pulumi.Input
+
+	ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput
+	ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityArgs struct {
+	// The number of capacity units.
+	CapacityUnits pulumi.IntInput `pulumi:"capacityUnits"`
+}
+
+func (LoadBalancerMinimumLoadBalancerCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityOutput)
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityOutput).ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerMinimumLoadBalancerCapacityPtrInput is an input type that accepts LoadBalancerMinimumLoadBalancerCapacityArgs, LoadBalancerMinimumLoadBalancerCapacityPtr and LoadBalancerMinimumLoadBalancerCapacityPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerMinimumLoadBalancerCapacityPtrInput` via:
+//
+//	        LoadBalancerMinimumLoadBalancerCapacityArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerMinimumLoadBalancerCapacityPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput
+	ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput
+}
+
+type loadBalancerMinimumLoadBalancerCapacityPtrType LoadBalancerMinimumLoadBalancerCapacityArgs
+
+func LoadBalancerMinimumLoadBalancerCapacityPtr(v *LoadBalancerMinimumLoadBalancerCapacityArgs) LoadBalancerMinimumLoadBalancerCapacityPtrInput {
+	return (*loadBalancerMinimumLoadBalancerCapacityPtrType)(v)
+}
+
+func (*loadBalancerMinimumLoadBalancerCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (i *loadBalancerMinimumLoadBalancerCapacityPtrType) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerMinimumLoadBalancerCapacityPtrType) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerMinimumLoadBalancerCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerMinimumLoadBalancerCapacity) *LoadBalancerMinimumLoadBalancerCapacity {
+		return &v
+	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
+// The number of capacity units.
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) CapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerMinimumLoadBalancerCapacity) int { return v.CapacityUnits }).(pulumi.IntOutput)
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) Elem() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o.ApplyT(func(v *LoadBalancerMinimumLoadBalancerCapacity) LoadBalancerMinimumLoadBalancerCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerMinimumLoadBalancerCapacity
+		return ret
+	}).(LoadBalancerMinimumLoadBalancerCapacityOutput)
+}
+
+// The number of capacity units.
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) CapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerMinimumLoadBalancerCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
 type LoadBalancerSubnetMapping struct {
 	// Allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
@@ -10620,6 +10757,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsPtrInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsPtrInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacityInput)(nil)).Elem(), LoadBalancerMinimumLoadBalancerCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacityPtrInput)(nil)).Elem(), LoadBalancerMinimumLoadBalancerCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
@@ -10749,6 +10888,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerIpamPoolsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerIpamPoolsPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerMinimumLoadBalancerCapacityOutput{})
+	pulumi.RegisterOutputType(LoadBalancerMinimumLoadBalancerCapacityPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckOutput{})

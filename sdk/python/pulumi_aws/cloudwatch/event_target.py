@@ -717,6 +717,12 @@ class EventTarget(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
+        > **Note:** In order to be able to have your AWS Lambda function or
+           SNS topic invoked by an EventBridge rule, you must set up the right permissions
+           using `lambda.Permission`
+           or `sns.TopicPolicy`.
+           More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
+
         ## Example Usage
 
         ### Kinesis Usage
@@ -1190,6 +1196,12 @@ class EventTarget(pulumi.CustomResource):
         Provides an EventBridge Target resource.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** In order to be able to have your AWS Lambda function or
+           SNS topic invoked by an EventBridge rule, you must set up the right permissions
+           using `lambda.Permission`
+           or `sns.TopicPolicy`.
+           More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
 
         ## Example Usage
 

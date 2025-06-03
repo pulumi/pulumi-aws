@@ -66,6 +66,8 @@ type LookupPolicyStoreResult struct {
 	Id          string `pulumi:"id"`
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	// Map of key-value pairs associated with the policy store.
+	Tags map[string]string `pulumi:"tags"`
 	// Validation settings for the policy store.
 	ValidationSettings []GetPolicyStoreValidationSetting `pulumi:"validationSettings"`
 }
@@ -125,6 +127,11 @@ func (o LookupPolicyStoreResultOutput) Id() pulumi.StringOutput {
 // The date the Policy Store was last updated.
 func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs associated with the policy store.
+func (o LookupPolicyStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Validation settings for the policy store.

@@ -133,6 +133,8 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+        /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Output("type")]
@@ -259,6 +261,8 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
+        /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("type")]
@@ -371,6 +375,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required.
         /// 
         /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>

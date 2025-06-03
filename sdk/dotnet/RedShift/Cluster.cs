@@ -361,6 +361,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -708,6 +711,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1052,6 +1058,9 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         /// </summary>
         public InputMap<string> Tags
         {

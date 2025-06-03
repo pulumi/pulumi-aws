@@ -160,6 +160,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
     public readonly techPrivacy!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     public readonly transferLock!: pulumi.Output<boolean | undefined>;
     /**
@@ -335,6 +337,8 @@ export interface RegisteredDomainState {
     techPrivacy?: pulumi.Input<boolean>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     transferLock?: pulumi.Input<boolean>;
     /**
@@ -401,6 +405,8 @@ export interface RegisteredDomainArgs {
     techPrivacy?: pulumi.Input<boolean>;
     /**
      * Whether the domain is locked for transfer. Default: `true`.
+     *
+     * > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      */
     transferLock?: pulumi.Input<boolean>;
 }

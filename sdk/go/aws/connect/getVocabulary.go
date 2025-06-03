@@ -87,6 +87,8 @@ type LookupVocabularyArgs struct {
 	// A map of tags to assign to the Vocabulary.
 	Tags map[string]string `pulumi:"tags"`
 	// Returns information on a specific Vocabulary by Vocabulary id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
 	VocabularyId *string `pulumi:"vocabularyId"`
 }
 
@@ -132,6 +134,8 @@ type LookupVocabularyOutputArgs struct {
 	// A map of tags to assign to the Vocabulary.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Returns information on a specific Vocabulary by Vocabulary id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
 	VocabularyId pulumi.StringPtrInput `pulumi:"vocabularyId"`
 }
 

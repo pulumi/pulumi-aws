@@ -172,8 +172,6 @@ export class EnvironmentProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     public readonly projectIdentifier!: pulumi.Output<string>;
     /**
@@ -278,8 +276,6 @@ export interface EnvironmentProfileState {
     name?: pulumi.Input<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     projectIdentifier?: pulumi.Input<string>;
     /**
@@ -322,8 +318,6 @@ export interface EnvironmentProfileArgs {
     name?: pulumi.Input<string>;
     /**
      * Project identifier for environment profile.
-     *
-     * The following arguments are optional:
      */
     projectIdentifier: pulumi.Input<string>;
     /**

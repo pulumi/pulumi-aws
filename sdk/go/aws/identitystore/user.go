@@ -99,6 +99,8 @@ type User struct {
 	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 }
 
@@ -174,6 +176,8 @@ type userState struct {
 	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -211,6 +215,8 @@ type UserState struct {
 	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrInput
 }
 
@@ -248,6 +254,8 @@ type userArgs struct {
 	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType *string `pulumi:"userType"`
 }
 
@@ -282,6 +290,8 @@ type UserArgs struct {
 	// The following arguments are optional:
 	UserName pulumi.StringInput
 	// The user type.
+	//
+	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 	UserType pulumi.StringPtrInput
 }
 
@@ -450,6 +460,8 @@ func (o UserOutput) UserName() pulumi.StringOutput {
 }
 
 // The user type.
+//
+// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
 func (o UserOutput) UserType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserType }).(pulumi.StringPtrOutput)
 }

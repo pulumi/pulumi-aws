@@ -293,16 +293,12 @@ public class EnvironmentProfile extends com.pulumi.resources.CustomResource {
     /**
      * Project identifier for environment profile.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="projectIdentifier", refs={String.class}, tree="[0]")
     private Output<String> projectIdentifier;
 
     /**
      * @return Project identifier for environment profile.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> projectIdentifier() {

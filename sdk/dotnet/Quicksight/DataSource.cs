@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Quicksight
     ///             {
     ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
     ///                 {
-    ///                     Bucket = example.Arn,
+    ///                     Bucket = example.Bucket,
     ///                     Key = exampleBucketObjectv2.Key,
     ///                 },
     ///                 RoleArn = exampleRole.Arn,

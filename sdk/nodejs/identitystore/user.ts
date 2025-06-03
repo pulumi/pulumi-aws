@@ -137,6 +137,8 @@ export class User extends pulumi.CustomResource {
     public readonly userName!: pulumi.Output<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     public readonly userType!: pulumi.Output<string | undefined>;
 
@@ -270,6 +272,8 @@ export interface UserState {
     userName?: pulumi.Input<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     userType?: pulumi.Input<string>;
 }
@@ -334,6 +338,8 @@ export interface UserArgs {
     userName: pulumi.Input<string>;
     /**
      * The user type.
+     *
+     * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
     userType?: pulumi.Input<string>;
 }

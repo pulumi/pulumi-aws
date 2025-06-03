@@ -309,6 +309,8 @@ type Crawler struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -397,6 +399,8 @@ type crawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -450,6 +454,8 @@ type CrawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -505,6 +511,8 @@ type crawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -553,6 +561,8 @@ type CrawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 	Tags pulumi.StringMapInput
 }
 
@@ -754,6 +764,8 @@ func (o CrawlerOutput) TablePrefix() pulumi.StringPtrOutput {
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** Must specify at least one of `dynamodbTarget`, `jdbcTarget`, `s3Target`, `mongodbTarget` or `catalogTarget`.
 func (o CrawlerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

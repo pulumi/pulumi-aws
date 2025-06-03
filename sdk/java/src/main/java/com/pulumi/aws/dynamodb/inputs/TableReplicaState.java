@@ -50,7 +50,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalTableArn")
@@ -59,7 +59,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ARN of the _main_ or global table which this resource will replicate.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalTableArn() {
@@ -225,7 +225,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param globalTableArn ARN of the _main_ or global table which this resource will replicate.
          * 
-         * Optional arguments:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param globalTableArn ARN of the _main_ or global table which this resource will replicate.
          * 
-         * Optional arguments:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

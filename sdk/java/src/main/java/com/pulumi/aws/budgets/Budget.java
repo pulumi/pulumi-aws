@@ -615,12 +615,18 @@ public class Budget extends com.pulumi.resources.CustomResource {
     /**
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * 
      */
     @Export(name="timePeriodStart", refs={String.class}, tree="[0]")
     private Output<String> timePeriodStart;
 
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      * 
      */
     public Output<String> timePeriodStart() {

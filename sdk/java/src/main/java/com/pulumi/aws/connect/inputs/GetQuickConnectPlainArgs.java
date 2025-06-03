@@ -34,12 +34,16 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * Returns information on a specific Quick Connect by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Returns information on a specific Quick Connect by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
      * 
      */
     public Optional<String> name() {
@@ -116,6 +120,8 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param name Returns information on a specific Quick Connect by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
          * 
          * @return builder
          * 

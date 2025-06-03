@@ -49,12 +49,16 @@ public final class GetUserHierarchyGroupPlainArgs extends com.pulumi.resources.I
     /**
      * Returns information on a specific hierarchy group by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Returns information on a specific hierarchy group by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
      * 
      */
     public Optional<String> name() {
@@ -127,6 +131,8 @@ public final class GetUserHierarchyGroupPlainArgs extends com.pulumi.resources.I
 
         /**
          * @param name Returns information on a specific hierarchy group by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
          * 
          * @return builder
          * 

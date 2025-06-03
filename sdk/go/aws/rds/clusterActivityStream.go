@@ -95,6 +95,9 @@ type ClusterActivityStream struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 	EngineNativeAuditFieldsIncluded pulumi.BoolPtrOutput `pulumi:"engineNativeAuditFieldsIncluded"`
 	// The name of the Amazon Kinesis data stream to be used for the database activity stream.
 	KinesisStreamName pulumi.StringOutput `pulumi:"kinesisStreamName"`
@@ -146,6 +149,9 @@ func GetClusterActivityStream(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ClusterActivityStream resources.
 type clusterActivityStreamState struct {
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 	EngineNativeAuditFieldsIncluded *bool `pulumi:"engineNativeAuditFieldsIncluded"`
 	// The name of the Amazon Kinesis data stream to be used for the database activity stream.
 	KinesisStreamName *string `pulumi:"kinesisStreamName"`
@@ -159,6 +165,9 @@ type clusterActivityStreamState struct {
 
 type ClusterActivityStreamState struct {
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 	EngineNativeAuditFieldsIncluded pulumi.BoolPtrInput
 	// The name of the Amazon Kinesis data stream to be used for the database activity stream.
 	KinesisStreamName pulumi.StringPtrInput
@@ -176,6 +185,9 @@ func (ClusterActivityStreamState) ElementType() reflect.Type {
 
 type clusterActivityStreamArgs struct {
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 	EngineNativeAuditFieldsIncluded *bool `pulumi:"engineNativeAuditFieldsIncluded"`
 	// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -188,6 +200,9 @@ type clusterActivityStreamArgs struct {
 // The set of arguments for constructing a ClusterActivityStream resource.
 type ClusterActivityStreamArgs struct {
 	// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 	EngineNativeAuditFieldsIncluded pulumi.BoolPtrInput
 	// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 	KmsKeyId pulumi.StringInput
@@ -285,6 +300,9 @@ func (o ClusterActivityStreamOutput) ToClusterActivityStreamOutputWithContext(ct
 }
 
 // Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
 func (o ClusterActivityStreamOutput) EngineNativeAuditFieldsIncluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterActivityStream) pulumi.BoolPtrOutput { return v.EngineNativeAuditFieldsIncluded }).(pulumi.BoolPtrOutput)
 }

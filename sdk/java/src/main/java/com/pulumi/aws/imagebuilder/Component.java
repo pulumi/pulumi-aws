@@ -307,7 +307,7 @@ public class Component extends com.pulumi.resources.CustomResource {
     /**
      * Version of the component.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
@@ -316,7 +316,7 @@ public class Component extends com.pulumi.resources.CustomResource {
     /**
      * @return Version of the component.
      * 
-     * The following attributes are optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> version() {

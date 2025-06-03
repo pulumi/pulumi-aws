@@ -45,6 +45,8 @@ class PipelineArgs:
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
+               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+               
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
                bucket to use, and the storage class that you want to assign to the files. If
@@ -185,6 +187,8 @@ class PipelineArgs:
         """
         The permissions for the `thumbnail_config` object. (documented below)
 
+        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+
         The `content_config` object specifies information about the Amazon S3 bucket in
         which you want Elastic Transcoder to save transcoded files and playlists: which
         bucket to use, and the storage class that you want to assign to the files. If
@@ -226,6 +230,8 @@ class _PipelineState:
         :param pulumi.Input[builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -383,6 +389,8 @@ class _PipelineState:
         """
         The permissions for the `thumbnail_config` object. (documented below)
 
+        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+
         The `content_config` object specifies information about the Amazon S3 bucket in
         which you want Elastic Transcoder to save transcoded files and playlists: which
         bucket to use, and the storage class that you want to assign to the files. If
@@ -457,6 +465,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+               
+               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -591,6 +601,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
+               See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+               
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
                bucket to use, and the storage class that you want to assign to the files. If
@@ -700,6 +712,8 @@ class Pipeline(pulumi.CustomResource):
     def thumbnail_config_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineThumbnailConfigPermission']]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
+
+        See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
 
         The `content_config` object specifies information about the Amazon S3 bucket in
         which you want Elastic Transcoder to save transcoded files and playlists: which

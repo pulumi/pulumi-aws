@@ -566,6 +566,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * List of VPC security groups to associate
      * with the Cluster
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
+     * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
@@ -573,6 +576,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return List of VPC security groups to associate
      * with the Cluster
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -1425,6 +1431,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @param vpcSecurityGroupIds List of VPC security groups to associate
          * with the Cluster
          * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
+         * 
          * @return builder
          * 
          */
@@ -1437,6 +1446,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @param vpcSecurityGroupIds List of VPC security groups to associate
          * with the Cluster
          * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
+         * 
          * @return builder
          * 
          */
@@ -1447,6 +1459,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcSecurityGroupIds List of VPC security groups to associate
          * with the Cluster
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
          * 
          * @return builder
          * 

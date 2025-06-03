@@ -85,6 +85,8 @@ type LookupUserHierarchyGroupArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,6 +126,8 @@ type LookupUserHierarchyGroupOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of tags to assign to the hierarchy group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

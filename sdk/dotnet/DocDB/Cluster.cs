@@ -274,6 +274,9 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// List of VPC security groups to associate
         /// with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -544,6 +547,9 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// List of VPC security groups to associate
         /// with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -826,6 +832,9 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// List of VPC security groups to associate
         /// with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

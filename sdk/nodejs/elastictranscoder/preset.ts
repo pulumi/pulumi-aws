@@ -144,6 +144,8 @@ export class Preset extends pulumi.CustomResource {
     public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -236,6 +238,8 @@ export interface PresetState {
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -279,6 +283,8 @@ export interface PresetArgs {
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

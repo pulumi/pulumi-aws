@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     public sealed class ResponsePlanIntegrationPagerduty
     {
         /// <summary>
-        /// The name of the response plan.
+        /// The name of the PagerDuty configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>

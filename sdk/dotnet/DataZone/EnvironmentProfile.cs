@@ -217,8 +217,6 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("projectIdentifier")]
         public Output<string> ProjectIdentifier { get; private set; } = null!;
@@ -319,8 +317,6 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier", required: true)]
         public Input<string> ProjectIdentifier { get; set; } = null!;
@@ -395,8 +391,6 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Project identifier for environment profile.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier")]
         public Input<string>? ProjectIdentifier { get; set; }

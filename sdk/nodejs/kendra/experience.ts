@@ -77,6 +77,8 @@ export class Experience extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
     /**
@@ -165,6 +167,8 @@ export interface ExperienceState {
     arn?: pulumi.Input<string>;
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
     /**
@@ -205,6 +209,8 @@ export interface ExperienceState {
 export interface ExperienceArgs {
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     *
+     * > **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
     /**

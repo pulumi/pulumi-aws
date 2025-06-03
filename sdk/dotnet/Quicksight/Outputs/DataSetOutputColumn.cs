@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
         public readonly string? Description;
         /// <summary>
         /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string? Name;
         public readonly string? Type;

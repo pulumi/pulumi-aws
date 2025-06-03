@@ -56,6 +56,8 @@ export interface GetQuickConnectArgs {
     instanceId: string;
     /**
      * Returns information on a specific Quick Connect by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
      */
     name?: string;
     /**
@@ -148,6 +150,8 @@ export interface GetQuickConnectOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Quick Connect by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
      */
     name?: pulumi.Input<string>;
     /**

@@ -117,7 +117,7 @@ type ConfigurationSet struct {
 	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrOutput `pulumi:"reputationMetricsEnabled"`
@@ -171,7 +171,7 @@ type configurationSetState struct {
 	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
@@ -190,7 +190,7 @@ type ConfigurationSetState struct {
 	LastFreshStart pulumi.StringPtrInput
 	// Name of the configuration set.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrInput
@@ -209,7 +209,7 @@ type configurationSetArgs struct {
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// Name of the configuration set.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
@@ -225,7 +225,7 @@ type ConfigurationSetArgs struct {
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// Name of the configuration set.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
 	ReputationMetricsEnabled pulumi.BoolPtrInput
@@ -339,7 +339,7 @@ func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringOutput {
 
 // Name of the configuration set.
 //
-// The following argument is optional:
+// The following arguments are optional:
 func (o ConfigurationSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

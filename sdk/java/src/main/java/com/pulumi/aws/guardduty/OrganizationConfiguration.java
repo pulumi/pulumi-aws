@@ -132,12 +132,16 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
+     * 
      */
     @Export(name="datasources", refs={OrganizationConfigurationDatasources.class}, tree="[0]")
     private Output<OrganizationConfigurationDatasources> datasources;
 
     /**
      * @return Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+     * 
+     * &gt; **NOTE:** One of `auto_enable` or `auto_enable_organization_members` must be specified.
      * 
      */
     public Output<OrganizationConfigurationDatasources> datasources() {

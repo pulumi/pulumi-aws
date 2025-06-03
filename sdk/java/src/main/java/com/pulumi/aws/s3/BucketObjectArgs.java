@@ -373,6 +373,8 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
      * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * 
      */
     @Import(name="websiteRedirect")
     private @Nullable Output<String> websiteRedirect;
@@ -381,6 +383,8 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
      * 
      */
     public Optional<Output<String>> websiteRedirect() {
@@ -926,6 +930,8 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
          * 
+         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+         * 
          * @return builder
          * 
          */
@@ -938,6 +944,8 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
          * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * 
+         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
          * 
          * @return builder
          * 

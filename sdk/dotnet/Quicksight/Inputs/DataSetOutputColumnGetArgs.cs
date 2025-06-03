@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
         /// <summary>
         /// Display name for the dataset.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

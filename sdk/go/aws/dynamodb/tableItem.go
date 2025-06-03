@@ -83,6 +83,8 @@ type TableItem struct {
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// Name of the table to contain the item.
+	//
+	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -132,6 +134,8 @@ type tableItemState struct {
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
 	// Name of the table to contain the item.
+	//
+	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -143,6 +147,8 @@ type TableItemState struct {
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
 	// Name of the table to contain the item.
+	//
+	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringPtrInput
 }
 
@@ -158,6 +164,8 @@ type tableItemArgs struct {
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
 	// Name of the table to contain the item.
+	//
+	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -170,6 +178,8 @@ type TableItemArgs struct {
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
 	// Name of the table to contain the item.
+	//
+	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringInput
 }
 
@@ -276,6 +286,8 @@ func (o TableItemOutput) RangeKey() pulumi.StringPtrOutput {
 }
 
 // Name of the table to contain the item.
+//
+// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 func (o TableItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
