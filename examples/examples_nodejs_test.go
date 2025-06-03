@@ -816,6 +816,10 @@ func TestPolicyDocumentUpgrade(t *testing.T) {
 	})
 }
 
+func TestLifecyclePolicyDocumentUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("ecr"), nodeProviderUpgradeOpts())
+}
+
 func TestCloudWatchUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("cloudwatch"), nodeProviderUpgradeOpts())
 }

@@ -50,7 +50,6 @@ export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
 utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
-export * from "./lifecyclePolicyDocument";
 export { PullThroughCacheRuleArgs, PullThroughCacheRuleState } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
@@ -86,6 +85,9 @@ export type RepositoryPolicy = import("./repositoryPolicy").RepositoryPolicy;
 export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPolicy = null as any;
 utilities.lazyLoad(exports, ["RepositoryPolicy"], () => require("./repositoryPolicy"));
 
+
+// Export enums:
+export * from "../types/enums/ecr";
 
 const _module = {
     version: utilities.getVersion(),

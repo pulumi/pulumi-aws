@@ -2127,7 +2127,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsTypeDefaultFile(ecrMod, "LifecyclePolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(ecrMod, "LifecyclePolicyDocument", "LifecyclePolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -3056,7 +3056,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(rdsMod, "ClusterInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"engine": {
-						Type: awsResource(rdsMod, "EngineType"),
+						Type: awsType(rdsMod, "EngineType", "EngineType"),
 					},
 					"instance_class": {
 						Type:     "string",
@@ -5091,11 +5091,6 @@ compatibility shim in favor of the new "name" field.`)
 							"placementStrategy.ts", // PlacementStrategy constants
 							"protocolType.ts",      // ProtocolType constants
 							"tenancy.ts",           // Tenancy constants
-						},
-					},
-					"ecr": {
-						DestFiles: []string{
-							"lifecyclePolicyDocument.ts",
 						},
 					},
 					"ecs": {

@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {EngineType} from "./index";
-
 /**
  * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
  * attributes that are specific to a single instance in a RDS Cluster,
@@ -50,7 +48,7 @@ import {EngineType} from "./index";
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: aws.rds.InstanceType.R4_Large,
- *         engine: _default.engine,
+ *         engine: _default.engine.apply((x) => aws.rds.EngineType[x]),
  *         engineVersion: _default.engineVersion,
  *     }));
  * }
@@ -144,7 +142,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    public readonly engine!: pulumi.Output<EngineType>;
+    public readonly engine!: pulumi.Output<enums.rds.EngineType>;
     /**
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */
@@ -399,7 +397,7 @@ export interface ClusterInstanceState {
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine?: pulumi.Input<EngineType>;
+    engine?: pulumi.Input<enums.rds.EngineType>;
     /**
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */
@@ -541,7 +539,7 @@ export interface ClusterInstanceArgs {
      * Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine: pulumi.Input<EngineType>;
+    engine: pulumi.Input<enums.rds.EngineType>;
     /**
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */

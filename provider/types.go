@@ -635,6 +635,138 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Required: []string{"Federated"},
 		},
 	},
+	"aws:ecr/LifecyclePolicyDocument:LifecyclePolicyDocument": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents an ECR lifecycle policy document.",
+			Properties: map[string]schema.PropertySpec{
+				"rules": {
+					TypeSpec: schema.TypeSpec{
+						Type: "array",
+						Items: &schema.TypeSpec{
+							Ref: "#/types/aws:ecr/LifecyclePolicyRule:LifecyclePolicyRule",
+						},
+					},
+					Description: "The rules that comprise the lifecycle policy.",
+				},
+			},
+			Required: []string{"rules"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyRule:LifecyclePolicyRule": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents a rule in an ECR lifecycle policy.",
+			Properties: map[string]schema.PropertySpec{
+				"rulePriority": {
+					TypeSpec:    schema.TypeSpec{Type: "integer"},
+					Description: "The priority of the rule, must be unique within the policy.",
+				},
+				"description": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "A description of the rule.",
+				},
+				"selection": {
+					TypeSpec: schema.TypeSpec{
+						Ref: "#/types/aws:ecr/LifecyclePolicySelection:LifecyclePolicySelection",
+					},
+					Description: "The selection criteria for the rule.",
+				},
+				"action": {
+					TypeSpec: schema.TypeSpec{
+						Ref: "#/types/aws:ecr/LifecyclePolicyAction:LifecyclePolicyAction",
+					},
+					Description: "The action to take when the rule is triggered.",
+				},
+			},
+			Required: []string{"rulePriority", "selection", "action"},
+		},
+	},
+	"aws:ecr/LifecyclePolicySelection:LifecyclePolicySelection": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents selection criteria for an ECR lifecycle policy rule.",
+			Properties: map[string]schema.PropertySpec{
+				"tagStatus": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus",
+					},
+					Description: "The tag status of the image. Either 'tagged', 'untagged', or 'any'.",
+				},
+				"tagPrefixList": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "A list of image tag prefixes on which to take action.",
+				},
+				"countType": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType",
+					},
+					Description: "The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.",
+				},
+				"countNumber": {
+					TypeSpec:    schema.TypeSpec{Type: "integer"},
+					Description: "The count number to use with the count type.",
+				},
+				"countUnit": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "The unit of time for sinceImagePushed. Either 'days'.",
+				},
+			},
+			Required: []string{"tagStatus", "countType", "countNumber"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The tag status of the image.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "Tagged", Value: "tagged"},
+			{Name: "Untagged", Value: "untagged"},
+			{Name: "Any", Value: "any"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The type of count to perform.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "ImageCountMoreThan", Value: "imageCountMoreThan"},
+			{Name: "SinceImagePushed", Value: "sinceImagePushed"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The type of action to take.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "Expire", Value: "expire"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyAction:LifecyclePolicyAction": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type: "object",
+			Properties: map[string]schema.PropertySpec{
+				"type": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType",
+					},
+					Description: "The type of action to take. Currently only 'expire' is supported.",
+				},
+			},
+			Required: []string{"type"},
+		},
+	},
 }
 
 func init() {

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: _default.id,
  *     identifier: "test1",
  *     instanceClass: aws.rds.InstanceType.T2_Small,
- *     engine: _default.engine,
+ *     engine: _default.engine.apply((x) => aws.rds.EngineType[x]),
  *     engineVersion: _default.engineVersion,
  * });
  * const test2 = new aws.rds.ClusterInstance("test2", {
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: _default.id,
  *     identifier: "test2",
  *     instanceClass: aws.rds.InstanceType.T2_Small,
- *     engine: _default.engine,
+ *     engine: _default.engine.apply((x) => aws.rds.EngineType[x]),
  *     engineVersion: _default.engineVersion,
  * });
  * const test3 = new aws.rds.ClusterInstance("test3", {
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: _default.id,
  *     identifier: "test3",
  *     instanceClass: aws.rds.InstanceType.T2_Small,
- *     engine: _default.engine,
+ *     engine: _default.engine.apply((x) => aws.rds.EngineType[x]),
  *     engineVersion: _default.engineVersion,
  * });
  * const eligible = new aws.rds.ClusterEndpoint("eligible", {

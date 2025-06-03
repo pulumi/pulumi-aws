@@ -149,7 +149,7 @@ import * as utilities from "../utilities";
  * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {
  *     clusterIdentifier: example.id,
  *     instanceClass: "db.serverless",
- *     engine: example.engine,
+ *     engine: example.engine.apply((x) => aws.rds.EngineType[x]),
  *     engineVersion: example.engineVersion,
  * });
  * ```
