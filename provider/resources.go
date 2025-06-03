@@ -1373,6 +1373,12 @@ compatibility shim in favor of the new "name" field.`)
 					},
 				},
 			},
+			"aws_backup_restore_testing_plan": {
+				Tok: awsResource(backupMod, "RestoreTestingPlan"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoName("name", 255, "_"),
+				},
+			},
 			// Batch
 			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment"), tfbridge.GetLogger),
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
