@@ -783,6 +783,9 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
+			Config: map[string]string{
+				"functionName": "athena-cloudwatch-connector-" + randomString(10),
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -1141,6 +1144,22 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
 }
 
+func TestAccProviderRoleChaining(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws-native:region": region,
+			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
 func createLambdaArchive(size int64) (string, error) {
 	// Create a temporary file to save the zip archive
 	tempFile, err := os.CreateTemp("", "archive-*.zip")
@@ -1200,6 +1219,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 		filepath.Join(resourceRefMigrateDir, "apigatewaystage"),
 		filepath.Join(resourceRefMigrateDir, "iotpolicy"),
 		filepath.Join(resourceRefMigrateDir, "lambdapermission"),
+		filepath.Join(resourceRefMigrateDir, "managedpolicy"),
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
