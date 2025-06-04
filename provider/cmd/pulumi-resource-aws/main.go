@@ -17,45 +17,22 @@
 package main
 
 import (
-	"bytes"
-	"compress/gzip"
 	"context"
 	_ "embed"
-	"io"
-	"os"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v7"
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 //go:embed schema-embed.json
 var pulumiSchema []byte
-
-//go:embed schema-minimal-embed.json
-var pulumiMinimalSchema []byte
-
-// The data in the minimal schema is compressed with GZIP to avoid bloating the provider size at the cost of slightly
-// slower init for uses of the feature.
-func decompressMinimalSchema() []byte {
-	reader, err := gzip.NewReader(bytes.NewReader(pulumiMinimalSchema))
-	contract.AssertNoErrorf(err, "Failed to open a reader into schema-minimal-embed.json")
-	bytes, err := io.ReadAll(reader)
-	contract.AssertNoErrorf(err, "Failed to read schema-minimal-embed.json")
-	return bytes
-}
 
 func main() {
 	ctx := context.Background()
 	info := aws.Provider()
 
 	var schemaBytes []byte
-	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
-		schemaBytes = decompressMinimalSchema()
-	} else {
-		schemaBytes = pulumiSchema
-	}
+	schemaBytes = pulumiSchema
 
 	pf.MainWithMuxer(ctx, "aws", *info, schemaBytes)
 }
