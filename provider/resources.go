@@ -890,26 +890,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 		MetadataInfo: metaInfo,
 		SchemaPostProcessor: func(spec *schema.PackageSpec) {
-			r, ok := spec.Resources["aws:rds/instance:Instance"]
-			contract.Assertf(ok, "could not find rds:Instance")
-			_, ok = r.InputProperties["name"]
-			contract.Assertf(!ok, `expected that RDS does not have a "name" property already.
-
-If it does, then we need to consider if we should keep the current name property for
-backwards compatibility and rename the new property or remove the current backwards
-compatibility shim in favor of the new "name" field.`)
-			r.InputProperties["name"] = schema.PropertySpec{
-				TypeSpec:             schema.TypeSpec{Type: "string"},
-				WillReplaceOnChanges: true,
-				DeprecationMessage:   "This property has been deprecated. Please use 'dbName' instead.",
-			}
-			_, ok = r.Properties["name"]
-			contract.Assertf(!ok, "rds:Instance already has an output called name")
-			r.Properties["name"] = schema.PropertySpec{
-				TypeSpec:           schema.TypeSpec{Type: "string"},
-				DeprecationMessage: "This property has been deprecated. Please use 'dbName' instead.",
-			}
-			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
 		},
 
@@ -5061,12 +5041,6 @@ compatibility shim in favor of the new "name" field.`)
 					"utils.ts", // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
-					"applicationloadbalancing": {
-						DestFiles: []string{
-							"ipAddressType.ts",    // IpAddressType constants
-							"loadBalancerType.ts", // LoadBalancerType constants
-						},
-					},
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",
@@ -5082,15 +5056,6 @@ compatibility shim in favor of the new "name" field.`)
 					"dynamodb": {
 						DestFiles: []string{
 							"dynamodbMixins.ts",
-						},
-					},
-					"ec2": {
-						DestFiles: []string{
-							"instanceType.ts",      // InstanceType constants
-							"instancePlatform.ts",  // InstancePlatform constants
-							"placementStrategy.ts", // PlacementStrategy constants
-							"protocolType.ts",      // ProtocolType constants
-							"tenancy.ts",           // Tenancy constants
 						},
 					},
 					"ecs": {
@@ -5111,26 +5076,11 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // Runtime constants
 							"lambdaMixins.ts",
-						},
-					},
-					"rds": {
-						DestFiles: []string{
-							"engineMode.ts",   // EngineMode constants
-							"engineType.ts",   // EngineType constants
-							"instanceType.ts", // InstanceType constants
-							"storageType.ts",  // StorageType constants
-						},
-					},
-					"route53": {
-						DestFiles: []string{
-							"recordType.ts", // RecordType constants
 						},
 					},
 					"s3": {
 						DestFiles: []string{
-							"cannedAcl.ts", // CannedAcl constants
 							"routingRules.ts",
 							"s3Mixins.ts",
 						},
@@ -5144,11 +5094,6 @@ compatibility shim in favor of the new "name" field.`)
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
-						},
-					},
-					"ssm": {
-						DestFiles: []string{
-							"parameterType.ts", // Deprecated ParameterType constants
 						},
 					},
 				},
