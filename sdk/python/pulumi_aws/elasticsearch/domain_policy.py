@@ -14,18 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam
+from .. import iam as _iam
+from ._inputs import *
 
 __all__ = ['DomainPolicyArgs', 'DomainPolicy']
 
 @pulumi.input_type
 class DomainPolicyArgs:
     def __init__(__self__, *,
-                 access_policies: pulumi.Input[builtins.str],
+                 access_policies: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  domain_name: pulumi.Input[builtins.str],
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPolicy resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -36,14 +39,14 @@ class DomainPolicyArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> pulumi.Input[builtins.str]:
+    def access_policies(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         IAM policy document specifying the access policies for the domain
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: pulumi.Input[builtins.str]):
+    def access_policies(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "access_policies", value)
 
     @property
@@ -74,12 +77,12 @@ class DomainPolicyArgs:
 @pulumi.input_type
 class _DomainPolicyState:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainPolicy resources.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -92,14 +95,14 @@ class _DomainPolicyState:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[builtins.str]]:
+    def access_policies(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         IAM policy document specifying the access policies for the domain
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[builtins.str]]):
+    def access_policies(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "access_policies", value)
 
     @property
@@ -133,7 +136,7 @@ class DomainPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -170,7 +173,7 @@ class DomainPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -226,7 +229,7 @@ class DomainPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -255,7 +258,7 @@ class DomainPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policies: Optional[pulumi.Input[builtins.str]] = None,
+            access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None) -> 'DomainPolicy':
         """
@@ -265,7 +268,7 @@ class DomainPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """

@@ -2601,9 +2601,349 @@ func (in *managedPolicyPtr) ToManagedPolicyPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedPolicyPtrOutput)
 }
 
+// The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
+type PolicyDocumentVersion string
+
+const (
+	PolicyDocumentVersion_2012_10_17 = PolicyDocumentVersion("2012-10-17")
+	PolicyDocumentVersion_2008_10_17 = PolicyDocumentVersion("2008-10-17")
+)
+
+func (PolicyDocumentVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocumentVersion)(nil)).Elem()
+}
+
+func (e PolicyDocumentVersion) ToPolicyDocumentVersionOutput() PolicyDocumentVersionOutput {
+	return pulumi.ToOutput(e).(PolicyDocumentVersionOutput)
+}
+
+func (e PolicyDocumentVersion) ToPolicyDocumentVersionOutputWithContext(ctx context.Context) PolicyDocumentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyDocumentVersionOutput)
+}
+
+func (e PolicyDocumentVersion) ToPolicyDocumentVersionPtrOutput() PolicyDocumentVersionPtrOutput {
+	return e.ToPolicyDocumentVersionPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyDocumentVersion) ToPolicyDocumentVersionPtrOutputWithContext(ctx context.Context) PolicyDocumentVersionPtrOutput {
+	return PolicyDocumentVersion(e).ToPolicyDocumentVersionOutputWithContext(ctx).ToPolicyDocumentVersionPtrOutputWithContext(ctx)
+}
+
+func (e PolicyDocumentVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyDocumentVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyDocumentVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyDocumentVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyDocumentVersionOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocumentVersion)(nil)).Elem()
+}
+
+func (o PolicyDocumentVersionOutput) ToPolicyDocumentVersionOutput() PolicyDocumentVersionOutput {
+	return o
+}
+
+func (o PolicyDocumentVersionOutput) ToPolicyDocumentVersionOutputWithContext(ctx context.Context) PolicyDocumentVersionOutput {
+	return o
+}
+
+func (o PolicyDocumentVersionOutput) ToPolicyDocumentVersionPtrOutput() PolicyDocumentVersionPtrOutput {
+	return o.ToPolicyDocumentVersionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentVersionOutput) ToPolicyDocumentVersionPtrOutputWithContext(ctx context.Context) PolicyDocumentVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDocumentVersion) *PolicyDocumentVersion {
+		return &v
+	}).(PolicyDocumentVersionPtrOutput)
+}
+
+func (o PolicyDocumentVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyDocumentVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyDocumentVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyDocumentVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyDocumentVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocumentVersion)(nil)).Elem()
+}
+
+func (o PolicyDocumentVersionPtrOutput) ToPolicyDocumentVersionPtrOutput() PolicyDocumentVersionPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentVersionPtrOutput) ToPolicyDocumentVersionPtrOutputWithContext(ctx context.Context) PolicyDocumentVersionPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentVersionPtrOutput) Elem() PolicyDocumentVersionOutput {
+	return o.ApplyT(func(v *PolicyDocumentVersion) PolicyDocumentVersion {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDocumentVersion
+		return ret
+	}).(PolicyDocumentVersionOutput)
+}
+
+func (o PolicyDocumentVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyDocumentVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyDocumentVersionInput is an input type that accepts values of the PolicyDocumentVersion enum
+// A concrete instance of `PolicyDocumentVersionInput` can be one of the following:
+//
+//	PolicyDocumentVersion_2012_10_17
+//	PolicyDocumentVersion_2008_10_17
+type PolicyDocumentVersionInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentVersionOutput() PolicyDocumentVersionOutput
+	ToPolicyDocumentVersionOutputWithContext(context.Context) PolicyDocumentVersionOutput
+}
+
+var policyDocumentVersionPtrType = reflect.TypeOf((**PolicyDocumentVersion)(nil)).Elem()
+
+type PolicyDocumentVersionPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentVersionPtrOutput() PolicyDocumentVersionPtrOutput
+	ToPolicyDocumentVersionPtrOutputWithContext(context.Context) PolicyDocumentVersionPtrOutput
+}
+
+type policyDocumentVersionPtr string
+
+func PolicyDocumentVersionPtr(v string) PolicyDocumentVersionPtrInput {
+	return (*policyDocumentVersionPtr)(&v)
+}
+
+func (*policyDocumentVersionPtr) ElementType() reflect.Type {
+	return policyDocumentVersionPtrType
+}
+
+func (in *policyDocumentVersionPtr) ToPolicyDocumentVersionPtrOutput() PolicyDocumentVersionPtrOutput {
+	return pulumi.ToOutput(in).(PolicyDocumentVersionPtrOutput)
+}
+
+func (in *policyDocumentVersionPtr) ToPolicyDocumentVersionPtrOutputWithContext(ctx context.Context) PolicyDocumentVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyDocumentVersionPtrOutput)
+}
+
+// Indicate whether the policy allows or denies access.
+type PolicyStatementEffect string
+
+const (
+	PolicyStatementEffectALLOW = PolicyStatementEffect("Allow")
+	PolicyStatementEffectDENY  = PolicyStatementEffect("Deny")
+)
+
+func (PolicyStatementEffect) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatementEffect)(nil)).Elem()
+}
+
+func (e PolicyStatementEffect) ToPolicyStatementEffectOutput() PolicyStatementEffectOutput {
+	return pulumi.ToOutput(e).(PolicyStatementEffectOutput)
+}
+
+func (e PolicyStatementEffect) ToPolicyStatementEffectOutputWithContext(ctx context.Context) PolicyStatementEffectOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyStatementEffectOutput)
+}
+
+func (e PolicyStatementEffect) ToPolicyStatementEffectPtrOutput() PolicyStatementEffectPtrOutput {
+	return e.ToPolicyStatementEffectPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatementEffect) ToPolicyStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementEffectPtrOutput {
+	return PolicyStatementEffect(e).ToPolicyStatementEffectOutputWithContext(ctx).ToPolicyStatementEffectPtrOutputWithContext(ctx)
+}
+
+func (e PolicyStatementEffect) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatementEffect) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatementEffect) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatementEffect) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyStatementEffectOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementEffectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatementEffect)(nil)).Elem()
+}
+
+func (o PolicyStatementEffectOutput) ToPolicyStatementEffectOutput() PolicyStatementEffectOutput {
+	return o
+}
+
+func (o PolicyStatementEffectOutput) ToPolicyStatementEffectOutputWithContext(ctx context.Context) PolicyStatementEffectOutput {
+	return o
+}
+
+func (o PolicyStatementEffectOutput) ToPolicyStatementEffectPtrOutput() PolicyStatementEffectPtrOutput {
+	return o.ToPolicyStatementEffectPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementEffectOutput) ToPolicyStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementEffectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatementEffect) *PolicyStatementEffect {
+		return &v
+	}).(PolicyStatementEffectPtrOutput)
+}
+
+func (o PolicyStatementEffectOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementEffectOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatementEffect) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyStatementEffectOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementEffectOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatementEffect) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatementEffectPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementEffectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatementEffect)(nil)).Elem()
+}
+
+func (o PolicyStatementEffectPtrOutput) ToPolicyStatementEffectPtrOutput() PolicyStatementEffectPtrOutput {
+	return o
+}
+
+func (o PolicyStatementEffectPtrOutput) ToPolicyStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementEffectPtrOutput {
+	return o
+}
+
+func (o PolicyStatementEffectPtrOutput) Elem() PolicyStatementEffectOutput {
+	return o.ApplyT(func(v *PolicyStatementEffect) PolicyStatementEffect {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatementEffect
+		return ret
+	}).(PolicyStatementEffectOutput)
+}
+
+func (o PolicyStatementEffectPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementEffectPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyStatementEffect) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyStatementEffectInput is an input type that accepts values of the PolicyStatementEffect enum
+// A concrete instance of `PolicyStatementEffectInput` can be one of the following:
+//
+//	PolicyStatementEffectALLOW
+//	PolicyStatementEffectDENY
+type PolicyStatementEffectInput interface {
+	pulumi.Input
+
+	ToPolicyStatementEffectOutput() PolicyStatementEffectOutput
+	ToPolicyStatementEffectOutputWithContext(context.Context) PolicyStatementEffectOutput
+}
+
+var policyStatementEffectPtrType = reflect.TypeOf((**PolicyStatementEffect)(nil)).Elem()
+
+type PolicyStatementEffectPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStatementEffectPtrOutput() PolicyStatementEffectPtrOutput
+	ToPolicyStatementEffectPtrOutputWithContext(context.Context) PolicyStatementEffectPtrOutput
+}
+
+type policyStatementEffectPtr string
+
+func PolicyStatementEffectPtr(v string) PolicyStatementEffectPtrInput {
+	return (*policyStatementEffectPtr)(&v)
+}
+
+func (*policyStatementEffectPtr) ElementType() reflect.Type {
+	return policyStatementEffectPtrType
+}
+
+func (in *policyStatementEffectPtr) ToPolicyStatementEffectPtrOutput() PolicyStatementEffectPtrOutput {
+	return pulumi.ToOutput(in).(PolicyStatementEffectPtrOutput)
+}
+
+func (in *policyStatementEffectPtr) ToPolicyStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementEffectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyStatementEffectPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyInput)(nil)).Elem(), ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/APIGatewayServiceRolePolicy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyPtrInput)(nil)).Elem(), ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/APIGatewayServiceRolePolicy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentVersionInput)(nil)).Elem(), PolicyDocumentVersion("2012-10-17"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentVersionPtrInput)(nil)).Elem(), PolicyDocumentVersion("2012-10-17"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementEffectInput)(nil)).Elem(), PolicyStatementEffect("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementEffectPtrInput)(nil)).Elem(), PolicyStatementEffect("Allow"))
 	pulumi.RegisterOutputType(ManagedPolicyOutput{})
 	pulumi.RegisterOutputType(ManagedPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentVersionOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentVersionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatementEffectOutput{})
+	pulumi.RegisterOutputType(PolicyStatementEffectPtrOutput{})
 }

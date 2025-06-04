@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['GroupPolicyArgs', 'GroupPolicy']
 
@@ -21,13 +23,13 @@ __all__ = ['GroupPolicyArgs', 'GroupPolicy']
 class GroupPolicyArgs:
     def __init__(__self__, *,
                  group: pulumi.Input[builtins.str],
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GroupPolicy resource.
         :param pulumi.Input[builtins.str] group: The IAM group to attach to the policy.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] name: The name of the policy. If omitted, the provider will
                assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
@@ -54,14 +56,14 @@ class GroupPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -97,7 +99,7 @@ class _GroupPolicyState:
                  group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None):
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None):
         """
         Input properties used for looking up and filtering GroupPolicy resources.
         :param pulumi.Input[builtins.str] group: The IAM group to attach to the policy.
@@ -105,7 +107,7 @@ class _GroupPolicyState:
                assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         """
         if group is not None:
             pulumi.set(__self__, "group", group)
@@ -156,14 +158,14 @@ class _GroupPolicyState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy", value)
 
 
@@ -176,7 +178,7 @@ class GroupPolicy(pulumi.CustomResource):
                  group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  __props__=None):
         """
         Provides an IAM policy attached to a group.
@@ -221,7 +223,7 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         """
         ...
     @overload
@@ -283,7 +285,7 @@ class GroupPolicy(pulumi.CustomResource):
                  group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,7 +316,7 @@ class GroupPolicy(pulumi.CustomResource):
             group: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupPolicy':
+            policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None) -> 'GroupPolicy':
         """
         Get an existing GroupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,7 +329,7 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

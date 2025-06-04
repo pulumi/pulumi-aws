@@ -14,18 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam
+from .. import iam as _iam
+from ._inputs import *
 
 __all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
 
 @pulumi.input_type
 class LogResourcePolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[builtins.str],
+                 policy_document: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  policy_name: pulumi.Input[builtins.str],
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogResourcePolicy resource.
-        :param pulumi.Input[builtins.str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[builtins.str] policy_name: Name of the resource policy.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -36,14 +39,14 @@ class LogResourcePolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[builtins.str]:
+    def policy_document(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[builtins.str]):
+    def policy_document(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -74,12 +77,12 @@ class LogResourcePolicyArgs:
 @pulumi.input_type
 class _LogResourcePolicyState:
     def __init__(__self__, *,
-                 policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_document: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogResourcePolicy resources.
-        :param pulumi.Input[builtins.str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[builtins.str] policy_name: Name of the resource policy.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -92,14 +95,14 @@ class _LogResourcePolicyState:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy_document(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy_document(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -133,7 +136,7 @@ class LogResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_document: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -197,7 +200,7 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[builtins.str] policy_name: Name of the resource policy.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
@@ -280,7 +283,7 @@ class LogResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[builtins.str]] = None,
+                 policy_document: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -309,7 +312,7 @@ class LogResourcePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_document: Optional[pulumi.Input[builtins.str]] = None,
+            policy_document: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             policy_name: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None) -> 'LogResourcePolicy':
         """
@@ -319,7 +322,7 @@ class LogResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[builtins.str] policy_name: Name of the resource policy.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """

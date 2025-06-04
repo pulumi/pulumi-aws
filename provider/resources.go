@@ -1450,7 +1450,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy_document": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2118,7 +2117,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2139,7 +2137,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2255,7 +2252,6 @@ compatibility shim in favor of the new "name" field.`)
 					"snapshot_options": {Name: "snapshotOptions"},
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2265,7 +2261,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2459,7 +2454,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2494,7 +2489,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:       "string",
-						AltTypes:   []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:   []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform:  tfbridge.TransformJSONDocument,
 						CSharpName: "PolicyDocument",
 					},
@@ -2548,7 +2543,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2559,7 +2554,7 @@ compatibility shim in favor of the new "name" field.`)
 					"name": tfbridge.AutoName("name", 64, "-"),
 					"assume_role_policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 					"inline_policy": {
@@ -2625,7 +2620,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -3610,7 +3605,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -3730,7 +3724,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -3791,7 +3784,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -5415,6 +5407,42 @@ compatibility shim in favor of the new "name" field.`)
 
 		return true
 	})
+
+	policyDocumentResources := map[string]map[string]string{
+		cloudwatchMod: {
+			"aws_cloudwatch_log_resource_policy": "policy_document",
+		},
+		ecrMod: {
+			"aws_ecr_repository_policy": "policy",
+			"aws_ecr_registry_policy":   "policy",
+		},
+		elasticsearchMod: {
+			"aws_elasticsearch_domain":        "access_policies",
+			"aws_elasticsearch_domain_policy": "access_policies",
+		},
+		s3Mod: {
+			"aws_s3_bucket_policy": "policy",
+		},
+		snsMod: {
+			"aws_sns_topic_policy": "policy",
+		},
+		sqsMod: {
+			"aws_sqs_queue_policy": "policy",
+		},
+	}
+
+	// TODO[pulumi/pulumi#8324] Required workaround since these module do not already import from iam
+	iamDoc, ok := prov.ExtraTypes["aws:iam/PolicyDocument:PolicyDocument"]
+	contract.Assertf(ok, "aws:iam/PolicyDocument:PolicyDocument type not found")
+	for mod, resources := range policyDocumentResources {
+		typ := awsType(mod, "PolicyDocument", "PolicyDocument")
+		prov.ExtraTypes[typ.String()] = iamDoc
+		for name, prop := range resources {
+			res := prov.Resources[name]
+			res.Fields[prop].AltTypes = []tokens.Type{typ}
+			prov.Resources[name] = res
+		}
+	}
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:

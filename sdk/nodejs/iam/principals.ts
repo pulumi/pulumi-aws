@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Principal} from "./documents";
+import { Principal } from "./documents";
 
 export module Principals {
     /**

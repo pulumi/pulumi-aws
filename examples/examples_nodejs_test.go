@@ -809,6 +809,13 @@ func TestLambdaLayerNewUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("lambda-layer-new"), nodeProviderUpgradeOpts())
 }
 
+func TestPolicyDocumentUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("iam-policy-document", "ts"), &testProviderUpgradeOptions{
+		linkNodeSDK: false,
+		installDeps: true,
+	})
+}
+
 func TestCloudWatchUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("cloudwatch"), nodeProviderUpgradeOpts())
 }

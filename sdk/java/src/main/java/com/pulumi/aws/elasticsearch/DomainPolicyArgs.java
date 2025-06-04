@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.elasticsearch;
 
+import com.pulumi.aws.elasticsearch.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,13 +23,13 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accessPolicies", required=true)
-    private Output<String> accessPolicies;
+    private Output<Either<String,PolicyDocumentArgs>> accessPolicies;
 
     /**
      * @return IAM policy document specifying the access policies for the domain
      * 
      */
-    public Output<String> accessPolicies() {
+    public Output<Either<String,PolicyDocumentArgs>> accessPolicies() {
         return this.accessPolicies;
     }
 
@@ -93,7 +95,7 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(Output<String> accessPolicies) {
+        public Builder accessPolicies(Output<Either<String,PolicyDocumentArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
@@ -104,8 +106,28 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(String accessPolicies) {
+        public Builder accessPolicies(Either<String,PolicyDocumentArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(String accessPolicies) {
+            return accessPolicies(Either.ofLeft(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(PolicyDocumentArgs accessPolicies) {
+            return accessPolicies(Either.ofRight(accessPolicies));
         }
 
         /**

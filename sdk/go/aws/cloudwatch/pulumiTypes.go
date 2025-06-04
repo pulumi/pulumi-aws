@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -7847,6 +7848,172 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
 }
 
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocument struct {
+	Id        *string                   `pulumi:"Id"`
+	Statement []iam.PolicyStatement     `pulumi:"Statement"`
+	Version   iam.PolicyDocumentVersion `pulumi:"Version"`
+}
+
+// PolicyDocumentInput is an input type that accepts PolicyDocumentArgs and PolicyDocumentOutput values.
+// You can construct a concrete instance of `PolicyDocumentInput` via:
+//
+//	PolicyDocumentArgs{...}
+type PolicyDocumentInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentOutput() PolicyDocumentOutput
+	ToPolicyDocumentOutputWithContext(context.Context) PolicyDocumentOutput
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentArgs struct {
+	Id        pulumi.StringPtrInput          `pulumi:"Id"`
+	Statement iam.PolicyStatementArrayInput  `pulumi:"Statement"`
+	Version   iam.PolicyDocumentVersionInput `pulumi:"Version"`
+}
+
+func (PolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return i.ToPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput)
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput).ToPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// PolicyDocumentPtrInput is an input type that accepts PolicyDocumentArgs, PolicyDocumentPtr and PolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `PolicyDocumentPtrInput` via:
+//
+//	        PolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput
+	ToPolicyDocumentPtrOutputWithContext(context.Context) PolicyDocumentPtrOutput
+}
+
+type policyDocumentPtrType PolicyDocumentArgs
+
+func PolicyDocumentPtr(v *PolicyDocumentArgs) PolicyDocumentPtrInput {
+	return (*policyDocumentPtrType)(v)
+}
+
+func (*policyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentPtrOutput)
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDocument) *PolicyDocument {
+		return &v
+	}).(PolicyDocumentPtrOutput)
+}
+
+func (o PolicyDocumentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyDocumentOutput) Statement() iam.PolicyStatementArrayOutput {
+	return o.ApplyT(func(v PolicyDocument) []iam.PolicyStatement { return v.Statement }).(iam.PolicyStatementArrayOutput)
+}
+
+func (o PolicyDocumentOutput) Version() iam.PolicyDocumentVersionOutput {
+	return o.ApplyT(func(v PolicyDocument) iam.PolicyDocumentVersion { return v.Version }).(iam.PolicyDocumentVersionOutput)
+}
+
+type PolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) Elem() PolicyDocumentOutput {
+	return o.ApplyT(func(v *PolicyDocument) PolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDocument
+		return ret
+	}).(PolicyDocumentOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Statement() iam.PolicyStatementArrayOutput {
+	return o.ApplyT(func(v *PolicyDocument) []iam.PolicyStatement {
+		if v == nil {
+			return nil
+		}
+		return v.Statement
+	}).(iam.PolicyStatementArrayOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *iam.PolicyDocumentVersion {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(iam.PolicyDocumentVersionPtrOutput)
+}
+
 type GetContributorManagedInsightRulesManagedRule struct {
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -9744,6 +9911,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArgs{})
@@ -9875,6 +10044,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateOutput{})
