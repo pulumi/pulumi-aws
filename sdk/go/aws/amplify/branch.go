@@ -113,138 +113,138 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// Name: pulumi.String("app"),
-// })
-// if err != nil {
-// return err
-// }
-// master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-// AppId: example.ID(),
-// BranchName: pulumi.String("master"),
-// EnableNotification: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// // EventBridge Rule for Amplify notifications
-// amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplify_app_master", &cloudwatch.EventRuleArgs{
-// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("amplify-%v-%v-branch-notification", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// EventPattern: pulumi.All(example.ID(),master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
-// id := _args[0].(string)
-// branchName := _args[1].(string)
-// var _zero string
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "detail": map[string]interface{}{
-// "appId": []string{
-// id,
-// },
-// "branchName": []string{
-// branchName,
-// },
-// "jobStatus": []string{
-// "SUCCEED",
-// "FAILED",
-// "STARTED",
-// },
-// },
-// "detail-type": []string{
-// "Amplify Deployment Status Change",
-// },
-// "source": []string{
-// "aws.amplify",
-// },
-// })
-// if err != nil {
-// return _zero, err
-// }
-// json0 := string(tmpJSON0)
-// return json0, nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// // SNS Topic for Amplify notifications
-// amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplify_app_master", &sns.TopicArgs{
-// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("amplify-%v_%v", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
-// Rule: amplifyAppMasterEventRule.Name,
-// TargetId: master.BranchName,
-// Arn: amplifyAppMasterTopic.Arn,
-// InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
-// InputPaths: pulumi.StringMap{
-// "jobId": pulumi.String("$.detail.jobId"),
-// "appId": pulumi.String("$.detail.appId"),
-// "region": pulumi.String("$.region"),
-// "branch": pulumi.String("$.detail.branchName"),
-// "status": pulumi.String("$.detail.jobStatus"),
-// },
-// InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// amplifyAppMaster := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// masterArn := _args[0].(string)
-// amplifyAppMasterTopicArn := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: fmt.Sprintf("Allow_Publish_Events %v", masterArn),
-// Effect: "Allow",
-// Actions: []string{
-// "SNS:Publish",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "events.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// amplifyAppMasterTopicArn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
-// Arn: amplifyAppMasterTopic.Arn,
-// Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
-// return &amplifyAppMaster.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = sns.NewTopicSubscription(ctx, "this", &sns.TopicSubscriptionArgs{
-// Topic: amplifyAppMasterTopic.Arn,
-// Protocol: pulumi.String("email"),
-// Endpoint: pulumi.String("user@acme.com"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:              example.ID(),
+//				BranchName:         pulumi.String("master"),
+//				EnableNotification: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// EventBridge Rule for Amplify notifications
+//			amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplify_app_master", &cloudwatch.EventRuleArgs{
+//				Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("amplify-%v-%v-branch-notification", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//				Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//				EventPattern: pulumi.All(example.ID(), master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					branchName := _args[1].(string)
+//					var _zero string
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"detail": map[string]interface{}{
+//							"appId": []string{
+//								id,
+//							},
+//							"branchName": []string{
+//								branchName,
+//							},
+//							"jobStatus": []string{
+//								"SUCCEED",
+//								"FAILED",
+//								"STARTED",
+//							},
+//						},
+//						"detail-type": []string{
+//							"Amplify Deployment Status Change",
+//						},
+//						"source": []string{
+//							"aws.amplify",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// SNS Topic for Amplify notifications
+//			amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplify_app_master", &sns.TopicArgs{
+//				Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("amplify-%v_%v", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
+//				Rule:     amplifyAppMasterEventRule.Name,
+//				TargetId: master.BranchName,
+//				Arn:      amplifyAppMasterTopic.Arn,
+//				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+//					InputPaths: pulumi.StringMap{
+//						"jobId":  pulumi.String("$.detail.jobId"),
+//						"appId":  pulumi.String("$.detail.appId"),
+//						"region": pulumi.String("$.region"),
+//						"branch": pulumi.String("$.detail.branchName"),
+//						"status": pulumi.String("$.detail.jobStatus"),
+//					},
+//					InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amplifyAppMaster := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid: master.Arn.ApplyT(func(arn string) (string, error) {
+//							return fmt.Sprintf("Allow_Publish_Events %v", arn), nil
+//						}).(pulumi.StringOutput),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("events.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							amplifyAppMasterTopic.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
+//				Arn: amplifyAppMasterTopic.Arn,
+//				Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
+//					return &amplifyAppMaster.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicSubscription(ctx, "this", &sns.TopicSubscriptionArgs{
+//				Topic:    amplifyAppMasterTopic.Arn,
+//				Protocol: pulumi.String("email"),
+//				Endpoint: pulumi.String("user@acme.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

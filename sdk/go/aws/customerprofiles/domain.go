@@ -52,7 +52,6 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"

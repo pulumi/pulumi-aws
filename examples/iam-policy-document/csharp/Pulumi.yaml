@@ -1,0 +1,3 @@
+name: iam-policy-document-cs
+description: "Basic C# example of an AWS Policy Document"
+runtime: dotnet

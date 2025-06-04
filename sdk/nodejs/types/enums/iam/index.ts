@@ -1326,3 +1326,23 @@ export const ManagedPolicy = {
 } as const;
 
 export type ManagedPolicy = (typeof ManagedPolicy)[keyof typeof ManagedPolicy];
+
+export const PolicyDocumentVersion = {
+    PolicyDocumentVersion_2012_10_17: "2012-10-17",
+    PolicyDocumentVersion_2008_10_17: "2008-10-17",
+} as const;
+
+/**
+ * The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
+ */
+export type PolicyDocumentVersion = (typeof PolicyDocumentVersion)[keyof typeof PolicyDocumentVersion];
+
+export const PolicyStatementEffect = {
+    ALLOW: "Allow",
+    DENY: "Deny",
+} as const;
+
+/**
+ * Indicate whether the policy allows or denies access.
+ */
+export type PolicyStatementEffect = (typeof PolicyStatementEffect)[keyof typeof PolicyStatementEffect];

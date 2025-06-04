@@ -90,7 +90,7 @@ import (
 //							var _zero string
 //							tmpJSON1, err := json.Marshal(map[string]interface{}{
 //								"Version": "2012-10-17",
-//								"Statement": []interface{}{
+//								"Statement": []map[string]interface{}{
 //									map[string]interface{}{
 //										"Action": []string{
 //											"s3:PutObject",

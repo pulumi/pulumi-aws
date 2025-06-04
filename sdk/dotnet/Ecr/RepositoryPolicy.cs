@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ecr
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ecr
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

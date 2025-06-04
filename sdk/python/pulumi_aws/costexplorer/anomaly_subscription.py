@@ -413,7 +413,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [resolved_outputs['costAnomalyUpdatesArn']],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -438,7 +438,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [resolved_outputs['costAnomalyUpdatesArn1']],
                 },
             ]))
 
@@ -595,7 +595,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [resolved_outputs['costAnomalyUpdatesArn']],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -620,7 +620,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [resolved_outputs['costAnomalyUpdatesArn1']],
                 },
             ]))
 

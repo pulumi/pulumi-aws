@@ -70,7 +70,7 @@ import (
 // },
 // },
 // },
-// Resources: interface{}{
+// Resources: []string{
 // arn,
 // },
 // Sid: "__default_statement_ID",

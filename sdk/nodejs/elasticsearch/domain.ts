@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam";
-
 /**
  * Manages an AWS Elasticsearch Domain.
  *
@@ -369,7 +367,7 @@ export interface DomainState {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
@@ -465,7 +463,7 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */

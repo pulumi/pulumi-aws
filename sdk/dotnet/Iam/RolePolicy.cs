@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Iam
         /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Iam
         /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.

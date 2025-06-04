@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Sqs
     public sealed class QueuePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Sqs
     public sealed class QueuePolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.

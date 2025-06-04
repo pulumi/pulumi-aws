@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Attaches Principal to AWS IoT Thing.
  *
@@ -60,7 +58,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    public readonly principal!: pulumi.Output<ARN>;
+    public readonly principal!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -110,7 +108,7 @@ export interface ThingPrincipalAttachmentState {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    principal?: pulumi.Input<ARN>;
+    principal?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -128,7 +126,7 @@ export interface ThingPrincipalAttachmentArgs {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    principal: pulumi.Input<ARN>;
+    principal: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -809,6 +809,13 @@ func TestLambdaLayerNewUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("lambda-layer-new"), nodeProviderUpgradeOpts())
 }
 
+func TestPolicyDocumentUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("iam-policy-document", "ts"), &testProviderUpgradeOptions{
+		linkNodeSDK: false,
+		installDeps: true,
+	})
+}
+
 func TestCloudWatchUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("cloudwatch"), nodeProviderUpgradeOpts())
 }
@@ -1212,6 +1219,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 		filepath.Join(resourceRefMigrateDir, "apigatewaystage"),
 		filepath.Join(resourceRefMigrateDir, "iotpolicy"),
 		filepath.Join(resourceRefMigrateDir, "lambdapermission"),
+		filepath.Join(resourceRefMigrateDir, "managedpolicy"),
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)

@@ -14,18 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam
+from .. import iam as _iam
+from ._inputs import *
 
 __all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
 
 @pulumi.input_type
 class RepositoryPolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  repository: pulumi.Input[builtins.str],
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPolicy resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -36,14 +39,14 @@ class RepositoryPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -74,13 +77,13 @@ class RepositoryPolicyArgs:
 @pulumi.input_type
 class _RepositoryPolicyState:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicy resources.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
@@ -96,14 +99,14 @@ class _RepositoryPolicyState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -149,7 +152,7 @@ class RepositoryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -204,7 +207,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.
         """
@@ -278,7 +281,7 @@ class RepositoryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -308,7 +311,7 @@ class RepositoryPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[builtins.str]] = None) -> 'RepositoryPolicy':
@@ -319,7 +322,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository: Name of the repository to apply the policy.

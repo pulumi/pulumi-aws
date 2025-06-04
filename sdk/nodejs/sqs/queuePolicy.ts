@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
@@ -158,7 +159,7 @@ export class QueuePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueuePolicy resources.
  */
 export interface QueuePolicyState {
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */
@@ -173,7 +174,7 @@ export interface QueuePolicyState {
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .arn(awsLogins.arn())
  *             .build());
  * 
- *         final var snsTopicPolicy = awsLogins.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .actions("SNS:Publish")
@@ -82,9 +82,9 @@ import javax.annotation.Nullable;
  *                     .type("Service")
  *                     .identifiers("events.amazonaws.com")
  *                     .build())
- *                 .resources(_arn)
+ *                 .resources(awsLogins.arn())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(awsLogins.arn())

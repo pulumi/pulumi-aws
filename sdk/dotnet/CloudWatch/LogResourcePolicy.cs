@@ -192,7 +192,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource policy.
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
         [Input("policyDocument")]
-        public Input<string>? PolicyDocument { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? PolicyDocument { get; set; }
 
         /// <summary>
         /// Name of the resource policy.

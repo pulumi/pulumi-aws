@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Provides an SNS topic policy resource
@@ -155,7 +156,7 @@ export interface TopicPolicyState {
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.sns.PolicyDocument>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -173,7 +174,7 @@ export interface TopicPolicyArgs {
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.sns.PolicyDocument>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -62,16 +62,16 @@ import javax.annotation.Nullable;
  *             .name("notification")
  *             .build());
  * 
- *         final var notifAccess = notif.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var notifAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("sns:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("codestar-notifications.amazonaws.com")
  *                     .build())
- *                 .resources(_arn)
+ *                 .resources(notif.arn())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(notif.arn())

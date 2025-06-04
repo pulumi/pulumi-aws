@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'ManagedPolicy',
+    'PolicyDocumentVersion',
+    'PolicyStatementEffect',
 ]
 
 
@@ -1228,3 +1230,21 @@ class ManagedPolicy(builtins.str, Enum):
     WELL_ARCHITECTED_CONSOLE_FULL_ACCESS = "arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess"
     WELL_ARCHITECTED_CONSOLE_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess"
     WORK_LINK_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy"
+
+
+@pulumi.type_token("aws:iam/PolicyDocumentVersion:PolicyDocumentVersion")
+class PolicyDocumentVersion(builtins.str, Enum):
+    """
+    The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
+    """
+    POLICY_DOCUMENT_VERSION_2012_10_17 = "2012-10-17"
+    POLICY_DOCUMENT_VERSION_2008_10_17 = "2008-10-17"
+
+
+@pulumi.type_token("aws:iam/PolicyStatementEffect:PolicyStatementEffect")
+class PolicyStatementEffect(builtins.str, Enum):
+    """
+    Indicate whether the policy allows or denies access.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"

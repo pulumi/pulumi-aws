@@ -1282,4 +1282,66 @@ namespace Pulumi.Aws.Iam
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyDocumentVersion : IEquatable<PolicyDocumentVersion>
+    {
+        private readonly string _value;
+
+        private PolicyDocumentVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyDocumentVersion PolicyDocumentVersion_2012_10_17 { get; } = new PolicyDocumentVersion("2012-10-17");
+        public static PolicyDocumentVersion PolicyDocumentVersion_2008_10_17 { get; } = new PolicyDocumentVersion("2008-10-17");
+
+        public static bool operator ==(PolicyDocumentVersion left, PolicyDocumentVersion right) => left.Equals(right);
+        public static bool operator !=(PolicyDocumentVersion left, PolicyDocumentVersion right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyDocumentVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyDocumentVersion other && Equals(other);
+        public bool Equals(PolicyDocumentVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicate whether the policy allows or denies access.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyStatementEffect : IEquatable<PolicyStatementEffect>
+    {
+        private readonly string _value;
+
+        private PolicyStatementEffect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyStatementEffect ALLOW { get; } = new PolicyStatementEffect("Allow");
+        public static PolicyStatementEffect DENY { get; } = new PolicyStatementEffect("Deny");
+
+        public static bool operator ==(PolicyStatementEffect left, PolicyStatementEffect right) => left.Equals(right);
+        public static bool operator !=(PolicyStatementEffect left, PolicyStatementEffect right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyStatementEffect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyStatementEffect other && Equals(other);
+        public bool Equals(PolicyStatementEffect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

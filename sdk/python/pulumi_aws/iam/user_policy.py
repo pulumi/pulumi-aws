@@ -14,19 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['UserPolicyArgs', 'UserPolicy']
 
 @pulumi.input_type
 class UserPolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  user: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UserPolicy resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] user: IAM user to which to attach this policy.
         :param pulumi.Input[builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -40,14 +42,14 @@ class UserPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -92,13 +94,13 @@ class _UserPolicyState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicy resources.
         :param pulumi.Input[builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] user: IAM user to which to attach this policy.
         """
         if name is not None:
@@ -136,14 +138,14 @@ class _UserPolicyState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -167,7 +169,7 @@ class UserPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -211,7 +213,7 @@ class UserPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] user: IAM user to which to attach this policy.
         """
         ...
@@ -274,7 +276,7 @@ class UserPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -305,7 +307,7 @@ class UserPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             user: Optional[pulumi.Input[builtins.str]] = None) -> 'UserPolicy':
         """
         Get an existing UserPolicy resource's state with the given name, id, and optional extra
@@ -316,7 +318,7 @@ class UserPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] user: IAM user to which to attach this policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .name("user-updates-topic")
  *             .build());
  * 
- *         final var sqsQueuePolicy = userUpdates.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var sqsQueuePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid("user_updates_sqs_target")
@@ -80,10 +80,10 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
- *                     .values(_arn)
+ *                     .values(userUpdates.arn())
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()
  *             .name("user-updates-queue")

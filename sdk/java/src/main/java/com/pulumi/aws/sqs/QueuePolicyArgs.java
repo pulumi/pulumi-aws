@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sqs;
 
+import com.pulumi.aws.sqs.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -17,9 +19,9 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final QueuePolicyArgs Empty = new QueuePolicyArgs();
 
     @Import(name="policy", required=true)
-    private Output<String> policy;
+    private Output<Either<String,PolicyDocumentArgs>> policy;
 
-    public Output<String> policy() {
+    public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
@@ -79,13 +81,21 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder policy(Output<String> policy) {
+        public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**
