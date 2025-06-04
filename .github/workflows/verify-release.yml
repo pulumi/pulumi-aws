@@ -100,14 +100,14 @@ jobs:
         with:
           environment: logins/pulumi-ci
       - name: Verify nodejs release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
           runtime: nodejs
           directory: examples/release-verification
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify python release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
           runtime: python
           directory: examples/webserver-py
@@ -115,14 +115,14 @@ jobs:
           providerVersion: ${{ inputs.providerVersion }}
           packageVersion: ${{ inputs.pythonVersion || inputs.providerVersion }}
       - name: Verify dotnet release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
           runtime: dotnet
           directory: examples/webserver-cs
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify go release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         if: inputs.skipGoSdk == false
         with:
           runtime: go
