@@ -138,7 +138,7 @@ export class Recorder extends pulumi.CustomResource {
      */
     public readonly recordingMode!: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export interface RecorderState {
      */
     recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface RecorderArgs {
      */
     recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

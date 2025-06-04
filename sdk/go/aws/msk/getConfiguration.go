@@ -51,7 +51,8 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationArgs struct {
 	// Name of the configuration.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -85,7 +86,8 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationOutputArgs struct {
 	// Name of the configuration.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

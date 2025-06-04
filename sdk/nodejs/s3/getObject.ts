@@ -98,6 +98,9 @@ export interface GetObjectArgs {
      */
     key: string;
     range?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags assigned to the object.
@@ -329,6 +332,9 @@ export interface GetObjectOutputArgs {
      */
     key: pulumi.Input<string>;
     range?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the object.

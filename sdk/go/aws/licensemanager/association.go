@@ -87,7 +87,7 @@ type Association struct {
 
 	// ARN of the license configuration.
 	LicenseConfigurationArn pulumi.StringOutput `pulumi:"licenseConfigurationArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource associated with the license configuration.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -131,7 +131,7 @@ func GetAssociation(ctx *pulumi.Context,
 type associationState struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource associated with the license configuration.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -140,7 +140,7 @@ type associationState struct {
 type AssociationState struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource associated with the license configuration.
 	ResourceArn pulumi.StringPtrInput
@@ -153,7 +153,7 @@ func (AssociationState) ElementType() reflect.Type {
 type associationArgs struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource associated with the license configuration.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -163,7 +163,7 @@ type associationArgs struct {
 type AssociationArgs struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource associated with the license configuration.
 	ResourceArn pulumi.StringInput
@@ -261,7 +261,7 @@ func (o AssociationOutput) LicenseConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

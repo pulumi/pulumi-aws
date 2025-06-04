@@ -54,6 +54,9 @@ export interface GetLoadBalancerArgs {
      * Unique name of the load balancer.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
@@ -152,6 +155,9 @@ export interface GetLoadBalancerOutputArgs {
      * Unique name of the load balancer.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.

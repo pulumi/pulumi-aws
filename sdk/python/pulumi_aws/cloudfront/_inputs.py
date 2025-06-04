@@ -120,6 +120,8 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict',
     'KeyValueStoreTimeoutsArgs',
     'KeyValueStoreTimeoutsArgsDict',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionArgs',
     'MonitoringSubscriptionMonitoringSubscriptionArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
@@ -3814,6 +3816,56 @@ class KeyValueStoreTimeoutsArgs:
     @create.setter
     def create(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "create", value)
+
+
+if not MYPY:
+    class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict(TypedDict):
+        key: pulumi.Input[builtins.str]
+        """
+        Key to put.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        Value to put.
+        """
+elif False:
+    KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] key: Key to put.
+        :param pulumi.Input[builtins.str] value: Value to put.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        Key to put.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        Value to put.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

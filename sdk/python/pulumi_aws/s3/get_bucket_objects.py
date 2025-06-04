@@ -182,6 +182,7 @@ def get_bucket_objects(bucket: Optional[builtins.str] = None,
     :param builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param builtins.int max_keys: Maximum object keys to return (Default: 1000)
     :param builtins.str prefix: Limits results to object keys with this prefix (Default: none)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     __args__ = dict()
@@ -232,6 +233,7 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[builtins.str]] = Non
     :param builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param builtins.int max_keys: Maximum object keys to return (Default: 1000)
     :param builtins.str prefix: Limits results to object keys with this prefix (Default: none)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
     __args__ = dict()

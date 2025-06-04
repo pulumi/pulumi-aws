@@ -171,6 +171,7 @@ def get_report_plan(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Backup report plan name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()
@@ -209,6 +210,7 @@ def get_report_plan_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Backup report plan name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()

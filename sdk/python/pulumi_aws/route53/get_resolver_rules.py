@@ -165,6 +165,7 @@ def get_resolver_rules(name_regex: Optional[builtins.str] = None,
            The filtering is done locally, so could have a performance impact if the result is large.
            This argument should be used along with other arguments to limit the number of results returned.
     :param builtins.str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
     :param builtins.str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param builtins.str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -237,6 +238,7 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[builtin
            The filtering is done locally, so could have a performance impact if the result is large.
            This argument should be used along with other arguments to limit the number of results returned.
     :param builtins.str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint for the desired resolver rules.
     :param builtins.str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param builtins.str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`

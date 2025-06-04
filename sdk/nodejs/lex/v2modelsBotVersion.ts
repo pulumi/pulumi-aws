@@ -84,7 +84,7 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
      */
     public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
@@ -152,7 +152,7 @@ export interface V2modelsBotVersionState {
      */
     localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
@@ -182,7 +182,7 @@ export interface V2modelsBotVersionArgs {
      */
     localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;

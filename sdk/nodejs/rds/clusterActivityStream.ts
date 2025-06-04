@@ -88,6 +88,9 @@ export class ClusterActivityStream extends pulumi.CustomResource {
 
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     public readonly engineNativeAuditFieldsIncluded!: pulumi.Output<boolean | undefined>;
     /**
@@ -103,7 +106,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -159,6 +162,9 @@ export class ClusterActivityStream extends pulumi.CustomResource {
 export interface ClusterActivityStreamState {
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
     /**
@@ -174,7 +180,7 @@ export interface ClusterActivityStreamState {
      */
     mode?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -189,6 +195,9 @@ export interface ClusterActivityStreamState {
 export interface ClusterActivityStreamArgs {
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean>;
     /**
@@ -200,7 +209,7 @@ export interface ClusterActivityStreamArgs {
      */
     mode: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

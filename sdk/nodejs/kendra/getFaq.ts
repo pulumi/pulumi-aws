@@ -44,6 +44,9 @@ export interface GetFaqArgs {
      * Identifier of the index that contains the FAQ.
      */
     indexId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that helps organize the FAQs you create.
@@ -148,6 +151,9 @@ export interface GetFaqOutputArgs {
      * Identifier of the index that contains the FAQ.
      */
     indexId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the FAQs you create.

@@ -31,7 +31,7 @@ class LicenseGrantArgs:
         :param pulumi.Input[builtins.str] license_arn: The ARN of the license to grant.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
         :param pulumi.Input[builtins.str] name: The Name of the grant.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "allowed_operations", allowed_operations)
         pulumi.set(__self__, "license_arn", license_arn)
@@ -93,7 +93,7 @@ class LicenseGrantArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -124,7 +124,7 @@ class _LicenseGrantState:
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] parent_arn: The parent ARN.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The grant status.
         :param pulumi.Input[builtins.str] version: The grant version.
         """
@@ -237,7 +237,7 @@ class _LicenseGrantState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -299,7 +299,7 @@ class LicenseGrant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] license_arn: The ARN of the license to grant.
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -397,7 +397,7 @@ class LicenseGrant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The Name of the grant.
         :param pulumi.Input[builtins.str] parent_arn: The parent ARN.
         :param pulumi.Input[builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The grant status.
         :param pulumi.Input[builtins.str] version: The grant version.
         """
@@ -477,7 +477,7 @@ class LicenseGrant(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -927,18 +927,6 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("iotanalytics")]
-        public Input<string>? Iotanalytics { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
-        [Input("iotevents")]
-        public Input<string>? Iotevents { get; set; }
-
-        /// <summary>
-        /// Use this to override the default service endpoint URL
-        /// </summary>
         [Input("ivs")]
         public Input<string>? Ivs { get; set; }
 
@@ -1211,6 +1199,18 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("networkmonitor")]
         public Input<string>? Networkmonitor { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("notifications")]
+        public Input<string>? Notifications { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("notificationscontacts")]
+        public Input<string>? Notificationscontacts { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

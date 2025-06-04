@@ -42,7 +42,7 @@ class UserArgs:
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "access_string", access_string)
@@ -150,7 +150,7 @@ class UserArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -193,7 +193,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -299,7 +299,7 @@ class _UserState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -436,7 +436,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -595,7 +595,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -671,7 +671,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

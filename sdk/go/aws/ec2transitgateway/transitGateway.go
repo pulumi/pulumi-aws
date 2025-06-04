@@ -73,7 +73,7 @@ type TransitGateway struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
@@ -141,7 +141,7 @@ type transitGatewayState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
@@ -180,7 +180,7 @@ type TransitGatewayState struct {
 	OwnerId pulumi.StringPtrInput
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
@@ -215,7 +215,7 @@ type transitGatewayArgs struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
@@ -245,7 +245,7 @@ type TransitGatewayArgs struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
@@ -401,7 +401,7 @@ func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringOutp
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TransitGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

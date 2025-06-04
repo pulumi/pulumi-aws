@@ -59,8 +59,9 @@ type GetExportArgs struct {
 	// Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
 	IncludeExtensions *bool `pulumi:"includeExtensions"`
 	// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-	OutputType string  `pulumi:"outputType"`
-	Region     *string `pulumi:"region"`
+	OutputType string `pulumi:"outputType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
 	Specification string `pulumi:"specification"`
 	// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
@@ -100,8 +101,9 @@ type GetExportOutputArgs struct {
 	// Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
 	IncludeExtensions pulumi.BoolPtrInput `pulumi:"includeExtensions"`
 	// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
-	OutputType pulumi.StringInput    `pulumi:"outputType"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	OutputType pulumi.StringInput `pulumi:"outputType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
 	Specification pulumi.StringInput `pulumi:"specification"`
 	// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.

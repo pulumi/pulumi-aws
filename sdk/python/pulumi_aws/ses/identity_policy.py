@@ -29,7 +29,7 @@ class IdentityPolicyArgs:
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[builtins.str] name: Name of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "policy", policy)
@@ -78,7 +78,7 @@ class IdentityPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _IdentityPolicyState:
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -150,7 +150,7 @@ class _IdentityPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -210,7 +210,7 @@ class IdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -313,7 +313,7 @@ class IdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -353,7 +353,7 @@ class IdentityPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

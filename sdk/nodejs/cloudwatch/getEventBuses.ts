@@ -40,6 +40,9 @@ export interface GetEventBusesArgs {
      * Specifying this limits the results to only those event buses with names that start with the specified prefix.
      */
     namePrefix?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -91,5 +94,8 @@ export interface GetEventBusesOutputArgs {
      * Specifying this limits the results to only those event buses with names that start with the specified prefix.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

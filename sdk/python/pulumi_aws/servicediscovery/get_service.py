@@ -174,6 +174,7 @@ def get_service(name: Optional[builtins.str] = None,
 
     :param builtins.str name: Name of the service.
     :param builtins.str namespace_id: ID of the namespace that the service belongs to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
@@ -216,6 +217,7 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str name: Name of the service.
     :param builtins.str namespace_id: ID of the namespace that the service belongs to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()

@@ -157,7 +157,7 @@ type DeploymentConfig struct {
 	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
@@ -205,7 +205,7 @@ type deploymentConfigState struct {
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
@@ -224,7 +224,7 @@ type DeploymentConfigState struct {
 	DeploymentConfigName pulumi.StringPtrInput
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
@@ -243,7 +243,7 @@ type deploymentConfigArgs struct {
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
@@ -259,7 +259,7 @@ type DeploymentConfigArgs struct {
 	DeploymentConfigName pulumi.StringPtrInput
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
@@ -379,7 +379,7 @@ func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHea
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigMinimumHealthyHostsPtrOutput { return v.MinimumHealthyHosts }).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -54,8 +54,9 @@ type LookupNodeGroupArgs struct {
 	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the node group.
-	NodeGroupName string  `pulumi:"nodeGroupName"`
-	Region        *string `pulumi:"region"`
+	NodeGroupName string `pulumi:"nodeGroupName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -117,8 +118,9 @@ type LookupNodeGroupOutputArgs struct {
 	// Name of the cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Name of the node group.
-	NodeGroupName pulumi.StringInput    `pulumi:"nodeGroupName"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	NodeGroupName pulumi.StringInput `pulumi:"nodeGroupName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

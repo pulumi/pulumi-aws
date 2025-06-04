@@ -86,6 +86,9 @@ def get_links(region: Optional[builtins.str] = None,
 
     example = aws.oam.get_links()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -111,6 +114,9 @@ def get_links_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
     example = aws.oam.get_links()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

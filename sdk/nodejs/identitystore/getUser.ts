@@ -54,7 +54,7 @@ export interface GetUserArgs {
      */
     identityStoreId: string;
     /**
-     * The region of the address.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -184,7 +184,7 @@ export interface GetUserOutputArgs {
      */
     identityStoreId: pulumi.Input<string>;
     /**
-     * The region of the address.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

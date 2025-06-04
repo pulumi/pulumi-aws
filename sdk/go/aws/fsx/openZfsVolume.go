@@ -72,7 +72,7 @@ type OpenZfsVolume struct {
 	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
@@ -140,7 +140,7 @@ type openZfsVolumeState struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
@@ -176,7 +176,7 @@ type OpenZfsVolumeState struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
@@ -214,7 +214,7 @@ type openZfsVolumeArgs struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
@@ -247,7 +247,7 @@ type OpenZfsVolumeArgs struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
@@ -397,7 +397,7 @@ func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OpenZfsVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

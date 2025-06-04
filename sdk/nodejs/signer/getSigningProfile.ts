@@ -38,6 +38,9 @@ export interface GetSigningProfileArgs {
      * Name of the target signing profile.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * List of tags associated with the signing profile.
@@ -123,6 +126,9 @@ export interface GetSigningProfileOutputArgs {
      * Name of the target signing profile.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * List of tags associated with the signing profile.

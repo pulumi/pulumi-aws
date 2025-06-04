@@ -28,7 +28,7 @@ type ModelPackageGroupPolicy struct {
 
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region         pulumi.StringOutput `pulumi:"region"`
 	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
 }
@@ -71,7 +71,7 @@ func GetModelPackageGroupPolicy(ctx *pulumi.Context,
 type modelPackageGroupPolicyState struct {
 	// The name of the model package group.
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region         *string `pulumi:"region"`
 	ResourcePolicy *string `pulumi:"resourcePolicy"`
 }
@@ -79,7 +79,7 @@ type modelPackageGroupPolicyState struct {
 type ModelPackageGroupPolicyState struct {
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringPtrInput
 }
@@ -91,7 +91,7 @@ func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
 type modelPackageGroupPolicyArgs struct {
 	// The name of the model package group.
 	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region         *string `pulumi:"region"`
 	ResourcePolicy string  `pulumi:"resourcePolicy"`
 }
@@ -100,7 +100,7 @@ type modelPackageGroupPolicyArgs struct {
 type ModelPackageGroupPolicyArgs struct {
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region         pulumi.StringPtrInput
 	ResourcePolicy pulumi.StringInput
 }
@@ -197,7 +197,7 @@ func (o ModelPackageGroupPolicyOutput) ModelPackageGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ModelPackageGroupPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

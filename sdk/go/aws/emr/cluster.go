@@ -475,7 +475,7 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayOutput `pulumi:"placementGroupConfigs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
@@ -623,7 +623,7 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
@@ -736,7 +736,7 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringPtrInput
@@ -848,7 +848,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel string `pulumi:"releaseLabel"`
@@ -955,7 +955,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringInput
@@ -1229,7 +1229,7 @@ func (o ClusterOutput) PlacementGroupConfigs() ClusterPlacementGroupConfigArrayO
 	return o.ApplyT(func(v *Cluster) ClusterPlacementGroupConfigArrayOutput { return v.PlacementGroupConfigs }).(ClusterPlacementGroupConfigArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

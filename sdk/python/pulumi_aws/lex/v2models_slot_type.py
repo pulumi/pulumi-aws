@@ -51,7 +51,7 @@ class V2modelsSlotTypeArgs:
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
@@ -187,7 +187,7 @@ class V2modelsSlotTypeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -265,7 +265,7 @@ class _V2modelsSlotTypeState:
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
@@ -407,7 +407,7 @@ class _V2modelsSlotTypeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -569,7 +569,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
                See `slot_type_values` argument reference below.
@@ -751,7 +751,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_slot_type_signature: Built-in slot type used as a parent of this slot type.
                When you define a parent slot type, the new slot type has the configuration of the parent slot type.
                Only `AMAZON.AlphaNumeric` is supported.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotTypeSlotTypeValueArgs', 'V2modelsSlotTypeSlotTypeValueArgsDict']]]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take.
                Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
@@ -853,7 +853,7 @@ class V2modelsSlotType(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

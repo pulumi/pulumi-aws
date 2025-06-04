@@ -44,6 +44,9 @@ export interface GetAgentAgentVersionsArgs {
      * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
      */
     agentVersionSummaries?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -99,5 +102,8 @@ export interface GetAgentAgentVersionsOutputArgs {
      * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
      */
     agentVersionSummaries?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

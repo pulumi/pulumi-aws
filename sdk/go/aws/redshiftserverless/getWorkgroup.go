@@ -75,6 +75,8 @@ type LookupWorkgroupResult struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 	SubnetIds []string `pulumi:"subnetIds"`
+	// The name of the track for the workgroup.
+	TrackName string `pulumi:"trackName"`
 	// The Redshift Workgroup ID.
 	WorkgroupId   string `pulumi:"workgroupId"`
 	WorkgroupName string `pulumi:"workgroupName"`
@@ -156,6 +158,11 @@ func (o LookupWorkgroupResultOutput) SecurityGroupIds() pulumi.StringArrayOutput
 // An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
 func (o LookupWorkgroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The name of the track for the workgroup.
+func (o LookupWorkgroupResultOutput) TrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.TrackName }).(pulumi.StringOutput)
 }
 
 // The Redshift Workgroup ID.

@@ -182,7 +182,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export interface ServerlessCacheState {
      */
     readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -411,7 +411,7 @@ export interface ServerlessCacheArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

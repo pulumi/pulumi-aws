@@ -29,7 +29,7 @@ class MulticastDomainAssociationArgs:
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
@@ -77,7 +77,7 @@ class MulticastDomainAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -95,7 +95,7 @@ class _MulticastDomainAssociationState:
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MulticastDomainAssociation resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -113,7 +113,7 @@ class _MulticastDomainAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -192,7 +192,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -283,7 +283,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -302,7 +302,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

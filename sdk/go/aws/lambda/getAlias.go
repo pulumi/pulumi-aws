@@ -54,7 +54,8 @@ type LookupAliasArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Name of the Lambda alias.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -89,7 +90,8 @@ type LookupAliasOutputArgs struct {
 	// Name of the aliased Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Name of the Lambda alias.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

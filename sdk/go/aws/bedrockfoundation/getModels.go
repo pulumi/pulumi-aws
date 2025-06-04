@@ -84,7 +84,8 @@ type GetModelsArgs struct {
 	ByOutputModality *string `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider *string `pulumi:"byProvider"`
-	Region     *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModels.
@@ -119,7 +120,8 @@ type GetModelsOutputArgs struct {
 	ByOutputModality pulumi.StringPtrInput `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider pulumi.StringPtrInput `pulumi:"byProvider"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelsOutputArgs) ElementType() reflect.Type {

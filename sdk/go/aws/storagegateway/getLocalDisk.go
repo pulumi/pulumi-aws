@@ -56,8 +56,9 @@ type GetLocalDiskArgs struct {
 	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath *string `pulumi:"diskPath"`
 	// ARN of the gateway.
-	GatewayArn string  `pulumi:"gatewayArn"`
-	Region     *string `pulumi:"region"`
+	GatewayArn string `pulumi:"gatewayArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocalDisk.
@@ -88,8 +89,9 @@ type GetLocalDiskOutputArgs struct {
 	// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
 	DiskPath pulumi.StringPtrInput `pulumi:"diskPath"`
 	// ARN of the gateway.
-	GatewayArn pulumi.StringInput    `pulumi:"gatewayArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocalDiskOutputArgs) ElementType() reflect.Type {

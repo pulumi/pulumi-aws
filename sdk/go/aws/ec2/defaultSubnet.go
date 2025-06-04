@@ -88,7 +88,8 @@ type DefaultSubnet struct {
 	OutpostArn                     pulumi.StringOutput  `pulumi:"outpostArn"`
 	OwnerId                        pulumi.StringOutput  `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput  `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -157,7 +158,8 @@ type defaultSubnetState struct {
 	OutpostArn                     *string `pulumi:"outpostArn"`
 	OwnerId                        *string `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -194,7 +196,8 @@ type DefaultSubnetState struct {
 	OutpostArn                     pulumi.StringPtrInput
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -225,7 +228,8 @@ type defaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
 	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -250,7 +254,8 @@ type DefaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 }
@@ -430,7 +435,8 @@ func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutpu
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 func (o DefaultSubnetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -53,6 +53,9 @@ export interface GetSpotPriceArgs {
      * Type of instance for which to query Spot Price information.
      */
     instanceType?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -123,5 +126,8 @@ export interface GetSpotPriceOutputArgs {
      * Type of instance for which to query Spot Price information.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

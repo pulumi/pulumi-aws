@@ -141,6 +141,7 @@ def get_outposts(availability_zone: Optional[builtins.str] = None,
     :param builtins.str availability_zone: Availability Zone name.
     :param builtins.str availability_zone_id: Availability Zone identifier.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str site_id: Site identifier.
     """
     __args__ = dict()
@@ -183,6 +184,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[builti
     :param builtins.str availability_zone: Availability Zone name.
     :param builtins.str availability_zone_id: Availability Zone identifier.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str site_id: Site identifier.
     """
     __args__ = dict()

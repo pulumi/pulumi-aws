@@ -31,7 +31,7 @@ class PreparedStatementArgs:
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         pulumi.set(__self__, "workgroup", workgroup)
@@ -94,7 +94,7 @@ class PreparedStatementArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -116,7 +116,7 @@ class _PreparedStatementState:
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         if description is not None:
@@ -170,7 +170,7 @@ class _PreparedStatementState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -238,7 +238,7 @@ class PreparedStatement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         ...
@@ -340,7 +340,7 @@ class PreparedStatement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -382,7 +382,7 @@ class PreparedStatement(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

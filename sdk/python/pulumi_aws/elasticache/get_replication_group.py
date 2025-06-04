@@ -301,6 +301,7 @@ def get_replication_group(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_group_id: Identifier for the replication group.
     """
     __args__ = dict()
@@ -347,6 +348,7 @@ def get_replication_group_output(region: Optional[pulumi.Input[Optional[builtins
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_group_id: Identifier for the replication group.
     """
     __args__ = dict()

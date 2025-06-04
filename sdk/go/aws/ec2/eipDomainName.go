@@ -67,7 +67,7 @@ type EipDomainName struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The DNS pointer (PTR) record for the IP address.
 	PtrRecord pulumi.StringOutput `pulumi:"ptrRecord"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput            `pulumi:"region"`
 	Timeouts EipDomainNameTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -114,7 +114,7 @@ type eipDomainNameState struct {
 	DomainName *string `pulumi:"domainName"`
 	// The DNS pointer (PTR) record for the IP address.
 	PtrRecord *string `pulumi:"ptrRecord"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                `pulumi:"region"`
 	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
@@ -126,7 +126,7 @@ type EipDomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// The DNS pointer (PTR) record for the IP address.
 	PtrRecord pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EipDomainNameTimeoutsPtrInput
 }
@@ -140,7 +140,7 @@ type eipDomainNameArgs struct {
 	AllocationId string `pulumi:"allocationId"`
 	// The domain name to modify for the IP address.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                `pulumi:"region"`
 	Timeouts *EipDomainNameTimeouts `pulumi:"timeouts"`
 }
@@ -151,7 +151,7 @@ type EipDomainNameArgs struct {
 	AllocationId pulumi.StringInput
 	// The domain name to modify for the IP address.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EipDomainNameTimeoutsPtrInput
 }
@@ -258,7 +258,7 @@ func (o EipDomainNameOutput) PtrRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.PtrRecord }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EipDomainNameOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipDomainName) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

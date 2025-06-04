@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Partition Resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.Partition("example", {
+ *     databaseName: "some-database",
+ *     tableName: "some-table",
+ *     partitionValues: ["some-value"],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
@@ -75,7 +88,7 @@ export class Partition extends pulumi.CustomResource {
      */
     public readonly partitionValues!: pulumi.Output<string[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -167,7 +180,7 @@ export interface PartitionState {
      */
     partitionValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -198,7 +211,7 @@ export interface PartitionArgs {
      */
     partitionValues: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

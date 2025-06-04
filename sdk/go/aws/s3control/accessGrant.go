@@ -90,7 +90,7 @@ type AccessGrant struct {
 	Grantee AccessGrantGranteePtrOutput `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrOutput `pulumi:"s3PrefixType"`
@@ -151,7 +151,7 @@ type accessGrantState struct {
 	Grantee *AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission *string `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType *string `pulumi:"s3PrefixType"`
@@ -177,7 +177,7 @@ type AccessGrantState struct {
 	Grantee AccessGrantGranteePtrInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type accessGrantArgs struct {
 	Grantee *AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission string `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType *string `pulumi:"s3PrefixType"`
@@ -220,7 +220,7 @@ type AccessGrantArgs struct {
 	Grantee AccessGrantGranteePtrInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o AccessGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessGrantOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

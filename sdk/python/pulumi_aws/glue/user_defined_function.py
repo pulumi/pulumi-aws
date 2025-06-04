@@ -38,7 +38,7 @@ class UserDefinedFunctionArgs:
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[builtins.str] name: The name of the function.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         pulumi.set(__self__, "class_name", class_name)
@@ -130,7 +130,7 @@ class UserDefinedFunctionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -174,7 +174,7 @@ class _UserDefinedFunctionState:
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         if arn is not None:
@@ -298,7 +298,7 @@ class _UserDefinedFunctionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -373,7 +373,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         ...
@@ -498,7 +498,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the function.
         :param pulumi.Input[builtins.str] owner_name: The owner of the function.
         :param pulumi.Input[builtins.str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -585,7 +585,7 @@ class UserDefinedFunction(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

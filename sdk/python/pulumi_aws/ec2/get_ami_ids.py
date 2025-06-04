@@ -165,6 +165,7 @@ def get_ami_ids(executable_users: Optional[Sequence[builtins.str]] = None,
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool sort_ascending: Used to sort AMIs by creation time.
            If no value is specified, the default value is `false`.
     """
@@ -227,6 +228,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool sort_ascending: Used to sort AMIs by creation time.
            If no value is specified, the default value is `false`.
     """

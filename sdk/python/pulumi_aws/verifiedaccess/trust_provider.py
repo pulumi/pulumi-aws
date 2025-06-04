@@ -44,7 +44,7 @@ class TrustProviderArgs:
         :param pulumi.Input[builtins.str] device_trust_provider_type: The type of device-based trust provider.
         :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_trust_provider_type: The type of user-based trust provider.
         """
@@ -159,7 +159,7 @@ class TrustProviderArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -224,7 +224,7 @@ class _TrustProviderState:
         :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
                
@@ -332,7 +332,7 @@ class _TrustProviderState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -446,7 +446,7 @@ class TrustProvider(pulumi.CustomResource):
         :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
                
@@ -568,7 +568,7 @@ class TrustProvider(pulumi.CustomResource):
         :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
                
@@ -645,7 +645,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

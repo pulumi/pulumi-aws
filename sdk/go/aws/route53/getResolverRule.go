@@ -56,7 +56,8 @@ type LookupResolverRuleArgs struct {
 	// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
 	DomainName *string `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -103,7 +104,8 @@ type LookupResolverRuleOutputArgs struct {
 	// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`

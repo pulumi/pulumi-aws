@@ -2299,36 +2299,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="iotanalytics")
-    private @Nullable Output<String> iotanalytics;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> iotanalytics() {
-        return Optional.ofNullable(this.iotanalytics);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
-    @Import(name="iotevents")
-    private @Nullable Output<String> iotevents;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> iotevents() {
-        return Optional.ofNullable(this.iotevents);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="ivs")
     private @Nullable Output<String> ivs;
 
@@ -3013,6 +2983,36 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> networkmonitor() {
         return Optional.ofNullable(this.networkmonitor);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="notifications")
+    private @Nullable Output<String> notifications;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> notifications() {
+        return Optional.ofNullable(this.notifications);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="notificationscontacts")
+    private @Nullable Output<String> notificationscontacts;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> notificationscontacts() {
+        return Optional.ofNullable(this.notificationscontacts);
     }
 
     /**
@@ -4610,8 +4610,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.internetmonitor = $.internetmonitor;
         this.invoicing = $.invoicing;
         this.iot = $.iot;
-        this.iotanalytics = $.iotanalytics;
-        this.iotevents = $.iotevents;
         this.ivs = $.ivs;
         this.ivschat = $.ivschat;
         this.kafka = $.kafka;
@@ -4658,6 +4656,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.networkfirewall = $.networkfirewall;
         this.networkmanager = $.networkmanager;
         this.networkmonitor = $.networkmonitor;
+        this.notifications = $.notifications;
+        this.notificationscontacts = $.notificationscontacts;
         this.oam = $.oam;
         this.opensearch = $.opensearch;
         this.opensearchingestion = $.opensearchingestion;
@@ -7967,48 +7967,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iotanalytics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotanalytics(@Nullable Output<String> iotanalytics) {
-            $.iotanalytics = iotanalytics;
-            return this;
-        }
-
-        /**
-         * @param iotanalytics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotanalytics(String iotanalytics) {
-            return iotanalytics(Output.of(iotanalytics));
-        }
-
-        /**
-         * @param iotevents Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotevents(@Nullable Output<String> iotevents) {
-            $.iotevents = iotevents;
-            return this;
-        }
-
-        /**
-         * @param iotevents Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotevents(String iotevents) {
-            return iotevents(Output.of(iotevents));
-        }
-
-        /**
          * @param ivs Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -8972,6 +8930,48 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder networkmonitor(String networkmonitor) {
             return networkmonitor(Output.of(networkmonitor));
+        }
+
+        /**
+         * @param notifications Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifications(@Nullable Output<String> notifications) {
+            $.notifications = notifications;
+            return this;
+        }
+
+        /**
+         * @param notifications Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifications(String notifications) {
+            return notifications(Output.of(notifications));
+        }
+
+        /**
+         * @param notificationscontacts Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationscontacts(@Nullable Output<String> notificationscontacts) {
+            $.notificationscontacts = notificationscontacts;
+            return this;
+        }
+
+        /**
+         * @param notificationscontacts Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationscontacts(String notificationscontacts) {
+            return notificationscontacts(Output.of(notificationscontacts));
         }
 
         /**

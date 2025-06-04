@@ -89,7 +89,7 @@ type LogAnomalyDetector struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -148,7 +148,7 @@ type logAnomalyDetectorState struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -172,7 +172,7 @@ type LogAnomalyDetectorState struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -198,7 +198,7 @@ type logAnomalyDetectorArgs struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -220,7 +220,7 @@ type LogAnomalyDetectorArgs struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 }
@@ -353,7 +353,7 @@ func (o LogAnomalyDetectorOutput) LogGroupArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringArrayOutput { return v.LogGroupArnLists }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogAnomalyDetectorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

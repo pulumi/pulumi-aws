@@ -55,7 +55,7 @@ type DomainNameApiAssociation struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -99,7 +99,7 @@ type domainNameApiAssociationState struct {
 	ApiId *string `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName *string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -108,7 +108,7 @@ type DomainNameApiAssociationState struct {
 	ApiId pulumi.StringPtrInput
 	// Appsync domain name.
 	DomainName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -121,7 +121,7 @@ type domainNameApiAssociationArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Appsync domain name.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -131,7 +131,7 @@ type DomainNameApiAssociationArgs struct {
 	ApiId pulumi.StringInput
 	// Appsync domain name.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -232,7 +232,7 @@ func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainNameApiAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

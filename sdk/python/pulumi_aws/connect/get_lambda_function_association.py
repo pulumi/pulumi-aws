@@ -97,6 +97,7 @@ def get_lambda_function_association(function_arn: Optional[builtins.str] = None,
 
     :param builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
@@ -130,6 +131,7 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[b
 
     :param builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn

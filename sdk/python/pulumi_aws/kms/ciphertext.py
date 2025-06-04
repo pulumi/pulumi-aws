@@ -29,7 +29,7 @@ class CiphertextArgs:
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "plaintext", plaintext)
@@ -78,7 +78,7 @@ class CiphertextArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _CiphertextState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if ciphertext_blob is not None:
             pulumi.set(__self__, "ciphertext_blob", ciphertext_blob)
@@ -166,7 +166,7 @@ class _CiphertextState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -215,7 +215,7 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -312,7 +312,7 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,7 +361,7 @@ class Ciphertext(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

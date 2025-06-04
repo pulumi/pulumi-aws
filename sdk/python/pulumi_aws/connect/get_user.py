@@ -220,8 +220,11 @@ def get_user(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific User by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the User.
     :param builtins.str user_id: Returns information on a specific User by User id
+           
+           > **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -280,8 +283,11 @@ def get_user_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific User by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the User.
     :param builtins.str user_id: Returns information on a specific User by User id
+           
+           > **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id

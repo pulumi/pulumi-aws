@@ -29,7 +29,7 @@ class MulticastGroupMemberArgs:
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -77,7 +77,7 @@ class MulticastGroupMemberArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -97,7 +97,7 @@ class _MulticastGroupMemberState:
         Input properties used for looking up and filtering MulticastGroupMember resources.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         if group_ip_address is not None:
@@ -137,7 +137,7 @@ class _MulticastGroupMemberState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -189,7 +189,7 @@ class MulticastGroupMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
@@ -275,7 +275,7 @@ class MulticastGroupMember(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -308,7 +308,7 @@ class MulticastGroupMember(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

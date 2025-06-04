@@ -55,8 +55,9 @@ type LookupCertificateArgs struct {
 	// Certificate identifier. For example, `rds-ca-2019`.
 	Id *string `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
-	LatestValidTill *bool   `pulumi:"latestValidTill"`
-	Region          *string `pulumi:"region"`
+	LatestValidTill *bool `pulumi:"latestValidTill"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCertificate.
@@ -97,8 +98,9 @@ type LookupCertificateOutputArgs struct {
 	// Certificate identifier. For example, `rds-ca-2019`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
-	LatestValidTill pulumi.BoolPtrInput   `pulumi:"latestValidTill"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	LatestValidTill pulumi.BoolPtrInput `pulumi:"latestValidTill"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dataTransferApi")]
+        public Input<string>? DataTransferApi { get; set; }
+
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigGetArgs>? ErrorHandlingConfig { get; set; }
 

@@ -196,6 +196,7 @@ def get_connection(id: Optional[builtins.str] = None,
 
     :param builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
@@ -237,6 +238,7 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()

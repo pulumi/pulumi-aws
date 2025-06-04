@@ -64,6 +64,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
     /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     */
+    public readonly dataProtectionConfig!: pulumi.Output<outputs.wafv2.WebAclDataProtectionConfig | undefined>;
+    /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
@@ -81,7 +85,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -133,6 +137,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
             resourceInputs["challengeConfig"] = state ? state.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
+            resourceInputs["dataProtectionConfig"] = state ? state.dataProtectionConfig : undefined;
             resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
@@ -161,6 +166,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
+            resourceInputs["dataProtectionConfig"] = args ? args.dataProtectionConfig : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -216,6 +222,10 @@ export interface WebAclState {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     */
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig>;
+    /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
@@ -233,7 +243,7 @@ export interface WebAclState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -287,6 +297,10 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     */
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfig>;
+    /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
@@ -303,7 +317,7 @@ export interface WebAclArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -85,6 +85,59 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Self Managed Apache Kafka
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     {
+    ///         FunctionName = exampleAwsLambdaFunction.Arn,
+    ///         Topics = new[]
+    ///         {
+    ///             "Example",
+    ///         },
+    ///         StartingPosition = "TRIM_HORIZON",
+    ///         ProvisionedPollerConfig = new Aws.Lambda.Inputs.EventSourceMappingProvisionedPollerConfigArgs
+    ///         {
+    ///             MaximumPollers = 80,
+    ///             MinimumPollers = 10,
+    ///         },
+    ///         SelfManagedEventSource = new Aws.Lambda.Inputs.EventSourceMappingSelfManagedEventSourceArgs
+    ///         {
+    ///             Endpoints = 
+    ///             {
+    ///                 { "KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092" },
+    ///             },
+    ///         },
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "VPC_SUBNET",
+    ///                 Uri = "subnet:subnet-example1",
+    ///             },
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "VPC_SUBNET",
+    ///                 Uri = "subnet:subnet-example2",
+    ///             },
+    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             {
+    ///                 Type = "VPC_SECURITY_GROUP",
+    ///                 Uri = "security_group:sg-example",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### SQS
     /// 
     /// ```csharp
@@ -365,7 +418,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Queues { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -609,7 +662,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Queues { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -833,7 +886,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Queues { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

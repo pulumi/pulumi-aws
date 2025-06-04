@@ -294,13 +294,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -413,7 +419,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIpv4Pool { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -423,6 +429,12 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -551,7 +563,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIpv4Pool { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -561,6 +573,12 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+        /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
+        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
         public InputMap<string> Tags
         {

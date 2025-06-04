@@ -125,6 +125,9 @@ export interface GetPermissionsArgs {
      * One of the following is required:
      */
     principal: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Configuration block for a table resource. Detailed below.
@@ -284,6 +287,9 @@ export interface GetPermissionsOutputArgs {
      * One of the following is required:
      */
     principal: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. Detailed below.

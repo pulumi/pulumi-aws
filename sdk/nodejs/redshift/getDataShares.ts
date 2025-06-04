@@ -33,6 +33,9 @@ export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -76,5 +79,8 @@ export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulum
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

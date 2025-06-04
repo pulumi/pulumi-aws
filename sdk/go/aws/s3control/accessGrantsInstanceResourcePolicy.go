@@ -81,7 +81,7 @@ type AccessGrantsInstanceResourcePolicy struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type accessGrantsInstanceResourcePolicyState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The policy document.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -129,7 +129,7 @@ type AccessGrantsInstanceResourcePolicyState struct {
 	AccountId pulumi.StringPtrInput
 	// The policy document.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -141,7 +141,7 @@ type accessGrantsInstanceResourcePolicyArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The policy document.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type AccessGrantsInstanceResourcePolicyArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The policy document.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -250,7 +250,7 @@ func (o AccessGrantsInstanceResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessGrantsInstanceResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

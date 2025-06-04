@@ -71,7 +71,7 @@ type VpcConnection struct {
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayOutput `pulumi:"clientSubnets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -136,7 +136,7 @@ type vpcConnectionState struct {
 	Authentication *string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -157,7 +157,7 @@ type VpcConnectionState struct {
 	Authentication pulumi.StringPtrInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
@@ -180,7 +180,7 @@ type vpcConnectionArgs struct {
 	Authentication string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -198,7 +198,7 @@ type VpcConnectionArgs struct {
 	Authentication pulumi.StringInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
@@ -312,7 +312,7 @@ func (o VpcConnectionOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

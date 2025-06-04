@@ -47,14 +47,14 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of the region.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The name of the region.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -130,7 +130,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param region The name of the region.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param region The name of the region.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

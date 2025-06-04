@@ -1009,14 +1009,6 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
-        iotanalytics: NotRequired[pulumi.Input[builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        iotevents: NotRequired[pulumi.Input[builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
         ivs: NotRequired[pulumi.Input[builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1198,6 +1190,14 @@ if not MYPY:
         Use this to override the default service endpoint URL
         """
         networkmonitor: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        notifications: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        notificationscontacts: NotRequired[pulumi.Input[builtins.str]]
         """
         Use this to override the default service endpoint URL
         """
@@ -1743,8 +1743,6 @@ class ProviderEndpointArgs:
                  internetmonitor: Optional[pulumi.Input[builtins.str]] = None,
                  invoicing: Optional[pulumi.Input[builtins.str]] = None,
                  iot: Optional[pulumi.Input[builtins.str]] = None,
-                 iotanalytics: Optional[pulumi.Input[builtins.str]] = None,
-                 iotevents: Optional[pulumi.Input[builtins.str]] = None,
                  ivs: Optional[pulumi.Input[builtins.str]] = None,
                  ivschat: Optional[pulumi.Input[builtins.str]] = None,
                  kafka: Optional[pulumi.Input[builtins.str]] = None,
@@ -1791,6 +1789,8 @@ class ProviderEndpointArgs:
                  networkfirewall: Optional[pulumi.Input[builtins.str]] = None,
                  networkmanager: Optional[pulumi.Input[builtins.str]] = None,
                  networkmonitor: Optional[pulumi.Input[builtins.str]] = None,
+                 notifications: Optional[pulumi.Input[builtins.str]] = None,
+                 notificationscontacts: Optional[pulumi.Input[builtins.str]] = None,
                  oam: Optional[pulumi.Input[builtins.str]] = None,
                  opensearch: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchingestion: Optional[pulumi.Input[builtins.str]] = None,
@@ -2040,8 +2040,6 @@ class ProviderEndpointArgs:
         :param pulumi.Input[builtins.str] internetmonitor: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] invoicing: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] iot: Use this to override the default service endpoint URL
-        :param pulumi.Input[builtins.str] iotanalytics: Use this to override the default service endpoint URL
-        :param pulumi.Input[builtins.str] iotevents: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] ivs: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] ivschat: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] kafka: Use this to override the default service endpoint URL
@@ -2088,6 +2086,8 @@ class ProviderEndpointArgs:
         :param pulumi.Input[builtins.str] networkfirewall: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] networkmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] networkmonitor: Use this to override the default service endpoint URL
+        :param pulumi.Input[builtins.str] notifications: Use this to override the default service endpoint URL
+        :param pulumi.Input[builtins.str] notificationscontacts: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] oam: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] opensearch: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] opensearchingestion: Use this to override the default service endpoint URL
@@ -2489,10 +2489,6 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "invoicing", invoicing)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
-        if iotanalytics is not None:
-            pulumi.set(__self__, "iotanalytics", iotanalytics)
-        if iotevents is not None:
-            pulumi.set(__self__, "iotevents", iotevents)
         if ivs is not None:
             pulumi.set(__self__, "ivs", ivs)
         if ivschat is not None:
@@ -2585,6 +2581,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
             pulumi.set(__self__, "networkmonitor", networkmonitor)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if notificationscontacts is not None:
+            pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -4604,30 +4604,6 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
-    def iotanalytics(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotanalytics")
-
-    @iotanalytics.setter
-    def iotanalytics(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "iotanalytics", value)
-
-    @property
-    @pulumi.getter
-    def iotevents(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotevents")
-
-    @iotevents.setter
-    def iotevents(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "iotevents", value)
-
-    @property
-    @pulumi.getter
     def ivs(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -5177,6 +5153,30 @@ class ProviderEndpointArgs:
     @networkmonitor.setter
     def networkmonitor(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "networkmonitor", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter
+    def notificationscontacts(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notificationscontacts")
+
+    @notificationscontacts.setter
+    def notificationscontacts(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "notificationscontacts", value)
 
     @property
     @pulumi.getter

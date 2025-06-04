@@ -73,7 +73,7 @@ type Webhook struct {
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
 	// Description for a webhook.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// URL of the webhook.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -123,7 +123,7 @@ type webhookState struct {
 	BranchName *string `pulumi:"branchName"`
 	// Description for a webhook.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// URL of the webhook.
 	Url *string `pulumi:"url"`
@@ -138,7 +138,7 @@ type WebhookState struct {
 	BranchName pulumi.StringPtrInput
 	// Description for a webhook.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// URL of the webhook.
 	Url pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type webhookArgs struct {
 	BranchName string `pulumi:"branchName"`
 	// Description for a webhook.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -167,7 +167,7 @@ type WebhookArgs struct {
 	BranchName pulumi.StringInput
 	// Description for a webhook.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -278,7 +278,7 @@ func (o WebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WebhookOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

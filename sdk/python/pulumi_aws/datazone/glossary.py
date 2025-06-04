@@ -33,7 +33,7 @@ class GlossaryArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the glossary. Must have a length between 0 and 4096.
         :param pulumi.Input[builtins.str] name: Name of the glossary. Must have length between 1 and 256.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -98,7 +98,7 @@ class GlossaryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -135,7 +135,7 @@ class _GlossaryState:
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         if description is not None:
@@ -202,7 +202,7 @@ class _GlossaryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -336,7 +336,7 @@ class Glossary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         ...
@@ -506,7 +506,7 @@ class Glossary(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Status of business glossary. Valid values are DISABLED and ENABLED.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -556,7 +556,7 @@ class Glossary(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

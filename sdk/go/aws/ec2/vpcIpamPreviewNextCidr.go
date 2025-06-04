@@ -88,7 +88,7 @@ type VpcIpamPreviewNextCidr struct {
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -133,7 +133,7 @@ type vpcIpamPreviewNextCidrState struct {
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -146,7 +146,7 @@ type VpcIpamPreviewNextCidrState struct {
 	IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -161,7 +161,7 @@ type vpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -173,7 +173,7 @@ type VpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId pulumi.StringInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -284,7 +284,7 @@ func (o VpcIpamPreviewNextCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcIpamPreviewNextCidrOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

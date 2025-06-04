@@ -241,7 +241,7 @@ type User struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfig UserPhoneConfigOutput `pulumi:"phoneConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
@@ -321,7 +321,7 @@ type userState struct {
 	Password *string `pulumi:"password"`
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfig *UserPhoneConfig `pulumi:"phoneConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
@@ -353,7 +353,7 @@ type UserState struct {
 	Password pulumi.StringPtrInput
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfig UserPhoneConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringPtrInput
@@ -387,7 +387,7 @@ type userArgs struct {
 	Password *string `pulumi:"password"`
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfig UserPhoneConfig `pulumi:"phoneConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId string `pulumi:"routingProfileId"`
@@ -414,7 +414,7 @@ type UserArgs struct {
 	Password pulumi.StringPtrInput
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfig UserPhoneConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringInput
@@ -552,7 +552,7 @@ func (o UserOutput) PhoneConfig() UserPhoneConfigOutput {
 	return o.ApplyT(func(v *User) UserPhoneConfigOutput { return v.PhoneConfig }).(UserPhoneConfigOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

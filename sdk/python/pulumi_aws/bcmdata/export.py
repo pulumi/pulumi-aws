@@ -23,18 +23,14 @@ __all__ = ['ExportArgs', 'Export']
 class ExportArgs:
     def __init__(__self__, *,
                  export: Optional[pulumi.Input['ExportExportArgs']] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ExportTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Export resource.
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if export is not None:
             pulumi.set(__self__, "export", export)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -51,18 +47,6 @@ class ExportArgs:
     @export.setter
     def export(self, value: Optional[pulumi.Input['ExportExportArgs']]):
         pulumi.set(self, "export", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -87,19 +71,15 @@ class ExportArgs:
 class _ExportState:
     def __init__(__self__, *,
                  export: Optional[pulumi.Input['ExportExportArgs']] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ExportTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Export resources.
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if export is not None:
             pulumi.set(__self__, "export", export)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -118,18 +98,6 @@ class _ExportState:
     @export.setter
     def export(self, value: Optional[pulumi.Input['ExportExportArgs']]):
         pulumi.set(self, "export", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -166,7 +134,6 @@ class Export(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  export: Optional[pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -224,7 +191,6 @@ class Export(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -299,7 +265,6 @@ class Export(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  export: Optional[pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -312,7 +277,6 @@ class Export(pulumi.CustomResource):
             __props__ = ExportArgs.__new__(ExportArgs)
 
             __props__.__dict__["export"] = export
-            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["tags_all"] = None
@@ -327,7 +291,6 @@ class Export(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             export: Optional[pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
-            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['ExportTimeoutsArgs', 'ExportTimeoutsArgsDict']]] = None) -> 'Export':
@@ -339,14 +302,12 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ExportState.__new__(_ExportState)
 
         __props__.__dict__["export"] = export
-        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -359,14 +320,6 @@ class Export(pulumi.CustomResource):
         The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         """
         return pulumi.get(self, "export")
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

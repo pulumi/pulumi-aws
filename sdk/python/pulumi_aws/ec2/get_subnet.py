@@ -379,6 +379,7 @@ def get_subnet(availability_zone: Optional[builtins.str] = None,
     :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: ID of the specific subnet to retrieve.
     :param builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State that the desired subnet must have.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
     :param builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.
@@ -485,6 +486,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[builtins
     :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: ID of the specific subnet to retrieve.
     :param builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State that the desired subnet must have.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
     :param builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.

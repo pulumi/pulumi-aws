@@ -118,7 +118,7 @@ type Preset struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
@@ -126,6 +126,8 @@ type Preset struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrOutput `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapOutput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
@@ -176,7 +178,7 @@ type presetState struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
@@ -184,6 +186,8 @@ type presetState struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
@@ -202,7 +206,7 @@ type PresetState struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
@@ -210,6 +214,8 @@ type PresetState struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
@@ -230,7 +236,7 @@ type presetArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
@@ -238,6 +244,8 @@ type presetArgs struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
@@ -255,7 +263,7 @@ type PresetArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
@@ -263,6 +271,8 @@ type PresetArgs struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
@@ -385,7 +395,7 @@ func (o PresetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PresetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -405,6 +415,8 @@ func (o PresetOutput) Video() PresetVideoPtrOutput {
 }
 
 // Codec options for the video parameters
+//
+// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 func (o PresetOutput) VideoCodecOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringMapOutput { return v.VideoCodecOptions }).(pulumi.StringMapOutput)
 }

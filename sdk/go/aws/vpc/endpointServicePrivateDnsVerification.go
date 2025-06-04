@@ -54,7 +54,7 @@ import (
 type EndpointServicePrivateDnsVerification struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the endpoint service.
 	//
@@ -98,7 +98,7 @@ func GetEndpointServicePrivateDnsVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
 type endpointServicePrivateDnsVerificationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
@@ -110,7 +110,7 @@ type endpointServicePrivateDnsVerificationState struct {
 }
 
 type EndpointServicePrivateDnsVerificationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
@@ -126,7 +126,7 @@ func (EndpointServicePrivateDnsVerificationState) ElementType() reflect.Type {
 }
 
 type endpointServicePrivateDnsVerificationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
@@ -139,7 +139,7 @@ type endpointServicePrivateDnsVerificationArgs struct {
 
 // The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
 type EndpointServicePrivateDnsVerificationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
@@ -237,7 +237,7 @@ func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDns
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointServicePrivateDnsVerificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

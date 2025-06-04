@@ -33,8 +33,6 @@ public final class GetAppregistryAttributeGroupAssociationsArgs extends com.pulu
     /**
      * Name of the application to which attribute groups are associated.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -42,16 +40,24 @@ public final class GetAppregistryAttributeGroupAssociationsArgs extends com.pulu
     /**
      * @return Name of the application to which attribute groups are associated.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; Exactly one of `id`or `name` must be set.
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; Exactly one of `id`or `name` must be set.
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -106,8 +112,6 @@ public final class GetAppregistryAttributeGroupAssociationsArgs extends com.pulu
         /**
          * @param name Name of the application to which attribute groups are associated.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -119,8 +123,6 @@ public final class GetAppregistryAttributeGroupAssociationsArgs extends com.pulu
         /**
          * @param name Name of the application to which attribute groups are associated.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -128,11 +130,25 @@ public final class GetAppregistryAttributeGroupAssociationsArgs extends com.pulu
             return name(Output.of(name));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; Exactly one of `id`or `name` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; Exactly one of `id`or `name` must be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

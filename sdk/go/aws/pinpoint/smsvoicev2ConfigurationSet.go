@@ -59,7 +59,7 @@ type Smsvoicev2ConfigurationSet struct {
 	DefaultSenderId pulumi.StringPtrOutput `pulumi:"defaultSenderId"`
 	// The name of the configuration set.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -105,7 +105,7 @@ type smsvoicev2ConfigurationSetState struct {
 	DefaultSenderId *string `pulumi:"defaultSenderId"`
 	// The name of the configuration set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -122,7 +122,7 @@ type Smsvoicev2ConfigurationSetState struct {
 	DefaultSenderId pulumi.StringPtrInput
 	// The name of the configuration set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -141,7 +141,7 @@ type smsvoicev2ConfigurationSetArgs struct {
 	DefaultSenderId *string `pulumi:"defaultSenderId"`
 	// The name of the configuration set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +155,7 @@ type Smsvoicev2ConfigurationSetArgs struct {
 	DefaultSenderId pulumi.StringPtrInput
 	// The name of the configuration set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -268,7 +268,7 @@ func (o Smsvoicev2ConfigurationSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o Smsvoicev2ConfigurationSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

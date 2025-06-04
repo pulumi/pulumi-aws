@@ -114,6 +114,7 @@ def get_outpost_instance_type(arn: Optional[builtins.str] = None,
            The following arguments are optional:
     :param builtins.str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[builtins.str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -157,6 +158,7 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[builtins.str]] =
            The following arguments are optional:
     :param builtins.str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[builtins.str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

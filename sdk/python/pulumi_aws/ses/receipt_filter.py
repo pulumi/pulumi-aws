@@ -29,7 +29,7 @@ class ReceiptFilterArgs:
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] policy: Block or Allow
         :param pulumi.Input[builtins.str] name: The name of the filter
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "policy", policy)
@@ -78,7 +78,7 @@ class ReceiptFilterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _ReceiptFilterState:
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,7 +166,7 @@ class _ReceiptFilterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -214,7 +214,7 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -308,7 +308,7 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -357,7 +357,7 @@ class ReceiptFilter(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

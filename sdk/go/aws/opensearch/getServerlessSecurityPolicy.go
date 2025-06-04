@@ -52,7 +52,8 @@ func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessS
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyArgs struct {
 	// Name of the policy
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type string `pulumi:"type"`
@@ -89,7 +90,8 @@ func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServer
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyOutputArgs struct {
 	// Name of the policy
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type pulumi.StringInput `pulumi:"type"`

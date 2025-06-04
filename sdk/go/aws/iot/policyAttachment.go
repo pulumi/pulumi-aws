@@ -83,7 +83,7 @@ type PolicyAttachment struct {
 
 	// The name of the policy to attach.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The identity to which the policy is attached.
 	Target pulumi.StringOutput `pulumi:"target"`
@@ -127,7 +127,7 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 type policyAttachmentState struct {
 	// The name of the policy to attach.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity to which the policy is attached.
 	Target *string `pulumi:"target"`
@@ -136,7 +136,7 @@ type policyAttachmentState struct {
 type PolicyAttachmentState struct {
 	// The name of the policy to attach.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity to which the policy is attached.
 	Target pulumi.StringPtrInput
@@ -149,7 +149,7 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 type policyAttachmentArgs struct {
 	// The name of the policy to attach.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity to which the policy is attached.
 	Target string `pulumi:"target"`
@@ -159,7 +159,7 @@ type policyAttachmentArgs struct {
 type PolicyAttachmentArgs struct {
 	// The name of the policy to attach.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity to which the policy is attached.
 	Target pulumi.StringInput
@@ -257,7 +257,7 @@ func (o PolicyAttachmentOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

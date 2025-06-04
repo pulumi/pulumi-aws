@@ -56,6 +56,9 @@ export interface GetCipherTextArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -128,5 +131,8 @@ export interface GetCipherTextOutputArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

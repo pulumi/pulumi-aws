@@ -59,7 +59,8 @@ func GetMaintenanceWindows(ctx *pulumi.Context, args *GetMaintenanceWindowsArgs,
 type GetMaintenanceWindowsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetMaintenanceWindowsFilter `pulumi:"filters"`
-	Region  *string                       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getMaintenanceWindows.
@@ -85,7 +86,8 @@ func GetMaintenanceWindowsOutput(ctx *pulumi.Context, args GetMaintenanceWindows
 type GetMaintenanceWindowsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetMaintenanceWindowsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetMaintenanceWindowsOutputArgs) ElementType() reflect.Type {

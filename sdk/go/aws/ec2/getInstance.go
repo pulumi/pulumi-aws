@@ -83,7 +83,8 @@ type LookupInstanceArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
-	Region       *string           `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the Instance.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -214,7 +215,8 @@ type LookupInstanceOutputArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags pulumi.StringMapInput `pulumi:"instanceTags"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the Instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

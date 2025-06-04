@@ -57,8 +57,9 @@ type GetResolverFirewallRulesArgs struct {
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rules in a rule group.
-	Priority *int    `pulumi:"priority"`
-	Region   *string `pulumi:"region"`
+	Priority *int `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRules.
@@ -89,8 +90,9 @@ type GetResolverFirewallRulesOutputArgs struct {
 	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rules in a rule group.
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetResolverFirewallRulesOutputArgs) ElementType() reflect.Type {

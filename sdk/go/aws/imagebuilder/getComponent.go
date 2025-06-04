@@ -51,7 +51,8 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 // A collection of arguments for invoking getComponent.
 type LookupComponentArgs struct {
 	// ARN of the component.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags map[string]string `pulumi:"tags"`
@@ -103,7 +104,8 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 // A collection of arguments for invoking getComponent.
 type LookupComponentOutputArgs struct {
 	// ARN of the component.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

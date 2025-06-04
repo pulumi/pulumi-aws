@@ -17,6 +17,10 @@ import javax.annotation.Nullable;
 public final class MultiRegionAccessPointDetails {
     private String name;
     private @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     private List<MultiRegionAccessPointDetailsRegion> regions;
 
     private MultiRegionAccessPointDetails() {}
@@ -26,6 +30,10 @@ public final class MultiRegionAccessPointDetails {
     public Optional<MultiRegionAccessPointDetailsPublicAccessBlock> publicAccessBlock() {
         return Optional.ofNullable(this.publicAccessBlock);
     }
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public List<MultiRegionAccessPointDetailsRegion> regions() {
         return this.regions;
     }

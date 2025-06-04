@@ -115,7 +115,8 @@ func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.In
 // A collection of arguments for invoking getBucket.
 type LookupBucketArgs struct {
 	// Name of the bucket
-	Bucket string  `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -153,7 +154,8 @@ func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts .
 // A collection of arguments for invoking getBucket.
 type LookupBucketOutputArgs struct {
 	// Name of the bucket
-	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -30,7 +30,7 @@ class AliasArgs:
         :param pulumi.Input[builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target_key_id", target_key_id)
         if name is not None:
@@ -81,7 +81,7 @@ class AliasArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -105,7 +105,7 @@ class _AliasState:
         :param pulumi.Input[builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
         :param pulumi.Input[builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
@@ -163,7 +163,7 @@ class _AliasState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -237,7 +237,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
         ...
@@ -334,7 +334,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
         :param pulumi.Input[builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
@@ -379,7 +379,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

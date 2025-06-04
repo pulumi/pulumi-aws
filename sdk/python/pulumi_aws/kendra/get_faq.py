@@ -243,6 +243,7 @@ def get_faq(faq_id: Optional[builtins.str] = None,
 
     :param builtins.str faq_id: Identifier of the FAQ.
     :param builtins.str index_id: Identifier of the index that contains the FAQ.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the FAQs you create.
     """
     __args__ = dict()
@@ -291,6 +292,7 @@ def get_faq_output(faq_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str faq_id: Identifier of the FAQ.
     :param builtins.str index_id: Identifier of the index that contains the FAQ.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the FAQs you create.
     """
     __args__ = dict()

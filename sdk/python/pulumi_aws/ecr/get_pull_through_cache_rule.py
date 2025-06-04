@@ -145,6 +145,7 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[builtins.str] = 
 
 
     :param builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
@@ -178,6 +179,7 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
 
 
     :param builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix

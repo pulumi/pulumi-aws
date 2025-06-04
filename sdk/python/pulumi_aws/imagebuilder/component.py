@@ -37,13 +37,13 @@ class ComponentArgs:
         :param pulumi.Input[builtins.str] platform: Platform of the component.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] change_description: Change description of the component.
         :param pulumi.Input[builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[builtins.str] description: Description of the component.
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         :param pulumi.Input[builtins.str] name: Name of the component.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -92,7 +92,7 @@ class ComponentArgs:
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -164,7 +164,7 @@ class ComponentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -256,7 +256,7 @@ class _ComponentState:
         :param pulumi.Input[builtins.str] name: Name of the component.
         :param pulumi.Input[builtins.str] owner: Owner of the component.
         :param pulumi.Input[builtins.str] platform: Platform of the component.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,7 +267,7 @@ class _ComponentState:
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -430,7 +430,7 @@ class _ComponentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -518,7 +518,7 @@ class _ComponentState:
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -581,7 +581,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         :param pulumi.Input[builtins.str] name: Name of the component.
         :param pulumi.Input[builtins.str] platform: Platform of the component.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -590,7 +590,7 @@ class Component(pulumi.CustomResource):
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         ...
     @overload
@@ -728,7 +728,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the component.
         :param pulumi.Input[builtins.str] owner: Owner of the component.
         :param pulumi.Input[builtins.str] platform: Platform of the component.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -739,7 +739,7 @@ class Component(pulumi.CustomResource):
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -849,7 +849,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -909,7 +909,7 @@ class Component(pulumi.CustomResource):
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 

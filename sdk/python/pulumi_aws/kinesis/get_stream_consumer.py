@@ -133,6 +133,7 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the stream consumer.
     :param builtins.str name: Name of the stream consumer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str stream_arn: ARN of the data stream the consumer is registered with.
     """
     __args__ = dict()
@@ -174,6 +175,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
 
     :param builtins.str arn: ARN of the stream consumer.
     :param builtins.str name: Name of the stream consumer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str stream_arn: ARN of the data stream the consumer is registered with.
     """
     __args__ = dict()

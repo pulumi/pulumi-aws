@@ -48,7 +48,7 @@ class DevEndpointArgs:
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID for the new endpoint to use.
@@ -211,7 +211,7 @@ class DevEndpointArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -325,7 +325,7 @@ class _DevEndpointState:
         :param pulumi.Input[builtins.str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -563,7 +563,7 @@ class _DevEndpointState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -775,7 +775,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -951,7 +951,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_address: The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         :param pulumi.Input[builtins.str] public_key: The public key to be used by this endpoint for authentication.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_keys: A list of public keys to be used by this endpoint for authentication.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration structure to be used with this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Security group IDs for the security groups to be used by this endpoint.
@@ -1112,7 +1112,7 @@ class DevEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

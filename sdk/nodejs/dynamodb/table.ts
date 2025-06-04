@@ -223,7 +223,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -243,7 +243,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity!: pulumi.Output<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -427,7 +427,7 @@ export interface TableState {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -447,7 +447,7 @@ export interface TableState {
      */
     readCapacity?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -549,7 +549,7 @@ export interface TableArgs {
     /**
      * Unique within a region name of the table.
      *
-     * Optional arguments:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -569,7 +569,7 @@ export interface TableArgs {
      */
     readCapacity?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

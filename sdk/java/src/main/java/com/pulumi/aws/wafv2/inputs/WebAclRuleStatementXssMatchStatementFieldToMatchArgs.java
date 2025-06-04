@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMa
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -209,6 +210,21 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchArgs extends 
     }
 
     /**
+     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    @Import(name="uriFragment")
+    private @Nullable Output<WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs> uriFragment;
+
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs>> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+
+    /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -238,6 +254,7 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchArgs extends 
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
         this.singleQueryArgument = $.singleQueryArgument;
+        this.uriFragment = $.uriFragment;
         this.uriPath = $.uriPath;
     }
 
@@ -529,6 +546,27 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatchArgs extends 
          */
         public Builder singleQueryArgument(WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument) {
             return singleQueryArgument(Output.of(singleQueryArgument));
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(@Nullable Output<WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs> uriFragment) {
+            $.uriFragment = uriFragment;
+            return this;
+        }
+
+        /**
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uriFragment(WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs uriFragment) {
+            return uriFragment(Output.of(uriFragment));
         }
 
         /**

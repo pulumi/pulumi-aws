@@ -72,7 +72,7 @@ type ApplicationAccessScope struct {
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayOutput `pulumi:"authorizedTargets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
@@ -120,7 +120,7 @@ type applicationAccessScopeState struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
@@ -133,7 +133,7 @@ type ApplicationAccessScopeState struct {
 	ApplicationArn pulumi.StringPtrInput
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
@@ -150,7 +150,7 @@ type applicationAccessScopeArgs struct {
 	ApplicationArn string `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
@@ -164,7 +164,7 @@ type ApplicationAccessScopeArgs struct {
 	ApplicationArn pulumi.StringInput
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
@@ -269,7 +269,7 @@ func (o ApplicationAccessScopeOutput) AuthorizedTargets() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringArrayOutput { return v.AuthorizedTargets }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationAccessScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

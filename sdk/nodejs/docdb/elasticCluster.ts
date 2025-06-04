@@ -105,7 +105,7 @@ export class ElasticCluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -130,6 +130,9 @@ export class ElasticCluster extends pulumi.CustomResource {
     public readonly timeouts!: pulumi.Output<outputs.docdb.ElasticClusterTimeouts | undefined>;
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -252,7 +255,7 @@ export interface ElasticClusterState {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -277,6 +280,9 @@ export interface ElasticClusterState {
     timeouts?: pulumi.Input<inputs.docdb.ElasticClusterTimeouts>;
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -318,7 +324,7 @@ export interface ElasticClusterArgs {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -342,6 +348,9 @@ export interface ElasticClusterArgs {
     timeouts?: pulumi.Input<inputs.docdb.ElasticClusterTimeouts>;
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

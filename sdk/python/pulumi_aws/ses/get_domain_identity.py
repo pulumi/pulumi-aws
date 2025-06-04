@@ -112,6 +112,7 @@ def get_domain_identity(domain: Optional[builtins.str] = None,
 
 
     :param builtins.str domain: Name of the domain
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -142,6 +143,7 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str domain: Name of the domain
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain

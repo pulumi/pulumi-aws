@@ -53,7 +53,7 @@ type ResolverRuleAssociation struct {
 
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
@@ -99,7 +99,7 @@ func GetResolverRuleAssociation(ctx *pulumi.Context,
 type resolverRuleAssociationState struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId *string `pulumi:"resolverRuleId"`
@@ -110,7 +110,7 @@ type resolverRuleAssociationState struct {
 type ResolverRuleAssociationState struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringPtrInput
@@ -125,7 +125,7 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 type resolverRuleAssociationArgs struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId string `pulumi:"resolverRuleId"`
@@ -137,7 +137,7 @@ type resolverRuleAssociationArgs struct {
 type ResolverRuleAssociationArgs struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the resolver rule that you want to associate with the VPC.
 	ResolverRuleId pulumi.StringInput
@@ -237,7 +237,7 @@ func (o ResolverRuleAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverRuleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

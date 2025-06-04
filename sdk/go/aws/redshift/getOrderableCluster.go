@@ -62,7 +62,8 @@ type GetOrderableClusterArgs struct {
 	NodeType *string `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes []string `pulumi:"preferredNodeTypes"`
-	Region             *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOrderableCluster.
@@ -97,7 +98,8 @@ type GetOrderableClusterOutputArgs struct {
 	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes pulumi.StringArrayInput `pulumi:"preferredNodeTypes"`
-	Region             pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOrderableClusterOutputArgs) ElementType() reflect.Type {

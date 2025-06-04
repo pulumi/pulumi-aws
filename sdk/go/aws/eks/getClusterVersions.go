@@ -109,8 +109,9 @@ type GetClusterVersionsArgs struct {
 	// Whether to show only the default versions of Kubernetes supported by EKS.
 	DefaultOnly *bool `pulumi:"defaultOnly"`
 	// Whether to include all kubernetes versions in the response.
-	IncludeAll *bool   `pulumi:"includeAll"`
-	Region     *string `pulumi:"region"`
+	IncludeAll *bool `pulumi:"includeAll"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the EKS cluster versions to list.
 	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
 	VersionStatus *string `pulumi:"versionStatus"`
@@ -149,8 +150,9 @@ type GetClusterVersionsOutputArgs struct {
 	// Whether to show only the default versions of Kubernetes supported by EKS.
 	DefaultOnly pulumi.BoolPtrInput `pulumi:"defaultOnly"`
 	// Whether to include all kubernetes versions in the response.
-	IncludeAll pulumi.BoolPtrInput   `pulumi:"includeAll"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Status of the EKS cluster versions to list.
 	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
 	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`

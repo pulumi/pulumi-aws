@@ -164,7 +164,7 @@ type Workspace struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -248,7 +248,7 @@ type workspaceState struct {
 	//
 	// The following arguments are optional:
 	PermissionType *string `pulumi:"permissionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 *string `pulumi:"roleArn"`
@@ -294,7 +294,7 @@ type WorkspaceState struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrInput
@@ -340,7 +340,7 @@ type workspaceArgs struct {
 	//
 	// The following arguments are optional:
 	PermissionType string `pulumi:"permissionType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn *string `pulumi:"roleArn"`
@@ -380,7 +380,7 @@ type WorkspaceArgs struct {
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn pulumi.StringPtrInput
@@ -551,7 +551,7 @@ func (o WorkspaceOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PermissionType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

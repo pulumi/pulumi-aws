@@ -61,8 +61,9 @@ type GetSolutionStackArgs struct {
 	// > **NOTE:** If more or less than a single match is returned by the search,
 	// this call will fail. Ensure that your search is specific enough to return
 	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex string  `pulumi:"nameRegex"`
-	Region    *string `pulumi:"region"`
+	NameRegex string `pulumi:"nameRegex"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSolutionStack.
@@ -97,8 +98,9 @@ type GetSolutionStackOutputArgs struct {
 	// > **NOTE:** If more or less than a single match is returned by the search,
 	// this call will fail. Ensure that your search is specific enough to return
 	// a single solution stack, or use `mostRecent` to choose the most recent one.
-	NameRegex pulumi.StringInput    `pulumi:"nameRegex"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSolutionStackOutputArgs) ElementType() reflect.Type {

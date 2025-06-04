@@ -145,6 +145,7 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
 
     :param builtins.str cluster_id: ID of Cloud HSM v2 cluster.
     :param builtins.str cluster_state: State of the cluster to be found.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -181,6 +182,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str cluster_id: ID of Cloud HSM v2 cluster.
     :param builtins.str cluster_state: State of the cluster to be found.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id

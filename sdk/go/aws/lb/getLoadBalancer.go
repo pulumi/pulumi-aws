@@ -70,7 +70,8 @@ type LookupLoadBalancerArgs struct {
 	// Full ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// Unique name of the load balancer.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	//
@@ -131,7 +132,8 @@ type LookupLoadBalancerOutputArgs struct {
 	// Full ARN of the load balancer.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Unique name of the load balancer.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	//

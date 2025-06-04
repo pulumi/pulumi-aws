@@ -140,6 +140,8 @@ type Domain struct {
 	TechPrivacy pulumi.BoolOutput       `pulumi:"techPrivacy"`
 	Timeouts    DomainTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolOutput `pulumi:"transferLock"`
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate pulumi.StringOutput `pulumi:"updatedDate"`
@@ -226,6 +228,8 @@ type domainState struct {
 	TechPrivacy *bool           `pulumi:"techPrivacy"`
 	Timeouts    *DomainTimeouts `pulumi:"timeouts"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock *bool `pulumi:"transferLock"`
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate *string `pulumi:"updatedDate"`
@@ -280,6 +284,8 @@ type DomainState struct {
 	TechPrivacy pulumi.BoolPtrInput
 	Timeouts    DomainTimeoutsPtrInput
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolPtrInput
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate pulumi.StringPtrInput
@@ -320,6 +326,8 @@ type domainArgs struct {
 	TechPrivacy *bool           `pulumi:"techPrivacy"`
 	Timeouts    *DomainTimeouts `pulumi:"timeouts"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock *bool `pulumi:"transferLock"`
 }
 
@@ -353,6 +361,8 @@ type DomainArgs struct {
 	TechPrivacy pulumi.BoolPtrInput
 	Timeouts    DomainTimeoutsPtrInput
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolPtrInput
 }
 
@@ -558,6 +568,8 @@ func (o DomainOutput) Timeouts() DomainTimeoutsPtrOutput {
 }
 
 // Whether the domain is locked for transfer. Default: `true`.
+//
+// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 func (o DomainOutput) TransferLock() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Domain) pulumi.BoolOutput { return v.TransferLock }).(pulumi.BoolOutput)
 }

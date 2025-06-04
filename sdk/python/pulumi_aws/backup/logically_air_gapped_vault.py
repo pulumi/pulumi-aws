@@ -33,7 +33,7 @@ class LogicallyAirGappedVaultArgs:
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
@@ -87,7 +87,7 @@ class LogicallyAirGappedVaultArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -134,7 +134,7 @@ class _LogicallyAirGappedVaultState:
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -207,7 +207,7 @@ class _LogicallyAirGappedVaultState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -292,7 +292,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -397,7 +397,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -451,7 +451,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

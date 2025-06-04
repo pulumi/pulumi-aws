@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     public sealed class ResponsePlanActionSsmAutomationParameter
     {
         /// <summary>
-        /// The name of the response plan.
+        /// The name of parameter.
         /// </summary>
         public readonly string Name;
         /// <summary>

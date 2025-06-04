@@ -93,7 +93,7 @@ type FunctionUrl struct {
 	InvokeMode pulumi.StringPtrOutput `pulumi:"invokeMode"`
 	// The alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A generated ID for the endpoint.
 	UrlId pulumi.StringOutput `pulumi:"urlId"`
@@ -149,7 +149,7 @@ type functionUrlState struct {
 	InvokeMode *string `pulumi:"invokeMode"`
 	// The alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A generated ID for the endpoint.
 	UrlId *string `pulumi:"urlId"`
@@ -170,7 +170,7 @@ type FunctionUrlState struct {
 	InvokeMode pulumi.StringPtrInput
 	// The alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A generated ID for the endpoint.
 	UrlId pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type functionUrlArgs struct {
 	InvokeMode *string `pulumi:"invokeMode"`
 	// The alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -207,7 +207,7 @@ type FunctionUrlArgs struct {
 	InvokeMode pulumi.StringPtrInput
 	// The alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -333,7 +333,7 @@ func (o FunctionUrlOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FunctionUrlOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

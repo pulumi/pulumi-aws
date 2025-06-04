@@ -40,7 +40,7 @@ type V2modelsSlot struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayOutput `pulumi:"obfuscationSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringOutput `pulumi:"slotId"`
@@ -113,7 +113,7 @@ type v2modelsSlotState struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Unique identifier associated with the slot.
 	SlotId *string `pulumi:"slotId"`
@@ -145,7 +145,7 @@ type V2modelsSlotState struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringPtrInput
@@ -181,7 +181,7 @@ type v2modelsSlotArgs struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId *string `pulumi:"slotTypeId"`
@@ -212,7 +212,7 @@ type V2modelsSlotArgs struct {
 	// Determines how slot values are used in Amazon CloudWatch logs.
 	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
@@ -352,7 +352,7 @@ func (o V2modelsSlotOutput) ObfuscationSettings() V2modelsSlotObfuscationSetting
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotObfuscationSettingArrayOutput { return v.ObfuscationSettings }).(V2modelsSlotObfuscationSettingArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o V2modelsSlotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

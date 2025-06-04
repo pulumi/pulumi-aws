@@ -65,6 +65,9 @@ export interface GetDedicatedHostArgs {
      * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     tags?: {[key: string]: string};
 }
@@ -188,6 +191,9 @@ export interface GetDedicatedHostOutputArgs {
      * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -61,8 +61,13 @@ export interface GetUserHierarchyGroupArgs {
     instanceId: string;
     /**
      * Returns information on a specific hierarchy group by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags to assign to the hierarchy group.
@@ -156,8 +161,13 @@ export interface GetUserHierarchyGroupOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific hierarchy group by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the hierarchy group.

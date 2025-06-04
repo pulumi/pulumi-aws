@@ -74,6 +74,9 @@ export interface GetControlArgs {
      * Name of the control.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of control. Valid values are `Custom` and `Standard`.
@@ -164,6 +167,9 @@ export interface GetControlOutputArgs {
      * Name of the control.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of control. Valid values are `Custom` and `Standard`.

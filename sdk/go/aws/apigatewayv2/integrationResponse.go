@@ -63,7 +63,7 @@ type IntegrationResponse struct {
 	IntegrationId pulumi.StringOutput `pulumi:"integrationId"`
 	// Integration response key.
 	IntegrationResponseKey pulumi.StringOutput `pulumi:"integrationResponseKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapOutput `pulumi:"responseTemplates"`
@@ -118,7 +118,7 @@ type integrationResponseState struct {
 	IntegrationId *string `pulumi:"integrationId"`
 	// Integration response key.
 	IntegrationResponseKey *string `pulumi:"integrationResponseKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
@@ -135,7 +135,7 @@ type IntegrationResponseState struct {
 	IntegrationId pulumi.StringPtrInput
 	// Integration response key.
 	IntegrationResponseKey pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapInput
@@ -156,7 +156,7 @@ type integrationResponseArgs struct {
 	IntegrationId string `pulumi:"integrationId"`
 	// Integration response key.
 	IntegrationResponseKey string `pulumi:"integrationResponseKey"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
@@ -174,7 +174,7 @@ type IntegrationResponseArgs struct {
 	IntegrationId pulumi.StringInput
 	// Integration response key.
 	IntegrationResponseKey pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapInput
@@ -289,7 +289,7 @@ func (o IntegrationResponseOutput) IntegrationResponseKey() pulumi.StringOutput 
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.IntegrationResponseKey }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IntegrationResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

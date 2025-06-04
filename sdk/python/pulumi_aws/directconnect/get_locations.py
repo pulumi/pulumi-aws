@@ -87,6 +87,9 @@ def get_locations(region: Optional[builtins.str] = None,
 
     available = aws.directconnect.get_locations()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -113,6 +116,9 @@ def get_locations_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
 
     available = aws.directconnect.get_locations()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

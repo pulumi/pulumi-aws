@@ -218,6 +218,7 @@ def get_experience(experience_id: Optional[builtins.str] = None,
 
     :param builtins.str experience_id: Identifier of the Experience.
     :param builtins.str index_id: Identifier of the index that contains the Experience.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id
@@ -261,6 +262,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[builtins.str]] = 
 
     :param builtins.str experience_id: Identifier of the Experience.
     :param builtins.str index_id: Identifier of the index that contains the Experience.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id

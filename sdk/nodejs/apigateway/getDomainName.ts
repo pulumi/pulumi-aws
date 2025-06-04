@@ -43,6 +43,9 @@ export interface GetDomainNameArgs {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Key-value map of tags for the resource.
@@ -154,6 +157,9 @@ export interface GetDomainNameOutputArgs {
      * The identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value map of tags for the resource.

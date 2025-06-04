@@ -54,8 +54,9 @@ type LookupExperienceArgs struct {
 	// Identifier of the Experience.
 	ExperienceId string `pulumi:"experienceId"`
 	// Identifier of the index that contains the Experience.
-	IndexId string  `pulumi:"indexId"`
-	Region  *string `pulumi:"region"`
+	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getExperience.
@@ -101,8 +102,9 @@ type LookupExperienceOutputArgs struct {
 	// Identifier of the Experience.
 	ExperienceId pulumi.StringInput `pulumi:"experienceId"`
 	// Identifier of the index that contains the Experience.
-	IndexId pulumi.StringInput    `pulumi:"indexId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupExperienceOutputArgs) ElementType() reflect.Type {

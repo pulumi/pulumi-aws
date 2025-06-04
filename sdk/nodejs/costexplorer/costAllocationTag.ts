@@ -56,10 +56,6 @@ export class CostAllocationTag extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    public readonly region!: pulumi.Output<string>;
-    /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -85,7 +81,6 @@ export class CostAllocationTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CostAllocationTagState | undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tagKey"] = state ? state.tagKey : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -97,7 +92,6 @@ export class CostAllocationTag extends pulumi.CustomResource {
             if ((!args || args.tagKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagKey'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tagKey"] = args ? args.tagKey : undefined;
             resourceInputs["type"] = undefined /*out*/;
@@ -111,10 +105,6 @@ export class CostAllocationTag extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CostAllocationTag resources.
  */
 export interface CostAllocationTagState {
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      */
@@ -133,10 +123,6 @@ export interface CostAllocationTagState {
  * The set of arguments for constructing a CostAllocationTag resource.
  */
 export interface CostAllocationTagArgs {
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
-    region?: pulumi.Input<string>;
     /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      */

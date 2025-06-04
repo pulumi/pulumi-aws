@@ -34,6 +34,8 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
     /**
      * Returns information on a specific Security Profile by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -41,14 +43,24 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
     /**
      * @return Returns information on a specific Security Profile by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -125,6 +137,8 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -133,6 +147,12 @@ public final class GetSecurityProfilePlainArgs extends com.pulumi.resources.Invo
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

@@ -19,6 +19,8 @@ from ._enums import *
 
 __all__ = [
     'GroupAvailabilityZoneDistribution',
+    'GroupCapacityReservationSpecification',
+    'GroupCapacityReservationSpecificationCapacityReservationTarget',
     'GroupInitialLifecycleHook',
     'GroupInstanceMaintenancePolicy',
     'GroupInstanceRefresh',
@@ -135,6 +137,106 @@ class GroupAvailabilityZoneDistribution(dict):
         The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
         """
         return pulumi.get(self, "capacity_distribution_strategy")
+
+
+@pulumi.output_type
+class GroupCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[builtins.str] = None,
+                 capacity_reservation_target: Optional['outputs.GroupCapacityReservationSpecificationCapacityReservationTarget'] = None):
+        """
+        :param builtins.str capacity_reservation_preference: Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+        :param 'GroupCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Describes a target Capacity Reservation or Capacity Reservation resource group.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[builtins.str]:
+        """
+        Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.GroupCapacityReservationSpecificationCapacityReservationTarget']:
+        """
+        Describes a target Capacity Reservation or Capacity Reservation resource group.
+        """
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class GroupCapacityReservationSpecificationCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationIds":
+            suggest = "capacity_reservation_ids"
+        elif key == "capacityReservationResourceGroupArns":
+            suggest = "capacity_reservation_resource_group_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupCapacityReservationSpecificationCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_ids: Optional[Sequence[builtins.str]] = None,
+                 capacity_reservation_resource_group_arns: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] capacity_reservation_ids: List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+        :param Sequence[builtins.str] capacity_reservation_resource_group_arns: List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+        """
+        if capacity_reservation_ids is not None:
+            pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
+        if capacity_reservation_resource_group_arns is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arns", capacity_reservation_resource_group_arns)
+
+    @property
+    @pulumi.getter(name="capacityReservationIds")
+    def capacity_reservation_ids(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+        """
+        return pulumi.get(self, "capacity_reservation_ids")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArns")
+    def capacity_reservation_resource_group_arns(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arns")
 
 
 @pulumi.output_type

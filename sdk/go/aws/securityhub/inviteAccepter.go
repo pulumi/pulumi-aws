@@ -74,7 +74,7 @@ type InviteAccepter struct {
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -115,7 +115,7 @@ type inviteAccepterState struct {
 	InvitationId *string `pulumi:"invitationId"`
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId *string `pulumi:"masterId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -124,7 +124,7 @@ type InviteAccepterState struct {
 	InvitationId pulumi.StringPtrInput
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -135,7 +135,7 @@ func (InviteAccepterState) ElementType() reflect.Type {
 type inviteAccepterArgs struct {
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId string `pulumi:"masterId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -143,7 +143,7 @@ type inviteAccepterArgs struct {
 type InviteAccepterArgs struct {
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -244,7 +244,7 @@ func (o InviteAccepterOutput) MasterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InviteAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

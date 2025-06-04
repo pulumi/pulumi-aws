@@ -192,6 +192,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[builtins.int] 
     :param builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     :param builtins.int instance_count: The number of instances for which to reserve capacity.
     :param builtins.str instance_type: The instance type for which to reserve capacity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     """
     __args__ = dict()
@@ -245,6 +246,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
     :param builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     :param builtins.int instance_count: The number of instances for which to reserve capacity.
     :param builtins.str instance_type: The instance type for which to reserve capacity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     """
     __args__ = dict()

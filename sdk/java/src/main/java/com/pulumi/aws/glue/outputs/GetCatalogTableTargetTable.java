@@ -26,7 +26,7 @@ public final class GetCatalogTableTargetTable {
      */
     private String name;
     /**
-     * @return Region of the target table.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -54,7 +54,7 @@ public final class GetCatalogTableTargetTable {
         return this.name;
     }
     /**
-     * @return Region of the target table.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {

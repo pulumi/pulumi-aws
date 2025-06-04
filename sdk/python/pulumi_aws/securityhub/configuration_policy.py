@@ -31,7 +31,7 @@ class ConfigurationPolicyArgs:
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration_policy", configuration_policy)
         if description is not None:
@@ -81,7 +81,7 @@ class ConfigurationPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -103,7 +103,7 @@ class _ConfigurationPolicyState:
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -165,7 +165,7 @@ class _ConfigurationPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -306,7 +306,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -490,7 +490,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -536,7 +536,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -103,7 +103,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -131,6 +131,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Output("trackName")]
+        public Output<string> TrackName { get; private set; } = null!;
 
         /// <summary>
         /// The Redshift Workgroup ID.
@@ -247,7 +253,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -287,6 +293,12 @@ namespace Pulumi.Aws.RedshiftServerless
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
 
         /// <summary>
         /// The name of the workgroup.
@@ -377,7 +389,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -429,6 +441,12 @@ namespace Pulumi.Aws.RedshiftServerless
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
 
         /// <summary>
         /// The Redshift Workgroup ID.

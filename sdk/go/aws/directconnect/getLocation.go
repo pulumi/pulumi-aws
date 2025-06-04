@@ -54,8 +54,9 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getLocation.
 type GetLocationArgs struct {
 	// Code for the location to retrieve.
-	LocationCode string  `pulumi:"locationCode"`
-	Region       *string `pulumi:"region"`
+	LocationCode string `pulumi:"locationCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocation.
@@ -86,8 +87,9 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 // A collection of arguments for invoking getLocation.
 type GetLocationOutputArgs struct {
 	// Code for the location to retrieve.
-	LocationCode pulumi.StringInput    `pulumi:"locationCode"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	LocationCode pulumi.StringInput `pulumi:"locationCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocationOutputArgs) ElementType() reflect.Type {

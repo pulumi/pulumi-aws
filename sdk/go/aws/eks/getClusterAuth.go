@@ -62,7 +62,8 @@ func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulum
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthArgs struct {
 	// Name of the cluster
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -88,7 +89,8 @@ func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, op
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthOutputArgs struct {
 	// Name of the cluster
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

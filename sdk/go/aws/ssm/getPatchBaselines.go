@@ -93,7 +93,8 @@ type GetPatchBaselinesArgs struct {
 	DefaultBaselines *bool `pulumi:"defaultBaselines"`
 	// Key-value pairs used to filter the results. See `filter` below.
 	Filters []GetPatchBaselinesFilter `pulumi:"filters"`
-	Region  *string                   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaselines.
@@ -122,7 +123,8 @@ type GetPatchBaselinesOutputArgs struct {
 	DefaultBaselines pulumi.BoolPtrInput `pulumi:"defaultBaselines"`
 	// Key-value pairs used to filter the results. See `filter` below.
 	Filters GetPatchBaselinesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput             `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPatchBaselinesOutputArgs) ElementType() reflect.Type {

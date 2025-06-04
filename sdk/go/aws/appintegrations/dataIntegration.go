@@ -69,7 +69,7 @@ type DataIntegration struct {
 	KmsKey pulumi.StringOutput `pulumi:"kmsKey"`
 	// Specifies the name of the Data Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfigOutput `pulumi:"scheduleConfig"`
@@ -128,7 +128,7 @@ type dataIntegrationState struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// Specifies the name of the Data Integration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig *DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
@@ -149,7 +149,7 @@ type DataIntegrationState struct {
 	KmsKey pulumi.StringPtrInput
 	// Specifies the name of the Data Integration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfigPtrInput
@@ -172,7 +172,7 @@ type dataIntegrationArgs struct {
 	KmsKey string `pulumi:"kmsKey"`
 	// Specifies the name of the Data Integration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
@@ -190,7 +190,7 @@ type DataIntegrationArgs struct {
 	KmsKey pulumi.StringInput
 	// Specifies the name of the Data Integration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfigInput
@@ -307,7 +307,7 @@ func (o DataIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataIntegrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

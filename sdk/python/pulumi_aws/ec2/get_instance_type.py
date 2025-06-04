@@ -859,6 +859,7 @@ def get_instance_type(instance_type: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_type: Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type
@@ -949,6 +950,7 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str instance_type: Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type

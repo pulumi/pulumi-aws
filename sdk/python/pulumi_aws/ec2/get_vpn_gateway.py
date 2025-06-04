@@ -156,6 +156,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPN Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
@@ -217,6 +218,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPN Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.

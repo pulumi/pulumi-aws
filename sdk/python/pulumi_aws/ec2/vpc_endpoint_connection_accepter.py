@@ -27,7 +27,7 @@ class VpcEndpointConnectionAccepterArgs:
         The set of arguments for constructing a VpcEndpointConnectionAccepter resource.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: AWS VPC Endpoint ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
@@ -62,7 +62,7 @@ class VpcEndpointConnectionAccepterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -80,7 +80,7 @@ class _VpcEndpointConnectionAccepterState:
                  vpc_endpoint_state: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointConnectionAccepter resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: AWS VPC Endpoint ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_state: State of the VPC Endpoint.
@@ -98,7 +98,7 @@ class _VpcEndpointConnectionAccepterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -188,7 +188,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: AWS VPC Endpoint ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         """
@@ -287,7 +287,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: AWS VPC Endpoint ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         :param pulumi.Input[builtins.str] vpc_endpoint_state: State of the VPC Endpoint.
@@ -306,7 +306,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

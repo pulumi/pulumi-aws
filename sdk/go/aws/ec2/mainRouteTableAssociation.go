@@ -57,7 +57,7 @@ type MainRouteTableAssociation struct {
 
 	// Used internally, see **Notes** below
 	OriginalRouteTableId pulumi.StringOutput `pulumi:"originalRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -104,7 +104,7 @@ func GetMainRouteTableAssociation(ctx *pulumi.Context,
 type mainRouteTableAssociationState struct {
 	// Used internally, see **Notes** below
 	OriginalRouteTableId *string `pulumi:"originalRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -116,7 +116,7 @@ type mainRouteTableAssociationState struct {
 type MainRouteTableAssociationState struct {
 	// Used internally, see **Notes** below
 	OriginalRouteTableId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -130,7 +130,7 @@ func (MainRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type mainRouteTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -141,7 +141,7 @@ type mainRouteTableAssociationArgs struct {
 
 // The set of arguments for constructing a MainRouteTableAssociation resource.
 type MainRouteTableAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
@@ -242,7 +242,7 @@ func (o MainRouteTableAssociationOutput) OriginalRouteTableId() pulumi.StringOut
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.OriginalRouteTableId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MainRouteTableAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MainRouteTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

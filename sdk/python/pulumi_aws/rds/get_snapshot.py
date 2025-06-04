@@ -385,11 +385,14 @@ def get_snapshot(db_instance_identifier: Optional[builtins.str] = None,
            The default is `false`.
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent Snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired DB snapshot.
+           
+           > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -481,11 +484,14 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[b
            The default is `false`.
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent Snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired DB snapshot.
+           
+           > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier

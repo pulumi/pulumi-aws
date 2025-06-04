@@ -62,7 +62,8 @@ type GetQuicksightGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getQuicksightGroup.
@@ -100,7 +101,8 @@ type GetQuicksightGroupOutputArgs struct {
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetQuicksightGroupOutputArgs) ElementType() reflect.Type {

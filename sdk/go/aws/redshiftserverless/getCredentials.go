@@ -53,8 +53,9 @@ type GetCredentialsArgs struct {
 	// The name of the database to get temporary authorization to log on to.
 	DbName *string `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
-	DurationSeconds *int    `pulumi:"durationSeconds"`
-	Region          *string `pulumi:"region"`
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -89,8 +90,9 @@ type GetCredentialsOutputArgs struct {
 	// The name of the database to get temporary authorization to log on to.
 	DbName pulumi.StringPtrInput `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
-	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }

@@ -30,6 +30,9 @@ export function getAuthorizers(args: GetAuthorizersArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAuthorizers.
  */
 export interface GetAuthorizersArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the associated REST API.
@@ -78,6 +81,9 @@ export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulu
  * A collection of arguments for invoking getAuthorizers.
  */
 export interface GetAuthorizersOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API.

@@ -87,7 +87,8 @@ func LookupMulticastDomain(ctx *pulumi.Context, args *LookupMulticastDomainArgs,
 type LookupMulticastDomainArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetMulticastDomainFilter `pulumi:"filters"`
-	Region  *string                    `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Multicast Domain.
@@ -139,7 +140,8 @@ func LookupMulticastDomainOutput(ctx *pulumi.Context, args LookupMulticastDomain
 type LookupMulticastDomainOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetMulticastDomainFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput              `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Multicast Domain.

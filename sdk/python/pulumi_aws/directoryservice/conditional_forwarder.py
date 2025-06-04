@@ -29,7 +29,7 @@ class ConditionalForwarderArgs:
         :param pulumi.Input[builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "dns_ips", dns_ips)
@@ -77,7 +77,7 @@ class ConditionalForwarderArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -97,7 +97,7 @@ class _ConditionalForwarderState:
         Input properties used for looking up and filtering ConditionalForwarder resources.
         :param pulumi.Input[builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         if directory_id is not None:
@@ -137,7 +137,7 @@ class _ConditionalForwarderState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -199,7 +199,7 @@ class ConditionalForwarder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         ...
@@ -297,7 +297,7 @@ class ConditionalForwarder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ips: A list of forwarder IP addresses.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -330,7 +330,7 @@ class ConditionalForwarder(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

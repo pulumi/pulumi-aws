@@ -103,7 +103,7 @@ type MacsecKeyAssociation struct {
 	Ckn pulumi.StringOutput `pulumi:"ckn"`
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
@@ -154,7 +154,7 @@ type macsecKeyAssociationState struct {
 	Ckn *string `pulumi:"ckn"`
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
@@ -173,7 +173,7 @@ type MacsecKeyAssociationState struct {
 	Ckn pulumi.StringPtrInput
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
@@ -196,7 +196,7 @@ type macsecKeyAssociationArgs struct {
 	Ckn *string `pulumi:"ckn"`
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId string `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
@@ -212,7 +212,7 @@ type MacsecKeyAssociationArgs struct {
 	Ckn pulumi.StringPtrInput
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
@@ -322,7 +322,7 @@ func (o MacsecKeyAssociationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MacsecKeyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

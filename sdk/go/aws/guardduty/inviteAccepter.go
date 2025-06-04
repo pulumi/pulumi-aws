@@ -74,7 +74,7 @@ type InviteAccepter struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -118,7 +118,7 @@ type inviteAccepterState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId *string `pulumi:"masterAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -127,7 +127,7 @@ type InviteAccepterState struct {
 	DetectorId pulumi.StringPtrInput
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -140,7 +140,7 @@ type inviteAccepterArgs struct {
 	DetectorId string `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId string `pulumi:"masterAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type InviteAccepterArgs struct {
 	DetectorId pulumi.StringInput
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -251,7 +251,7 @@ func (o InviteAccepterOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InviteAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

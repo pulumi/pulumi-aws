@@ -69,7 +69,7 @@ type DeviceFleet struct {
 	IotRoleAlias       pulumi.StringOutput  `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigOutput `pulumi:"outputConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -129,7 +129,7 @@ type deviceFleetState struct {
 	IotRoleAlias       *string `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig *DeviceFleetOutputConfig `pulumi:"outputConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn *string `pulumi:"roleArn"`
@@ -151,7 +151,7 @@ type DeviceFleetState struct {
 	IotRoleAlias       pulumi.StringPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringPtrInput
@@ -174,7 +174,7 @@ type deviceFleetArgs struct {
 	EnableIotRoleAlias *bool `pulumi:"enableIotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfig `pulumi:"outputConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn string `pulumi:"roleArn"`
@@ -192,7 +192,7 @@ type DeviceFleetArgs struct {
 	EnableIotRoleAlias pulumi.BoolPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringInput
@@ -316,7 +316,7 @@ func (o DeviceFleetOutput) OutputConfig() DeviceFleetOutputConfigOutput {
 	return o.ApplyT(func(v *DeviceFleet) DeviceFleetOutputConfigOutput { return v.OutputConfig }).(DeviceFleetOutputConfigOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeviceFleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

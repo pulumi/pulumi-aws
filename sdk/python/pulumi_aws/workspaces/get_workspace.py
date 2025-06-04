@@ -209,6 +209,7 @@ def get_workspace(directory_id: Optional[builtins.str] = None,
 
 
     :param builtins.str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags for the WorkSpace.
     :param builtins.str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
     :param builtins.str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
@@ -269,6 +270,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[builtins.s
 
 
     :param builtins.str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags for the WorkSpace.
     :param builtins.str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
     :param builtins.str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.

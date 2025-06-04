@@ -37,7 +37,7 @@ class OutboundConnectionArgs:
         :param pulumi.Input[builtins.bool] accept_connection: Accepts the connection.
         :param pulumi.Input[builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_alias", connection_alias)
         pulumi.set(__self__, "local_domain_info", local_domain_info)
@@ -127,7 +127,7 @@ class OutboundConnectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -155,7 +155,7 @@ class _OutboundConnectionState:
         :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[builtins.str] connection_status: Status of the connection request.
         :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         if accept_connection is not None:
@@ -251,7 +251,7 @@ class _OutboundConnectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -329,7 +329,7 @@ class OutboundConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         ...
@@ -450,7 +450,7 @@ class OutboundConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['OutboundConnectionConnectionPropertiesArgs', 'OutboundConnectionConnectionPropertiesArgsDict']] connection_properties: Configuration block for the outbound connection.
         :param pulumi.Input[builtins.str] connection_status: Status of the connection request.
         :param pulumi.Input[Union['OutboundConnectionLocalDomainInfoArgs', 'OutboundConnectionLocalDomainInfoArgsDict']] local_domain_info: Configuration block for the local Opensearch domain.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OutboundConnectionRemoteDomainInfoArgs', 'OutboundConnectionRemoteDomainInfoArgsDict']] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -519,7 +519,7 @@ class OutboundConnection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

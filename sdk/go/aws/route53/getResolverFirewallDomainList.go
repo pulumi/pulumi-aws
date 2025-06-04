@@ -55,8 +55,9 @@ func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverF
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListArgs struct {
 	// The ID of the domain list.
-	FirewallDomainListId string  `pulumi:"firewallDomainListId"`
-	Region               *string `pulumi:"region"`
+	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallDomainList.
@@ -97,8 +98,9 @@ func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupReso
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListOutputArgs struct {
 	// The ID of the domain list.
-	FirewallDomainListId pulumi.StringInput    `pulumi:"firewallDomainListId"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
+	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallDomainListOutputArgs) ElementType() reflect.Type {

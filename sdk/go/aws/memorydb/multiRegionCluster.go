@@ -89,7 +89,7 @@ type MultiRegionCluster struct {
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of shards for the multi-region cluster.
 	NumShards pulumi.IntOutput `pulumi:"numShards"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,7 +158,7 @@ type multiRegionClusterState struct {
 	NodeType *string `pulumi:"nodeType"`
 	// The number of shards for the multi-region cluster.
 	NumShards *int `pulumi:"numShards"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,7 +192,7 @@ type MultiRegionClusterState struct {
 	NodeType pulumi.StringPtrInput
 	// The number of shards for the multi-region cluster.
 	NumShards pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -226,7 +226,7 @@ type multiRegionClusterArgs struct {
 	NodeType string `pulumi:"nodeType"`
 	// The number of shards for the multi-region cluster.
 	NumShards *int `pulumi:"numShards"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string           `pulumi:"tags"`
@@ -254,7 +254,7 @@ type MultiRegionClusterArgs struct {
 	NodeType pulumi.StringInput
 	// The number of shards for the multi-region cluster.
 	NumShards pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -398,7 +398,7 @@ func (o MultiRegionClusterOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.IntOutput { return v.NumShards }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

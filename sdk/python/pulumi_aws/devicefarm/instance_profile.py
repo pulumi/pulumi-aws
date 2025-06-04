@@ -34,7 +34,7 @@ class InstanceProfileArgs:
         :param pulumi.Input[builtins.str] name: The name for the instance profile.
         :param pulumi.Input[builtins.bool] package_cleanup: When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[builtins.bool] reboot_after_use: When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
@@ -116,7 +116,7 @@ class InstanceProfileArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -157,7 +157,7 @@ class _InstanceProfileState:
         :param pulumi.Input[builtins.str] name: The name for the instance profile.
         :param pulumi.Input[builtins.bool] package_cleanup: When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[builtins.bool] reboot_after_use: When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -256,7 +256,7 @@ class _InstanceProfileState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -332,7 +332,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the instance profile.
         :param pulumi.Input[builtins.bool] package_cleanup: When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[builtins.bool] reboot_after_use: When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -435,7 +435,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for the instance profile.
         :param pulumi.Input[builtins.bool] package_cleanup: When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[builtins.bool] reboot_after_use: When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -506,7 +506,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

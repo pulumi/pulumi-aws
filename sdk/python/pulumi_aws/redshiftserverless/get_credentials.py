@@ -142,6 +142,7 @@ def get_credentials(db_name: Optional[builtins.str] = None,
 
     :param builtins.str db_name: The name of the database to get temporary authorization to log on to.
     :param builtins.int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
@@ -181,6 +182,7 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[builtins.str]
 
     :param builtins.str db_name: The name of the database to get temporary authorization to log on to.
     :param builtins.int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()

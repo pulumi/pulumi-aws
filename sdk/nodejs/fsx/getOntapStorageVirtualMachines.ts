@@ -43,6 +43,9 @@ export interface GetOntapStorageVirtualMachinesArgs {
      * Configuration block. Detailed below.
      */
     filters?: inputs.fsx.GetOntapStorageVirtualMachinesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -97,5 +100,8 @@ export interface GetOntapStorageVirtualMachinesOutputArgs {
      * Configuration block. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachinesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

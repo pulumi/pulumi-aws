@@ -138,6 +138,7 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
            
            The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -199,6 +200,7 @@ def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
            
            The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

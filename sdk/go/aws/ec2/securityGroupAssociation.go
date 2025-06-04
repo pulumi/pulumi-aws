@@ -59,7 +59,7 @@ import (
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
 	ReplaceDefaultAssociation pulumi.BoolPtrOutput `pulumi:"replaceDefaultAssociation"`
@@ -105,7 +105,7 @@ func GetSecurityGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupAssociation resources.
 type securityGroupAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
 	ReplaceDefaultAssociation *bool `pulumi:"replaceDefaultAssociation"`
@@ -116,7 +116,7 @@ type securityGroupAssociationState struct {
 }
 
 type SecurityGroupAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
 	ReplaceDefaultAssociation pulumi.BoolPtrInput
@@ -131,7 +131,7 @@ func (SecurityGroupAssociationState) ElementType() reflect.Type {
 }
 
 type securityGroupAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
 	ReplaceDefaultAssociation *bool `pulumi:"replaceDefaultAssociation"`
@@ -143,7 +143,7 @@ type securityGroupAssociationArgs struct {
 
 // The set of arguments for constructing a SecurityGroupAssociation resource.
 type SecurityGroupAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
 	ReplaceDefaultAssociation pulumi.BoolPtrInput
@@ -240,7 +240,7 @@ func (o SecurityGroupAssociationOutput) ToSecurityGroupAssociationOutputWithCont
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecurityGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

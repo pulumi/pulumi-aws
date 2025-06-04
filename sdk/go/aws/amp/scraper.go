@@ -29,7 +29,7 @@ type Scraper struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination ScraperDestinationPtrOutput `pulumi:"destination"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -85,7 +85,7 @@ type scraperState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination *ScraperDestination `pulumi:"destination"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn *string `pulumi:"roleArn"`
@@ -109,7 +109,7 @@ type ScraperState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination ScraperDestinationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn pulumi.StringPtrInput
@@ -135,7 +135,7 @@ type scraperArgs struct {
 	Alias *string `pulumi:"alias"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination *ScraperDestination `pulumi:"destination"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
@@ -155,7 +155,7 @@ type ScraperArgs struct {
 	Alias pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination ScraperDestinationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
 	RoleConfiguration ScraperRoleConfigurationPtrInput
@@ -271,7 +271,7 @@ func (o ScraperOutput) Destination() ScraperDestinationPtrOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationPtrOutput { return v.Destination }).(ScraperDestinationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScraperOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -63,7 +63,7 @@ type Bucket struct {
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Amazon Web Services Region name.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
@@ -119,7 +119,7 @@ type bucketState struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name *string `pulumi:"name"`
-	// The Amazon Web Services Region name.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode *string `pulumi:"supportCode"`
@@ -143,7 +143,7 @@ type BucketState struct {
 	ForceDelete pulumi.BoolPtrInput
 	// The name for the bucket.
 	Name pulumi.StringPtrInput
-	// The Amazon Web Services Region name.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringPtrInput
@@ -165,7 +165,7 @@ type bucketArgs struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name *string `pulumi:"name"`
-	// The Amazon Web Services Region name.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -179,7 +179,7 @@ type BucketArgs struct {
 	ForceDelete pulumi.BoolPtrInput
 	// The name for the bucket.
 	Name pulumi.StringPtrInput
-	// The Amazon Web Services Region name.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -302,7 +302,7 @@ func (o BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services Region name.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

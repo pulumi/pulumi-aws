@@ -64,7 +64,7 @@ type Discoverer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
@@ -111,7 +111,7 @@ type discovererState struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn *string `pulumi:"sourceArn"`
@@ -126,7 +126,7 @@ type DiscovererState struct {
 	Arn pulumi.StringPtrInput
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringPtrInput
@@ -143,7 +143,7 @@ func (DiscovererState) ElementType() reflect.Type {
 type discovererArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn string `pulumi:"sourceArn"`
@@ -155,7 +155,7 @@ type discovererArgs struct {
 type DiscovererArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringInput
@@ -260,7 +260,7 @@ func (o DiscovererOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DiscovererOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

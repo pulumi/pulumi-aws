@@ -51,8 +51,9 @@ type GetApiKeysArgs struct {
 	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
 	CustomerId *string `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-	IncludeValues *bool   `pulumi:"includeValues"`
-	Region        *string `pulumi:"region"`
+	IncludeValues *bool `pulumi:"includeValues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApiKeys.
@@ -81,8 +82,9 @@ type GetApiKeysOutputArgs struct {
 	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
 	CustomerId pulumi.StringPtrInput `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-	IncludeValues pulumi.BoolPtrInput   `pulumi:"includeValues"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	IncludeValues pulumi.BoolPtrInput `pulumi:"includeValues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetApiKeysOutputArgs) ElementType() reflect.Type {

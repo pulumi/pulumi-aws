@@ -52,6 +52,7 @@ func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, o
 
 // A collection of arguments for invoking getVirtualCluster.
 type LookupVirtualClusterArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -90,6 +91,7 @@ func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOu
 
 // A collection of arguments for invoking getVirtualCluster.
 type LookupVirtualClusterOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

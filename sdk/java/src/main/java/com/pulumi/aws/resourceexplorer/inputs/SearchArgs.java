@@ -36,14 +36,14 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Amazon Web Services Region in which the resource was created and exists.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Amazon Web Services Region in which the resource was created and exists.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -117,7 +117,7 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region Amazon Web Services Region in which the resource was created and exists.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region Amazon Web Services Region in which the resource was created and exists.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

@@ -255,6 +255,7 @@ def get_permissions(catalog_id: Optional[builtins.str] = None,
     :param builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
     :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            
@@ -370,6 +371,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.s
     :param builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
     :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            

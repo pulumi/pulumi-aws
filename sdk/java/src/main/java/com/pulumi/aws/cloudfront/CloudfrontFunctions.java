@@ -10,6 +10,8 @@ import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
 import com.pulumi.aws.cloudfront.inputs.GetDistributionPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
 import com.pulumi.aws.cloudfront.inputs.GetFunctionPlainArgs;
+import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
@@ -37,7 +39,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudfrontFunctions {
@@ -1086,8 +1087,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1111,10 +1112,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1153,7 +1154,7 @@ public final class CloudfrontFunctions {
      * 
      */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId() {
-        return getLogDeliveryCanonicalUserId(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -1170,8 +1171,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1195,10 +1196,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1237,7 +1238,7 @@ public final class CloudfrontFunctions {
      * 
      */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain() {
-        return getLogDeliveryCanonicalUserIdPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
@@ -1254,8 +1255,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1279,10 +1280,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1320,7 +1321,7 @@ public final class CloudfrontFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(InvokeArgs args) {
+    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args) {
         return getLogDeliveryCanonicalUserId(args, InvokeOptions.Empty);
     }
     /**
@@ -1338,8 +1339,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1363,10 +1364,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1404,7 +1405,7 @@ public final class CloudfrontFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(InvokeArgs args) {
+    public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args) {
         return getLogDeliveryCanonicalUserIdPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1422,8 +1423,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1447,10 +1448,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1488,7 +1489,7 @@ public final class CloudfrontFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1506,8 +1507,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1531,10 +1532,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1572,7 +1573,7 @@ public final class CloudfrontFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1590,8 +1591,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.S3Functions;
-     * import com.pulumi.aws.s3.inputs.GetCanonicalUserIdArgs;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.Bucket;
      * import com.pulumi.aws.s3.BucketArgs;
      * import com.pulumi.aws.s3.BucketOwnershipControls;
@@ -1615,10 +1616,10 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = S3Functions.getCanonicalUserId(GetCanonicalUserIdArgs.builder()
-     *             .build());
+     *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs.builder()
+     *             .build());
      * 
      *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
      *             .bucket("example")
@@ -1656,7 +1657,7 @@ public final class CloudfrontFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
     }
     /**

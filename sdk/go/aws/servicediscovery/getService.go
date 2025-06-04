@@ -54,8 +54,9 @@ type LookupServiceArgs struct {
 	// Name of the service.
 	Name string `pulumi:"name"`
 	// ID of the namespace that the service belongs to.
-	NamespaceId string  `pulumi:"namespaceId"`
-	Region      *string `pulumi:"region"`
+	NamespaceId string `pulumi:"namespaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,8 +97,9 @@ type LookupServiceOutputArgs struct {
 	// Name of the service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// ID of the namespace that the service belongs to.
-	NamespaceId pulumi.StringInput    `pulumi:"namespaceId"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

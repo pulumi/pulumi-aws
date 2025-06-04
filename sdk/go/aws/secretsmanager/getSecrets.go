@@ -59,7 +59,8 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 type GetSecretsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetSecretsFilter `pulumi:"filters"`
-	Region  *string            `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSecrets.
@@ -87,7 +88,8 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 type GetSecretsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetSecretsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput      `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSecretsOutputArgs) ElementType() reflect.Type {

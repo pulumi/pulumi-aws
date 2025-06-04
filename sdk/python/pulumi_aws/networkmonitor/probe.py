@@ -36,9 +36,7 @@ class ProbeArgs:
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[builtins.int] destination_port: The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         :param pulumi.Input[builtins.int] packet_size: The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-               
-               The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination", destination)
@@ -119,8 +117,6 @@ class ProbeArgs:
     def packet_size(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "packet_size")
 
@@ -132,7 +128,7 @@ class ProbeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -176,10 +172,8 @@ class _ProbeState:
         :param pulumi.Input[builtins.int] destination_port: The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[builtins.int] packet_size: The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -273,8 +267,6 @@ class _ProbeState:
     def packet_size(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "packet_size")
 
@@ -307,7 +299,7 @@ class _ProbeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -413,10 +405,8 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] destination_port: The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[builtins.int] packet_size: The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -545,10 +535,8 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] destination_port: The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[builtins.int] packet_size: The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -614,8 +602,6 @@ class Probe(pulumi.CustomResource):
     def packet_size(self) -> pulumi.Output[builtins.int]:
         """
         The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "packet_size")
 
@@ -636,7 +622,7 @@ class Probe(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

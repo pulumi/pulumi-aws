@@ -114,7 +114,7 @@ type Fleet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringOutput `pulumi:"overflowBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
@@ -190,7 +190,7 @@ type fleetState struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
@@ -228,7 +228,7 @@ type FleetState struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
@@ -264,7 +264,7 @@ type fleetArgs struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
@@ -294,7 +294,7 @@ type FleetArgs struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
@@ -448,7 +448,7 @@ func (o FleetOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OverflowBehavior }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -22,11 +22,14 @@ __all__ = ['TableBucketArgs', 'TableBucket']
 @pulumi.input_type
 class TableBucketArgs:
     def __init__(__self__, *,
+                 encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TableBucket resource.
+        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
+               See `encryption_configuration` below.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[builtins.str] name: Name of the table bucket.
@@ -34,15 +37,30 @@ class TableBucketArgs:
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
-               The following argument is optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]:
+        """
+        A single table bucket encryption configuration object.
+        See `encryption_configuration` below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="maintenanceConfiguration")
@@ -66,7 +84,7 @@ class TableBucketArgs:
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
-        The following argument is optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +96,7 @@ class TableBucketArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -92,6 +110,7 @@ class _TableBucketState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
+                 encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -100,6 +119,8 @@ class _TableBucketState:
         Input properties used for looking up and filtering TableBucket resources.
         :param pulumi.Input[builtins.str] arn: ARN of the table bucket.
         :param pulumi.Input[builtins.str] created_at: Date and time when the bucket was created.
+        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
+               See `encryption_configuration` below.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[builtins.str] name: Name of the table bucket.
@@ -107,14 +128,16 @@ class _TableBucketState:
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
-               The following argument is optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
@@ -149,6 +172,19 @@ class _TableBucketState:
         pulumi.set(self, "created_at", value)
 
     @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]:
+        """
+        A single table bucket encryption configuration object.
+        See `encryption_configuration` below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']]:
         """
@@ -170,7 +206,7 @@ class _TableBucketState:
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
-        The following argument is optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -194,7 +230,7 @@ class _TableBucketState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -209,6 +245,7 @@ class TableBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
@@ -237,6 +274,8 @@ class TableBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
+               See `encryption_configuration` below.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[builtins.str] name: Name of the table bucket.
@@ -244,8 +283,8 @@ class TableBucket(pulumi.CustomResource):
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
-               The following argument is optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -290,6 +329,7 @@ class TableBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
@@ -302,6 +342,7 @@ class TableBucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableBucketArgs.__new__(TableBucketArgs)
 
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
@@ -320,6 +361,7 @@ class TableBucket(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
+            encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
             maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -333,6 +375,8 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the table bucket.
         :param pulumi.Input[builtins.str] created_at: Date and time when the bucket was created.
+        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
+               See `encryption_configuration` below.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[builtins.str] name: Name of the table bucket.
@@ -340,9 +384,9 @@ class TableBucket(pulumi.CustomResource):
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
-               The following argument is optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,6 +394,7 @@ class TableBucket(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["maintenance_configuration"] = maintenance_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
@@ -373,6 +418,15 @@ class TableBucket(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketEncryptionConfiguration']]:
+        """
+        A single table bucket encryption configuration object.
+        See `encryption_configuration` below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableBucketMaintenanceConfiguration']:
         """
@@ -390,7 +444,7 @@ class TableBucket(pulumi.CustomResource):
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
         A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
-        The following argument is optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -406,7 +460,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

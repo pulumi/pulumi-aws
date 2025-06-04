@@ -152,7 +152,7 @@ type LoadBalancerPolicy struct {
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName pulumi.StringOutput `pulumi:"policyTypeName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -209,7 +209,7 @@ type loadBalancerPolicyState struct {
 	PolicyName *string `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName *string `pulumi:"policyTypeName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -222,7 +222,7 @@ type LoadBalancerPolicyState struct {
 	PolicyName pulumi.StringPtrInput
 	// The policy type.
 	PolicyTypeName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -239,7 +239,7 @@ type loadBalancerPolicyArgs struct {
 	PolicyName string `pulumi:"policyName"`
 	// The policy type.
 	PolicyTypeName string `pulumi:"policyTypeName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -253,7 +253,7 @@ type LoadBalancerPolicyArgs struct {
 	PolicyName pulumi.StringInput
 	// The policy type.
 	PolicyTypeName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -364,7 +364,7 @@ func (o LoadBalancerPolicyOutput) PolicyTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerPolicy) pulumi.StringOutput { return v.PolicyTypeName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LoadBalancerPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -30,7 +30,8 @@ func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnection
 type GetVpcPeeringConnectionsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcPeeringConnectionsFilter `pulumi:"filters"`
-	Region  *string                          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//
@@ -62,7 +63,8 @@ func GetVpcPeeringConnectionsOutput(ctx *pulumi.Context, args GetVpcPeeringConne
 type GetVpcPeeringConnectionsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcPeeringConnectionsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                    `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//

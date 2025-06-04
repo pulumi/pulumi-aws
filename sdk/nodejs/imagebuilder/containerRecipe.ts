@@ -142,7 +142,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
      */
     public readonly platformOverride!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -311,7 +311,7 @@ export interface ContainerRecipeState {
      */
     platformOverride?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface ContainerRecipeState {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -383,7 +383,7 @@ export interface ContainerRecipeArgs {
      */
     platformOverride?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -397,7 +397,7 @@ export interface ContainerRecipeArgs {
     /**
      * Version of the container recipe.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version: pulumi.Input<string>;
     /**

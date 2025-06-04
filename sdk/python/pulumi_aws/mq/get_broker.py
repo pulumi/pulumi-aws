@@ -277,6 +277,7 @@ def get_broker(broker_id: Optional[builtins.str] = None,
 
     :param builtins.str broker_id: Unique id of the mq broker.
     :param builtins.str broker_name: Unique name of the mq broker.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['brokerId'] = broker_id
@@ -338,6 +339,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] 
 
     :param builtins.str broker_id: Unique id of the mq broker.
     :param builtins.str broker_name: Unique name of the mq broker.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['brokerId'] = broker_id

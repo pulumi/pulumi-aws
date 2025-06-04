@@ -61,7 +61,7 @@ type EndpointAccess struct {
 	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
 	// The port that Amazon Redshift Serverless listens on.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -122,7 +122,7 @@ type endpointAccessState struct {
 	OwnerAccount *string `pulumi:"ownerAccount"`
 	// The port that Amazon Redshift Serverless listens on.
 	Port *int `pulumi:"port"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -145,7 +145,7 @@ type EndpointAccessState struct {
 	OwnerAccount pulumi.StringPtrInput
 	// The port that Amazon Redshift Serverless listens on.
 	Port pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds pulumi.StringArrayInput
@@ -166,7 +166,7 @@ type endpointAccessArgs struct {
 	EndpointName string `pulumi:"endpointName"`
 	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
 	OwnerAccount *string `pulumi:"ownerAccount"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -182,7 +182,7 @@ type EndpointAccessArgs struct {
 	EndpointName pulumi.StringInput
 	// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
 	OwnerAccount pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An array of VPC subnet IDs to associate with the endpoint.
 	SubnetIds pulumi.StringArrayInput
@@ -304,7 +304,7 @@ func (o EndpointAccessOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointAccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

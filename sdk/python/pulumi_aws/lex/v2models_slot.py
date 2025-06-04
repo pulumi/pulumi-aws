@@ -47,7 +47,7 @@ class V2modelsSlotArgs:
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
@@ -177,7 +177,7 @@ class V2modelsSlotArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -258,7 +258,7 @@ class _V2modelsSlotState:
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
@@ -395,7 +395,7 @@ class _V2modelsSlotState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -500,7 +500,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
@@ -620,7 +620,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
@@ -716,7 +716,7 @@ class V2modelsSlot(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

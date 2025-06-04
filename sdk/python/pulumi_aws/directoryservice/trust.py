@@ -42,7 +42,7 @@ class TrustArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
                Can contain between 1 and 4 values.
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
                Default value is `Disabled`.
@@ -146,7 +146,7 @@ class TrustArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -208,7 +208,7 @@ class _TrustState:
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
         :param pulumi.Input[builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -321,7 +321,7 @@ class _TrustState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -528,7 +528,7 @@ class Trust(pulumi.CustomResource):
                Can contain between 1 and 4 values.
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -712,7 +712,7 @@ class Trust(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
         :param pulumi.Input[builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -796,7 +796,7 @@ class Trust(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

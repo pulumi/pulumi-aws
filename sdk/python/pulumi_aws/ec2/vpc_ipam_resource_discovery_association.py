@@ -28,7 +28,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
         The set of arguments for constructing a VpcIpamResourceDiscoveryAssociation resource.
         :param pulumi.Input[builtins.str] ipam_id: The ID of the IPAM to associate.
         :param pulumi.Input[builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
@@ -66,7 +66,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -110,7 +110,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
         :param pulumi.Input[builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
         :param pulumi.Input[builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         :param pulumi.Input[builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The lifecycle state of the association when you associate or disassociate a resource discovery.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -226,7 +226,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -315,7 +315,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] ipam_id: The ID of the IPAM to associate.
         :param pulumi.Input[builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         """
         ...
@@ -431,7 +431,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
         :param pulumi.Input[builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         :param pulumi.Input[builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: The lifecycle state of the association when you associate or disassociate a resource discovery.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -513,7 +513,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

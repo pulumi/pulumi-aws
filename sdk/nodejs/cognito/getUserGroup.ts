@@ -38,6 +38,9 @@ export interface GetUserGroupArgs {
      * Name of the user group.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * User pool the client belongs to.
@@ -103,6 +106,9 @@ export interface GetUserGroupOutputArgs {
      * Name of the user group.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * User pool the client belongs to.

@@ -78,7 +78,7 @@ type Attachment struct {
 	Elb pulumi.StringPtrOutput `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type attachmentState struct {
 	Elb *string `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type AttachmentState struct {
 	Elb pulumi.StringPtrInput
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -147,7 +147,7 @@ type attachmentArgs struct {
 	Elb *string `pulumi:"elb"`
 	// ARN of a load balancer target group.
 	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -159,7 +159,7 @@ type AttachmentArgs struct {
 	Elb pulumi.StringPtrInput
 	// ARN of a load balancer target group.
 	LbTargetGroupArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o AttachmentOutput) LbTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.LbTargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

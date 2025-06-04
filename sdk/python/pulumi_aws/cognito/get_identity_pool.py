@@ -197,6 +197,7 @@ def get_identity_pool(identity_pool_name: Optional[builtins.str] = None,
 
 
     :param builtins.str identity_pool_name: The Cognito Identity Pool name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the Identity Pool.
     """
     __args__ = dict()
@@ -239,6 +240,7 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str identity_pool_name: The Cognito Identity Pool name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the Identity Pool.
     """
     __args__ = dict()

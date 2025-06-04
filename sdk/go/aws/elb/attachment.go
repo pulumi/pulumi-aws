@@ -55,7 +55,7 @@ type Attachment struct {
 	Elb pulumi.StringOutput `pulumi:"elb"`
 	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringOutput `pulumi:"instance"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -105,7 +105,7 @@ type attachmentState struct {
 	Elb *string `pulumi:"elb"`
 	// Instance ID to place in the ELB pool.
 	Instance *string `pulumi:"instance"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -114,7 +114,7 @@ type AttachmentState struct {
 	Elb pulumi.StringPtrInput
 	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type attachmentArgs struct {
 	Elb string `pulumi:"elb"`
 	// Instance ID to place in the ELB pool.
 	Instance string `pulumi:"instance"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -137,7 +137,7 @@ type AttachmentArgs struct {
 	Elb pulumi.StringInput
 	// Instance ID to place in the ELB pool.
 	Instance pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -238,7 +238,7 @@ func (o AttachmentOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Instance }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

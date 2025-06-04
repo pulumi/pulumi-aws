@@ -397,7 +397,7 @@ func (o GetKeyMultiRegionConfigurationArrayOutput) Index(i pulumi.IntInput) GetK
 type GetKeyMultiRegionConfigurationPrimaryKey struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
 	Arn string `pulumi:"arn"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -415,7 +415,7 @@ type GetKeyMultiRegionConfigurationPrimaryKeyInput interface {
 type GetKeyMultiRegionConfigurationPrimaryKeyArgs struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -475,7 +475,7 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Arn() pulumi.StringOutpu
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region of a primary or replica key in a multi-Region key.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -503,7 +503,7 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) Index(i pulumi.IntI
 type GetKeyMultiRegionConfigurationReplicaKey struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
 	Arn string `pulumi:"arn"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -521,7 +521,7 @@ type GetKeyMultiRegionConfigurationReplicaKeyInput interface {
 type GetKeyMultiRegionConfigurationReplicaKeyArgs struct {
 	// The key ARN of a primary or replica key of a multi-Region key.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The AWS Region of a primary or replica key in a multi-Region key.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -581,7 +581,7 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Arn() pulumi.StringOutpu
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region of a primary or replica key in a multi-Region key.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Region }).(pulumi.StringOutput)
 }

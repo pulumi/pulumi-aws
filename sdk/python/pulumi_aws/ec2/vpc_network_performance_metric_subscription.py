@@ -30,7 +30,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         pulumi.set(__self__, "destination", destination)
@@ -82,7 +82,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[builtins.str] period: The data aggregation time for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -174,7 +174,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -237,7 +237,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -326,7 +326,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[builtins.str] period: The data aggregation time for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -370,7 +370,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

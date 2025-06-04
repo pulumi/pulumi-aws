@@ -120,7 +120,7 @@ type SourceCredential struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
@@ -185,7 +185,7 @@ type sourceCredentialState struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType *string `pulumi:"authType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType *string `pulumi:"serverType"`
@@ -205,7 +205,7 @@ type SourceCredentialState struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source provider used for this project.
 	ServerType pulumi.StringPtrInput
@@ -227,7 +227,7 @@ type sourceCredentialArgs struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType string `pulumi:"authType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType string `pulumi:"serverType"`
@@ -246,7 +246,7 @@ type SourceCredentialArgs struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source provider used for this project.
 	ServerType pulumi.StringInput
@@ -358,7 +358,7 @@ func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SourceCredentialOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -76,7 +76,7 @@ type VoiceConnectorTermination struct {
 	DefaultPhoneNumber pulumi.StringPtrOutput `pulumi:"defaultPhoneNumber"`
 	// When termination settings are disabled, outbound calls can not be made.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Chime Voice Connector ID.
 	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
@@ -131,7 +131,7 @@ type voiceConnectorTerminationState struct {
 	DefaultPhoneNumber *string `pulumi:"defaultPhoneNumber"`
 	// When termination settings are disabled, outbound calls can not be made.
 	Disabled *bool `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Chime Voice Connector ID.
 	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
@@ -148,7 +148,7 @@ type VoiceConnectorTerminationState struct {
 	DefaultPhoneNumber pulumi.StringPtrInput
 	// When termination settings are disabled, outbound calls can not be made.
 	Disabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Chime Voice Connector ID.
 	VoiceConnectorId pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type voiceConnectorTerminationArgs struct {
 	DefaultPhoneNumber *string `pulumi:"defaultPhoneNumber"`
 	// When termination settings are disabled, outbound calls can not be made.
 	Disabled *bool `pulumi:"disabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Chime Voice Connector ID.
 	VoiceConnectorId string `pulumi:"voiceConnectorId"`
@@ -187,7 +187,7 @@ type VoiceConnectorTerminationArgs struct {
 	DefaultPhoneNumber pulumi.StringPtrInput
 	// When termination settings are disabled, outbound calls can not be made.
 	Disabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Chime Voice Connector ID.
 	VoiceConnectorId pulumi.StringInput
@@ -305,7 +305,7 @@ func (o VoiceConnectorTerminationOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorTerminationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorTermination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

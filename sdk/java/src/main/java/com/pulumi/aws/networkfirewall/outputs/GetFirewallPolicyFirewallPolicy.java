@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyPolicyVariable;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOption;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessCustomAction;
@@ -15,6 +16,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicy {
+    private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
     private List<String> statefulDefaultActions;
     private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
     private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -25,6 +27,9 @@ public final class GetFirewallPolicyFirewallPolicy {
     private String tlsInspectionConfigurationArn;
 
     private GetFirewallPolicyFirewallPolicy() {}
+    public List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables() {
+        return this.policyVariables;
+    }
     public List<String> statefulDefaultActions() {
         return this.statefulDefaultActions;
     }
@@ -59,6 +64,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
         private List<String> statefulDefaultActions;
         private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
         private List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -70,6 +76,7 @@ public final class GetFirewallPolicyFirewallPolicy {
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.policyVariables = defaults.policyVariables;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
     	      this.statefulRuleGroupReferences = defaults.statefulRuleGroupReferences;
@@ -80,6 +87,17 @@ public final class GetFirewallPolicyFirewallPolicy {
     	      this.tlsInspectionConfigurationArn = defaults.tlsInspectionConfigurationArn;
         }
 
+        @CustomType.Setter
+        public Builder policyVariables(List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables) {
+            if (policyVariables == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "policyVariables");
+            }
+            this.policyVariables = policyVariables;
+            return this;
+        }
+        public Builder policyVariables(GetFirewallPolicyFirewallPolicyPolicyVariable... policyVariables) {
+            return policyVariables(List.of(policyVariables));
+        }
         @CustomType.Setter
         public Builder statefulDefaultActions(List<String> statefulDefaultActions) {
             if (statefulDefaultActions == null) {
@@ -167,6 +185,7 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         public GetFirewallPolicyFirewallPolicy build() {
             final var _resultValue = new GetFirewallPolicyFirewallPolicy();
+            _resultValue.policyVariables = policyVariables;
             _resultValue.statefulDefaultActions = statefulDefaultActions;
             _resultValue.statefulEngineOptions = statefulEngineOptions;
             _resultValue.statefulRuleGroupReferences = statefulRuleGroupReferences;

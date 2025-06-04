@@ -18,6 +18,7 @@ from . import outputs
 
 __all__ = [
     'CompositeAlarmActionsSuppressor',
+    'EventBusDeadLetterConfig',
     'EventConnectionAuthParameters',
     'EventConnectionAuthParametersApiKey',
     'EventConnectionAuthParametersBasic',
@@ -71,6 +72,7 @@ __all__ = [
     'MetricStreamStatisticsConfigurationIncludeMetric',
     'GetContributorManagedInsightRulesManagedRuleResult',
     'GetContributorManagedInsightRulesManagedRuleRuleStateResult',
+    'GetEventBusDeadLetterConfigResult',
     'GetEventBusesEventBusResult',
     'GetLogDataProtectionPolicyDocumentConfigurationResult',
     'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult',
@@ -142,6 +144,25 @@ class CompositeAlarmActionsSuppressor(dict):
         The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
         """
         return pulumi.get(self, "wait_period")
+
+
+@pulumi.output_type
+class EventBusDeadLetterConfig(dict):
+    def __init__(__self__, *,
+                 arn: Optional[builtins.str] = None):
+        """
+        :param builtins.str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[builtins.str]:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -2464,7 +2485,7 @@ class MetricAlarmMetricQuery(dict):
         :param 'MetricAlarmMetricQueryMetricArgs' metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
         :param builtins.int period: Granularity in seconds of returned data points.
                For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         :param builtins.bool return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
                
                > **NOTE:**  You must specify either `metric` or `expression`. Not both.
@@ -2529,7 +2550,7 @@ class MetricAlarmMetricQuery(dict):
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -2575,7 +2596,7 @@ class MetricAlarmMetricQueryMetric(dict):
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param builtins.int period: Granularity in seconds of returned data points.
                For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         :param builtins.str stat: The statistic to apply to this metric.
                See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         :param Mapping[str, builtins.str] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -2608,7 +2629,7 @@ class MetricAlarmMetricQueryMetric(dict):
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -2898,6 +2919,24 @@ class GetContributorManagedInsightRulesManagedRuleRuleStateResult(dict):
         Indicates whether the rule is enabled or disabled.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class GetEventBusDeadLetterConfigResult(dict):
+    def __init__(__self__, *,
+                 arn: builtins.str):
+        """
+        :param builtins.str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> builtins.str:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type

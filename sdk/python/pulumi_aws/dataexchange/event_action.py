@@ -31,7 +31,7 @@ class EventActionArgs:
                Described in `action` Configuration Block below.
         :param pulumi.Input['EventActionEventArgs'] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -70,7 +70,7 @@ class EventActionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -96,7 +96,7 @@ class _EventActionState:
         :param pulumi.Input[builtins.str] created_at: Date and time when the resource was created.
         :param pulumi.Input['EventActionEventArgs'] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Data and time when the resource was last updated.
         """
         if action is not None:
@@ -166,7 +166,7 @@ class _EventActionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -240,7 +240,7 @@ class EventAction(pulumi.CustomResource):
                Described in `action` Configuration Block below.
         :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -347,7 +347,7 @@ class EventAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_at: Date and time when the resource was created.
         :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Data and time when the resource was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,7 +400,7 @@ class EventAction(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

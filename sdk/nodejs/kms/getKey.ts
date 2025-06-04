@@ -59,7 +59,7 @@ export interface GetKeyArgs {
      */
     keyId: string;
     /**
-     * The AWS Region of a primary or replica key in a multi-Region key.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -211,7 +211,7 @@ export interface GetKeyOutputArgs {
      */
     keyId: pulumi.Input<string>;
     /**
-     * The AWS Region of a primary or replica key in a multi-Region key.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

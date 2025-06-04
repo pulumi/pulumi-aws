@@ -40,7 +40,7 @@ import (
 //			}
 //			_, err = transfer.NewTag(ctx, "zone_id", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
+//				Key:         pulumi.String("transfer:route53HostedZoneId"),
 //				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
 //			})
 //			if err != nil {
@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
+//				Key:         pulumi.String("transfer:customHostname"),
 //				Value:       pulumi.String("example.com"),
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ type Tag struct {
 
 	// Tag name.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -121,7 +121,7 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// Tag name.
 	Key *string `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -132,7 +132,7 @@ type tagState struct {
 type TagState struct {
 	// Tag name.
 	Key pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Tag name.
 	Key string `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -159,7 +159,7 @@ type tagArgs struct {
 type TagArgs struct {
 	// Tag name.
 	Key pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringInput
@@ -259,7 +259,7 @@ func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

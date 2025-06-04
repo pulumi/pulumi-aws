@@ -209,6 +209,7 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[builtins.s
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
@@ -251,6 +252,7 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id

@@ -119,6 +119,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[Union['
     :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param builtins.str id: Identifier of EC2 Local Gateway Virtual Interface Group.
     :param builtins.str local_gateway_id: Identifier of EC2 Local Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
     __args__ = dict()
@@ -159,6 +160,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param builtins.str id: Identifier of EC2 Local Gateway Virtual Interface Group.
     :param builtins.str local_gateway_id: Identifier of EC2 Local Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
     __args__ = dict()

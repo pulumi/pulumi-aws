@@ -70,7 +70,7 @@ type PermissionSet struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrOutput `pulumi:"relayState"`
@@ -125,7 +125,7 @@ type permissionSetState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState *string `pulumi:"relayState"`
@@ -148,7 +148,7 @@ type PermissionSetState struct {
 	InstanceArn pulumi.StringPtrInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type permissionSetArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState *string `pulumi:"relayState"`
@@ -189,7 +189,7 @@ type PermissionSetArgs struct {
 	InstanceArn pulumi.StringInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrInput
@@ -311,7 +311,7 @@ func (o PermissionSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

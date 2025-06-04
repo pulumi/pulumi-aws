@@ -75,7 +75,7 @@ type Authorizer struct {
 	EnableCachingForHttp pulumi.BoolPtrOutput `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
@@ -139,7 +139,7 @@ type authorizerState struct {
 	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled *bool `pulumi:"signingDisabled"`
@@ -164,7 +164,7 @@ type AuthorizerState struct {
 	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrInput
@@ -191,7 +191,7 @@ type authorizerArgs struct {
 	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled *bool `pulumi:"signingDisabled"`
@@ -213,7 +213,7 @@ type AuthorizerArgs struct {
 	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
 	SigningDisabled pulumi.BoolPtrInput
@@ -334,7 +334,7 @@ func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthorizerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

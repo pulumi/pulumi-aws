@@ -83,9 +83,12 @@ type LookupRoutingProfileArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,9 +130,12 @@ type LookupRoutingProfileOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

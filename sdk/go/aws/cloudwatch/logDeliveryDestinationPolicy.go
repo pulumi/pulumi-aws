@@ -57,7 +57,7 @@ type LogDeliveryDestinationPolicy struct {
 	DeliveryDestinationName pulumi.StringOutput `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringOutput `pulumi:"deliveryDestinationPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -101,7 +101,7 @@ type logDeliveryDestinationPolicyState struct {
 	DeliveryDestinationName *string `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy *string `pulumi:"deliveryDestinationPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type LogDeliveryDestinationPolicyState struct {
 	DeliveryDestinationName pulumi.StringPtrInput
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -123,7 +123,7 @@ type logDeliveryDestinationPolicyArgs struct {
 	DeliveryDestinationName string `pulumi:"deliveryDestinationName"`
 	// The contents of the policy.
 	DeliveryDestinationPolicy string `pulumi:"deliveryDestinationPolicy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -133,7 +133,7 @@ type LogDeliveryDestinationPolicyArgs struct {
 	DeliveryDestinationName pulumi.StringInput
 	// The contents of the policy.
 	DeliveryDestinationPolicy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -234,7 +234,7 @@ func (o LogDeliveryDestinationPolicyOutput) DeliveryDestinationPolicy() pulumi.S
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.DeliveryDestinationPolicy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDeliveryDestinationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestinationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

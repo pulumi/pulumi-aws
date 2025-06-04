@@ -43,7 +43,7 @@ class VpcConnectionArgs:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -153,7 +153,7 @@ class VpcConnectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -206,7 +206,7 @@ class _VpcConnectionState:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -307,7 +307,7 @@ class _VpcConnectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -480,7 +480,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -644,7 +644,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[builtins.str] name: The display name for the VPC connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -717,7 +717,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

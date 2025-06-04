@@ -122,7 +122,7 @@ type AmiLaunchPermission struct {
 	OrganizationArn pulumi.StringPtrOutput `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrOutput `pulumi:"organizationalUnitArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -169,7 +169,7 @@ type amiLaunchPermissionState struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -184,7 +184,7 @@ type AmiLaunchPermissionState struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -203,7 +203,7 @@ type amiLaunchPermissionArgs struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -219,7 +219,7 @@ type AmiLaunchPermissionArgs struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -335,7 +335,7 @@ func (o AmiLaunchPermissionOutput) OrganizationalUnitArn() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.OrganizationalUnitArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AmiLaunchPermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

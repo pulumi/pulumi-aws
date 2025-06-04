@@ -22,6 +22,8 @@ __all__ = ['DomainConfigurationArgs', 'DomainConfiguration']
 @pulumi.input_type
 class DomainConfigurationArgs:
     def __init__(__self__, *,
+                 application_protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,10 +36,12 @@ class DomainConfigurationArgs:
                  validation_certificate_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainConfiguration resource.
+        :param pulumi.Input[builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        :param pulumi.Input[builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -45,6 +49,10 @@ class DomainConfigurationArgs:
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[builtins.str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
+        if application_protocol is not None:
+            pulumi.set(__self__, "application_protocol", application_protocol)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if authorizer_config is not None:
             pulumi.set(__self__, "authorizer_config", authorizer_config)
         if domain_name is not None:
@@ -65,6 +73,30 @@ class DomainConfigurationArgs:
             pulumi.set(__self__, "tls_config", tls_config)
         if validation_certificate_arn is not None:
             pulumi.set(__self__, "validation_certificate_arn", validation_certificate_arn)
+
+    @property
+    @pulumi.getter(name="applicationProtocol")
+    def application_protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        """
+        return pulumi.get(self, "application_protocol")
+
+    @application_protocol.setter
+    def application_protocol(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "application_protocol", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="authorizerConfig")
@@ -106,7 +138,7 @@ class DomainConfigurationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -190,7 +222,9 @@ class DomainConfigurationArgs:
 @pulumi.input_type
 class _DomainConfigurationState:
     def __init__(__self__, *,
+                 application_protocol: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -205,12 +239,14 @@ class _DomainConfigurationState:
                  validation_certificate_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainConfiguration resources.
+        :param pulumi.Input[builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
         :param pulumi.Input[builtins.str] arn: The ARN of the domain configuration.
+        :param pulumi.Input[builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] domain_type: The type of the domain.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -219,8 +255,12 @@ class _DomainConfigurationState:
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[builtins.str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
+        if application_protocol is not None:
+            pulumi.set(__self__, "application_protocol", application_protocol)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if authorizer_config is not None:
             pulumi.set(__self__, "authorizer_config", authorizer_config)
         if domain_name is not None:
@@ -247,6 +287,18 @@ class _DomainConfigurationState:
             pulumi.set(__self__, "validation_certificate_arn", validation_certificate_arn)
 
     @property
+    @pulumi.getter(name="applicationProtocol")
+    def application_protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        """
+        return pulumi.get(self, "application_protocol")
+
+    @application_protocol.setter
+    def application_protocol(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "application_protocol", value)
+
+    @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -257,6 +309,18 @@ class _DomainConfigurationState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="authorizerConfig")
@@ -310,7 +374,7 @@ class _DomainConfigurationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -409,6 +473,8 @@ class DomainConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -446,10 +512,12 @@ class DomainConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        :param pulumi.Input[builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
         :param pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -502,6 +570,8 @@ class DomainConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -521,6 +591,8 @@ class DomainConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainConfigurationArgs.__new__(DomainConfigurationArgs)
 
+            __props__.__dict__["application_protocol"] = application_protocol
+            __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["authorizer_config"] = authorizer_config
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
@@ -544,7 +616,9 @@ class DomainConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            application_protocol: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            authentication_type: Optional[pulumi.Input[builtins.str]] = None,
             authorizer_config: Optional[pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             domain_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -564,12 +638,14 @@ class DomainConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
         :param pulumi.Input[builtins.str] arn: The ARN of the domain configuration.
+        :param pulumi.Input[builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
         :param pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         :param pulumi.Input[builtins.str] domain_name: Fully-qualified domain name.
         :param pulumi.Input[builtins.str] domain_type: The type of the domain.
         :param pulumi.Input[builtins.str] name: The name of the domain configuration. This value must be unique to a region.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] server_certificate_arns: The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         :param pulumi.Input[builtins.str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[builtins.str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
@@ -582,7 +658,9 @@ class DomainConfiguration(pulumi.CustomResource):
 
         __props__ = _DomainConfigurationState.__new__(_DomainConfigurationState)
 
+        __props__.__dict__["application_protocol"] = application_protocol
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["authentication_type"] = authentication_type
         __props__.__dict__["authorizer_config"] = authorizer_config
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_type"] = domain_type
@@ -598,12 +676,28 @@ class DomainConfiguration(pulumi.CustomResource):
         return DomainConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="applicationProtocol")
+    def application_protocol(self) -> pulumi.Output[builtins.str]:
+        """
+        An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        """
+        return pulumi.get(self, "application_protocol")
+
+    @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
         The ARN of the domain configuration.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Output[builtins.str]:
+        """
+        An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        """
+        return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="authorizerConfig")
@@ -641,7 +735,7 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

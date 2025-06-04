@@ -51,8 +51,9 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 // A collection of arguments for invoking getPipeline.
 type LookupPipelineArgs struct {
 	// ID of the pipeline.
-	PipelineId string  `pulumi:"pipelineId"`
-	Region     *string `pulumi:"region"`
+	PipelineId string `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,8 +84,9 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 // A collection of arguments for invoking getPipeline.
 type LookupPipelineOutputArgs struct {
 	// ID of the pipeline.
-	PipelineId pulumi.StringInput    `pulumi:"pipelineId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

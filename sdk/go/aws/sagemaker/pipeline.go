@@ -87,7 +87,7 @@ type Pipeline struct {
 	PipelineDisplayName pulumi.StringOutput `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -147,7 +147,7 @@ type pipelineState struct {
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName *string `pulumi:"pipelineName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn *string `pulumi:"roleArn"`
@@ -172,7 +172,7 @@ type PipelineState struct {
 	PipelineDisplayName pulumi.StringPtrInput
 	// The name of the pipeline.
 	PipelineName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type pipelineArgs struct {
 	PipelineDisplayName string `pulumi:"pipelineDisplayName"`
 	// The name of the pipeline.
 	PipelineName string `pulumi:"pipelineName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn *string `pulumi:"roleArn"`
@@ -221,7 +221,7 @@ type PipelineArgs struct {
 	PipelineDisplayName pulumi.StringInput
 	// The name of the pipeline.
 	PipelineName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role the pipeline will execute as.
 	RoleArn pulumi.StringPtrInput
@@ -351,7 +351,7 @@ func (o PipelineOutput) PipelineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PipelineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

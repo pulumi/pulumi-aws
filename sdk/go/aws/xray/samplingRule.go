@@ -75,7 +75,7 @@ type SamplingRule struct {
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
 	// The priority of the sampling rule.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntOutput `pulumi:"reservoirSize"`
@@ -169,7 +169,7 @@ type samplingRuleState struct {
 	HttpMethod *string `pulumi:"httpMethod"`
 	// The priority of the sampling rule.
 	Priority *int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *int `pulumi:"reservoirSize"`
@@ -204,7 +204,7 @@ type SamplingRuleState struct {
 	HttpMethod pulumi.StringPtrInput
 	// The priority of the sampling rule.
 	Priority pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntPtrInput
@@ -241,7 +241,7 @@ type samplingRuleArgs struct {
 	HttpMethod string `pulumi:"httpMethod"`
 	// The priority of the sampling rule.
 	Priority int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize int `pulumi:"reservoirSize"`
@@ -273,7 +273,7 @@ type SamplingRuleArgs struct {
 	HttpMethod pulumi.StringInput
 	// The priority of the sampling rule.
 	Priority pulumi.IntInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntInput
@@ -410,7 +410,7 @@ func (o SamplingRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SamplingRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

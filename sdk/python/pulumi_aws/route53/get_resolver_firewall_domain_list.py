@@ -197,6 +197,7 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[builtins
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
@@ -238,6 +239,7 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id

@@ -52,6 +52,7 @@ func GetUserGroups(ctx *pulumi.Context, args *GetUserGroupsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -78,6 +79,7 @@ func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`

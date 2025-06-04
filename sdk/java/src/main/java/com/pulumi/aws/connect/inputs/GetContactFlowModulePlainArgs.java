@@ -49,6 +49,8 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
     /**
      * Returns information on a specific Contact Flow Module by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -56,14 +58,24 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
     /**
      * @return Returns information on a specific Contact Flow Module by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable String region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -136,6 +148,8 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
         /**
          * @param name Returns information on a specific Contact Flow Module by name
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -144,6 +158,12 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

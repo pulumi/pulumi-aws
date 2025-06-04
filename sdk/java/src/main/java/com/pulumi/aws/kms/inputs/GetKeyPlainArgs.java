@@ -55,14 +55,14 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The AWS Region of a primary or replica key in a multi-Region key.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -132,7 +132,7 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region The AWS Region of a primary or replica key in a multi-Region key.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

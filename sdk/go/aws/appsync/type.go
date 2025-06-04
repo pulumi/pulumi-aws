@@ -78,7 +78,7 @@ type Type struct {
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The type name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -133,7 +133,7 @@ type typeState struct {
 	Format *string `pulumi:"format"`
 	// The type name.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type TypeState struct {
 	Format pulumi.StringPtrInput
 	// The type name.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -165,7 +165,7 @@ type typeArgs struct {
 	Definition string `pulumi:"definition"`
 	// The type format: `SDL` or `JSON`.
 	Format string `pulumi:"format"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -177,7 +177,7 @@ type TypeArgs struct {
 	Definition pulumi.StringInput
 	// The type format: `SDL` or `JSON`.
 	Format pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -298,7 +298,7 @@ func (o TypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

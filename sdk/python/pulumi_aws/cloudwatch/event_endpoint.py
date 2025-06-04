@@ -35,7 +35,7 @@ class EventEndpointArgs:
         :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         :param pulumi.Input[builtins.str] description: A description of the global endpoint.
         :param pulumi.Input[builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventEndpointReplicationConfigArgs'] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
         """
@@ -104,7 +104,7 @@ class EventEndpointArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _EventEndpointState:
         :param pulumi.Input[builtins.str] endpoint_url: The URL of the endpoint that was created.
         :param pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventEndpointReplicationConfigArgs'] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
         :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
@@ -244,7 +244,7 @@ class _EventEndpointState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -353,7 +353,7 @@ class EventEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the global endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
         :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
@@ -484,7 +484,7 @@ class EventEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_url: The URL of the endpoint that was created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the global endpoint.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role used for replication between event buses.
         :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
@@ -548,7 +548,7 @@ class EventEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

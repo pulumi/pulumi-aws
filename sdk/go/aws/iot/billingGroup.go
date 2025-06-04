@@ -62,7 +62,7 @@ type BillingGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrOutput `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,7 +108,7 @@ type billingGroupState struct {
 	Name *string `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties *BillingGroupProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags    map[string]string `pulumi:"tags"`
@@ -125,7 +125,7 @@ type BillingGroupState struct {
 	Name pulumi.StringPtrInput
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags    pulumi.StringMapInput
@@ -143,7 +143,7 @@ type billingGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties *BillingGroupProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +155,7 @@ type BillingGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
@@ -267,7 +267,7 @@ func (o BillingGroupOutput) Properties() BillingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *BillingGroup) BillingGroupPropertiesPtrOutput { return v.Properties }).(BillingGroupPropertiesPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BillingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -38,6 +38,9 @@ export interface GetPlanArgs {
      * Backup plan ID.
      */
     planId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that you can assign to help organize the plans you create.
@@ -107,6 +110,9 @@ export interface GetPlanOutputArgs {
      * Backup plan ID.
      */
     planId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the plans you create.

@@ -88,7 +88,8 @@ type LookupVpcArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcFilter `pulumi:"filters"`
 	// ID of the specific VPC to retrieve.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
@@ -156,7 +157,8 @@ type LookupVpcOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPC to retrieve.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.

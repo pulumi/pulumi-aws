@@ -53,8 +53,9 @@ type LookupPipelineDefinitionArgs struct {
 	// Parameter values used in the pipeline definition. See below
 	ParameterValues []GetPipelineDefinitionParameterValue `pulumi:"parameterValues"`
 	// ID of the pipeline.
-	PipelineId string  `pulumi:"pipelineId"`
-	Region     *string `pulumi:"region"`
+	PipelineId string `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPipelineDefinition.
@@ -85,8 +86,9 @@ type LookupPipelineDefinitionOutputArgs struct {
 	// Parameter values used in the pipeline definition. See below
 	ParameterValues GetPipelineDefinitionParameterValueArrayInput `pulumi:"parameterValues"`
 	// ID of the pipeline.
-	PipelineId pulumi.StringInput    `pulumi:"pipelineId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPipelineDefinitionOutputArgs) ElementType() reflect.Type {

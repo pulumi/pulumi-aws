@@ -38,7 +38,7 @@ class EventDestinationArgs:
         :param pulumi.Input[builtins.bool] enabled: If true, the event destination will be enabled
         :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[builtins.str] name: The name of the event destination
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -134,7 +134,7 @@ class EventDestinationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -178,7 +178,7 @@ class _EventDestinationState:
         :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -290,7 +290,7 @@ class _EventDestinationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -409,7 +409,7 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -571,7 +571,7 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[builtins.str] name: The name of the event destination
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']] sns_destination: Send the events to an SNS Topic destination
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
@@ -651,7 +651,7 @@ class EventDestination(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

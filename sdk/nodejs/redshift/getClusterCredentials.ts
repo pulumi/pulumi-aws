@@ -60,6 +60,9 @@ export interface GetClusterCredentialsArgs {
      * The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
      */
     durationSeconds?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -143,5 +146,8 @@ export interface GetClusterCredentialsOutputArgs {
      * The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
      */
     durationSeconds?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

@@ -29,7 +29,7 @@ class LbStickinessPolicyArgs:
         :param pulumi.Input[builtins.int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable session stickiness.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cookie_duration", cookie_duration)
         pulumi.set(__self__, "enabled", enabled)
@@ -77,7 +77,7 @@ class LbStickinessPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _LbStickinessPolicyState:
         :param pulumi.Input[builtins.int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable session stickiness.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cookie_duration is not None:
             pulumi.set(__self__, "cookie_duration", cookie_duration)
@@ -149,7 +149,7 @@ class _LbStickinessPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -204,7 +204,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable session stickiness.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -304,7 +304,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[builtins.str] lb_name: The name of the load balancer to which you want to enable session stickiness.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -344,7 +344,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -280,7 +280,7 @@ type StateMachine struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     pulumi.StringOutput `pulumi:"region"`
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -353,7 +353,7 @@ type stateMachineState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish *bool `pulumi:"publish"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     *string `pulumi:"region"`
 	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -391,7 +391,7 @@ type StateMachineState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     pulumi.StringPtrInput
 	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -428,7 +428,7 @@ type stateMachineArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish *bool `pulumi:"publish"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
@@ -454,7 +454,7 @@ type StateMachineArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
@@ -597,7 +597,7 @@ func (o StateMachineOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StateMachineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

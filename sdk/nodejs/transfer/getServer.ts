@@ -32,6 +32,9 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getServer.
  */
 export interface GetServerArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID for an SFTP server.
@@ -134,6 +137,9 @@ export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getServer.
  */
 export interface GetServerOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID for an SFTP server.

@@ -40,10 +40,12 @@ export interface GetAppregistryAttributeGroupAssociationsArgs {
     id?: string;
     /**
      * Name of the application to which attribute groups are associated.
-     *
-     * The following arguments are optional:
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `id`or `name` must be set.
+     */
     region?: string;
 }
 
@@ -95,9 +97,11 @@ export interface GetAppregistryAttributeGroupAssociationsOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * Name of the application to which attribute groups are associated.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `id`or `name` must be set.
+     */
     region?: pulumi.Input<string>;
 }

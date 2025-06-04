@@ -100,11 +100,11 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -178,11 +178,11 @@ export interface ConfigurationSetState {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -210,11 +210,11 @@ export interface ConfigurationSetArgs {
     /**
      * Name of the configuration set.
      *
-     * The following argument is optional:
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

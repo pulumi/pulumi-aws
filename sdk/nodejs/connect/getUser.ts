@@ -59,6 +59,9 @@ export interface GetUserArgs {
      * Returns information on a specific User by name
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * A map of tags to assign to the User.
@@ -66,6 +69,8 @@ export interface GetUserArgs {
     tags?: {[key: string]: string};
     /**
      * Returns information on a specific User by User id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      */
     userId?: string;
 }
@@ -170,6 +175,9 @@ export interface GetUserOutputArgs {
      * Returns information on a specific User by name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the User.
@@ -177,6 +185,8 @@ export interface GetUserOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Returns information on a specific User by User id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      */
     userId?: pulumi.Input<string>;
 }

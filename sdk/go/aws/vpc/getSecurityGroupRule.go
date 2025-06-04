@@ -56,7 +56,8 @@ type GetSecurityGroupRuleArgs struct {
 	// security group rules. The given filters must match exactly one security group rule
 	// whose data will be exported as attributes.
 	Filters []GetSecurityGroupRuleFilter `pulumi:"filters"`
-	Region  *string                      `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
 }
@@ -110,7 +111,8 @@ type GetSecurityGroupRuleOutputArgs struct {
 	// security group rules. The given filters must match exactly one security group rule
 	// whose data will be exported as attributes.
 	Filters GetSecurityGroupRuleFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId pulumi.StringPtrInput `pulumi:"securityGroupRuleId"`
 }

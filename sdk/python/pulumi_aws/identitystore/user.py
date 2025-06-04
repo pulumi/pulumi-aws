@@ -52,10 +52,12 @@ class UserArgs:
         :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -223,7 +225,7 @@ class UserArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -260,6 +262,8 @@ class UserArgs:
     def user_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 
@@ -301,7 +305,7 @@ class _UserState:
         :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_id: The identifier for this user in the identity store.
@@ -309,6 +313,8 @@ class _UserState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -481,7 +487,7 @@ class _UserState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -544,6 +550,8 @@ class _UserState:
     def user_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 
@@ -623,13 +631,15 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         ...
     @overload
@@ -781,7 +791,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_id: The identifier for this user in the identity store.
@@ -789,6 +799,8 @@ class User(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -905,7 +917,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -948,6 +960,8 @@ class User(pulumi.CustomResource):
     def user_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 

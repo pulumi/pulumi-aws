@@ -25,7 +25,7 @@ class DefaultAutoScalingConfigurationVersionArgs:
         """
         The set of arguments for constructing a DefaultAutoScalingConfigurationVersion resource.
         :param pulumi.Input[builtins.str] auto_scaling_configuration_arn: The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auto_scaling_configuration_arn", auto_scaling_configuration_arn)
         if region is not None:
@@ -47,7 +47,7 @@ class DefaultAutoScalingConfigurationVersionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -64,7 +64,7 @@ class _DefaultAutoScalingConfigurationVersionState:
         """
         Input properties used for looking up and filtering DefaultAutoScalingConfigurationVersion resources.
         :param pulumi.Input[builtins.str] auto_scaling_configuration_arn: The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if auto_scaling_configuration_arn is not None:
             pulumi.set(__self__, "auto_scaling_configuration_arn", auto_scaling_configuration_arn)
@@ -87,7 +87,7 @@ class _DefaultAutoScalingConfigurationVersionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -136,7 +136,7 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] auto_scaling_configuration_arn: The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -222,7 +222,7 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] auto_scaling_configuration_arn: The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,7 +244,7 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

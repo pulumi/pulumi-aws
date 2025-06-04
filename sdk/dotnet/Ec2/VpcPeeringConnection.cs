@@ -12,6 +12,11 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to manage a VPC peering connection.
     /// 
+    /// &gt; **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+    /// can be done using the `auto_accept` attribute. Alternatively, the VPC Peering
+    /// Connection has to be made active manually using other means. See notes below for
+    /// more information.
+    /// 
     /// &gt; **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
     /// both a standalone VPC Peering Connection Options and a VPC Peering Connection
     /// resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -197,7 +202,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PeerVpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -307,7 +312,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string> PeerVpcId { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -385,7 +390,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerVpcId { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

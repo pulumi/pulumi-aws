@@ -9,6 +9,7 @@ import com.pulumi.aws.cognito.outputs.GetUserPoolDeviceConfiguration;
 import com.pulumi.aws.cognito.outputs.GetUserPoolEmailConfiguration;
 import com.pulumi.aws.cognito.outputs.GetUserPoolLambdaConfig;
 import com.pulumi.aws.cognito.outputs.GetUserPoolSchemaAttribute;
+import com.pulumi.aws.cognito.outputs.GetUserPoolUserPoolAddOn;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -99,9 +100,11 @@ public final class GetUserPoolResult {
     private String smsVerificationMessage;
     /**
      * @return Map of tags assigned to the resource.
+     * * user_pool_add_ons - The user pool add-ons configuration.
      * 
      */
     private Map<String,String> tags;
+    private List<GetUserPoolUserPoolAddOn> userPoolAddOns;
     private String userPoolId;
     /**
      * @return (Deprecated) Map of tags assigned to the resource.
@@ -241,10 +244,14 @@ public final class GetUserPoolResult {
     }
     /**
      * @return Map of tags assigned to the resource.
+     * * user_pool_add_ons - The user pool add-ons configuration.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
+    }
+    public List<GetUserPoolUserPoolAddOn> userPoolAddOns() {
+        return this.userPoolAddOns;
     }
     public String userPoolId() {
         return this.userPoolId;
@@ -299,6 +306,7 @@ public final class GetUserPoolResult {
         private String smsConfigurationFailure;
         private String smsVerificationMessage;
         private Map<String,String> tags;
+        private List<GetUserPoolUserPoolAddOn> userPoolAddOns;
         private String userPoolId;
         private Map<String,String> userPoolTags;
         private List<String> usernameAttributes;
@@ -327,6 +335,7 @@ public final class GetUserPoolResult {
     	      this.smsConfigurationFailure = defaults.smsConfigurationFailure;
     	      this.smsVerificationMessage = defaults.smsVerificationMessage;
     	      this.tags = defaults.tags;
+    	      this.userPoolAddOns = defaults.userPoolAddOns;
     	      this.userPoolId = defaults.userPoolId;
     	      this.userPoolTags = defaults.userPoolTags;
     	      this.usernameAttributes = defaults.usernameAttributes;
@@ -530,6 +539,17 @@ public final class GetUserPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder userPoolAddOns(List<GetUserPoolUserPoolAddOn> userPoolAddOns) {
+            if (userPoolAddOns == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolResult", "userPoolAddOns");
+            }
+            this.userPoolAddOns = userPoolAddOns;
+            return this;
+        }
+        public Builder userPoolAddOns(GetUserPoolUserPoolAddOn... userPoolAddOns) {
+            return userPoolAddOns(List.of(userPoolAddOns));
+        }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             if (userPoolId == null) {
               throw new MissingRequiredPropertyException("GetUserPoolResult", "userPoolId");
@@ -580,6 +600,7 @@ public final class GetUserPoolResult {
             _resultValue.smsConfigurationFailure = smsConfigurationFailure;
             _resultValue.smsVerificationMessage = smsVerificationMessage;
             _resultValue.tags = tags;
+            _resultValue.userPoolAddOns = userPoolAddOns;
             _resultValue.userPoolId = userPoolId;
             _resultValue.userPoolTags = userPoolTags;
             _resultValue.usernameAttributes = usernameAttributes;

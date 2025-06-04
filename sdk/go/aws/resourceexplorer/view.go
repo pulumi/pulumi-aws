@@ -75,7 +75,7 @@ type View struct {
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope pulumi.StringOutput `pulumi:"scope"`
@@ -125,7 +125,7 @@ type viewState struct {
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope *string `pulumi:"scope"`
@@ -146,7 +146,7 @@ type ViewState struct {
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type viewArgs struct {
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope *string `pulumi:"scope"`
@@ -187,7 +187,7 @@ type ViewArgs struct {
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope pulumi.StringPtrInput
@@ -307,7 +307,7 @@ func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ViewOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

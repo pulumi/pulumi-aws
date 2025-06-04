@@ -35,6 +35,9 @@ export interface GetLogGroupArgs {
      * Name of the Cloudwatch log group
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags to assign to the resource.
@@ -108,6 +111,9 @@ export interface GetLogGroupOutputArgs {
      * Name of the Cloudwatch log group
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource.

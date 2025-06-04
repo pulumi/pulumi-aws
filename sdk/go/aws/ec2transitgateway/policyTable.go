@@ -55,7 +55,7 @@ type PolicyTable struct {
 
 	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The state of the EC2 Transit Gateway Policy Table.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -102,7 +102,7 @@ func GetPolicyTable(ctx *pulumi.Context,
 type policyTableState struct {
 	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The state of the EC2 Transit Gateway Policy Table.
 	State *string `pulumi:"state"`
@@ -117,7 +117,7 @@ type policyTableState struct {
 type PolicyTableState struct {
 	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The state of the EC2 Transit Gateway Policy Table.
 	State pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (PolicyTableState) ElementType() reflect.Type {
 }
 
 type policyTableArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -144,7 +144,7 @@ type policyTableArgs struct {
 
 // The set of arguments for constructing a PolicyTable resource.
 type PolicyTableArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -244,7 +244,7 @@ func (o PolicyTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

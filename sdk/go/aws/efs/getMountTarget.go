@@ -62,7 +62,8 @@ type LookupMountTargetArgs struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
 	MountTargetId *string `pulumi:"mountTargetId"`
-	Region        *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getMountTarget.
@@ -112,7 +113,8 @@ type LookupMountTargetOutputArgs struct {
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
 	MountTargetId pulumi.StringPtrInput `pulumi:"mountTargetId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupMountTargetOutputArgs) ElementType() reflect.Type {

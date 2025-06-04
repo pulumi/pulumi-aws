@@ -40,6 +40,9 @@ export interface GetThesaurusArgs {
      * Identifier of the index that contains the Thesaurus.
      */
     indexId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that helps organize the Thesaurus you create.
@@ -148,6 +151,9 @@ export interface GetThesaurusOutputArgs {
      * Identifier of the index that contains the Thesaurus.
      */
     indexId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the Thesaurus you create.

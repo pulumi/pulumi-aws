@@ -29,7 +29,7 @@ class NetworkInterfaceAttachmentInitArgs:
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -77,7 +77,7 @@ class NetworkInterfaceAttachmentInitArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _NetworkInterfaceAttachmentState:
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the Network Interface Attachment.
         """
         if attachment_id is not None:
@@ -169,7 +169,7 @@ class _NetworkInterfaceAttachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -229,7 +229,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -327,7 +327,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the Network Interface Attachment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -378,7 +378,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

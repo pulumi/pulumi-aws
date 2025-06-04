@@ -117,7 +117,7 @@ type VaultLock struct {
 	IgnoreDeletionError pulumi.BoolPtrOutput `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringOutput `pulumi:"vaultName"`
@@ -168,7 +168,7 @@ type vaultLockState struct {
 	IgnoreDeletionError *bool `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName *string `pulumi:"vaultName"`
@@ -181,7 +181,7 @@ type VaultLockState struct {
 	IgnoreDeletionError pulumi.BoolPtrInput
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type vaultLockArgs struct {
 	IgnoreDeletionError *bool `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName string `pulumi:"vaultName"`
@@ -212,7 +212,7 @@ type VaultLockArgs struct {
 	IgnoreDeletionError pulumi.BoolPtrInput
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringInput
@@ -320,7 +320,7 @@ func (o VaultLockOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VaultLockOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

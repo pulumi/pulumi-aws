@@ -183,6 +183,7 @@ def get_secret(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the secret to retrieve.
     :param builtins.str name: Name of the secret to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags of the secret.
     """
     __args__ = dict()
@@ -235,6 +236,7 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None
 
     :param builtins.str arn: ARN of the secret to retrieve.
     :param builtins.str name: Name of the secret to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags of the secret.
     """
     __args__ = dict()

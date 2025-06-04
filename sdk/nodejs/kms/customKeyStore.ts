@@ -117,7 +117,7 @@ export class CustomKeyStore extends pulumi.CustomResource {
     public readonly customKeyStoreType!: pulumi.Output<string>;
     public readonly keyStorePassword!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly trustAnchorCertificate!: pulumi.Output<string | undefined>;
@@ -190,7 +190,7 @@ export interface CustomKeyStoreState {
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;
@@ -218,7 +218,7 @@ export interface CustomKeyStoreArgs {
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;

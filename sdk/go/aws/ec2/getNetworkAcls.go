@@ -116,7 +116,8 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	Region  *string                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags map[string]string `pulumi:"tags"`
@@ -149,7 +150,8 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 type GetNetworkAclsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

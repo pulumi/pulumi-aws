@@ -151,7 +151,7 @@ export class StackInstances extends pulumi.CustomResource {
      */
     public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Region that the stack instance is associated with.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -248,7 +248,7 @@ export interface StackInstancesState {
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Region that the stack instance is associated with.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -300,7 +300,7 @@ export interface StackInstancesArgs {
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Region that the stack instance is associated with.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

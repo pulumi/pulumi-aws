@@ -32,7 +32,7 @@ class UserGroupArgs:
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -99,7 +99,7 @@ class UserGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -134,7 +134,7 @@ class _UserGroupState:
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -191,7 +191,7 @@ class _UserGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -291,7 +291,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -414,7 +414,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -458,7 +458,7 @@ class UserGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

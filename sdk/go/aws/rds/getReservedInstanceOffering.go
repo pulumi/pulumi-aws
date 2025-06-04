@@ -63,8 +63,9 @@ type GetReservedInstanceOfferingArgs struct {
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType string `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
-	ProductDescription string  `pulumi:"productDescription"`
-	Region             *string `pulumi:"region"`
+	ProductDescription string `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedInstanceOffering.
@@ -105,8 +106,9 @@ type GetReservedInstanceOfferingOutputArgs struct {
 	// Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
-	ProductDescription pulumi.StringInput    `pulumi:"productDescription"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedInstanceOfferingOutputArgs) ElementType() reflect.Type {

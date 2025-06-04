@@ -136,6 +136,7 @@ def get_location(location_code: Optional[builtins.str] = None,
 
 
     :param builtins.str location_code: Code for the location to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
@@ -171,6 +172,7 @@ def get_location_output(location_code: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str location_code: Code for the location to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code

@@ -59,7 +59,7 @@ type StandardsControlAssociation struct {
 
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringOutput `pulumi:"associationStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringOutput `pulumi:"securityControlId"`
@@ -112,7 +112,7 @@ func GetStandardsControlAssociation(ctx *pulumi.Context,
 type standardsControlAssociationState struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus *string `pulumi:"associationStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId *string `pulumi:"securityControlId"`
@@ -127,7 +127,7 @@ type standardsControlAssociationState struct {
 type StandardsControlAssociationState struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringPtrInput
@@ -146,7 +146,7 @@ func (StandardsControlAssociationState) ElementType() reflect.Type {
 type standardsControlAssociationArgs struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus string `pulumi:"associationStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId string `pulumi:"securityControlId"`
@@ -162,7 +162,7 @@ type standardsControlAssociationArgs struct {
 type StandardsControlAssociationArgs struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringInput
@@ -266,7 +266,7 @@ func (o StandardsControlAssociationOutput) AssociationStatus() pulumi.StringOutp
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.AssociationStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StandardsControlAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

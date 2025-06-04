@@ -59,7 +59,8 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
 	// Full path of the resource.  If no path is found, an error will be returned.
-	Path   string  `pulumi:"path"`
+	Path string `pulumi:"path"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId string `pulumi:"restApiId"`
@@ -90,7 +91,8 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
 	// Full path of the resource.  If no path is found, an error will be returned.
-	Path   pulumi.StringInput    `pulumi:"path"`
+	Path pulumi.StringInput `pulumi:"path"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// REST API id that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`

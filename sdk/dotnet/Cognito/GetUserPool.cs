@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -110,6 +113,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -196,8 +202,10 @@ namespace Pulumi.Aws.Cognito
         public readonly string SmsVerificationMessage;
         /// <summary>
         /// Map of tags assigned to the resource.
+        /// * user_pool_add_ons - The user pool add-ons configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableArray<Outputs.GetUserPoolUserPoolAddOnResult> UserPoolAddOns;
         public readonly string UserPoolId;
         /// <summary>
         /// (Deprecated) Map of tags assigned to the resource.
@@ -254,6 +262,8 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetUserPoolUserPoolAddOnResult> userPoolAddOns,
+
             string userPoolId,
 
             ImmutableDictionary<string, string> userPoolTags,
@@ -282,6 +292,7 @@ namespace Pulumi.Aws.Cognito
             SmsConfigurationFailure = smsConfigurationFailure;
             SmsVerificationMessage = smsVerificationMessage;
             Tags = tags;
+            UserPoolAddOns = userPoolAddOns;
             UserPoolId = userPoolId;
             UserPoolTags = userPoolTags;
             UsernameAttributes = usernameAttributes;

@@ -28,11 +28,11 @@ if not MYPY:
     class AppMonitorAppMonitorConfigurationArgsDict(TypedDict):
         allow_cookies: NotRequired[pulumi.Input[builtins.bool]]
         """
-        If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         """
         enable_xray: NotRequired[pulumi.Input[builtins.bool]]
         """
-        If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
         """
         excluded_pages: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -78,8 +78,8 @@ class AppMonitorAppMonitorConfigurationArgs:
                  session_sample_rate: Optional[pulumi.Input[builtins.float]] = None,
                  telemetries: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        :param pulumi.Input[builtins.bool] allow_cookies: If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-        :param pulumi.Input[builtins.bool] enable_xray: If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        :param pulumi.Input[builtins.bool] allow_cookies: If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        :param pulumi.Input[builtins.bool] enable_xray: If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_pages: A list of URLs in your website or application to exclude from RUM data collection.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] favorite_pages: A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
         :param pulumi.Input[builtins.str] guest_role_arn: The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
@@ -111,7 +111,7 @@ class AppMonitorAppMonitorConfigurationArgs:
     @pulumi.getter(name="allowCookies")
     def allow_cookies(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         """
         return pulumi.get(self, "allow_cookies")
 
@@ -123,7 +123,7 @@ class AppMonitorAppMonitorConfigurationArgs:
     @pulumi.getter(name="enableXray")
     def enable_xray(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
         """
         return pulumi.get(self, "enable_xray")
 

@@ -169,6 +169,7 @@ def get_runtime_version(latest: Optional[builtins.bool] = None,
     :param builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
     """
     __args__ = dict()
@@ -224,6 +225,7 @@ def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[builtins.b
     :param builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
     """
     __args__ = dict()

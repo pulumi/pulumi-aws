@@ -29,16 +29,13 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, filters=None, id=None, region=None, result=None, service_code=None):
+    def __init__(__self__, filters=None, id=None, result=None, service_code=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        pulumi.set(__self__, "region", region)
         if result and not isinstance(result, str):
             raise TypeError("Expected argument 'result' to be a str")
         pulumi.set(__self__, "result", result)
@@ -58,11 +55,6 @@ class GetProductResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def region(self) -> builtins.str:
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -86,13 +78,11 @@ class AwaitableGetProductResult(GetProductResult):
         return GetProductResult(
             filters=self.filters,
             id=self.id,
-            region=self.region,
             result=self.result,
             service_code=self.service_code)
 
 
 def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]] = None,
-                region: Optional[builtins.str] = None,
                 service_code: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -161,7 +151,6 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
     """
     __args__ = dict()
     __args__['filters'] = filters
-    __args__['region'] = region
     __args__['serviceCode'] = service_code
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
@@ -169,11 +158,9 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
     return AwaitableGetProductResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
-        region=pulumi.get(__ret__, 'region'),
         result=pulumi.get(__ret__, 'result'),
         service_code=pulumi.get(__ret__, 'service_code'))
 def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
-                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        service_code: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -242,13 +229,11 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProduct
     """
     __args__ = dict()
     __args__['filters'] = filters
-    __args__['region'] = region
     __args__['serviceCode'] = service_code
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
     return __ret__.apply(lambda __response__: GetProductResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
-        region=pulumi.get(__response__, 'region'),
         result=pulumi.get(__response__, 'result'),
         service_code=pulumi.get(__response__, 'service_code')))

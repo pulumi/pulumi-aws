@@ -27,7 +27,7 @@ class ClusterSnapshotArgs:
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
@@ -62,7 +62,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of this DocumentDB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
@@ -232,7 +232,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -331,7 +331,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -445,7 +445,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of this DocumentDB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
@@ -538,7 +538,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

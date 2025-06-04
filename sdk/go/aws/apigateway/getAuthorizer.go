@@ -52,8 +52,9 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 // A collection of arguments for invoking getAuthorizer.
 type LookupAuthorizerArgs struct {
 	// Authorizer identifier.
-	AuthorizerId string  `pulumi:"authorizerId"`
-	Region       *string `pulumi:"region"`
+	AuthorizerId string `pulumi:"authorizerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -97,8 +98,9 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 // A collection of arguments for invoking getAuthorizer.
 type LookupAuthorizerOutputArgs struct {
 	// Authorizer identifier.
-	AuthorizerId pulumi.StringInput    `pulumi:"authorizerId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }

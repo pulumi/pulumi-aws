@@ -29,7 +29,7 @@ class ProxyDefaultTargetGroupArgs:
         The set of arguments for constructing a ProxyDefaultTargetGroup resource.
         :param pulumi.Input[builtins.str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if connection_pool_config is not None:
@@ -65,7 +65,7 @@ class ProxyDefaultTargetGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -88,7 +88,7 @@ class _ProxyDefaultTargetGroupState:
         :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[builtins.str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input[builtins.str] name: The name of the default target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -153,7 +153,7 @@ class _ProxyDefaultTargetGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -225,7 +225,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProxyDefaultTargetGroupConnectionPoolConfigArgs', 'ProxyDefaultTargetGroupConnectionPoolConfigArgsDict']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[builtins.str] db_proxy_name: Name of the RDS DB Proxy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -342,7 +342,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['ProxyDefaultTargetGroupConnectionPoolConfigArgs', 'ProxyDefaultTargetGroupConnectionPoolConfigArgsDict']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[builtins.str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input[builtins.str] name: The name of the default target group.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -391,7 +391,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

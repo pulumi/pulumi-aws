@@ -69,6 +69,8 @@ type Experience struct {
 	// ARN of the Experience.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationOutput `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -80,7 +82,7 @@ type Experience struct {
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -129,6 +131,8 @@ type experienceState struct {
 	// ARN of the Experience.
 	Arn *string `pulumi:"arn"`
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -140,7 +144,7 @@ type experienceState struct {
 	IndexId *string `pulumi:"indexId"`
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -154,6 +158,8 @@ type ExperienceState struct {
 	// ARN of the Experience.
 	Arn pulumi.StringPtrInput
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -165,7 +171,7 @@ type ExperienceState struct {
 	IndexId pulumi.StringPtrInput
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -181,6 +187,8 @@ func (ExperienceState) ElementType() reflect.Type {
 
 type experienceArgs struct {
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration *ExperienceConfiguration `pulumi:"configuration"`
 	// A description for your Amazon Kendra experience.
 	Description *string `pulumi:"description"`
@@ -188,7 +196,7 @@ type experienceArgs struct {
 	IndexId string `pulumi:"indexId"`
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -199,6 +207,8 @@ type experienceArgs struct {
 // The set of arguments for constructing a Experience resource.
 type ExperienceArgs struct {
 	// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+	//
+	// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 	Configuration ExperienceConfigurationPtrInput
 	// A description for your Amazon Kendra experience.
 	Description pulumi.StringPtrInput
@@ -206,7 +216,7 @@ type ExperienceArgs struct {
 	IndexId pulumi.StringInput
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	//
@@ -307,6 +317,8 @@ func (o ExperienceOutput) Arn() pulumi.StringOutput {
 }
 
 // Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+//
+// > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
 func (o ExperienceOutput) Configuration() ExperienceConfigurationOutput {
 	return o.ApplyT(func(v *Experience) ExperienceConfigurationOutput { return v.Configuration }).(ExperienceConfigurationOutput)
 }
@@ -336,7 +348,7 @@ func (o ExperienceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ExperienceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

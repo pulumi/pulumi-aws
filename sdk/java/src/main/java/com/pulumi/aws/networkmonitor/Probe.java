@@ -144,16 +144,12 @@ public class Probe extends com.pulumi.resources.CustomResource {
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="packetSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> packetSize;
 
     /**
      * @return The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Integer> packetSize() {
@@ -180,14 +176,14 @@ public class Probe extends com.pulumi.resources.CustomResource {
         return this.protocol;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

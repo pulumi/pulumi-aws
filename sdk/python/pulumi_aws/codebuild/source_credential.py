@@ -34,7 +34,7 @@ class SourceCredentialArgs:
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
                Connection ARN.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
                other types of source providers or connections.
         """
@@ -90,7 +90,7 @@ class SourceCredentialArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -127,7 +127,7 @@ class _SourceCredentialState:
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -178,7 +178,7 @@ class _SourceCredentialState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -296,7 +296,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -433,7 +433,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -475,7 +475,7 @@ class SourceCredential(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

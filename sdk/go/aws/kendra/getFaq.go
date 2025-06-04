@@ -54,8 +54,9 @@ type LookupFaqArgs struct {
 	// Identifier of the FAQ.
 	FaqId string `pulumi:"faqId"`
 	// Identifier of the index that contains the FAQ.
-	IndexId string  `pulumi:"indexId"`
-	Region  *string `pulumi:"region"`
+	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the FAQs you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -107,8 +108,9 @@ type LookupFaqOutputArgs struct {
 	// Identifier of the FAQ.
 	FaqId pulumi.StringInput `pulumi:"faqId"`
 	// Identifier of the index that contains the FAQ.
-	IndexId pulumi.StringInput    `pulumi:"indexId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the FAQs you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

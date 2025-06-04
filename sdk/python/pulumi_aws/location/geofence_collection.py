@@ -32,7 +32,7 @@ class GeofenceCollectionArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: The optional description for the geofence collection.
         :param pulumi.Input[builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "collection_name", collection_name)
@@ -87,7 +87,7 @@ class GeofenceCollectionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -129,7 +129,7 @@ class _GeofenceCollectionState:
         :param pulumi.Input[builtins.str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[builtins.str] description: The optional description for the geofence collection.
         :param pulumi.Input[builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] update_time: The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
@@ -218,7 +218,7 @@ class _GeofenceCollectionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -299,7 +299,7 @@ class GeofenceCollection(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: The optional description for the geofence collection.
         :param pulumi.Input[builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -401,7 +401,7 @@ class GeofenceCollection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[builtins.str] description: The optional description for the geofence collection.
         :param pulumi.Input[builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] update_time: The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
@@ -466,7 +466,7 @@ class GeofenceCollection(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

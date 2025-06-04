@@ -84,8 +84,9 @@ type LookupClusterSnapshotArgs struct {
 	// The default is `false`.
 	IncludeShared *bool `pulumi:"includeShared"`
 	// If more than one result is returned, use the most recent Snapshot.
-	MostRecent *bool   `pulumi:"mostRecent"`
-	Region     *string `pulumi:"region"`
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -159,8 +160,9 @@ type LookupClusterSnapshotOutputArgs struct {
 	// The default is `false`.
 	IncludeShared pulumi.BoolPtrInput `pulumi:"includeShared"`
 	// If more than one result is returned, use the most recent Snapshot.
-	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.

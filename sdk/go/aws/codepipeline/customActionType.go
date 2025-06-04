@@ -71,7 +71,7 @@ type CustomActionType struct {
 	// The creator of the action being called.
 	Owner        pulumi.StringOutput `pulumi:"owner"`
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput               `pulumi:"region"`
 	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
 	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
@@ -136,7 +136,7 @@ type customActionTypeState struct {
 	// The creator of the action being called.
 	Owner        *string `pulumi:"owner"`
 	ProviderName *string `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
 	Tags     map[string]string         `pulumi:"tags"`
@@ -157,7 +157,7 @@ type CustomActionTypeState struct {
 	// The creator of the action being called.
 	Owner        pulumi.StringPtrInput
 	ProviderName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Settings CustomActionTypeSettingsPtrInput
 	Tags     pulumi.StringMapInput
@@ -178,7 +178,7 @@ type customActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetails    `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetails   `pulumi:"outputArtifactDetails"`
 	ProviderName            string                                  `pulumi:"providerName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
 	Settings *CustomActionTypeSettings `pulumi:"settings"`
 	Tags     map[string]string         `pulumi:"tags"`
@@ -194,7 +194,7 @@ type CustomActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetailsInput
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsInput
 	ProviderName            pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Settings CustomActionTypeSettingsPtrInput
 	Tags     pulumi.StringMapInput
@@ -322,7 +322,7 @@ func (o CustomActionTypeOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CustomActionTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -73,7 +73,7 @@ type KxScalingGroup struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
@@ -150,7 +150,7 @@ type kxScalingGroupState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
@@ -189,7 +189,7 @@ type KxScalingGroupState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of scaling group.
 	// * `CREATING` – The scaling group creation is in progress.
@@ -224,7 +224,7 @@ type kxScalingGroupArgs struct {
 	HostType string `pulumi:"hostType"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags map[string]string `pulumi:"tags"`
@@ -242,7 +242,7 @@ type KxScalingGroupArgs struct {
 	HostType pulumi.StringInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapInput
@@ -377,7 +377,7 @@ func (o KxScalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxScalingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

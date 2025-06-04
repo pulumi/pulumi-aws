@@ -147,7 +147,7 @@ type ResourceConfiguration struct {
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
@@ -206,7 +206,7 @@ type resourceConfigurationState struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
@@ -236,7 +236,7 @@ type ResourceConfigurationState struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
@@ -268,7 +268,7 @@ type resourceConfigurationArgs struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
@@ -295,7 +295,7 @@ type ResourceConfigurationArgs struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
@@ -424,7 +424,7 @@ func (o ResourceConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

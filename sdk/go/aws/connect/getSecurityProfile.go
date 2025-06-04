@@ -83,7 +83,10 @@ type LookupSecurityProfileArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Security Profile by name
-	Name   *string `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId *string `pulumi:"securityProfileId"`
@@ -125,7 +128,10 @@ type LookupSecurityProfileOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Security Profile by name
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`

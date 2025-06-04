@@ -93,7 +93,7 @@ type Theme struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The theme creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -163,7 +163,7 @@ type themeState struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The theme creation status.
 	Status *string `pulumi:"status"`
@@ -198,7 +198,7 @@ type ThemeState struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The theme creation status.
 	Status pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type themeArgs struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -255,7 +255,7 @@ type ThemeArgs struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -394,7 +394,7 @@ func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemePermissionArrayOutput { return v.Permissions }).(ThemePermissionArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThemeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

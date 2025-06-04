@@ -55,7 +55,8 @@ type LookupDomainArgs struct {
 	// ID of the Domain. One of `name` or `id` is required
 	Id *string `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -96,7 +97,8 @@ type LookupDomainOutputArgs struct {
 	// ID of the Domain. One of `name` or `id` is required
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -112,6 +112,7 @@ def get_trust_store(arn: Optional[builtins.str] = None,
     :param builtins.str name: Unique name of the trust store.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -160,6 +161,7 @@ def get_trust_store_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] =
     :param builtins.str name: Unique name of the trust store.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

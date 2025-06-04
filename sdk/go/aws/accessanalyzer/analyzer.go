@@ -150,7 +150,7 @@ type Analyzer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrOutput `pulumi:"configuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -201,7 +201,7 @@ type analyzerState struct {
 	Arn *string `pulumi:"arn"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,7 +220,7 @@ type AnalyzerState struct {
 	Arn pulumi.StringPtrInput
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -241,7 +241,7 @@ type analyzerArgs struct {
 	AnalyzerName string `pulumi:"analyzerName"`
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration *AnalyzerConfiguration `pulumi:"configuration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -257,7 +257,7 @@ type AnalyzerArgs struct {
 	AnalyzerName pulumi.StringInput
 	// A block that specifies the configuration of the analyzer. Documented below
 	Configuration AnalyzerConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -369,7 +369,7 @@ func (o AnalyzerOutput) Configuration() AnalyzerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerConfigurationPtrOutput { return v.Configuration }).(AnalyzerConfigurationPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AnalyzerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

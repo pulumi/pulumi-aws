@@ -92,7 +92,8 @@ type GetTaskExecutionArgs struct {
 	PropagateTags *string `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId *string `pulumi:"referenceId"`
-	Region      *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An optional tag specified when a task is started.
 	StartedBy *string `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,7 +172,8 @@ type GetTaskExecutionOutputArgs struct {
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// An optional tag specified when a task is started.
 	StartedBy pulumi.StringPtrInput `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

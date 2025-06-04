@@ -112,7 +112,7 @@ export class Graph extends pulumi.CustomResource {
      */
     public readonly publicConnectivity!: pulumi.Output<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -120,9 +120,12 @@ export class Graph extends pulumi.CustomResource {
      */
     public readonly replicaCount!: pulumi.Output<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
     /**
@@ -224,7 +227,7 @@ export interface GraphState {
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -232,9 +235,12 @@ export interface GraphState {
      */
     replicaCount?: pulumi.Input<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;
     /**
@@ -277,7 +283,7 @@ export interface GraphArgs {
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -285,7 +291,7 @@ export interface GraphArgs {
      */
     replicaCount?: pulumi.Input<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;

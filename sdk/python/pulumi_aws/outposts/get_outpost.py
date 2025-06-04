@@ -203,6 +203,7 @@ def get_outpost(arn: Optional[builtins.str] = None,
     :param builtins.str id: Identifier of the Outpost.
     :param builtins.str name: Name of the Outpost.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The Outpost tags.
     """
     __args__ = dict()
@@ -253,6 +254,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = Non
     :param builtins.str id: Identifier of the Outpost.
     :param builtins.str name: Name of the Outpost.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The Outpost tags.
     """
     __args__ = dict()

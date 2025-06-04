@@ -87,7 +87,7 @@ type Schedule struct {
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of this scaling action.
 	//
@@ -151,7 +151,7 @@ type scheduleState struct {
 	MinSize *int `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of this scaling action.
 	//
@@ -180,7 +180,7 @@ type ScheduleState struct {
 	MinSize pulumi.IntPtrInput
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of this scaling action.
 	//
@@ -211,7 +211,7 @@ type scheduleArgs struct {
 	MinSize *int `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of this scaling action.
 	//
@@ -239,7 +239,7 @@ type ScheduleArgs struct {
 	MinSize pulumi.IntPtrInput
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of this scaling action.
 	//
@@ -375,7 +375,7 @@ func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ScheduleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

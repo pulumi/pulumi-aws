@@ -63,7 +63,8 @@ func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.
 type GetAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetAttachmentFilter `pulumi:"filters"`
-	Region  *string               `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the attachment.
@@ -112,7 +113,8 @@ func GetAttachmentOutput(ctx *pulumi.Context, args GetAttachmentOutputArgs, opts
 type GetAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetAttachmentFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput         `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the attachment.

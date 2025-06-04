@@ -129,8 +129,9 @@ type LookupBucketObjectArgs struct {
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key    string  `pulumi:"key"`
-	Range  *string `pulumi:"range"`
+	Key   string  `pulumi:"key"`
+	Range *string `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
@@ -210,8 +211,9 @@ type LookupBucketObjectOutputArgs struct {
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key    pulumi.StringInput    `pulumi:"key"`
-	Range  pulumi.StringPtrInput `pulumi:"range"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -48,7 +48,7 @@ type BasePathMapping struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrOutput `pulumi:"domainNameId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -98,7 +98,7 @@ type basePathMappingState struct {
 	DomainName *string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi *string `pulumi:"restApi"`
@@ -113,7 +113,7 @@ type BasePathMappingState struct {
 	DomainName pulumi.StringPtrInput
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.StringPtrInput
@@ -132,7 +132,7 @@ type basePathMappingArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi string `pulumi:"restApi"`
@@ -148,7 +148,7 @@ type BasePathMappingArgs struct {
 	DomainName pulumi.StringInput
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.StringInput
@@ -258,7 +258,7 @@ func (o BasePathMappingOutput) DomainNameId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.DomainNameId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BasePathMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

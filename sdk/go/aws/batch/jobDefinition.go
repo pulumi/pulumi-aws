@@ -452,7 +452,7 @@ type JobDefinition struct {
 	PlatformCapabilities pulumi.StringArrayOutput `pulumi:"platformCapabilities"`
 	// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 	PropagateTags pulumi.BoolPtrOutput `pulumi:"propagateTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
@@ -527,7 +527,7 @@ type jobDefinitionState struct {
 	PlatformCapabilities []string `pulumi:"platformCapabilities"`
 	// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 	PropagateTags *bool `pulumi:"propagateTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
@@ -570,7 +570,7 @@ type JobDefinitionState struct {
 	PlatformCapabilities pulumi.StringArrayInput
 	// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 	PropagateTags pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
@@ -613,7 +613,7 @@ type jobDefinitionArgs struct {
 	PlatformCapabilities []string `pulumi:"platformCapabilities"`
 	// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 	PropagateTags *bool `pulumi:"propagateTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
@@ -649,7 +649,7 @@ type JobDefinitionArgs struct {
 	PlatformCapabilities pulumi.StringArrayInput
 	// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 	PropagateTags pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy JobDefinitionRetryStrategyPtrInput
@@ -807,7 +807,7 @@ func (o JobDefinitionOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o JobDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

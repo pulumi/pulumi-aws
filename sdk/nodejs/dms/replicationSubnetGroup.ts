@@ -109,7 +109,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
@@ -189,7 +189,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
  */
 export interface ReplicationSubnetGroupState {
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     replicationSubnetGroupArn?: pulumi.Input<string>;
@@ -224,7 +224,7 @@ export interface ReplicationSubnetGroupState {
  */
 export interface ReplicationSubnetGroupArgs {
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

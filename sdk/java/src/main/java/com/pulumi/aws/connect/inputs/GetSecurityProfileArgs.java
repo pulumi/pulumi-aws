@@ -35,6 +35,8 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     /**
      * Returns information on a specific Security Profile by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -42,14 +44,24 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     /**
      * @return Returns information on a specific Security Profile by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -136,6 +148,8 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -147,6 +161,8 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -154,11 +170,23 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
             return name(Output.of(name));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

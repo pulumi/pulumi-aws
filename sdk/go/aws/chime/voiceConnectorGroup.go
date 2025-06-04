@@ -81,7 +81,7 @@ type VoiceConnectorGroup struct {
 	Connectors VoiceConnectorGroupConnectorArrayOutput `pulumi:"connectors"`
 	// The name of the Amazon Chime Voice Connector group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -119,7 +119,7 @@ type voiceConnectorGroupState struct {
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
 	// The name of the Amazon Chime Voice Connector group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -128,7 +128,7 @@ type VoiceConnectorGroupState struct {
 	Connectors VoiceConnectorGroupConnectorArrayInput
 	// The name of the Amazon Chime Voice Connector group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -141,7 +141,7 @@ type voiceConnectorGroupArgs struct {
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
 	// The name of the Amazon Chime Voice Connector group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -151,7 +151,7 @@ type VoiceConnectorGroupArgs struct {
 	Connectors VoiceConnectorGroupConnectorArrayInput
 	// The name of the Amazon Chime Voice Connector group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -252,7 +252,7 @@ func (o VoiceConnectorGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VoiceConnectorGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

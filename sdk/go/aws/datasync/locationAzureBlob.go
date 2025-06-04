@@ -71,7 +71,7 @@ type LocationAzureBlob struct {
 	BlobType pulumi.StringPtrOutput `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringOutput `pulumi:"containerUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrOutput `pulumi:"sasConfiguration"`
@@ -135,7 +135,7 @@ type locationAzureBlobState struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl *string `pulumi:"containerUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
@@ -161,7 +161,7 @@ type LocationAzureBlobState struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
@@ -189,7 +189,7 @@ type locationAzureBlobArgs struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl string `pulumi:"containerUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
@@ -211,7 +211,7 @@ type LocationAzureBlobArgs struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
@@ -338,7 +338,7 @@ func (o LocationAzureBlobOutput) ContainerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.ContainerUrl }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationAzureBlobOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -108,6 +108,7 @@ def get_user_pool_clients(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
@@ -138,6 +139,7 @@ def get_user_pool_clients_output(region: Optional[pulumi.Input[Optional[builtins
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()

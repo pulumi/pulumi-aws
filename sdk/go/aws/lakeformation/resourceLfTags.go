@@ -145,7 +145,7 @@ type ResourceLfTags struct {
 	//
 	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayOutput `pulumi:"lfTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTableOutput `pulumi:"table"`
@@ -196,7 +196,7 @@ type resourceLfTagsState struct {
 	//
 	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
@@ -215,7 +215,7 @@ type ResourceLfTagsState struct {
 	//
 	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
@@ -238,7 +238,7 @@ type resourceLfTagsArgs struct {
 	//
 	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
@@ -258,7 +258,7 @@ type ResourceLfTagsArgs struct {
 	//
 	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
@@ -372,7 +372,7 @@ func (o ResourceLfTagsOutput) LfTags() ResourceLfTagsLfTagArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsLfTagArrayOutput { return v.LfTags }).(ResourceLfTagsLfTagArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceLfTagsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

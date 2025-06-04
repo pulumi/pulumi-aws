@@ -82,7 +82,7 @@ type HostedPublicVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
@@ -159,7 +159,7 @@ type hostedPublicVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
@@ -189,7 +189,7 @@ type HostedPublicVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
@@ -218,7 +218,7 @@ type hostedPublicVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
@@ -244,7 +244,7 @@ type HostedPublicVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
@@ -393,7 +393,7 @@ func (o HostedPublicVirtualInterfaceOutput) OwnerAccountId() pulumi.StringOutput
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedPublicVirtualInterfaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

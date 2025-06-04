@@ -28,7 +28,7 @@ class GetWorkgroupResult:
     """
     A collection of values returned by getWorkgroup.
     """
-    def __init__(__self__, arn=None, endpoints=None, enhanced_vpc_routing=None, id=None, namespace_name=None, publicly_accessible=None, region=None, security_group_ids=None, subnet_ids=None, workgroup_id=None, workgroup_name=None):
+    def __init__(__self__, arn=None, endpoints=None, enhanced_vpc_routing=None, id=None, namespace_name=None, publicly_accessible=None, region=None, security_group_ids=None, subnet_ids=None, track_name=None, workgroup_id=None, workgroup_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetWorkgroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if track_name and not isinstance(track_name, str):
+            raise TypeError("Expected argument 'track_name' to be a str")
+        pulumi.set(__self__, "track_name", track_name)
         if workgroup_id and not isinstance(workgroup_id, str):
             raise TypeError("Expected argument 'workgroup_id' to be a str")
         pulumi.set(__self__, "workgroup_id", workgroup_id)
@@ -130,6 +133,14 @@ class GetWorkgroupResult:
         return pulumi.get(self, "subnet_ids")
 
     @property
+    @pulumi.getter(name="trackName")
+    def track_name(self) -> builtins.str:
+        """
+        The name of the track for the workgroup.
+        """
+        return pulumi.get(self, "track_name")
+
+    @property
     @pulumi.getter(name="workgroupId")
     def workgroup_id(self) -> builtins.str:
         """
@@ -158,6 +169,7 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
             region=self.region,
             security_group_ids=self.security_group_ids,
             subnet_ids=self.subnet_ids,
+            track_name=self.track_name,
             workgroup_id=self.workgroup_id,
             workgroup_name=self.workgroup_name)
 
@@ -198,6 +210,7 @@ def get_workgroup(region: Optional[builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        track_name=pulumi.get(__ret__, 'track_name'),
         workgroup_id=pulumi.get(__ret__, 'workgroup_id'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
 def get_workgroup_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -235,5 +248,6 @@ def get_workgroup_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
         region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        track_name=pulumi.get(__response__, 'track_name'),
         workgroup_id=pulumi.get(__response__, 'workgroup_id'),
         workgroup_name=pulumi.get(__response__, 'workgroup_name')))

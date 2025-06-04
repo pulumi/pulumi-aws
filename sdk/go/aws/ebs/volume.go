@@ -72,7 +72,7 @@ type Volume struct {
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size pulumi.IntOutput `pulumi:"size"`
@@ -85,6 +85,8 @@ type Volume struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -141,7 +143,7 @@ type volumeState struct {
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size *int `pulumi:"size"`
@@ -154,6 +156,8 @@ type volumeState struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type *string `pulumi:"type"`
@@ -178,7 +182,7 @@ type VolumeState struct {
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Size of the drive in GiBs.
 	Size pulumi.IntPtrInput
@@ -191,6 +195,8 @@ type VolumeState struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringPtrInput
@@ -215,7 +221,7 @@ type volumeArgs struct {
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size *int `pulumi:"size"`
@@ -226,6 +232,8 @@ type volumeArgs struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type *string `pulumi:"type"`
@@ -247,7 +255,7 @@ type VolumeArgs struct {
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Size of the drive in GiBs.
 	Size pulumi.IntPtrInput
@@ -258,6 +266,8 @@ type VolumeArgs struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringPtrInput
@@ -395,7 +405,7 @@ func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -426,6 +436,8 @@ func (o VolumeOutput) Throughput() pulumi.IntOutput {
 }
 
 // Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+//
+// > **NOTE:** At least one of `size` or `snapshotId` is required.
 //
 // > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 func (o VolumeOutput) Type() pulumi.StringOutput {

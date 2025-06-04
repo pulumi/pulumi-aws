@@ -81,7 +81,7 @@ type InboundConnectionAccepter struct {
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// Status of the connection request.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -122,7 +122,7 @@ type inboundConnectionAccepterState struct {
 	ConnectionId *string `pulumi:"connectionId"`
 	// Status of the connection request.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -131,7 +131,7 @@ type InboundConnectionAccepterState struct {
 	ConnectionId pulumi.StringPtrInput
 	// Status of the connection request.
 	ConnectionStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -142,7 +142,7 @@ func (InboundConnectionAccepterState) ElementType() reflect.Type {
 type inboundConnectionAccepterArgs struct {
 	// Specifies the ID of the connection to accept.
 	ConnectionId string `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type inboundConnectionAccepterArgs struct {
 type InboundConnectionAccepterArgs struct {
 	// Specifies the ID of the connection to accept.
 	ConnectionId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -251,7 +251,7 @@ func (o InboundConnectionAccepterOutput) ConnectionStatus() pulumi.StringOutput 
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InboundConnectionAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InboundConnectionAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

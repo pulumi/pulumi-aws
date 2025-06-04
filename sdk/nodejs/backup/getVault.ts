@@ -35,6 +35,9 @@ export interface GetVaultArgs {
      * Name of the backup vault.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Metadata that you can assign to help organize the resources that you create.
@@ -100,6 +103,9 @@ export interface GetVaultOutputArgs {
      * Name of the backup vault.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the resources that you create.

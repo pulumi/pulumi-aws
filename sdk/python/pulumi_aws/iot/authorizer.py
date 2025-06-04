@@ -34,7 +34,7 @@ class AuthorizerArgs:
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,7 +99,7 @@ class AuthorizerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -188,7 +188,7 @@ class _AuthorizerState:
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -271,7 +271,7 @@ class _AuthorizerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -405,7 +405,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -530,7 +530,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[builtins.str] name: The name of the authorizer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[builtins.str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -591,7 +591,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

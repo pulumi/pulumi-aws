@@ -122,7 +122,7 @@ type AnalyticsConfiguration struct {
 	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrOutput `pulumi:"storageClassAnalysis"`
@@ -167,7 +167,7 @@ type analyticsConfigurationState struct {
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
@@ -180,7 +180,7 @@ type AnalyticsConfigurationState struct {
 	Filter AnalyticsConfigurationFilterPtrInput
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
@@ -197,7 +197,7 @@ type analyticsConfigurationArgs struct {
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
@@ -211,7 +211,7 @@ type AnalyticsConfigurationArgs struct {
 	Filter AnalyticsConfigurationFilterPtrInput
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
@@ -319,7 +319,7 @@ func (o AnalyticsConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AnalyticsConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

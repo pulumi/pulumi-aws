@@ -31,7 +31,7 @@ class DataShareAuthorizationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] allow_writes: Whether to allow write operations for a datashare.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "consumer_identifier", consumer_identifier)
         pulumi.set(__self__, "data_share_arn", data_share_arn)
@@ -82,7 +82,7 @@ class DataShareAuthorizationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -109,7 +109,7 @@ class _DataShareAuthorizationState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] managed_by: Identifier of a datashare to show its managing entity.
         :param pulumi.Input[builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allow_writes is not None:
             pulumi.set(__self__, "allow_writes", allow_writes)
@@ -190,7 +190,7 @@ class _DataShareAuthorizationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -241,7 +241,7 @@ class DataShareAuthorization(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -341,7 +341,7 @@ class DataShareAuthorization(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] managed_by: Identifier of a datashare to show its managing entity.
         :param pulumi.Input[builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,7 +401,7 @@ class DataShareAuthorization(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

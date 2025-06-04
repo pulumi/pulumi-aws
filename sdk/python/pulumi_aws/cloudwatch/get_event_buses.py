@@ -100,6 +100,7 @@ def get_event_buses(name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
@@ -131,6 +132,7 @@ def get_event_buses_output(name_prefix: Optional[pulumi.Input[Optional[builtins.
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix

@@ -96,7 +96,7 @@ type DomainServiceAccessPolicy struct {
 	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -140,7 +140,7 @@ type domainServiceAccessPolicyState struct {
 	AccessPolicy *string `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName *string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -149,7 +149,7 @@ type DomainServiceAccessPolicyState struct {
 	AccessPolicy pulumi.StringPtrInput
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -162,7 +162,7 @@ type domainServiceAccessPolicyArgs struct {
 	AccessPolicy string `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -172,7 +172,7 @@ type DomainServiceAccessPolicyArgs struct {
 	AccessPolicy pulumi.StringInput
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -273,7 +273,7 @@ func (o DomainServiceAccessPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainServiceAccessPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -214,7 +214,7 @@ type DefaultNetworkAcl struct {
 	Ingress DefaultNetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -271,7 +271,7 @@ type defaultNetworkAclState struct {
 	Ingress []DefaultNetworkAclIngress `pulumi:"ingress"`
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -296,7 +296,7 @@ type DefaultNetworkAclState struct {
 	Ingress DefaultNetworkAclIngressArrayInput
 	// ID of the AWS account that owns the Default Network ACL
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
@@ -321,7 +321,7 @@ type defaultNetworkAclArgs struct {
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
 	// Configuration block for an ingress rule. Detailed below.
 	Ingress []DefaultNetworkAclIngress `pulumi:"ingress"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -339,7 +339,7 @@ type DefaultNetworkAclArgs struct {
 	Egress DefaultNetworkAclEgressArrayInput
 	// Configuration block for an ingress rule. Detailed below.
 	Ingress DefaultNetworkAclIngressArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
@@ -461,7 +461,7 @@ func (o DefaultNetworkAclOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultNetworkAclOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

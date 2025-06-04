@@ -54,8 +54,12 @@ import (
 type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringOutput `pulumi:"applicationProtocol"`
 	// The ARN of the domain configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
@@ -64,7 +68,7 @@ type DomainConfiguration struct {
 	DomainType pulumi.StringOutput `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayOutput `pulumi:"serverCertificateArns"`
@@ -112,8 +116,12 @@ func GetDomainConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainConfiguration resources.
 type domainConfigurationState struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol *string `pulumi:"applicationProtocol"`
 	// The ARN of the domain configuration.
 	Arn *string `pulumi:"arn"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
@@ -122,7 +130,7 @@ type domainConfigurationState struct {
 	DomainType *string `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
@@ -141,8 +149,12 @@ type domainConfigurationState struct {
 }
 
 type DomainConfigurationState struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringPtrInput
 	// The ARN of the domain configuration.
 	Arn pulumi.StringPtrInput
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringPtrInput
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
@@ -151,7 +163,7 @@ type DomainConfigurationState struct {
 	DomainType pulumi.StringPtrInput
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayInput
@@ -174,13 +186,17 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol *string `pulumi:"applicationProtocol"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
 	DomainName *string `pulumi:"domainName"`
 	// The name of the domain configuration. This value must be unique to a region.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
@@ -198,13 +214,17 @@ type domainConfigurationArgs struct {
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringPtrInput
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringPtrInput
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
 	DomainName pulumi.StringPtrInput
 	// The name of the domain configuration. This value must be unique to a region.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domainName`, the cert must include it.
 	ServerCertificateArns pulumi.StringArrayInput
@@ -307,9 +327,19 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+func (o DomainConfigurationOutput) ApplicationProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.ApplicationProtocol }).(pulumi.StringOutput)
+}
+
 // The ARN of the domain configuration.
 func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+func (o DomainConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
@@ -332,7 +362,7 @@ func (o DomainConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

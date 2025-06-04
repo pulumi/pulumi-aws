@@ -66,6 +66,9 @@ export interface GetAssetsArgs {
      * Filters by list of Host IDs of a Dedicated Host.
      */
     hostIdFilters?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
@@ -152,6 +155,9 @@ export interface GetAssetsOutputArgs {
      * Filters by list of Host IDs of a Dedicated Host.
      */
     hostIdFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Filters by list of state status. Valid values: "ACTIVE", "RETIRING".

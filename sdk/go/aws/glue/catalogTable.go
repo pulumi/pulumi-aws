@@ -128,7 +128,7 @@ type CatalogTable struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -144,7 +144,7 @@ type CatalogTable struct {
 	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Retention time for this table.
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
@@ -199,7 +199,7 @@ type catalogTableState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -215,7 +215,7 @@ type catalogTableState struct {
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
@@ -238,7 +238,7 @@ type CatalogTableState struct {
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type CatalogTableState struct {
 	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
@@ -279,7 +279,7 @@ type catalogTableArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -295,7 +295,7 @@ type catalogTableArgs struct {
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
@@ -317,7 +317,7 @@ type CatalogTableArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -333,7 +333,7 @@ type CatalogTableArgs struct {
 	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
@@ -448,7 +448,7 @@ func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 //
-// The follow arguments are optional:
+// The following arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -488,7 +488,7 @@ func (o CatalogTableOutput) PartitionKeys() CatalogTablePartitionKeyArrayOutput 
 	return o.ApplyT(func(v *CatalogTable) CatalogTablePartitionKeyArrayOutput { return v.PartitionKeys }).(CatalogTablePartitionKeyArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CatalogTableOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

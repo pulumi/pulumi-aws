@@ -68,7 +68,8 @@ type LookupFileSystemArgs struct {
 	CreationToken *string `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId *string `pulumi:"fileSystemId"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,7 +125,8 @@ type LookupFileSystemOutputArgs struct {
 	CreationToken pulumi.StringPtrInput `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

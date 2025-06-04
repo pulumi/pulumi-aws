@@ -111,6 +111,7 @@ def get_subscribed_rule_group(metric_name: Optional[builtins.str] = None,
            
            At least one of `name` or `metric_name` must be configured.
     :param builtins.str name: Name of the WAF rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['metricName'] = metric_name
@@ -158,6 +159,7 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
            
            At least one of `name` or `metric_name` must be configured.
     :param builtins.str name: Name of the WAF rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['metricName'] = metric_name

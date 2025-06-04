@@ -140,7 +140,7 @@ type EventDataStore struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrOutput `pulumi:"organizationEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
@@ -198,7 +198,7 @@ type eventDataStoreState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
@@ -227,7 +227,7 @@ type EventDataStoreState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
@@ -258,7 +258,7 @@ type eventDataStoreArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
@@ -284,7 +284,7 @@ type EventDataStoreArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
@@ -420,7 +420,7 @@ func (o EventDataStoreOutput) OrganizationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.BoolPtrOutput { return v.OrganizationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventDataStoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

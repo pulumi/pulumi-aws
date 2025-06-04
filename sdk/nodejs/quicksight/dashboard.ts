@@ -108,7 +108,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardPermission[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -253,7 +253,7 @@ export interface DashboardState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -321,7 +321,7 @@ export interface DashboardArgs {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

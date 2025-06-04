@@ -57,7 +57,8 @@ func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs,
 type GetSecurityGroupRulesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
-	Region  *string                       `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
 	Tags map[string]string `pulumi:"tags"`
@@ -86,7 +87,8 @@ func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRules
 type GetSecurityGroupRulesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetSecurityGroupRulesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

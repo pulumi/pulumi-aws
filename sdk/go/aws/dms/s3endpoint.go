@@ -157,7 +157,7 @@ type S3Endpoint struct {
 	CdcMaxBatchInterval pulumi.IntPtrOutput `pulumi:"cdcMaxBatchInterval"`
 	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrOutput `pulumi:"cdcMinFileSize"`
-	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 	CdcPath pulumi.StringPtrOutput `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
@@ -205,7 +205,7 @@ type S3Endpoint struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
-	// JSON document that describes how AWS DMS should interpret the data.
+	// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 	ExternalTableDefinition pulumi.StringPtrOutput `pulumi:"externalTableDefinition"`
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
 	GlueCatalogGeneration pulumi.BoolPtrOutput `pulumi:"glueCatalogGeneration"`
@@ -223,7 +223,7 @@ type S3Endpoint struct {
 	ParquetVersion pulumi.StringPtrOutput `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrOutput `pulumi:"preserveTransactions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrOutput `pulumi:"rfc4180"`
@@ -311,7 +311,7 @@ type s3endpointState struct {
 	CdcMaxBatchInterval *int `pulumi:"cdcMaxBatchInterval"`
 	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize *int `pulumi:"cdcMinFileSize"`
-	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 	CdcPath *string `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
@@ -359,7 +359,7 @@ type s3endpointState struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
 	ExternalId *string `pulumi:"externalId"`
-	// JSON document that describes how AWS DMS should interpret the data.
+	// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
 	GlueCatalogGeneration *bool `pulumi:"glueCatalogGeneration"`
@@ -377,7 +377,7 @@ type s3endpointState struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
@@ -424,7 +424,7 @@ type S3EndpointState struct {
 	CdcMaxBatchInterval pulumi.IntPtrInput
 	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrInput
-	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 	CdcPath pulumi.StringPtrInput
 	// ARN for the certificate.
 	CertificateArn pulumi.StringPtrInput
@@ -472,7 +472,7 @@ type S3EndpointState struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
 	ExternalId pulumi.StringPtrInput
-	// JSON document that describes how AWS DMS should interpret the data.
+	// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 	ExternalTableDefinition pulumi.StringPtrInput
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
 	GlueCatalogGeneration pulumi.BoolPtrInput
@@ -490,7 +490,7 @@ type S3EndpointState struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
@@ -541,7 +541,7 @@ type s3endpointArgs struct {
 	CdcMaxBatchInterval *int `pulumi:"cdcMaxBatchInterval"`
 	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize *int `pulumi:"cdcMinFileSize"`
-	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 	CdcPath *string `pulumi:"cdcPath"`
 	// ARN for the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
@@ -583,7 +583,7 @@ type s3endpointArgs struct {
 	EndpointType string `pulumi:"endpointType"`
 	// Bucket owner to prevent sniping. Value is an AWS account ID.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// JSON document that describes how AWS DMS should interpret the data.
+	// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
 	GlueCatalogGeneration *bool `pulumi:"glueCatalogGeneration"`
@@ -601,7 +601,7 @@ type s3endpointArgs struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
@@ -645,7 +645,7 @@ type S3EndpointArgs struct {
 	CdcMaxBatchInterval pulumi.IntPtrInput
 	// Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
 	CdcMinFileSize pulumi.IntPtrInput
-	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+	// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 	CdcPath pulumi.StringPtrInput
 	// ARN for the certificate.
 	CertificateArn pulumi.StringPtrInput
@@ -687,7 +687,7 @@ type S3EndpointArgs struct {
 	EndpointType pulumi.StringInput
 	// Bucket owner to prevent sniping. Value is an AWS account ID.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// JSON document that describes how AWS DMS should interpret the data.
+	// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 	ExternalTableDefinition pulumi.StringPtrInput
 	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
 	GlueCatalogGeneration pulumi.BoolPtrInput
@@ -705,7 +705,7 @@ type S3EndpointArgs struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
@@ -861,7 +861,7 @@ func (o S3EndpointOutput) CdcMinFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.CdcMinFileSize }).(pulumi.IntPtrOutput)
 }
 
-// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+// Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
 func (o S3EndpointOutput) CdcPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.CdcPath }).(pulumi.StringPtrOutput)
 }
@@ -981,7 +981,7 @@ func (o S3EndpointOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// JSON document that describes how AWS DMS should interpret the data.
+// JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
 func (o S3EndpointOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
 }
@@ -1026,7 +1026,7 @@ func (o S3EndpointOutput) PreserveTransactions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.PreserveTransactions }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o S3EndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

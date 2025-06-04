@@ -176,6 +176,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
            Either `arn` or `listener_arn` must be set.
     :param builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -243,6 +244,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
            Either `arn` or `listener_arn` must be set.
     :param builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['actions'] = actions

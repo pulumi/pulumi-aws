@@ -180,6 +180,7 @@ def get_service_network(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_network_identifier: Identifier of the service network.
     """
     __args__ = dict()
@@ -220,6 +221,7 @@ def get_service_network_output(region: Optional[pulumi.Input[Optional[builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_network_identifier: Identifier of the service network.
     """
     __args__ = dict()

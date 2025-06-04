@@ -31,7 +31,7 @@ class SubnetCidrReservationArgs:
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "reservation_type", reservation_type)
@@ -93,7 +93,7 @@ class SubnetCidrReservationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -116,7 +116,7 @@ class _SubnetCidrReservationState:
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this CIDR reservation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -173,7 +173,7 @@ class _SubnetCidrReservationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -245,7 +245,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -345,7 +345,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this CIDR reservation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -389,7 +389,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

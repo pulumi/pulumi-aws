@@ -103,6 +103,7 @@ def get_agent_agent_versions(agent_id: Optional[builtins.str] = None,
 
     :param builtins.str agent_id: Unique identifier of the agent.
     :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id
@@ -137,6 +138,7 @@ def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[builtins.str
 
     :param builtins.str agent_id: Unique identifier of the agent.
     :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id

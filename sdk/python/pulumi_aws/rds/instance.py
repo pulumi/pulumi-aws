@@ -130,6 +130,9 @@ class InstanceArgs:
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -203,7 +206,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -581,6 +584,9 @@ class InstanceArgs:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully
@@ -1116,7 +1122,7 @@ class InstanceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1442,6 +1448,9 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -1522,7 +1531,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -1940,6 +1949,9 @@ class _InstanceState:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully
@@ -2559,7 +2571,7 @@ class _InstanceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -3173,6 +3185,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -3247,7 +3262,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -3865,6 +3880,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
                
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+               
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
@@ -3945,7 +3963,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -4222,6 +4240,9 @@ class Instance(pulumi.CustomResource):
     def customer_owned_ip_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 
         > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
         Replicate database managed by the provider will promote the database to a fully
@@ -4645,7 +4666,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

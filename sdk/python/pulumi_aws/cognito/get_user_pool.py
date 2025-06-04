@@ -28,7 +28,7 @@ class GetUserPoolResult:
     """
     A collection of values returned by getUserPool.
     """
-    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, region=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, tags=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
+    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, region=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
         if account_recovery_settings and not isinstance(account_recovery_settings, list):
             raise TypeError("Expected argument 'account_recovery_settings' to be a list")
         pulumi.set(__self__, "account_recovery_settings", account_recovery_settings)
@@ -95,6 +95,9 @@ class GetUserPoolResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if user_pool_add_ons and not isinstance(user_pool_add_ons, list):
+            raise TypeError("Expected argument 'user_pool_add_ons' to be a list")
+        pulumi.set(__self__, "user_pool_add_ons", user_pool_add_ons)
         if user_pool_id and not isinstance(user_pool_id, str):
             raise TypeError("Expected argument 'user_pool_id' to be a str")
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -259,8 +262,14 @@ class GetUserPoolResult:
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
+        * user_pool_add_ons - The user pool add-ons configuration.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="userPoolAddOns")
+    def user_pool_add_ons(self) -> Sequence['outputs.GetUserPoolUserPoolAddOnResult']:
+        return pulumi.get(self, "user_pool_add_ons")
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -313,6 +322,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             sms_configuration_failure=self.sms_configuration_failure,
             sms_verification_message=self.sms_verification_message,
             tags=self.tags,
+            user_pool_add_ons=self.user_pool_add_ons,
             user_pool_id=self.user_pool_id,
             user_pool_tags=self.user_pool_tags,
             username_attributes=self.username_attributes)
@@ -336,6 +346,7 @@ def get_user_pool(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: The cognito pool ID
     """
     __args__ = dict()
@@ -367,6 +378,7 @@ def get_user_pool(region: Optional[builtins.str] = None,
         sms_configuration_failure=pulumi.get(__ret__, 'sms_configuration_failure'),
         sms_verification_message=pulumi.get(__ret__, 'sms_verification_message'),
         tags=pulumi.get(__ret__, 'tags'),
+        user_pool_add_ons=pulumi.get(__ret__, 'user_pool_add_ons'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))
@@ -388,6 +400,7 @@ def get_user_pool_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: The cognito pool ID
     """
     __args__ = dict()
@@ -418,6 +431,7 @@ def get_user_pool_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
         sms_configuration_failure=pulumi.get(__response__, 'sms_configuration_failure'),
         sms_verification_message=pulumi.get(__response__, 'sms_verification_message'),
         tags=pulumi.get(__response__, 'tags'),
+        user_pool_add_ons=pulumi.get(__response__, 'user_pool_add_ons'),
         user_pool_id=pulumi.get(__response__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__response__, 'user_pool_tags'),
         username_attributes=pulumi.get(__response__, 'username_attributes')))

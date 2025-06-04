@@ -151,7 +151,7 @@ type Trust struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime pulumi.StringOutput `pulumi:"lastUpdatedDateTime"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
@@ -233,7 +233,7 @@ type trustState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime *string `pulumi:"lastUpdatedDateTime"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName *string `pulumi:"remoteDomainName"`
@@ -274,7 +274,7 @@ type TrustState struct {
 	DirectoryId pulumi.StringPtrInput
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringPtrInput
@@ -315,7 +315,7 @@ type trustArgs struct {
 	DeleteAssociatedConditionalForwarder *bool `pulumi:"deleteAssociatedConditionalForwarder"`
 	// ID of the Directory.
 	DirectoryId string `pulumi:"directoryId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName string `pulumi:"remoteDomainName"`
@@ -346,7 +346,7 @@ type TrustArgs struct {
 	DeleteAssociatedConditionalForwarder pulumi.BoolPtrInput
 	// ID of the Directory.
 	DirectoryId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringInput
@@ -481,7 +481,7 @@ func (o TrustOutput) LastUpdatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.LastUpdatedDateTime }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TrustOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

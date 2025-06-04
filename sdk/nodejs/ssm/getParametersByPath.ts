@@ -26,6 +26,9 @@ export interface GetParametersByPathArgs {
      * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      */
     recursive?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
@@ -84,6 +87,9 @@ export interface GetParametersByPathOutputArgs {
      * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      */
     recursive?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.

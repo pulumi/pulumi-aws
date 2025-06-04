@@ -270,6 +270,7 @@ def get_file_system(creation_token: Optional[builtins.str] = None,
 
     :param builtins.str creation_token: Restricts the list to the file system with this creation token.
     :param builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
@@ -326,6 +327,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[builti
 
     :param builtins.str creation_token: Restricts the list to the file system with this creation token.
     :param builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()

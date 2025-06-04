@@ -119,7 +119,7 @@ type ProxyTarget struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Identifier representing the DB Instance or DB Cluster target.
 	RdsResourceId pulumi.StringOutput `pulumi:"rdsResourceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -181,7 +181,7 @@ type proxyTargetState struct {
 	Port *int `pulumi:"port"`
 	// Identifier representing the DB Instance or DB Cluster target.
 	RdsResourceId *string `pulumi:"rdsResourceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn *string `pulumi:"targetArn"`
@@ -208,7 +208,7 @@ type ProxyTargetState struct {
 	Port pulumi.IntPtrInput
 	// Identifier representing the DB Instance or DB Cluster target.
 	RdsResourceId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type proxyTargetArgs struct {
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
 	// The name of the DB proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the target group.
 	TargetGroupName string `pulumi:"targetGroupName"`
@@ -249,7 +249,7 @@ type ProxyTargetArgs struct {
 	DbInstanceIdentifier pulumi.StringPtrInput
 	// The name of the DB proxy.
 	DbProxyName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the target group.
 	TargetGroupName pulumi.StringInput
@@ -374,7 +374,7 @@ func (o ProxyTargetOutput) RdsResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.RdsResourceId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProxyTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -20,6 +20,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Enable the long task ARN format
+//
 // ```go
 // package main
 //
@@ -45,6 +47,33 @@ import (
 //
 // ```
 //
+// ### Set the default log driver mode to non-blocking
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
+//				Name:  pulumi.String("defaultLogDriverMode"),
+//				Value: pulumi.String("non-blocking"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
@@ -58,7 +87,7 @@ type AccountSettingDefault struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringOutput `pulumi:"name"`
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the setting.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -100,7 +129,7 @@ type accountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         *string `pulumi:"name"`
 	PrincipalArn *string `pulumi:"principalArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value *string `pulumi:"value"`
@@ -110,7 +139,7 @@ type AccountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringPtrInput
@@ -123,7 +152,7 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 type accountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value string `pulumi:"value"`
@@ -133,7 +162,7 @@ type accountSettingDefaultArgs struct {
 type AccountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringInput
@@ -235,7 +264,7 @@ func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccountSettingDefaultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

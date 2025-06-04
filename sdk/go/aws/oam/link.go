@@ -157,7 +157,7 @@ type Link struct {
 	LinkConfiguration LinkLinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringOutput `pulumi:"linkId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
@@ -221,7 +221,7 @@ type linkState struct {
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId *string `pulumi:"linkId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
@@ -247,7 +247,7 @@ type LinkState struct {
 	LinkConfiguration LinkLinkConfigurationPtrInput
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
@@ -271,7 +271,7 @@ type linkArgs struct {
 	LabelTemplate string `pulumi:"labelTemplate"`
 	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
@@ -289,7 +289,7 @@ type LinkArgs struct {
 	LabelTemplate pulumi.StringInput
 	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 	LinkConfiguration LinkLinkConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
@@ -413,7 +413,7 @@ func (o LinkOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LinkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

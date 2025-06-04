@@ -190,6 +190,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
            supported names are file-system-id or volume-id.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: List of Tag values, with a maximum of 50 elements.
     """
@@ -245,6 +246,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
            supported names are file-system-id or volume-id.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: List of Tag values, with a maximum of 50 elements.
     """

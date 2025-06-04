@@ -101,7 +101,7 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly platform!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -245,7 +245,7 @@ export interface ComponentState {
      */
     platform?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface ComponentState {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version?: pulumi.Input<string>;
 }
@@ -311,7 +311,7 @@ export interface ComponentArgs {
      */
     platform: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -335,7 +335,7 @@ export interface ComponentArgs {
     /**
      * Version of the component.
      *
-     * The following attributes are optional:
+     * The following arguments are optional:
      */
     version: pulumi.Input<string>;
 }

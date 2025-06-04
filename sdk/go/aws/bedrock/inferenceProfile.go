@@ -77,7 +77,7 @@ type InferenceProfile struct {
 	Models InferenceProfileModelArrayOutput `pulumi:"models"`
 	// The name of the inference profile.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -135,7 +135,7 @@ type inferenceProfileState struct {
 	Models []InferenceProfileModel `pulumi:"models"`
 	// The name of the inference profile.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status *string `pulumi:"status"`
@@ -164,7 +164,7 @@ type InferenceProfileState struct {
 	Models InferenceProfileModelArrayInput
 	// The name of the inference profile.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type inferenceProfileArgs struct {
 	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
 	// The name of the inference profile.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     map[string]string         `pulumi:"tags"`
@@ -208,7 +208,7 @@ type InferenceProfileArgs struct {
 	ModelSource InferenceProfileModelSourcePtrInput
 	// The name of the inference profile.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     pulumi.StringMapInput
@@ -334,7 +334,7 @@ func (o InferenceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InferenceProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

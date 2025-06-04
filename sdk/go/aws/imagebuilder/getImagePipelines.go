@@ -59,7 +59,8 @@ func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ..
 type GetImagePipelinesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImagePipelinesFilter `pulumi:"filters"`
-	Region  *string                   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImagePipelines.
@@ -87,7 +88,8 @@ func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputAr
 type GetImagePipelinesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImagePipelinesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput             `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImagePipelinesOutputArgs) ElementType() reflect.Type {

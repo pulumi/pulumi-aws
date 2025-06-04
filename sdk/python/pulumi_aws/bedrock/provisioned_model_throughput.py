@@ -35,7 +35,7 @@ class ProvisionedModelThroughputArgs:
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "model_arn", model_arn)
@@ -102,7 +102,7 @@ class ProvisionedModelThroughputArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -151,7 +151,7 @@ class _ProvisionedModelThroughputState:
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -238,7 +238,7 @@ class _ProvisionedModelThroughputState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -324,7 +324,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -434,7 +434,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -497,7 +497,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

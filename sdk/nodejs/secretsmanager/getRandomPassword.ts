@@ -67,6 +67,9 @@ export interface GetRandomPasswordArgs {
      * Length of the password.
      */
     passwordLength?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
@@ -159,6 +162,9 @@ export interface GetRandomPasswordOutputArgs {
      * Length of the password.
      */
     passwordLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.

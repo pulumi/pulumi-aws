@@ -422,7 +422,7 @@ func (o ResponsePlanActionSsmAutomationArrayOutput) Index(i pulumi.IntInput) Res
 }
 
 type ResponsePlanActionSsmAutomationParameter struct {
-	// The name of the response plan.
+	// The name of parameter.
 	Name string `pulumi:"name"`
 	// The values for the associated parameter name.
 	Values []string `pulumi:"values"`
@@ -440,7 +440,7 @@ type ResponsePlanActionSsmAutomationParameterInput interface {
 }
 
 type ResponsePlanActionSsmAutomationParameterArgs struct {
-	// The name of the response plan.
+	// The name of parameter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The values for the associated parameter name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -497,7 +497,7 @@ func (o ResponsePlanActionSsmAutomationParameterOutput) ToResponsePlanActionSsmA
 	return o
 }
 
-// The name of the response plan.
+// The name of parameter.
 func (o ResponsePlanActionSsmAutomationParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomationParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -763,8 +763,6 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 
 type ResponsePlanIncidentTemplateNotificationTarget struct {
 	// The ARN of the Amazon SNS topic.
-	//
-	// The following arguments are optional:
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
@@ -781,8 +779,6 @@ type ResponsePlanIncidentTemplateNotificationTargetInput interface {
 
 type ResponsePlanIncidentTemplateNotificationTargetArgs struct {
 	// The ARN of the Amazon SNS topic.
-	//
-	// The following arguments are optional:
 	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
@@ -838,8 +834,6 @@ func (o ResponsePlanIncidentTemplateNotificationTargetOutput) ToResponsePlanInci
 }
 
 // The ARN of the Amazon SNS topic.
-//
-// The following arguments are optional:
 func (o ResponsePlanIncidentTemplateNotificationTargetOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplateNotificationTarget) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -1002,7 +996,7 @@ func (o ResponsePlanIntegrationPtrOutput) Pagerduties() ResponsePlanIntegrationP
 }
 
 type ResponsePlanIntegrationPagerduty struct {
-	// The name of the response plan.
+	// The name of the PagerDuty configuration.
 	Name string `pulumi:"name"`
 	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
 	//
@@ -1024,7 +1018,7 @@ type ResponsePlanIntegrationPagerdutyInput interface {
 }
 
 type ResponsePlanIntegrationPagerdutyArgs struct {
-	// The name of the response plan.
+	// The name of the PagerDuty configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
 	//
@@ -1085,7 +1079,7 @@ func (o ResponsePlanIntegrationPagerdutyOutput) ToResponsePlanIntegrationPagerdu
 	return o
 }
 
-// The name of the response plan.
+// The name of the PagerDuty configuration.
 func (o ResponsePlanIntegrationPagerdutyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIntegrationPagerduty) string { return v.Name }).(pulumi.StringOutput)
 }

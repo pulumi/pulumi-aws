@@ -56,7 +56,7 @@ type Revision struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The dataset id.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Id of the revision.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
@@ -105,7 +105,7 @@ type revisionState struct {
 	Comment *string `pulumi:"comment"`
 	// The dataset id.
 	DataSetId *string `pulumi:"dataSetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Id of the revision.
 	RevisionId *string `pulumi:"revisionId"`
@@ -122,7 +122,7 @@ type RevisionState struct {
 	Comment pulumi.StringPtrInput
 	// The dataset id.
 	DataSetId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Id of the revision.
 	RevisionId pulumi.StringPtrInput
@@ -141,7 +141,7 @@ type revisionArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The dataset id.
 	DataSetId string `pulumi:"dataSetId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type RevisionArgs struct {
 	Comment pulumi.StringPtrInput
 	// The dataset id.
 	DataSetId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -261,7 +261,7 @@ func (o RevisionOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RevisionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

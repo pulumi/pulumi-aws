@@ -30,6 +30,9 @@ export function getLinks(args?: GetLinksArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -73,5 +76,8 @@ export function getLinksOutput(args?: GetLinksOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getLinks.
  */
 export interface GetLinksOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

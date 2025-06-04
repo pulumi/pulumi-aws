@@ -111,6 +111,10 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `arn`, `id`, or `name` must be set.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -140,6 +144,10 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `arn`, `id`, or `name` must be set.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

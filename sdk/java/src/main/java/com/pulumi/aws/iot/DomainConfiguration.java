@@ -71,6 +71,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iot/domainConfiguration:DomainConfiguration")
 public class DomainConfiguration extends com.pulumi.resources.CustomResource {
     /**
+     * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     * 
+     */
+    @Export(name="applicationProtocol", refs={String.class}, tree="[0]")
+    private Output<String> applicationProtocol;
+
+    /**
+     * @return An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     * 
+     */
+    public Output<String> applicationProtocol() {
+        return this.applicationProtocol;
+    }
+    /**
      * The ARN of the domain configuration.
      * 
      */
@@ -83,6 +97,20 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     * 
+     */
+    @Export(name="authenticationType", refs={String.class}, tree="[0]")
+    private Output<String> authenticationType;
+
+    /**
+     * @return An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     * 
+     */
+    public Output<String> authenticationType() {
+        return this.authenticationType;
     }
     /**
      * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
@@ -141,14 +169,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

@@ -65,7 +65,7 @@ type LocationFsxWindows struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
@@ -140,7 +140,7 @@ type locationFsxWindowsState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password *string `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -167,7 +167,7 @@ type LocationFsxWindowsState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -194,7 +194,7 @@ type locationFsxWindowsArgs struct {
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password string `pulumi:"password"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -214,7 +214,7 @@ type LocationFsxWindowsArgs struct {
 	FsxFilesystemArn pulumi.StringInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -338,7 +338,7 @@ func (o LocationFsxWindowsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationFsxWindowsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -52,8 +52,9 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 // A collection of arguments for invoking getResource.
 type LookupResourceArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier string  `pulumi:"identifier"`
-	Region     *string `pulumi:"region"`
+	Identifier string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -89,8 +90,9 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 // A collection of arguments for invoking getResource.
 type LookupResourceOutputArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-	Identifier pulumi.StringInput    `pulumi:"identifier"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.

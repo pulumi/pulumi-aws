@@ -89,6 +89,7 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[builtins.str] = No
 
 
     :param builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -109,6 +110,7 @@ def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Inpu
 
 
     :param builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

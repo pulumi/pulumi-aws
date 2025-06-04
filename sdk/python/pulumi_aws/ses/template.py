@@ -29,7 +29,7 @@ class TemplateArgs:
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subject: The subject line of the email.
         :param pulumi.Input[builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
@@ -72,7 +72,7 @@ class TemplateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -119,7 +119,7 @@ class _TemplateState:
         :param pulumi.Input[builtins.str] arn: The ARN of the SES template
         :param pulumi.Input[builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subject: The subject line of the email.
         :param pulumi.Input[builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
@@ -176,7 +176,7 @@ class _TemplateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -250,7 +250,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subject: The subject line of the email.
         :param pulumi.Input[builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
@@ -346,7 +346,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the SES template
         :param pulumi.Input[builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subject: The subject line of the email.
         :param pulumi.Input[builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
@@ -390,7 +390,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

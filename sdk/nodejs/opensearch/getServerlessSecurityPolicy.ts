@@ -36,6 +36,9 @@ export interface GetServerlessSecurityPolicyArgs {
      * Name of the policy
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of security policy. One of `encryption` or `network`.
@@ -107,6 +110,9 @@ export interface GetServerlessSecurityPolicyOutputArgs {
      * Name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.

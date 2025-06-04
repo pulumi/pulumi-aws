@@ -73,7 +73,7 @@ type RadiusSettings struct {
 	RadiusServers pulumi.StringArrayOutput `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntOutput `pulumi:"radiusTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringOutput `pulumi:"sharedSecret"`
@@ -156,7 +156,7 @@ type radiusSettingsState struct {
 	RadiusServers []string `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout *int `pulumi:"radiusTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret *string `pulumi:"sharedSecret"`
@@ -179,7 +179,7 @@ type RadiusSettingsState struct {
 	RadiusServers pulumi.StringArrayInput
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type radiusSettingsArgs struct {
 	RadiusServers []string `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout int `pulumi:"radiusTimeout"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret string `pulumi:"sharedSecret"`
@@ -230,7 +230,7 @@ type RadiusSettingsArgs struct {
 	RadiusServers pulumi.StringArrayInput
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringInput
@@ -360,7 +360,7 @@ func (o RadiusSettingsOutput) RadiusTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.IntOutput { return v.RadiusTimeout }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RadiusSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

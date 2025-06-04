@@ -56,6 +56,7 @@ func LookupDefaultKmsKey(ctx *pulumi.Context, args *LookupDefaultKmsKeyArgs, opt
 
 // A collection of arguments for invoking getDefaultKmsKey.
 type LookupDefaultKmsKeyArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -79,6 +80,7 @@ func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, args LookupDefaultKmsKeyOutp
 
 // A collection of arguments for invoking getDefaultKmsKey.
 type LookupDefaultKmsKeyOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

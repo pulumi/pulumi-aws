@@ -128,8 +128,9 @@ type GetObjectArgs struct {
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode *string `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
-	Key    string  `pulumi:"key"`
-	Range  *string `pulumi:"range"`
+	Key   string  `pulumi:"key"`
+	Range *string `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,8 +221,9 @@ type GetObjectOutputArgs struct {
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode pulumi.StringPtrInput `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
-	Key    pulumi.StringInput    `pulumi:"key"`
-	Range  pulumi.StringPtrInput `pulumi:"range"`
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

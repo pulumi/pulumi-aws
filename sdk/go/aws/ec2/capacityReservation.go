@@ -79,7 +79,7 @@ type CapacityReservation struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -157,7 +157,7 @@ type capacityReservationState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn *string `pulumi:"placementGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -194,7 +194,7 @@ type CapacityReservationState struct {
 	OwnerId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -231,7 +231,7 @@ type capacityReservationArgs struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn *string `pulumi:"placementGroupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -263,7 +263,7 @@ type CapacityReservationArgs struct {
 	OutpostArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	PlacementGroupArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -423,7 +423,7 @@ func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CapacityReservationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

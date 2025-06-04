@@ -117,6 +117,24 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Create a user pool client with refresh token rotation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
+ * const userpoolClient = new aws.cognito.UserPoolClient("userpool_client", {
+ *     name: "client",
+ *     userPoolId: pool.id,
+ *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
+ *     refreshTokenRotation: {
+ *         feature: "ENABLED",
+ *         retryGracePeriodSeconds: 10,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
@@ -226,11 +244,15 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly readAttributes!: pulumi.Output<string[]>;
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    public readonly refreshTokenRotation!: pulumi.Output<outputs.cognito.UserPoolClientRefreshTokenRotation | undefined>;
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     public readonly refreshTokenValidity!: pulumi.Output<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -283,6 +305,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["preventUserExistenceErrors"] = state ? state.preventUserExistenceErrors : undefined;
             resourceInputs["readAttributes"] = state ? state.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
@@ -311,6 +334,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
             resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
@@ -403,11 +427,15 @@ export interface UserPoolClientState {
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.UserPoolClientRefreshTokenRotation>;
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -503,11 +531,15 @@ export interface UserPoolClientArgs {
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.UserPoolClientRefreshTokenRotation>;
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

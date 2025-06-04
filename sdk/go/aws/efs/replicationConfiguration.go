@@ -137,7 +137,7 @@ type ReplicationConfiguration struct {
 	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn pulumi.StringOutput `pulumi:"originalSourceFileSystemArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn pulumi.StringOutput `pulumi:"sourceFileSystemArn"`
@@ -191,7 +191,7 @@ type replicationConfigurationState struct {
 	Destination *ReplicationConfigurationDestination `pulumi:"destination"`
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn *string `pulumi:"originalSourceFileSystemArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn *string `pulumi:"sourceFileSystemArn"`
@@ -210,7 +210,7 @@ type ReplicationConfigurationState struct {
 	Destination ReplicationConfigurationDestinationPtrInput
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn pulumi.StringPtrInput
@@ -227,7 +227,7 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 type replicationConfigurationArgs struct {
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestination `pulumi:"destination"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId string `pulumi:"sourceFileSystemId"`
@@ -237,7 +237,7 @@ type replicationConfigurationArgs struct {
 type ReplicationConfigurationArgs struct {
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringInput
@@ -347,7 +347,7 @@ func (o ReplicationConfigurationOutput) OriginalSourceFileSystemArn() pulumi.Str
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.OriginalSourceFileSystemArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

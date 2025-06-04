@@ -84,6 +84,9 @@ def get_default_scraper_configuration(region: Optional[builtins.str] = None,
 
     example = aws.amp.get_default_scraper_configuration()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -107,6 +110,9 @@ def get_default_scraper_configuration_output(region: Optional[pulumi.Input[Optio
 
     example = aws.amp.get_default_scraper_configuration()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

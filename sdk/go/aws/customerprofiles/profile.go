@@ -101,7 +101,7 @@ type Profile struct {
 	PersonalEmailAddress pulumi.StringPtrOutput `pulumi:"personalEmailAddress"`
 	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 	PhoneNumber pulumi.StringPtrOutput `pulumi:"phoneNumber"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A block that specifies the customer’s shipping address. Documented below.
 	ShippingAddress ProfileShippingAddressPtrOutput `pulumi:"shippingAddress"`
@@ -184,7 +184,7 @@ type profileState struct {
 	PersonalEmailAddress *string `pulumi:"personalEmailAddress"`
 	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A block that specifies the customer’s shipping address. Documented below.
 	ShippingAddress *ProfileShippingAddress `pulumi:"shippingAddress"`
@@ -235,7 +235,7 @@ type ProfileState struct {
 	PersonalEmailAddress pulumi.StringPtrInput
 	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 	PhoneNumber pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A block that specifies the customer’s shipping address. Documented below.
 	ShippingAddress ProfileShippingAddressPtrInput
@@ -290,7 +290,7 @@ type profileArgs struct {
 	PersonalEmailAddress *string `pulumi:"personalEmailAddress"`
 	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A block that specifies the customer’s shipping address. Documented below.
 	ShippingAddress *ProfileShippingAddress `pulumi:"shippingAddress"`
@@ -342,7 +342,7 @@ type ProfileArgs struct {
 	PersonalEmailAddress pulumi.StringPtrInput
 	// The customer’s phone number, which has not been specified as a mobile, home, or business number.
 	PhoneNumber pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A block that specifies the customer’s shipping address. Documented below.
 	ShippingAddress ProfileShippingAddressPtrInput
@@ -542,7 +542,7 @@ func (o ProfileOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

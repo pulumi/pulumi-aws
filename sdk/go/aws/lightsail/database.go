@@ -293,7 +293,7 @@ type Database struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// The amount of RAM in GB for the database.
 	RamSize pulumi.Float64Output `pulumi:"ramSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName pulumi.StringOutput `pulumi:"relationalDatabaseName"`
@@ -408,7 +408,7 @@ type databaseState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The amount of RAM in GB for the database.
 	RamSize *float64 `pulumi:"ramSize"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName *string `pulumi:"relationalDatabaseName"`
@@ -469,7 +469,7 @@ type DatabaseState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// The amount of RAM in GB for the database.
 	RamSize pulumi.Float64PtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName pulumi.StringPtrInput
@@ -514,7 +514,7 @@ type databaseArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName string `pulumi:"relationalDatabaseName"`
@@ -550,7 +550,7 @@ type DatabaseArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
 	RelationalDatabaseName pulumi.StringInput
@@ -757,7 +757,7 @@ func (o DatabaseOutput) RamSize() pulumi.Float64Output {
 	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.RamSize }).(pulumi.Float64Output)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DatabaseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

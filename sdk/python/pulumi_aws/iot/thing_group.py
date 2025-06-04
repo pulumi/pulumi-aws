@@ -32,7 +32,7 @@ class ThingGroupArgs:
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
@@ -86,7 +86,7 @@ class ThingGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -125,7 +125,7 @@ class _ThingGroupState:
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Thing Group record in the registry.
         """
@@ -209,7 +209,7 @@ class _ThingGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -303,7 +303,7 @@ class ThingGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         ...
@@ -415,7 +415,7 @@ class ThingGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input[Union['ThingGroupPropertiesArgs', 'ThingGroupPropertiesArgsDict']] properties: The Thing Group properties. Defined below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Thing Group record in the registry.
         """
@@ -475,7 +475,7 @@ class ThingGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

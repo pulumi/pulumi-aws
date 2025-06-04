@@ -46,6 +46,9 @@ export interface GetOutpostsArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Site identifier.
@@ -117,6 +120,9 @@ export interface GetOutpostsOutputArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Site identifier.

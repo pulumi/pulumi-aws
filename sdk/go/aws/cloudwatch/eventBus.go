@@ -85,6 +85,8 @@ type EventBus struct {
 
 	// ARN of the event bus.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -95,7 +97,7 @@ type EventBus struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -135,6 +137,8 @@ func GetEventBus(ctx *pulumi.Context,
 type eventBusState struct {
 	// ARN of the event bus.
 	Arn *string `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig *EventBusDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -145,7 +149,7 @@ type eventBusState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,6 +160,8 @@ type eventBusState struct {
 type EventBusState struct {
 	// ARN of the event bus.
 	Arn pulumi.StringPtrInput
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrInput
 	// Event bus description.
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -166,7 +172,7 @@ type EventBusState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -179,6 +185,8 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig *EventBusDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -189,7 +197,7 @@ type eventBusArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -197,6 +205,8 @@ type eventBusArgs struct {
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrInput
 	// Event bus description.
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -207,7 +217,7 @@ type EventBusArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -305,6 +315,11 @@ func (o EventBusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+func (o EventBusOutput) DeadLetterConfig() EventBusDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v *EventBus) EventBusDeadLetterConfigPtrOutput { return v.DeadLetterConfig }).(EventBusDeadLetterConfigPtrOutput)
+}
+
 // Event bus description.
 func (o EventBusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -327,7 +342,7 @@ func (o EventBusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventBusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -64,7 +64,7 @@ import (
 type Response struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapOutput `pulumi:"responseParameters"`
@@ -114,7 +114,7 @@ func GetResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Response resources.
 type responseState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
@@ -129,7 +129,7 @@ type responseState struct {
 }
 
 type ResponseState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapInput
@@ -148,7 +148,7 @@ func (ResponseState) ElementType() reflect.Type {
 }
 
 type responseArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
@@ -164,7 +164,7 @@ type responseArgs struct {
 
 // The set of arguments for constructing a Response resource.
 type ResponseArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of parameters (paths, query strings and headers) of the Gateway Response.
 	ResponseParameters pulumi.StringMapInput
@@ -265,7 +265,7 @@ func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) Respons
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Response) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

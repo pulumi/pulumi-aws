@@ -22,7 +22,6 @@ public final class GetTagsResult {
      * 
      */
     private String id;
-    private String region;
     private @Nullable String searchString;
     private @Nullable List<GetTagsSortBy> sortBies;
     private @Nullable String tagKey;
@@ -43,9 +42,6 @@ public final class GetTagsResult {
      */
     public String id() {
         return this.id;
-    }
-    public String region() {
-        return this.region;
     }
     public Optional<String> searchString() {
         return Optional.ofNullable(this.searchString);
@@ -78,7 +74,6 @@ public final class GetTagsResult {
     public static final class Builder {
         private @Nullable GetTagsFilter filter;
         private String id;
-        private String region;
         private @Nullable String searchString;
         private @Nullable List<GetTagsSortBy> sortBies;
         private @Nullable String tagKey;
@@ -89,7 +84,6 @@ public final class GetTagsResult {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
     	      this.id = defaults.id;
-    	      this.region = defaults.region;
     	      this.searchString = defaults.searchString;
     	      this.sortBies = defaults.sortBies;
     	      this.tagKey = defaults.tagKey;
@@ -109,14 +103,6 @@ public final class GetTagsResult {
               throw new MissingRequiredPropertyException("GetTagsResult", "id");
             }
             this.id = id;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder region(String region) {
-            if (region == null) {
-              throw new MissingRequiredPropertyException("GetTagsResult", "region");
-            }
-            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -163,7 +149,6 @@ public final class GetTagsResult {
             final var _resultValue = new GetTagsResult();
             _resultValue.filter = filter;
             _resultValue.id = id;
-            _resultValue.region = region;
             _resultValue.searchString = searchString;
             _resultValue.sortBies = sortBies;
             _resultValue.tagKey = tagKey;

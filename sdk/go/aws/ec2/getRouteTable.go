@@ -69,7 +69,8 @@ type LookupRouteTableArgs struct {
 	Filters []GetRouteTableFilter `pulumi:"filters"`
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId *string `pulumi:"gatewayId"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the specific Route Table to retrieve.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
@@ -119,7 +120,8 @@ type LookupRouteTableOutputArgs struct {
 	Filters GetRouteTableFilterArrayInput `pulumi:"filters"`
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific Route Table to retrieve.
 	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
 	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).

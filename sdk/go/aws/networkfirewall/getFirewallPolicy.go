@@ -114,7 +114,8 @@ type LookupFirewallPolicyArgs struct {
 	// Descriptive name of the firewall policy.
 	//
 	// One or more of these arguments is required.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +154,8 @@ type LookupFirewallPolicyOutputArgs struct {
 	// Descriptive name of the firewall policy.
 	//
 	// One or more of these arguments is required.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

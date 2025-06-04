@@ -44,7 +44,7 @@ type ConnectionConfirmation struct {
 
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -83,14 +83,14 @@ func GetConnectionConfirmation(ctx *pulumi.Context,
 type connectionConfirmationState struct {
 	// The ID of the hosted connection.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type ConnectionConfirmationState struct {
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -101,7 +101,7 @@ func (ConnectionConfirmationState) ElementType() reflect.Type {
 type connectionConfirmationArgs struct {
 	// The ID of the hosted connection.
 	ConnectionId string `pulumi:"connectionId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -109,7 +109,7 @@ type connectionConfirmationArgs struct {
 type ConnectionConfirmationArgs struct {
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -205,7 +205,7 @@ func (o ConnectionConfirmationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionConfirmation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectionConfirmationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionConfirmation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

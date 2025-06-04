@@ -52,8 +52,9 @@ func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pul
 // A collection of arguments for invoking getThesaurus.
 type LookupThesaurusArgs struct {
 	// Identifier of the index that contains the Thesaurus.
-	IndexId string  `pulumi:"indexId"`
-	Region  *string `pulumi:"region"`
+	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the Thesaurus you create.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the Thesaurus.
@@ -107,8 +108,9 @@ func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, 
 // A collection of arguments for invoking getThesaurus.
 type LookupThesaurusOutputArgs struct {
 	// Identifier of the index that contains the Thesaurus.
-	IndexId pulumi.StringInput    `pulumi:"indexId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the Thesaurus you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the Thesaurus.

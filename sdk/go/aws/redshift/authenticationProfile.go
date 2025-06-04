@@ -66,7 +66,7 @@ type AuthenticationProfile struct {
 	AuthenticationProfileContent pulumi.StringOutput `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringOutput `pulumi:"authenticationProfileName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type authenticationProfileState struct {
 	AuthenticationProfileContent *string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName *string `pulumi:"authenticationProfileName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -119,7 +119,7 @@ type AuthenticationProfileState struct {
 	AuthenticationProfileContent pulumi.StringPtrInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -132,7 +132,7 @@ type authenticationProfileArgs struct {
 	AuthenticationProfileContent string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName string `pulumi:"authenticationProfileName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -142,7 +142,7 @@ type AuthenticationProfileArgs struct {
 	AuthenticationProfileContent pulumi.StringInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -243,7 +243,7 @@ func (o AuthenticationProfileOutput) AuthenticationProfileName() pulumi.StringOu
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.AuthenticationProfileName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthenticationProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

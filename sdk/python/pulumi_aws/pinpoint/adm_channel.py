@@ -31,7 +31,7 @@ class AdmChannelArgs:
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "client_id", client_id)
@@ -93,7 +93,7 @@ class AdmChannelArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -116,7 +116,7 @@ class _AdmChannelState:
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -181,7 +181,7 @@ class _AdmChannelState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -234,7 +234,7 @@ class AdmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -336,7 +336,7 @@ class AdmChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -385,7 +385,7 @@ class AdmChannel(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

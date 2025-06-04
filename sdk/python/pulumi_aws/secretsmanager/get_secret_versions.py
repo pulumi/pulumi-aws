@@ -120,6 +120,7 @@ def get_secret_versions(include_deprecated: Optional[builtins.bool] = None,
 
     :param builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
@@ -146,6 +147,7 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
 
     :param builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()

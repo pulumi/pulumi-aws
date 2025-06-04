@@ -289,7 +289,7 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
-    :param builtins.str region: The region of the address.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
@@ -352,7 +352,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
-    :param builtins.str region: The region of the address.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.

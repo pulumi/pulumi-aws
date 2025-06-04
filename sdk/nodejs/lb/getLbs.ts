@@ -36,6 +36,9 @@ export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match
@@ -91,6 +94,9 @@ export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOutput
  * A collection of arguments for invoking getLbs.
  */
 export interface GetLbsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match

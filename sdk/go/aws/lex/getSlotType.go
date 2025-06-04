@@ -52,7 +52,8 @@ func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulum
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeArgs struct {
 	// Name of the slot type. The name is case sensitive.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Version of the slot type.
 	Version *string `pulumi:"version"`
@@ -99,7 +100,8 @@ func LookupSlotTypeOutput(ctx *pulumi.Context, args LookupSlotTypeOutputArgs, op
 // A collection of arguments for invoking getSlotType.
 type LookupSlotTypeOutputArgs struct {
 	// Name of the slot type. The name is case sensitive.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the slot type.
 	Version pulumi.StringPtrInput `pulumi:"version"`

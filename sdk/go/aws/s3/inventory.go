@@ -144,7 +144,7 @@ type Inventory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleOutput `pulumi:"schedule"`
@@ -206,7 +206,7 @@ type inventoryState struct {
 	Name *string `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule *InventorySchedule `pulumi:"schedule"`
@@ -227,7 +227,7 @@ type InventoryState struct {
 	Name pulumi.StringPtrInput
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedulePtrInput
@@ -252,7 +252,7 @@ type inventoryArgs struct {
 	Name *string `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedule `pulumi:"schedule"`
@@ -274,7 +274,7 @@ type InventoryArgs struct {
 	Name pulumi.StringPtrInput
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleInput
@@ -402,7 +402,7 @@ func (o InventoryOutput) OptionalFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringArrayOutput { return v.OptionalFields }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InventoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -65,7 +65,7 @@ type Resource struct {
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Last path segment of this API resource.
 	PathPart pulumi.StringOutput `pulumi:"pathPart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -116,7 +116,7 @@ type resourceState struct {
 	Path *string `pulumi:"path"`
 	// Last path segment of this API resource.
 	PathPart *string `pulumi:"pathPart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi *string `pulumi:"restApi"`
@@ -129,7 +129,7 @@ type ResourceState struct {
 	Path pulumi.StringPtrInput
 	// Last path segment of this API resource.
 	PathPart pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type resourceArgs struct {
 	ParentId string `pulumi:"parentId"`
 	// Last path segment of this API resource.
 	PathPart string `pulumi:"pathPart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi string `pulumi:"restApi"`
@@ -156,7 +156,7 @@ type ResourceArgs struct {
 	ParentId pulumi.StringInput
 	// Last path segment of this API resource.
 	PathPart pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.StringInput
@@ -264,7 +264,7 @@ func (o ResourceOutput) PathPart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.PathPart }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

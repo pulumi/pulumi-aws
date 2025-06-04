@@ -159,6 +159,7 @@ def get_map(map_name: Optional[builtins.str] = None,
 
 
     :param builtins.str map_name: Name of the map resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the map.
     """
     __args__ = dict()
@@ -196,6 +197,7 @@ def get_map_output(map_name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str map_name: Name of the map resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the map.
     """
     __args__ = dict()

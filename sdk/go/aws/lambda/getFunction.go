@@ -56,9 +56,10 @@ type LookupFunctionArgs struct {
 	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
-	Qualifier *string           `pulumi:"qualifier"`
-	Region    *string           `pulumi:"region"`
-	Tags      map[string]string `pulumi:"tags"`
+	Qualifier *string `pulumi:"qualifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFunction.
@@ -148,8 +149,9 @@ type LookupFunctionOutputArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
-	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupFunctionOutputArgs) ElementType() reflect.Type {

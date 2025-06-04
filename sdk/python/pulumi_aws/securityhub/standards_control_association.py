@@ -32,7 +32,7 @@ class StandardsControlAssociationArgs:
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_reason: The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         """
         pulumi.set(__self__, "association_status", association_status)
@@ -85,7 +85,7 @@ class StandardsControlAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _StandardsControlAssociationState:
         """
         Input properties used for looking up and filtering StandardsControlAssociation resources.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -151,7 +151,7 @@ class _StandardsControlAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -232,7 +232,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -327,7 +327,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -357,7 +357,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

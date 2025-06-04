@@ -108,6 +108,8 @@ type RegisteredDomain struct {
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolPtrOutput `pulumi:"techPrivacy"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolPtrOutput `pulumi:"transferLock"`
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate pulumi.StringOutput `pulumi:"updatedDate"`
@@ -191,6 +193,8 @@ type registeredDomainState struct {
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy *bool `pulumi:"techPrivacy"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock *bool `pulumi:"transferLock"`
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate *string `pulumi:"updatedDate"`
@@ -242,6 +246,8 @@ type RegisteredDomainState struct {
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolPtrInput
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolPtrInput
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	UpdatedDate pulumi.StringPtrInput
@@ -279,6 +285,8 @@ type registeredDomainArgs struct {
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy *bool `pulumi:"techPrivacy"`
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock *bool `pulumi:"transferLock"`
 }
 
@@ -309,6 +317,8 @@ type RegisteredDomainArgs struct {
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
 	TechPrivacy pulumi.BoolPtrInput
 	// Whether the domain is locked for transfer. Default: `true`.
+	//
+	// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 	TransferLock pulumi.BoolPtrInput
 }
 
@@ -505,6 +515,8 @@ func (o RegisteredDomainOutput) TechPrivacy() pulumi.BoolPtrOutput {
 }
 
 // Whether the domain is locked for transfer. Default: `true`.
+//
+// > **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
 func (o RegisteredDomainOutput) TransferLock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.TransferLock }).(pulumi.BoolPtrOutput)
 }

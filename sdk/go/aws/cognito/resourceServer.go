@@ -104,7 +104,7 @@ type ResourceServer struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// A name for the resource server.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
@@ -154,7 +154,7 @@ type resourceServerState struct {
 	Identifier *string `pulumi:"identifier"`
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
@@ -169,7 +169,7 @@ type ResourceServerState struct {
 	Identifier pulumi.StringPtrInput
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayInput
@@ -188,7 +188,7 @@ type resourceServerArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of Authorization Scope.
 	Scopes []ResourceServerScope `pulumi:"scopes"`
@@ -202,7 +202,7 @@ type ResourceServerArgs struct {
 	Identifier pulumi.StringInput
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of Authorization Scope.
 	Scopes ResourceServerScopeArrayInput
@@ -307,7 +307,7 @@ func (o ResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceServerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

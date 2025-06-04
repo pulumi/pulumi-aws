@@ -78,8 +78,9 @@ type GetVpcIpamPoolCidrsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetVpcIpamPoolCidrsFilter `pulumi:"filters"`
 	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId string  `pulumi:"ipamPoolId"`
-	Region     *string `pulumi:"region"`
+	IpamPoolId string `pulumi:"ipamPoolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPoolCidrs.
@@ -107,8 +108,9 @@ type GetVpcIpamPoolCidrsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetVpcIpamPoolCidrsFilterArrayInput `pulumi:"filters"`
 	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId pulumi.StringInput    `pulumi:"ipamPoolId"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolCidrsOutputArgs) ElementType() reflect.Type {

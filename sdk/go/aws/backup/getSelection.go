@@ -52,7 +52,8 @@ func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pul
 // A collection of arguments for invoking getSelection.
 type LookupSelectionArgs struct {
 	// Backup plan ID associated with the selection of resources.
-	PlanId string  `pulumi:"planId"`
+	PlanId string `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Backup selection ID.
 	SelectionId string `pulumi:"selectionId"`
@@ -85,7 +86,8 @@ func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, 
 // A collection of arguments for invoking getSelection.
 type LookupSelectionOutputArgs struct {
 	// Backup plan ID associated with the selection of resources.
-	PlanId pulumi.StringInput    `pulumi:"planId"`
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Backup selection ID.
 	SelectionId pulumi.StringInput `pulumi:"selectionId"`

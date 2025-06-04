@@ -12,6 +12,12 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
+ * > **Note:** In order to be able to have your AWS Lambda function or
+ *    SNS topic invoked by an EventBridge rule, you must set up the right permissions
+ *    using `aws.lambda.Permission`
+ *    or `aws.sns.TopicPolicy`.
+ *    More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
+ *
  * ## Example Usage
  *
  * ### Kinesis Usage
@@ -582,7 +588,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly redshiftTarget!: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -743,7 +749,7 @@ export interface EventTargetState {
      */
     redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -836,7 +842,7 @@ export interface EventTargetArgs {
      */
     redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

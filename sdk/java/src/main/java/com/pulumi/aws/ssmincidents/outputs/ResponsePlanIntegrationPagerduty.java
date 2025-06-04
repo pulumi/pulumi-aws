@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ResponsePlanIntegrationPagerduty {
     /**
-     * @return The name of the response plan.
+     * @return The name of the PagerDuty configuration.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class ResponsePlanIntegrationPagerduty {
 
     private ResponsePlanIntegrationPagerduty() {}
     /**
-     * @return The name of the response plan.
+     * @return The name of the PagerDuty configuration.
      * 
      */
     public String name() {

@@ -136,7 +136,7 @@ export class Preset extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -150,6 +150,8 @@ export class Preset extends pulumi.CustomResource {
     public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -234,7 +236,7 @@ export interface PresetState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -248,6 +250,8 @@ export interface PresetState {
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -281,7 +285,7 @@ export interface PresetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -295,6 +299,8 @@ export interface PresetArgs {
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
+     *
+     * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

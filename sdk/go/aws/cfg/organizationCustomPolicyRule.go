@@ -94,7 +94,7 @@ type OrganizationCustomPolicyRule struct {
 	PolicyRuntime pulumi.StringOutput `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringOutput `pulumi:"policyText"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
@@ -167,7 +167,7 @@ type organizationCustomPolicyRuleState struct {
 	PolicyRuntime *string `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText *string `pulumi:"policyText"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
@@ -202,7 +202,7 @@ type OrganizationCustomPolicyRuleState struct {
 	PolicyRuntime pulumi.StringPtrInput
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type organizationCustomPolicyRuleArgs struct {
 	PolicyRuntime string `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText string `pulumi:"policyText"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
@@ -273,7 +273,7 @@ type OrganizationCustomPolicyRuleArgs struct {
 	PolicyRuntime pulumi.StringInput
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
@@ -421,7 +421,7 @@ func (o OrganizationCustomPolicyRuleOutput) PolicyText() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.PolicyText }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationCustomPolicyRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -132,7 +132,7 @@ type OrganizationConfiguration struct {
 	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationOutput `pulumi:"organizationConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -175,7 +175,7 @@ type organizationConfigurationState struct {
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -186,7 +186,7 @@ type OrganizationConfigurationState struct {
 	AutoEnableStandards pulumi.StringPtrInput
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -201,7 +201,7 @@ type organizationConfigurationArgs struct {
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -213,7 +213,7 @@ type OrganizationConfigurationArgs struct {
 	AutoEnableStandards pulumi.StringPtrInput
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -321,7 +321,7 @@ func (o OrganizationConfigurationOutput) OrganizationConfiguration() Organizatio
 	}).(OrganizationConfigurationOrganizationConfigurationOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

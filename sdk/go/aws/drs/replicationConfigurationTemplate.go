@@ -116,7 +116,7 @@ type ReplicationConfigurationTemplate struct {
 	EbsEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayOutput `pulumi:"pitPolicies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringOutput `pulumi:"replicationServerInstanceType"`
@@ -220,7 +220,7 @@ type replicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType *string `pulumi:"replicationServerInstanceType"`
@@ -262,7 +262,7 @@ type ReplicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type replicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType string `pulumi:"replicationServerInstanceType"`
@@ -345,7 +345,7 @@ type ReplicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringInput
@@ -503,7 +503,7 @@ func (o ReplicationConfigurationTemplateOutput) PitPolicies() ReplicationConfigu
 	}).(ReplicationConfigurationTemplatePitPolicyArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReplicationConfigurationTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

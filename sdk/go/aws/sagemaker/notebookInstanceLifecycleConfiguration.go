@@ -74,7 +74,7 @@ type NotebookInstanceLifecycleConfiguration struct {
 	OnCreate pulumi.StringPtrOutput `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrOutput `pulumi:"onStart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,7 +120,7 @@ type notebookInstanceLifecycleConfigurationState struct {
 	OnCreate *string `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -137,7 +137,7 @@ type NotebookInstanceLifecycleConfigurationState struct {
 	OnCreate pulumi.StringPtrInput
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -156,7 +156,7 @@ type notebookInstanceLifecycleConfigurationArgs struct {
 	OnCreate *string `pulumi:"onCreate"`
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -170,7 +170,7 @@ type NotebookInstanceLifecycleConfigurationArgs struct {
 	OnCreate pulumi.StringPtrInput
 	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -283,7 +283,7 @@ func (o NotebookInstanceLifecycleConfigurationOutput) OnStart() pulumi.StringPtr
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringPtrOutput { return v.OnStart }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotebookInstanceLifecycleConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

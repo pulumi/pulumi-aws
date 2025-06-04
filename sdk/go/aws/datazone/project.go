@@ -71,7 +71,7 @@ type Project struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrOutput     `pulumi:"skipDeletionCheck"`
@@ -131,7 +131,7 @@ type projectState struct {
 	Name *string `pulumi:"name"`
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus *string `pulumi:"projectStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
@@ -159,7 +159,7 @@ type ProjectState struct {
 	Name pulumi.StringPtrInput
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrInput
@@ -181,7 +181,7 @@ type projectArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
@@ -200,7 +200,7 @@ type ProjectArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrInput
@@ -341,7 +341,7 @@ func (o ProjectOutput) ProjectStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProjectOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -65,7 +65,8 @@ type GetLocalGatewayRouteTableArgs struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn *string `pulumi:"outpostArn"`
-	Region     *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the local gateway route table.
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
@@ -108,7 +109,8 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the local gateway route table.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match

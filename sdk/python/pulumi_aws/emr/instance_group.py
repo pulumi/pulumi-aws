@@ -64,7 +64,7 @@ class InstanceGroupArgs:
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -218,7 +218,7 @@ class InstanceGroupArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -274,7 +274,7 @@ class _InstanceGroupState:
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] running_instance_count: The number of instances currently running in this instance group.
         :param pulumi.Input[builtins.str] status: The current status of the instance group.
         """
@@ -436,7 +436,7 @@ class _InstanceGroupState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -547,7 +547,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -693,7 +693,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] running_instance_count: The number of instances currently running in this instance group.
         :param pulumi.Input[builtins.str] status: The current status of the instance group.
         """
@@ -812,7 +812,7 @@ class InstanceGroup(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -15,14 +15,14 @@ public final class ResponsePlanIntegrationPagerdutyArgs extends com.pulumi.resou
     public static final ResponsePlanIntegrationPagerdutyArgs Empty = new ResponsePlanIntegrationPagerdutyArgs();
 
     /**
-     * The name of the response plan.
+     * The name of the PagerDuty configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the response plan.
+     * @return The name of the PagerDuty configuration.
      * 
      */
     public Output<String> name() {
@@ -90,7 +90,7 @@ public final class ResponsePlanIntegrationPagerdutyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the response plan.
+         * @param name The name of the PagerDuty configuration.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ResponsePlanIntegrationPagerdutyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the response plan.
+         * @param name The name of the PagerDuty configuration.
          * 
          * @return builder
          * 

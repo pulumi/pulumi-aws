@@ -118,6 +118,8 @@ def get_protection(protection_id: Optional[builtins.str] = None,
 
     :param builtins.str protection_id: Unique identifier for the protection.
     :param builtins.str resource_arn: ARN (Amazon Resource Name) of the resource being protected.
+           
+           > Exactly one of `protection_id` or `resource_arn` is required.
     """
     __args__ = dict()
     __args__['protectionId'] = protection_id
@@ -160,6 +162,8 @@ def get_protection_output(protection_id: Optional[pulumi.Input[Optional[builtins
 
     :param builtins.str protection_id: Unique identifier for the protection.
     :param builtins.str resource_arn: ARN (Amazon Resource Name) of the resource being protected.
+           
+           > Exactly one of `protection_id` or `resource_arn` is required.
     """
     __args__ = dict()
     __args__['protectionId'] = protection_id

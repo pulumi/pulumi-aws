@@ -36,7 +36,7 @@ class UserArgs:
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -118,7 +118,7 @@ class UserArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -159,7 +159,7 @@ class _UserState:
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -260,7 +260,7 @@ class _UserState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -339,7 +339,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -451,7 +451,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -524,7 +524,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

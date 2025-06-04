@@ -83,8 +83,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("packetSize")]
         public Output<int> PacketSize { get; private set; } = null!;
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.NetworkMonitor
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -191,8 +189,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }
@@ -204,7 +200,7 @@ namespace Pulumi.Aws.NetworkMonitor
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -264,8 +260,6 @@ namespace Pulumi.Aws.NetworkMonitor
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("packetSize")]
         public Input<int>? PacketSize { get; set; }
@@ -280,7 +274,7 @@ namespace Pulumi.Aws.NetworkMonitor
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

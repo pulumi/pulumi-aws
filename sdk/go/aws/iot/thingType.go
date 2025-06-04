@@ -57,7 +57,7 @@ type ThingType struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrOutput `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -103,7 +103,7 @@ type thingTypeState struct {
 	Name *string `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -120,7 +120,7 @@ type ThingTypeState struct {
 	Name pulumi.StringPtrInput
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -139,7 +139,7 @@ type thingTypeArgs struct {
 	Name *string `pulumi:"name"`
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties *ThingTypeProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type ThingTypeArgs struct {
 	Name pulumi.StringPtrInput
 	// , Configuration block that can contain the following properties of the thing type:
 	Properties ThingTypePropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -266,7 +266,7 @@ func (o ThingTypeOutput) Properties() ThingTypePropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingType) ThingTypePropertiesPtrOutput { return v.Properties }).(ThingTypePropertiesPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThingTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

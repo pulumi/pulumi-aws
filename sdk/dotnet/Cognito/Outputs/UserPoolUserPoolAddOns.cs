@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolUserPoolAddOns
     {
         /// <summary>
+        /// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        /// </summary>
+        public readonly Outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows? AdvancedSecurityAdditionalFlows;
+        /// <summary>
         /// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         /// </summary>
         public readonly string AdvancedSecurityMode;
 
         [OutputConstructor]
-        private UserPoolUserPoolAddOns(string advancedSecurityMode)
+        private UserPoolUserPoolAddOns(
+            Outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows? advancedSecurityAdditionalFlows,
+
+            string advancedSecurityMode)
         {
+            AdvancedSecurityAdditionalFlows = advancedSecurityAdditionalFlows;
             AdvancedSecurityMode = advancedSecurityMode;
         }
     }

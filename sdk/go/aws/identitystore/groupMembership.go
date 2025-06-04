@@ -85,7 +85,7 @@ type GroupMembership struct {
 	MemberId pulumi.StringOutput `pulumi:"memberId"`
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId pulumi.StringOutput `pulumi:"membershipId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -136,7 +136,7 @@ type groupMembershipState struct {
 	MemberId *string `pulumi:"memberId"`
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId *string `pulumi:"membershipId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -149,7 +149,7 @@ type GroupMembershipState struct {
 	MemberId pulumi.StringPtrInput
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -164,7 +164,7 @@ type groupMembershipArgs struct {
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	MemberId string `pulumi:"memberId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -176,7 +176,7 @@ type GroupMembershipArgs struct {
 	IdentityStoreId pulumi.StringInput
 	// The identifier for a user in the Identity Store.
 	MemberId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -287,7 +287,7 @@ func (o GroupMembershipOutput) MembershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MembershipId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

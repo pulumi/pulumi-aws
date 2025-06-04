@@ -20,7 +20,6 @@ public final class GetCanonicalUserIdResult {
      * 
      */
     private String id;
-    private String region;
 
     private GetCanonicalUserIdResult() {}
     /**
@@ -37,9 +36,6 @@ public final class GetCanonicalUserIdResult {
     public String id() {
         return this.id;
     }
-    public String region() {
-        return this.region;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,13 +48,11 @@ public final class GetCanonicalUserIdResult {
     public static final class Builder {
         private String displayName;
         private String id;
-        private String region;
         public Builder() {}
         public Builder(GetCanonicalUserIdResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
-    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -77,19 +71,10 @@ public final class GetCanonicalUserIdResult {
             this.id = id;
             return this;
         }
-        @CustomType.Setter
-        public Builder region(String region) {
-            if (region == null) {
-              throw new MissingRequiredPropertyException("GetCanonicalUserIdResult", "region");
-            }
-            this.region = region;
-            return this;
-        }
         public GetCanonicalUserIdResult build() {
             final var _resultValue = new GetCanonicalUserIdResult();
             _resultValue.displayName = displayName;
             _resultValue.id = id;
-            _resultValue.region = region;
             return _resultValue;
         }
     }

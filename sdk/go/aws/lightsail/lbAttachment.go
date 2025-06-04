@@ -90,7 +90,7 @@ type LbAttachment struct {
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -134,7 +134,7 @@ type lbAttachmentState struct {
 	InstanceName *string `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName *string `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -143,7 +143,7 @@ type LbAttachmentState struct {
 	InstanceName pulumi.StringPtrInput
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -156,7 +156,7 @@ type lbAttachmentArgs struct {
 	InstanceName string `pulumi:"instanceName"`
 	// The name of the Lightsail load balancer.
 	LbName string `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -166,7 +166,7 @@ type LbAttachmentArgs struct {
 	InstanceName pulumi.StringInput
 	// The name of the Lightsail load balancer.
 	LbName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -267,7 +267,7 @@ func (o LbAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LbAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

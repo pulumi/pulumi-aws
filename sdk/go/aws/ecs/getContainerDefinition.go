@@ -53,8 +53,9 @@ func GetContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArg
 // A collection of arguments for invoking getContainerDefinition.
 type GetContainerDefinitionArgs struct {
 	// Name of the container definition
-	ContainerName string  `pulumi:"containerName"`
-	Region        *string `pulumi:"region"`
+	ContainerName string `pulumi:"containerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the task definition which contains the container
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -96,8 +97,9 @@ func GetContainerDefinitionOutput(ctx *pulumi.Context, args GetContainerDefiniti
 // A collection of arguments for invoking getContainerDefinition.
 type GetContainerDefinitionOutputArgs struct {
 	// Name of the container definition
-	ContainerName pulumi.StringInput    `pulumi:"containerName"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the task definition which contains the container
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }

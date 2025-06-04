@@ -183,7 +183,7 @@ type Glossary struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringOutput `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of business glossary. Valid values are DISABLED and ENABLED.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -234,7 +234,7 @@ type glossaryState struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier *string `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of business glossary. Valid values are DISABLED and ENABLED.
 	Status *string `pulumi:"status"`
@@ -250,7 +250,7 @@ type GlossaryState struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of business glossary. Valid values are DISABLED and ENABLED.
 	Status pulumi.StringPtrInput
@@ -270,7 +270,7 @@ type glossaryArgs struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of business glossary. Valid values are DISABLED and ENABLED.
 	Status *string `pulumi:"status"`
@@ -287,7 +287,7 @@ type GlossaryArgs struct {
 	//
 	// The following arguments are optional:
 	OwningProjectIdentifier pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of business glossary. Valid values are DISABLED and ENABLED.
 	Status pulumi.StringPtrInput
@@ -401,7 +401,7 @@ func (o GlossaryOutput) OwningProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.OwningProjectIdentifier }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlossaryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Glossary) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

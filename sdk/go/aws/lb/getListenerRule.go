@@ -100,8 +100,9 @@ type LookupListenerRuleArgs struct {
 	ListenerArn *string `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority *int    `pulumi:"priority"`
-	Region   *string `pulumi:"region"`
+	Priority *int `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getListenerRule.
@@ -148,8 +149,9 @@ type LookupListenerRuleOutputArgs struct {
 	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {

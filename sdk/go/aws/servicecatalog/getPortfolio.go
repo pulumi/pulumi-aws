@@ -55,7 +55,8 @@ type LookupPortfolioArgs struct {
 	// Portfolio identifier.
 	//
 	// The following arguments are optional:
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
@@ -96,7 +97,8 @@ type LookupPortfolioOutputArgs struct {
 	// Portfolio identifier.
 	//
 	// The following arguments are optional:
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags applied to the portfolio.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

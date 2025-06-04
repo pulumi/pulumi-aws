@@ -76,6 +76,7 @@ func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts 
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType *string `pulumi:"sourceType"`
@@ -102,6 +103,7 @@ func GetEventCategoriesOutput(ctx *pulumi.Context, args GetEventCategoriesOutput
 
 // A collection of arguments for invoking getEventCategories.
 type GetEventCategoriesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`

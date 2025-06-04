@@ -101,7 +101,7 @@ type BucketCorsConfiguration struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayOutput `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -156,7 +156,7 @@ type bucketCorsConfigurationState struct {
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -167,7 +167,7 @@ type BucketCorsConfigurationState struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -182,7 +182,7 @@ type bucketCorsConfigurationArgs struct {
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -194,7 +194,7 @@ type BucketCorsConfigurationArgs struct {
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -300,7 +300,7 @@ func (o BucketCorsConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOut
 	return o.ApplyT(func(v *BucketCorsConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketCorsConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketCorsConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

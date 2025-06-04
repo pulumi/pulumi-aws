@@ -88,7 +88,8 @@ type LookupPeeringAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
-	Id     *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
@@ -131,7 +132,8 @@ type LookupPeeringAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.

@@ -137,7 +137,7 @@ type Invocation struct {
 	LifecycleScope pulumi.StringPtrOutput `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// String result of the lambda function invocation.
 	Result       pulumi.StringOutput    `pulumi:"result"`
@@ -192,7 +192,7 @@ type invocationState struct {
 	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// String result of the lambda function invocation.
 	Result       *string `pulumi:"result"`
@@ -212,7 +212,7 @@ type InvocationState struct {
 	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// String result of the lambda function invocation.
 	Result       pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type invocationArgs struct {
 	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region       *string `pulumi:"region"`
 	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -255,7 +255,7 @@ type InvocationArgs struct {
 	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region       pulumi.StringPtrInput
 	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -371,7 +371,7 @@ func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InvocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

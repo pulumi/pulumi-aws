@@ -170,7 +170,7 @@ type QueuePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -213,7 +213,7 @@ type queuePolicyState struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl *string `pulumi:"queueUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -221,7 +221,7 @@ type QueuePolicyState struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -233,7 +233,7 @@ type queuePolicyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl string `pulumi:"queueUrl"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -242,7 +242,7 @@ type QueuePolicyArgs struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -342,7 +342,7 @@ func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o QueuePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

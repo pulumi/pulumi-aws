@@ -407,16 +407,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> encrypted;
+    @Export(name="encrypted", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encrypted;
 
     /**
      * @return If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    public Output<Optional<Boolean>> encrypted() {
+    public Output<Optional<String>> encrypted() {
         return Codegen.optional(this.encrypted);
     }
     /**
@@ -706,14 +708,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publiclyAccessible);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -778,12 +780,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

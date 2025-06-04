@@ -72,7 +72,7 @@ type Upload struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -128,7 +128,7 @@ type uploadState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn *string `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type *string `pulumi:"type"`
@@ -149,7 +149,7 @@ type UploadState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type uploadArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn string `pulumi:"projectArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type string `pulumi:"type"`
@@ -182,7 +182,7 @@ type UploadArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringInput
@@ -305,7 +305,7 @@ func (o UploadOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UploadOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

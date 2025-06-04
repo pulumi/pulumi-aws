@@ -31,7 +31,7 @@ class ScalingPlanArgs:
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_source", application_source)
         pulumi.set(__self__, "scaling_instructions", scaling_instructions)
@@ -80,7 +80,7 @@ class ScalingPlanArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -101,7 +101,7 @@ class _ScalingPlanState:
         Input properties used for looking up and filtering ScalingPlan resources.
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
@@ -144,7 +144,7 @@ class _ScalingPlanState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -210,7 +210,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         ...
@@ -298,7 +298,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
@@ -333,7 +333,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -48,6 +48,7 @@ func LookupActiveReceiptRuleSet(ctx *pulumi.Context, args *LookupActiveReceiptRu
 
 // A collection of arguments for invoking getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, args LookupActiveRece
 
 // A collection of arguments for invoking getActiveReceiptRuleSet.
 type LookupActiveReceiptRuleSetOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

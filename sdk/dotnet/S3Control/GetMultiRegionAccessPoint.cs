@@ -100,7 +100,7 @@ namespace Pulumi.Aws.S3Control
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the region.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the region.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

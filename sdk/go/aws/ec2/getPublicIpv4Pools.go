@@ -86,7 +86,8 @@ func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts 
 type GetPublicIpv4PoolsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
-	Region  *string                    `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -118,7 +119,8 @@ func GetPublicIpv4PoolsOutput(ctx *pulumi.Context, args GetPublicIpv4PoolsOutput
 type GetPublicIpv4PoolsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetPublicIpv4PoolsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput              `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,

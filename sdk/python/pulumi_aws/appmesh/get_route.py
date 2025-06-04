@@ -193,6 +193,7 @@ def get_route(mesh_name: Optional[builtins.str] = None,
     :param builtins.str mesh_name: Name of the service mesh in which the virtual router exists.
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the route.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     :param builtins.str virtual_router_name: Name of the virtual router in which the route exists.
     """
@@ -244,6 +245,7 @@ def get_route_output(mesh_name: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str mesh_name: Name of the service mesh in which the virtual router exists.
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the route.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     :param builtins.str virtual_router_name: Name of the virtual router in which the route exists.
     """

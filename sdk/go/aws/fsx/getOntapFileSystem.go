@@ -53,7 +53,8 @@ func LookupOntapFileSystem(ctx *pulumi.Context, args *LookupOntapFileSystemArgs,
 // A collection of arguments for invoking getOntapFileSystem.
 type LookupOntapFileSystemArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The tags associated with the file system.
 	Tags map[string]string `pulumi:"tags"`
@@ -122,7 +123,8 @@ func LookupOntapFileSystemOutput(ctx *pulumi.Context, args LookupOntapFileSystem
 // A collection of arguments for invoking getOntapFileSystem.
 type LookupOntapFileSystemOutputArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags associated with the file system.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -52,7 +52,8 @@ func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTyp
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-	Arn    *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type *string `pulumi:"type"`
@@ -108,7 +109,8 @@ func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormati
 // A collection of arguments for invoking getCloudFormationType.
 type LookupCloudFormationTypeOutputArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
-	Arn    pulumi.StringPtrInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`

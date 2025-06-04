@@ -98,8 +98,8 @@ def get_appregistry_attribute_group_associations(id: Optional[builtins.str] = No
 
     :param builtins.str id: ID of the application to which attribute groups are associated.
     :param builtins.str name: Name of the application to which attribute groups are associated.
-           
-           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `id`or `name` must be set.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -134,8 +134,8 @@ def get_appregistry_attribute_group_associations_output(id: Optional[pulumi.Inpu
 
     :param builtins.str id: ID of the application to which attribute groups are associated.
     :param builtins.str name: Name of the application to which attribute groups are associated.
-           
-           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `id`or `name` must be set.
     """
     __args__ = dict()
     __args__['id'] = id

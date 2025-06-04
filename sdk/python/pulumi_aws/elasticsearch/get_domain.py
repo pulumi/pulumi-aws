@@ -339,6 +339,7 @@ def get_domain(domain_name: Optional[builtins.str] = None,
 
 
     :param builtins.str domain_name: Name of the domain.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
@@ -391,6 +392,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str domain_name: Name of the domain.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()

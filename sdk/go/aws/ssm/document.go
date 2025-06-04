@@ -153,7 +153,7 @@ type Document struct {
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The schema version of the document.
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
@@ -239,7 +239,7 @@ type documentState struct {
 	Permissions map[string]string `pulumi:"permissions"`
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes []string `pulumi:"platformTypes"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The schema version of the document.
 	SchemaVersion *string `pulumi:"schemaVersion"`
@@ -290,7 +290,7 @@ type DocumentState struct {
 	Permissions pulumi.StringMapInput
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The schema version of the document.
 	SchemaVersion pulumi.StringPtrInput
@@ -323,7 +323,7 @@ type documentArgs struct {
 	Name *string `pulumi:"name"`
 	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions map[string]string `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -347,7 +347,7 @@ type DocumentArgs struct {
 	Name pulumi.StringPtrInput
 	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -529,7 +529,7 @@ func (o DocumentOutput) PlatformTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringArrayOutput { return v.PlatformTypes }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DocumentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

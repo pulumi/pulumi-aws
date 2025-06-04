@@ -129,7 +129,8 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -239,7 +240,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -337,7 +339,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

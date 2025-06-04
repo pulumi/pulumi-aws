@@ -72,7 +72,7 @@ type ListenerCertificate struct {
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -122,7 +122,7 @@ type listenerCertificateState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn *string `pulumi:"listenerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -131,7 +131,7 @@ type ListenerCertificateState struct {
 	CertificateArn pulumi.StringPtrInput
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -144,7 +144,7 @@ type listenerCertificateArgs struct {
 	CertificateArn string `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn string `pulumi:"listenerArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -154,7 +154,7 @@ type ListenerCertificateArgs struct {
 	CertificateArn pulumi.StringInput
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -255,7 +255,7 @@ func (o ListenerCertificateOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ListenerCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

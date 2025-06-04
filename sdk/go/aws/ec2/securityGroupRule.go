@@ -220,7 +220,8 @@ type SecurityGroupRule struct {
 	PrefixListIds pulumi.StringArrayOutput `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
@@ -236,8 +237,6 @@ type SecurityGroupRule struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
-	//
-	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -298,7 +297,8 @@ type securityGroupRuleState struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol *string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Region *string `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
@@ -314,8 +314,6 @@ type securityGroupRuleState struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
-	//
-	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type *string `pulumi:"type"`
 }
 
@@ -332,7 +330,8 @@ type SecurityGroupRuleState struct {
 	PrefixListIds pulumi.StringArrayInput
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Region pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringPtrInput
@@ -348,8 +347,6 @@ type SecurityGroupRuleState struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
-	//
-	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringPtrInput
 }
 
@@ -370,7 +367,8 @@ type securityGroupRuleArgs struct {
 	PrefixListIds []string `pulumi:"prefixListIds"`
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol string `pulumi:"protocol"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Region *string `pulumi:"region"`
 	// Security group to apply this rule to.
 	SecurityGroupId string `pulumi:"securityGroupId"`
@@ -384,8 +382,6 @@ type securityGroupRuleArgs struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
-	//
-	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type string `pulumi:"type"`
 }
 
@@ -403,7 +399,8 @@ type SecurityGroupRuleArgs struct {
 	PrefixListIds pulumi.StringArrayInput
 	// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Region pulumi.StringPtrInput
 	// Security group to apply this rule to.
 	SecurityGroupId pulumi.StringInput
@@ -417,8 +414,6 @@ type SecurityGroupRuleArgs struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
-	//
-	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringInput
 }
 
@@ -539,7 +534,8 @@ func (o SecurityGroupRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 func (o SecurityGroupRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -573,8 +569,6 @@ func (o SecurityGroupRuleOutput) ToPort() pulumi.IntOutput {
 // or `egress` (outbound).
 //
 // The following arguments are optional:
-//
-// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 func (o SecurityGroupRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

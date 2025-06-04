@@ -25,7 +25,7 @@ class ResourceShareAccepterArgs:
         """
         The set of arguments for constructing a ResourceShareAccepter resource.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "share_arn", share_arn)
         if region is not None:
@@ -47,7 +47,7 @@ class ResourceShareAccepterArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -72,7 +72,7 @@ class _ResourceShareAccepterState:
         Input properties used for looking up and filtering ResourceShareAccepter resources.
         :param pulumi.Input[builtins.str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[builtins.str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: A list of the resource ARNs shared via the resource share.
         :param pulumi.Input[builtins.str] sender_account_id: The account ID of the sender account which submits the invitation.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
@@ -127,7 +127,7 @@ class _ResourceShareAccepterState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -253,7 +253,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
         """
         ...
@@ -361,7 +361,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[builtins.str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: A list of the resource ARNs shared via the resource share.
         :param pulumi.Input[builtins.str] sender_account_id: The account ID of the sender account which submits the invitation.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
@@ -404,7 +404,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

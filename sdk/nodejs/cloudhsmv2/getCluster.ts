@@ -42,6 +42,9 @@ export interface GetClusterArgs {
      * State of the cluster to be found.
      */
     clusterState?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -108,5 +111,8 @@ export interface GetClusterOutputArgs {
      * State of the cluster to be found.
      */
     clusterState?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

@@ -50,6 +50,7 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -78,6 +79,7 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`

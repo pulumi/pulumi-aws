@@ -137,7 +137,7 @@ type Instance struct {
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The ID of the service instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the service that you want to use to create the instance.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
@@ -186,7 +186,7 @@ type instanceState struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The ID of the service instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the service that you want to use to create the instance.
 	ServiceId *string `pulumi:"serviceId"`
@@ -197,7 +197,7 @@ type InstanceState struct {
 	Attributes pulumi.StringMapInput
 	// The ID of the service instance.
 	InstanceId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the service that you want to use to create the instance.
 	ServiceId pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type instanceArgs struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The ID of the service instance.
 	InstanceId string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the service that you want to use to create the instance.
 	ServiceId string `pulumi:"serviceId"`
@@ -224,7 +224,7 @@ type InstanceArgs struct {
 	Attributes pulumi.StringMapInput
 	// The ID of the service instance.
 	InstanceId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the service that you want to use to create the instance.
 	ServiceId pulumi.StringInput
@@ -327,7 +327,7 @@ func (o InstanceOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

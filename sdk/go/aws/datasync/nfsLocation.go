@@ -64,7 +64,7 @@ type NfsLocation struct {
 	MountOptions NfsLocationMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigOutput `pulumi:"onPremConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
@@ -122,7 +122,7 @@ type nfsLocationState struct {
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig *NfsLocationOnPremConfig `pulumi:"onPremConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname *string `pulumi:"serverHostname"`
@@ -142,7 +142,7 @@ type NfsLocationState struct {
 	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type nfsLocationArgs struct {
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfig `pulumi:"onPremConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname string `pulumi:"serverHostname"`
@@ -180,7 +180,7 @@ type NfsLocationArgs struct {
 	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringInput
@@ -292,7 +292,7 @@ func (o NfsLocationOutput) OnPremConfig() NfsLocationOnPremConfigOutput {
 	return o.ApplyT(func(v *NfsLocation) NfsLocationOnPremConfigOutput { return v.OnPremConfig }).(NfsLocationOnPremConfigOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NfsLocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -179,6 +179,7 @@ def get_certificate(default_for_new_launches: Optional[builtins.bool] = None,
     :param builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
     :param builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches
@@ -221,6 +222,7 @@ def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optio
     :param builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
     :param builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches

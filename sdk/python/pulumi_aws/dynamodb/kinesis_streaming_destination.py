@@ -29,7 +29,7 @@ class KinesisStreamingDestinationArgs:
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         pulumi.set(__self__, "table_name", table_name)
@@ -78,7 +78,7 @@ class KinesisStreamingDestinationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -97,7 +97,7 @@ class _KinesisStreamingDestinationState:
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
@@ -126,7 +126,7 @@ class _KinesisStreamingDestinationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -206,7 +206,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
@@ -307,7 +307,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
@@ -333,7 +333,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

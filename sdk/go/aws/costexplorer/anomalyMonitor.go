@@ -114,8 +114,6 @@ type AnomalyMonitor struct {
 	MonitorType pulumi.StringOutput `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -165,8 +163,6 @@ type anomalyMonitorState struct {
 	MonitorType *string `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -184,8 +180,6 @@ type AnomalyMonitorState struct {
 	MonitorType pulumi.StringPtrInput
 	// The name of the monitor.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -205,8 +199,6 @@ type anomalyMonitorArgs struct {
 	MonitorType string `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -221,8 +213,6 @@ type AnomalyMonitorArgs struct {
 	MonitorType pulumi.StringInput
 	// The name of the monitor.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -337,11 +327,6 @@ func (o AnomalyMonitorOutput) MonitorType() pulumi.StringOutput {
 // The name of the monitor.
 func (o AnomalyMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-func (o AnomalyMonitorOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

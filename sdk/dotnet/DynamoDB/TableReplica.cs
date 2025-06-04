@@ -86,7 +86,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
-        /// Optional arguments:
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalTableArn")]
         public Output<string> GlobalTableArn { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<bool?> PointInTimeRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
-        /// Optional arguments:
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalTableArn", required: true)]
         public Input<string> GlobalTableArn { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<bool>? PointInTimeRecovery { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
-        /// Optional arguments:
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalTableArn")]
         public Input<string>? GlobalTableArn { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<bool>? PointInTimeRecovery { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

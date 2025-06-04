@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Auditmanager
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationAdminAccountRegistration resource with the given unique name, arguments, and options.
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.Auditmanager
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationAdminAccountRegistrationArgs()
         {
         }
@@ -126,6 +138,12 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationAdminAccountRegistrationState()
         {

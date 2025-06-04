@@ -119,6 +119,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
 
 
     :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
@@ -165,6 +166,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
 
 
     :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            

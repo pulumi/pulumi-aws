@@ -88,6 +88,9 @@ def get_default_kms_key(region: Optional[builtins.str] = None,
         encrypted=True,
         kms_key_id=current.key_arn)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -115,6 +118,9 @@ def get_default_kms_key_output(region: Optional[pulumi.Input[Optional[builtins.s
         encrypted=True,
         kms_key_id=current.key_arn)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -39,6 +39,9 @@ export interface GetUserPoolClientArgs {
      * Client Id of the user pool.
      */
     clientId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * User pool the client belongs to.
@@ -118,6 +121,10 @@ export interface GetUserPoolClientResult {
      */
     readonly readAttributes: string[];
     /**
+     * (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    readonly refreshTokenRotations: outputs.cognito.GetUserPoolClientRefreshTokenRotation[];
+    /**
      * (Optional) Time limit in days refresh tokens are valid for.
      */
     readonly refreshTokenValidity: number;
@@ -168,6 +175,9 @@ export interface GetUserPoolClientOutputArgs {
      * Client Id of the user pool.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * User pool the client belongs to.

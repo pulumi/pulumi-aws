@@ -179,6 +179,7 @@ def get_mesh(mesh_owner: Optional[builtins.str] = None,
 
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the service mesh.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()
@@ -229,6 +230,7 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[builtins.str]]] =
 
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the service mesh.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()

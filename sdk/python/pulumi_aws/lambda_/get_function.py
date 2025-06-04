@@ -470,6 +470,7 @@ def get_function(function_name: Optional[builtins.str] = None,
 
     :param builtins.str function_name: Name of the lambda function.
     :param builtins.str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -537,6 +538,7 @@ def get_function_output(function_name: Optional[pulumi.Input[builtins.str]] = No
 
     :param builtins.str function_name: Name of the lambda function.
     :param builtins.str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name

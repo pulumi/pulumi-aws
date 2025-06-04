@@ -97,7 +97,7 @@ type ResolverFirewallRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrOutput `pulumi:"qType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -165,7 +165,7 @@ type resolverFirewallRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType *string `pulumi:"qType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -192,7 +192,7 @@ type ResolverFirewallRuleState struct {
 	Priority pulumi.IntPtrInput
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -223,7 +223,7 @@ type resolverFirewallRuleArgs struct {
 	Priority int `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType *string `pulumi:"qType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -251,7 +251,7 @@ type ResolverFirewallRuleArgs struct {
 	Priority pulumi.IntInput
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -397,7 +397,7 @@ func (o ResolverFirewallRuleOutput) QType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.QType }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverFirewallRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

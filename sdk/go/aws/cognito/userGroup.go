@@ -111,7 +111,7 @@ type UserGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrOutput `pulumi:"precedence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -158,7 +158,7 @@ type userGroupState struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
@@ -173,7 +173,7 @@ type UserGroupState struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
@@ -192,7 +192,7 @@ type userGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
@@ -208,7 +208,7 @@ type UserGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o UserGroupOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

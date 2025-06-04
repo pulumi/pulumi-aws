@@ -40,6 +40,9 @@ export interface GetIdentityPoolArgs {
      * The Cognito Identity Pool name.
      */
     identityPoolName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * A map of tags to assigned to the Identity Pool.
@@ -127,6 +130,9 @@ export interface GetIdentityPoolOutputArgs {
      * The Cognito Identity Pool name.
      */
     identityPoolName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assigned to the Identity Pool.

@@ -51,7 +51,8 @@ func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...p
 // A collection of arguments for invoking getNamedQuery.
 type LookupNamedQueryArgs struct {
 	// The plain language name for the query. Maximum length of 128.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The workgroup to which the query belongs. Defaults to `primary`.
 	Workgroup *string `pulumi:"workgroup"`
@@ -83,7 +84,8 @@ func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs
 // A collection of arguments for invoking getNamedQuery.
 type LookupNamedQueryOutputArgs struct {
 	// The plain language name for the query. Maximum length of 128.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The workgroup to which the query belongs. Defaults to `primary`.
 	Workgroup pulumi.StringPtrInput `pulumi:"workgroup"`

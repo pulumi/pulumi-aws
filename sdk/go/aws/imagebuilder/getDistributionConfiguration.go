@@ -52,7 +52,7 @@ func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributi
 type LookupDistributionConfigurationArgs struct {
 	// ARN of the distribution configuration.
 	Arn string `pulumi:"arn"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
@@ -92,7 +92,7 @@ func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistr
 type LookupDistributionConfigurationOutputArgs struct {
 	// ARN of the distribution configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

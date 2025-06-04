@@ -50,6 +50,7 @@ func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -73,6 +74,7 @@ func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

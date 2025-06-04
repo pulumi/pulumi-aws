@@ -30,7 +30,7 @@ class PermissionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[builtins.str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: ID of the calling account
         """
         pulumi.set(__self__, "actions", actions)
@@ -81,7 +81,7 @@ class PermissionArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -117,7 +117,7 @@ class _PermissionState:
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[builtins.str] policy: IAM policy that is associated with the permission.
         :param pulumi.Input[builtins.str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: ID of the calling account
         """
         if actions is not None:
@@ -185,7 +185,7 @@ class _PermissionState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -250,7 +250,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] actions: Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[builtins.str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: ID of the calling account
         """
         ...
@@ -354,7 +354,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[builtins.str] policy: IAM policy that is associated with the permission.
         :param pulumi.Input[builtins.str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: ID of the calling account
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,7 +405,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

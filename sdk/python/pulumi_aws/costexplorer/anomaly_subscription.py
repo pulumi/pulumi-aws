@@ -27,7 +27,6 @@ class AnomalySubscriptionArgs:
                  subscribers: pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]],
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
@@ -37,7 +36,6 @@ class AnomalySubscriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[builtins.str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         :param pulumi.Input[builtins.str] name: The name for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
@@ -48,8 +46,6 @@ class AnomalySubscriptionArgs:
             pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if threshold_expression is not None:
@@ -117,18 +113,6 @@ class AnomalySubscriptionArgs:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,7 +144,6 @@ class _AnomalySubscriptionState:
                  frequency: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -172,7 +155,6 @@ class _AnomalySubscriptionState:
         :param pulumi.Input[builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[builtins.str] name: The name for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -188,8 +170,6 @@ class _AnomalySubscriptionState:
             pulumi.set(__self__, "monitor_arn_lists", monitor_arn_lists)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
         if subscribers is not None:
             pulumi.set(__self__, "subscribers", subscribers)
         if tags is not None:
@@ -261,18 +241,6 @@ class _AnomalySubscriptionState:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter
     def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]]:
         """
         A subscriber configuration. Multiple subscribers can be defined.
@@ -330,7 +298,6 @@ class AnomalySubscription(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
@@ -507,7 +474,6 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[builtins.str] name: The name for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
@@ -703,7 +669,6 @@ class AnomalySubscription(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[builtins.str]] = None,
                  monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  threshold_expression: Optional[pulumi.Input[Union['AnomalySubscriptionThresholdExpressionArgs', 'AnomalySubscriptionThresholdExpressionArgsDict']]] = None,
@@ -724,7 +689,6 @@ class AnomalySubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'monitor_arn_lists'")
             __props__.__dict__["monitor_arn_lists"] = monitor_arn_lists
             __props__.__dict__["name"] = name
-            __props__.__dict__["region"] = region
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
@@ -747,7 +711,6 @@ class AnomalySubscription(pulumi.CustomResource):
             frequency: Optional[pulumi.Input[builtins.str]] = None,
             monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            region: Optional[pulumi.Input[builtins.str]] = None,
             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -764,7 +727,6 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[builtins.str] name: The name for the subscription.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -779,7 +741,6 @@ class AnomalySubscription(pulumi.CustomResource):
         __props__.__dict__["frequency"] = frequency
         __props__.__dict__["monitor_arn_lists"] = monitor_arn_lists
         __props__.__dict__["name"] = name
-        __props__.__dict__["region"] = region
         __props__.__dict__["subscribers"] = subscribers
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -825,14 +786,6 @@ class AnomalySubscription(pulumi.CustomResource):
         The name for the subscription.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
-        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

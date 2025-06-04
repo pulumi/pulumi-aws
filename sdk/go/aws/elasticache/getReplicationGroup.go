@@ -50,6 +50,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArg
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier for the replication group.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
@@ -110,6 +111,7 @@ func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGro
 
 // A collection of arguments for invoking getReplicationGroup.
 type LookupReplicationGroupOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier for the replication group.
 	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`

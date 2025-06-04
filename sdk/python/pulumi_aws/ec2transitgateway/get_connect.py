@@ -160,6 +160,7 @@ def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetCon
 
 
     :param Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param builtins.str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """
@@ -213,6 +214,7 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
 
 
     :param Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param builtins.str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """

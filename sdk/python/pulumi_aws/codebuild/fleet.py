@@ -46,7 +46,7 @@ class FleetArgs:
         :param pulumi.Input[builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]] vpc_configs: Configuration block. See `vpc_config` below.
@@ -175,7 +175,7 @@ class FleetArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -255,7 +255,7 @@ class _FleetState:
         :param pulumi.Input[builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['FleetScalingConfigurationArgs'] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['FleetStatusArgs']]] statuses: Nested attribute containing information about the current status of the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -434,7 +434,7 @@ class _FleetState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -573,7 +573,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]]] vpc_configs: Configuration block. See `vpc_config` below.
@@ -732,7 +732,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[builtins.str] name: Fleet name.
         :param pulumi.Input[builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetScalingConfigurationArgs', 'FleetScalingConfigurationArgsDict']] scaling_configuration: Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FleetStatusArgs', 'FleetStatusArgsDict']]]] statuses: Nested attribute containing information about the current status of the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -855,7 +855,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

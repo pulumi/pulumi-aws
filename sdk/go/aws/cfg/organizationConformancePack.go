@@ -171,7 +171,7 @@ type OrganizationConformancePack struct {
 	InputParameters OrganizationConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
 	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
@@ -221,7 +221,7 @@ type organizationConformancePackState struct {
 	InputParameters []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
 	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -242,7 +242,7 @@ type OrganizationConformancePackState struct {
 	InputParameters OrganizationConformancePackInputParameterArrayInput
 	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrInput
@@ -265,7 +265,7 @@ type organizationConformancePackArgs struct {
 	InputParameters []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
 	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -285,7 +285,7 @@ type OrganizationConformancePackArgs struct {
 	InputParameters OrganizationConformancePackInputParameterArrayInput
 	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 	TemplateBody pulumi.StringPtrInput
@@ -412,7 +412,7 @@ func (o OrganizationConformancePackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationConformancePackOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -56,7 +56,8 @@ type LookupVirtualGatewayArgs struct {
 	// Name of the service mesh in which the virtual gateway exists.
 	MeshName string `pulumi:"meshName"`
 	// Name of the virtual gateway.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -98,7 +99,8 @@ type LookupVirtualGatewayOutputArgs struct {
 	// Name of the service mesh in which the virtual gateway exists.
 	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// Name of the virtual gateway.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

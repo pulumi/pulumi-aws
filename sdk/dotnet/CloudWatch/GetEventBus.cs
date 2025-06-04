@@ -99,6 +99,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -116,6 +119,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -130,9 +136,13 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusResult
     {
         /// <summary>
-        /// ARN of the event bus.
+        /// The ARN of the SQS queue specified as the target for the dead-letter queue.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetEventBusDeadLetterConfigResult> DeadLetterConfigs;
         /// <summary>
         /// Event bus description.
         /// </summary>
@@ -152,6 +162,8 @@ namespace Pulumi.Aws.CloudWatch
         private GetEventBusResult(
             string arn,
 
+            ImmutableArray<Outputs.GetEventBusDeadLetterConfigResult> deadLetterConfigs,
+
             string description,
 
             string id,
@@ -163,6 +175,7 @@ namespace Pulumi.Aws.CloudWatch
             string region)
         {
             Arn = arn;
+            DeadLetterConfigs = deadLetterConfigs;
             Description = description;
             Id = id;
             KmsKeyIdentifier = kmsKeyIdentifier;

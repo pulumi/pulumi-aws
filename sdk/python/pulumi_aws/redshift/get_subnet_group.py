@@ -134,6 +134,7 @@ def get_subnet_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the cluster subnet group for which information is requested.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags associated to the Subnet Group
     """
     __args__ = dict()
@@ -169,6 +170,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the cluster subnet group for which information is requested.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags associated to the Subnet Group
     """
     __args__ = dict()

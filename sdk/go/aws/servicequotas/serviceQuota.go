@@ -66,7 +66,7 @@ type ServiceQuota struct {
 	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
 	// Name of the quota.
 	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region        pulumi.StringOutput `pulumi:"region"`
 	RequestId     pulumi.StringOutput `pulumi:"requestId"`
 	RequestStatus pulumi.StringOutput `pulumi:"requestStatus"`
@@ -129,7 +129,7 @@ type serviceQuotaState struct {
 	QuotaCode *string `pulumi:"quotaCode"`
 	// Name of the quota.
 	QuotaName *string `pulumi:"quotaName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region        *string `pulumi:"region"`
 	RequestId     *string `pulumi:"requestId"`
 	RequestStatus *string `pulumi:"requestStatus"`
@@ -154,7 +154,7 @@ type ServiceQuotaState struct {
 	QuotaCode pulumi.StringPtrInput
 	// Name of the quota.
 	QuotaName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region        pulumi.StringPtrInput
 	RequestId     pulumi.StringPtrInput
 	RequestStatus pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (ServiceQuotaState) ElementType() reflect.Type {
 type serviceQuotaArgs struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode string `pulumi:"quotaCode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode string `pulumi:"serviceCode"`
@@ -187,7 +187,7 @@ type serviceQuotaArgs struct {
 type ServiceQuotaArgs struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringInput
@@ -307,7 +307,7 @@ func (o ServiceQuotaOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.QuotaName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceQuotaOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

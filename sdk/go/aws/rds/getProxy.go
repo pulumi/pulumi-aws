@@ -51,7 +51,8 @@ func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getProxy.
 type LookupProxyArgs struct {
 	// Name of the DB proxy.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -97,7 +98,8 @@ func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...
 // A collection of arguments for invoking getProxy.
 type LookupProxyOutputArgs struct {
 	// Name of the DB proxy.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

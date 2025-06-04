@@ -32,7 +32,7 @@ class PrefixListReferenceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         """
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
@@ -86,7 +86,7 @@ class PrefixListReferenceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _PrefixListReferenceState:
         Input properties used for looking up and filtering PrefixListReference resources.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -176,7 +176,7 @@ class _PrefixListReferenceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -264,7 +264,7 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -377,7 +377,7 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -420,7 +420,7 @@ class PrefixListReference(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

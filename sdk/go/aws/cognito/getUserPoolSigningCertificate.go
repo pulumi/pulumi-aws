@@ -50,6 +50,7 @@ func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigning
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -76,6 +77,7 @@ func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSi
 
 // A collection of arguments for invoking getUserPoolSigningCertificate.
 type GetUserPoolSigningCertificateOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`

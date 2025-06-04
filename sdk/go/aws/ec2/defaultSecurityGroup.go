@@ -142,7 +142,7 @@ type DefaultSecurityGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region              pulumi.StringOutput  `pulumi:"region"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -196,7 +196,7 @@ type defaultSecurityGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region              *string `pulumi:"region"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,7 +221,7 @@ type DefaultSecurityGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Owner ID.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region              pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -241,7 +241,7 @@ type defaultSecurityGroupArgs struct {
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
 	// Configuration block. Detailed below.
 	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region              *string `pulumi:"region"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -256,7 +256,7 @@ type DefaultSecurityGroupArgs struct {
 	Egress DefaultSecurityGroupEgressArrayInput
 	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region              pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -386,7 +386,7 @@ func (o DefaultSecurityGroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultSecurityGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -72,7 +72,8 @@ type LookupTrustStoreArgs struct {
 	// Unique name of the trust store.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -101,7 +102,8 @@ type LookupTrustStoreOutputArgs struct {
 	// Unique name of the trust store.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

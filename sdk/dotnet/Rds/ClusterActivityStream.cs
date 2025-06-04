@@ -88,6 +88,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Output("engineNativeAuditFieldsIncluded")]
         public Output<bool?> EngineNativeAuditFieldsIncluded { get; private set; } = null!;
@@ -111,7 +114,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -170,6 +173,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Input("engineNativeAuditFieldsIncluded")]
         public Input<bool>? EngineNativeAuditFieldsIncluded { get; set; }
@@ -187,7 +193,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -208,6 +214,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Input("engineNativeAuditFieldsIncluded")]
         public Input<bool>? EngineNativeAuditFieldsIncluded { get; set; }
@@ -231,7 +240,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

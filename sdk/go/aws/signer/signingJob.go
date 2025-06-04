@@ -92,7 +92,7 @@ type SigningJob struct {
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// The version of the signing profile used to initiate the signing job.
 	ProfileVersion pulumi.StringOutput `pulumi:"profileVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM principal that requested the signing job.
 	RequestedBy pulumi.StringOutput `pulumi:"requestedBy"`
@@ -171,7 +171,7 @@ type signingJobState struct {
 	ProfileName *string `pulumi:"profileName"`
 	// The version of the signing profile used to initiate the signing job.
 	ProfileVersion *string `pulumi:"profileVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM principal that requested the signing job.
 	RequestedBy *string `pulumi:"requestedBy"`
@@ -212,7 +212,7 @@ type SigningJobState struct {
 	ProfileName pulumi.StringPtrInput
 	// The version of the signing profile used to initiate the signing job.
 	ProfileVersion pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM principal that requested the signing job.
 	RequestedBy pulumi.StringPtrInput
@@ -241,7 +241,7 @@ type signingJobArgs struct {
 	IgnoreSigningJobFailure *bool `pulumi:"ignoreSigningJobFailure"`
 	// The name of the profile to initiate the signing operation.
 	ProfileName string `pulumi:"profileName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The S3 bucket that contains the object to sign. See Source below for details.
 	Source SigningJobSource `pulumi:"source"`
@@ -255,7 +255,7 @@ type SigningJobArgs struct {
 	IgnoreSigningJobFailure pulumi.BoolPtrInput
 	// The name of the profile to initiate the signing operation.
 	ProfileName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The S3 bucket that contains the object to sign. See Source below for details.
 	Source SigningJobSourceInput
@@ -403,7 +403,7 @@ func (o SigningJobOutput) ProfileVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningJob) pulumi.StringOutput { return v.ProfileVersion }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SigningJobOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningJob) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

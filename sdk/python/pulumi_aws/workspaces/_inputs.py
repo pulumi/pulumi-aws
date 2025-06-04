@@ -18,6 +18,8 @@ from .. import _utilities
 __all__ = [
     'ConnectionAliasTimeoutsArgs',
     'ConnectionAliasTimeoutsArgsDict',
+    'DirectoryActiveDirectoryConfigArgs',
+    'DirectoryActiveDirectoryConfigArgsDict',
     'DirectoryCertificateBasedAuthPropertiesArgs',
     'DirectoryCertificateBasedAuthPropertiesArgsDict',
     'DirectorySamlPropertiesArgs',
@@ -86,6 +88,56 @@ class ConnectionAliasTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class DirectoryActiveDirectoryConfigArgsDict(TypedDict):
+        domain_name: pulumi.Input[builtins.str]
+        """
+        Fully qualified domain name of the AWS Directory Service directory.
+        """
+        service_account_secret_arn: pulumi.Input[builtins.str]
+        """
+        ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+        """
+elif False:
+    DirectoryActiveDirectoryConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryActiveDirectoryConfigArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[builtins.str],
+                 service_account_secret_arn: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] domain_name: Fully qualified domain name of the AWS Directory Service directory.
+        :param pulumi.Input[builtins.str] service_account_secret_arn: ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "service_account_secret_arn", service_account_secret_arn)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Fully qualified domain name of the AWS Directory Service directory.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountSecretArn")
+    def service_account_secret_arn(self) -> pulumi.Input[builtins.str]:
+        """
+        ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+        """
+        return pulumi.get(self, "service_account_secret_arn")
+
+    @service_account_secret_arn.setter
+    def service_account_secret_arn(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "service_account_secret_arn", value)
 
 
 if not MYPY:
@@ -512,11 +564,11 @@ if not MYPY:
         """
         enable_maintenance_mode: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         user_enabled_as_local_administrator: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Indicates whether users are local administrators of their WorkSpaces.
+        Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
 elif False:
     DirectoryWorkspaceCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -533,8 +585,8 @@ class DirectoryWorkspaceCreationPropertiesArgs:
         :param pulumi.Input[builtins.str] custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
         :param pulumi.Input[builtins.str] default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
         :param pulumi.Input[builtins.bool] enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
-        :param pulumi.Input[builtins.bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
-        :param pulumi.Input[builtins.bool] user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
+        :param pulumi.Input[builtins.bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
+        :param pulumi.Input[builtins.bool] user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         if custom_security_group_id is not None:
             pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
@@ -587,7 +639,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @pulumi.getter(name="enableMaintenanceMode")
     def enable_maintenance_mode(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         return pulumi.get(self, "enable_maintenance_mode")
 
@@ -599,7 +651,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
     @pulumi.getter(name="userEnabledAsLocalAdministrator")
     def user_enabled_as_local_administrator(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether users are local administrators of their WorkSpaces.
+        Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         """
         return pulumi.get(self, "user_enabled_as_local_administrator")
 

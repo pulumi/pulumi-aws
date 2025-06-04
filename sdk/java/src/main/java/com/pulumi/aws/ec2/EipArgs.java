@@ -154,14 +154,14 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -171,12 +171,24 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -409,7 +421,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -420,7 +432,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -432,6 +444,12 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+         * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+         * See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+         * 
          * @return builder
          * 
          */
@@ -442,6 +460,12 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+         * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+         * See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
          * 
          * @return builder
          * 

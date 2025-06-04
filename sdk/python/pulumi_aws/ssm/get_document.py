@@ -157,6 +157,7 @@ def get_document(document_format: Optional[builtins.str] = None,
     :param builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
     :param builtins.str document_version: The document version.
     :param builtins.str name: The name of the document.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
@@ -210,6 +211,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[builtins
     :param builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
     :param builtins.str document_version: The document version.
     :param builtins.str name: The name of the document.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format

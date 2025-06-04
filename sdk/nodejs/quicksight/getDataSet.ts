@@ -45,6 +45,9 @@ export interface GetDataSetArgs {
      * Identifier for the data set.
      */
     dataSetId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     tags?: {[key: string]: string};
 }
@@ -112,6 +115,9 @@ export interface GetDataSetOutputArgs {
      * Identifier for the data set.
      */
     dataSetId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

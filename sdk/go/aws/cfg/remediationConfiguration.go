@@ -103,7 +103,7 @@ type RemediationConfiguration struct {
 	MaximumAutomaticAttempts pulumi.IntPtrOutput `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayOutput `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of resource.
 	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
@@ -170,7 +170,7 @@ type remediationConfigurationState struct {
 	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
@@ -199,7 +199,7 @@ type RemediationConfigurationState struct {
 	MaximumAutomaticAttempts pulumi.IntPtrInput
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resource.
 	ResourceType pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type remediationConfigurationArgs struct {
 	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
@@ -258,7 +258,7 @@ type RemediationConfigurationArgs struct {
 	MaximumAutomaticAttempts pulumi.IntPtrInput
 	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resource.
 	ResourceType pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o RemediationConfigurationOutput) Parameters() RemediationConfigurationPar
 	return o.ApplyT(func(v *RemediationConfiguration) RemediationConfigurationParameterArrayOutput { return v.Parameters }).(RemediationConfigurationParameterArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RemediationConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

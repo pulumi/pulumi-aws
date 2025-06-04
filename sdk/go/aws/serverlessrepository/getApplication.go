@@ -60,8 +60,9 @@ func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulum
 // A collection of arguments for invoking getApplication.
 type GetApplicationArgs struct {
 	// ARN of the application.
-	ApplicationId string  `pulumi:"applicationId"`
-	Region        *string `pulumi:"region"`
+	ApplicationId string `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
 }
@@ -96,8 +97,9 @@ func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, op
 // A collection of arguments for invoking getApplication.
 type GetApplicationOutputArgs struct {
 	// ARN of the application.
-	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Requested version of the application. By default, retrieves the latest version.
 	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
 }

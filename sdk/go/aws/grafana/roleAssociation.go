@@ -89,7 +89,7 @@ type RoleAssociation struct {
 
 	// The AWS SSO group ids to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -139,7 +139,7 @@ func GetRoleAssociation(ctx *pulumi.Context,
 type roleAssociationState struct {
 	// The AWS SSO group ids to be assigned the role given in `role`.
 	GroupIds []string `pulumi:"groupIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role *string `pulumi:"role"`
@@ -154,7 +154,7 @@ type roleAssociationState struct {
 type RoleAssociationState struct {
 	// The AWS SSO group ids to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringPtrInput
@@ -173,7 +173,7 @@ func (RoleAssociationState) ElementType() reflect.Type {
 type roleAssociationArgs struct {
 	// The AWS SSO group ids to be assigned the role given in `role`.
 	GroupIds []string `pulumi:"groupIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role string `pulumi:"role"`
@@ -189,7 +189,7 @@ type roleAssociationArgs struct {
 type RoleAssociationArgs struct {
 	// The AWS SSO group ids to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringInput
@@ -293,7 +293,7 @@ func (o RoleAssociationOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringArrayOutput { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RoleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

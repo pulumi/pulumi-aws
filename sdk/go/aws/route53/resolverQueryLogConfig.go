@@ -63,7 +63,7 @@ type ResolverQueryLogConfig struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
@@ -117,7 +117,7 @@ type resolverQueryLogConfigState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId *string `pulumi:"ownerId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
@@ -139,7 +139,7 @@ type ResolverQueryLogConfigState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
@@ -161,7 +161,7 @@ type resolverQueryLogConfigArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// The name of the Route 53 Resolver query logging configuration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -174,7 +174,7 @@ type ResolverQueryLogConfigArgs struct {
 	DestinationArn pulumi.StringInput
 	// The name of the Route 53 Resolver query logging configuration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -288,7 +288,7 @@ func (o ResolverQueryLogConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResolverQueryLogConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

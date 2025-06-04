@@ -2524,6 +2524,8 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
         :param builtins.str arn: ARN of the hierarchy group.
         :param builtins.str id: The identifier of the hierarchy group.
         :param builtins.str name: Returns information on a specific hierarchy group by name
+               
+               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2550,6 +2552,8 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
     def name(self) -> builtins.str:
         """
         Returns information on a specific hierarchy group by name
+
+        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         return pulumi.get(self, "name")
 
@@ -2564,6 +2568,8 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
         :param builtins.str arn: ARN of the hierarchy group.
         :param builtins.str id: The identifier of the hierarchy group.
         :param builtins.str name: Returns information on a specific hierarchy group by name
+               
+               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2590,6 +2596,8 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
     def name(self) -> builtins.str:
         """
         Returns information on a specific hierarchy group by name
+
+        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         return pulumi.get(self, "name")
 
@@ -2604,6 +2612,8 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
         :param builtins.str arn: ARN of the hierarchy group.
         :param builtins.str id: The identifier of the hierarchy group.
         :param builtins.str name: Returns information on a specific hierarchy group by name
+               
+               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2630,6 +2640,8 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
     def name(self) -> builtins.str:
         """
         Returns information on a specific hierarchy group by name
+
+        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         return pulumi.get(self, "name")
 
@@ -2644,6 +2656,8 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
         :param builtins.str arn: ARN of the hierarchy group.
         :param builtins.str id: The identifier of the hierarchy group.
         :param builtins.str name: Returns information on a specific hierarchy group by name
+               
+               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2670,6 +2684,8 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
     def name(self) -> builtins.str:
         """
         Returns information on a specific hierarchy group by name
+
+        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         return pulumi.get(self, "name")
 
@@ -2684,6 +2700,8 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
         :param builtins.str arn: ARN of the hierarchy group.
         :param builtins.str id: The identifier of the hierarchy group.
         :param builtins.str name: Returns information on a specific hierarchy group by name
+               
+               > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -2710,6 +2728,8 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
     def name(self) -> builtins.str:
         """
         Returns information on a specific hierarchy group by name
+
+        > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
         """
         return pulumi.get(self, "name")
 

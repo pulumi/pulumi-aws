@@ -256,6 +256,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
            whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -307,6 +308,7 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
            whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TableBucketEncryptionConfiguration struct {
+	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// One of `aws:kms` or `AES256`
+	SseAlgorithm string `pulumi:"sseAlgorithm"`
+}
+
+// TableBucketEncryptionConfigurationInput is an input type that accepts TableBucketEncryptionConfigurationArgs and TableBucketEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `TableBucketEncryptionConfigurationInput` via:
+//
+//	TableBucketEncryptionConfigurationArgs{...}
+type TableBucketEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput
+	ToTableBucketEncryptionConfigurationOutputWithContext(context.Context) TableBucketEncryptionConfigurationOutput
+}
+
+type TableBucketEncryptionConfigurationArgs struct {
+	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// One of `aws:kms` or `AES256`
+	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
+}
+
+func (TableBucketEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput {
+	return i.ToTableBucketEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationOutput)
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return i.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketEncryptionConfigurationArgs) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationOutput).ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableBucketEncryptionConfigurationPtrInput is an input type that accepts TableBucketEncryptionConfigurationArgs, TableBucketEncryptionConfigurationPtr and TableBucketEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableBucketEncryptionConfigurationPtrInput` via:
+//
+//	        TableBucketEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput
+	ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Context) TableBucketEncryptionConfigurationPtrOutput
+}
+
+type tableBucketEncryptionConfigurationPtrType TableBucketEncryptionConfigurationArgs
+
+func TableBucketEncryptionConfigurationPtr(v *TableBucketEncryptionConfigurationArgs) TableBucketEncryptionConfigurationPtrInput {
+	return (*tableBucketEncryptionConfigurationPtrType)(v)
+}
+
+func (*tableBucketEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *tableBucketEncryptionConfigurationPtrType) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return i.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketEncryptionConfigurationPtrType) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+type TableBucketEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationOutput() TableBucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return o.ToTableBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketEncryptionConfiguration) *TableBucketEncryptionConfiguration {
+		return &v
+	}).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+func (o TableBucketEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// One of `aws:kms` or `AES256`
+func (o TableBucketEncryptionConfigurationOutput) SseAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketEncryptionConfiguration) string { return v.SseAlgorithm }).(pulumi.StringOutput)
+}
+
+type TableBucketEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) ToTableBucketEncryptionConfigurationPtrOutput() TableBucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) ToTableBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableBucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketEncryptionConfigurationPtrOutput) Elem() TableBucketEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) TableBucketEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketEncryptionConfiguration
+		return ret
+	}).(TableBucketEncryptionConfigurationOutput)
+}
+
+// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+func (o TableBucketEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// One of `aws:kms` or `AES256`
+func (o TableBucketEncryptionConfigurationPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SseAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableBucketMaintenanceConfiguration struct {
 	// A single Iceberg unreferenced file removal settings object.
 	// See `icebergUnreferencedFileRemoval` below.
@@ -488,6 +644,162 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 		}
 		return &v.UnreferencedDays
 	}).(pulumi.IntPtrOutput)
+}
+
+type TableEncryptionConfiguration struct {
+	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// One of `aws:kms` or `AES256`
+	SseAlgorithm string `pulumi:"sseAlgorithm"`
+}
+
+// TableEncryptionConfigurationInput is an input type that accepts TableEncryptionConfigurationArgs and TableEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `TableEncryptionConfigurationInput` via:
+//
+//	TableEncryptionConfigurationArgs{...}
+type TableEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableEncryptionConfigurationOutput() TableEncryptionConfigurationOutput
+	ToTableEncryptionConfigurationOutputWithContext(context.Context) TableEncryptionConfigurationOutput
+}
+
+type TableEncryptionConfigurationArgs struct {
+	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// One of `aws:kms` or `AES256`
+	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
+}
+
+func (TableEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i TableEncryptionConfigurationArgs) ToTableEncryptionConfigurationOutput() TableEncryptionConfigurationOutput {
+	return i.ToTableEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableEncryptionConfigurationArgs) ToTableEncryptionConfigurationOutputWithContext(ctx context.Context) TableEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionConfigurationOutput)
+}
+
+func (i TableEncryptionConfigurationArgs) ToTableEncryptionConfigurationPtrOutput() TableEncryptionConfigurationPtrOutput {
+	return i.ToTableEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableEncryptionConfigurationArgs) ToTableEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionConfigurationOutput).ToTableEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableEncryptionConfigurationPtrInput is an input type that accepts TableEncryptionConfigurationArgs, TableEncryptionConfigurationPtr and TableEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableEncryptionConfigurationPtrInput` via:
+//
+//	        TableEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableEncryptionConfigurationPtrOutput() TableEncryptionConfigurationPtrOutput
+	ToTableEncryptionConfigurationPtrOutputWithContext(context.Context) TableEncryptionConfigurationPtrOutput
+}
+
+type tableEncryptionConfigurationPtrType TableEncryptionConfigurationArgs
+
+func TableEncryptionConfigurationPtr(v *TableEncryptionConfigurationArgs) TableEncryptionConfigurationPtrInput {
+	return (*tableEncryptionConfigurationPtrType)(v)
+}
+
+func (*tableEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *tableEncryptionConfigurationPtrType) ToTableEncryptionConfigurationPtrOutput() TableEncryptionConfigurationPtrOutput {
+	return i.ToTableEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableEncryptionConfigurationPtrType) ToTableEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionConfigurationPtrOutput)
+}
+
+type TableEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableEncryptionConfigurationOutput) ToTableEncryptionConfigurationOutput() TableEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableEncryptionConfigurationOutput) ToTableEncryptionConfigurationOutputWithContext(ctx context.Context) TableEncryptionConfigurationOutput {
+	return o
+}
+
+func (o TableEncryptionConfigurationOutput) ToTableEncryptionConfigurationPtrOutput() TableEncryptionConfigurationPtrOutput {
+	return o.ToTableEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableEncryptionConfigurationOutput) ToTableEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableEncryptionConfiguration) *TableEncryptionConfiguration {
+		return &v
+	}).(TableEncryptionConfigurationPtrOutput)
+}
+
+// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+func (o TableEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// One of `aws:kms` or `AES256`
+func (o TableEncryptionConfigurationOutput) SseAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v TableEncryptionConfiguration) string { return v.SseAlgorithm }).(pulumi.StringOutput)
+}
+
+type TableEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o TableEncryptionConfigurationPtrOutput) ToTableEncryptionConfigurationPtrOutput() TableEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableEncryptionConfigurationPtrOutput) ToTableEncryptionConfigurationPtrOutputWithContext(ctx context.Context) TableEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableEncryptionConfigurationPtrOutput) Elem() TableEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *TableEncryptionConfiguration) TableEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableEncryptionConfiguration
+		return ret
+	}).(TableEncryptionConfigurationOutput)
+}
+
+// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+func (o TableEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// One of `aws:kms` or `AES256`
+func (o TableEncryptionConfigurationPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SseAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableMaintenanceConfiguration struct {
@@ -1300,12 +1612,16 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationInput)(nil)).Elem(), TableBucketMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationPtrInput)(nil)).Elem(), TableBucketMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput)(nil)).Elem(), TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionConfigurationInput)(nil)).Elem(), TableEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionConfigurationPtrInput)(nil)).Elem(), TableEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationInput)(nil)).Elem(), TableMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationPtrInput)(nil)).Elem(), TableMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergCompactionInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergCompactionArgs{})
@@ -1316,12 +1632,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementPtrInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TableEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationIcebergCompactionOutput{})

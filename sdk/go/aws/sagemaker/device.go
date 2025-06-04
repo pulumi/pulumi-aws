@@ -62,7 +62,7 @@ type Device struct {
 	Device DeviceDeviceOutput `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -109,7 +109,7 @@ type deviceState struct {
 	Device *DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName *string `pulumi:"deviceFleetName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type DeviceState struct {
 	Device DeviceDevicePtrInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -134,7 +134,7 @@ type deviceArgs struct {
 	Device DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName string `pulumi:"deviceFleetName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -144,7 +144,7 @@ type DeviceArgs struct {
 	Device DeviceDeviceInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -254,7 +254,7 @@ func (o DeviceOutput) DeviceFleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceFleetName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeviceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

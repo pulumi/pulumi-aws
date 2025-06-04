@@ -123,7 +123,7 @@ type ResourceDataSync struct {
 
 	// Name for the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationOutput `pulumi:"s3Destination"`
@@ -164,7 +164,7 @@ func GetResourceDataSync(ctx *pulumi.Context,
 type resourceDataSyncState struct {
 	// Name for the configuration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
@@ -173,7 +173,7 @@ type resourceDataSyncState struct {
 type ResourceDataSyncState struct {
 	// Name for the configuration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationPtrInput
@@ -186,7 +186,7 @@ func (ResourceDataSyncState) ElementType() reflect.Type {
 type resourceDataSyncArgs struct {
 	// Name for the configuration.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3Destination `pulumi:"s3Destination"`
@@ -196,7 +196,7 @@ type resourceDataSyncArgs struct {
 type ResourceDataSyncArgs struct {
 	// Name for the configuration.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationInput
@@ -294,7 +294,7 @@ func (o ResourceDataSyncOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceDataSyncOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

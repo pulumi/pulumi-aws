@@ -38,6 +38,7 @@ type GetObjectsArgs struct {
 	MaxKeys *int `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix *string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
 	RequestPayer *string `pulumi:"requestPayer"`
@@ -91,6 +92,7 @@ type GetObjectsOutputArgs struct {
 	MaxKeys pulumi.IntPtrInput `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrInput `pulumi:"requestPayer"`

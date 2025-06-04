@@ -54,7 +54,7 @@ type EmailIdentity struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The email address to assign to SES.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -95,7 +95,7 @@ type emailIdentityState struct {
 	Arn *string `pulumi:"arn"`
 	// The email address to assign to SES.
 	Email *string `pulumi:"email"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -104,7 +104,7 @@ type EmailIdentityState struct {
 	Arn pulumi.StringPtrInput
 	// The email address to assign to SES.
 	Email pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -115,7 +115,7 @@ func (EmailIdentityState) ElementType() reflect.Type {
 type emailIdentityArgs struct {
 	// The email address to assign to SES.
 	Email string `pulumi:"email"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -123,7 +123,7 @@ type emailIdentityArgs struct {
 type EmailIdentityArgs struct {
 	// The email address to assign to SES.
 	Email pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -224,7 +224,7 @@ func (o EmailIdentityOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

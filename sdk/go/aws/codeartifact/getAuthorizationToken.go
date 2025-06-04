@@ -55,8 +55,9 @@ type GetAuthorizationTokenArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
 	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds *int    `pulumi:"durationSeconds"`
-	Region          *string `pulumi:"region"`
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAuthorizationToken.
@@ -89,8 +90,9 @@ type GetAuthorizationTokenOutputArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
 	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAuthorizationTokenOutputArgs) ElementType() reflect.Type {

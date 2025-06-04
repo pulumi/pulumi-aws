@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -73,6 +76,10 @@ export class EventBus extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     */
+    public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventBusDeadLetterConfig | undefined>;
+    /**
      * Event bus description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -91,7 +98,7 @@ export class EventBus extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -117,6 +124,7 @@ export class EventBus extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventBusState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eventSourceName"] = state ? state.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
@@ -126,6 +134,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventBusArgs | undefined;
+            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
@@ -149,6 +158,10 @@ export interface EventBusState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     */
+    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventBusDeadLetterConfig>;
+    /**
      * Event bus description.
      */
     description?: pulumi.Input<string>;
@@ -167,7 +180,7 @@ export interface EventBusState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -185,6 +198,10 @@ export interface EventBusState {
  */
 export interface EventBusArgs {
     /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     */
+    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventBusDeadLetterConfig>;
+    /**
      * Event bus description.
      */
     description?: pulumi.Input<string>;
@@ -203,7 +220,7 @@ export interface EventBusArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

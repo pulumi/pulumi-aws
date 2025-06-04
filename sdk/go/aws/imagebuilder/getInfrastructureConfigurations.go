@@ -59,7 +59,8 @@ func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructur
 type GetInfrastructureConfigurationsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInfrastructureConfigurationsFilter `pulumi:"filters"`
-	Region  *string                                 `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInfrastructureConfigurations.
@@ -87,7 +88,8 @@ func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastr
 type GetInfrastructureConfigurationsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInfrastructureConfigurationsFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput                           `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInfrastructureConfigurationsOutputArgs) ElementType() reflect.Type {

@@ -271,7 +271,7 @@ type VirtualNode struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
@@ -331,7 +331,7 @@ type virtualNodeState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
@@ -356,7 +356,7 @@ type VirtualNodeState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
@@ -379,7 +379,7 @@ type virtualNodeArgs struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Virtual node specification to apply.
 	Spec VirtualNodeSpec `pulumi:"spec"`
@@ -395,7 +395,7 @@ type VirtualNodeArgs struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the virtual node. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Virtual node specification to apply.
 	Spec VirtualNodeSpecInput
@@ -520,7 +520,7 @@ func (o VirtualNodeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VirtualNodeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

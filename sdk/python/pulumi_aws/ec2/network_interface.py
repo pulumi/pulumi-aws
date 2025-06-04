@@ -65,7 +65,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,7 +333,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -431,7 +431,7 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -759,7 +759,7 @@ class _NetworkInterfaceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -921,7 +921,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -1120,7 +1120,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[builtins.int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[builtins.bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[builtins.str] subnet_id: Subnet ID to create the ENI in.
@@ -1337,7 +1337,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

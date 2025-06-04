@@ -25,7 +25,7 @@ class BucketAccessKeyArgs:
         """
         The set of arguments for constructing a BucketAccessKey resource.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if region is not None:
@@ -47,7 +47,7 @@ class BucketAccessKeyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -70,7 +70,7 @@ class _BucketAccessKeyState:
         :param pulumi.Input[builtins.str] access_key_id: The ID of the access key.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the access key was created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_access_key: The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         :param pulumi.Input[builtins.str] status: The status of the access key.
         """
@@ -127,7 +127,7 @@ class _BucketAccessKeyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -195,7 +195,7 @@ class BucketAccessKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -286,7 +286,7 @@ class BucketAccessKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_key_id: The ID of the access key.
         :param pulumi.Input[builtins.str] bucket_name: The name of the bucket that the new access key will belong to, and grant access to.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the access key was created.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_access_key: The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         :param pulumi.Input[builtins.str] status: The status of the access key.
         """
@@ -330,7 +330,7 @@ class BucketAccessKey(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

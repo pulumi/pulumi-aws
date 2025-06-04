@@ -30,6 +30,9 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -73,5 +76,8 @@ export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: p
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

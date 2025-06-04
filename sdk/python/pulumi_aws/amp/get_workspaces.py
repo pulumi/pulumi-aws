@@ -133,6 +133,7 @@ def get_workspaces(alias_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix
@@ -176,6 +177,7 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[builtins.
 
 
     :param builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix

@@ -57,7 +57,7 @@ class ReplicationConfigurationTemplateArgs:
         :param pulumi.Input[builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
         """
         pulumi.set(__self__, "associate_default_security_group", associate_default_security_group)
@@ -258,7 +258,7 @@ class ReplicationConfigurationTemplateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -322,7 +322,7 @@ class _ReplicationConfigurationTemplateState:
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -496,7 +496,7 @@ class _ReplicationConfigurationTemplateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -693,7 +693,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -895,7 +895,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -1015,7 +1015,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -146,7 +146,7 @@ type ListenerRule struct {
 	//
 	// The following arguments are optional:
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier for the listener rule.
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
@@ -219,7 +219,7 @@ type listenerRuleState struct {
 	//
 	// The following arguments are optional:
 	Priority *int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Unique identifier for the listener rule.
 	RuleId *string `pulumi:"ruleId"`
@@ -248,7 +248,7 @@ type ListenerRuleState struct {
 	//
 	// The following arguments are optional:
 	Priority pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Unique identifier for the listener rule.
 	RuleId pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type listenerRuleArgs struct {
 	//
 	// The following arguments are optional:
 	Priority int `pulumi:"priority"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
@@ -303,7 +303,7 @@ type ListenerRuleArgs struct {
 	//
 	// The following arguments are optional:
 	Priority pulumi.IntInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringInput
@@ -432,7 +432,7 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ListenerRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

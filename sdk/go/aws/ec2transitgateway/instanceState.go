@@ -91,7 +91,7 @@ type InstanceState struct {
 	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// ID of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
@@ -139,7 +139,7 @@ type instanceStateState struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
@@ -152,7 +152,7 @@ type InstanceStateState struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
@@ -169,7 +169,7 @@ type instanceStateArgs struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId string `pulumi:"instanceId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
@@ -183,7 +183,7 @@ type InstanceStateArgs struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
@@ -288,7 +288,7 @@ func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstanceStateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

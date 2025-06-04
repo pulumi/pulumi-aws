@@ -115,8 +115,9 @@ type GetResourcesArgs struct {
 	// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
 	ExcludeCompliantResources *bool `pulumi:"excludeCompliantResources"`
 	// Specifies whether to include details regarding the compliance with the effective tag policy.
-	IncludeComplianceDetails *bool   `pulumi:"includeComplianceDetails"`
-	Region                   *string `pulumi:"region"`
+	IncludeComplianceDetails *bool `pulumi:"includeComplianceDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists []string `pulumi:"resourceArnLists"`
 	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
@@ -153,8 +154,9 @@ type GetResourcesOutputArgs struct {
 	// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
 	ExcludeCompliantResources pulumi.BoolPtrInput `pulumi:"excludeCompliantResources"`
 	// Specifies whether to include details regarding the compliance with the effective tag policy.
-	IncludeComplianceDetails pulumi.BoolPtrInput   `pulumi:"includeComplianceDetails"`
-	Region                   pulumi.StringPtrInput `pulumi:"region"`
+	IncludeComplianceDetails pulumi.BoolPtrInput `pulumi:"includeComplianceDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists pulumi.StringArrayInput `pulumi:"resourceArnLists"`
 	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.

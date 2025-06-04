@@ -124,7 +124,7 @@ type VpcConnection struct {
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -195,7 +195,7 @@ type vpcConnectionState struct {
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn *string `pulumi:"roleArn"`
@@ -225,7 +225,7 @@ type VpcConnectionState struct {
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringPtrInput
@@ -255,7 +255,7 @@ type vpcConnectionArgs struct {
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn string `pulumi:"roleArn"`
@@ -280,7 +280,7 @@ type VpcConnectionArgs struct {
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringInput
@@ -409,7 +409,7 @@ func (o VpcConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

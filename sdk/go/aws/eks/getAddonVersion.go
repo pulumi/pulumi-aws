@@ -75,8 +75,9 @@ type GetAddonVersionArgs struct {
 	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent *bool   `pulumi:"mostRecent"`
-	Region     *string `pulumi:"region"`
+	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAddonVersion.
@@ -108,8 +109,9 @@ type GetAddonVersionOutputArgs struct {
 	// Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
-	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAddonVersionOutputArgs) ElementType() reflect.Type {

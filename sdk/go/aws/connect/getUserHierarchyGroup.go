@@ -85,7 +85,10 @@ type LookupUserHierarchyGroupArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
-	Name   *string `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
@@ -126,7 +129,10 @@ type LookupUserHierarchyGroupOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific hierarchy group by name
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the hierarchy group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

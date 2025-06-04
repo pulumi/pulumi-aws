@@ -43,6 +43,9 @@ export interface GetSecurityGroupRuleArgs {
      * whose data will be exported as attributes.
      */
     filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the security group rule to select.
@@ -143,6 +146,9 @@ export interface GetSecurityGroupRuleOutputArgs {
      * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the security group rule to select.

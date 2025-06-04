@@ -242,6 +242,7 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule
            whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_group_rule_id: ID of the security group rule to select.
     """
     __args__ = dict()
@@ -290,6 +291,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule
            whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_group_rule_id: ID of the security group rule to select.
     """
     __args__ = dict()

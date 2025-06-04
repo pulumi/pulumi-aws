@@ -95,7 +95,7 @@ type MultiplexProgram struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrOutput `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
 	ProgramName pulumi.StringOutput `pulumi:"programName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput               `pulumi:"region"`
 	Timeouts MultiplexProgramTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -144,7 +144,7 @@ type multiplexProgramState struct {
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
 	ProgramName *string `pulumi:"programName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
 	Timeouts *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
@@ -158,7 +158,7 @@ type MultiplexProgramState struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts MultiplexProgramTimeoutsPtrInput
 }
@@ -176,7 +176,7 @@ type multiplexProgramArgs struct {
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
 	ProgramName string `pulumi:"programName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
 	Timeouts *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
@@ -191,7 +191,7 @@ type MultiplexProgramArgs struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts MultiplexProgramTimeoutsPtrInput
 }
@@ -302,7 +302,7 @@ func (o MultiplexProgramOutput) ProgramName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.ProgramName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiplexProgramOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

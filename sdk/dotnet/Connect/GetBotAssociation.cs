@@ -117,6 +117,9 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Inputs.GetBotAssociationLexBotArgs LexBot { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -140,6 +143,9 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Input<Inputs.GetBotAssociationLexBotInputArgs> LexBot { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

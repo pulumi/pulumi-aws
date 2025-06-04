@@ -39,6 +39,9 @@ export interface GetSlotTypeArgs {
      * Name of the slot type. The name is case sensitive.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Version of the slot type.
@@ -126,6 +129,9 @@ export interface GetSlotTypeOutputArgs {
      * Name of the slot type. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Version of the slot type.

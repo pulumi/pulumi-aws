@@ -94,7 +94,7 @@ type VpcEndpointPolicy struct {
 
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The VPC Endpoint ID.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
@@ -135,7 +135,7 @@ func GetVpcEndpointPolicy(ctx *pulumi.Context,
 type vpcEndpointPolicyState struct {
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The VPC Endpoint ID.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
@@ -144,7 +144,7 @@ type vpcEndpointPolicyState struct {
 type VpcEndpointPolicyState struct {
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The VPC Endpoint ID.
 	VpcEndpointId pulumi.StringPtrInput
@@ -157,7 +157,7 @@ func (VpcEndpointPolicyState) ElementType() reflect.Type {
 type vpcEndpointPolicyArgs struct {
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The VPC Endpoint ID.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
@@ -167,7 +167,7 @@ type vpcEndpointPolicyArgs struct {
 type VpcEndpointPolicyArgs struct {
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The VPC Endpoint ID.
 	VpcEndpointId pulumi.StringInput
@@ -265,7 +265,7 @@ func (o VpcEndpointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcEndpointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

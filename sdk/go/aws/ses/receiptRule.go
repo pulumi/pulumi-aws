@@ -86,7 +86,7 @@ type ReceiptRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of email addresses
 	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
@@ -153,7 +153,7 @@ type receiptRuleState struct {
 	Name *string `pulumi:"name"`
 	// A list of email addresses
 	Recipients []string `pulumi:"recipients"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName *string `pulumi:"ruleSetName"`
@@ -188,7 +188,7 @@ type ReceiptRuleState struct {
 	Name pulumi.StringPtrInput
 	// A list of email addresses
 	Recipients pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type receiptRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of email addresses
 	Recipients []string `pulumi:"recipients"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
@@ -259,7 +259,7 @@ type ReceiptRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of email addresses
 	Recipients pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringInput
@@ -404,7 +404,7 @@ func (o ReceiptRuleOutput) Recipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringArrayOutput { return v.Recipients }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ReceiptRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

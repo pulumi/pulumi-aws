@@ -53,7 +53,7 @@ type ServiceSetting struct {
 
 	// ARN of the service setting.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the service setting.
 	SettingId pulumi.StringOutput `pulumi:"settingId"`
@@ -101,7 +101,7 @@ func GetServiceSetting(ctx *pulumi.Context,
 type serviceSettingState struct {
 	// ARN of the service setting.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the service setting.
 	SettingId *string `pulumi:"settingId"`
@@ -114,7 +114,7 @@ type serviceSettingState struct {
 type ServiceSettingState struct {
 	// ARN of the service setting.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the service setting.
 	SettingId pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (ServiceSettingState) ElementType() reflect.Type {
 }
 
 type serviceSettingArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the service setting.
 	SettingId string `pulumi:"settingId"`
@@ -139,7 +139,7 @@ type serviceSettingArgs struct {
 
 // The set of arguments for constructing a ServiceSetting resource.
 type ServiceSettingArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the service setting.
 	SettingId pulumi.StringInput
@@ -239,7 +239,7 @@ func (o ServiceSettingOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceSettingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceSetting) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

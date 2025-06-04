@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyValueStore{}
 	case "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey":
 		r = &KeyvaluestoreKey{}
+	case "aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive":
+		r = &KeyvaluestoreKeysExclusive{}
 	case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
 		r = &MonitoringSubscription{}
 	case "aws:cloudfront/originAccessControl:OriginAccessControl":
@@ -111,6 +113,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/keyvaluestoreKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/keyvaluestoreKeysExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

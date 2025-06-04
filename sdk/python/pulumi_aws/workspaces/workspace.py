@@ -36,7 +36,7 @@ class WorkspaceArgs:
         :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
@@ -99,7 +99,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -190,7 +190,7 @@ class _WorkspaceState:
         :param pulumi.Input[builtins.str] computer_name: The name of the WorkSpace, as seen by the operating system.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the WorkSpace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[builtins.str] state: The operational state of the WorkSpace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,7 +279,7 @@ class _WorkspaceState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -444,7 +444,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
@@ -584,7 +584,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] computer_name: The name of the WorkSpace, as seen by the operating system.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the WorkSpace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[builtins.str] state: The operational state of the WorkSpace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -649,7 +649,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -38,7 +38,7 @@ class ConfiguredTableArgs:
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the configured table.
         """
         pulumi.set(__self__, "allowed_columns", allowed_columns)
@@ -119,7 +119,7 @@ class ConfiguredTableArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -162,7 +162,7 @@ class _ConfiguredTableState:
         :param pulumi.Input[builtins.str] create_time: The date and time the configured table was created.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -268,7 +268,7 @@ class _ConfiguredTableState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -381,7 +381,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -512,7 +512,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] create_time: The date and time the configured table was created.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -588,7 +588,7 @@ class ConfiguredTable(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

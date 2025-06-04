@@ -52,8 +52,9 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientArgs struct {
 	// Client Id of the user pool.
-	ClientId string  `pulumi:"clientId"`
-	Region   *string `pulumi:"region"`
+	ClientId string `pulumi:"clientId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -95,6 +96,8 @@ type LookupUserPoolClientResult struct {
 	PreventUserExistenceErrors string `pulumi:"preventUserExistenceErrors"`
 	// (Optional) List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
+	// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotations []GetUserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotations"`
 	// (Optional) Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity int    `pulumi:"refreshTokenValidity"`
 	Region               string `pulumi:"region"`
@@ -119,8 +122,9 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientOutputArgs struct {
 	// Client Id of the user pool.
-	ClientId pulumi.StringInput    `pulumi:"clientId"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -236,6 +240,13 @@ func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.St
 // (Optional) List of user pool attributes the application client can read from.
 func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.ReadAttributes }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+func (o LookupUserPoolClientResultOutput) RefreshTokenRotations() GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) []GetUserPoolClientRefreshTokenRotation {
+		return v.RefreshTokenRotations
+	}).(GetUserPoolClientRefreshTokenRotationArrayOutput)
 }
 
 // (Optional) Time limit in days refresh tokens are valid for.

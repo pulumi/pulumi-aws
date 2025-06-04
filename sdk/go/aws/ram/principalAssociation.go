@@ -98,7 +98,7 @@ type PrincipalAssociation struct {
 
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
@@ -142,7 +142,7 @@ func GetPrincipalAssociation(ctx *pulumi.Context,
 type principalAssociationState struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal *string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
@@ -151,7 +151,7 @@ type principalAssociationState struct {
 type PrincipalAssociationState struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringPtrInput
@@ -164,7 +164,7 @@ func (PrincipalAssociationState) ElementType() reflect.Type {
 type principalAssociationArgs struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal string `pulumi:"principal"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
@@ -174,7 +174,7 @@ type principalAssociationArgs struct {
 type PrincipalAssociationArgs struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringInput
@@ -272,7 +272,7 @@ func (o PrincipalAssociationOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PrincipalAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

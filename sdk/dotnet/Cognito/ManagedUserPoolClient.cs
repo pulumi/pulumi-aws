@@ -167,13 +167,19 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<Outputs.ManagedUserPoolClientRefreshTokenRotation?> RefreshTokenRotation { get; private set; } = null!;
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Output("refreshTokenValidity")]
         public Output<int> RefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -393,13 +399,19 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.ManagedUserPoolClientRefreshTokenRotationArgs>? RefreshTokenRotation { get; set; }
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -611,13 +623,19 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.ManagedUserPoolClientRefreshTokenRotationGetArgs>? RefreshTokenRotation { get; set; }
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

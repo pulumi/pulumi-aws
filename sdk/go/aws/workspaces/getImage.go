@@ -51,8 +51,9 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
 	// ID of the image.
-	ImageId string  `pulumi:"imageId"`
-	Region  *string `pulumi:"region"`
+	ImageId string `pulumi:"imageId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImage.
@@ -84,8 +85,9 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
 	// ID of the image.
-	ImageId pulumi.StringInput    `pulumi:"imageId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImageOutputArgs) ElementType() reflect.Type {

@@ -175,6 +175,7 @@ def get_constraint(accept_language: Optional[builtins.str] = None,
     :param builtins.str id: Constraint identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -221,6 +222,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[builti
     :param builtins.str id: Constraint identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language

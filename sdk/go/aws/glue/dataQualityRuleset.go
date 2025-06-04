@@ -154,7 +154,7 @@ type DataQualityRuleset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId pulumi.StringOutput `pulumi:"recommendationRunId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringOutput `pulumi:"ruleset"`
@@ -211,7 +211,7 @@ type dataQualityRulesetState struct {
 	Name *string `pulumi:"name"`
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId *string `pulumi:"recommendationRunId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset *string `pulumi:"ruleset"`
@@ -236,7 +236,7 @@ type DataQualityRulesetState struct {
 	Name pulumi.StringPtrInput
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringPtrInput
@@ -257,7 +257,7 @@ type dataQualityRulesetArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the data quality ruleset.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset string `pulumi:"ruleset"`
@@ -273,7 +273,7 @@ type DataQualityRulesetArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the data quality ruleset.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringInput
@@ -400,7 +400,7 @@ func (o DataQualityRulesetOutput) RecommendationRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.RecommendationRunId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataQualityRulesetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

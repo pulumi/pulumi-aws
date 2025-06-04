@@ -13,6 +13,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Enable the long task ARN format
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,18 @@ import * as utilities from "../utilities";
  * const test = new aws.ecs.AccountSettingDefault("test", {
  *     name: "taskLongArnFormat",
  *     value: "enabled",
+ * });
+ * ```
+ *
+ * ### Set the default log driver mode to non-blocking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ecs.AccountSettingDefault("test", {
+ *     name: "defaultLogDriverMode",
+ *     value: "non-blocking",
  * });
  * ```
  *
@@ -65,7 +79,7 @@ export class AccountSettingDefault extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -115,7 +129,7 @@ export interface AccountSettingDefaultState {
     name?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -133,7 +147,7 @@ export interface AccountSettingDefaultArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

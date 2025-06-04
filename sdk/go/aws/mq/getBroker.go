@@ -69,9 +69,10 @@ type LookupBrokerArgs struct {
 	// Unique id of the mq broker.
 	BrokerId *string `pulumi:"brokerId"`
 	// Unique name of the mq broker.
-	BrokerName *string           `pulumi:"brokerName"`
-	Region     *string           `pulumi:"region"`
-	Tags       map[string]string `pulumi:"tags"`
+	BrokerName *string `pulumi:"brokerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBroker.
@@ -117,8 +118,9 @@ type LookupBrokerOutputArgs struct {
 	BrokerId pulumi.StringPtrInput `pulumi:"brokerId"`
 	// Unique name of the mq broker.
 	BrokerName pulumi.StringPtrInput `pulumi:"brokerName"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
-	Tags       pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupBrokerOutputArgs) ElementType() reflect.Type {

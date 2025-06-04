@@ -96,7 +96,7 @@ type InfrastructureConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
@@ -171,7 +171,7 @@ type infrastructureConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -214,7 +214,7 @@ type InfrastructureConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -255,7 +255,7 @@ type infrastructureConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -291,7 +291,7 @@ type InfrastructureConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -453,7 +453,7 @@ func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurati
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InfrastructureConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

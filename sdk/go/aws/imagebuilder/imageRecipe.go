@@ -97,7 +97,7 @@ type ImageRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
@@ -109,7 +109,7 @@ type ImageRecipe struct {
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -172,7 +172,7 @@ type imageRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
@@ -184,7 +184,7 @@ type imageRecipeState struct {
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -209,7 +209,7 @@ type ImageRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
@@ -221,7 +221,7 @@ type ImageRecipeState struct {
 	UserDataBase64 pulumi.StringPtrInput
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type imageRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage string `pulumi:"parentImage"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
@@ -252,7 +252,7 @@ type imageRecipeArgs struct {
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -270,7 +270,7 @@ type ImageRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
@@ -280,7 +280,7 @@ type ImageRecipeArgs struct {
 	UserDataBase64 pulumi.StringPtrInput
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -418,7 +418,7 @@ func (o ImageRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageRecipeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -445,7 +445,7 @@ func (o ImageRecipeOutput) UserDataBase64() pulumi.StringOutput {
 
 // The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
 //
-// The following attributes are optional:
+// The following arguments are optional:
 func (o ImageRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

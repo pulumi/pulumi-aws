@@ -144,6 +144,7 @@ def get_authorization_token(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
     """
     __args__ = dict()
@@ -177,6 +178,7 @@ def get_authorization_token_output(region: Optional[pulumi.Input[Optional[builti
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
     """
     __args__ = dict()

@@ -15,6 +15,11 @@ export type Enabler = import("./enabler").Enabler;
 export const Enabler: typeof import("./enabler").Enabler = null as any;
 utilities.lazyLoad(exports, ["Enabler"], () => require("./enabler"));
 
+export { FilterArgs, FilterState } from "./filter";
+export type Filter = import("./filter").Filter;
+export const Filter: typeof import("./filter").Filter = null as any;
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+
 export { MemberAssociationArgs, MemberAssociationState } from "./memberAssociation";
 export type MemberAssociation = import("./memberAssociation").MemberAssociation;
 export const MemberAssociation: typeof import("./memberAssociation").MemberAssociation = null as any;
@@ -34,6 +39,8 @@ const _module = {
                 return new DelegatedAdminAccount(name, <any>undefined, { urn })
             case "aws:inspector2/enabler:Enabler":
                 return new Enabler(name, <any>undefined, { urn })
+            case "aws:inspector2/filter:Filter":
+                return new Filter(name, <any>undefined, { urn })
             case "aws:inspector2/memberAssociation:MemberAssociation":
                 return new MemberAssociation(name, <any>undefined, { urn })
             case "aws:inspector2/organizationConfiguration:OrganizationConfiguration":
@@ -45,5 +52,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "inspector2/delegatedAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "inspector2/enabler", _module)
+pulumi.runtime.registerResourceModule("aws", "inspector2/filter", _module)
 pulumi.runtime.registerResourceModule("aws", "inspector2/memberAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "inspector2/organizationConfiguration", _module)

@@ -128,7 +128,7 @@ type Route struct {
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
@@ -195,7 +195,7 @@ type routeState struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
@@ -227,7 +227,7 @@ type RouteState struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
@@ -263,7 +263,7 @@ type routeArgs struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
@@ -296,7 +296,7 @@ type RouteArgs struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
@@ -435,7 +435,7 @@ func (o RouteOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RouteOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

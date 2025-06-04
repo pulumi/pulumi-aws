@@ -28,7 +28,8 @@ func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.
 type GetEbsVolumesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
-	Region  *string               `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
 	//
@@ -62,7 +63,8 @@ func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts
 type GetEbsVolumesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetEbsVolumesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput         `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
 	//

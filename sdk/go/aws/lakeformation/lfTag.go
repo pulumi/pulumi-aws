@@ -59,7 +59,7 @@ type LfTag struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayOutput `pulumi:"values"`
@@ -105,7 +105,7 @@ type lfTagState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key *string `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values []string `pulumi:"values"`
@@ -116,7 +116,7 @@ type LfTagState struct {
 	CatalogId pulumi.StringPtrInput
 	// Key-name for the tag.
 	Key pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayInput
@@ -131,7 +131,7 @@ type lfTagArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key string `pulumi:"key"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values []string `pulumi:"values"`
@@ -143,7 +143,7 @@ type LfTagArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Key-name for the tag.
 	Key pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayInput
@@ -246,7 +246,7 @@ func (o LfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LfTagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

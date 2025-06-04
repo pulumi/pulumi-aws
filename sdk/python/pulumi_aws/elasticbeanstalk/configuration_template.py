@@ -35,7 +35,7 @@ class ConfigurationTemplateArgs:
         :param pulumi.Input[builtins.str] description: Short description of the Template
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[builtins.str] name: A unique name for this Template.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -108,7 +108,7 @@ class ConfigurationTemplateArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -160,7 +160,7 @@ class _ConfigurationTemplateState:
         :param pulumi.Input[builtins.str] description: Short description of the Template
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[builtins.str] name: A unique name for this Template.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -234,7 +234,7 @@ class _ConfigurationTemplateState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -319,7 +319,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Short description of the Template
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[builtins.str] name: A unique name for this Template.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -429,7 +429,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Short description of the Template
         :param pulumi.Input[builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[builtins.str] name: A unique name for this Template.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -485,7 +485,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

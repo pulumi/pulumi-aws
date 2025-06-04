@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.aws.cognito.inputs.UserPoolClientAnalyticsConfigurationArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolClientRefreshTokenRotationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolClientTokenValidityUnitsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -291,6 +292,21 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    @Import(name="refreshTokenRotation")
+    private @Nullable Output<UserPoolClientRefreshTokenRotationArgs> refreshTokenRotation;
+
+    /**
+     * @return A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolClientRefreshTokenRotationArgs>> refreshTokenRotation() {
+        return Optional.ofNullable(this.refreshTokenRotation);
+    }
+
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
@@ -306,14 +322,14 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -405,6 +421,7 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.preventUserExistenceErrors = $.preventUserExistenceErrors;
         this.readAttributes = $.readAttributes;
+        this.refreshTokenRotation = $.refreshTokenRotation;
         this.refreshTokenValidity = $.refreshTokenValidity;
         this.region = $.region;
         this.supportedIdentityProviders = $.supportedIdentityProviders;
@@ -870,6 +887,27 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param refreshTokenRotation A block that specifies the configuration of refresh token rotation. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshTokenRotation(@Nullable Output<UserPoolClientRefreshTokenRotationArgs> refreshTokenRotation) {
+            $.refreshTokenRotation = refreshTokenRotation;
+            return this;
+        }
+
+        /**
+         * @param refreshTokenRotation A block that specifies the configuration of refresh token rotation. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshTokenRotation(UserPoolClientRefreshTokenRotationArgs refreshTokenRotation) {
+            return refreshTokenRotation(Output.of(refreshTokenRotation));
+        }
+
+        /**
          * @param refreshTokenValidity Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
          * 
          * @return builder
@@ -891,7 +929,7 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -902,7 +940,7 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

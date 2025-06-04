@@ -71,7 +71,7 @@ type Agreement struct {
 	LocalProfileId pulumi.StringOutput `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringOutput `pulumi:"partnerProfileId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -140,7 +140,7 @@ type agreementState struct {
 	LocalProfileId *string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId *string `pulumi:"partnerProfileId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId *string `pulumi:"serverId"`
@@ -165,7 +165,7 @@ type AgreementState struct {
 	LocalProfileId pulumi.StringPtrInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringPtrInput
@@ -190,7 +190,7 @@ type agreementArgs struct {
 	LocalProfileId string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId string `pulumi:"partnerProfileId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId string `pulumi:"serverId"`
@@ -210,7 +210,7 @@ type AgreementArgs struct {
 	LocalProfileId pulumi.StringInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringInput
@@ -340,7 +340,7 @@ func (o AgreementOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.PartnerProfileId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgreementOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

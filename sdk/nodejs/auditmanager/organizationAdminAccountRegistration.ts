@@ -62,6 +62,10 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
      * Identifier for the organization.
      */
     public /*out*/ readonly organizationId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationAdminAccountRegistration resource with the given unique name, arguments, and options.
@@ -78,12 +82,14 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
             const state = argsOrState as OrganizationAdminAccountRegistrationState | undefined;
             resourceInputs["adminAccountId"] = state ? state.adminAccountId : undefined;
             resourceInputs["organizationId"] = state ? state.organizationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationAdminAccountRegistrationArgs | undefined;
             if ((!args || args.adminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
             resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["organizationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -103,6 +109,10 @@ export interface OrganizationAdminAccountRegistrationState {
      * Identifier for the organization.
      */
     organizationId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -113,4 +123,8 @@ export interface OrganizationAdminAccountRegistrationArgs {
      * Identifier for the organization administrator account.
      */
     adminAccountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

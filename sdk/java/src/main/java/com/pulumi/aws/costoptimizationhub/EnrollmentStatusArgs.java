@@ -6,7 +6,6 @@ package com.pulumi.aws.costoptimizationhub;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,26 +30,10 @@ public final class EnrollmentStatusArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.includeMemberAccounts);
     }
 
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    @Import(name="region")
-    private @Nullable Output<String> region;
-
-    /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    public Optional<Output<String>> region() {
-        return Optional.ofNullable(this.region);
-    }
-
     private EnrollmentStatusArgs() {}
 
     private EnrollmentStatusArgs(EnrollmentStatusArgs $) {
         this.includeMemberAccounts = $.includeMemberAccounts;
-        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -90,27 +73,6 @@ public final class EnrollmentStatusArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder includeMemberAccounts(Boolean includeMemberAccounts) {
             return includeMemberAccounts(Output.of(includeMemberAccounts));
-        }
-
-        /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(@Nullable Output<String> region) {
-            $.region = region;
-            return this;
-        }
-
-        /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder region(String region) {
-            return region(Output.of(region));
         }
 
         public EnrollmentStatusArgs build() {

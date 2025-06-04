@@ -190,6 +190,7 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
     :param builtins.str name: The name of the query logging configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service.
     """
@@ -252,6 +253,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
     :param builtins.str name: The name of the query logging configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service.
     """

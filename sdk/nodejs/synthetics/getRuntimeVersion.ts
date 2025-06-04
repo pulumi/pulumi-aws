@@ -57,6 +57,9 @@ export interface GetRuntimeVersionArgs {
      * The following arguments are optional:
      */
     prefix: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
@@ -146,6 +149,9 @@ export interface GetRuntimeVersionOutputArgs {
      * The following arguments are optional:
      */
     prefix: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.

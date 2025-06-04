@@ -42,6 +42,7 @@ type GetBucketObjectsArgs struct {
 	MaxKeys *int `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix *string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter *string `pulumi:"startAfter"`
@@ -93,6 +94,7 @@ type GetBucketObjectsOutputArgs struct {
 	MaxKeys pulumi.IntPtrInput `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter pulumi.StringPtrInput `pulumi:"startAfter"`

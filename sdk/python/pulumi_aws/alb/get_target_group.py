@@ -284,6 +284,7 @@ def get_target_group(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Full ARN of the target group.
     :param builtins.str name: Unique name of the target group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -356,6 +357,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] 
 
     :param builtins.str arn: Full ARN of the target group.
     :param builtins.str name: Unique name of the target group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.

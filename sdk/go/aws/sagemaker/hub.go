@@ -63,7 +63,7 @@ type Hub struct {
 	HubName pulumi.StringOutput `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayOutput `pulumi:"hubSearchKeywords"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrOutput `pulumi:"s3StorageConfig"`
@@ -119,7 +119,7 @@ type hubState struct {
 	HubName *string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
@@ -140,7 +140,7 @@ type HubState struct {
 	HubName pulumi.StringPtrInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
@@ -163,7 +163,7 @@ type hubArgs struct {
 	HubName string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
@@ -181,7 +181,7 @@ type HubArgs struct {
 	HubName pulumi.StringInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
@@ -301,7 +301,7 @@ func (o HubOutput) HubSearchKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringArrayOutput { return v.HubSearchKeywords }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HubOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

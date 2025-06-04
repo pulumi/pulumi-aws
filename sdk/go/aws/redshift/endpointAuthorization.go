@@ -65,7 +65,7 @@ type EndpointAuthorization struct {
 	Grantee pulumi.StringOutput `pulumi:"grantee"`
 	// The Amazon Web Services account ID of the cluster owner.
 	Grantor pulumi.StringOutput `pulumi:"grantor"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayOutput `pulumi:"vpcIds"`
@@ -121,7 +121,7 @@ type endpointAuthorizationState struct {
 	Grantee *string `pulumi:"grantee"`
 	// The Amazon Web Services account ID of the cluster owner.
 	Grantor *string `pulumi:"grantor"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds []string `pulumi:"vpcIds"`
@@ -142,7 +142,7 @@ type EndpointAuthorizationState struct {
 	Grantee pulumi.StringPtrInput
 	// The Amazon Web Services account ID of the cluster owner.
 	Grantor pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayInput
@@ -159,7 +159,7 @@ type endpointAuthorizationArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
 	ForceDelete *bool `pulumi:"forceDelete"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds []string `pulumi:"vpcIds"`
@@ -173,7 +173,7 @@ type EndpointAuthorizationArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
 	ForceDelete pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayInput
@@ -301,7 +301,7 @@ func (o EndpointAuthorizationOutput) Grantor() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Grantor }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EndpointAuthorizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

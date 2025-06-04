@@ -51,7 +51,8 @@ func LookupSigningJob(ctx *pulumi.Context, args *LookupSigningJobArgs, opts ...p
 // A collection of arguments for invoking getSigningJob.
 type LookupSigningJobArgs struct {
 	// ID of the signing job on output.
-	JobId  string  `pulumi:"jobId"`
+	JobId string `pulumi:"jobId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -105,7 +106,8 @@ func LookupSigningJobOutput(ctx *pulumi.Context, args LookupSigningJobOutputArgs
 // A collection of arguments for invoking getSigningJob.
 type LookupSigningJobOutputArgs struct {
 	// ID of the signing job on output.
-	JobId  pulumi.StringInput    `pulumi:"jobId"`
+	JobId pulumi.StringInput `pulumi:"jobId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

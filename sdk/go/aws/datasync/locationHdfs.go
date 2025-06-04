@@ -137,7 +137,7 @@ type LocationHdfs struct {
 	NameNodes LocationHdfsNameNodeArrayOutput `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationOutput `pulumi:"qopConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrOutput `pulumi:"replicationFactor"`
@@ -212,7 +212,7 @@ type locationHdfsState struct {
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -252,7 +252,7 @@ type LocationHdfsState struct {
 	NameNodes LocationHdfsNameNodeArrayInput
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrInput
@@ -294,7 +294,7 @@ type locationHdfsArgs struct {
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -330,7 +330,7 @@ type LocationHdfsArgs struct {
 	NameNodes LocationHdfsNameNodeArrayInput
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrInput
@@ -489,7 +489,7 @@ func (o LocationHdfsOutput) QopConfiguration() LocationHdfsQopConfigurationOutpu
 	return o.ApplyT(func(v *LocationHdfs) LocationHdfsQopConfigurationOutput { return v.QopConfiguration }).(LocationHdfsQopConfigurationOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocationHdfsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

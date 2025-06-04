@@ -169,6 +169,7 @@ def get_tracker(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the tracker.
     :param builtins.str tracker_name: Name of the tracker resource.
     """
@@ -207,6 +208,7 @@ def get_tracker_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the tracker.
     :param builtins.str tracker_name: Name of the tracker resource.
     """

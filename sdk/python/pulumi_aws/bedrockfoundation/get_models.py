@@ -142,6 +142,7 @@ def get_models(by_customization_type: Optional[builtins.str] = None,
     :param builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param builtins.str by_provider: Model provider to filter on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type
@@ -194,6 +195,7 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[buil
     :param builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param builtins.str by_provider: Model provider to filter on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type

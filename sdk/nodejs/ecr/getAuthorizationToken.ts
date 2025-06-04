@@ -29,6 +29,9 @@ export function getAuthorizationToken(args?: GetAuthorizationTokenArgs, opts?: p
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * AWS account ID of the ECR Repository. If not specified the default account is assumed.
@@ -92,6 +95,9 @@ export function getAuthorizationTokenOutput(args?: GetAuthorizationTokenOutputAr
  * A collection of arguments for invoking getAuthorizationToken.
  */
 export interface GetAuthorizationTokenOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * AWS account ID of the ECR Repository. If not specified the default account is assumed.

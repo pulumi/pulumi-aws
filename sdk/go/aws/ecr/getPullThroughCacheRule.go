@@ -51,8 +51,9 @@ func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCach
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleArgs struct {
 	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix string  `pulumi:"ecrRepositoryPrefix"`
-	Region              *string `pulumi:"region"`
+	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPullThroughCacheRule.
@@ -85,8 +86,9 @@ func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroug
 // A collection of arguments for invoking getPullThroughCacheRule.
 type LookupPullThroughCacheRuleOutputArgs struct {
 	// The repository name prefix to use when caching images from the source registry.
-	EcrRepositoryPrefix pulumi.StringInput    `pulumi:"ecrRepositoryPrefix"`
-	Region              pulumi.StringPtrInput `pulumi:"region"`
+	EcrRepositoryPrefix pulumi.StringInput `pulumi:"ecrRepositoryPrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPullThroughCacheRuleOutputArgs) ElementType() reflect.Type {

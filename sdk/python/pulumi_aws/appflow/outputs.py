@@ -2862,7 +2862,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
         :param builtins.str stage: Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
         :param builtins.str warehouse: The name of the Snowflake warehouse.
         :param builtins.str account_name: The name of the account.
-        :param builtins.str region: AWS Region of the Snowflake account.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "stage", stage)
@@ -2919,7 +2920,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
     @pulumi.getter
     def region(self) -> Optional[builtins.str]:
         """
-        AWS Region of the Snowflake account.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 
@@ -4105,7 +4107,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "errorHandlingConfig":
+        if key == "dataTransferApi":
+            suggest = "data_transfer_api"
+        elif key == "errorHandlingConfig":
             suggest = "error_handling_config"
         elif key == "idFieldNames":
             suggest = "id_field_names"
@@ -4125,10 +4129,13 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
 
     def __init__(__self__, *,
                  object: builtins.str,
+                 data_transfer_api: Optional[builtins.str] = None,
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig'] = None,
                  id_field_names: Optional[Sequence[builtins.str]] = None,
                  write_operation_type: Optional[builtins.str] = None):
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
         if id_field_names is not None:
@@ -4140,6 +4147,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @pulumi.getter
     def object(self) -> builtins.str:
         return pulumi.get(self, "object")
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "data_transfer_api")
 
     @property
     @pulumi.getter(name="errorHandlingConfig")
@@ -5532,7 +5544,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
                  enable_dynamic_field_update: Optional[builtins.bool] = None,
                  include_deleted_records: Optional[builtins.bool] = None):
         """
-        :param builtins.str data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
         :param builtins.bool enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param builtins.bool include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
@@ -5552,9 +5563,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @property
     @pulumi.getter(name="dataTransferApi")
     def data_transfer_api(self) -> Optional[builtins.str]:
-        """
-        Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-        """
         return pulumi.get(self, "data_transfer_api")
 
     @property

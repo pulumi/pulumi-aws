@@ -131,6 +131,7 @@ def get_repository_endpoint(domain: Optional[builtins.str] = None,
     :param builtins.str domain: Name of the domain that contains the repository.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository: Name of the repository.
     """
     __args__ = dict()
@@ -174,6 +175,7 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[builtins.str]] 
     :param builtins.str domain: Name of the domain that contains the repository.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository: Name of the repository.
     """
     __args__ = dict()

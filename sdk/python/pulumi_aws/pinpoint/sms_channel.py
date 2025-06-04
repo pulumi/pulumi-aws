@@ -29,7 +29,7 @@ class SmsChannelArgs:
         The set of arguments for constructing a SmsChannel resource.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sender_id: Identifier of the sender for your messages.
         :param pulumi.Input[builtins.str] short_code: Short Code registered with the phone provider.
         """
@@ -71,7 +71,7 @@ class SmsChannelArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -119,7 +119,7 @@ class _SmsChannelState:
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
         :param pulumi.Input[builtins.int] promotional_messages_per_second: Maximum number of promotional messages that can be sent per second.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sender_id: Identifier of the sender for your messages.
         :param pulumi.Input[builtins.str] short_code: Short Code registered with the phone provider.
         :param pulumi.Input[builtins.int] transactional_messages_per_second: Maximum number of transactional messages per second that can be sent.
@@ -179,7 +179,7 @@ class _SmsChannelState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -261,7 +261,7 @@ class SmsChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sender_id: Identifier of the sender for your messages.
         :param pulumi.Input[builtins.str] short_code: Short Code registered with the phone provider.
         """
@@ -357,7 +357,7 @@ class SmsChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
         :param pulumi.Input[builtins.int] promotional_messages_per_second: Maximum number of promotional messages that can be sent per second.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sender_id: Identifier of the sender for your messages.
         :param pulumi.Input[builtins.str] short_code: Short Code registered with the phone provider.
         :param pulumi.Input[builtins.int] transactional_messages_per_second: Maximum number of transactional messages per second that can be sent.
@@ -403,7 +403,7 @@ class SmsChannel(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

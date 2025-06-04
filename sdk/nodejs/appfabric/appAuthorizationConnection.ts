@@ -69,7 +69,7 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
      */
     public readonly authRequest!: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface AppAuthorizationConnectionState {
      */
     authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface AppAuthorizationConnectionArgs {
      */
     authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts>;

@@ -57,7 +57,8 @@ type LookupGatewayRouteArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the gateway route.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -104,7 +105,8 @@ type LookupGatewayRouteOutputArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the gateway route.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

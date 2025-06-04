@@ -142,14 +142,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -189,6 +189,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      * 
+     * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+     * 
      * The `content_config` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
      * bucket to use, and the storage class that you want to assign to the files. If
@@ -202,6 +204,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The permissions for the `thumbnail_config` object. (documented below)
+     * 
+     * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      * 
      * The `content_config` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -429,7 +433,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -440,7 +444,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -494,6 +498,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
          * 
+         * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+         * 
          * The `content_config` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which
          * bucket to use, and the storage class that you want to assign to the files. If
@@ -512,6 +518,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
          * 
+         * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+         * 
          * The `content_config` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which
          * bucket to use, and the storage class that you want to assign to the files. If
@@ -528,6 +536,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
+         * 
+         * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
          * 
          * The `content_config` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which

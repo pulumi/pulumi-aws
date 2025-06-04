@@ -83,11 +83,14 @@ type LookupUserArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific User by name
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the User.
 	Tags map[string]string `pulumi:"tags"`
 	// Returns information on a specific User by User id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -132,11 +135,14 @@ type LookupUserOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific User by name
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to the User.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Returns information on a specific User by User id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 

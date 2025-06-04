@@ -60,7 +60,7 @@ type Group struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -107,7 +107,7 @@ type groupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -122,7 +122,7 @@ type GroupState struct {
 	GroupName pulumi.StringPtrInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -139,7 +139,7 @@ type groupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -153,7 +153,7 @@ type GroupArgs struct {
 	GroupName pulumi.StringInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -269,7 +269,7 @@ func (o GroupOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

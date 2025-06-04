@@ -7,5 +7,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .alternative_contact import *
+from .get_primary_contact import *
 from .primary_contact import *
 from .region import *

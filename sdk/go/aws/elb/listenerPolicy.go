@@ -162,7 +162,7 @@ type ListenerPolicy struct {
 	LoadBalancerPort pulumi.IntOutput `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger an update.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -216,7 +216,7 @@ type listenerPolicyState struct {
 	LoadBalancerPort *int `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger an update.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -229,7 +229,7 @@ type ListenerPolicyState struct {
 	LoadBalancerPort pulumi.IntPtrInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger an update.
 	Triggers pulumi.StringMapInput
@@ -246,7 +246,7 @@ type listenerPolicyArgs struct {
 	LoadBalancerPort int `pulumi:"loadBalancerPort"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger an update.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -260,7 +260,7 @@ type ListenerPolicyArgs struct {
 	LoadBalancerPort pulumi.IntInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger an update.
 	Triggers pulumi.StringMapInput
@@ -368,7 +368,7 @@ func (o ListenerPolicyOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ListenerPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

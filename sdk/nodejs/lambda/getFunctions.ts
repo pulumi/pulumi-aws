@@ -28,6 +28,9 @@ export function getFunctions(args?: GetFunctionsArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -73,5 +76,8 @@ export function getFunctionsOutput(args?: GetFunctionsOutputArgs, opts?: pulumi.
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

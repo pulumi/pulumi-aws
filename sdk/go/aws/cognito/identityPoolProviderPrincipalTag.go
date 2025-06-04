@@ -30,7 +30,7 @@ type IdentityPoolProviderPrincipalTag struct {
 	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapOutput `pulumi:"principalTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrOutput `pulumi:"useDefaults"`
@@ -78,7 +78,7 @@ type identityPoolProviderPrincipalTagState struct {
 	IdentityProviderName *string `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags map[string]string `pulumi:"principalTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults *bool `pulumi:"useDefaults"`
@@ -91,7 +91,7 @@ type IdentityPoolProviderPrincipalTagState struct {
 	IdentityProviderName pulumi.StringPtrInput
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrInput
@@ -108,7 +108,7 @@ type identityPoolProviderPrincipalTagArgs struct {
 	IdentityProviderName string `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags map[string]string `pulumi:"principalTags"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults *bool `pulumi:"useDefaults"`
@@ -122,7 +122,7 @@ type IdentityPoolProviderPrincipalTagArgs struct {
 	IdentityProviderName pulumi.StringInput
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrInput
@@ -230,7 +230,7 @@ func (o IdentityPoolProviderPrincipalTagOutput) PrincipalTags() pulumi.StringMap
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringMapOutput { return v.PrincipalTags }).(pulumi.StringMapOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityPoolProviderPrincipalTagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

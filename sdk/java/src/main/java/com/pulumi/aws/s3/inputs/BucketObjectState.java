@@ -308,14 +308,14 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -432,6 +432,8 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
      * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * 
      */
     @Import(name="websiteRedirect")
     private @Nullable Output<String> websiteRedirect;
@@ -440,6 +442,8 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
      * 
      */
     public Optional<Output<String>> websiteRedirect() {
@@ -901,7 +905,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -912,7 +916,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -1073,6 +1077,8 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
          * 
          * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
          * 
+         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+         * 
          * @return builder
          * 
          */
@@ -1085,6 +1091,8 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
          * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * 
+         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
          * 
          * @return builder
          * 

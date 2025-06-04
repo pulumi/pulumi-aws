@@ -65,7 +65,8 @@ type GetSpotPriceArgs struct {
 	Filters []GetSpotPriceFilter `pulumi:"filters"`
 	// Type of instance for which to query Spot Price information.
 	InstanceType *string `pulumi:"instanceType"`
-	Region       *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSpotPrice.
@@ -99,7 +100,8 @@ type GetSpotPriceOutputArgs struct {
 	Filters GetSpotPriceFilterArrayInput `pulumi:"filters"`
 	// Type of instance for which to query Spot Price information.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSpotPriceOutputArgs) ElementType() reflect.Type {

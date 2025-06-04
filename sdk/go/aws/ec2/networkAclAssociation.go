@@ -57,7 +57,7 @@ type NetworkAclAssociation struct {
 
 	// The ID of the network ACL.
 	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the associated Subnet.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -101,7 +101,7 @@ func GetNetworkAclAssociation(ctx *pulumi.Context,
 type networkAclAssociationState struct {
 	// The ID of the network ACL.
 	NetworkAclId *string `pulumi:"networkAclId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the associated Subnet.
 	SubnetId *string `pulumi:"subnetId"`
@@ -110,7 +110,7 @@ type networkAclAssociationState struct {
 type NetworkAclAssociationState struct {
 	// The ID of the network ACL.
 	NetworkAclId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the associated Subnet.
 	SubnetId pulumi.StringPtrInput
@@ -123,7 +123,7 @@ func (NetworkAclAssociationState) ElementType() reflect.Type {
 type networkAclAssociationArgs struct {
 	// The ID of the network ACL.
 	NetworkAclId string `pulumi:"networkAclId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the associated Subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -133,7 +133,7 @@ type networkAclAssociationArgs struct {
 type NetworkAclAssociationArgs struct {
 	// The ID of the network ACL.
 	NetworkAclId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the associated Subnet.
 	SubnetId pulumi.StringInput
@@ -231,7 +231,7 @@ func (o NetworkAclAssociationOutput) NetworkAclId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclAssociation) pulumi.StringOutput { return v.NetworkAclId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkAclAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAclAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

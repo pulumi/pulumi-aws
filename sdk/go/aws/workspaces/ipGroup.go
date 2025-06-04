@@ -68,7 +68,7 @@ type IpGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the IP group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayOutput `pulumi:"rules"`
@@ -112,7 +112,7 @@ type ipGroupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules []IpGroupRule `pulumi:"rules"`
@@ -127,7 +127,7 @@ type IpGroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
@@ -146,7 +146,7 @@ type ipGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules []IpGroupRule `pulumi:"rules"`
@@ -160,7 +160,7 @@ type IpGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
@@ -265,7 +265,7 @@ func (o IpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IpGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

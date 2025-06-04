@@ -114,7 +114,8 @@ type GetAssetsArgs struct {
 	Arn string `pulumi:"arn"`
 	// Filters by list of Host IDs of a Dedicated Host.
 	HostIdFilters []string `pulumi:"hostIdFilters"`
-	Region        *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
 	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
@@ -146,7 +147,8 @@ type GetAssetsOutputArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Filters by list of Host IDs of a Dedicated Host.
 	HostIdFilters pulumi.StringArrayInput `pulumi:"hostIdFilters"`
-	Region        pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
 	StatusIdFilters pulumi.StringArrayInput `pulumi:"statusIdFilters"`
 }

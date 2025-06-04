@@ -37,6 +37,9 @@ export function getRegistrationCode(args?: GetRegistrationCodeArgs, opts?: pulum
  * A collection of arguments for invoking getRegistrationCode.
  */
 export interface GetRegistrationCodeArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -87,5 +90,8 @@ export function getRegistrationCodeOutput(args?: GetRegistrationCodeOutputArgs, 
  * A collection of arguments for invoking getRegistrationCode.
  */
 export interface GetRegistrationCodeOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

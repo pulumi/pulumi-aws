@@ -30,7 +30,7 @@ class IdentityPoolProviderPrincipalTagArgs:
         :param pulumi.Input[builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
@@ -82,7 +82,7 @@ class IdentityPoolProviderPrincipalTagArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -116,7 +116,7 @@ class _IdentityPoolProviderPrincipalTagState:
         :param pulumi.Input[builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         if identity_pool_id is not None:
@@ -170,7 +170,7 @@ class _IdentityPoolProviderPrincipalTagState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -219,7 +219,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         ...
@@ -302,7 +302,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] principal_tags: String to string map of variables.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -344,7 +344,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

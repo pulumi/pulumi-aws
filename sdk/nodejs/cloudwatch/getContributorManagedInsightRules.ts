@@ -35,6 +35,9 @@ export function getContributorManagedInsightRules(args: GetContributorManagedIns
  * A collection of arguments for invoking getContributorManagedInsightRules.
  */
 export interface GetContributorManagedInsightRulesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
@@ -88,6 +91,9 @@ export function getContributorManagedInsightRulesOutput(args: GetContributorMana
  * A collection of arguments for invoking getContributorManagedInsightRules.
  */
 export interface GetContributorManagedInsightRulesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.

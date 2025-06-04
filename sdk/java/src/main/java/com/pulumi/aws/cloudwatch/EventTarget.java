@@ -33,6 +33,12 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
+ * &gt; **Note:** In order to be able to have your AWS Lambda function or
+ *    SNS topic invoked by an EventBridge rule, you must set up the right permissions
+ *    using `aws.lambda.Permission`
+ *    or `aws.sns.TopicPolicy`.
+ *    More info [here](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html).
+ * 
  * ## Example Usage
  * 
  * ### Kinesis Usage
@@ -1058,14 +1064,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.redshiftTarget);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

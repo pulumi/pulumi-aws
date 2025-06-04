@@ -33,8 +33,15 @@ class ResponsePlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
+        :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: The `incident_template` configuration block is required and supports the following arguments:
+        :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input[builtins.str] display_name: The long format of the response plan name. This field can contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        :param pulumi.Input['ResponsePlanIntegrationArgs'] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[builtins.str] name: The name of the response plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags applied to the response plan.
         """
         pulumi.set(__self__, "incident_template", incident_template)
         if action is not None:
@@ -57,6 +64,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Input['ResponsePlanIncidentTemplateArgs']:
+        """
+        The `incident_template` configuration block is required and supports the following arguments:
+        """
         return pulumi.get(self, "incident_template")
 
     @incident_template.setter
@@ -66,6 +76,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['ResponsePlanActionArgs']]:
+        """
+        The actions that the response plan starts at the beginning of an incident.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -75,6 +88,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The Chatbot chat channel used for collaboration during an incident.
+        """
         return pulumi.get(self, "chat_channels")
 
     @chat_channels.setter
@@ -84,6 +100,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The long format of the response plan name. This field can contain spaces.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -93,6 +112,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        """
         return pulumi.get(self, "engagements")
 
     @engagements.setter
@@ -102,6 +124,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['ResponsePlanIntegrationArgs']]:
+        """
+        Information about third-party services integrated into the response plan. The following values are supported:
+        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -124,7 +149,7 @@ class ResponsePlanArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -135,6 +160,9 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags applied to the response plan.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -158,9 +186,16 @@ class _ResponsePlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResponsePlan resources.
+        :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[builtins.str] arn: The ARN of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input[builtins.str] display_name: The long format of the response plan name. This field can contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: The `incident_template` configuration block is required and supports the following arguments:
+        :param pulumi.Input['ResponsePlanIntegrationArgs'] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[builtins.str] name: The name of the response plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags applied to the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if action is not None:
@@ -189,6 +224,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['ResponsePlanActionArgs']]:
+        """
+        The actions that the response plan starts at the beginning of an incident.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -210,6 +248,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The Chatbot chat channel used for collaboration during an incident.
+        """
         return pulumi.get(self, "chat_channels")
 
     @chat_channels.setter
@@ -219,6 +260,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The long format of the response plan name. This field can contain spaces.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -228,6 +272,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        """
         return pulumi.get(self, "engagements")
 
     @engagements.setter
@@ -237,6 +284,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> Optional[pulumi.Input['ResponsePlanIncidentTemplateArgs']]:
+        """
+        The `incident_template` configuration block is required and supports the following arguments:
+        """
         return pulumi.get(self, "incident_template")
 
     @incident_template.setter
@@ -246,6 +296,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['ResponsePlanIntegrationArgs']]:
+        """
+        Information about third-party services integrated into the response plan. The following values are supported:
+        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -268,7 +321,7 @@ class _ResponsePlanState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -279,6 +332,9 @@ class _ResponsePlanState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The tags applied to the response plan.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -316,6 +372,8 @@ class ResponsePlan(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
+
+        > NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the ResponsePlan Resource.
 
         ## Example Usage
 
@@ -413,8 +471,15 @@ class ResponsePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']] action: The actions that the response plan starts at the beginning of an incident.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input[builtins.str] display_name: The long format of the response plan name. This field can contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        :param pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']] incident_template: The `incident_template` configuration block is required and supports the following arguments:
+        :param pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[builtins.str] name: The name of the response plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags applied to the response plan.
         """
         ...
     @overload
@@ -424,6 +489,8 @@ class ResponsePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
+
+        > NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the ResponsePlan Resource.
 
         ## Example Usage
 
@@ -593,9 +660,16 @@ class ResponsePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[builtins.str] arn: The ARN of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
+        :param pulumi.Input[builtins.str] display_name: The long format of the response plan name. This field can contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] engagements: The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        :param pulumi.Input[Union['ResponsePlanIncidentTemplateArgs', 'ResponsePlanIncidentTemplateArgsDict']] incident_template: The `incident_template` configuration block is required and supports the following arguments:
+        :param pulumi.Input[Union['ResponsePlanIntegrationArgs', 'ResponsePlanIntegrationArgsDict']] integration: Information about third-party services integrated into the response plan. The following values are supported:
         :param pulumi.Input[builtins.str] name: The name of the response plan.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags applied to the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -618,6 +692,9 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional['outputs.ResponsePlanAction']]:
+        """
+        The actions that the response plan starts at the beginning of an incident.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -631,26 +708,41 @@ class ResponsePlan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="chatChannels")
     def chat_channels(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        The Chatbot chat channel used for collaboration during an incident.
+        """
         return pulumi.get(self, "chat_channels")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The long format of the response plan name. This field can contain spaces.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def engagements(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        """
         return pulumi.get(self, "engagements")
 
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Output['outputs.ResponsePlanIncidentTemplate']:
+        """
+        The `incident_template` configuration block is required and supports the following arguments:
+        """
         return pulumi.get(self, "incident_template")
 
     @property
     @pulumi.getter
     def integration(self) -> pulumi.Output[Optional['outputs.ResponsePlanIntegration']]:
+        """
+        Information about third-party services integrated into the response plan. The following values are supported:
+        """
         return pulumi.get(self, "integration")
 
     @property
@@ -665,13 +757,16 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The tags applied to the response plan.
+        """
         return pulumi.get(self, "tags")
 
     @property

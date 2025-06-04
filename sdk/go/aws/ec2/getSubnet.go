@@ -122,7 +122,8 @@ type LookupSubnetArgs struct {
 	Id *string `pulumi:"id"`
 	// IPv6 CIDR block of the desired subnet.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	Region        *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State that the desired subnet must have.
 	State *string `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match a pair on the desired subnet.
@@ -201,7 +202,8 @@ type LookupSubnetOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// IPv6 CIDR block of the desired subnet.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State that the desired subnet must have.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match a pair on the desired subnet.

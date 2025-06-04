@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -36,6 +39,9 @@ export interface GetEventBusArgs {
      * Name of the event bus.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -44,9 +50,13 @@ export interface GetEventBusArgs {
  */
 export interface GetEventBusResult {
     /**
-     * ARN of the event bus.
+     * The ARN of the SQS queue specified as the target for the dead-letter queue.
      */
     readonly arn: string;
+    /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+     */
+    readonly deadLetterConfigs: outputs.cloudwatch.GetEventBusDeadLetterConfig[];
     /**
      * Event bus description.
      */
@@ -94,5 +104,8 @@ export interface GetEventBusOutputArgs {
      * Name of the event bus.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

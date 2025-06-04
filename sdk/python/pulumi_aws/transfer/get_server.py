@@ -242,6 +242,7 @@ def get_server(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str server_id: ID for an SFTP server.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
@@ -287,6 +288,7 @@ def get_server_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = N
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str server_id: ID for an SFTP server.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """

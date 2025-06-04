@@ -244,6 +244,7 @@ def get_api(api_id: Optional[builtins.str] = None,
 
 
     :param builtins.str api_id: API identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags.
     """
     __args__ = dict()
@@ -288,6 +289,7 @@ def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str api_id: API identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags.
     """
     __args__ = dict()

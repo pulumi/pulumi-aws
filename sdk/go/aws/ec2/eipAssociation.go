@@ -90,7 +90,7 @@ type EipAssociation struct {
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -143,7 +143,7 @@ type eipAssociationState struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp *string `pulumi:"publicIp"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -167,7 +167,7 @@ type EipAssociationState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -195,7 +195,7 @@ type eipAssociationArgs struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp *string `pulumi:"publicIp"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -220,7 +220,7 @@ type EipAssociationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -348,7 +348,7 @@ func (o EipAssociationOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EipAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

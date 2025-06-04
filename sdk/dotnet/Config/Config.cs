@@ -1050,14 +1050,6 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
-                public string? Iotanalytics { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
-                public string? Iotevents { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
                 public string? Ivs { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1239,6 +1231,14 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Networkmonitor { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Notifications { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Notificationscontacts { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

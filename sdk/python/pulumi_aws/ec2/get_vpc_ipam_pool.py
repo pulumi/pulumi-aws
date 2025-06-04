@@ -318,6 +318,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, builtins.s
     :param Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the IPAM pool.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()
@@ -396,6 +397,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     :param Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the IPAM pool.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()

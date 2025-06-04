@@ -55,7 +55,8 @@ type LookupVirtualRouterArgs struct {
 	MeshName  string  `pulumi:"meshName"`
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the virtual router.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -98,7 +99,8 @@ type LookupVirtualRouterOutputArgs struct {
 	MeshName  pulumi.StringInput    `pulumi:"meshName"`
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the virtual router.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

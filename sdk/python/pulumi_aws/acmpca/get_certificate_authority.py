@@ -228,6 +228,7 @@ def get_certificate_authority(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
@@ -271,6 +272,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[builtins.str]] =
 
 
     :param builtins.str arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()

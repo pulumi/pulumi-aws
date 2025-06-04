@@ -74,7 +74,7 @@ type ClusterCapacityProviders struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -117,7 +117,7 @@ type clusterCapacityProvidersState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -128,7 +128,7 @@ type ClusterCapacityProvidersState struct {
 	ClusterName pulumi.StringPtrInput
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -143,7 +143,7 @@ type clusterCapacityProvidersArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -155,7 +155,7 @@ type ClusterCapacityProvidersArgs struct {
 	ClusterName pulumi.StringInput
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -263,7 +263,7 @@ func (o ClusterCapacityProvidersOutput) DefaultCapacityProviderStrategies() Clus
 	}).(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ClusterCapacityProvidersOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

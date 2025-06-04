@@ -54,7 +54,6 @@ func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArg
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionArgs struct {
-	Region *string `pulumi:"region"`
 	// Name of the report definition to match.
 	ReportName string `pulumi:"reportName"`
 	// Map of key-value pairs assigned to the resource.
@@ -75,7 +74,6 @@ type LookupReportDefinitionResult struct {
 	Id string `pulumi:"id"`
 	// If true reports are updated after they have been finalized.
 	RefreshClosedReports bool   `pulumi:"refreshClosedReports"`
-	Region               string `pulumi:"region"`
 	ReportName           string `pulumi:"reportName"`
 	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
 	ReportVersioning string `pulumi:"reportVersioning"`
@@ -102,7 +100,6 @@ func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefiniti
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionOutputArgs struct {
-	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the report definition to match.
 	ReportName pulumi.StringInput `pulumi:"reportName"`
 	// Map of key-value pairs assigned to the resource.
@@ -156,10 +153,6 @@ func (o LookupReportDefinitionResultOutput) Id() pulumi.StringOutput {
 // If true reports are updated after they have been finalized.
 func (o LookupReportDefinitionResultOutput) RefreshClosedReports() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) bool { return v.RefreshClosedReports }).(pulumi.BoolOutput)
-}
-
-func (o LookupReportDefinitionResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupReportDefinitionResultOutput) ReportName() pulumi.StringOutput {

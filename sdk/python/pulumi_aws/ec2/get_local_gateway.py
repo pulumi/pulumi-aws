@@ -137,6 +137,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
 
     :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: Id of the specific Local Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
@@ -188,6 +189,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
 
     :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: Id of the specific Local Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match

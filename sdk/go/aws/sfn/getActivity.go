@@ -53,7 +53,8 @@ type LookupActivityArgs struct {
 	// ARN that identifies the activity.
 	Arn *string `pulumi:"arn"`
 	// Name that identifies the activity.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -82,7 +83,8 @@ type LookupActivityOutputArgs struct {
 	// ARN that identifies the activity.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name that identifies the activity.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

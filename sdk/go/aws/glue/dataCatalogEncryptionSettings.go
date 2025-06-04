@@ -64,7 +64,7 @@ type DataCatalogEncryptionSettings struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -105,7 +105,7 @@ type dataCatalogEncryptionSettingsState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -114,7 +114,7 @@ type DataCatalogEncryptionSettingsState struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type dataCatalogEncryptionSettingsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -137,7 +137,7 @@ type DataCatalogEncryptionSettingsArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -240,7 +240,7 @@ func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() Dat
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataCatalogEncryptionSettingsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -83,10 +83,13 @@ type LookupQuickConnectArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Quick Connect by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId *string `pulumi:"quickConnectId"`
-	Region         *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Quick Connect.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,10 +127,13 @@ type LookupQuickConnectOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Quick Connect by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId pulumi.StringPtrInput `pulumi:"quickConnectId"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Quick Connect.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -38,7 +38,7 @@ type Deployment struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the deployment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// REST API identifier.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -85,7 +85,7 @@ type deploymentState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the deployment.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi *string `pulumi:"restApi"`
@@ -100,7 +100,7 @@ type DeploymentState struct {
 	CreatedDate pulumi.StringPtrInput
 	// Description of the deployment.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.StringPtrInput
@@ -117,7 +117,7 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// Description of the deployment.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi string `pulumi:"restApi"`
@@ -131,7 +131,7 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// Description of the deployment.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.StringInput
@@ -238,7 +238,7 @@ func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

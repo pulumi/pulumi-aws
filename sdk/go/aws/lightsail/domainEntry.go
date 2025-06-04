@@ -67,7 +67,7 @@ type DomainEntry struct {
 	IsAlias pulumi.BoolPtrOutput `pulumi:"isAlias"`
 	// Name of the entry record
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Target of the domain entry
 	Target pulumi.StringOutput `pulumi:"target"`
@@ -120,7 +120,7 @@ type domainEntryState struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Target of the domain entry
 	Target *string `pulumi:"target"`
@@ -135,7 +135,7 @@ type DomainEntryState struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Target of the domain entry
 	Target pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type domainEntryArgs struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Target of the domain entry
 	Target string `pulumi:"target"`
@@ -170,7 +170,7 @@ type DomainEntryArgs struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Target of the domain entry
 	Target pulumi.StringInput
@@ -280,7 +280,7 @@ func (o DomainEntryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainEntryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

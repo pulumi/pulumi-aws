@@ -32,7 +32,7 @@ class NamedQueryArgs:
         :param pulumi.Input[builtins.str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
         :param pulumi.Input[builtins.str] description: Brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: Plain language name for the query. Maximum length of 128.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         pulumi.set(__self__, "database", database)
@@ -98,7 +98,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -134,7 +134,7 @@ class _NamedQueryState:
         :param pulumi.Input[builtins.str] description: Brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: Plain language name for the query. Maximum length of 128.
         :param pulumi.Input[builtins.str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         if database is not None:
@@ -202,7 +202,7 @@ class _NamedQueryState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -283,7 +283,7 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: Plain language name for the query. Maximum length of 128.
         :param pulumi.Input[builtins.str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         ...
@@ -400,7 +400,7 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: Plain language name for the query. Maximum length of 128.
         :param pulumi.Input[builtins.str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -451,7 +451,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

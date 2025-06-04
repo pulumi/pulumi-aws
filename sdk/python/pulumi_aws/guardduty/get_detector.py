@@ -147,6 +147,7 @@ def get_detector(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: ID of the detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -183,6 +184,7 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = Non
 
 
     :param builtins.str id: ID of the detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()

@@ -228,6 +228,7 @@ import javax.annotation.Nullable;
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
+ *                     .returnData(true)
  *                     .expression("ANOMALY_DETECTION_BAND(m1)")
  *                     .label("CPUUtilization (Expected)")
  *                     .build(),
@@ -551,7 +552,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     }
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     @Export(name="period", refs={Integer.class}, tree="[0]")
@@ -559,21 +560,21 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     public Output<Optional<Integer>> period() {
         return Codegen.optional(this.period);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -598,6 +599,9 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+     * for details about valid values.
+     * 
      * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
      * 
      */
@@ -606,6 +610,9 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
+     * for details about valid values.
      * 
      * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
      * 

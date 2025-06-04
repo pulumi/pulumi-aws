@@ -71,7 +71,7 @@ type Template struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayOutput `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
@@ -141,7 +141,7 @@ type templateState struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions []TemplatePermission `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
@@ -176,7 +176,7 @@ type TemplateState struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
@@ -209,7 +209,7 @@ type templateArgs struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions []TemplatePermission `pulumi:"permissions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
@@ -231,7 +231,7 @@ type TemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
@@ -362,7 +362,7 @@ func (o TemplateOutput) Permissions() TemplatePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplatePermissionArrayOutput { return v.Permissions }).(TemplatePermissionArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

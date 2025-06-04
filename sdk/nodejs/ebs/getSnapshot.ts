@@ -64,6 +64,9 @@ export interface GetSnapshotArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
@@ -211,6 +214,9 @@ export interface GetSnapshotOutputArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.

@@ -52,7 +52,7 @@ type ActiveReceiptRuleSet struct {
 
 	// The SES receipt rule set ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
@@ -93,7 +93,7 @@ func GetActiveReceiptRuleSet(ctx *pulumi.Context,
 type activeReceiptRuleSetState struct {
 	// The SES receipt rule set ARN.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName *string `pulumi:"ruleSetName"`
@@ -102,7 +102,7 @@ type activeReceiptRuleSetState struct {
 type ActiveReceiptRuleSetState struct {
 	// The SES receipt rule set ARN.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (ActiveReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type activeReceiptRuleSetArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
@@ -121,7 +121,7 @@ type activeReceiptRuleSetArgs struct {
 
 // The set of arguments for constructing a ActiveReceiptRuleSet resource.
 type ActiveReceiptRuleSetArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringInput
@@ -219,7 +219,7 @@ func (o ActiveReceiptRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ActiveReceiptRuleSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

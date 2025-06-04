@@ -69,7 +69,7 @@ import (
 type IndexingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationOutput `pulumi:"thingGroupIndexingConfiguration"`
@@ -107,7 +107,7 @@ func GetIndexingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IndexingConfiguration resources.
 type indexingConfigurationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration *IndexingConfigurationThingGroupIndexingConfiguration `pulumi:"thingGroupIndexingConfiguration"`
@@ -116,7 +116,7 @@ type indexingConfigurationState struct {
 }
 
 type IndexingConfigurationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationPtrInput
@@ -129,7 +129,7 @@ func (IndexingConfigurationState) ElementType() reflect.Type {
 }
 
 type indexingConfigurationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration *IndexingConfigurationThingGroupIndexingConfiguration `pulumi:"thingGroupIndexingConfiguration"`
@@ -139,7 +139,7 @@ type indexingConfigurationArgs struct {
 
 // The set of arguments for constructing a IndexingConfiguration resource.
 type IndexingConfigurationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationPtrInput
@@ -234,7 +234,7 @@ func (o IndexingConfigurationOutput) ToIndexingConfigurationOutputWithContext(ct
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IndexingConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IndexingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

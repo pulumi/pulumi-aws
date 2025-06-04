@@ -47,7 +47,7 @@ type ResourceGroup struct {
 
 	// The resource group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -88,7 +88,7 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The resource group ARN.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
@@ -97,7 +97,7 @@ type resourceGroupState struct {
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
@@ -108,7 +108,7 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
@@ -116,7 +116,7 @@ type resourceGroupArgs struct {
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
@@ -214,7 +214,7 @@ func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

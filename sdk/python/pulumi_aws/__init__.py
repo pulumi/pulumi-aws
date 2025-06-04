@@ -2022,6 +2022,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentPrompt",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentPrompt:AgentPrompt": "AgentPrompt"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/customModel",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2458,6 +2466,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey": "KeyvaluestoreKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/keyvaluestoreKeysExclusive",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive": "KeyvaluestoreKeysExclusive"
   }
  },
  {
@@ -3458,6 +3474,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dataexchange",
   "classes": {
    "aws:dataexchange/revision:Revision": "Revision"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dataexchange/revisionAssets",
+  "fqn": "pulumi_aws.dataexchange",
+  "classes": {
+   "aws:dataexchange/revisionAssets:RevisionAssets": "RevisionAssets"
   }
  },
  {
@@ -6938,6 +6962,14 @@ _utilities.register(
   "fqn": "pulumi_aws.inspector2",
   "classes": {
    "aws:inspector2/enabler:Enabler": "Enabler"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "inspector2/filter",
+  "fqn": "pulumi_aws.inspector2",
+  "classes": {
+   "aws:inspector2/filter:Filter": "Filter"
   }
  },
  {
@@ -12410,6 +12442,14 @@ _utilities.register(
   "fqn": "pulumi_aws.wafregional",
   "classes": {
    "aws:wafregional/xssMatchSet:XssMatchSet": "XssMatchSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "wafv2/apiKey",
+  "fqn": "pulumi_aws.wafv2",
+  "classes": {
+   "aws:wafv2/apiKey:ApiKey": "ApiKey"
   }
  },
  {

@@ -67,7 +67,7 @@ type AgentAgentKnowledgeBaseAssociation struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringOutput `pulumi:"knowledgeBaseState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                                 `pulumi:"region"`
 	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -126,7 +126,7 @@ type agentAgentKnowledgeBaseAssociationState struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState *string `pulumi:"knowledgeBaseState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                                     `pulumi:"region"`
 	Timeouts *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -144,7 +144,7 @@ type AgentAgentKnowledgeBaseAssociationState struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
 }
@@ -166,7 +166,7 @@ type agentAgentKnowledgeBaseAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState string `pulumi:"knowledgeBaseState"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                                     `pulumi:"region"`
 	Timeouts *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -185,7 +185,7 @@ type AgentAgentKnowledgeBaseAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
 }
@@ -304,7 +304,7 @@ func (o AgentAgentKnowledgeBaseAssociationOutput) KnowledgeBaseState() pulumi.St
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.KnowledgeBaseState }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentAgentKnowledgeBaseAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

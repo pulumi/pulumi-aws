@@ -2094,7 +2094,7 @@ type GetUserAddress struct {
 	PostalCode string `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary bool `pulumi:"primary"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// The street of the address.
 	StreetAddress string `pulumi:"streetAddress"`
@@ -2124,7 +2124,7 @@ type GetUserAddressArgs struct {
 	PostalCode pulumi.StringInput `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// The street of the address.
 	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
@@ -2208,7 +2208,7 @@ func (o GetUserAddressOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The region of the address.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetUserAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -3442,7 +3442,7 @@ type GetUsersUserAddress struct {
 	PostalCode string `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary bool `pulumi:"primary"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Street of the address.
 	StreetAddress string `pulumi:"streetAddress"`
@@ -3472,7 +3472,7 @@ type GetUsersUserAddressArgs struct {
 	PostalCode pulumi.StringInput `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Street of the address.
 	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
@@ -3556,7 +3556,7 @@ func (o GetUsersUserAddressOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUsersUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// Region of the address.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetUsersUserAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUserAddress) string { return v.Region }).(pulumi.StringOutput)
 }

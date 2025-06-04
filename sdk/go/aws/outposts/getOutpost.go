@@ -58,7 +58,8 @@ type GetOutpostArgs struct {
 	Name *string `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
-	Region  *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Outpost tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -107,7 +108,8 @@ type GetOutpostOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The Outpost tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -53,7 +53,7 @@ type AppAuthorizationConnection struct {
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationConnectionTenantArrayOutput `pulumi:"tenants"`
@@ -104,7 +104,7 @@ type appAuthorizationConnectionState struct {
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  []AppAuthorizationConnectionTenant  `pulumi:"tenants"`
@@ -120,7 +120,7 @@ type AppAuthorizationConnectionState struct {
 	AppBundleArn pulumi.StringPtrInput
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationConnectionTenantArrayInput
@@ -138,7 +138,7 @@ type appAuthorizationConnectionArgs struct {
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Timeouts *AppAuthorizationConnectionTimeouts `pulumi:"timeouts"`
 }
@@ -151,7 +151,7 @@ type AppAuthorizationConnectionArgs struct {
 	AppBundleArn pulumi.StringInput
 	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AppAuthorizationConnectionTimeoutsPtrInput
 }
@@ -265,7 +265,7 @@ func (o AppAuthorizationConnectionOutput) AuthRequest() AppAuthorizationConnecti
 	}).(AppAuthorizationConnectionAuthRequestPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppAuthorizationConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

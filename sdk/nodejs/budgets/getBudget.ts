@@ -29,7 +29,6 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
         "accountId": args.accountId,
         "name": args.name,
         "namePrefix": args.namePrefix,
-        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -52,7 +51,6 @@ export interface GetBudgetArgs {
      * The prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: string;
-    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -107,7 +105,6 @@ export interface GetBudgetResult {
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
     readonly plannedLimits: outputs.budgets.GetBudgetPlannedLimit[];
-    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -147,7 +144,6 @@ export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeO
         "accountId": args.accountId,
         "name": args.name,
         "namePrefix": args.namePrefix,
-        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -170,7 +166,6 @@ export interface GetBudgetOutputArgs {
      * The prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         /// </summary>
         [Output("instruction")]
         public Output<string> Instruction { get; private set; } = null!;
@@ -215,13 +215,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
         /// <summary>
+        /// Timestamp of when the agent was last prepared.
+        /// </summary>
+        [Output("preparedAt")]
+        public Output<string> PreparedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -350,7 +356,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
@@ -386,7 +392,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -495,7 +501,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
@@ -518,6 +524,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
 
+        /// <summary>
+        /// Timestamp of when the agent was last prepared.
+        /// </summary>
+        [Input("preparedAt")]
+        public Input<string>? PreparedAt { get; set; }
+
         [Input("promptOverrideConfigurations")]
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>? _promptOverrideConfigurations;
 
@@ -531,7 +543,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -30,7 +30,7 @@ class ListenerPolicyArgs:
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -82,7 +82,7 @@ class ListenerPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -116,7 +116,7 @@ class _ListenerPolicyState:
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         if load_balancer_name is not None:
@@ -170,7 +170,7 @@ class _ListenerPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -289,7 +289,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         ...
@@ -444,7 +444,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -486,7 +486,7 @@ class ListenerPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

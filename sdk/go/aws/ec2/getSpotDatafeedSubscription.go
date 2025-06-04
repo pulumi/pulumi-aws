@@ -50,6 +50,7 @@ func LookupSpotDatafeedSubscription(ctx *pulumi.Context, args *LookupSpotDatafee
 
 // A collection of arguments for invoking getSpotDatafeedSubscription.
 type LookupSpotDatafeedSubscriptionArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -75,6 +76,7 @@ func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, args LookupSpotDa
 
 // A collection of arguments for invoking getSpotDatafeedSubscription.
 type LookupSpotDatafeedSubscriptionOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

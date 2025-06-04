@@ -51,7 +51,8 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getIndex.
 type LookupIndexArgs struct {
 	// Returns information on a specific Index by id.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Metadata that helps organize the Indices you create.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,7 +111,8 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 // A collection of arguments for invoking getIndex.
 type LookupIndexOutputArgs struct {
 	// Returns information on a specific Index by id.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the Indices you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

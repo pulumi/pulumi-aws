@@ -37,7 +37,8 @@ type LookupInvocationArgs struct {
 	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
-	Region    *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInvocation.
@@ -70,7 +71,8 @@ type LookupInvocationOutputArgs struct {
 	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupInvocationOutputArgs) ElementType() reflect.Type {

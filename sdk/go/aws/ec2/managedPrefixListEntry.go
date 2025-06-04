@@ -75,7 +75,7 @@ type ManagedPrefixListEntry struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type managedPrefixListEntryState struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId *string `pulumi:"prefixListId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type ManagedPrefixListEntryState struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -147,7 +147,7 @@ type managedPrefixListEntryArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId string `pulumi:"prefixListId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -159,7 +159,7 @@ type ManagedPrefixListEntryArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ func (o ManagedPrefixListEntryOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ManagedPrefixListEntryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

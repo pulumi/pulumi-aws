@@ -75,7 +75,7 @@ type TeamsChannelConfiguration struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
@@ -155,7 +155,7 @@ type teamsChannelConfigurationState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
@@ -191,7 +191,7 @@ type TeamsChannelConfigurationState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayInput
@@ -229,7 +229,7 @@ type teamsChannelConfigurationArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
@@ -262,7 +262,7 @@ type TeamsChannelConfigurationArgs struct {
 	IamRoleArn pulumi.StringInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayInput
@@ -403,7 +403,7 @@ func (o TeamsChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TeamsChannelConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

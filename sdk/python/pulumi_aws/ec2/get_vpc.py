@@ -281,6 +281,7 @@ def get_vpc(cidr_block: Optional[builtins.str] = None,
     :param builtins.str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -365,6 +366,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = 
     :param builtins.str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match

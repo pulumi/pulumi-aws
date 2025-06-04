@@ -414,7 +414,7 @@ type RuleGroup struct {
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 	RuleGroup RuleGroupRuleGroupOutput `pulumi:"ruleGroup"`
@@ -476,7 +476,7 @@ type ruleGroupState struct {
 	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
@@ -503,7 +503,7 @@ type RuleGroupState struct {
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
 	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 	RuleGroup RuleGroupRuleGroupPtrInput
@@ -532,7 +532,7 @@ type ruleGroupArgs struct {
 	EncryptionConfiguration *RuleGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
@@ -554,7 +554,7 @@ type RuleGroupArgs struct {
 	EncryptionConfiguration RuleGroupEncryptionConfigurationPtrInput
 	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
 	RuleGroup RuleGroupRuleGroupPtrInput
@@ -678,7 +678,7 @@ func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RuleGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

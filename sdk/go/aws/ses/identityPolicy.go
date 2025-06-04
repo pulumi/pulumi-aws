@@ -88,7 +88,7 @@ type IdentityPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// JSON string of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -134,7 +134,7 @@ type identityPolicyState struct {
 	Name *string `pulumi:"name"`
 	// JSON string of the policy.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type IdentityPolicyState struct {
 	Name pulumi.StringPtrInput
 	// JSON string of the policy.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -160,7 +160,7 @@ type identityPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// JSON string of the policy.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -172,7 +172,7 @@ type IdentityPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON string of the policy.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -278,7 +278,7 @@ func (o IdentityPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o IdentityPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

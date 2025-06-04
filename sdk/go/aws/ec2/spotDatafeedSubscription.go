@@ -65,7 +65,7 @@ type SpotDatafeedSubscription struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -106,7 +106,7 @@ type spotDatafeedSubscriptionState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -115,7 +115,7 @@ type SpotDatafeedSubscriptionState struct {
 	Bucket pulumi.StringPtrInput
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -128,7 +128,7 @@ type spotDatafeedSubscriptionArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -138,7 +138,7 @@ type SpotDatafeedSubscriptionArgs struct {
 	Bucket pulumi.StringInput
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -239,7 +239,7 @@ func (o SpotDatafeedSubscriptionOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SpotDatafeedSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

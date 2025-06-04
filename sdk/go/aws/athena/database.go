@@ -74,7 +74,7 @@ type Database struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -124,7 +124,7 @@ type databaseState struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties map[string]string `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type DatabaseState struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -170,7 +170,7 @@ type databaseArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties map[string]string `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -192,7 +192,7 @@ type DatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -323,7 +323,7 @@ func (o DatabaseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DatabaseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

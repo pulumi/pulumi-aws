@@ -244,7 +244,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -279,6 +279,8 @@ export class BucketObject extends pulumi.CustomResource {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
@@ -445,7 +447,7 @@ export interface BucketObjectState {
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -480,6 +482,8 @@ export interface BucketObjectState {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     websiteRedirect?: pulumi.Input<string>;
 }
@@ -563,7 +567,7 @@ export interface BucketObjectArgs {
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -590,6 +594,8 @@ export interface BucketObjectArgs {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     websiteRedirect?: pulumi.Input<string>;
 }

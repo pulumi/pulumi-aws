@@ -187,6 +187,7 @@ def get_public_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
            * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g. - `alias/my-key`
            * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
@@ -233,6 +234,7 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
            * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g. - `alias/my-key`
            * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens

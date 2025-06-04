@@ -122,7 +122,8 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -202,7 +203,8 @@ export interface BackupState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     region?: pulumi.Input<string>;
     /**
@@ -232,7 +234,8 @@ export interface BackupArgs {
      */
     fileSystemId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     region?: pulumi.Input<string>;
     /**

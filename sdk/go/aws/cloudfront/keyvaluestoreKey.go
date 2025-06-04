@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS CloudFront KeyValueStore Key.
-//
 // ## Example Usage
 //
 // ### Basic Usage

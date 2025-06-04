@@ -51,7 +51,8 @@ func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opt
 // A collection of arguments for invoking getImagePipeline.
 type LookupImagePipelineArgs struct {
 	// ARN of the image pipeline.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,7 +111,8 @@ func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutp
 // A collection of arguments for invoking getImagePipeline.
 type LookupImagePipelineOutputArgs struct {
 	// ARN of the image pipeline.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

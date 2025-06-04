@@ -43,6 +43,9 @@ export interface GetDomainArgs {
      * Off Peak update options
      */
     offPeakWindowOptions?: inputs.opensearch.GetDomainOffPeakWindowOptions;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Tags assigned to the domain.
@@ -205,6 +208,9 @@ export interface GetDomainOutputArgs {
      * Off Peak update options
      */
     offPeakWindowOptions?: pulumi.Input<inputs.opensearch.GetDomainOffPeakWindowOptionsArgs>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Tags assigned to the domain.

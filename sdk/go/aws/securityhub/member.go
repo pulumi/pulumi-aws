@@ -68,7 +68,7 @@ type Member struct {
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -115,7 +115,7 @@ type memberState struct {
 	MasterId *string `pulumi:"masterId"`
 	// The status of the member account relationship.
 	MemberStatus *string `pulumi:"memberStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -130,7 +130,7 @@ type MemberState struct {
 	MasterId pulumi.StringPtrInput
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -145,7 +145,7 @@ type memberArgs struct {
 	Email *string `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite *bool `pulumi:"invite"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -157,7 +157,7 @@ type MemberArgs struct {
 	Email pulumi.StringPtrInput
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -273,7 +273,7 @@ func (o MemberOutput) MemberStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

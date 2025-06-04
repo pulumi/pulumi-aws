@@ -19,10 +19,12 @@ __all__ = [
     'EndpointAuthenticationOption',
     'EndpointClientConnectOptions',
     'EndpointClientLoginBannerOptions',
+    'EndpointClientRouteEnforcementOptions',
     'EndpointConnectionLogOptions',
     'GetEndpointAuthenticationOptionResult',
     'GetEndpointClientConnectOptionResult',
     'GetEndpointClientLoginBannerOptionResult',
+    'GetEndpointClientRouteEnforcementOptionResult',
     'GetEndpointConnectionLogOptionResult',
     'GetEndpointFilterResult',
 ]
@@ -213,6 +215,25 @@ class EndpointClientLoginBannerOptions(dict):
 
 
 @pulumi.output_type
+class EndpointClientRouteEnforcementOptions(dict):
+    def __init__(__self__, *,
+                 enforced: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enforced: Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        """
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+
+    @property
+    @pulumi.getter
+    def enforced(self) -> Optional[builtins.bool]:
+        """
+        Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        """
+        return pulumi.get(self, "enforced")
+
+
+@pulumi.output_type
 class EndpointConnectionLogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -349,6 +370,18 @@ class GetEndpointClientLoginBannerOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> builtins.bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetEndpointClientRouteEnforcementOptionResult(dict):
+    def __init__(__self__, *,
+                 enforced: builtins.bool):
+        pulumi.set(__self__, "enforced", enforced)
+
+    @property
+    @pulumi.getter
+    def enforced(self) -> builtins.bool:
+        return pulumi.get(self, "enforced")
 
 
 @pulumi.output_type

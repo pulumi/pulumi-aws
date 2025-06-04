@@ -87,7 +87,8 @@ func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ..
 type LookupConnectPeerArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetConnectPeerFilter `pulumi:"filters"`
-	Region  *string                `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect Peer.
@@ -134,7 +135,8 @@ func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputAr
 type LookupConnectPeerOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetConnectPeerFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput          `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect Peer.

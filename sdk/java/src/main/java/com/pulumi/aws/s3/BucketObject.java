@@ -588,14 +588,14 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectLockRetainUntilDate);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -704,6 +704,8 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
      * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * 
      */
     @Export(name="websiteRedirect", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> websiteRedirect;
@@ -712,6 +714,8 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
      * 
      */
     public Output<Optional<String>> websiteRedirect() {

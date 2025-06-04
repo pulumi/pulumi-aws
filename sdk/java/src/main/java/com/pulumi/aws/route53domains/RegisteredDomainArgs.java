@@ -207,12 +207,16 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
+     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * 
      */
     @Import(name="transferLock")
     private @Nullable Output<Boolean> transferLock;
 
     /**
      * @return Whether the domain is locked for transfer. Default: `true`.
+     * 
+     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
      * 
      */
     public Optional<Output<Boolean>> transferLock() {
@@ -520,6 +524,8 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
          * 
+         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+         * 
          * @return builder
          * 
          */
@@ -530,6 +536,8 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param transferLock Whether the domain is locked for transfer. Default: `true`.
+         * 
+         * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
          * 
          * @return builder
          * 

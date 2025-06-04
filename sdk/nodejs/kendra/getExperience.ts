@@ -43,6 +43,9 @@ export interface GetExperienceArgs {
      * Identifier of the index that contains the Experience.
      */
     indexId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -134,5 +137,8 @@ export interface GetExperienceOutputArgs {
      * Identifier of the index that contains the Experience.
      */
     indexId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

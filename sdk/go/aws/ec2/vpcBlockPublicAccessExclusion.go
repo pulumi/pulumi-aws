@@ -103,7 +103,7 @@ type VpcBlockPublicAccessExclusion struct {
 	//
 	// The following arguments are optional:
 	InternetGatewayExclusionMode pulumi.StringOutput `pulumi:"internetGatewayExclusionMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) the excluded resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -155,7 +155,7 @@ type vpcBlockPublicAccessExclusionState struct {
 	//
 	// The following arguments are optional:
 	InternetGatewayExclusionMode *string `pulumi:"internetGatewayExclusionMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) the excluded resource.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -175,7 +175,7 @@ type VpcBlockPublicAccessExclusionState struct {
 	//
 	// The following arguments are optional:
 	InternetGatewayExclusionMode pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) the excluded resource.
 	ResourceArn pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type vpcBlockPublicAccessExclusionArgs struct {
 	//
 	// The following arguments are optional:
 	InternetGatewayExclusionMode string `pulumi:"internetGatewayExclusionMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId *string `pulumi:"subnetId"`
@@ -216,7 +216,7 @@ type VpcBlockPublicAccessExclusionArgs struct {
 	//
 	// The following arguments are optional:
 	InternetGatewayExclusionMode pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrInput
@@ -321,7 +321,7 @@ func (o VpcBlockPublicAccessExclusionOutput) InternetGatewayExclusionMode() pulu
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringOutput { return v.InternetGatewayExclusionMode }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcBlockPublicAccessExclusionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

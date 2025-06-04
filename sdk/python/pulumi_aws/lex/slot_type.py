@@ -38,7 +38,7 @@ class SlotTypeArgs:
                update. Defaults to `false`.
         :param pulumi.Input[builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -112,7 +112,7 @@ class SlotTypeArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -163,7 +163,7 @@ class _SlotTypeState:
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -284,7 +284,7 @@ class _SlotTypeState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -384,7 +384,7 @@ class SlotType(pulumi.CustomResource):
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -518,7 +518,7 @@ class SlotType(pulumi.CustomResource):
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -606,7 +606,7 @@ class SlotType(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

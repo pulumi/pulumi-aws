@@ -3,16 +3,34 @@
 
 package com.pulumi.aws.cognito.inputs;
 
+import com.pulumi.aws.cognito.inputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserPoolUserPoolAddOnsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserPoolUserPoolAddOnsArgs Empty = new UserPoolUserPoolAddOnsArgs();
+
+    /**
+     * A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+     * 
+     */
+    @Import(name="advancedSecurityAdditionalFlows")
+    private @Nullable Output<UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs> advancedSecurityAdditionalFlows;
+
+    /**
+     * @return A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs>> advancedSecurityAdditionalFlows() {
+        return Optional.ofNullable(this.advancedSecurityAdditionalFlows);
+    }
 
     /**
      * Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
@@ -32,6 +50,7 @@ public final class UserPoolUserPoolAddOnsArgs extends com.pulumi.resources.Resou
     private UserPoolUserPoolAddOnsArgs() {}
 
     private UserPoolUserPoolAddOnsArgs(UserPoolUserPoolAddOnsArgs $) {
+        this.advancedSecurityAdditionalFlows = $.advancedSecurityAdditionalFlows;
         this.advancedSecurityMode = $.advancedSecurityMode;
     }
 
@@ -51,6 +70,27 @@ public final class UserPoolUserPoolAddOnsArgs extends com.pulumi.resources.Resou
 
         public Builder(UserPoolUserPoolAddOnsArgs defaults) {
             $ = new UserPoolUserPoolAddOnsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param advancedSecurityAdditionalFlows A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedSecurityAdditionalFlows(@Nullable Output<UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs> advancedSecurityAdditionalFlows) {
+            $.advancedSecurityAdditionalFlows = advancedSecurityAdditionalFlows;
+            return this;
+        }
+
+        /**
+         * @param advancedSecurityAdditionalFlows A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedSecurityAdditionalFlows(UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs advancedSecurityAdditionalFlows) {
+            return advancedSecurityAdditionalFlows(Output.of(advancedSecurityAdditionalFlows));
         }
 
         /**

@@ -50,7 +50,7 @@ class NetworkAclRuleArgs:
                > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param pulumi.Input[builtins.int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[builtins.str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] to_port: The to port to match.
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
@@ -204,7 +204,7 @@ class NetworkAclRuleArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -256,7 +256,7 @@ class _NetworkAclRuleState:
         :param pulumi.Input[builtins.str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[builtins.str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         :param pulumi.Input[builtins.int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[builtins.int] to_port: The to port to match.
@@ -392,7 +392,7 @@ class _NetworkAclRuleState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -518,7 +518,7 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[builtins.str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         :param pulumi.Input[builtins.int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[builtins.int] to_port: The to port to match.
@@ -674,7 +674,7 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[builtins.str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         :param pulumi.Input[builtins.int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[builtins.int] to_port: The to port to match.
@@ -771,7 +771,7 @@ class NetworkAclRule(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

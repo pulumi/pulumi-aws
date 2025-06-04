@@ -30,9 +30,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewImageVersion(ctx, "example", &sagemaker.ImageVersionArgs{
+//				ImageName: pulumi.Any(test.Id),
+//				BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Aliases
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewImageVersion(ctx, "test", &sagemaker.ImageVersionArgs{
 //				ImageName: pulumi.Any(testAwsSagemakerImage.Id),
 //				BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
+//				Aliases: pulumi.StringArray{
+//					pulumi.String("latest"),
+//					pulumi.String("stable"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -45,14 +76,16 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+// Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
 //
 // ```sh
-// $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+// $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
 // ```
 type ImageVersion struct {
 	pulumi.CustomResourceState
 
+	// A list of aliases for the image version.
+	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
@@ -72,7 +105,7 @@ type ImageVersion struct {
 	Processor pulumi.StringPtrOutput `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrOutput `pulumi:"programmingLang"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrOutput `pulumi:"releaseNotes"`
@@ -118,6 +151,8 @@ func GetImageVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImageVersion resources.
 type imageVersionState struct {
+	// A list of aliases for the image version.
+	Aliases []string `pulumi:"aliases"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
 	Arn *string `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
@@ -137,7 +172,7 @@ type imageVersionState struct {
 	Processor *string `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang *string `pulumi:"programmingLang"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes *string `pulumi:"releaseNotes"`
@@ -148,6 +183,8 @@ type imageVersionState struct {
 }
 
 type ImageVersionState struct {
+	// A list of aliases for the image version.
+	Aliases pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
 	Arn pulumi.StringPtrInput
 	// The registry path of the container image on which this image version is based.
@@ -167,7 +204,7 @@ type ImageVersionState struct {
 	Processor pulumi.StringPtrInput
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrInput
@@ -182,6 +219,8 @@ func (ImageVersionState) ElementType() reflect.Type {
 }
 
 type imageVersionArgs struct {
+	// A list of aliases for the image version.
+	Aliases []string `pulumi:"aliases"`
 	// The registry path of the container image on which this image version is based.
 	BaseImage string `pulumi:"baseImage"`
 	// Indicates Horovod compatibility.
@@ -196,7 +235,7 @@ type imageVersionArgs struct {
 	Processor *string `pulumi:"processor"`
 	// The supported programming language and its version.
 	ProgrammingLang *string `pulumi:"programmingLang"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The maintainer description of the image version.
 	ReleaseNotes *string `pulumi:"releaseNotes"`
@@ -206,6 +245,8 @@ type imageVersionArgs struct {
 
 // The set of arguments for constructing a ImageVersion resource.
 type ImageVersionArgs struct {
+	// A list of aliases for the image version.
+	Aliases pulumi.StringArrayInput
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringInput
 	// Indicates Horovod compatibility.
@@ -220,7 +261,7 @@ type ImageVersionArgs struct {
 	Processor pulumi.StringPtrInput
 	// The supported programming language and its version.
 	ProgrammingLang pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The maintainer description of the image version.
 	ReleaseNotes pulumi.StringPtrInput
@@ -315,6 +356,11 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A list of aliases for the image version.
+func (o ImageVersionOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
 // The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
 func (o ImageVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -364,7 +410,7 @@ func (o ImageVersionOutput) ProgrammingLang() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ProgrammingLang }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

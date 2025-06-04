@@ -77,7 +77,7 @@ type ThingGroup struct {
 	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrOutput `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -125,7 +125,7 @@ type thingGroupState struct {
 	ParentGroupName *string `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags    map[string]string `pulumi:"tags"`
@@ -144,7 +144,7 @@ type ThingGroupState struct {
 	ParentGroupName pulumi.StringPtrInput
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags    pulumi.StringMapInput
@@ -164,7 +164,7 @@ type thingGroupArgs struct {
 	ParentGroupName *string `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -178,7 +178,7 @@ type ThingGroupArgs struct {
 	ParentGroupName pulumi.StringPtrInput
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
@@ -295,7 +295,7 @@ func (o ThingGroupOutput) Properties() ThingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) ThingGroupPropertiesPtrOutput { return v.Properties }).(ThingGroupPropertiesPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -166,7 +166,7 @@ type GlossaryTerm struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrOutput `pulumi:"shortDescription"`
@@ -224,7 +224,7 @@ type glossaryTermState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription *string `pulumi:"shortDescription"`
@@ -250,7 +250,7 @@ type GlossaryTermState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrInput
@@ -276,7 +276,7 @@ type glossaryTermArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription *string `pulumi:"shortDescription"`
@@ -299,7 +299,7 @@ type GlossaryTermArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrInput
@@ -429,7 +429,7 @@ func (o GlossaryTermOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GlossaryTermOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

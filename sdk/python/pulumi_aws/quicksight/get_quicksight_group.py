@@ -149,6 +149,7 @@ def get_quicksight_group(aws_account_id: Optional[builtins.str] = None,
            
            The following arguments are optional:
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -194,6 +195,7 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[b
            
            The following arguments are optional:
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id

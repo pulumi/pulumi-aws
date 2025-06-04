@@ -142,6 +142,7 @@ def get_image(image_id: Optional[builtins.str] = None,
 
 
     :param builtins.str image_id: ID of the image.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
@@ -175,6 +176,7 @@ def get_image_output(image_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str image_id: ID of the image.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['imageId'] = image_id

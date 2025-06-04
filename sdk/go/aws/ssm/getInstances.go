@@ -59,7 +59,8 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 type GetInstancesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
-	Region  *string              `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstances.
@@ -85,7 +86,8 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 type GetInstancesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput        `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {

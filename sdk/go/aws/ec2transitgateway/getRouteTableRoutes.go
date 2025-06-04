@@ -60,7 +60,8 @@ func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opt
 type GetRouteTableRoutesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTableRoutesFilter `pulumi:"filters"`
-	Region  *string                     `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -92,7 +93,8 @@ func GetRouteTableRoutesOutput(ctx *pulumi.Context, args GetRouteTableRoutesOutp
 type GetRouteTableRoutesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetRouteTableRoutesFilterArrayInput `pulumi:"filters"`
-	Region  pulumi.StringPtrInput               `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,

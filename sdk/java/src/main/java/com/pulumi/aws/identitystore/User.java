@@ -242,14 +242,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.profileUrl);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -318,12 +318,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The user type.
      * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+     * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
      * @return The user type.
+     * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      * 
      */
     public Output<Optional<String>> userType() {

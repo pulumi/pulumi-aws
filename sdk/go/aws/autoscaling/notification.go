@@ -80,7 +80,7 @@ type Notification struct {
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications NotificationTypeArrayOutput `pulumi:"notifications"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
@@ -130,7 +130,7 @@ type notificationState struct {
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []NotificationType `pulumi:"notifications"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn *string `pulumi:"topicArn"`
@@ -142,7 +142,7 @@ type NotificationState struct {
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications NotificationTypeArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringPtrInput
@@ -158,7 +158,7 @@ type notificationArgs struct {
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []NotificationType `pulumi:"notifications"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn string `pulumi:"topicArn"`
@@ -171,7 +171,7 @@ type NotificationArgs struct {
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications NotificationTypeArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringInput
@@ -275,7 +275,7 @@ func (o NotificationOutput) Notifications() NotificationTypeArrayOutput {
 	return o.ApplyT(func(v *Notification) NotificationTypeArrayOutput { return v.Notifications }).(NotificationTypeArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NotificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Notification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

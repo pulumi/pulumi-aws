@@ -101,7 +101,7 @@ type Environment struct {
 	// The provider of the environment.
 	ProviderEnvironment  pulumi.StringOutput                       `pulumi:"providerEnvironment"`
 	ProvisionedResources EnvironmentProvisionedResourceArrayOutput `pulumi:"provisionedResources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput          `pulumi:"region"`
 	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
@@ -176,7 +176,7 @@ type environmentState struct {
 	// The provider of the environment.
 	ProviderEnvironment  *string                          `pulumi:"providerEnvironment"`
 	ProvisionedResources []EnvironmentProvisionedResource `pulumi:"provisionedResources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string              `pulumi:"region"`
 	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
@@ -213,7 +213,7 @@ type EnvironmentState struct {
 	// The provider of the environment.
 	ProviderEnvironment  pulumi.StringPtrInput
 	ProvisionedResources EnvironmentProvisionedResourceArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EnvironmentTimeoutsPtrInput
 	// The user parameters that are used in the environment. See User Parameters for more information.
@@ -245,7 +245,7 @@ type environmentArgs struct {
 	//
 	// The following arguments are optional:
 	ProjectIdentifier string `pulumi:"projectIdentifier"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string              `pulumi:"region"`
 	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
@@ -274,7 +274,7 @@ type EnvironmentArgs struct {
 	//
 	// The following arguments are optional:
 	ProjectIdentifier pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EnvironmentTimeoutsPtrInput
 	// The user parameters that are used in the environment. See User Parameters for more information.
@@ -439,7 +439,7 @@ func (o EnvironmentOutput) ProvisionedResources() EnvironmentProvisionedResource
 	return o.ApplyT(func(v *Environment) EnvironmentProvisionedResourceArrayOutput { return v.ProvisionedResources }).(EnvironmentProvisionedResourceArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

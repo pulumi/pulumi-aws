@@ -83,7 +83,7 @@ class SearchResourceResult(dict):
         :param builtins.str last_reported_at: The date and time that the information about this resource property was last updated.
         :param builtins.str owning_account_id: Amazon Web Services account that owns the resource.
         :param Sequence['SearchResourcePropertyArgs'] properties: Structure with additional type-specific details about the resource.  See `properties` below.
-        :param builtins.str region: Amazon Web Services Region in which the resource was created and exists.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str resource_type: Type of the resource.
         :param builtins.str service: Amazon Web Service that owns the resource and is responsible for creating and updating it.
         """
@@ -131,7 +131,7 @@ class SearchResourceResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        Amazon Web Services Region in which the resource was created and exists.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

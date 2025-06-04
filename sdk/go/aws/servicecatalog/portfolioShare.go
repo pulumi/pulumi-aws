@@ -70,7 +70,7 @@ type PortfolioShare struct {
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrOutput `pulumi:"sharePrincipals"`
@@ -131,7 +131,7 @@ type portfolioShareState struct {
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId *string `pulumi:"principalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals *bool `pulumi:"sharePrincipals"`
@@ -154,7 +154,7 @@ type PortfolioShareState struct {
 	PortfolioId pulumi.StringPtrInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrInput
@@ -179,7 +179,7 @@ type portfolioShareArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId string `pulumi:"principalId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals *bool `pulumi:"sharePrincipals"`
@@ -201,7 +201,7 @@ type PortfolioShareArgs struct {
 	PortfolioId pulumi.StringInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrInput
@@ -322,7 +322,7 @@ func (o PortfolioShareOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PortfolioShareOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

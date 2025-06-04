@@ -10,6 +10,11 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a VPC peering connection.
  *
+ * > **Note:** Modifying the VPC Peering Connection options requires peering to be active. An automatic activation
+ * can be done using the `autoAccept` attribute. Alternatively, the VPC Peering
+ * Connection has to be made active manually using other means. See notes below for
+ * more information.
+ *
  * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
  * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -161,7 +166,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -263,7 +268,7 @@ export interface VpcPeeringConnectionState {
      */
     peerVpcId?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -313,7 +318,7 @@ export interface VpcPeeringConnectionArgs {
      */
     peerVpcId: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

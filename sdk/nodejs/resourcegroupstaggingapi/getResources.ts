@@ -74,6 +74,9 @@ export interface GetResourcesArgs {
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
     includeComplianceDetails?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
@@ -175,6 +178,9 @@ export interface GetResourcesOutputArgs {
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
     includeComplianceDetails?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.

@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistribution
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionS3ExportConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionSsmParameterConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -44,9 +45,7 @@ public final class DistributionConfigurationDistribution {
      */
     private @Nullable List<String> licenseConfigurationArns;
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -55,6 +54,11 @@ public final class DistributionConfigurationDistribution {
      * 
      */
     private @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration;
+    /**
+     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * 
+     */
+    private @Nullable List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
 
     private DistributionConfigurationDistribution() {}
     /**
@@ -93,9 +97,7 @@ public final class DistributionConfigurationDistribution {
         return this.licenseConfigurationArns == null ? List.of() : this.licenseConfigurationArns;
     }
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {
@@ -107,6 +109,13 @@ public final class DistributionConfigurationDistribution {
      */
     public Optional<DistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfiguration() {
         return Optional.ofNullable(this.s3ExportConfiguration);
+    }
+    /**
+     * @return Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+     * 
+     */
+    public List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations() {
+        return this.ssmParameterConfigurations == null ? List.of() : this.ssmParameterConfigurations;
     }
 
     public static Builder builder() {
@@ -125,6 +134,7 @@ public final class DistributionConfigurationDistribution {
         private @Nullable List<String> licenseConfigurationArns;
         private String region;
         private @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration;
+        private @Nullable List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations;
         public Builder() {}
         public Builder(DistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -135,6 +145,7 @@ public final class DistributionConfigurationDistribution {
     	      this.licenseConfigurationArns = defaults.licenseConfigurationArns;
     	      this.region = defaults.region;
     	      this.s3ExportConfiguration = defaults.s3ExportConfiguration;
+    	      this.ssmParameterConfigurations = defaults.ssmParameterConfigurations;
         }
 
         @CustomType.Setter
@@ -190,6 +201,15 @@ public final class DistributionConfigurationDistribution {
             this.s3ExportConfiguration = s3ExportConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder ssmParameterConfigurations(@Nullable List<DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations) {
+
+            this.ssmParameterConfigurations = ssmParameterConfigurations;
+            return this;
+        }
+        public Builder ssmParameterConfigurations(DistributionConfigurationDistributionSsmParameterConfiguration... ssmParameterConfigurations) {
+            return ssmParameterConfigurations(List.of(ssmParameterConfigurations));
+        }
         public DistributionConfigurationDistribution build() {
             final var _resultValue = new DistributionConfigurationDistribution();
             _resultValue.amiDistributionConfiguration = amiDistributionConfiguration;
@@ -199,6 +219,7 @@ public final class DistributionConfigurationDistribution {
             _resultValue.licenseConfigurationArns = licenseConfigurationArns;
             _resultValue.region = region;
             _resultValue.s3ExportConfiguration = s3ExportConfiguration;
+            _resultValue.ssmParameterConfigurations = ssmParameterConfigurations;
             return _resultValue;
         }
     }

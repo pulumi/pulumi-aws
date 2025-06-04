@@ -38,6 +38,9 @@ export interface GetClusterArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * A map of tags assigned to the resource.
@@ -125,6 +128,9 @@ export interface GetClusterOutputArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.

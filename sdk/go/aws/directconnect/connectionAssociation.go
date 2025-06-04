@@ -63,7 +63,7 @@ type ConnectionAssociation struct {
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringOutput `pulumi:"lagId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -107,7 +107,7 @@ type connectionAssociationState struct {
 	ConnectionId *string `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId *string `pulumi:"lagId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -116,7 +116,7 @@ type ConnectionAssociationState struct {
 	ConnectionId pulumi.StringPtrInput
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -129,7 +129,7 @@ type connectionAssociationArgs struct {
 	ConnectionId string `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId string `pulumi:"lagId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -139,7 +139,7 @@ type ConnectionAssociationArgs struct {
 	ConnectionId pulumi.StringInput
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -240,7 +240,7 @@ func (o ConnectionAssociationOutput) LagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.LagId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConnectionAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

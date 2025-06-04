@@ -25,8 +25,9 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId string  `pulumi:"catalogId"`
-	Region    *string `pulumi:"region"`
+	CatalogId string `pulumi:"catalogId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataCatalogEncryptionSettings.
@@ -51,8 +52,9 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
-	CatalogId pulumi.StringInput    `pulumi:"catalogId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataCatalogEncryptionSettingsOutputArgs) ElementType() reflect.Type {

@@ -65,7 +65,7 @@ type SdkvoiceSipRule struct {
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayOutput `pulumi:"targetApplications"`
@@ -120,7 +120,7 @@ type sdkvoiceSipRuleState struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications []SdkvoiceSipRuleTargetApplication `pulumi:"targetApplications"`
@@ -137,7 +137,7 @@ type SdkvoiceSipRuleState struct {
 	Disabled pulumi.BoolPtrInput
 	// The name of the SIP rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayInput
@@ -158,7 +158,7 @@ type sdkvoiceSipRuleArgs struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications []SdkvoiceSipRuleTargetApplication `pulumi:"targetApplications"`
@@ -176,7 +176,7 @@ type SdkvoiceSipRuleArgs struct {
 	Disabled pulumi.BoolPtrInput
 	// The name of the SIP rule.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayInput
@@ -285,7 +285,7 @@ func (o SdkvoiceSipRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SdkvoiceSipRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -247,6 +247,7 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
            Network Insights Paths. The given filters must match exactly one Network Insights Path
            whose data will be exported as attributes.
     :param builtins.str network_insights_path_id: ID of the Network Insights Path to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -298,6 +299,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
            Network Insights Paths. The given filters must match exactly one Network Insights Path
            whose data will be exported as attributes.
     :param builtins.str network_insights_path_id: ID of the Network Insights Path to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()

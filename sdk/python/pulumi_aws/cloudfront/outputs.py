@@ -69,6 +69,7 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntitiesItem',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
     'KeyValueStoreTimeouts',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePair',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -3070,6 +3071,35 @@ class KeyValueStoreTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class KeyvaluestoreKeysExclusiveResourceKeyValuePair(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: Key to put.
+        :param builtins.str value: Value to put.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        Key to put.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value to put.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

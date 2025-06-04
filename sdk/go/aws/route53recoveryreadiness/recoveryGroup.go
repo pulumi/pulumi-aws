@@ -56,7 +56,7 @@ type RecoveryGroup struct {
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
 	// A unique name describing the recovery group.
 	//
-	// The following argument are optional:
+	// The following arguments are optional:
 	RecoveryGroupName pulumi.StringOutput `pulumi:"recoveryGroupName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -103,7 +103,7 @@ type recoveryGroupState struct {
 	Cells []string `pulumi:"cells"`
 	// A unique name describing the recovery group.
 	//
-	// The following argument are optional:
+	// The following arguments are optional:
 	RecoveryGroupName *string `pulumi:"recoveryGroupName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -118,7 +118,7 @@ type RecoveryGroupState struct {
 	Cells pulumi.StringArrayInput
 	// A unique name describing the recovery group.
 	//
-	// The following argument are optional:
+	// The following arguments are optional:
 	RecoveryGroupName pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -135,7 +135,7 @@ type recoveryGroupArgs struct {
 	Cells []string `pulumi:"cells"`
 	// A unique name describing the recovery group.
 	//
-	// The following argument are optional:
+	// The following arguments are optional:
 	RecoveryGroupName string `pulumi:"recoveryGroupName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -147,7 +147,7 @@ type RecoveryGroupArgs struct {
 	Cells pulumi.StringArrayInput
 	// A unique name describing the recovery group.
 	//
-	// The following argument are optional:
+	// The following arguments are optional:
 	RecoveryGroupName pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -252,7 +252,7 @@ func (o RecoveryGroupOutput) Cells() pulumi.StringArrayOutput {
 
 // A unique name describing the recovery group.
 //
-// The following argument are optional:
+// The following arguments are optional:
 func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.RecoveryGroupName }).(pulumi.StringOutput)
 }

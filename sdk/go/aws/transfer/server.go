@@ -332,7 +332,7 @@ type Server struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsOutput `pulumi:"s3StorageOptions"`
@@ -456,7 +456,7 @@ type serverState struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
@@ -536,7 +536,7 @@ type ServerState struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
@@ -614,7 +614,7 @@ type serverArgs struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
@@ -687,7 +687,7 @@ type ServerArgs struct {
 	// * `FTPS`: File transfer with TLS encryption
 	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
@@ -905,7 +905,7 @@ func (o ServerOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -110,7 +110,7 @@ type ProvisionedProduct struct {
 	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrOutput `pulumi:"retainPhysicalResources"`
@@ -198,7 +198,7 @@ type provisionedProductState struct {
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
@@ -257,7 +257,7 @@ type ProvisionedProductState struct {
 	ProvisioningArtifactName pulumi.StringPtrInput
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
@@ -304,7 +304,7 @@ type provisionedProductArgs struct {
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
@@ -340,7 +340,7 @@ type ProvisionedProductArgs struct {
 	ProvisioningArtifactName pulumi.StringPtrInput
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
@@ -536,7 +536,7 @@ func (o ProvisionedProductOutput) ProvisioningParameters() ProvisionedProductPro
 	}).(ProvisionedProductProvisioningParameterArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ProvisionedProductOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

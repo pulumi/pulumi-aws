@@ -42,7 +42,7 @@ class EipAssociationArgs:
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -142,7 +142,7 @@ class EipAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -176,7 +176,7 @@ class _EipAssociationState:
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -276,7 +276,7 @@ class _EipAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -348,7 +348,7 @@ class EipAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -465,7 +465,7 @@ class EipAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,7 +539,7 @@ class EipAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

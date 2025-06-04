@@ -105,7 +105,7 @@ type RepositoryPermissionsPolicy struct {
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringOutput `pulumi:"policyRevision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the repository to set the resource policy on.
 	Repository pulumi.StringOutput `pulumi:"repository"`
@@ -160,7 +160,7 @@ type repositoryPermissionsPolicyState struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision *string `pulumi:"policyRevision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the repository to set the resource policy on.
 	Repository *string `pulumi:"repository"`
@@ -177,7 +177,7 @@ type RepositoryPermissionsPolicyState struct {
 	PolicyDocument pulumi.StringPtrInput
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the repository to set the resource policy on.
 	Repository pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type repositoryPermissionsPolicyArgs struct {
 	PolicyDocument string `pulumi:"policyDocument"`
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision *string `pulumi:"policyRevision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the repository to set the resource policy on.
 	Repository string `pulumi:"repository"`
@@ -214,7 +214,7 @@ type RepositoryPermissionsPolicyArgs struct {
 	PolicyDocument pulumi.StringInput
 	// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
 	PolicyRevision pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the repository to set the resource policy on.
 	Repository pulumi.StringInput
@@ -327,7 +327,7 @@ func (o RepositoryPermissionsPolicyOutput) PolicyRevision() pulumi.StringOutput 
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.PolicyRevision }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RepositoryPermissionsPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPermissionsPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

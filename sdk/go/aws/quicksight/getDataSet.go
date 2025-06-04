@@ -55,9 +55,10 @@ type LookupDataSetArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	DataSetId string            `pulumi:"dataSetId"`
-	Region    *string           `pulumi:"region"`
-	Tags      map[string]string `pulumi:"tags"`
+	DataSetId string `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDataSet.
@@ -96,9 +97,10 @@ type LookupDataSetOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
-	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {

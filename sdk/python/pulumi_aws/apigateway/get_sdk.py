@@ -157,6 +157,7 @@ def get_sdk(parameters: Optional[Mapping[str, builtins.str]] = None,
 
 
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str sdk_type: Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
     :param builtins.str stage_name: Name of the Stage that will be exported.
@@ -206,6 +207,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, built
 
 
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str sdk_type: Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
     :param builtins.str stage_name: Name of the Stage that will be exported.

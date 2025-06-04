@@ -70,7 +70,7 @@ type EmailIdentityMailFromAttributes struct {
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrOutput `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -113,7 +113,7 @@ type emailIdentityMailFromAttributesState struct {
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain *string `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -124,7 +124,7 @@ type EmailIdentityMailFromAttributesState struct {
 	EmailIdentity pulumi.StringPtrInput
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -139,7 +139,7 @@ type emailIdentityMailFromAttributesArgs struct {
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain *string `pulumi:"mailFromDomain"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -151,7 +151,7 @@ type EmailIdentityMailFromAttributesArgs struct {
 	EmailIdentity pulumi.StringInput
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -257,7 +257,7 @@ func (o EmailIdentityMailFromAttributesOutput) MailFromDomain() pulumi.StringPtr
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringPtrOutput { return v.MailFromDomain }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityMailFromAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

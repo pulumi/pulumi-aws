@@ -39,6 +39,9 @@ export interface GetInstanceArgs {
      * Name of the RDS instance.
      */
     dbInstanceIdentifier?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instance.
@@ -254,6 +257,9 @@ export interface GetInstanceOutputArgs {
      * Name of the RDS instance.
      */
     dbInstanceIdentifier?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instance.

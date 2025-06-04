@@ -109,6 +109,7 @@ def get_log_groups(log_group_name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix
@@ -139,6 +140,7 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
 
 
     :param builtins.str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix

@@ -49,7 +49,7 @@ type VpcNetworkPerformanceMetricSubscription struct {
 	Metric pulumi.StringPtrOutput `pulumi:"metric"`
 	// The data aggregation time for the subscription.
 	Period pulumi.StringOutput `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source pulumi.StringOutput `pulumi:"source"`
@@ -99,7 +99,7 @@ type vpcNetworkPerformanceMetricSubscriptionState struct {
 	Metric *string `pulumi:"metric"`
 	// The data aggregation time for the subscription.
 	Period *string `pulumi:"period"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source *string `pulumi:"source"`
@@ -114,7 +114,7 @@ type VpcNetworkPerformanceMetricSubscriptionState struct {
 	Metric pulumi.StringPtrInput
 	// The data aggregation time for the subscription.
 	Period pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source pulumi.StringPtrInput
@@ -131,7 +131,7 @@ type vpcNetworkPerformanceMetricSubscriptionArgs struct {
 	Destination string `pulumi:"destination"`
 	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
 	Metric *string `pulumi:"metric"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source string `pulumi:"source"`
@@ -145,7 +145,7 @@ type VpcNetworkPerformanceMetricSubscriptionArgs struct {
 	Destination pulumi.StringInput
 	// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
 	Metric pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
 	Source pulumi.StringInput
@@ -255,7 +255,7 @@ func (o VpcNetworkPerformanceMetricSubscriptionOutput) Period() pulumi.StringOut
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Period }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcNetworkPerformanceMetricSubscriptionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcNetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

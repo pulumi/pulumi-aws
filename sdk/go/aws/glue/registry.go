@@ -54,7 +54,7 @@ type Registry struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the registry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
@@ -101,7 +101,7 @@ type registryState struct {
 	Arn *string `pulumi:"arn"`
 	// A description of the registry.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName *string `pulumi:"registryName"`
@@ -116,7 +116,7 @@ type RegistryState struct {
 	Arn pulumi.StringPtrInput
 	// A description of the registry.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Name of the registry.
 	RegistryName pulumi.StringPtrInput
@@ -133,7 +133,7 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// A description of the registry.
 	Description *string `pulumi:"description"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Name of the registry.
 	RegistryName string `pulumi:"registryName"`
@@ -145,7 +145,7 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// A description of the registry.
 	Description pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Name of the registry.
 	RegistryName pulumi.StringInput
@@ -250,7 +250,7 @@ func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RegistryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

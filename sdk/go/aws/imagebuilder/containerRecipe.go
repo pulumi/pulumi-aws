@@ -103,7 +103,7 @@ type ContainerRecipe struct {
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -113,7 +113,7 @@ type ContainerRecipe struct {
 	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
 	// Version of the container recipe.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -194,7 +194,7 @@ type containerRecipeState struct {
 	Platform *string `pulumi:"platform"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride *string `pulumi:"platformOverride"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -204,7 +204,7 @@ type containerRecipeState struct {
 	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -241,7 +241,7 @@ type ContainerRecipeState struct {
 	Platform pulumi.StringPtrInput
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -251,7 +251,7 @@ type ContainerRecipeState struct {
 	TargetRepository ContainerRecipeTargetRepositoryPtrInput
 	// Version of the container recipe.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -282,7 +282,7 @@ type containerRecipeArgs struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride *string `pulumi:"platformOverride"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -290,7 +290,7 @@ type containerRecipeArgs struct {
 	TargetRepository ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -318,7 +318,7 @@ type ContainerRecipeArgs struct {
 	ParentImage pulumi.StringInput
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -326,7 +326,7 @@ type ContainerRecipeArgs struct {
 	TargetRepository ContainerRecipeTargetRepositoryInput
 	// Version of the container recipe.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -494,7 +494,7 @@ func (o ContainerRecipeOutput) PlatformOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.PlatformOverride }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContainerRecipeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -516,7 +516,7 @@ func (o ContainerRecipeOutput) TargetRepository() ContainerRecipeTargetRepositor
 
 // Version of the container recipe.
 //
-// The following attributes are optional:
+// The following arguments are optional:
 func (o ContainerRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

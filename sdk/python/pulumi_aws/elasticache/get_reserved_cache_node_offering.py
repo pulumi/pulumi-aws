@@ -152,6 +152,7 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[builtins.str] = N
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param builtins.str product_description: Engine type for the reserved cache node.
            Valid values are `redis`, `valkey` and `memcached`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type
@@ -204,6 +205,7 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param builtins.str product_description: Engine type for the reserved cache node.
            Valid values are `redis`, `valkey` and `memcached`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type

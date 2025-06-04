@@ -122,6 +122,7 @@ def get_resource(path: Optional[builtins.str] = None,
 
 
     :param builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
@@ -159,6 +160,7 @@ def get_resource_output(path: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()

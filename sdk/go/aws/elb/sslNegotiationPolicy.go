@@ -103,7 +103,7 @@ type SslNegotiationPolicy struct {
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -166,7 +166,7 @@ type sslNegotiationPolicyState struct {
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -188,7 +188,7 @@ type SslNegotiationPolicyState struct {
 	LoadBalancer pulumi.StringPtrInput
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -214,7 +214,7 @@ type sslNegotiationPolicyArgs struct {
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -237,7 +237,7 @@ type SslNegotiationPolicyArgs struct {
 	LoadBalancer pulumi.StringInput
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -357,7 +357,7 @@ func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SslNegotiationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

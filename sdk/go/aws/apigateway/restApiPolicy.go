@@ -100,7 +100,7 @@ type RestApiPolicy struct {
 
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
@@ -144,7 +144,7 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 type restApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId *string `pulumi:"restApiId"`
@@ -153,7 +153,7 @@ type restApiPolicyState struct {
 type RestApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API.
 	RestApiId pulumi.StringPtrInput
@@ -166,7 +166,7 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 type restApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId string `pulumi:"restApiId"`
@@ -176,7 +176,7 @@ type restApiPolicyArgs struct {
 type RestApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API.
 	RestApiId pulumi.StringInput
@@ -274,7 +274,7 @@ func (o RestApiPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RestApiPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -227,6 +227,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
 
 
     :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the attachment.
     :param builtins.str transit_gateway_attachment_id: ID of the attachment.
     """
@@ -281,6 +282,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
 
 
     :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the attachment.
     :param builtins.str transit_gateway_attachment_id: ID of the attachment.
     """

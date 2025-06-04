@@ -151,7 +151,7 @@ type DataSource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
@@ -217,7 +217,7 @@ type dataSourceState struct {
 	Name *string `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
@@ -248,7 +248,7 @@ type DataSourceState struct {
 	Name pulumi.StringPtrInput
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
@@ -281,7 +281,7 @@ type dataSourceArgs struct {
 	Name *string `pulumi:"name"`
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
@@ -311,7 +311,7 @@ type DataSourceArgs struct {
 	Name pulumi.StringPtrInput
 	// Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// AWS RDS settings. See `relationalDatabaseConfig` Block for details.
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
@@ -458,7 +458,7 @@ func (o DataSourceOutput) OpensearchserviceConfig() DataSourceOpensearchserviceC
 	return o.ApplyT(func(v *DataSource) DataSourceOpensearchserviceConfigPtrOutput { return v.OpensearchserviceConfig }).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

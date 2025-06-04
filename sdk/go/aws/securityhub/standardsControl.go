@@ -72,7 +72,7 @@ type StandardsControl struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason pulumi.StringOutput `pulumi:"disabledReason"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The list of requirements that are related to this control.
 	RelatedRequirements pulumi.StringArrayOutput `pulumi:"relatedRequirements"`
@@ -132,7 +132,7 @@ type standardsControlState struct {
 	Description *string `pulumi:"description"`
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason *string `pulumi:"disabledReason"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The list of requirements that are related to this control.
 	RelatedRequirements []string `pulumi:"relatedRequirements"`
@@ -157,7 +157,7 @@ type StandardsControlState struct {
 	Description pulumi.StringPtrInput
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The list of requirements that are related to this control.
 	RelatedRequirements pulumi.StringArrayInput
@@ -180,7 +180,7 @@ type standardsControlArgs struct {
 	ControlStatus string `pulumi:"controlStatus"`
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason *string `pulumi:"disabledReason"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn string `pulumi:"standardsControlArn"`
@@ -192,7 +192,7 @@ type StandardsControlArgs struct {
 	ControlStatus pulumi.StringInput
 	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 	DisabledReason pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
 	StandardsControlArn pulumi.StringInput
@@ -310,7 +310,7 @@ func (o StandardsControlOutput) DisabledReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.DisabledReason }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StandardsControlOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

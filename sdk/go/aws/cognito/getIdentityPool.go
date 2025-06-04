@@ -53,8 +53,9 @@ func LookupIdentityPool(ctx *pulumi.Context, args *LookupIdentityPoolArgs, opts 
 // A collection of arguments for invoking getIdentityPool.
 type LookupIdentityPoolArgs struct {
 	// The Cognito Identity Pool name.
-	IdentityPoolName string  `pulumi:"identityPoolName"`
-	Region           *string `pulumi:"region"`
+	IdentityPoolName string `pulumi:"identityPoolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assigned to the Identity Pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -97,8 +98,9 @@ func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutput
 // A collection of arguments for invoking getIdentityPool.
 type LookupIdentityPoolOutputArgs struct {
 	// The Cognito Identity Pool name.
-	IdentityPoolName pulumi.StringInput    `pulumi:"identityPoolName"`
-	Region           pulumi.StringPtrInput `pulumi:"region"`
+	IdentityPoolName pulumi.StringInput `pulumi:"identityPoolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assigned to the Identity Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

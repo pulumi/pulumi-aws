@@ -272,7 +272,7 @@ type Distribution struct {
 	Origin DistributionOriginOutput `pulumi:"origin"`
 	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringOutput `pulumi:"originPublicDns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
@@ -357,7 +357,7 @@ type distributionState struct {
 	Origin *DistributionOrigin `pulumi:"origin"`
 	// The public DNS of the origin.
 	OriginPublicDns *string `pulumi:"originPublicDns"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Lightsail resource type (e.g., Distribution).
 	ResourceType *string `pulumi:"resourceType"`
@@ -404,7 +404,7 @@ type DistributionState struct {
 	Origin DistributionOriginPtrInput
 	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringPtrInput
@@ -443,7 +443,7 @@ type distributionArgs struct {
 	Name *string `pulumi:"name"`
 	// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
 	Origin DistributionOrigin `pulumi:"origin"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -471,7 +471,7 @@ type DistributionArgs struct {
 	Name pulumi.StringPtrInput
 	// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
 	Origin DistributionOriginInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -641,7 +641,7 @@ func (o DistributionOutput) OriginPublicDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.OriginPublicDns }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

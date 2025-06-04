@@ -25,8 +25,9 @@ func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsArgs struct {
 	// Name of the cluster.
-	ClusterName string  `pulumi:"clusterName"`
-	Region      *string `pulumi:"region"`
+	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNodeGroups.
@@ -51,8 +52,9 @@ func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsOutputArgs struct {
 	// Name of the cluster.
-	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetNodeGroupsOutputArgs) ElementType() reflect.Type {

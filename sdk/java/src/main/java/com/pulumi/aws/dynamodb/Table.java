@@ -386,7 +386,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Unique within a region name of the table.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -395,7 +395,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * @return Unique within a region name of the table.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -458,14 +458,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.readCapacity;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

@@ -145,6 +145,7 @@ def get_dns_namespace(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     :param builtins.str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
@@ -185,6 +186,7 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     :param builtins.str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """

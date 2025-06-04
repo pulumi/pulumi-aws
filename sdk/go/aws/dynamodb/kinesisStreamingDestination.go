@@ -75,7 +75,7 @@ type KinesisStreamingDestination struct {
 
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringOutput `pulumi:"approximateCreationDateTimePrecision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
@@ -121,7 +121,7 @@ func GetKinesisStreamingDestination(ctx *pulumi.Context,
 type kinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn *string `pulumi:"streamArn"`
@@ -132,7 +132,7 @@ type kinesisStreamingDestinationState struct {
 type KinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 type kinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn string `pulumi:"streamArn"`
@@ -159,7 +159,7 @@ type kinesisStreamingDestinationArgs struct {
 type KinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringInput
@@ -261,7 +261,7 @@ func (o KinesisStreamingDestinationOutput) ApproximateCreationDateTimePrecision(
 	}).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KinesisStreamingDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

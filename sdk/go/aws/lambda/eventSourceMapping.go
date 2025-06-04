@@ -109,6 +109,59 @@ import (
 //
 // ```
 //
+// ### Self Managed Apache Kafka
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("Example"),
+//				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
+//				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
+//					MaximumPollers: pulumi.Int(80),
+//					MinimumPollers: pulumi.Int(10),
+//				},
+//				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
+//					Endpoints: pulumi.StringMap{
+//						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
+//					},
+//				},
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example1"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example2"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SECURITY_GROUP"),
+//						Uri:  pulumi.String("security_group:sg-example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### SQS
 //
 // ```go
@@ -323,7 +376,7 @@ type EventSourceMapping struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrOutput `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrOutput `pulumi:"queues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
@@ -430,7 +483,7 @@ type eventSourceMappingState struct {
 	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
@@ -505,7 +558,7 @@ type EventSourceMappingState struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
@@ -576,7 +629,7 @@ type eventSourceMappingArgs struct {
 	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
@@ -636,7 +689,7 @@ type EventSourceMappingArgs struct {
 	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
 	ScalingConfig EventSourceMappingScalingConfigPtrInput
@@ -861,7 +914,7 @@ func (o EventSourceMappingOutput) Queues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.Queues }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSourceMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

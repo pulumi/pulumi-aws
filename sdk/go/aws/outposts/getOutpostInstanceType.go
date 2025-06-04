@@ -69,7 +69,8 @@ type GetOutpostInstanceTypeArgs struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
-	Region                 *string  `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOutpostInstanceType.
@@ -101,7 +102,8 @@ type GetOutpostInstanceTypeOutputArgs struct {
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
 	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
-	Region                 pulumi.StringPtrInput   `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOutpostInstanceTypeOutputArgs) ElementType() reflect.Type {

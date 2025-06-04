@@ -27,7 +27,7 @@ class EmailIdentityFeedbackAttributesArgs:
         The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if email_forwarding_enabled is not None:
@@ -63,7 +63,7 @@ class EmailIdentityFeedbackAttributesArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -82,7 +82,7 @@ class _EmailIdentityFeedbackAttributesState:
         Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
         :param pulumi.Input[builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if email_forwarding_enabled is not None:
             pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
@@ -119,7 +119,7 @@ class _EmailIdentityFeedbackAttributesState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -167,7 +167,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -254,7 +254,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[builtins.str] email_identity: The email identity.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,7 +285,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

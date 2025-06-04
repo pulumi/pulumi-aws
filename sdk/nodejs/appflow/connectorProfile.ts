@@ -71,10 +71,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
+ * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+ * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
  * ```
  */
 export class ConnectorProfile extends pulumi.CustomResource {
@@ -135,7 +135,8 @@ export class ConnectorProfile extends pulumi.CustomResource {
     public readonly kmsArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -221,7 +222,8 @@ export interface ConnectorProfileState {
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     region?: pulumi.Input<string>;
 }
@@ -252,7 +254,8 @@ export interface ConnectorProfileArgs {
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     region?: pulumi.Input<string>;
 }

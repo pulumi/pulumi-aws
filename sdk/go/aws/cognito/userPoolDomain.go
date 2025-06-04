@@ -129,7 +129,7 @@ type UserPoolDomain struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 	ManagedLoginVersion pulumi.IntOutput `pulumi:"managedLoginVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
@@ -189,7 +189,7 @@ type userPoolDomainState struct {
 	Domain *string `pulumi:"domain"`
 	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket *string `pulumi:"s3Bucket"`
@@ -214,7 +214,7 @@ type UserPoolDomainState struct {
 	Domain pulumi.StringPtrInput
 	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 	ManagedLoginVersion pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The S3 bucket where the static files for this domain are stored.
 	S3Bucket pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type userPoolDomainArgs struct {
 	Domain string `pulumi:"domain"`
 	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -249,7 +249,7 @@ type UserPoolDomainArgs struct {
 	Domain pulumi.StringInput
 	// A version number that indicates the state of managed login for your domain. Valid values: `1` for hosted UI (classic), `2` for the newer managed login with the branding designer.
 	ManagedLoginVersion pulumi.IntPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user pool ID.
 	UserPoolId pulumi.StringInput
@@ -377,7 +377,7 @@ func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntOutput { return v.ManagedLoginVersion }).(pulumi.IntOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserPoolDomainOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

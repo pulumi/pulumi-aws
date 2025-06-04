@@ -53,6 +53,7 @@ func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArg
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
@@ -88,6 +89,7 @@ func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurati
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//

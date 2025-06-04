@@ -55,9 +55,10 @@ type LookupAccessEntryArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn string            `pulumi:"principalArn"`
-	Region       *string           `pulumi:"region"`
-	Tags         map[string]string `pulumi:"tags"`
+	PrincipalArn string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -100,9 +101,10 @@ type LookupAccessEntryOutputArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn pulumi.StringInput    `pulumi:"principalArn"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
-	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	PrincipalArn pulumi.StringInput `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }

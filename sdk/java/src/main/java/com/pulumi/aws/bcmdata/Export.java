@@ -109,20 +109,6 @@ public class Export extends com.pulumi.resources.CustomResource {
     public Output<Optional<ExportExport>> export() {
         return Codegen.optional(this.export);
     }
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    @com.pulumi.core.annotations.Export(name="region", refs={String.class}, tree="[0]")
-    private Output<String> region;
-
-    /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     * 
-     */
-    public Output<String> region() {
-        return this.region;
-    }
     @com.pulumi.core.annotations.Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 

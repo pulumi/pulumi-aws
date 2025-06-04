@@ -51,7 +51,8 @@ func LookupServerlessCache(ctx *pulumi.Context, args *LookupServerlessCacheArgs,
 // A collection of arguments for invoking getServerlessCache.
 type LookupServerlessCacheArgs struct {
 	// Identifier for the serverless cache.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -107,7 +108,8 @@ func LookupServerlessCacheOutput(ctx *pulumi.Context, args LookupServerlessCache
 // A collection of arguments for invoking getServerlessCache.
 type LookupServerlessCacheOutputArgs struct {
 	// Identifier for the serverless cache.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

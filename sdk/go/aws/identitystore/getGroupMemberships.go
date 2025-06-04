@@ -73,8 +73,9 @@ type GetGroupMembershipsArgs struct {
 	// The identifier for a group in the Identity Store.
 	GroupId string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
-	IdentityStoreId string  `pulumi:"identityStoreId"`
-	Region          *string `pulumi:"region"`
+	IdentityStoreId string `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroupMemberships.
@@ -104,8 +105,9 @@ type GetGroupMembershipsOutputArgs struct {
 	// The identifier for a group in the Identity Store.
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
-	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupMembershipsOutputArgs) ElementType() reflect.Type {

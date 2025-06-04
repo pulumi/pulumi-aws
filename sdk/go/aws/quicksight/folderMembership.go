@@ -64,7 +64,7 @@ type FolderMembership struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringOutput `pulumi:"memberType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -117,7 +117,7 @@ type folderMembershipState struct {
 	//
 	// The following arguments are optional:
 	MemberType *string `pulumi:"memberType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -132,7 +132,7 @@ type FolderMembershipState struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -151,7 +151,7 @@ type folderMembershipArgs struct {
 	//
 	// The following arguments are optional:
 	MemberType string `pulumi:"memberType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -167,7 +167,7 @@ type FolderMembershipArgs struct {
 	//
 	// The following arguments are optional:
 	MemberType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -280,7 +280,7 @@ func (o FolderMembershipOutput) MemberType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FolderMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

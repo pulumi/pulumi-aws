@@ -55,7 +55,7 @@ type RequestValidator struct {
 
 	// Name of the request validator
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -100,7 +100,7 @@ func GetRequestValidator(ctx *pulumi.Context,
 type requestValidatorState struct {
 	// Name of the request validator
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi *string `pulumi:"restApi"`
@@ -113,7 +113,7 @@ type requestValidatorState struct {
 type RequestValidatorState struct {
 	// Name of the request validator
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApi pulumi.StringPtrInput
@@ -130,7 +130,7 @@ func (RequestValidatorState) ElementType() reflect.Type {
 type requestValidatorArgs struct {
 	// Name of the request validator
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApi string `pulumi:"restApi"`
@@ -144,7 +144,7 @@ type requestValidatorArgs struct {
 type RequestValidatorArgs struct {
 	// Name of the request validator
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApi pulumi.StringInput
@@ -246,7 +246,7 @@ func (o RequestValidatorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RequestValidatorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

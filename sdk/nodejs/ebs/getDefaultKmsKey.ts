@@ -33,6 +33,9 @@ export function getDefaultKmsKey(args?: GetDefaultKmsKeyArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getDefaultKmsKey.
  */
 export interface GetDefaultKmsKeyArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -79,5 +82,8 @@ export function getDefaultKmsKeyOutput(args?: GetDefaultKmsKeyOutputArgs, opts?:
  * A collection of arguments for invoking getDefaultKmsKey.
  */
 export interface GetDefaultKmsKeyOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

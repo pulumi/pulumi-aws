@@ -80,7 +80,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Amazon Web Services Region name.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface BucketState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Amazon Web Services Region name.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface BucketArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Amazon Web Services Region name.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

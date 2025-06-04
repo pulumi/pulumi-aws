@@ -63,8 +63,9 @@ type GetCipherTextArgs struct {
 	// Globally unique key ID for the customer master key.
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext string  `pulumi:"plaintext"`
-	Region    *string `pulumi:"region"`
+	Plaintext string `pulumi:"plaintext"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCipherText.
@@ -95,8 +96,9 @@ type GetCipherTextOutputArgs struct {
 	// Globally unique key ID for the customer master key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext pulumi.StringInput    `pulumi:"plaintext"`
-	Region    pulumi.StringPtrInput `pulumi:"region"`
+	Plaintext pulumi.StringInput `pulumi:"plaintext"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetCipherTextOutputArgs) ElementType() reflect.Type {

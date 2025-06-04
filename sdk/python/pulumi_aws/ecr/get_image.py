@@ -176,6 +176,7 @@ def get_image(image_digest: Optional[builtins.str] = None,
     :param builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: ID of the Registry where the repository resides.
     :param builtins.str repository_name: Name of the ECR Repository.
     """
@@ -225,6 +226,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[builtins.str]]
     :param builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: ID of the Registry where the repository resides.
     :param builtins.str repository_name: Name of the ECR Repository.
     """

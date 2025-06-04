@@ -60,7 +60,7 @@ type KxCluster struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
@@ -168,7 +168,7 @@ type kxClusterState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the cluster that you want to create.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
@@ -232,7 +232,7 @@ type KxClusterState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringPtrInput
@@ -294,7 +294,7 @@ type kxClusterArgs struct {
 	InitializationScript *string `pulumi:"initializationScript"`
 	// Unique name for the cluster that you want to create.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel string `pulumi:"releaseLabel"`
@@ -349,7 +349,7 @@ type KxClusterArgs struct {
 	InitializationScript pulumi.StringPtrInput
 	// Unique name for the cluster that you want to create.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringInput
@@ -543,7 +543,7 @@ func (o KxClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KxClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -146,6 +146,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
     :param builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
     :param builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the local gateway route table.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
@@ -205,6 +206,7 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
     :param builtins.str local_gateway_id: ID of the specific local gateway route table to retrieve.
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
     :param builtins.str outpost_arn: ARN of the Outpost the local gateway route table is associated with.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the local gateway route table.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.

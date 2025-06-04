@@ -234,6 +234,7 @@ def get_route(carrier_gateway_id: Optional[builtins.str] = None,
     :param builtins.str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
     :param builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param builtins.str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
@@ -325,6 +326,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[builtins
     :param builtins.str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
     :param builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param builtins.str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.

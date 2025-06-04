@@ -91,7 +91,7 @@ type DomainPolicy struct {
 	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -135,7 +135,7 @@ type domainPolicyState struct {
 	AccessPolicies *string `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName *string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -144,7 +144,7 @@ type DomainPolicyState struct {
 	AccessPolicies pulumi.StringPtrInput
 	// Name of the domain.
 	DomainName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -157,7 +157,7 @@ type domainPolicyArgs struct {
 	AccessPolicies string `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -167,7 +167,7 @@ type DomainPolicyArgs struct {
 	AccessPolicies pulumi.StringInput
 	// Name of the domain.
 	DomainName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -268,7 +268,7 @@ func (o DomainPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DomainPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

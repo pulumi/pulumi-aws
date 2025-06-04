@@ -10,6 +10,11 @@ export type AlternativeContact = import("./alternativeContact").AlternativeConta
 export const AlternativeContact: typeof import("./alternativeContact").AlternativeContact = null as any;
 utilities.lazyLoad(exports, ["AlternativeContact"], () => require("./alternativeContact"));
 
+export { GetPrimaryContactArgs, GetPrimaryContactResult, GetPrimaryContactOutputArgs } from "./getPrimaryContact";
+export const getPrimaryContact: typeof import("./getPrimaryContact").getPrimaryContact = null as any;
+export const getPrimaryContactOutput: typeof import("./getPrimaryContact").getPrimaryContactOutput = null as any;
+utilities.lazyLoad(exports, ["getPrimaryContact","getPrimaryContactOutput"], () => require("./getPrimaryContact"));
+
 export { PrimaryContactArgs, PrimaryContactState } from "./primaryContact";
 export type PrimaryContact = import("./primaryContact").PrimaryContact;
 export const PrimaryContact: typeof import("./primaryContact").PrimaryContact = null as any;

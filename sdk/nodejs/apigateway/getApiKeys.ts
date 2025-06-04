@@ -41,6 +41,9 @@ export interface GetApiKeysArgs {
      * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
      */
     includeValues?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -97,5 +100,8 @@ export interface GetApiKeysOutputArgs {
      * Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
      */
     includeValues?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

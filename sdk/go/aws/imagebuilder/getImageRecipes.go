@@ -61,7 +61,8 @@ type GetImageRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner  *string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -92,7 +93,8 @@ type GetImageRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetImageRecipesFilterArrayInput `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
-	Owner  pulumi.StringPtrInput `pulumi:"owner"`
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

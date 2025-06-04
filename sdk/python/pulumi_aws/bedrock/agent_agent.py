@@ -50,11 +50,11 @@ class AgentAgentArgs:
         :param pulumi.Input[builtins.str] description: Description of the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -190,7 +190,7 @@ class AgentAgentArgs:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -238,7 +238,7 @@ class AgentAgentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -297,6 +297,7 @@ class _AgentAgentState:
                  instruction: Optional[pulumi.Input[builtins.str]] = None,
                  memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 prepared_at: Optional[pulumi.Input[builtins.str]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
@@ -318,11 +319,12 @@ class _AgentAgentState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -355,6 +357,8 @@ class _AgentAgentState:
             pulumi.set(__self__, "memory_configurations", memory_configurations)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
+        if prepared_at is not None:
+            pulumi.set(__self__, "prepared_at", prepared_at)
         if prompt_override_configurations is not None:
             pulumi.set(__self__, "prompt_override_configurations", prompt_override_configurations)
         if region is not None:
@@ -506,7 +510,7 @@ class _AgentAgentState:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -539,6 +543,18 @@ class _AgentAgentState:
         pulumi.set(self, "prepare_agent", value)
 
     @property
+    @pulumi.getter(name="preparedAt")
+    def prepared_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Timestamp of when the agent was last prepared.
+        """
+        return pulumi.get(self, "prepared_at")
+
+    @prepared_at.setter
+    def prepared_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "prepared_at", value)
+
+    @property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
         """
@@ -554,7 +570,7 @@ class _AgentAgentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -701,11 +717,11 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -838,6 +854,7 @@ class AgentAgent(pulumi.CustomResource):
             __props__.__dict__["agent_arn"] = None
             __props__.__dict__["agent_id"] = None
             __props__.__dict__["agent_version"] = None
+            __props__.__dict__["prepared_at"] = None
             __props__.__dict__["tags_all"] = None
         super(AgentAgent, __self__).__init__(
             'aws:bedrock/agentAgent:AgentAgent',
@@ -863,6 +880,7 @@ class AgentAgent(pulumi.CustomResource):
             instruction: Optional[pulumi.Input[builtins.str]] = None,
             memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
             prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+            prepared_at: Optional[pulumi.Input[builtins.str]] = None,
             prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
@@ -889,11 +907,12 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -916,6 +935,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["instruction"] = instruction
         __props__.__dict__["memory_configurations"] = memory_configurations
         __props__.__dict__["prepare_agent"] = prepare_agent
+        __props__.__dict__["prepared_at"] = prepared_at
         __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
         __props__.__dict__["region"] = region
         __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
@@ -1018,7 +1038,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter
     def instruction(self) -> pulumi.Output[builtins.str]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -1039,6 +1059,14 @@ class AgentAgent(pulumi.CustomResource):
         return pulumi.get(self, "prepare_agent")
 
     @property
+    @pulumi.getter(name="preparedAt")
+    def prepared_at(self) -> pulumi.Output[builtins.str]:
+        """
+        Timestamp of when the agent was last prepared.
+        """
+        return pulumi.get(self, "prepared_at")
+
+    @property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentPromptOverrideConfiguration']]:
         """
@@ -1050,7 +1078,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

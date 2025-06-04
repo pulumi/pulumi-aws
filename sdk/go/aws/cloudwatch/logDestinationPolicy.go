@@ -89,7 +89,7 @@ type LogDestinationPolicy struct {
 	DestinationName pulumi.StringOutput `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -135,7 +135,7 @@ type logDestinationPolicyState struct {
 	DestinationName *string `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate *bool `pulumi:"forceUpdate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -146,7 +146,7 @@ type LogDestinationPolicyState struct {
 	DestinationName pulumi.StringPtrInput
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -161,7 +161,7 @@ type logDestinationPolicyArgs struct {
 	DestinationName string `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate *bool `pulumi:"forceUpdate"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -173,7 +173,7 @@ type LogDestinationPolicyArgs struct {
 	DestinationName pulumi.StringInput
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -279,7 +279,7 @@ func (o LogDestinationPolicyOutput) ForceUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.BoolPtrOutput { return v.ForceUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogDestinationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

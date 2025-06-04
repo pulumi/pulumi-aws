@@ -35,7 +35,7 @@ class BucketLoggingInitArgs:
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[builtins.str] target_prefix: Prefix for all log object keys.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
         """
@@ -103,7 +103,7 @@ class BucketLoggingInitArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -150,7 +150,7 @@ class _BucketLoggingState:
         Input properties used for looking up and filtering BucketLogging resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingTargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs'] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -199,7 +199,7 @@ class _BucketLoggingState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -320,7 +320,7 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -450,7 +450,7 @@ class BucketLogging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingTargetGrantArgs', 'BucketLoggingTargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input[Union['BucketLoggingTargetObjectKeyFormatArgs', 'BucketLoggingTargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
@@ -489,7 +489,7 @@ class BucketLogging(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

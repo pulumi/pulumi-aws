@@ -199,7 +199,7 @@ type ConfigurationPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configuration policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -243,7 +243,7 @@ type configurationPolicyState struct {
 	Description *string `pulumi:"description"`
 	// The name of the configuration policy.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -255,7 +255,7 @@ type ConfigurationPolicyState struct {
 	Description pulumi.StringPtrInput
 	// The name of the configuration policy.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -270,7 +270,7 @@ type configurationPolicyArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the configuration policy.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -282,7 +282,7 @@ type ConfigurationPolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the configuration policy.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -394,7 +394,7 @@ func (o ConfigurationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ConfigurationPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

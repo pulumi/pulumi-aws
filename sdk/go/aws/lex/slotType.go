@@ -89,7 +89,7 @@ type SlotType struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -152,7 +152,7 @@ type slotTypeState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -183,7 +183,7 @@ type SlotTypeState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -211,7 +211,7 @@ type slotTypeArgs struct {
 	EnumerationValues []SlotTypeEnumerationValue `pulumi:"enumerationValues"`
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -234,7 +234,7 @@ type SlotTypeArgs struct {
 	EnumerationValues SlotTypeEnumerationValueArrayInput
 	// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Determines the slot resolution strategy that Amazon Lex
 	// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -370,7 +370,7 @@ func (o SlotTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SlotTypeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlotType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

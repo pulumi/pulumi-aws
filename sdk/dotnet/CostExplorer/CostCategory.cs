@@ -122,8 +122,6 @@ namespace Pulumi.Aws.CostExplorer
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("effectiveStart")]
         public Output<string> EffectiveStart { get; private set; } = null!;
@@ -135,13 +133,9 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
-
-        /// <summary>
         /// Rule schema version in this particular Cost Category.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("ruleVersion")]
         public Output<string> RuleVersion { get; private set; } = null!;
@@ -224,8 +218,6 @@ namespace Pulumi.Aws.CostExplorer
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("effectiveStart")]
         public Input<string>? EffectiveStart { get; set; }
@@ -237,13 +229,9 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
         /// Rule schema version in this particular Cost Category.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleVersion", required: true)]
         public Input<string> RuleVersion { get; set; } = null!;
@@ -312,8 +300,6 @@ namespace Pulumi.Aws.CostExplorer
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("effectiveStart")]
         public Input<string>? EffectiveStart { get; set; }
@@ -325,13 +311,9 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
         /// Rule schema version in this particular Cost Category.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleVersion")]
         public Input<string>? RuleVersion { get; set; }

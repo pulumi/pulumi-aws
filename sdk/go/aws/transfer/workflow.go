@@ -115,7 +115,7 @@ type Workflow struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayOutput `pulumi:"onExceptionSteps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayOutput `pulumi:"steps"`
@@ -164,7 +164,7 @@ type workflowState struct {
 	Description *string `pulumi:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps []WorkflowStep `pulumi:"steps"`
@@ -181,7 +181,7 @@ type WorkflowState struct {
 	Description pulumi.StringPtrInput
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayInput
@@ -200,7 +200,7 @@ type workflowArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps []WorkflowOnExceptionStep `pulumi:"onExceptionSteps"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps []WorkflowStep `pulumi:"steps"`
@@ -214,7 +214,7 @@ type WorkflowArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
 	OnExceptionSteps WorkflowOnExceptionStepArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayInput
@@ -324,7 +324,7 @@ func (o WorkflowOutput) OnExceptionSteps() WorkflowOnExceptionStepArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowOnExceptionStepArrayOutput { return v.OnExceptionSteps }).(WorkflowOnExceptionStepArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkflowOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

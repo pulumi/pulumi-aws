@@ -135,7 +135,7 @@ type LogResourcePolicy struct {
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -179,7 +179,7 @@ type logResourcePolicyState struct {
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName *string `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -188,7 +188,7 @@ type LogResourcePolicyState struct {
 	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -201,7 +201,7 @@ type logResourcePolicyArgs struct {
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName string `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -211,7 +211,7 @@ type LogResourcePolicyArgs struct {
 	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -312,7 +312,7 @@ func (o LogResourcePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -5,18 +5,18 @@ Subject: [PATCH] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 3b95e671df..34bb01768c 100644
+index c7e6b298ad..f62e83f1be 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
-@@ -9,6 +9,7 @@ import (
- 	"fmt"
+@@ -10,6 +10,7 @@ import (
  	"log"
  	"regexp"
+ 	"strconv"
 +	"sync"
  	"time"
  
  	"github.com/YakDriver/regexache"
-@@ -257,6 +258,12 @@ func resourceTopic() *schema.Resource {
+@@ -265,6 +266,12 @@ func resourceTopic() *schema.Resource {
  	}
  }
  
@@ -29,8 +29,8 @@ index 3b95e671df..34bb01768c 100644
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -281,6 +288,28 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any)
- 		delete(attributes, topicAttributeNameFIFOTopic)
+@@ -293,6 +300,28 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any)
+ 		delete(attributes, topicAttributeNameFIFOThroughputScope)
  	}
  
 +	// create a lock based on the topic ARN. We really want to make sure

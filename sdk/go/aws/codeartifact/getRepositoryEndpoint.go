@@ -57,7 +57,8 @@ type GetRepositoryEndpointArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner *string `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-	Format string  `pulumi:"format"`
+	Format string `pulumi:"format"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
@@ -92,7 +93,8 @@ type GetRepositoryEndpointOutputArgs struct {
 	// Account number of the AWS account that owns the domain.
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
-	Format pulumi.StringInput    `pulumi:"format"`
+	Format pulumi.StringInput `pulumi:"format"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`

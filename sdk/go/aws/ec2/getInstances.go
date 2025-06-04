@@ -91,7 +91,8 @@ type GetInstancesArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
-	Region       *string           `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstances.
@@ -132,7 +133,8 @@ type GetInstancesOutputArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags pulumi.StringMapInput `pulumi:"instanceTags"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {

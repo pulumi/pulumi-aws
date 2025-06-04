@@ -34,7 +34,7 @@ class ApiCacheArgs:
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         """
         pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
@@ -112,7 +112,7 @@ class ApiCacheArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -148,7 +148,7 @@ class _ApiCacheState:
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -208,7 +208,7 @@ class _ApiCacheState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -299,7 +299,7 @@ class ApiCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -410,7 +410,7 @@ class ApiCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -456,7 +456,7 @@ class ApiCache(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

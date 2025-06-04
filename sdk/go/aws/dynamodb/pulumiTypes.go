@@ -1662,6 +1662,8 @@ func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOu
 type TablePointInTimeRecovery struct {
 	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
+	// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+	RecoveryPeriodInDays *int `pulumi:"recoveryPeriodInDays"`
 }
 
 // TablePointInTimeRecoveryInput is an input type that accepts TablePointInTimeRecoveryArgs and TablePointInTimeRecoveryOutput values.
@@ -1678,6 +1680,8 @@ type TablePointInTimeRecoveryInput interface {
 type TablePointInTimeRecoveryArgs struct {
 	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+	RecoveryPeriodInDays pulumi.IntPtrInput `pulumi:"recoveryPeriodInDays"`
 }
 
 func (TablePointInTimeRecoveryArgs) ElementType() reflect.Type {
@@ -1762,6 +1766,11 @@ func (o TablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+func (o TablePointInTimeRecoveryOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TablePointInTimeRecovery) *int { return v.RecoveryPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
 type TablePointInTimeRecoveryPtrOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoveryPtrOutput) ElementType() reflect.Type {
@@ -1794,6 +1803,16 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+func (o TablePointInTimeRecoveryPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecovery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPeriodInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 type TableReplicaType struct {
@@ -2851,7 +2870,8 @@ func (o GetTableOnDemandThroughputArrayOutput) Index(i pulumi.IntInput) GetTable
 }
 
 type GetTablePointInTimeRecovery struct {
-	Enabled bool `pulumi:"enabled"`
+	Enabled              bool `pulumi:"enabled"`
+	RecoveryPeriodInDays int  `pulumi:"recoveryPeriodInDays"`
 }
 
 // GetTablePointInTimeRecoveryInput is an input type that accepts GetTablePointInTimeRecoveryArgs and GetTablePointInTimeRecoveryOutput values.
@@ -2866,7 +2886,8 @@ type GetTablePointInTimeRecoveryInput interface {
 }
 
 type GetTablePointInTimeRecoveryArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled              pulumi.BoolInput `pulumi:"enabled"`
+	RecoveryPeriodInDays pulumi.IntInput  `pulumi:"recoveryPeriodInDays"`
 }
 
 func (GetTablePointInTimeRecoveryArgs) ElementType() reflect.Type {
@@ -2897,6 +2918,10 @@ func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryOutputWi
 
 func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetTablePointInTimeRecoveryOutput) RecoveryPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTablePointInTimeRecovery) int { return v.RecoveryPeriodInDays }).(pulumi.IntOutput)
 }
 
 type GetTableReplicaType struct {

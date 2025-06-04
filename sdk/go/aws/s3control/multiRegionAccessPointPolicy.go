@@ -34,7 +34,7 @@ type MultiRegionAccessPointPolicy struct {
 	Established pulumi.StringOutput `pulumi:"established"`
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringOutput `pulumi:"proposed"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -79,7 +79,7 @@ type multiRegionAccessPointPolicyState struct {
 	Established *string `pulumi:"established"`
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed *string `pulumi:"proposed"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -92,7 +92,7 @@ type MultiRegionAccessPointPolicyState struct {
 	Established pulumi.StringPtrInput
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -105,7 +105,7 @@ type multiRegionAccessPointPolicyArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointPolicyDetails `pulumi:"details"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -115,7 +115,7 @@ type MultiRegionAccessPointPolicyArgs struct {
 	AccountId pulumi.StringPtrInput
 	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -226,7 +226,7 @@ func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Proposed }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o MultiRegionAccessPointPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

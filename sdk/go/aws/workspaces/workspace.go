@@ -88,7 +88,7 @@ type Workspace struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
@@ -155,7 +155,7 @@ type workspaceState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
@@ -184,7 +184,7 @@ type WorkspaceState struct {
 	DirectoryId pulumi.StringPtrInput
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
@@ -213,7 +213,7 @@ type workspaceArgs struct {
 	BundleId string `pulumi:"bundleId"`
 	// The ID of the directory for the WorkSpace.
 	DirectoryId string `pulumi:"directoryId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
@@ -235,7 +235,7 @@ type WorkspaceArgs struct {
 	BundleId pulumi.StringInput
 	// The ID of the directory for the WorkSpace.
 	DirectoryId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
@@ -358,7 +358,7 @@ func (o WorkspaceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

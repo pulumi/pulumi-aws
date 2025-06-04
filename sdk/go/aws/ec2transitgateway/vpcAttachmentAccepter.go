@@ -65,7 +65,7 @@ type VpcAttachmentAccepter struct {
 	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringOutput `pulumi:"securityGroupReferencingSupport"`
@@ -128,7 +128,7 @@ type vpcAttachmentAccepterState struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
@@ -159,7 +159,7 @@ type VpcAttachmentAccepterState struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
@@ -188,7 +188,7 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type vpcAttachmentAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -202,7 +202,7 @@ type vpcAttachmentAccepterArgs struct {
 
 // The set of arguments for constructing a VpcAttachmentAccepter resource.
 type VpcAttachmentAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -316,7 +316,7 @@ func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Ipv6Support }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcAttachmentAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

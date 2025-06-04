@@ -84,7 +84,7 @@ export class TrustProvider extends pulumi.CustomResource {
      */
     public readonly policyReferenceName!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
@@ -184,7 +184,7 @@ export interface TrustProviderState {
      */
     policyReferenceName?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;
@@ -234,7 +234,7 @@ export interface TrustProviderArgs {
      */
     policyReferenceName: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;

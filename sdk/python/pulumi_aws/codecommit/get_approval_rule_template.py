@@ -169,6 +169,7 @@ def get_approval_rule_template(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -204,6 +205,7 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name

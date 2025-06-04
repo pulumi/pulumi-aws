@@ -105,7 +105,7 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -168,7 +168,7 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -193,7 +193,7 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -220,7 +220,7 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -242,7 +242,7 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -372,7 +372,7 @@ func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OptionGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -57,8 +57,9 @@ func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getModel.
 type GetModelArgs struct {
 	// Model identifier.
-	ModelId string  `pulumi:"modelId"`
-	Region  *string `pulumi:"region"`
+	ModelId string `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModel.
@@ -96,8 +97,9 @@ func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getModel.
 type GetModelOutputArgs struct {
 	// Model identifier.
-	ModelId pulumi.StringInput    `pulumi:"modelId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelOutputArgs) ElementType() reflect.Type {

@@ -174,6 +174,7 @@ def get_random_password(exclude_characters: Optional[builtins.str] = None,
     :param builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param builtins.bool include_space: Specifies whether to include the space character.
     :param builtins.int password_length: Length of the password.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     __args__ = dict()
@@ -232,6 +233,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     :param builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param builtins.bool include_space: Specifies whether to include the space character.
     :param builtins.int password_length: Length of the password.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     __args__ = dict()

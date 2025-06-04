@@ -60,7 +60,6 @@ type LookupBudgetArgs struct {
 	Name string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Region     *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -91,7 +90,6 @@ type LookupBudgetResult struct {
 	Notifications []GetBudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []GetBudgetPlannedLimit `pulumi:"plannedLimits"`
-	Region        string                  `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -121,7 +119,6 @@ type LookupBudgetOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -209,10 +206,6 @@ func (o LookupBudgetResultOutput) Notifications() GetBudgetNotificationArrayOutp
 // Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 func (o LookupBudgetResultOutput) PlannedLimits() GetBudgetPlannedLimitArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetPlannedLimit { return v.PlannedLimits }).(GetBudgetPlannedLimitArrayOutput)
-}
-
-func (o LookupBudgetResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBudgetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

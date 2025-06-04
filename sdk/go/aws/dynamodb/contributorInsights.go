@@ -52,7 +52,7 @@ type ContributorInsights struct {
 
 	// The global secondary index name
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringOutput `pulumi:"tableName"`
@@ -93,7 +93,7 @@ func GetContributorInsights(ctx *pulumi.Context,
 type contributorInsightsState struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName *string `pulumi:"tableName"`
@@ -102,7 +102,7 @@ type contributorInsightsState struct {
 type ContributorInsightsState struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringPtrInput
@@ -115,7 +115,7 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 type contributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName string `pulumi:"tableName"`
@@ -125,7 +125,7 @@ type contributorInsightsArgs struct {
 type ContributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringInput
@@ -223,7 +223,7 @@ func (o ContributorInsightsOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContributorInsightsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

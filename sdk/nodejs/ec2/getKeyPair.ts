@@ -68,6 +68,9 @@ export interface GetKeyPairArgs {
      * Key Pair ID.
      */
     keyPairId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Any tags assigned to the Key Pair.
@@ -174,6 +177,9 @@ export interface GetKeyPairOutputArgs {
      * Key Pair ID.
      */
     keyPairId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the Key Pair.

@@ -47,7 +47,7 @@ class EnvironmentArgs:
         :param pulumi.Input[builtins.str] description: The description of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[builtins.str] name: The name of the environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -186,7 +186,7 @@ class EnvironmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -253,7 +253,7 @@ class _EnvironmentState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] provider_environment: The provider of the environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         if account_identifier is not None:
@@ -462,7 +462,7 @@ class _EnvironmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -567,7 +567,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_identifier: The ID of the project where the environment exists.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         ...
@@ -727,7 +727,7 @@ class Environment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] provider_environment: The provider of the environment.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -868,7 +868,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

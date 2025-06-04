@@ -90,14 +90,26 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+     * 
+     * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
+     * * The default value for `enable_dns_hostnames` is `true`
+     * 
+     * This resource supports the following additional arguments:
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+     * 
+     * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
+     * * The default value for `enable_dns_hostnames` is `true`
+     * 
+     * This resource supports the following additional arguments:
      * 
      */
     public Optional<Output<String>> region() {
@@ -239,7 +251,13 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+         * 
+         * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
+         * * The default value for `enable_dns_hostnames` is `true`
+         * 
+         * This resource supports the following additional arguments:
          * 
          * @return builder
          * 
@@ -250,7 +268,13 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
+         * 
+         * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
+         * * The default value for `enable_dns_hostnames` is `true`
+         * 
+         * This resource supports the following additional arguments:
          * 
          * @return builder
          * 

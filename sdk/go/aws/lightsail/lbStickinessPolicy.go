@@ -69,7 +69,7 @@ type LbStickinessPolicy struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -118,7 +118,7 @@ type lbStickinessPolicyState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName *string `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -129,7 +129,7 @@ type LbStickinessPolicyState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -144,7 +144,7 @@ type lbStickinessPolicyArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName string `pulumi:"lbName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -156,7 +156,7 @@ type LbStickinessPolicyArgs struct {
 	Enabled pulumi.BoolInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -262,7 +262,7 @@ func (o LbStickinessPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LbStickinessPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

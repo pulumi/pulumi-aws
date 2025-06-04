@@ -40,6 +40,7 @@ class ManagedUserPoolClientArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -67,8 +68,9 @@ class ManagedUserPoolClientArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs'] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['ManagedUserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] write_attributes: List of user pool attributes that the application client can write to.
@@ -108,6 +110,8 @@ class ManagedUserPoolClientArgs:
             pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
             pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity is not None:
             pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if region is not None:
@@ -338,6 +342,18 @@ class ManagedUserPoolClientArgs:
         pulumi.set(self, "read_attributes", value)
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -353,7 +369,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -420,6 +436,7 @@ class _ManagedUserPoolClientState:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -449,8 +466,9 @@ class _ManagedUserPoolClientState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs'] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['ManagedUserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[builtins.str] user_pool_id: User pool that the client belongs to.
@@ -494,6 +512,8 @@ class _ManagedUserPoolClientState:
             pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
             pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity is not None:
             pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if region is not None:
@@ -738,6 +758,18 @@ class _ManagedUserPoolClientState:
         pulumi.set(self, "read_attributes", value)
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input['ManagedUserPoolClientRefreshTokenRotationArgs']]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -753,7 +785,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -833,6 +865,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -891,8 +924,9 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[builtins.str] user_pool_id: User pool that the client belongs to.
@@ -966,6 +1000,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -998,6 +1033,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["prevent_user_existence_errors"] = prevent_user_existence_errors
             __props__.__dict__["read_attributes"] = read_attributes
+            __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["refresh_token_validity"] = refresh_token_validity
             __props__.__dict__["region"] = region
             __props__.__dict__["supported_identity_providers"] = supported_identity_providers
@@ -1039,6 +1075,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
             read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            refresh_token_rotation: Optional[pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']]] = None,
             refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1073,8 +1110,9 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[Union['ManagedUserPoolClientRefreshTokenRotationArgs', 'ManagedUserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[Union['ManagedUserPoolClientTokenValidityUnitsArgs', 'ManagedUserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[builtins.str] user_pool_id: User pool that the client belongs to.
@@ -1103,6 +1141,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["prevent_user_existence_errors"] = prevent_user_existence_errors
         __props__.__dict__["read_attributes"] = read_attributes
+        __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["refresh_token_validity"] = refresh_token_validity
         __props__.__dict__["region"] = region
         __props__.__dict__["supported_identity_providers"] = supported_identity_providers
@@ -1266,6 +1305,14 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         return pulumi.get(self, "read_attributes")
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> pulumi.Output[Optional['outputs.ManagedUserPoolClientRefreshTokenRotation']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> pulumi.Output[builtins.int]:
         """
@@ -1277,7 +1324,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

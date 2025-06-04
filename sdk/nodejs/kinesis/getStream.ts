@@ -41,6 +41,9 @@ export interface GetStreamArgs {
      * Name of the Kinesis Stream.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags to assigned to the stream.
@@ -140,6 +143,9 @@ export interface GetStreamOutputArgs {
      * Name of the Kinesis Stream.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags to assigned to the stream.

@@ -2500,6 +2500,8 @@ class DataSetOutputColumn(dict):
         """
         :param builtins.str description: Field folder description.
         :param builtins.str name: Display name for the dataset.
+               
+               The following arguments are optional:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -2521,6 +2523,8 @@ class DataSetOutputColumn(dict):
     def name(self) -> Optional[builtins.str]:
         """
         Display name for the dataset.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

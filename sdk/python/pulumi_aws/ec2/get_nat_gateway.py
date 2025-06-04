@@ -250,6 +250,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
            NAT Gateways in the current Region. The given filters must match exactly one
            NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -323,6 +324,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            NAT Gateways in the current Region. The given filters must match exactly one
            NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match

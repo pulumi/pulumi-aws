@@ -273,6 +273,7 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
     :param builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str name: Full name of the availability zone to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
            
@@ -375,6 +376,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     :param builtins.bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str name: Full name of the availability zone to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
            

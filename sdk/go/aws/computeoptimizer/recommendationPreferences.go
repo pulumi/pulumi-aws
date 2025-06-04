@@ -110,7 +110,7 @@ type RecommendationPreferences struct {
 	LookBackPeriod pulumi.StringOutput `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayOutput `pulumi:"preferredResources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
@@ -165,7 +165,7 @@ type recommendationPreferencesState struct {
 	LookBackPeriod *string `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType *string `pulumi:"resourceType"`
@@ -188,7 +188,7 @@ type RecommendationPreferencesState struct {
 	LookBackPeriod pulumi.StringPtrInput
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringPtrInput
@@ -215,7 +215,7 @@ type recommendationPreferencesArgs struct {
 	LookBackPeriod *string `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType string `pulumi:"resourceType"`
@@ -239,7 +239,7 @@ type RecommendationPreferencesArgs struct {
 	LookBackPeriod pulumi.StringPtrInput
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringInput
@@ -367,7 +367,7 @@ func (o RecommendationPreferencesOutput) PreferredResources() RecommendationPref
 	}).(RecommendationPreferencesPreferredResourceArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o RecommendationPreferencesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecommendationPreferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -70,7 +70,7 @@ type Subscriber struct {
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
@@ -133,7 +133,7 @@ type subscriberState struct {
 	AccessType *string `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn *string `pulumi:"arn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
@@ -167,7 +167,7 @@ type SubscriberState struct {
 	AccessType pulumi.StringPtrInput
 	// ARN of the Data Lake.
 	Arn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringPtrInput
@@ -203,7 +203,7 @@ func (SubscriberState) ElementType() reflect.Type {
 type subscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Sources []SubscriberSource `pulumi:"sources"`
@@ -222,7 +222,7 @@ type subscriberArgs struct {
 type SubscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
 	Sources SubscriberSourceArrayInput
@@ -334,7 +334,7 @@ func (o SubscriberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SubscriberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

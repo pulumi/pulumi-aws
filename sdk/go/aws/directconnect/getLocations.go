@@ -51,6 +51,7 @@ func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -74,6 +75,7 @@ func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts .
 
 // A collection of arguments for invoking getLocations.
 type GetLocationsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

@@ -53,7 +53,7 @@ type Environment struct {
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
@@ -129,7 +129,7 @@ type environmentState struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
@@ -170,7 +170,7 @@ type EnvironmentState struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayInput
@@ -209,7 +209,7 @@ type environmentArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
@@ -244,7 +244,7 @@ type EnvironmentArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayInput
@@ -412,7 +412,7 @@ func (o EnvironmentOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnvironmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

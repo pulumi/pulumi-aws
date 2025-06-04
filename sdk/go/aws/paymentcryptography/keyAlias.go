@@ -80,7 +80,7 @@ type KeyAlias struct {
 	AliasName pulumi.StringOutput `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn pulumi.StringPtrOutput `pulumi:"keyArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -123,7 +123,7 @@ type keyAliasState struct {
 	AliasName *string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -134,7 +134,7 @@ type KeyAliasState struct {
 	AliasName pulumi.StringPtrInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -149,7 +149,7 @@ type keyAliasArgs struct {
 	AliasName string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -161,7 +161,7 @@ type KeyAliasArgs struct {
 	AliasName pulumi.StringInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -264,7 +264,7 @@ func (o KeyAliasOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyAlias) pulumi.StringPtrOutput { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o KeyAliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -47,6 +47,9 @@ export interface GetBotAssociationArgs {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot: inputs.connect.GetBotAssociationLexBot;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -102,5 +105,8 @@ export interface GetBotAssociationOutputArgs {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot: pulumi.Input<inputs.connect.GetBotAssociationLexBotArgs>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

@@ -119,7 +119,7 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrOutput `pulumi:"portalOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -183,7 +183,7 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -212,7 +212,7 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
@@ -241,7 +241,7 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -265,7 +265,7 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
@@ -402,7 +402,7 @@ func (o ApplicationOutput) PortalOptions() ApplicationPortalOptionsPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPortalOptionsPtrOutput { return v.PortalOptions }).(ApplicationPortalOptionsPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

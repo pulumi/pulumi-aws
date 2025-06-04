@@ -78,7 +78,8 @@ type GetSubscribedRuleGroupArgs struct {
 	// At least one of `name` or `metricName` must be configured.
 	MetricName *string `pulumi:"metricName"`
 	// Name of the WAF rule group.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -107,7 +108,8 @@ type GetSubscribedRuleGroupOutputArgs struct {
 	// At least one of `name` or `metricName` must be configured.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// Name of the WAF rule group.
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

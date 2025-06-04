@@ -128,6 +128,7 @@ def get_named_query(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: The plain language name for the query. Maximum length of 128.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
     """
     __args__ = dict()
@@ -163,6 +164,7 @@ def get_named_query_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: The plain language name for the query. Maximum length of 128.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
     """
     __args__ = dict()

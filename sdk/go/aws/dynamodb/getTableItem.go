@@ -66,7 +66,8 @@ type LookupTableItemArgs struct {
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
 	ProjectionExpression *string `pulumi:"projectionExpression"`
-	Region               *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the table containing the requested item.
 	TableName string `pulumi:"tableName"`
 }
@@ -104,7 +105,8 @@ type LookupTableItemOutputArgs struct {
 	// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
 	// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
 	ProjectionExpression pulumi.StringPtrInput `pulumi:"projectionExpression"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the table containing the requested item.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }

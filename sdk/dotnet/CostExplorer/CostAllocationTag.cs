@@ -43,12 +43,6 @@ namespace Pulumi.Aws.CostExplorer
     public partial class CostAllocationTag : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
-
-        /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Output("status")]
@@ -113,12 +107,6 @@ namespace Pulumi.Aws.CostExplorer
     public sealed class CostAllocationTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Input("status", required: true)]
@@ -138,12 +126,6 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class CostAllocationTagState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
