@@ -35,7 +35,7 @@ func TestMinimalSchema(t *testing.T) {
 	require.NoError(t, err)
 	t.Logf("Parsed minimal schema")
 	loader := schema.NewPluginLoader(utils.NewHostWithProviders(t.TempDir()))
-	_, diags, err := schema.BindSpec(packageSpec, loader)
+	_, diags, err := schema.BindSpec(packageSpec, loader, schema.ValidationOptions{AllowDanglingReferences: true})
 	require.NoError(t, err)
 	for _, d := range diags {
 		t.Logf("sev=%v summary: %s\n    detail: %s", d.Severity, d.Summary, d.Detail)
