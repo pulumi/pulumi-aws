@@ -15,7 +15,17 @@ __all__ = [
 @pulumi.type_token("aws:alb/IpAddressType:IpAddressType")
 class IpAddressType(builtins.str, Enum):
     IPV4 = "ipv4"
+    """
+    IPv4 addresses
+    """
     DUALSTACK = "dualstack"
+    """
+    IPv4 and IPv6 addresses
+    """
+    DUALSTACK_WITHOUT_PUBLIC_IPV4 = "dualstack-without-public-ipv4"
+    """
+    Public IPv6 addresses and private IPv4 and IPv6 addresses
+    """
 
 
 @pulumi.type_token("aws:alb/LoadBalancerType:LoadBalancerType")

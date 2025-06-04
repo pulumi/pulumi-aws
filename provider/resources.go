@@ -5273,7 +5273,10 @@ compatibility shim in favor of the new "name" field.`)
 		awsResource(albMod, "LoadBalancer"), &tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
 				"load_balancer_type": {Type: awsType(albMod, "LoadBalancerType", "LoadBalancerType")},
-				"ip_address_type":    {Type: awsType(albMod, "IpAddressType", "IpAddressType")},
+				"ip_address_type": {
+					Type:     "string",
+					AltTypes: []tokens.Type{awsType(albMod, "IpAddressType", "IpAddressType")},
+				},
 			},
 			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 		})

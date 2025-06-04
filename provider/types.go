@@ -131,8 +131,13 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Type: "string",
 		},
 		Enum: []schema.EnumValueSpec{
-			{Name: "Ipv4", Value: "ipv4"},
-			{Name: "Dualstack", Value: "dualstack"},
+			{Name: "Ipv4", Value: "ipv4", Description: "IPv4 addresses"},
+			{Name: "Dualstack", Value: "dualstack", Description: "IPv4 and IPv6 addresses"},
+			{
+				Name:        "DualstackWithoutPublicIpv4",
+				Value:       "dualstack-without-public-ipv4",
+				Description: "Public IPv6 addresses and private IPv4 and IPv6 addresses",
+			},
 		},
 	},
 	"aws:alb/LoadBalancerType:LoadBalancerType": {
