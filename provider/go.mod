@@ -194,8 +194,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internetmonitor v1.21.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/invoicing v1.1.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iot v1.64.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/iotanalytics v1.27.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/iotevents v1.28.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ivs v1.43.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ivschat v1.17.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kafka v1.39.2 // indirect
@@ -234,6 +232,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/networkfirewall v1.47.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/networkmanager v1.34.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/networkmonitor v1.8.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/notifications v1.2.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/notificationscontacts v1.1.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/oam v1.17.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearch v1.46.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.19.2 // indirect
