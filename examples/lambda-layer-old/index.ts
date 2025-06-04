@@ -14,8 +14,8 @@ let layer = new aws.lambda.LayerVersion("my-layer-version", {
         ),
     }),
     compatibleRuntimes: [
-        aws.lambda.NodeJS10dXRuntime,
-        aws.lambda.NodeJS12dXRuntime,
+        aws.lambda.Runtime.NodeJS20dX,
+        aws.lambda.Runtime.NodeJS22dX,
     ],
     layerName: "lambda_layer_name",
 }, providerOpts);

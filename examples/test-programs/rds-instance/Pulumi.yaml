@@ -16,7 +16,7 @@ resources:
       engine: postgres
       instanceClass: db.t4g.micro
       allocatedStorage: 30
-      name: mydbname
+      dbName: mydbname
       username: mydbuser
       password: mypassword
       skipFinalSnapshot: true

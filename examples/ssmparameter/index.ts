@@ -19,6 +19,6 @@ const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const foo = new aws.ssm.Parameter("foo", {
-    type: aws.ssm.StringParameter,
+    type: aws.ssm.ParameterType.String,
     value: "bar",
 }, providerOpts);
