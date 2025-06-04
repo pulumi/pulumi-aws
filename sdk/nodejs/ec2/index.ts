@@ -450,8 +450,6 @@ export type InstanceMetadataDefaults = import("./instanceMetadataDefaults").Inst
 export const InstanceMetadataDefaults: typeof import("./instanceMetadataDefaults").InstanceMetadataDefaults = null as any;
 utilities.lazyLoad(exports, ["InstanceMetadataDefaults"], () => require("./instanceMetadataDefaults"));
 
-export * from "./instancePlatform";
-export * from "./instanceType";
 export { InternetGatewayArgs, InternetGatewayState } from "./internetGateway";
 export type InternetGateway = import("./internetGateway").InternetGateway;
 export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
@@ -562,8 +560,6 @@ export type PlacementGroup = import("./placementGroup").PlacementGroup;
 export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
 utilities.lazyLoad(exports, ["PlacementGroup"], () => require("./placementGroup"));
 
-export * from "./placementStrategy";
-export * from "./protocolType";
 export { ProxyProtocolPolicyArgs, ProxyProtocolPolicyState } from "./proxyProtocolPolicy";
 export type ProxyProtocolPolicy = import("./proxyProtocolPolicy").ProxyProtocolPolicy;
 export const ProxyProtocolPolicy: typeof import("./proxyProtocolPolicy").ProxyProtocolPolicy = null as any;
@@ -639,7 +635,6 @@ export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
-export * from "./tenancy";
 export { TrafficMirrorFilterArgs, TrafficMirrorFilterState } from "./trafficMirrorFilter";
 export type TrafficMirrorFilter = import("./trafficMirrorFilter").TrafficMirrorFilter;
 export const TrafficMirrorFilter: typeof import("./trafficMirrorFilter").TrafficMirrorFilter = null as any;

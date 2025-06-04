@@ -583,8 +583,6 @@ type Instance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringOutput `pulumi:"ncharCharacterSetName"`
@@ -871,8 +869,6 @@ type instanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
@@ -1120,8 +1116,6 @@ type InstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringPtrInput
@@ -1357,8 +1351,6 @@ type instanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz *bool `pulumi:"multiAz"`
-	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-	Name *string `pulumi:"name"`
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
@@ -1584,8 +1576,6 @@ type InstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies if the RDS instance is multi-AZ
 	MultiAz pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-	Name pulumi.StringPtrInput
 	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
 	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
 	NcharCharacterSetName pulumi.StringPtrInput
@@ -2069,11 +2059,6 @@ func (o InstanceOutput) MonitoringRoleArn() pulumi.StringOutput {
 // Specifies if the RDS instance is multi-AZ
 func (o InstanceOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been deprecated. Please use 'dbName' instead.
-func (o InstanceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets

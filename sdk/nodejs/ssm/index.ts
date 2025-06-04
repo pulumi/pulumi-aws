@@ -90,7 +90,6 @@ export type Parameter = import("./parameter").Parameter;
 export const Parameter: typeof import("./parameter").Parameter = null as any;
 utilities.lazyLoad(exports, ["Parameter"], () => require("./parameter"));
 
-export * from "./parameterType";
 export { PatchBaselineArgs, PatchBaselineState } from "./patchBaseline";
 export type PatchBaseline = import("./patchBaseline").PatchBaseline;
 export const PatchBaseline: typeof import("./patchBaseline").PatchBaseline = null as any;

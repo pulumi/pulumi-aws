@@ -125,12 +125,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSCloudHSMFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudHSMFullAccess");
         public static ManagedPolicy AWSCloudHSMReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudHSMReadOnlyAccess");
         public static ManagedPolicy AWSCloudHSMRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole");
-        [Obsolete(@"No longer supported. Use CloudTrail_FullAccess instead.")]
-        public static ManagedPolicy AWSCloudTrailFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudTrailFullAccess");
-        [Obsolete(@"No longer supported. Use CloudTrail_ReadOnlyAccess instead.")]
-        public static ManagedPolicy AWSCloudTrailReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess");
-        [Obsolete(@"No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead.")]
-        public static ManagedPolicy AWSCloudWatchLambdaInsightsExecutionRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy");
         public static ManagedPolicy AWSCloudMapDiscoverInstanceAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudMapDiscoverInstanceAccess");
         public static ManagedPolicy AWSCloudMapFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudMapFullAccess");
         public static ManagedPolicy AWSCloudMapReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudMapReadOnlyAccess");
@@ -158,18 +152,12 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSCodeDeployRoleForLambdaLimited { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForLambdaLimited");
         public static ManagedPolicy AWSCodePipelineApproverAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess");
         public static ManagedPolicy AWSCodePipelineCustomActionAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess");
-        [Obsolete(@"No longer supported. Use CodePipeline_FullAccess instead.")]
-        public static ManagedPolicy AWSCodePipelineFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipelineFullAccess");
-        [Obsolete(@"No longer supported. Use CodePipeline_ReadOnlyAccess instead.")]
-        public static ManagedPolicy AWSCodePipelineReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess");
         public static ManagedPolicy CodePipeline_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess");
         public static ManagedPolicy CodePipeline_ReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess");
         public static ManagedPolicy AWSCodeStarFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodeStarFullAccess");
         public static ManagedPolicy AWSCodeStarNotificationsServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSCodeStarNotificationsServiceRolePolicy");
         public static ManagedPolicy AWSCodeStarServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole");
         public static ManagedPolicy AWS_ConfigRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole");
-        [Obsolete(@"This has been deprecated in favour of `AWS_ConfigRole`")]
-        public static ManagedPolicy AWSConfigRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSConfigRole");
         public static ManagedPolicy AWSCompromisedKeyQuarantine { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantine");
         public static ManagedPolicy AWSCompromisedKeyQuarantineV2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV2");
         public static ManagedPolicy AWSConfigMultiAccountSetupPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSConfigMultiAccountSetupPolicy");
@@ -191,8 +179,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSDataLifecycleManagerSSMFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerSSMFullAccess");
         public static ManagedPolicy AWSDataLifecycleManagerServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole");
         public static ManagedPolicy AWSDataLifecycleManagerServiceRoleForAMIManagement { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRoleForAMIManagement");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AWSDataPipelineRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole");
         public static ManagedPolicy AWSDataPipeline_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_FullAccess");
         public static ManagedPolicy AWSDataPipeline_PowerUser { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_PowerUser");
         public static ManagedPolicy AWSDataSyncDiscoveryServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDataSyncDiscoveryServiceRolePolicy");
@@ -223,14 +209,10 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSECRPullThroughCache_ServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy");
         public static ManagedPolicy AWSElasticBeanstalkCustomPlatformforEC2Role { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role");
         public static ManagedPolicy AWSElasticBeanstalkEnhancedHealth { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth");
-        [Obsolete(@"This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead.")]
-        public static ManagedPolicy AWSElasticBeanstalkFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess");
         public static ManagedPolicy AWSElasticBeanstalkMaintenance { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkMaintenance");
         public static ManagedPolicy AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy");
         public static ManagedPolicy AWSElasticBeanstalkManagedUpdatesServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkManagedUpdatesServiceRolePolicy");
         public static ManagedPolicy AWSElasticBeanstalkMulticontainerDocker { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker");
-        [Obsolete(@"This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead.")]
-        public static ManagedPolicy AWSElasticBeanstalkReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess");
         public static ManagedPolicy AWSElasticBeanstalkReadOnly { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnly");
         public static ManagedPolicy AWSElasticBeanstalkRoleCWL { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCWL");
         public static ManagedPolicy AWSElasticBeanstalkRoleCore { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCore");
@@ -241,8 +223,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSElasticBeanstalkService { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService");
         public static ManagedPolicy AWSElasticBeanstalkServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy");
         public static ManagedPolicy AWSElasticBeanstalkWebTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier");
-        [Obsolete(@"This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`")]
-        public static ManagedPolicy AWSElasticBeanstakWorkerTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier");
         public static ManagedPolicy AWSElasticBeanstalkWorkerTier { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier");
         public static ManagedPolicy AWSElasticDisasterRecoveryAgentInstallationPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryAgentInstallationPolicy");
         public static ManagedPolicy AWSElasticDisasterRecoveryAgentPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryAgentPolicy");
@@ -303,8 +283,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSGrafanaWorkspacePermissionManagement { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagement");
         public static ManagedPolicy AWSGrafanaWorkspacePermissionManagementV2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagementV2");
         public static ManagedPolicy AWSGreengrassFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess");
-        [Obsolete(@"Please use AWSGreengrassFullAccess instead")]
-        public static ManagedPolicy AWSGreengrassFullccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess");
         public static ManagedPolicy AWSGreengrassReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassReadOnlyAccess");
         public static ManagedPolicy AWSGreengrassResourceAccessRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy");
         public static ManagedPolicy AWSGroundStationAgentInstancePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSGroundStationAgentInstancePolicy");
@@ -375,13 +353,9 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSLambdaDynamoDBExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole");
         public static ManagedPolicy AWSLambdaENIManagementAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess");
         public static ManagedPolicy AWSLambdaExecute { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaExecute");
-        [Obsolete(@"This has been deprecated in favour of `LambdaFullAccess`")]
-        public static ManagedPolicy AWSLambdaFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaFullAccess");
         public static ManagedPolicy LambdaFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_FullAccess");
         public static ManagedPolicy AWSLambdaInvocationDynamoDB { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB");
         public static ManagedPolicy AWSLambdaKinesisExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole");
-        [Obsolete(@"This has been deprecated in favour of `LambdaReadOnlyAccess`")]
-        public static ManagedPolicy AWSLambdaReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess");
         public static ManagedPolicy LambdaReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess");
         public static ManagedPolicy AWSLambdaMSKExecutionRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaMSKExecutionRole");
         public static ManagedPolicy AWSLambdaReplicator { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLambdaReplicator");
@@ -433,12 +407,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSMigrationHubStrategyCollector { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyCollector");
         public static ManagedPolicy AWSMigrationHubStrategyConsoleFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyConsoleFullAccess");
         public static ManagedPolicy AWSMigrationHubStrategyServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AWSMobileHub_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_FullAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AWSMobileHub_ReadOnly { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AWSMobileHub_ServiceUseOnly { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly");
         public static ManagedPolicy AWSNetworkFirewallServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy");
         public static ManagedPolicy AWSNetworkManagerCloudWANServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerCloudWANServiceRolePolicy");
         public static ManagedPolicy AWSNetworkManagerFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess");
@@ -447,15 +415,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSOpsWorksCMInstanceProfileRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole");
         public static ManagedPolicy AWSOpsWorksCMServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole");
         public static ManagedPolicy AWSOpsWorksCloudWatchLogs { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.")]
-        public static ManagedPolicy AWSOpsWorksFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksFullAccess");
         public static ManagedPolicy AWSOpsWorksInstanceRegistration { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead.")]
-        public static ManagedPolicy AWSOpsWorksRegisterCLI { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead.")]
-        public static ManagedPolicy AWSOpsWorksRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead.")]
-        public static ManagedPolicy AWSQuickSightDescribeRD { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS");
         public static ManagedPolicy AWSOpsWorksRegisterCLI_EC2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2");
         public static ManagedPolicy AWSOpsWorksRegisterCLI_OnPremises { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises");
         public static ManagedPolicy OpsWorks_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess");
@@ -721,22 +681,16 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonEC2ContainerRegistryReadOnly { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly");
         public static ManagedPolicy AmazonEC2ContainerServiceAutoscaleRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole");
         public static ManagedPolicy AmazonEC2ContainerServiceEventsRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead.")]
-        public static ManagedPolicy AmazonEC2ContainerServiceFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess");
         public static ManagedPolicy AmazonEC2ContainerServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole");
         public static ManagedPolicy AmazonEC2ContainerServiceforEC2Role { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role");
         public static ManagedPolicy AmazonEC2FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2FullAccess");
         public static ManagedPolicy AmazonEC2ReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AmazonEC2ReportsAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ReportsAccess");
         public static ManagedPolicy AmazonEC2RolePolicyForLaunchWizard { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2RolePolicyForLaunchWizard");
         public static ManagedPolicy AmazonEC2RoleforAWSCodeDeploy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy");
         public static ManagedPolicy AmazonEC2RoleforAWSCodeDeployLimited { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeployLimited");
         public static ManagedPolicy AmazonEC2RoleforDataPipelineRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforDataPipelineRole");
         public static ManagedPolicy AmazonEC2RoleforSSM { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM");
         public static ManagedPolicy AmazonEC2SpotFleetAutoscaleRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AmazonEC2SpotFleetRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole");
         public static ManagedPolicy AmazonEC2SpotFleetTaggingRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole");
         public static ManagedPolicy AmazonECSFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess");
         public static ManagedPolicy AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity");
@@ -783,12 +737,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonElasticMapReduceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole");
         public static ManagedPolicy AmazonElasticMapReduceforAutoScalingRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole");
         public static ManagedPolicy AmazonElasticMapReduceforEC2Role { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead.")]
-        public static ManagedPolicy AmazonElasticTranscoderFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead.")]
-        public static ManagedPolicy AmazonElasticTranscoderJobsSubmitter { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead.")]
-        public static ManagedPolicy AmazonElasticTranscoderReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess");
         public static ManagedPolicy AmazonElasticTranscoderRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole");
         public static ManagedPolicy ElasticTranscoder_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess");
         public static ManagedPolicy ElasticTranscoder_JobsSubmitter { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_JobsSubmitter");
@@ -855,8 +803,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonKinesisReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess");
         public static ManagedPolicy AmazonKinesisVideoStreamsFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsFullAccess");
         public static ManagedPolicy AmazonKinesisVideoStreamsReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AmazonLaunchWizard_Fullaccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonLaunchWizard_Fullaccess");
         public static ManagedPolicy AmazonLaunchWizardFullAccessV2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonLaunchWizardFullAccessV2");
         public static ManagedPolicy AmazonLexChannelsAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonLexChannelsAccess");
         public static ManagedPolicy AmazonLexFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonLexFullAccess");
@@ -889,8 +835,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonMachineLearningManageRealTimeEndpointOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonMachineLearningManageRealTimeEndpointOnlyAccess");
         public static ManagedPolicy AmazonMachineLearningReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonMachineLearningReadOnlyAccess");
         public static ManagedPolicy AmazonMachineLearningRealTimePredictionOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonMachineLearningRealTimePredictionOnlyAccess");
-        [Obsolete(@"This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead.")]
-        public static ManagedPolicy AmazonMachineLearningRoleforRedshiftDataSource { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource");
         public static ManagedPolicy AmazonMachineLearningRoleforRedshiftDataSourceV3 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3");
         public static ManagedPolicy AmazonMacieFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonMacieFullAccess");
         public static ManagedPolicy AmazonMacieHandshakeRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole");
@@ -1038,8 +982,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonSecurityLakeAdministrator { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSecurityLakeAdministrator");
         public static ManagedPolicy AmazonSecurityLakeMetastoreManager { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSecurityLakeMetastoreManager");
         public static ManagedPolicy AmazonSecurityLakePermissionsBoundary { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSecurityLakePermissionsBoundary");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy AmazonSumerianFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonSumerianFullAccess");
         public static ManagedPolicy AmazonTextractFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonTextractFullAccess");
         public static ManagedPolicy AmazonTextractServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonTextractServiceRole");
         public static ManagedPolicy AmazonTimestreamConsoleFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamConsoleFullAccess");
@@ -1166,8 +1108,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy ElementalSupportCenterFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess");
         public static ManagedPolicy FMSServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy");
         public static ManagedPolicy FSxDeleteServiceLinkedRoleAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release.")]
-        public static ManagedPolicy FusionDevInternalServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FusionDevInternalServiceRolePolicy");
         public static ManagedPolicy GameLiftGameServerGroupPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy");
         public static ManagedPolicy GlobalAcceleratorFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess");
         public static ManagedPolicy GlobalAcceleratorReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess");
@@ -1234,16 +1174,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy SecurityAudit { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit");
         public static ManagedPolicy SecurityLakeServiceLinkedRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole");
         public static ManagedPolicy ServerMigrationConnector { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.")]
-        public static ManagedPolicy ServerMigrationServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead.")]
-        public static ManagedPolicy ServiceCatalogAdminFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead.")]
-        public static ManagedPolicy ServiceCatalogAdminReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServiceCatalogAdminReadOnlyAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead.")]
-        public static ManagedPolicy ServiceCatalogEndUserAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServiceCatalogEndUserAccess");
-        [Obsolete(@"This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead.")]
-        public static ManagedPolicy ServiceCatalogEndUserFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServiceCatalogEndUserFullAccess");
         public static ManagedPolicy ServerMigrationServiceConsoleFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess");
         public static ManagedPolicy ServerMigrationServiceLaunchRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole");
         public static ManagedPolicy ServerMigrationServiceRoleForInstanceValidation { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation");

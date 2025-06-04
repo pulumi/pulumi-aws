@@ -106,7 +106,6 @@ export type RuntimeManagementConfig = import("./runtimeManagementConfig").Runtim
 export const RuntimeManagementConfig: typeof import("./runtimeManagementConfig").RuntimeManagementConfig = null as any;
 utilities.lazyLoad(exports, ["RuntimeManagementConfig"], () => require("./runtimeManagementConfig"));
 
-export * from "./runtimes";
 
 // Export enums:
 export * from "../types/enums/lambda";

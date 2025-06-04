@@ -964,26 +964,6 @@ const (
 	InstanceType_Z1d_Large         = InstanceType("z1d.large")
 	InstanceType_Z1d_Metal         = InstanceType("z1d.metal")
 	InstanceType_Z1d_XLarge        = InstanceType("z1d.xlarge")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_U_12tb1Metal = InstanceType("u-12tb1.metal")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_U_6tb1Metal = InstanceType("u-6tb1.metal")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_U_9tb1Metal = InstanceType("u-9tb1.metal")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_Hs1_8XLarge = InstanceType("hs1.8xlarge")
-	// Deprecated: Has a typo, use M5ad_XLarge instead
-	InstanceType_M5as_XLarge = InstanceType("m5ad.xlarge")
-	// Deprecated: Use C7a_Metal_48xl instead
-	InstanceType_C7a_Metal = InstanceType("c7a.metal-48xl")
-	// Deprecated: Use M7a_Metal_48xl instead
-	InstanceType_M7a_Metal = InstanceType("m7a.metal-48xl")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_Cc2_8XLarge = InstanceType("cc2.8xlarge")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_G2_2XLarge = InstanceType("g2.2xlarge")
-	// Deprecated: This instancetype has been deprecated
-	InstanceType_G2_8XLarge = InstanceType("g2.8xlarge")
 )
 
 func (InstanceType) ElementType() reflect.Type {

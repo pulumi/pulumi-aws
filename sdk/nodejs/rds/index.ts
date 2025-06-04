@@ -55,8 +55,6 @@ export type CustomDbEngineVersion = import("./customDbEngineVersion").CustomDbEn
 export const CustomDbEngineVersion: typeof import("./customDbEngineVersion").CustomDbEngineVersion = null as any;
 utilities.lazyLoad(exports, ["CustomDbEngineVersion"], () => require("./customDbEngineVersion"));
 
-export * from "./engineMode";
-export * from "./engineType";
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -162,7 +160,6 @@ export type InstanceDesiredState = import("./instanceDesiredState").InstanceDesi
 export const InstanceDesiredState: typeof import("./instanceDesiredState").InstanceDesiredState = null as any;
 utilities.lazyLoad(exports, ["InstanceDesiredState"], () => require("./instanceDesiredState"));
 
-export * from "./instanceType";
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
@@ -223,7 +220,6 @@ export type SnapshotCopy = import("./snapshotCopy").SnapshotCopy;
 export const SnapshotCopy: typeof import("./snapshotCopy").SnapshotCopy = null as any;
 utilities.lazyLoad(exports, ["SnapshotCopy"], () => require("./snapshotCopy"));
 
-export * from "./storageType";
 export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;

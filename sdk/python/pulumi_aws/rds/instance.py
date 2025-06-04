@@ -68,7 +68,6 @@ class InstanceArgs:
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -337,11 +336,6 @@ class InstanceArgs:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
-        if name is not None:
-            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -987,16 +981,6 @@ class InstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1381,7 +1365,6 @@ class _InstanceState:
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1682,11 +1665,6 @@ class _InstanceState:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
-        if name is not None:
-            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -2436,16 +2414,6 @@ class _InstanceState:
         pulumi.set(self, "multi_az", value)
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -2870,7 +2838,6 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -3623,7 +3590,6 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -3705,7 +3671,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
-            __props__.__dict__["name"] = name
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
@@ -3808,7 +3773,6 @@ class Instance(pulumi.CustomResource):
             monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
             monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None,
             nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
             network_type: Optional[pulumi.Input[builtins.str]] = None,
             option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -4065,7 +4029,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["monitoring_interval"] = monitoring_interval
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["multi_az"] = multi_az
-        __props__.__dict__["name"] = name
         __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["option_group_name"] = option_group_name
@@ -4573,12 +4536,6 @@ class Instance(pulumi.CustomResource):
         Specifies if the RDS instance is multi-AZ
         """
         return pulumi.get(self, "multi_az")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ncharCharacterSetName")
