@@ -408,13 +408,6 @@ const (
 	ManagedPolicyAWSNetworkManagerFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess")
 	ManagedPolicyAWSNetworkManagerReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSNetworkManagerReadOnlyAccess")
 	ManagedPolicyAWSNetworkManagerServiceRolePolicy                                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy")
-	ManagedPolicyAWSOpsWorksCMInstanceProfileRole                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole")
-	ManagedPolicyAWSOpsWorksCMServiceRole                                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole")
-	ManagedPolicyAWSOpsWorksCloudWatchLogs                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs")
-	ManagedPolicyAWSOpsWorksInstanceRegistration                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration")
-	ManagedPolicy_AWSOpsWorksRegisterCLI_EC2                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2")
-	ManagedPolicy_AWSOpsWorksRegisterCLI_OnPremises                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises")
-	ManagedPolicy_OpsWorks_FullAccess                                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess")
 	ManagedPolicyAWSOrganizationsFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess")
 	ManagedPolicyAWSOrganizationsReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess")
 	ManagedPolicyAWSOrganizationsServiceTrustPolicy                                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy")
@@ -600,15 +593,6 @@ const (
 	ManagedPolicyAmazonBraketFullAccess                                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketFullAccess")
 	ManagedPolicyAmazonBraketJobsExecutionPolicy                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy")
 	ManagedPolicyAmazonBraketServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy")
-	ManagedPolicyAmazonChimeFullAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeFullAccess")
-	ManagedPolicyAmazonChimeReadOnly                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeReadOnly")
-	ManagedPolicyAmazonChimeSDK                                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeSDK")
-	ManagedPolicyAmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy")
-	ManagedPolicyAmazonChimeSDKMessagingServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMessagingServiceRolePolicy")
-	ManagedPolicyAmazonChimeServiceRolePolicy                                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy")
-	ManagedPolicyAmazonChimeTranscriptionServiceLinkedRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy")
-	ManagedPolicyAmazonChimeUserManagement                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeUserManagement")
-	ManagedPolicyAmazonChimeVoiceConnectorServiceLinkedRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy")
 	ManagedPolicyAmazonCloudDirectoryFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess")
 	ManagedPolicyAmazonCloudDirectoryReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess")
 	ManagedPolicyAmazonCloudWatchEvidentlyFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess")
@@ -1104,7 +1088,6 @@ const (
 	ManagedPolicyElementalSupportCenterFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess")
 	ManagedPolicyFMSServiceRolePolicy                                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy")
 	ManagedPolicyFSxDeleteServiceLinkedRoleAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess")
-	ManagedPolicyGameLiftGameServerGroupPolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy")
 	ManagedPolicyGlobalAcceleratorFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess")
 	ManagedPolicyGlobalAcceleratorReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess")
 	ManagedPolicyGreengrassOTAUpdateArtifactAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess")
@@ -1192,7 +1175,6 @@ const (
 	ManagedPolicyWAFV2LoggingServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy")
 	ManagedPolicyWellArchitectedConsoleFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess")
 	ManagedPolicyWellArchitectedConsoleReadOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess")
-	ManagedPolicyWorkLinkServiceRolePolicy                                                   = ManagedPolicy("arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy")
 )
 
 func (ManagedPolicy) ElementType() reflect.Type {
@@ -1712,13 +1694,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSNetworkManagerFullAccess
 //	ManagedPolicyAWSNetworkManagerReadOnlyAccess
 //	ManagedPolicyAWSNetworkManagerServiceRolePolicy
-//	ManagedPolicyAWSOpsWorksCMInstanceProfileRole
-//	ManagedPolicyAWSOpsWorksCMServiceRole
-//	ManagedPolicyAWSOpsWorksCloudWatchLogs
-//	ManagedPolicyAWSOpsWorksInstanceRegistration
-//	ManagedPolicy_AWSOpsWorksRegisterCLI_EC2
-//	ManagedPolicy_AWSOpsWorksRegisterCLI_OnPremises
-//	ManagedPolicy_OpsWorks_FullAccess
 //	ManagedPolicyAWSOrganizationsFullAccess
 //	ManagedPolicyAWSOrganizationsReadOnlyAccess
 //	ManagedPolicyAWSOrganizationsServiceTrustPolicy
@@ -1904,15 +1879,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonBraketFullAccess
 //	ManagedPolicyAmazonBraketJobsExecutionPolicy
 //	ManagedPolicyAmazonBraketServiceRolePolicy
-//	ManagedPolicyAmazonChimeFullAccess
-//	ManagedPolicyAmazonChimeReadOnly
-//	ManagedPolicyAmazonChimeSDK
-//	ManagedPolicyAmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy
-//	ManagedPolicyAmazonChimeSDKMessagingServiceRolePolicy
-//	ManagedPolicyAmazonChimeServiceRolePolicy
-//	ManagedPolicyAmazonChimeTranscriptionServiceLinkedRolePolicy
-//	ManagedPolicyAmazonChimeUserManagement
-//	ManagedPolicyAmazonChimeVoiceConnectorServiceLinkedRolePolicy
 //	ManagedPolicyAmazonCloudDirectoryFullAccess
 //	ManagedPolicyAmazonCloudDirectoryReadOnlyAccess
 //	ManagedPolicyAmazonCloudWatchEvidentlyFullAccess
@@ -2408,7 +2374,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyElementalSupportCenterFullAccess
 //	ManagedPolicyFMSServiceRolePolicy
 //	ManagedPolicyFSxDeleteServiceLinkedRoleAccess
-//	ManagedPolicyGameLiftGameServerGroupPolicy
 //	ManagedPolicyGlobalAcceleratorFullAccess
 //	ManagedPolicyGlobalAcceleratorReadOnlyAccess
 //	ManagedPolicyGreengrassOTAUpdateArtifactAccess
@@ -2496,7 +2461,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyWAFV2LoggingServiceRolePolicy
 //	ManagedPolicyWellArchitectedConsoleFullAccess
 //	ManagedPolicyWellArchitectedConsoleReadOnlyAccess
-//	ManagedPolicyWorkLinkServiceRolePolicy
 type ManagedPolicyInput interface {
 	pulumi.Input
 

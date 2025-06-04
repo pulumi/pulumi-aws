@@ -405,13 +405,6 @@ import java.util.StringJoiner;
         AWSNetworkManagerFullAccess("arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess"),
         AWSNetworkManagerReadOnlyAccess("arn:aws:iam::aws:policy/AWSNetworkManagerReadOnlyAccess"),
         AWSNetworkManagerServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy"),
-        AWSOpsWorksCMInstanceProfileRole("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole"),
-        AWSOpsWorksCMServiceRole("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole"),
-        AWSOpsWorksCloudWatchLogs("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"),
-        AWSOpsWorksInstanceRegistration("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration"),
-        AWSOpsWorksRegisterCLI_EC2("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2"),
-        AWSOpsWorksRegisterCLI_OnPremises("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises"),
-        OpsWorks_FullAccess("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess"),
         AWSOrganizationsFullAccess("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess"),
         AWSOrganizationsReadOnlyAccess("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess"),
         AWSOrganizationsServiceTrustPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy"),
@@ -597,15 +590,6 @@ import java.util.StringJoiner;
         AmazonBraketFullAccess("arn:aws:iam::aws:policy/AmazonBraketFullAccess"),
         AmazonBraketJobsExecutionPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy"),
         AmazonBraketServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy"),
-        AmazonChimeFullAccess("arn:aws:iam::aws:policy/AmazonChimeFullAccess"),
-        AmazonChimeReadOnly("arn:aws:iam::aws:policy/AmazonChimeReadOnly"),
-        AmazonChimeSDK("arn:aws:iam::aws:policy/AmazonChimeSDK"),
-        AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy"),
-        AmazonChimeSDKMessagingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMessagingServiceRolePolicy"),
-        AmazonChimeServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy"),
-        AmazonChimeTranscriptionServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy"),
-        AmazonChimeUserManagement("arn:aws:iam::aws:policy/AmazonChimeUserManagement"),
-        AmazonChimeVoiceConnectorServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy"),
         AmazonCloudDirectoryFullAccess("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess"),
         AmazonCloudDirectoryReadOnlyAccess("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess"),
         AmazonCloudWatchEvidentlyFullAccess("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess"),
@@ -1101,7 +1085,6 @@ import java.util.StringJoiner;
         ElementalSupportCenterFullAccess("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess"),
         FMSServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy"),
         FSxDeleteServiceLinkedRoleAccess("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess"),
-        GameLiftGameServerGroupPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy"),
         GlobalAcceleratorFullAccess("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess"),
         GlobalAcceleratorReadOnlyAccess("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess"),
         GreengrassOTAUpdateArtifactAccess("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess"),
@@ -1188,8 +1171,7 @@ import java.util.StringJoiner;
         WAFRegionalLoggingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/WAFRegionalLoggingServiceRolePolicy"),
         WAFV2LoggingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy"),
         WellArchitectedConsoleFullAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess"),
-        WellArchitectedConsoleReadOnlyAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess"),
-        WorkLinkServiceRolePolicy("arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy");
+        WellArchitectedConsoleReadOnlyAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess");
 
         private final String value;
 

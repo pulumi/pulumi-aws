@@ -412,13 +412,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSNetworkManagerFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess");
         public static ManagedPolicy AWSNetworkManagerReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSNetworkManagerReadOnlyAccess");
         public static ManagedPolicy AWSNetworkManagerServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy");
-        public static ManagedPolicy AWSOpsWorksCMInstanceProfileRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole");
-        public static ManagedPolicy AWSOpsWorksCMServiceRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole");
-        public static ManagedPolicy AWSOpsWorksCloudWatchLogs { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs");
-        public static ManagedPolicy AWSOpsWorksInstanceRegistration { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration");
-        public static ManagedPolicy AWSOpsWorksRegisterCLI_EC2 { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2");
-        public static ManagedPolicy AWSOpsWorksRegisterCLI_OnPremises { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises");
-        public static ManagedPolicy OpsWorks_FullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess");
         public static ManagedPolicy AWSOrganizationsFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess");
         public static ManagedPolicy AWSOrganizationsReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess");
         public static ManagedPolicy AWSOrganizationsServiceTrustPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy");
@@ -604,15 +597,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AmazonBraketFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketFullAccess");
         public static ManagedPolicy AmazonBraketJobsExecutionPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy");
         public static ManagedPolicy AmazonBraketServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy");
-        public static ManagedPolicy AmazonChimeFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeFullAccess");
-        public static ManagedPolicy AmazonChimeReadOnly { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeReadOnly");
-        public static ManagedPolicy AmazonChimeSDK { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeSDK");
-        public static ManagedPolicy AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy");
-        public static ManagedPolicy AmazonChimeSDKMessagingServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMessagingServiceRolePolicy");
-        public static ManagedPolicy AmazonChimeServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy");
-        public static ManagedPolicy AmazonChimeTranscriptionServiceLinkedRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy");
-        public static ManagedPolicy AmazonChimeUserManagement { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeUserManagement");
-        public static ManagedPolicy AmazonChimeVoiceConnectorServiceLinkedRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy");
         public static ManagedPolicy AmazonCloudDirectoryFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess");
         public static ManagedPolicy AmazonCloudDirectoryReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess");
         public static ManagedPolicy AmazonCloudWatchEvidentlyFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess");
@@ -1108,7 +1092,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy ElementalSupportCenterFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess");
         public static ManagedPolicy FMSServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy");
         public static ManagedPolicy FSxDeleteServiceLinkedRoleAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess");
-        public static ManagedPolicy GameLiftGameServerGroupPolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy");
         public static ManagedPolicy GlobalAcceleratorFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess");
         public static ManagedPolicy GlobalAcceleratorReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess");
         public static ManagedPolicy GreengrassOTAUpdateArtifactAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess");
@@ -1196,7 +1179,6 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy WAFV2LoggingServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy");
         public static ManagedPolicy WellArchitectedConsoleFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess");
         public static ManagedPolicy WellArchitectedConsoleReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess");
-        public static ManagedPolicy WorkLinkServiceRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy");
 
         public static bool operator ==(ManagedPolicy left, ManagedPolicy right) => left.Equals(right);
         public static bool operator !=(ManagedPolicy left, ManagedPolicy right) => !left.Equals(right);
