@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rds.inputs;
 
+import com.pulumi.aws.rds.enums.EngineType;
 import com.pulumi.aws.rds.enums.InstanceType;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
@@ -206,14 +207,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="engine")
-    private @Nullable Output<String> engine;
+    private @Nullable Output<EngineType> engine;
 
     /**
      * @return Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    public Optional<Output<String>> engine() {
+    public Optional<Output<EngineType>> engine() {
         return Optional.ofNullable(this.engine);
     }
 
@@ -886,7 +887,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder engine(@Nullable Output<String> engine) {
+        public Builder engine(@Nullable Output<EngineType> engine) {
             $.engine = engine;
             return this;
         }
@@ -898,7 +899,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder engine(String engine) {
+        public Builder engine(EngineType engine) {
             return engine(Output.of(engine));
         }
 

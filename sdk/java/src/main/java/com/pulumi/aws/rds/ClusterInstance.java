@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.rds.ClusterInstanceArgs;
+import com.pulumi.aws.rds.enums.EngineType;
 import com.pulumi.aws.rds.inputs.ClusterInstanceState;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -275,15 +276,15 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output<String> engine;
+    @Export(name="engine", refs={EngineType.class}, tree="[0]")
+    private Output<EngineType> engine;
 
     /**
      * @return Name of the database engine to be used for the RDS cluster instance.
      * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    public Output<String> engine() {
+    public Output<EngineType> engine() {
         return this.engine;
     }
     /**

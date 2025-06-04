@@ -50,7 +50,7 @@ import (
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test1"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
-//				Engine:            _default.Engine,
+//				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     _default.EngineVersion,
 //			})
 //			if err != nil {
@@ -61,7 +61,7 @@ import (
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test2"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
-//				Engine:            _default.Engine,
+//				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     _default.EngineVersion,
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test3"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
-//				Engine:            _default.Engine,
+//				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     _default.EngineVersion,
 //			})
 //			if err != nil {

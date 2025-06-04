@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Rds
     ///             Identifier = $"aurora-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,
     ///             InstanceClass = Aws.Rds.InstanceType.R4_Large,
-    ///             Engine = @default.Engine,
+    ///             Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///             EngineVersion = @default.EngineVersion,
     ///         }));
     ///     }
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<Pulumi.Aws.Rds.EngineType> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine", required: true)]
-        public Input<string> Engine { get; set; } = null!;
+        public Input<Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public Input<Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         Identifier = "aurora-instance-demo",
     ///         ClusterIdentifier = @default.ClusterIdentifier,
-    ///         Engine = @default.Engine,
+    ///         Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         InstanceClass = Aws.Rds.InstanceType.R6G_Large,
     ///     });
     /// 

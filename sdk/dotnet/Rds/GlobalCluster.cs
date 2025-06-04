@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = primary.Id,
-    ///         Engine = primary.Engine,
+    ///         Engine = primary.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = primary.EngineVersion,
     ///         Identifier = "donetsklviv",
     ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,

@@ -22,7 +22,7 @@ __all__ = ['ClusterInstanceArgs', 'ClusterInstance']
 class ClusterInstanceArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[builtins.str],
-                 engine: pulumi.Input[builtins.str],
+                 engine: pulumi.Input['EngineType'],
                  instance_class: pulumi.Input[Union[builtins.str, 'InstanceType']],
                  apply_immediately: Optional[pulumi.Input[builtins.bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[builtins.bool]] = None,
@@ -50,7 +50,7 @@ class ClusterInstanceArgs:
         """
         The set of arguments for constructing a ClusterInstance resource.
         :param pulumi.Input[builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
-        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for the RDS cluster instance.
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
                Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[Union[builtins.str, 'InstanceType']] instance_class: Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
         :param pulumi.Input[builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
@@ -144,7 +144,7 @@ class ClusterInstanceArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Input[builtins.str]:
+    def engine(self) -> pulumi.Input['EngineType']:
         """
         Name of the database engine to be used for the RDS cluster instance.
         Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -152,7 +152,7 @@ class ClusterInstanceArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: pulumi.Input[builtins.str]):
+    def engine(self, value: pulumi.Input['EngineType']):
         pulumi.set(self, "engine", value)
 
     @property
@@ -462,7 +462,7 @@ class _ClusterInstanceState:
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
-                 engine: Optional[pulumi.Input[builtins.str]] = None,
+                 engine: Optional[pulumi.Input['EngineType']] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version_actual: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -500,7 +500,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[builtins.str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[builtins.str] endpoint: DNS address for this instance. May not be writable
-        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for the RDS cluster instance.
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
                Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         :param pulumi.Input[builtins.str] engine_version_actual: Database engine version
@@ -748,7 +748,7 @@ class _ClusterInstanceState:
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[builtins.str]]:
+    def engine(self) -> Optional[pulumi.Input['EngineType']]:
         """
         Name of the database engine to be used for the RDS cluster instance.
         Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -756,7 +756,7 @@ class _ClusterInstanceState:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[builtins.str]]):
+    def engine(self, value: Optional[pulumi.Input['EngineType']]):
         pulumi.set(self, "engine", value)
 
     @property
@@ -1054,7 +1054,7 @@ class ClusterInstance(pulumi.CustomResource):
                  custom_iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 engine: Optional[pulumi.Input[builtins.str]] = None,
+                 engine: Optional[pulumi.Input['EngineType']] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1135,7 +1135,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[builtins.str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
         :param pulumi.Input[builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
-        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for the RDS cluster instance.
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
                Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         :param pulumi.Input[builtins.bool] force_destroy: Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
@@ -1239,7 +1239,7 @@ class ClusterInstance(pulumi.CustomResource):
                  custom_iam_instance_profile: Optional[pulumi.Input[builtins.str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 engine: Optional[pulumi.Input[builtins.str]] = None,
+                 engine: Optional[pulumi.Input['EngineType']] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -1329,7 +1329,7 @@ class ClusterInstance(pulumi.CustomResource):
             db_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
             dbi_resource_id: Optional[pulumi.Input[builtins.str]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
-            engine: Optional[pulumi.Input[builtins.str]] = None,
+            engine: Optional[pulumi.Input['EngineType']] = None,
             engine_version: Optional[pulumi.Input[builtins.str]] = None,
             engine_version_actual: Optional[pulumi.Input[builtins.str]] = None,
             force_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1372,7 +1372,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[builtins.str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[builtins.str] endpoint: DNS address for this instance. May not be writable
-        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for the RDS cluster instance.
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
                Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         :param pulumi.Input[builtins.str] engine_version_actual: Database engine version
@@ -1541,7 +1541,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[builtins.str]:
+    def engine(self) -> pulumi.Output['EngineType']:
         """
         Name of the database engine to be used for the RDS cluster instance.
         Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
