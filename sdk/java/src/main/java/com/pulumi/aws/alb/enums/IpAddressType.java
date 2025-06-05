@@ -10,8 +10,21 @@ import java.util.StringJoiner;
 
     @EnumType
     public enum IpAddressType {
+        /**
+         * IPv4 addresses
+         * 
+         */
         Ipv4("ipv4"),
-        Dualstack("dualstack");
+        /**
+         * IPv4 and IPv6 addresses
+         * 
+         */
+        Dualstack("dualstack"),
+        /**
+         * Public IPv6 addresses and private IPv4 and IPv6 addresses
+         * 
+         */
+        DualstackWithoutPublicIpv4("dualstack-without-public-ipv4");
 
         private final String value;
 

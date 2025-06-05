@@ -13,8 +13,12 @@ import (
 type IpAddressType string
 
 const (
-	IpAddressTypeIpv4      = IpAddressType("ipv4")
+	// IPv4 addresses
+	IpAddressTypeIpv4 = IpAddressType("ipv4")
+	// IPv4 and IPv6 addresses
 	IpAddressTypeDualstack = IpAddressType("dualstack")
+	// Public IPv6 addresses and private IPv4 and IPv6 addresses
+	IpAddressTypeDualstackWithoutPublicIpv4 = IpAddressType("dualstack-without-public-ipv4")
 )
 
 func (IpAddressType) ElementType() reflect.Type {
@@ -141,6 +145,7 @@ func (o IpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //
 //	IpAddressTypeIpv4
 //	IpAddressTypeDualstack
+//	IpAddressTypeDualstackWithoutPublicIpv4
 type IpAddressTypeInput interface {
 	pulumi.Input
 

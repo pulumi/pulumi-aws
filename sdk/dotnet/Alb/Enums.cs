@@ -17,8 +17,18 @@ namespace Pulumi.Aws.Alb
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IPv4 addresses
+        /// </summary>
         public static IpAddressType Ipv4 { get; } = new IpAddressType("ipv4");
+        /// <summary>
+        /// IPv4 and IPv6 addresses
+        /// </summary>
         public static IpAddressType Dualstack { get; } = new IpAddressType("dualstack");
+        /// <summary>
+        /// Public IPv6 addresses and private IPv4 and IPv6 addresses
+        /// </summary>
+        public static IpAddressType DualstackWithoutPublicIpv4 { get; } = new IpAddressType("dualstack-without-public-ipv4");
 
         public static bool operator ==(IpAddressType left, IpAddressType right) => left.Equals(right);
         public static bool operator !=(IpAddressType left, IpAddressType right) => !left.Equals(right);

@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Output("ipAddressType")]
-        public Output<Pulumi.Aws.Alb.IpAddressType> IpAddressType { get; private set; } = null!;
+        public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -754,7 +754,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.

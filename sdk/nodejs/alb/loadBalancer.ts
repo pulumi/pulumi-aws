@@ -219,7 +219,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    public readonly ipAddressType!: pulumi.Output<enums.alb.IpAddressType>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -458,7 +458,7 @@ export interface LoadBalancerState {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<enums.alb.IpAddressType>;
+    ipAddressType?: pulumi.Input<string | enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -593,7 +593,7 @@ export interface LoadBalancerArgs {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<enums.alb.IpAddressType>;
+    ipAddressType?: pulumi.Input<string | enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */

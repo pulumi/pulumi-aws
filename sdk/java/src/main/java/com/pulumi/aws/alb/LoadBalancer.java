@@ -5,7 +5,6 @@ package com.pulumi.aws.alb;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.alb.LoadBalancerArgs;
-import com.pulumi.aws.alb.enums.IpAddressType;
 import com.pulumi.aws.alb.enums.LoadBalancerType;
 import com.pulumi.aws.alb.inputs.LoadBalancerState;
 import com.pulumi.aws.alb.outputs.LoadBalancerAccessLogs;
@@ -429,14 +428,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    @Export(name="ipAddressType", refs={IpAddressType.class}, tree="[0]")
-    private Output<IpAddressType> ipAddressType;
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
+    private Output<String> ipAddressType;
 
     /**
      * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public Output<IpAddressType> ipAddressType() {
+    public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
     /**

@@ -9,6 +9,7 @@ import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerIpamPoolsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerSubnetMappingArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -285,13 +286,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="ipAddressType")
-    private @Nullable Output<IpAddressType> ipAddressType;
+    private @Nullable Output<Either<String,IpAddressType>> ipAddressType;
 
     /**
      * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public Optional<Output<IpAddressType>> ipAddressType() {
+    public Optional<Output<Either<String,IpAddressType>>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
@@ -883,7 +884,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(@Nullable Output<IpAddressType> ipAddressType) {
+        public Builder ipAddressType(@Nullable Output<Either<String,IpAddressType>> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
@@ -894,8 +895,28 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(IpAddressType ipAddressType) {
+        public Builder ipAddressType(Either<String,IpAddressType> ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Either.ofLeft(ipAddressType));
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(IpAddressType ipAddressType) {
+            return ipAddressType(Either.ofRight(ipAddressType));
         }
 
         /**
