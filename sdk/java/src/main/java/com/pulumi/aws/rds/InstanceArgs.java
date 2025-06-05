@@ -808,25 +808,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#39;dbName&#39; instead.
-     * 
-     */
-    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @deprecated
-     * This property has been deprecated. Please use &#39;dbName&#39; instead.
-     * 
-     */
-    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
@@ -1305,7 +1286,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
         this.multiAz = $.multiAz;
-        this.name = $.name;
         this.ncharCharacterSetName = $.ncharCharacterSetName;
         this.networkType = $.networkType;
         this.optionGroupName = $.optionGroupName;
@@ -2440,31 +2420,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder multiAz(Boolean multiAz) {
             return multiAz(Output.of(multiAz));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated. Please use &#39;dbName&#39; instead.
-         * 
-         */
-        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated. Please use &#39;dbName&#39; instead.
-         * 
-         */
-        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**

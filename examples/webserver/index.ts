@@ -2,7 +2,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { Output } from "@pulumi/pulumi";
 import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
@@ -28,7 +27,7 @@ let group = new aws.ec2.SecurityGroup("ts-web-secgrp-2", {
     vpcId: vpc.id,
     description: "Enable HTTP access",
     ingress: [
-        { protocol: aws.ec2.TCPProtocol, fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
+        { protocol: aws.ec2.ProtocolType.TCP, fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
     ],
 }, providerOpts);
 

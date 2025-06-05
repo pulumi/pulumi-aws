@@ -732,9 +732,6 @@ namespace Pulumi.Aws.Rds
         [Output("multiAz")]
         public Output<bool> MultiAz { get; private set; } = null!;
 
-        [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
-
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1318,9 +1315,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
-
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -1924,9 +1918,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
-
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets

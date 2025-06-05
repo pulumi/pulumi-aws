@@ -311,6 +311,181 @@ See the migration guide for more information.
     - `🟡` inputs: "computeEnvironments" missing
     - `🟡` properties: "computeEnvironments" missing output "computeEnvironments"
 
+#### Node Only Removals
+
+The following changes only affect users of the `nodejs` SDK.
+
+##### applicationloadbalancing
+
+- `Ipv4`
+  - Use `IpAddressType.Ipv4` instead
+- `Dualstack`
+  - Use `IpAddressType.Dualstack` instead
+- `ApplicationLoadBalancer`
+  - Use `LoadBalancerType.Application` instead
+- `NetworkLoadBalancer`
+  - Use `LoadBalancerType.Network` instead
+
+##### rds
+
+- `InstanceTypes.*`
+  - Use `InstanceType.*` instead
+
+- `StorageTypes.Standard` 
+  - Use `StorageType.Standard` instead
+- `StorageTypes.GP2` 
+  - Use `StorageType.GP2` instead
+- `StorageTypes.Io1` 
+  - Use `StorageType.IO1` instead
+
+- `ProvisionedEngine` 
+  - Use `EngineMode.Provisioned` instead
+- `ServerlessEngine` 
+  - Use `EngineMode.Serverless` instead
+- `ParallelQueryEngine` 
+  - Use `EngineMode.ParallelQuery` instead
+- `GlobalEngine` 
+  - Use `EngineMode.Global` instead
+
+- `AuroraEngine` 
+  - Use `EngineType.Aurora` instead
+- `AuroraMysqlEngine` 
+  - Use `EngineType.AuroraMysql` instead
+- `AuroraPostgresqlEngine` 
+  - Use `EngineType.AuroraPostgresql` instead
+
+##### iam
+
+- `ManagedPolicies.*`
+  - Use `ManagedPolicy.*` instead
+
+##### route53
+
+- `RecordTypes.A` 
+  - Use `RecordType.A` instead
+- `RecordTypes.AAAA` 
+  - Use `RecordType.AAAA` instead
+- `RecordTypes.CNAME` 
+  - Use `RecordType.CNAME` instead
+- `RecordTypes.CAA` 
+  - Use `RecordType.CAA` instead
+- `RecordTypes.MX` 
+  - Use `RecordType.MX` instead
+- `RecordTypes.NAPTR` 
+  - Use `RecordType.NAPTR` instead
+- `RecordTypes.NS` 
+  - Use `RecordType.NS` instead
+- `RecordTypes.PTR` 
+  - Use `RecordType.PTR` instead
+- `RecordTypes.SOA` 
+  - Use `RecordType.SOA` instead
+- `RecordTypes.SPF` 
+  - Use `RecordType.SPF` instead
+- `RecordTypes.SRV` 
+  - Use `RecordType.SRV` instead
+- `RecordTypes.TXT` 
+  - Use `RecordType.TXT` instead
+
+##### s3
+
+- `PrivateAcl` 
+  - Use `CannedAcl.Private` instead
+- `PublicReadAcl` 
+  - Use `CannedAcl.PublicRead` instead
+- `PublicReadWriteAcl` 
+  - Use `CannedAcl.PublicReadWrite` instead
+- `AwsExecReadAcl` 
+  - Use `CannedAcl.AwsExecRead` instead
+- `AuthenticatedReadAcl` 
+  - Use `CannedAcl.AuthenticatedRead` instead
+- `BucketOwnerReadAcl` 
+  - Use `CannedAcl.BucketOwnerRead` instead
+- `BucketOwnerFullControlAcl` 
+  - Use `CannedAcl.BucketOwnerFullControl` instead
+- `LogDeliveryWriteAcl` 
+  - Use `CannedAcl.LogDeliveryWrite` instead
+
+##### ec2
+
+- `InstanceTypes.*` 
+  - Use `InstanceType.*` instead
+
+- `InstancePlatforms.LinuxUnixPlatform` 
+  - Use `InstancePlatform.LinuxUnix` instead
+- `InstancePlatforms.RedHatEnterpriseLinuxPlatform` 
+  - Use `InstancePlatform.RedHatEnterpriseLinux` instead
+- `InstancePlatforms.SuseLinuxPlatform` 
+  - Use `InstancePlatform.SuseLinux` instead
+- `InstancePlatforms.WindowsPlatform` 
+  - Use `InstancePlatform.Windows` instead
+- `InstancePlatforms.WindowsWithSqlServerPlatform` 
+  - Use `InstancePlatform.WindowsWithSqlServer` instead
+- `InstancePlatforms.WindowsWithSqlServerEnterprisePlatform` 
+  - Use `InstancePlatform.WindowsWithSqlServerEnterprise` instead
+- `InstancePlatforms.WindowsWithSqlServerStandardPlatform` 
+  - Use `InstancePlatform.WindowsWithSqlServerStandard` instead
+- `InstancePlatforms.WindowsWithSqlServerWebPlatform` 
+  - Use `InstancePlatform.WindowsWithSqlServerWeb` instead
+
+- `SpreadStrategy` 
+  - Use `PlacementStrategy.Spread` instead
+- `ClusterStrategy` 
+  - Use `PlacementStrategy.Cluster` instead
+
+- `AllProtocols` 
+  - Use `ProtocolType.All` instead
+- `TCPProtocol` 
+  - Use `ProtocolType.TCP` instead
+- `UDPProtocol` 
+  - Use `ProtocolType.UDP` instead
+- `ICMPProtocol` 
+  - Use `ProtocolType.ICMP` instead
+
+- `Tenancies.DefaultTenancy` 
+  - Use `Tenancy.Default` instead
+- `Tenancies.DedicatedTenancy` 
+  - Use `Tenancy.Dedicated` instead
+
+##### lambda
+
+- `DotnetCore2d1Runtime` 
+  - Use `Runtime.DotnetCore2d1` instead
+- `DotnetCore3d1Runtime` 
+  - Use `Runtime.DotnetCore3d1` instead
+- `Go1dxRuntime` 
+  - Use `Runtime.Go1dx` instead
+- `Java8Runtime` 
+  - Use `Runtime.Java8` instead
+- `Java11Runtime` 
+  - Use `Runtime.Java11` instead
+- `Ruby2d5Runtime` 
+  - Use `Runtime.Ruby2d5` instead
+- `Ruby2d7Runtime` 
+  - Use `Runtime.Ruby2d7` instead
+- `NodeJS10dXRuntime` 
+  - Use `Runtime.NodeJS10dX` instead
+- `NodeJS12dXRuntime` 
+  - Use `Runtime.NodeJS12dX` instead
+- `Python2d7Runtime` 
+  - Use `Runtime.Python2d7` instead
+- `Python3d6Runtime` 
+  - Use `Runtime.Python3d6` instead
+- `Python3d7Runtime` 
+  - Use `Runtime.Python3d7` instead
+- `Python3d8Runtime` 
+  - Use `Runtime.Python3d8` instead
+- `CustomRuntime` 
+  - Use `Runtime.Custom` instead
+
+##### ssm
+
+- `StringParameter`
+  - Use `ParamterType.String` instead
+- `StringListParameter`
+  - Use `ParamterType.StringList` instead
+- `SecureStringParameter`
+  - Use `ParameterType.SecureString` instead
+
 #### Others
 
 ##### Resource Properties
@@ -390,6 +565,9 @@ See the migration guide for more information.
         - `🟡` "websiteDomain" missing
         - `🟡` "websiteEndpoint" missing
     - `🟡` properties: "loggings" missing output "loggings"
+- "aws:rds/instance:Instance":
+    🟡 inputs: "name" missing
+    🟡 properties: "name" missing output "name"
 - "aws:sagemaker/notebookInstance:NotebookInstance":
     - `🟡` inputs: "acceleratorTypes" missing
     - `🟡` properties: "acceleratorTypes" missing output "acceleratorTypes"
@@ -427,6 +605,94 @@ See the migration guide for more information.
 - `🔴` "aws:ec2/LaunchTemplateElasticInferenceAccelerator:LaunchTemplateElasticInferenceAccelerator" missing
 - `🔴` "aws:ec2/getLaunchTemplateElasticGpuSpecification:getLaunchTemplateElasticGpuSpecification" missing
 - `🔴` "aws:ec2/getLaunchTemplateElasticInferenceAccelerator:getLaunchTemplateElasticInferenceAccelerator" missing
+
+##### Enum Removals
+
+The following enum values have been removed.
+
+- `ec2.InstanceType.U_12TB1_METAL`
+- `ec2.InstanceType.U_6TB1_METAL`
+- `ec2.InstanceType.U_9TB1_METAL`
+- `ec2.InstanceType.HS1_8_X_LARGE`
+- `ec2.InstanceType.M5AS_X_LARGE`
+- `ec2.InstanceType.C7A_METAL`
+- `ec2.InstanceType.M7A_METAL`
+- `ec2.InstanceType.CC2_8_X_LARGE`
+- `ec2.InstanceType.G2_2_X_LARGE`
+- `ec2.InstanceType.G2_8_X_LARGE`
+
+- `ManagedPolicy.AWS_CODE_PIPELINE_READ_ONLY_ACCESS`
+  - Use `ManagedPolicy.CodePipeline_ReadOnlyAccess` instead
+- `ManagedPolicy.AWS_CONFIG_ROLE`
+  - Use `ManagedPolicy.AWS_ConfigRole` instead
+- `ManagedPolicy.AWS_DATA_PIPELINE_ROLE`
+- `ManagedPolicy.AWS_ELASTIC_BEANSTALK_FULL_ACCESS`
+  - Use `ManagedPolicy.AdministratorAccessAWSElasticBeanstalk` instead
+- `ManagedPolicy.AWS_ELASTIC_BEANSTALK_READ_ONLY_ACCESS`
+  - Use `ManagedPolicy.AWSElasticBeanstalkReadOnly` instead
+- `ManagedPolicy.AWS_ELASTIC_BEANSTAK_WORKER_TIER`
+  - Use `ManagedPolicy.AWSElasticBeanstalkWorkerTier` instead
+- `ManagedPolicy.AWS_GREENGRASS_FULLCCESS`
+  - Use `ManagedPolicy.AWSGreengrassFullAccess` instead
+- `ManagedPolicy.AWS_LAMBDA_FULL_ACCESS`
+  - Use `ManagedPolicy.LambdaFullAccess` instead
+- `ManagedPolicy.AWS_LAMBDA_READ_ONLY_ACCESS`
+  - Use `ManagedPolicy.LambdaReadOnlyAccess` instead
+- `ManagedPolicy.AWS_MOBILE_HUB_FULL_ACCESS`
+- `ManagedPolicy.AWS_MOBILE_HUB_READ_ONLY`
+- `ManagedPolicy.AWS_MOBILE_HUB_SERVICE_USE_ONLY`
+- `ManagedPolicy.AWS_OPS_WORKS_FULL_ACCESS`
+  - Use `ManagedPolicy.OpsWorks_FullAccess` instead
+- `ManagedPolicy.AWS_OPS_WORKS_REGISTER_CLI`
+  - Use `ManagedPolicy.AWSOpsWorksRegisterCLI_EC2` or `ManagedPolicy.AWSOpsWorksRegisterCLI_OnPremises` instead
+- `ManagedPolicy.AWS_OPS_WORKS_ROLE`
+  - Use `ManagedPolicy.AWSOpsWorksCMServiceRole` instead
+- `ManagedPolicy.AWS_QUICK_SIGHT_DESCRIBE_RD`
+  - Use `ManagedPolicy.AWSQuickSightDescribeRDS` instead
+- `ManagedPolicy.AMAZON_EC2_CONTAINER_SERVICE_FULL_ACCESS`
+  - Use `ManagedPolicy.AmazonECSFullAccess` instead
+- `ManagedPolicy.AMAZON_EC2_REPORTS_ACCESS`
+- `ManagedPolicy.AMAZON_EC2_SPOT_FLEET_ROLE`
+- `ManagedPolicy.AMAZON_ELASTIC_TRANSCODER_FULL_ACCESS`
+  - Use `ManagedPolicy.ElasticTranscoder_FullAccess` instead
+- `ManagedPolicy.AMAZON_ELASTIC_TRANSCODER_JOBS_SUBMITTER`
+  - Use `ManagedPolicy.ElasticTranscoder_JobsSubmitter` instead
+- `ManagedPolicy.AMAZON_ELASTIC_TRANSCODER_READ_ONLY_ACCESS`
+  - Use `ManagedPolicy.ElasticTranscoder_ReadOnlyAccess` instead
+- `ManagedPolicy.AMAZON_LAUNCH_WIZARD_FULLACCESS`
+- `ManagedPolicy.AMAZON_MACHINE_LEARNING_ROLEFOR_REDSHIFT_DATA_SOURCE`
+  - Use `ManagedPolicy.AmazonMachineLearningRoleforRedshiftDataSourceV3` instead
+- `ManagedPolicy.AMAZON_SUMERIAN_FULL_ACCESS`
+- `ManagedPolicy.FUSION_DEV_INTERNAL_SERVICE_ROLE_POLICY`
+- `ManagedPolicy.SERVER_MIGRATION_SERVICE_ROLE`
+  - Use `ManagedPolicy.AWSServerMigration_ServiceRole` instead
+- `ManagedPolicy.SERVICE_CATALOG_ADMIN_FULL_ACCESS`
+  - Use `ManagedPolicy.AWSServiceCatalogAdminFullAccess` instead
+- `ManagedPolicy.SERVICE_CATALOG_ADMIN_READ_ONLY_ACCESS`
+  - Use `ManagedPolicy.AWSServiceCatalogAdminReadOnlyAccess` instead
+- `ManagedPolicy.SERVICE_CATALOG_END_USER_ACCESS`
+  - Use `ManagedPolicy.AWSServiceCatalogEndUserReadOnlyAccess` instead
+- `ManagedPolicy.SERVICE_CATALOG_END_USER_FULL_ACCESS`
+  - Use `ManagedPolicy.AWSServiceCatalogEndUserFullAccess` instead
+
+(Related to deprecated AWS Services)
+- `ManagedPolicy.AmazonChimeFullAccess`
+- `ManagedPolicy.AmazonChimeReadOnly`
+- `ManagedPolicy.AmazonChimeSDK`
+- `ManagedPolicy.AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy`
+- `ManagedPolicy.AmazonChimeSDKMessagingServiceRolePolicy`
+- `ManagedPolicy.AmazonChimeServiceRolePolicy`
+- `ManagedPolicy.AmazonChimeTranscriptionServiceLinkedRolePolicy`
+- `ManagedPolicy.AmazonChimeUserManagement`
+- `ManagedPolicy.AmazonChimeVoiceConnectorServiceLinkedRolePolicy`
+- `ManagedPolicy.AWSOpsWorksCMInstanceProfileRole`
+- `ManagedPolicy.AWSOpsWorksCMServiceRole`
+- `ManagedPolicy.AWSOpsWorksCloudWatchLogs`
+- `ManagedPolicy.AWSOpsWorksInstanceRegistration`
+- `ManagedPolicy.AWSOpsWorksRegisterCLI_EC2`
+- `ManagedPolicy.AWSOpsWorksRegisterCLI_OnPremises`
+- `ManagedPolicy.OpsWorks_FullAccess`
+- `ManagedPolicy.WorkLinkServiceRolePolicy`
 
 ### MaxItemsOne Type Change
 
@@ -561,8 +827,3 @@ You should not see any diffs on your stack.
   - `policy: <your-iot-policy>` --> `policy: <your-iot-policy>.name`
 - `lambda.Permission`
   - `function: <your-lambda-function>` --> `function: <your-lambda-function>.name`
-
-#### IAM ManagedPolicies deprecated in favor of ManagedPolicy (Node only)
-
-Any reference to `aws.iam.ManagedPolicies` should be updated to `aws.iam.ManagedPolicy` in your code. 
-This should present a no-op change.

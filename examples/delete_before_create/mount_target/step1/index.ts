@@ -21,7 +21,7 @@ const mountTarget = new aws.efs.MountTarget("mt", {
     subnetId: subnet.id,
 }, providerOpts);
 
-const size = aws.ec2.InstanceTypes.T2_Micro;
+const size = aws.ec2.InstanceType.T2_Micro;
 const instance = new aws.ec2.Instance("dummy-instance", {
     userData: pulumi.interpolate `#!/bin/bash
 echo ${mountTarget.dnsName}`,

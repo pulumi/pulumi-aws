@@ -825,26 +825,6 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType Z1d_Large { get; } = new InstanceType("z1d.large");
         public static InstanceType Z1d_Metal { get; } = new InstanceType("z1d.metal");
         public static InstanceType Z1d_XLarge { get; } = new InstanceType("z1d.xlarge");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType U_12tb1Metal { get; } = new InstanceType("u-12tb1.metal");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType U_6tb1Metal { get; } = new InstanceType("u-6tb1.metal");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType U_9tb1Metal { get; } = new InstanceType("u-9tb1.metal");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType Hs1_8XLarge { get; } = new InstanceType("hs1.8xlarge");
-        [Obsolete(@"Has a typo, use M5ad_XLarge instead")]
-        public static InstanceType M5as_XLarge { get; } = new InstanceType("m5ad.xlarge");
-        [Obsolete(@"Use C7a_Metal_48xl instead")]
-        public static InstanceType C7a_Metal { get; } = new InstanceType("c7a.metal-48xl");
-        [Obsolete(@"Use M7a_Metal_48xl instead")]
-        public static InstanceType M7a_Metal { get; } = new InstanceType("m7a.metal-48xl");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType Cc2_8XLarge { get; } = new InstanceType("cc2.8xlarge");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType G2_2XLarge { get; } = new InstanceType("g2.2xlarge");
-        [Obsolete(@"This instancetype has been deprecated")]
-        public static InstanceType G2_8XLarge { get; } = new InstanceType("g2.8xlarge");
 
         public static bool operator ==(InstanceType left, InstanceType right) => left.Equals(right);
         public static bool operator !=(InstanceType left, InstanceType right) => !left.Equals(right);

@@ -803,16 +803,6 @@ class InstanceType(builtins.str, Enum):
     Z1D_LARGE = "z1d.large"
     Z1D_METAL = "z1d.metal"
     Z1D_X_LARGE = "z1d.xlarge"
-    U_12TB1_METAL = "u-12tb1.metal"
-    U_6TB1_METAL = "u-6tb1.metal"
-    U_9TB1_METAL = "u-9tb1.metal"
-    HS1_8_X_LARGE = "hs1.8xlarge"
-    M5AS_X_LARGE = "m5ad.xlarge"
-    C7A_METAL = "c7a.metal-48xl"
-    M7A_METAL = "m7a.metal-48xl"
-    CC2_8_X_LARGE = "cc2.8xlarge"
-    G2_2_X_LARGE = "g2.2xlarge"
-    G2_8_X_LARGE = "g2.8xlarge"
 
 
 @pulumi.type_token("aws:ec2/PlacementStrategy:PlacementStrategy")

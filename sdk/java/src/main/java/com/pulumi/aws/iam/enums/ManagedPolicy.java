@@ -118,24 +118,6 @@ import java.util.StringJoiner;
         AWSCloudHSMFullAccess("arn:aws:iam::aws:policy/AWSCloudHSMFullAccess"),
         AWSCloudHSMReadOnlyAccess("arn:aws:iam::aws:policy/AWSCloudHSMReadOnlyAccess"),
         AWSCloudHSMRole("arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole"),
-        /**
-         * @deprecated
-         * No longer supported. Use CloudTrail_FullAccess instead.
-         */
-        @Deprecated /* No longer supported. Use CloudTrail_FullAccess instead. */
-        AWSCloudTrailFullAccess("arn:aws:iam::aws:policy/AWSCloudTrailFullAccess"),
-        /**
-         * @deprecated
-         * No longer supported. Use CloudTrail_ReadOnlyAccess instead.
-         */
-        @Deprecated /* No longer supported. Use CloudTrail_ReadOnlyAccess instead. */
-        AWSCloudTrailReadOnlyAccess("arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess"),
-        /**
-         * @deprecated
-         * No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead.
-         */
-        @Deprecated /* No longer supported. Use CloudWatchLambdaInsightsExecutionRolePolicy instead. */
-        AWSCloudWatchLambdaInsightsExecutionRolePolicy("arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy"),
         AWSCloudMapDiscoverInstanceAccess("arn:aws:iam::aws:policy/AWSCloudMapDiscoverInstanceAccess"),
         AWSCloudMapFullAccess("arn:aws:iam::aws:policy/AWSCloudMapFullAccess"),
         AWSCloudMapReadOnlyAccess("arn:aws:iam::aws:policy/AWSCloudMapReadOnlyAccess"),
@@ -163,30 +145,12 @@ import java.util.StringJoiner;
         AWSCodeDeployRoleForLambdaLimited("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRoleForLambdaLimited"),
         AWSCodePipelineApproverAccess("arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess"),
         AWSCodePipelineCustomActionAccess("arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess"),
-        /**
-         * @deprecated
-         * No longer supported. Use CodePipeline_FullAccess instead.
-         */
-        @Deprecated /* No longer supported. Use CodePipeline_FullAccess instead. */
-        AWSCodePipelineFullAccess("arn:aws:iam::aws:policy/AWSCodePipelineFullAccess"),
-        /**
-         * @deprecated
-         * No longer supported. Use CodePipeline_ReadOnlyAccess instead.
-         */
-        @Deprecated /* No longer supported. Use CodePipeline_ReadOnlyAccess instead. */
-        AWSCodePipelineReadOnlyAccess("arn:aws:iam::aws:policy/AWSCodePipelineReadOnlyAccess"),
         CodePipeline_FullAccess("arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess"),
         CodePipeline_ReadOnlyAccess("arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess"),
         AWSCodeStarFullAccess("arn:aws:iam::aws:policy/AWSCodeStarFullAccess"),
         AWSCodeStarNotificationsServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSCodeStarNotificationsServiceRolePolicy"),
         AWSCodeStarServiceRole("arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole"),
         AWS_ConfigRole("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"),
-        /**
-         * @deprecated
-         * This has been deprecated in favour of `AWS_ConfigRole`
-         */
-        @Deprecated /* This has been deprecated in favour of `AWS_ConfigRole` */
-        AWSConfigRole("arn:aws:iam::aws:policy/service-role/AWSConfigRole"),
         AWSCompromisedKeyQuarantine("arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantine"),
         AWSCompromisedKeyQuarantineV2("arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV2"),
         AWSConfigMultiAccountSetupPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSConfigMultiAccountSetupPolicy"),
@@ -208,12 +172,6 @@ import java.util.StringJoiner;
         AWSDataLifecycleManagerSSMFullAccess("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerSSMFullAccess"),
         AWSDataLifecycleManagerServiceRole("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole"),
         AWSDataLifecycleManagerServiceRoleForAMIManagement("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRoleForAMIManagement"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AWSDataPipelineRole("arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole"),
         AWSDataPipeline_FullAccess("arn:aws:iam::aws:policy/AWSDataPipeline_FullAccess"),
         AWSDataPipeline_PowerUser("arn:aws:iam::aws:policy/AWSDataPipeline_PowerUser"),
         AWSDataSyncDiscoveryServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDataSyncDiscoveryServiceRolePolicy"),
@@ -244,22 +202,10 @@ import java.util.StringJoiner;
         AWSECRPullThroughCache_ServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy"),
         AWSElasticBeanstalkCustomPlatformforEC2Role("arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role"),
         AWSElasticBeanstalkEnhancedHealth("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth"),
-        /**
-         * @deprecated
-         * This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead.
-         */
-        @Deprecated /* This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead. */
-        AWSElasticBeanstalkFullAccess("arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess"),
         AWSElasticBeanstalkMaintenance("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkMaintenance"),
         AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy"),
         AWSElasticBeanstalkManagedUpdatesServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkManagedUpdatesServiceRolePolicy"),
         AWSElasticBeanstalkMulticontainerDocker("arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker"),
-        /**
-         * @deprecated
-         * This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead.
-         */
-        @Deprecated /* This policy is deprecated. Please use the AWS managed policy AWSElasticBeanstalkReadOnly instead. */
-        AWSElasticBeanstalkReadOnlyAccess("arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnlyAccess"),
         AWSElasticBeanstalkReadOnly("arn:aws:iam::aws:policy/AWSElasticBeanstalkReadOnly"),
         AWSElasticBeanstalkRoleCWL("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCWL"),
         AWSElasticBeanstalkRoleCore("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkRoleCore"),
@@ -270,12 +216,6 @@ import java.util.StringJoiner;
         AWSElasticBeanstalkService("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"),
         AWSElasticBeanstalkServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy"),
         AWSElasticBeanstalkWebTier("arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"),
-        /**
-         * @deprecated
-         * This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`
-         */
-        @Deprecated /* This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier` */
-        AWSElasticBeanstakWorkerTier("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"),
         AWSElasticBeanstalkWorkerTier("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"),
         AWSElasticDisasterRecoveryAgentInstallationPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryAgentInstallationPolicy"),
         AWSElasticDisasterRecoveryAgentPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryAgentPolicy"),
@@ -336,12 +276,6 @@ import java.util.StringJoiner;
         AWSGrafanaWorkspacePermissionManagement("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagement"),
         AWSGrafanaWorkspacePermissionManagementV2("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagementV2"),
         AWSGreengrassFullAccess("arn:aws:iam::aws:policy/AWSGreengrassFullAccess"),
-        /**
-         * @deprecated
-         * Please use AWSGreengrassFullAccess instead
-         */
-        @Deprecated /* Please use AWSGreengrassFullAccess instead */
-        AWSGreengrassFullccess("arn:aws:iam::aws:policy/AWSGreengrassFullAccess"),
         AWSGreengrassReadOnlyAccess("arn:aws:iam::aws:policy/AWSGreengrassReadOnlyAccess"),
         AWSGreengrassResourceAccessRolePolicy("arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy"),
         AWSGroundStationAgentInstancePolicy("arn:aws:iam::aws:policy/AWSGroundStationAgentInstancePolicy"),
@@ -412,21 +346,9 @@ import java.util.StringJoiner;
         AWSLambdaDynamoDBExecutionRole("arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole"),
         AWSLambdaENIManagementAccess("arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess"),
         AWSLambdaExecute("arn:aws:iam::aws:policy/AWSLambdaExecute"),
-        /**
-         * @deprecated
-         * This has been deprecated in favour of `LambdaFullAccess`
-         */
-        @Deprecated /* This has been deprecated in favour of `LambdaFullAccess` */
-        AWSLambdaFullAccess("arn:aws:iam::aws:policy/AWSLambdaFullAccess"),
         LambdaFullAccess("arn:aws:iam::aws:policy/AWSLambda_FullAccess"),
         AWSLambdaInvocationDynamoDB("arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB"),
         AWSLambdaKinesisExecutionRole("arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole"),
-        /**
-         * @deprecated
-         * This has been deprecated in favour of `LambdaReadOnlyAccess`
-         */
-        @Deprecated /* This has been deprecated in favour of `LambdaReadOnlyAccess` */
-        AWSLambdaReadOnlyAccess("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess"),
         LambdaReadOnlyAccess("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess"),
         AWSLambdaMSKExecutionRole("arn:aws:iam::aws:policy/service-role/AWSLambdaMSKExecutionRole"),
         AWSLambdaReplicator("arn:aws:iam::aws:policy/aws-service-role/AWSLambdaReplicator"),
@@ -478,60 +400,11 @@ import java.util.StringJoiner;
         AWSMigrationHubStrategyCollector("arn:aws:iam::aws:policy/AWSMigrationHubStrategyCollector"),
         AWSMigrationHubStrategyConsoleFullAccess("arn:aws:iam::aws:policy/AWSMigrationHubStrategyConsoleFullAccess"),
         AWSMigrationHubStrategyServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AWSMobileHub_FullAccess("arn:aws:iam::aws:policy/AWSMobileHub_FullAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AWSMobileHub_ReadOnly("arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AWSMobileHub_ServiceUseOnly("arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly"),
         AWSNetworkFirewallServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy"),
         AWSNetworkManagerCloudWANServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerCloudWANServiceRolePolicy"),
         AWSNetworkManagerFullAccess("arn:aws:iam::aws:policy/AWSNetworkManagerFullAccess"),
         AWSNetworkManagerReadOnlyAccess("arn:aws:iam::aws:policy/AWSNetworkManagerReadOnlyAccess"),
         AWSNetworkManagerServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerServiceRolePolicy"),
-        AWSOpsWorksCMInstanceProfileRole("arn:aws:iam::aws:policy/AWSOpsWorksCMInstanceProfileRole"),
-        AWSOpsWorksCMServiceRole("arn:aws:iam::aws:policy/service-role/AWSOpsWorksCMServiceRole"),
-        AWSOpsWorksCloudWatchLogs("arn:aws:iam::aws:policy/AWSOpsWorksCloudWatchLogs"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use OpsWorks_FullAccess instead. */
-        AWSOpsWorksFullAccess("arn:aws:iam::aws:policy/AWSOpsWorksFullAccess"),
-        AWSOpsWorksInstanceRegistration("arn:aws:iam::aws:policy/AWSOpsWorksInstanceRegistration"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksRegisterCLI_EC2 or AWSOpsWorksRegisterCLI_OnPremises instead. */
-        AWSOpsWorksRegisterCLI("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead. */
-        AWSOpsWorksRole("arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead. */
-        AWSQuickSightDescribeRD("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS"),
-        AWSOpsWorksRegisterCLI_EC2("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2"),
-        AWSOpsWorksRegisterCLI_OnPremises("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises"),
-        OpsWorks_FullAccess("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess"),
         AWSOrganizationsFullAccess("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess"),
         AWSOrganizationsReadOnlyAccess("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess"),
         AWSOrganizationsServiceTrustPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy"),
@@ -717,15 +590,6 @@ import java.util.StringJoiner;
         AmazonBraketFullAccess("arn:aws:iam::aws:policy/AmazonBraketFullAccess"),
         AmazonBraketJobsExecutionPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy"),
         AmazonBraketServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy"),
-        AmazonChimeFullAccess("arn:aws:iam::aws:policy/AmazonChimeFullAccess"),
-        AmazonChimeReadOnly("arn:aws:iam::aws:policy/AmazonChimeReadOnly"),
-        AmazonChimeSDK("arn:aws:iam::aws:policy/AmazonChimeSDK"),
-        AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy"),
-        AmazonChimeSDKMessagingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMessagingServiceRolePolicy"),
-        AmazonChimeServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy"),
-        AmazonChimeTranscriptionServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy"),
-        AmazonChimeUserManagement("arn:aws:iam::aws:policy/AmazonChimeUserManagement"),
-        AmazonChimeVoiceConnectorServiceLinkedRolePolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy"),
         AmazonCloudDirectoryFullAccess("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess"),
         AmazonCloudDirectoryReadOnlyAccess("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess"),
         AmazonCloudWatchEvidentlyFullAccess("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess"),
@@ -794,34 +658,16 @@ import java.util.StringJoiner;
         AmazonEC2ContainerRegistryReadOnly("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"),
         AmazonEC2ContainerServiceAutoscaleRole("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"),
         AmazonEC2ContainerServiceEventsRole("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead. */
-        AmazonEC2ContainerServiceFullAccess("arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess"),
         AmazonEC2ContainerServiceRole("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"),
         AmazonEC2ContainerServiceforEC2Role("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
         AmazonEC2FullAccess("arn:aws:iam::aws:policy/AmazonEC2FullAccess"),
         AmazonEC2ReadOnlyAccess("arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AmazonEC2ReportsAccess("arn:aws:iam::aws:policy/AmazonEC2ReportsAccess"),
         AmazonEC2RolePolicyForLaunchWizard("arn:aws:iam::aws:policy/AmazonEC2RolePolicyForLaunchWizard"),
         AmazonEC2RoleforAWSCodeDeploy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy"),
         AmazonEC2RoleforAWSCodeDeployLimited("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeployLimited"),
         AmazonEC2RoleforDataPipelineRole("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforDataPipelineRole"),
         AmazonEC2RoleforSSM("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"),
         AmazonEC2SpotFleetAutoscaleRole("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AmazonEC2SpotFleetRole("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole"),
         AmazonEC2SpotFleetTaggingRole("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole"),
         AmazonECSFullAccess("arn:aws:iam::aws:policy/AmazonECS_FullAccess"),
         AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity("arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity"),
@@ -868,24 +714,6 @@ import java.util.StringJoiner;
         AmazonElasticMapReduceRole("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"),
         AmazonElasticMapReduceforAutoScalingRole("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole"),
         AmazonElasticMapReduceforEC2Role("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead. */
-        AmazonElasticTranscoderFullAccess("arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead. */
-        AmazonElasticTranscoderJobsSubmitter("arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead. */
-        AmazonElasticTranscoderReadOnlyAccess("arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess"),
         AmazonElasticTranscoderRole("arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole"),
         ElasticTranscoder_FullAccess("arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess"),
         ElasticTranscoder_JobsSubmitter("arn:aws:iam::aws:policy/AmazonElasticTranscoder_JobsSubmitter"),
@@ -952,12 +780,6 @@ import java.util.StringJoiner;
         AmazonKinesisReadOnlyAccess("arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess"),
         AmazonKinesisVideoStreamsFullAccess("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsFullAccess"),
         AmazonKinesisVideoStreamsReadOnlyAccess("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AmazonLaunchWizard_Fullaccess("arn:aws:iam::aws:policy/AmazonLaunchWizard_Fullaccess"),
         AmazonLaunchWizardFullAccessV2("arn:aws:iam::aws:policy/AmazonLaunchWizardFullAccessV2"),
         AmazonLexChannelsAccess("arn:aws:iam::aws:policy/aws-service-role/AmazonLexChannelsAccess"),
         AmazonLexFullAccess("arn:aws:iam::aws:policy/AmazonLexFullAccess"),
@@ -990,12 +812,6 @@ import java.util.StringJoiner;
         AmazonMachineLearningManageRealTimeEndpointOnlyAccess("arn:aws:iam::aws:policy/AmazonMachineLearningManageRealTimeEndpointOnlyAccess"),
         AmazonMachineLearningReadOnlyAccess("arn:aws:iam::aws:policy/AmazonMachineLearningReadOnlyAccess"),
         AmazonMachineLearningRealTimePredictionOnlyAccess("arn:aws:iam::aws:policy/AmazonMachineLearningRealTimePredictionOnlyAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead.
-         */
-        @Deprecated /* This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead. */
-        AmazonMachineLearningRoleforRedshiftDataSource("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource"),
         AmazonMachineLearningRoleforRedshiftDataSourceV3("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3"),
         AmazonMacieFullAccess("arn:aws:iam::aws:policy/AmazonMacieFullAccess"),
         AmazonMacieHandshakeRole("arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole"),
@@ -1143,12 +959,6 @@ import java.util.StringJoiner;
         AmazonSecurityLakeAdministrator("arn:aws:iam::aws:policy/AmazonSecurityLakeAdministrator"),
         AmazonSecurityLakeMetastoreManager("arn:aws:iam::aws:policy/service-role/AmazonSecurityLakeMetastoreManager"),
         AmazonSecurityLakePermissionsBoundary("arn:aws:iam::aws:policy/AmazonSecurityLakePermissionsBoundary"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        AmazonSumerianFullAccess("arn:aws:iam::aws:policy/AmazonSumerianFullAccess"),
         AmazonTextractFullAccess("arn:aws:iam::aws:policy/AmazonTextractFullAccess"),
         AmazonTextractServiceRole("arn:aws:iam::aws:policy/service-role/AmazonTextractServiceRole"),
         AmazonTimestreamConsoleFullAccess("arn:aws:iam::aws:policy/AmazonTimestreamConsoleFullAccess"),
@@ -1275,13 +1085,6 @@ import java.util.StringJoiner;
         ElementalSupportCenterFullAccess("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess"),
         FMSServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy"),
         FSxDeleteServiceLinkedRoleAccess("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. */
-        FusionDevInternalServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/FusionDevInternalServiceRolePolicy"),
-        GameLiftGameServerGroupPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy"),
         GlobalAcceleratorFullAccess("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess"),
         GlobalAcceleratorReadOnlyAccess("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess"),
         GreengrassOTAUpdateArtifactAccess("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess"),
@@ -1347,36 +1150,6 @@ import java.util.StringJoiner;
         SecurityAudit("arn:aws:iam::aws:policy/SecurityAudit"),
         SecurityLakeServiceLinkedRole("arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole"),
         ServerMigrationConnector("arn:aws:iam::aws:policy/ServerMigrationConnector"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead. */
-        ServerMigrationServiceRole("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead. */
-        ServiceCatalogAdminFullAccess("arn:aws:iam::aws:policy/ServiceCatalogAdminFullAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminReadOnlyAccess instead. */
-        ServiceCatalogAdminReadOnlyAccess("arn:aws:iam::aws:policy/ServiceCatalogAdminReadOnlyAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserReadOnlyAccess instead. */
-        ServiceCatalogEndUserAccess("arn:aws:iam::aws:policy/ServiceCatalogEndUserAccess"),
-        /**
-         * @deprecated
-         * This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead.
-         */
-        @Deprecated /* This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogEndUserFullAccess instead. */
-        ServiceCatalogEndUserFullAccess("arn:aws:iam::aws:policy/ServiceCatalogEndUserFullAccess"),
         ServerMigrationServiceConsoleFullAccess("arn:aws:iam::aws:policy/ServerMigrationServiceConsoleFullAccess"),
         ServerMigrationServiceLaunchRole("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceLaunchRole"),
         ServerMigrationServiceRoleForInstanceValidation("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRoleForInstanceValidation"),
@@ -1398,8 +1171,7 @@ import java.util.StringJoiner;
         WAFRegionalLoggingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/WAFRegionalLoggingServiceRolePolicy"),
         WAFV2LoggingServiceRolePolicy("arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy"),
         WellArchitectedConsoleFullAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess"),
-        WellArchitectedConsoleReadOnlyAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess"),
-        WorkLinkServiceRolePolicy("arn:aws:iam::aws:policy/WorkLinkServiceRolePolicy");
+        WellArchitectedConsoleReadOnlyAccess("arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess");
 
         private final String value;
 

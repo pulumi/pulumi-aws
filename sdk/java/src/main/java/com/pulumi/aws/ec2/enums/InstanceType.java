@@ -783,67 +783,7 @@ import java.util.StringJoiner;
         Z1d_6XLarge("z1d.6xlarge"),
         Z1d_Large("z1d.large"),
         Z1d_Metal("z1d.metal"),
-        Z1d_XLarge("z1d.xlarge"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        U_12tb1Metal("u-12tb1.metal"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        U_6tb1Metal("u-6tb1.metal"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        U_9tb1Metal("u-9tb1.metal"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        Hs1_8XLarge("hs1.8xlarge"),
-        /**
-         * @deprecated
-         * Has a typo, use M5ad_XLarge instead
-         */
-        @Deprecated /* Has a typo, use M5ad_XLarge instead */
-        M5as_XLarge("m5ad.xlarge"),
-        /**
-         * @deprecated
-         * Use C7a_Metal_48xl instead
-         */
-        @Deprecated /* Use C7a_Metal_48xl instead */
-        C7a_Metal("c7a.metal-48xl"),
-        /**
-         * @deprecated
-         * Use M7a_Metal_48xl instead
-         */
-        @Deprecated /* Use M7a_Metal_48xl instead */
-        M7a_Metal("m7a.metal-48xl"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        Cc2_8XLarge("cc2.8xlarge"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        G2_2XLarge("g2.2xlarge"),
-        /**
-         * @deprecated
-         * This instancetype has been deprecated
-         */
-        @Deprecated /* This instancetype has been deprecated */
-        G2_8XLarge("g2.8xlarge");
+        Z1d_XLarge("z1d.xlarge");
 
         private final String value;
 

@@ -3,7 +3,7 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
-const size = aws.ec2.InstanceTypes.T2_Micro;
+const size = aws.ec2.InstanceType.T2_Micro;
 const amiParamName = "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs";
 
 function createServer(region: aws.Region): aws.ec2.Instance {
