@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"slices"
 	"testing"
@@ -123,7 +124,6 @@ type testProviderUpgradeOptions struct {
 	region                 string
 	skipDefaultPreviewTest bool
 	skipCache              bool
-	extraOpts              []opttest.Option
 }
 
 func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) (*pulumitest.PulumiTest, auto.PreviewResult) {
@@ -146,12 +146,6 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts == nil || !opts.installDeps {
 		options = append(options, opttest.SkipInstall())
 	}
-	if opts != nil && opts.linkNodeSDK {
-		options = append(options, opttest.YarnLink("@pulumi/aws"))
-	}
-	if opts != nil {
-		options = append(options, opts.extraOpts...)
-	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 	if opts != nil && opts.setEnvRegion {
 		test.SetConfig(t, "aws:region", "INVALID_REGION")
@@ -170,7 +164,11 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.skipCache {
 		skipCache = opts.skipCache
 	}
-	upgradeTest := providerUpgradeTest(t, test, providerName, baselineVersion, skipCache, upOpts...)
+	linkNodeSDK := false
+	if opts != nil && opts.linkNodeSDK {
+		linkNodeSDK = true
+	}
+	upgradeTest := providerUpgradeTest(t, test, providerName, baselineVersion, skipCache, linkNodeSDK, upOpts...)
 	if opts != nil && opts.skipDefaultPreviewTest {
 		return upgradeTest, auto.PreviewResult{}
 	}
@@ -180,9 +178,21 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 }
 
 // taken from providertest.PreviewProviderUpgrade, but customized to return the test instead of the result
-func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, providerName string, baselineVersion string, skipCache bool, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) *pulumitest.PulumiTest {
+func providerUpgradeTest(
+	t pulumitest.PT,
+	pulumiTest *pulumitest.PulumiTest,
+	providerName string,
+	baselineVersion string,
+	skipCache bool,
+	linkNodeSDK bool,
+	opts ...optproviderupgrade.PreviewProviderUpgradeOpt,
+) *pulumitest.PulumiTest {
 	t.Helper()
-	previewTest := pulumiTest.CopyToTempDir(t, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
+	previewTest := pulumiTest.CopyToTempDir(t,
+		opttest.NewStackOptions(
+			optnewstack.DisableAutoDestroy(),
+		),
+	)
 	options := optproviderupgrade.Defaults()
 	for _, opt := range opts {
 		opt.Apply(&options)
@@ -203,11 +213,13 @@ func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, pro
 		func(test *pulumitest.PulumiTest) {
 			t.Helper()
 			test.Up(t)
-			grptLog := test.GrpcLog(t)
-			grpcLogPath := filepath.Join(cacheDir, "grpc.json")
-			t.Log(fmt.Sprintf("writing grpc log to %s", grpcLogPath))
-			grptLog.SanitizeSecrets()
-			grptLog.WriteTo(grpcLogPath)
+			if !skipCache {
+				grptLog := test.GrpcLog(t)
+				grpcLogPath := filepath.Join(cacheDir, "grpc.json")
+				t.Log(fmt.Sprintf("writing grpc log to %s", grpcLogPath))
+				grptLog.SanitizeSecrets()
+				grptLog.WriteTo(grpcLogPath)
+			}
 		},
 		optsRun...,
 	)
@@ -215,6 +227,20 @@ func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, pro
 	if options.NewSourcePath != "" {
 		previewTest.UpdateSource(t, options.NewSourcePath)
 	}
+
+	// For upgrade tests we only want to link the new SDK
+	// for the new (upgrade) deployment
+	if linkNodeSDK {
+		cmd := exec.Command("yarn", "link", "@pulumi/aws")
+		cmd.Dir = previewTest.WorkingDir()
+		t.Log(fmt.Sprintf("linking yarn package: %s", cmd))
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Log(fmt.Sprintf("failed to link yarn package '@pulumi/aws': %s\n%s", err, out))
+			t.FailNow()
+		}
+	}
+
 	return previewTest
 }
 
