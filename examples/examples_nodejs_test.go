@@ -836,18 +836,17 @@ func TestRoute53Upgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("route53"), nodeProviderUpgradeOpts())
 }
 
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
 func TestJobQueueUpgrade(t *testing.T) {
-	// TODO[pulumi/pulumi-aws#5515]
-	t.Skipf("Skipping test for now. State upgrade isn't working correctly")
 	opts := nodeProviderUpgradeOpts()
 	opts.setEnvRegion = false
-	opts.baselineVersion = "6.78.0"
-	opts.linkNodeSDK = false
-	opts.region = "us-west-2" // has to match the snapshot-recorded region
-	opts.extraOpts = []opttest.Option{
-		opttest.Env("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true"),
-	}
-	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts, optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "job-queue", "step1")))
+	opts.skipCache = true
+	opts.skipDefaultPreviewTest = true
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts,
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "job-queue", "step1")))
+
+	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
 }
 
 func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
