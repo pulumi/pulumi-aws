@@ -61,6 +61,7 @@ const subnet = new aws.ec2.Subnet("sampleSubnet", {
 });
 
 const computeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
+    computeEnvironmentNamePrefix: "test-",
     computeResources: {
         instanceRole: ecsInstanceProfile.arn,
         instanceTypes: ["c4.large"],
@@ -76,10 +77,7 @@ const computeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnviro
 
 
 const jobQueue = new aws.batch.JobQueue("testQueue", {
-    computeEnvironmentOrders: [{
-        computeEnvironment: computeEnvironment.arn,
-        order: 1,
-    }],
+    computeEnvironments: [computeEnvironment.arn],
     priority: 1,
     state: "ENABLED",
 });
