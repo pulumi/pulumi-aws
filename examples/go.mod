@@ -13,9 +13,9 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.79.4
 	github.com/pulumi/providertest v0.3.0
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.109.0
-	github.com/pulumi/pulumi/pkg/v3 v3.172.0
-	github.com/pulumi/pulumi/sdk/v3 v3.172.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.109.1-0.20250610163142-50486d5517ae
+	github.com/pulumi/pulumi/pkg/v3 v3.175.0
+	github.com/pulumi/pulumi/sdk/v3 v3.175.0
 	github.com/stretchr/testify v1.10.0
 )
 
