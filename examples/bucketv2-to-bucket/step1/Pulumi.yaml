@@ -1,10 +1,14 @@
 name: test-aws-bucket-migration
 runtime: yaml
 resources:
+  aws:
+    type: pulumi:providers:aws
+    defaultProvider: true
+    options:
+      version: 7.0.0
   replication:
     type: aws:iam:Role
     properties:
-      name: tf-iam-role-replication-12345
       assumeRolePolicy: |
         {
           "Version": "2012-10-17",
@@ -23,7 +27,6 @@ resources:
     type: aws:iam:Policy
     name: replication
     properties:
-      name: tf-iam-role-policy-replication-12345
       policy: |
         {
           "Version": "2012-10-17",
