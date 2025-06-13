@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.workspaces.WebNetworkSettings;
- * import com.pulumi.aws.workspaces.WebNetworkSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.NetworkSettings;
+ * import com.pulumi.aws.workspacesweb.NetworkSettingsArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         var exampleWebNetworkSettings = new WebNetworkSettings("exampleWebNetworkSettings", WebNetworkSettingsArgs.builder()
+ *         var exampleNetworkSettings = new NetworkSettings("exampleNetworkSettings", NetworkSettingsArgs.builder()
  *             .vpcId(example.id())
  *             .subnetIds(            
  *                 exampleSubnet[0].id(),
@@ -104,7 +104,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webNetworkSettings:WebNetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings */
 @ResourceType(type="aws:workspaces/webNetworkSettings:WebNetworkSettings")
 public class WebNetworkSettings extends com.pulumi.resources.CustomResource {
     /**

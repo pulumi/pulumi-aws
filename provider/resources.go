@@ -268,6 +268,7 @@ const (
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
 	worklinkMod                 = "WorkLink"                 // Worklink
 	workspacesMod               = "Workspaces"               // Workspaces
+	workspaceswebMod            = "WorkSpacesWeb"            // WorkSpaces Web
 	xrayMod                     = "Xray"                     // X-Ray
 
 	// Legacy Mods
@@ -503,6 +504,7 @@ var moduleMap = map[string]string{
 	"wafv2":                           wafV2Mod,
 	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
+	"workspacesweb":                   workspaceswebMod,
 	"xray":                            xrayMod,
 }
 
@@ -6156,36 +6158,42 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
-		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
-		"aws_cloudwatch_log_delivery_source":             {"name"},
-		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
-		"aws_cloudwatch_log_delivery_destination":        {"name"},
-		"aws_media_packagev2_channel_group":              {"name"},
-		"aws_timestreamquery_scheduled_query":            {"arn"},
-		"aws_route53domains_domain":                      {"domainName"},
-		"aws_api_gateway_rest_api_put":                   {"restApiId"},
-		"aws_ec2_default_credit_specification":           {"instanceFamily"},
-		"aws_inspector2_filter":                          {"arn"},
-		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
-		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
-		"aws_quicksight_account_settings":                {"awsAccountId"},
-		"aws_notificationscontacts_email_contact":        {"arn"},
-		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
-		"aws_notifications_notification_configuration":   {"arn"},
-		"aws_notifications_notification_hub":             {"notificationHubRegion"},
-		"aws_notifications_event_rule":                   {"arn"},
-		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
-		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
-		"aws_prometheus_workspace_configuration":         {"workspaceId"},
-		"aws_workspacesweb_data_protection_settings":     {"dataProtectionSettingsArn"},
-		"aws_workspacesweb_user_access_logging_settings": {"userAccessLoggingSettingsArn"},
-		"aws_vpc_route_server":                           {"routeServerId"},
-		"aws_vpc_route_server_propagation":               {"routeServerPropagationId"},
-		"aws_vpc_route_server_endpoint":                  {"routeServerEndpointId"},
-		"aws_vpc_route_server_peer":                      {"routeServerPeerId"},
-		"aws_dsql_cluster_peering":                       {"identifier"},
-		"aws_dsql_cluster":                               {"identifier"},
-		"aws_workspacesweb_ip_access_settings":           {"ipAccessSettingsArn"},
+		"aws_cloudwatch_log_index_policy":                       {"logGroupName"},
+		"aws_cloudwatch_log_delivery_source":                    {"name"},
+		"aws_cloudwatch_log_delivery_destination_policy":        {"deliveryDestinationName"},
+		"aws_cloudwatch_log_delivery_destination":               {"name"},
+		"aws_media_packagev2_channel_group":                     {"name"},
+		"aws_timestreamquery_scheduled_query":                   {"arn"},
+		"aws_route53domains_domain":                             {"domainName"},
+		"aws_api_gateway_rest_api_put":                          {"restApiId"},
+		"aws_ec2_default_credit_specification":                  {"instanceFamily"},
+		"aws_inspector2_filter":                                 {"arn"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":            {"keyValueStoreArn"},
+		"aws_workspacesweb_network_settings":                    {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings":                    {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings":                       {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings":            {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings":        {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings":                  {"ipAccessSettingsArn"},
+		"aws_workspacesweb_network_settings_legacy":             {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings_legacy":             {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings_legacy":                {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings_legacy":     {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings_legacy": {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings_legacy":           {"ipAccessSettingsArn"},
+		"aws_quicksight_account_settings":                       {"awsAccountId"},
+		"aws_notificationscontacts_email_contact":               {"arn"},
+		"aws_notifications_notification_configuration":          {"arn"},
+		"aws_notifications_notification_hub":                    {"notificationHubRegion"},
+		"aws_notifications_event_rule":                          {"arn"},
+		"aws_notifications_channel_association":                 {"notificationConfigurationArn", "arn"},
+		"aws_prometheus_workspace_configuration":                {"workspaceId"},
+		"aws_vpc_route_server":                                  {"routeServerId"},
+		"aws_vpc_route_server_propagation":                      {"routeServerPropagationId"},
+		"aws_vpc_route_server_endpoint":                         {"routeServerEndpointId"},
+		"aws_vpc_route_server_peer":                             {"routeServerPeerId"},
+		"aws_dsql_cluster_peering":                              {"identifier"},
+		"aws_dsql_cluster":                                      {"identifier"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

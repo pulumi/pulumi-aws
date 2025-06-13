@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebDataProtectionSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.DataProtectionSettings("example", new()
     ///     {
     ///         DisplayName = "example",
     ///     });
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebDataProtectionSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.DataProtectionSettings("example", new()
     ///     {
     ///         DisplayName = "example",
     ///         Description = "Example data protection settings",
-    ///         InlineRedactionConfiguration = new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationArgs
+    ///         InlineRedactionConfiguration = new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationArgs
     ///         {
     ///             GlobalConfidenceLevel = 2,
     ///             GlobalEnforcedUrls = new[]
@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Workspaces
     ///             },
     ///             InlineRedactionPatterns = new[]
     ///             {
-    ///                 new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
+    ///                 new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
     ///                 {
     ///                     BuiltInPatternId = "ssn",
     ///                     ConfidenceLevel = 3,
     ///                     RedactionPlaceHolders = new[]
     ///                     {
-    ///                         new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
+    ///                         new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
     ///                         {
     ///                             RedactionPlaceHolderType = "CustomText",
     ///                             RedactionPlaceHolderText = "REDACTED",
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Workspaces
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWebDataProtectionSettings = new Aws.Workspaces.WebDataProtectionSettings("example", new()
+    ///     var exampleDataProtectionSettings = new Aws.WorkSpacesWeb.DataProtectionSettings("example", new()
     ///     {
     ///         DisplayName = "example-complete",
     ///         Description = "Complete example data protection settings",
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             { "Environment", "Production" },
     ///         },
-    ///         InlineRedactionConfiguration = new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationArgs
+    ///         InlineRedactionConfiguration = new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationArgs
     ///         {
     ///             GlobalConfidenceLevel = 2,
     ///             GlobalEnforcedUrls = new[]
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Workspaces
     ///             },
     ///             InlineRedactionPatterns = new[]
     ///             {
-    ///                 new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
+    ///                 new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
     ///                 {
     ///                     BuiltInPatternId = "ssn",
     ///                     ConfidenceLevel = 3,
@@ -128,16 +128,16 @@ namespace Pulumi.Aws.Workspaces
     ///                     },
     ///                     RedactionPlaceHolders = new[]
     ///                     {
-    ///                         new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
+    ///                         new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
     ///                         {
     ///                             RedactionPlaceHolderType = "CustomText",
     ///                             RedactionPlaceHolderText = "REDACTED-SSN",
     ///                         },
     ///                     },
     ///                 },
-    ///                 new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
+    ///                 new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs
     ///                 {
-    ///                     CustomPattern = new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs
+    ///                     CustomPattern = new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs
     ///                     {
     ///                         PatternName = "CustomPattern",
     ///                         PatternRegex = "/\\d{3}-\\d{2}-\\d{4}/g",
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Workspaces
     ///                     },
     ///                     RedactionPlaceHolders = new[]
     ///                     {
-    ///                         new Aws.Workspaces.Inputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
+    ///                         new Aws.WorkSpacesWeb.Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs
     ///                         {
     ///                             RedactionPlaceHolderType = "CustomText",
     ///                             RedactionPlaceHolderText = "REDACTED-CUSTOM",
@@ -172,6 +172,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings")]
     [AwsResourceType("aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings")]
     public partial class WebDataProtectionSettings : global::Pulumi.CustomResource
     {

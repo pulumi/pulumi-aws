@@ -24,12 +24,12 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebIpAccessSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
     ///         DisplayName = "example",
     ///         IpRules = new[]
     ///         {
-    ///             new Aws.Workspaces.Inputs.WebIpAccessSettingsIpRuleArgs
+    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
     ///             {
     ///                 IpRange = "10.0.0.0/16",
     ///             },
@@ -49,18 +49,18 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebIpAccessSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
     ///         DisplayName = "example",
     ///         Description = "Example IP access settings",
     ///         IpRules = new[]
     ///         {
-    ///             new Aws.Workspaces.Inputs.WebIpAccessSettingsIpRuleArgs
+    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
     ///             {
     ///                 IpRange = "10.0.0.0/16",
     ///                 Description = "Main office",
     ///             },
-    ///             new Aws.Workspaces.Inputs.WebIpAccessSettingsIpRuleArgs
+    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
     ///             {
     ///                 IpRange = "192.168.0.0/24",
     ///                 Description = "Branch office",
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Workspaces
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWebIpAccessSettings = new Aws.Workspaces.WebIpAccessSettings("example", new()
+    ///     var exampleIpAccessSettings = new Aws.WorkSpacesWeb.IpAccessSettings("example", new()
     ///     {
     ///         DisplayName = "example",
     ///         Description = "Example IP access settings",
@@ -98,12 +98,12 @@ namespace Pulumi.Aws.Workspaces
     ///         },
     ///         IpRules = new[]
     ///         {
-    ///             new Aws.Workspaces.Inputs.WebIpAccessSettingsIpRuleArgs
+    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
     ///             {
     ///                 IpRange = "10.0.0.0/16",
     ///                 Description = "Main office",
     ///             },
-    ///             new Aws.Workspaces.Inputs.WebIpAccessSettingsIpRuleArgs
+    ///             new Aws.WorkSpacesWeb.Inputs.IpAccessSettingsIpRuleArgs
     ///             {
     ///                 IpRange = "192.168.0.0/24",
     ///                 Description = "Branch office",
@@ -126,6 +126,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webIpAccessSettings:WebIpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings")]
     [AwsResourceType("aws:workspaces/webIpAccessSettings:WebIpAccessSettings")]
     public partial class WebIpAccessSettings : global::Pulumi.CustomResource
     {

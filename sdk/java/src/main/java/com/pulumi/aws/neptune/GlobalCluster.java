@@ -251,9 +251,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> globalClusterResourceId() {
         return this.globalClusterResourceId;
     }
+    /**
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
+     * 
+     */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
+    /**
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
+     * 
+     */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
@@ -263,9 +271,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
+    /**
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }

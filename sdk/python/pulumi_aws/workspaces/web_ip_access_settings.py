@@ -286,8 +286,13 @@ class _WebIpAccessSettingsState:
         pulumi.set(self, "tags_all", value)
 
 
+warnings.warn("""aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webIpAccessSettings:WebIpAccessSettings")
 class WebIpAccessSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -310,7 +315,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebIpAccessSettings("example",
+        example = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             ip_rules=[{
                 "ip_range": "10.0.0.0/16",
@@ -323,7 +328,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebIpAccessSettings("example",
+        example = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             description="Example IP access settings",
             ip_rules=[
@@ -347,7 +352,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web IP Access Settings",
             deletion_window_in_days=7)
-        example_web_ip_access_settings = aws.workspaces.WebIpAccessSettings("example",
+        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             description="Example IP access settings",
             customer_managed_key=example.arn,
@@ -405,7 +410,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebIpAccessSettings("example",
+        example = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             ip_rules=[{
                 "ip_range": "10.0.0.0/16",
@@ -418,7 +423,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebIpAccessSettings("example",
+        example = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             description="Example IP access settings",
             ip_rules=[
@@ -442,7 +447,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web IP Access Settings",
             deletion_window_in_days=7)
-        example_web_ip_access_settings = aws.workspaces.WebIpAccessSettings("example",
+        example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
             display_name="example",
             description="Example IP access settings",
             customer_managed_key=example.arn,
@@ -494,6 +499,7 @@ class WebIpAccessSettings(pulumi.CustomResource):
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebIpAccessSettingsIpRuleArgs', 'WebIpAccessSettingsIpRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebIpAccessSettings is deprecated: aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

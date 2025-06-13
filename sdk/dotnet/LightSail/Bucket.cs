@@ -66,6 +66,9 @@ namespace Pulumi.Aws.LightSail
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
@@ -159,6 +162,9 @@ namespace Pulumi.Aws.LightSail
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
@@ -214,6 +220,9 @@ namespace Pulumi.Aws.LightSail
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 

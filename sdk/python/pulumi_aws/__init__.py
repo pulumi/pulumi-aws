@@ -469,6 +469,8 @@ if typing.TYPE_CHECKING:
     worklink = __worklink
     import pulumi_aws.workspaces as __workspaces
     workspaces = __workspaces
+    import pulumi_aws.workspacesweb as __workspacesweb
+    workspacesweb = __workspacesweb
     import pulumi_aws.xray as __xray
     xray = __xray
 else:
@@ -694,6 +696,7 @@ else:
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
     worklink = _utilities.lazy_import('pulumi_aws.worklink')
     workspaces = _utilities.lazy_import('pulumi_aws.workspaces')
+    workspacesweb = _utilities.lazy_import('pulumi_aws.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws.xray')
 
 _utilities.register(
@@ -12921,6 +12924,54 @@ _utilities.register(
   "fqn": "pulumi_aws.workspaces",
   "classes": {
    "aws:workspaces/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/browserSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/browserSettings:BrowserSettings": "BrowserSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/dataProtectionSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/dataProtectionSettings:DataProtectionSettings": "DataProtectionSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/ipAccessSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/ipAccessSettings:IpAccessSettings": "IpAccessSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/networkSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/networkSettings:NetworkSettings": "NetworkSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/userAccessLoggingSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings": "UserAccessLoggingSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/userSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/userSettings:UserSettings": "UserSettings"
   }
  },
  {

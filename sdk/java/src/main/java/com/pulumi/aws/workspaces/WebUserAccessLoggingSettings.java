@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.workspaces.WebUserAccessLoggingSettings;
- * import com.pulumi.aws.workspaces.WebUserAccessLoggingSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettings;
+ * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleWebUserAccessLoggingSettings = new WebUserAccessLoggingSettings("exampleWebUserAccessLoggingSettings", WebUserAccessLoggingSettingsArgs.builder()
+ *         var exampleUserAccessLoggingSettings = new UserAccessLoggingSettings("exampleUserAccessLoggingSettings", UserAccessLoggingSettingsArgs.builder()
  *             .kinesisStreamArn(example.arn())
  *             .build());
  * 
@@ -75,8 +75,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.workspaces.WebUserAccessLoggingSettings;
- * import com.pulumi.aws.workspaces.WebUserAccessLoggingSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettings;
+ * import com.pulumi.aws.workspacesweb.UserAccessLoggingSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleWebUserAccessLoggingSettings = new WebUserAccessLoggingSettings("exampleWebUserAccessLoggingSettings", WebUserAccessLoggingSettingsArgs.builder()
+ *         var exampleUserAccessLoggingSettings = new UserAccessLoggingSettings("exampleUserAccessLoggingSettings", UserAccessLoggingSettingsArgs.builder()
  *             .kinesisStreamArn(example.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example-user-access-logging-settings"),
@@ -117,7 +117,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings */
 @ResourceType(type="aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings")
 public class WebUserAccessLoggingSettings extends com.pulumi.resources.CustomResource {
     /**

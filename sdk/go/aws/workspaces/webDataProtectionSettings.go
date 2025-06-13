@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebDataProtectionSettings(ctx, "example", &workspaces.WebDataProtectionSettingsArgs{
+//			_, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
 //				DisplayName: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -49,27 +49,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebDataProtectionSettings(ctx, "example", &workspaces.WebDataProtectionSettingsArgs{
+//			_, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
 //				DisplayName: pulumi.String("example"),
 //				Description: pulumi.String("Example data protection settings"),
-//				InlineRedactionConfiguration: &workspaces.WebDataProtectionSettingsInlineRedactionConfigurationArgs{
+//				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
 //					GlobalConfidenceLevel: pulumi.Int(2),
 //					GlobalEnforcedUrls: pulumi.StringArray{
 //						pulumi.String("https://example.com"),
 //					},
-//					InlineRedactionPatterns: workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
-//						&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
+//					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
+//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
 //							BuiltInPatternId: pulumi.String("ssn"),
 //							ConfidenceLevel:  pulumi.Int(3),
-//							RedactionPlaceHolders: workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
+//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
+//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
 //									RedactionPlaceHolderType: pulumi.String("CustomText"),
 //									RedactionPlaceHolderText: pulumi.String("REDACTED"),
 //								},
@@ -95,7 +95,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,14 +109,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = workspaces.NewWebDataProtectionSettings(ctx, "example", &workspaces.WebDataProtectionSettingsArgs{
+//			_, err = workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
 //				DisplayName:        pulumi.String("example-complete"),
 //				Description:        pulumi.String("Complete example data protection settings"),
 //				CustomerManagedKey: example.Arn,
 //				AdditionalEncryptionContext: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},
-//				InlineRedactionConfiguration: &workspaces.WebDataProtectionSettingsInlineRedactionConfigurationArgs{
+//				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
 //					GlobalConfidenceLevel: pulumi.Int(2),
 //					GlobalEnforcedUrls: pulumi.StringArray{
 //						pulumi.String("https://example.com"),
@@ -125,8 +125,8 @@ import (
 //					GlobalExemptUrls: pulumi.StringArray{
 //						pulumi.String("https://exempt.example.com"),
 //					},
-//					InlineRedactionPatterns: workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
-//						&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
+//					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
+//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
 //							BuiltInPatternId: pulumi.String("ssn"),
 //							ConfidenceLevel:  pulumi.Int(3),
 //							EnforcedUrls: pulumi.StringArray{
@@ -135,22 +135,22 @@ import (
 //							ExemptUrls: pulumi.StringArray{
 //								pulumi.String("https://exempt-pattern1.example.com"),
 //							},
-//							RedactionPlaceHolders: workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
+//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
+//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
 //									RedactionPlaceHolderType: pulumi.String("CustomText"),
 //									RedactionPlaceHolderText: pulumi.String("REDACTED-SSN"),
 //								},
 //							},
 //						},
-//						&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
-//							CustomPattern: &workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{
+//						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
+//							CustomPattern: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs{
 //								PatternName:        pulumi.String("CustomPattern"),
 //								PatternRegex:       pulumi.String("/\\d{3}-\\d{2}-\\d{4}/g"),
 //								KeywordRegex:       pulumi.String("/SSN|Social Security/gi"),
 //								PatternDescription: pulumi.String("Custom SSN pattern"),
 //							},
-//							RedactionPlaceHolders: workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspaces.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
+//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
+//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
 //									RedactionPlaceHolderType: pulumi.String("CustomText"),
 //									RedactionPlaceHolderText: pulumi.String("REDACTED-CUSTOM"),
 //								},
@@ -178,6 +178,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings
 type WebDataProtectionSettings struct {
 	pulumi.CustomResourceState
 

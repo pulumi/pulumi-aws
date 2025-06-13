@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         name: `example-sg-${range.value}$`,
  *     }));
  * }
- * const exampleWebNetworkSettings = new aws.workspaces.WebNetworkSettings("example", {
+ * const exampleNetworkSettings = new aws.workspacesweb.NetworkSettings("example", {
  *     vpcId: example.id,
  *     subnetIds: [
  *         exampleSubnet[0].id,
@@ -56,6 +56,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webNetworkSettings:WebNetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings
  */
 export class WebNetworkSettings extends pulumi.CustomResource {
     /**
@@ -68,6 +70,7 @@ export class WebNetworkSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebNetworkSettingsState, opts?: pulumi.CustomResourceOptions): WebNetworkSettings {
+        pulumi.log.warn("WebNetworkSettings is deprecated: aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings")
         return new WebNetworkSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -125,8 +128,11 @@ export class WebNetworkSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings */
     constructor(name: string, args: WebNetworkSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings */
     constructor(name: string, argsOrState?: WebNetworkSettingsArgs | WebNetworkSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebNetworkSettings is deprecated: aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

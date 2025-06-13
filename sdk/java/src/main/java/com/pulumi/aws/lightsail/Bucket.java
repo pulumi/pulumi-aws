@@ -122,9 +122,17 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
     @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
+    /**
+     * @return Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }

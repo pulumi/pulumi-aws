@@ -24,7 +24,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = workspaces.NewWebUserAccessLoggingSettings(ctx, "example", &workspaces.WebUserAccessLoggingSettingsArgs{
+//			_, err = workspacesweb.NewUserAccessLoggingSettings(ctx, "example", &workspacesweb.UserAccessLoggingSettingsArgs{
 //				KinesisStreamArn: example.Arn,
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +72,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = workspaces.NewWebUserAccessLoggingSettings(ctx, "example", &workspaces.WebUserAccessLoggingSettingsArgs{
+//			_, err = workspacesweb.NewUserAccessLoggingSettings(ctx, "example", &workspacesweb.UserAccessLoggingSettingsArgs{
 //				KinesisStreamArn: example.Arn,
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("example-user-access-logging-settings"),
@@ -95,6 +95,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings
 type WebUserAccessLoggingSettings struct {
 	pulumi.CustomResourceState
 

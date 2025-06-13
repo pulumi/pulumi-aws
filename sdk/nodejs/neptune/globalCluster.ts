@@ -137,8 +137,14 @@ export class GlobalCluster extends pulumi.CustomResource {
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
+    /**
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
+     */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
@@ -217,8 +223,14 @@ export interface GlobalClusterState {
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     globalClusterResourceId?: pulumi.Input<string>;
+    /**
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
+    /**
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }
 
@@ -242,6 +254,12 @@ export interface GlobalClusterArgs {
      * Global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
+    /**
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
+     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     storageEncrypted?: pulumi.Input<boolean>;
 }

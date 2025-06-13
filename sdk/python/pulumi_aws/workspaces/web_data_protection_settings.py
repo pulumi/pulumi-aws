@@ -286,8 +286,13 @@ class _WebDataProtectionSettingsState:
         pulumi.set(self, "tags_all", value)
 
 
+warnings.warn("""aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings")
 class WebDataProtectionSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -310,7 +315,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebDataProtectionSettings("example", display_name="example")
+        example = aws.workspacesweb.DataProtectionSettings("example", display_name="example")
         ```
 
         ### With Inline Redaction Configuration
@@ -319,7 +324,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebDataProtectionSettings("example",
+        example = aws.workspacesweb.DataProtectionSettings("example",
             display_name="example",
             description="Example data protection settings",
             inline_redaction_configuration={
@@ -345,7 +350,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
-        example_web_data_protection_settings = aws.workspaces.WebDataProtectionSettings("example",
+        example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
             display_name="example-complete",
             description="Complete example data protection settings",
             customer_managed_key=example.arn,
@@ -425,7 +430,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebDataProtectionSettings("example", display_name="example")
+        example = aws.workspacesweb.DataProtectionSettings("example", display_name="example")
         ```
 
         ### With Inline Redaction Configuration
@@ -434,7 +439,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebDataProtectionSettings("example",
+        example = aws.workspacesweb.DataProtectionSettings("example",
             display_name="example",
             description="Example data protection settings",
             inline_redaction_configuration={
@@ -460,7 +465,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web Data Protection Settings",
             deletion_window_in_days=7)
-        example_web_data_protection_settings = aws.workspaces.WebDataProtectionSettings("example",
+        example_data_protection_settings = aws.workspacesweb.DataProtectionSettings("example",
             display_name="example-complete",
             description="Complete example data protection settings",
             customer_managed_key=example.arn,
@@ -534,6 +539,7 @@ class WebDataProtectionSettings(pulumi.CustomResource):
                  inline_redaction_configuration: Optional[pulumi.Input[Union['WebDataProtectionSettingsInlineRedactionConfigurationArgs', 'WebDataProtectionSettingsInlineRedactionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebDataProtectionSettings is deprecated: aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

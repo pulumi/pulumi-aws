@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebDataProtectionSettings("example", {displayName: "example"});
+ * const example = new aws.workspacesweb.DataProtectionSettings("example", {displayName: "example"});
  * ```
  *
  * ### With Inline Redaction Configuration
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebDataProtectionSettings("example", {
+ * const example = new aws.workspacesweb.DataProtectionSettings("example", {
  *     displayName: "example",
  *     description: "Example data protection settings",
  *     inlineRedactionConfiguration: {
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     description: "KMS key for WorkSpaces Web Data Protection Settings",
  *     deletionWindowInDays: 7,
  * });
- * const exampleWebDataProtectionSettings = new aws.workspaces.WebDataProtectionSettings("example", {
+ * const exampleDataProtectionSettings = new aws.workspacesweb.DataProtectionSettings("example", {
  *     displayName: "example-complete",
  *     description: "Complete example data protection settings",
  *     customerManagedKey: example.arn,
@@ -107,6 +107,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings
  */
 export class WebDataProtectionSettings extends pulumi.CustomResource {
     /**
@@ -119,6 +121,7 @@ export class WebDataProtectionSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebDataProtectionSettingsState, opts?: pulumi.CustomResourceOptions): WebDataProtectionSettings {
+        pulumi.log.warn("WebDataProtectionSettings is deprecated: aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings")
         return new WebDataProtectionSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -184,8 +187,11 @@ export class WebDataProtectionSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings */
     constructor(name: string, args: WebDataProtectionSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings */
     constructor(name: string, argsOrState?: WebDataProtectionSettingsArgs | WebDataProtectionSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebDataProtectionSettings is deprecated: aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

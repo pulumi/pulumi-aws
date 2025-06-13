@@ -33,9 +33,17 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         return this.bundleId;
     }
 
+    /**
+     * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
+    /**
+     * @return Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
     public Optional<Output<Boolean>> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
@@ -122,11 +130,23 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
             return bundleId(Output.of(bundleId));
         }
 
+        /**
+         * @param forceDelete Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
             $.forceDelete = forceDelete;
             return this;
         }
 
+        /**
+         * @param forceDelete Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDelete(Boolean forceDelete) {
             return forceDelete(Output.of(forceDelete));
         }

@@ -32,9 +32,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebIpAccessSettings;
- * import com.pulumi.aws.workspaces.WebIpAccessSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebIpAccessSettingsIpRuleArgs;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettings;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.IpAccessSettingsIpRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebIpAccessSettings("example", WebIpAccessSettingsArgs.builder()
+ *         var example = new IpAccessSettings("example", IpAccessSettingsArgs.builder()
  *             .displayName("example")
- *             .ipRules(WebIpAccessSettingsIpRuleArgs.builder()
+ *             .ipRules(IpAccessSettingsIpRuleArgs.builder()
  *                 .ipRange("10.0.0.0/16")
  *                 .build())
  *             .build());
@@ -71,9 +71,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebIpAccessSettings;
- * import com.pulumi.aws.workspaces.WebIpAccessSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebIpAccessSettingsIpRuleArgs;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettings;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.IpAccessSettingsIpRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,15 +87,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebIpAccessSettings("example", WebIpAccessSettingsArgs.builder()
+ *         var example = new IpAccessSettings("example", IpAccessSettingsArgs.builder()
  *             .displayName("example")
  *             .description("Example IP access settings")
  *             .ipRules(            
- *                 WebIpAccessSettingsIpRuleArgs.builder()
+ *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("10.0.0.0/16")
  *                     .description("Main office")
  *                     .build(),
- *                 WebIpAccessSettingsIpRuleArgs.builder()
+ *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("192.168.0.0/24")
  *                     .description("Branch office")
  *                     .build())
@@ -119,9 +119,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspaces.WebIpAccessSettings;
- * import com.pulumi.aws.workspaces.WebIpAccessSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebIpAccessSettingsIpRuleArgs;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettings;
+ * import com.pulumi.aws.workspacesweb.IpAccessSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.IpAccessSettingsIpRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,17 +140,17 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleWebIpAccessSettings = new WebIpAccessSettings("exampleWebIpAccessSettings", WebIpAccessSettingsArgs.builder()
+ *         var exampleIpAccessSettings = new IpAccessSettings("exampleIpAccessSettings", IpAccessSettingsArgs.builder()
  *             .displayName("example")
  *             .description("Example IP access settings")
  *             .customerManagedKey(example.arn())
  *             .additionalEncryptionContext(Map.of("Environment", "Production"))
  *             .ipRules(            
- *                 WebIpAccessSettingsIpRuleArgs.builder()
+ *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("10.0.0.0/16")
  *                     .description("Main office")
  *                     .build(),
- *                 WebIpAccessSettingsIpRuleArgs.builder()
+ *                 IpAccessSettingsIpRuleArgs.builder()
  *                     .ipRange("192.168.0.0/24")
  *                     .description("Branch office")
  *                     .build())
@@ -171,7 +171,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webIpAccessSettings:WebIpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings */
 @ResourceType(type="aws:workspaces/webIpAccessSettings:WebIpAccessSettings")
 public class WebIpAccessSettings extends com.pulumi.resources.CustomResource {
     /**

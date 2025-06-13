@@ -26,7 +26,7 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -75,7 +75,7 @@ import (
 //				}
 //				example1 = append(example1, __res)
 //			}
-//			_, err = workspaces.NewWebNetworkSettings(ctx, "example", &workspaces.WebNetworkSettingsArgs{
+//			_, err = workspacesweb.NewNetworkSettings(ctx, "example", &workspacesweb.NetworkSettingsArgs{
 //				VpcId: example.ID(),
 //				SubnetIds: pulumi.StringArray{
 //					exampleSubnet[0].ID(),
@@ -102,6 +102,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webNetworkSettings:WebNetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings
 type WebNetworkSettings struct {
 	pulumi.CustomResourceState
 

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebIpAccessSettings("example", {
+ * const example = new aws.workspacesweb.IpAccessSettings("example", {
  *     displayName: "example",
  *     ipRules: [{
  *         ipRange: "10.0.0.0/16",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebIpAccessSettings("example", {
+ * const example = new aws.workspacesweb.IpAccessSettings("example", {
  *     displayName: "example",
  *     description: "Example IP access settings",
  *     ipRules: [
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     description: "KMS key for WorkSpaces Web IP Access Settings",
  *     deletionWindowInDays: 7,
  * });
- * const exampleWebIpAccessSettings = new aws.workspaces.WebIpAccessSettings("example", {
+ * const exampleIpAccessSettings = new aws.workspacesweb.IpAccessSettings("example", {
  *     displayName: "example",
  *     description: "Example IP access settings",
  *     customerManagedKey: example.arn,
@@ -88,6 +88,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webIpAccessSettings:WebIpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings
  */
 export class WebIpAccessSettings extends pulumi.CustomResource {
     /**
@@ -100,6 +102,7 @@ export class WebIpAccessSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebIpAccessSettingsState, opts?: pulumi.CustomResourceOptions): WebIpAccessSettings {
+        pulumi.log.warn("WebIpAccessSettings is deprecated: aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings")
         return new WebIpAccessSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -165,8 +168,11 @@ export class WebIpAccessSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings */
     constructor(name: string, args: WebIpAccessSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings */
     constructor(name: string, argsOrState?: WebIpAccessSettingsArgs | WebIpAccessSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebIpAccessSettings is deprecated: aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

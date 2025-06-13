@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Workspaces
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleWebUserAccessLoggingSettings = new Aws.Workspaces.WebUserAccessLoggingSettings("example", new()
+    ///     var exampleUserAccessLoggingSettings = new Aws.WorkSpacesWeb.UserAccessLoggingSettings("example", new()
     ///     {
     ///         KinesisStreamArn = example.Arn,
     ///     });
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Workspaces
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleWebUserAccessLoggingSettings = new Aws.Workspaces.WebUserAccessLoggingSettings("example", new()
+    ///     var exampleUserAccessLoggingSettings = new Aws.WorkSpacesWeb.UserAccessLoggingSettings("example", new()
     ///     {
     ///         KinesisStreamArn = example.Arn,
     ///         Tags = 
@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings")]
     [AwsResourceType("aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings")]
     public partial class WebUserAccessLoggingSettings : global::Pulumi.CustomResource
     {

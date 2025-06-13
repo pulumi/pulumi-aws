@@ -71,6 +71,9 @@ export class Bucket extends pulumi.CustomResource {
      * Date and time when the bucket was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Name for the bucket.
@@ -167,6 +170,9 @@ export interface BucketState {
      * Date and time when the bucket was created.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
     forceDelete?: pulumi.Input<boolean>;
     /**
      * Name for the bucket.
@@ -206,6 +212,9 @@ export interface BucketArgs {
      * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      */
     bundleId: pulumi.Input<string>;
+    /**
+     * Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
     forceDelete?: pulumi.Input<boolean>;
     /**
      * Name for the bucket.

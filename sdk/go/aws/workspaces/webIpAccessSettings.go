@@ -23,17 +23,17 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebIpAccessSettings(ctx, "example", &workspaces.WebIpAccessSettingsArgs{
+//			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
 //				DisplayName: pulumi.String("example"),
-//				IpRules: workspaces.WebIpAccessSettingsIpRuleArray{
-//					&workspaces.WebIpAccessSettingsIpRuleArgs{
+//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
+//					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange: pulumi.String("10.0.0.0/16"),
 //					},
 //				},
@@ -54,22 +54,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebIpAccessSettings(ctx, "example", &workspaces.WebIpAccessSettingsArgs{
+//			_, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
 //				DisplayName: pulumi.String("example"),
 //				Description: pulumi.String("Example IP access settings"),
-//				IpRules: workspaces.WebIpAccessSettingsIpRuleArray{
-//					&workspaces.WebIpAccessSettingsIpRuleArgs{
+//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
+//					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("10.0.0.0/16"),
 //						Description: pulumi.String("Main office"),
 //					},
-//					&workspaces.WebIpAccessSettingsIpRuleArgs{
+//					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("192.168.0.0/24"),
 //						Description: pulumi.String("Branch office"),
 //					},
@@ -92,7 +92,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,19 +106,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = workspaces.NewWebIpAccessSettings(ctx, "example", &workspaces.WebIpAccessSettingsArgs{
+//			_, err = workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
 //				DisplayName:        pulumi.String("example"),
 //				Description:        pulumi.String("Example IP access settings"),
 //				CustomerManagedKey: example.Arn,
 //				AdditionalEncryptionContext: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},
-//				IpRules: workspaces.WebIpAccessSettingsIpRuleArray{
-//					&workspaces.WebIpAccessSettingsIpRuleArgs{
+//				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
+//					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("10.0.0.0/16"),
 //						Description: pulumi.String("Main office"),
 //					},
-//					&workspaces.WebIpAccessSettingsIpRuleArgs{
+//					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange:     pulumi.String("192.168.0.0/24"),
 //						Description: pulumi.String("Branch office"),
 //					},
@@ -143,6 +143,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webIpAccessSettings:WebIpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webipaccesssettings.WebIpAccessSettings has been deprecated in favor of aws.workspacesweb/ipaccesssettings.IpAccessSettings
 type WebIpAccessSettings struct {
 	pulumi.CustomResourceState
 

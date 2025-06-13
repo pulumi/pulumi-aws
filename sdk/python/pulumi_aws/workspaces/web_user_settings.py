@@ -506,8 +506,13 @@ class _WebUserSettingsState:
         pulumi.set(self, "user_settings_arn", value)
 
 
+warnings.warn("""aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webUserSettings:WebUserSettings")
 class WebUserSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -537,7 +542,7 @@ class WebUserSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebUserSettings("example",
+        example = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -551,7 +556,7 @@ class WebUserSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebUserSettings("example",
+        example = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -576,7 +581,7 @@ class WebUserSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web User Settings",
             deletion_window_in_days=7)
-        example_web_user_settings = aws.workspaces.WebUserSettings("example",
+        example_user_settings = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -655,7 +660,7 @@ class WebUserSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebUserSettings("example",
+        example = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -669,7 +674,7 @@ class WebUserSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebUserSettings("example",
+        example = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -694,7 +699,7 @@ class WebUserSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web User Settings",
             deletion_window_in_days=7)
-        example_web_user_settings = aws.workspaces.WebUserSettings("example",
+        example_user_settings = aws.workspacesweb.UserSettings("example",
             copy_allowed="Enabled",
             download_allowed="Enabled",
             paste_allowed="Enabled",
@@ -767,6 +772,7 @@ class WebUserSettings(pulumi.CustomResource):
                  toolbar_configuration: Optional[pulumi.Input[Union['WebUserSettingsToolbarConfigurationArgs', 'WebUserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebUserSettings is deprecated: aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

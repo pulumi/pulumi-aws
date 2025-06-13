@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettings;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebDataProtectionSettings("example", WebDataProtectionSettingsArgs.builder()
+ *         var example = new DataProtectionSettings("example", DataProtectionSettingsArgs.builder()
  *             .displayName("example")
  *             .build());
  * 
@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettings;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebDataProtectionSettingsInlineRedactionConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.DataProtectionSettingsInlineRedactionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,16 +83,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebDataProtectionSettings("example", WebDataProtectionSettingsArgs.builder()
+ *         var example = new DataProtectionSettings("example", DataProtectionSettingsArgs.builder()
  *             .displayName("example")
  *             .description("Example data protection settings")
- *             .inlineRedactionConfiguration(WebDataProtectionSettingsInlineRedactionConfigurationArgs.builder()
+ *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
  *                 .globalConfidenceLevel(2)
  *                 .globalEnforcedUrls("https://example.com")
- *                 .inlineRedactionPatterns(WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
+ *                 .inlineRedactionPatterns(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
  *                     .builtInPatternId("ssn")
  *                     .confidenceLevel(3)
- *                     .redactionPlaceHolders(WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
+ *                     .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
  *                         .redactionPlaceHolderType("CustomText")
  *                         .redactionPlaceHolderText("REDACTED")
  *                         .build())
@@ -118,9 +118,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettings;
- * import com.pulumi.aws.workspaces.WebDataProtectionSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebDataProtectionSettingsInlineRedactionConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettings;
+ * import com.pulumi.aws.workspacesweb.DataProtectionSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.DataProtectionSettingsInlineRedactionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -139,36 +139,36 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleWebDataProtectionSettings = new WebDataProtectionSettings("exampleWebDataProtectionSettings", WebDataProtectionSettingsArgs.builder()
+ *         var exampleDataProtectionSettings = new DataProtectionSettings("exampleDataProtectionSettings", DataProtectionSettingsArgs.builder()
  *             .displayName("example-complete")
  *             .description("Complete example data protection settings")
  *             .customerManagedKey(example.arn())
  *             .additionalEncryptionContext(Map.of("Environment", "Production"))
- *             .inlineRedactionConfiguration(WebDataProtectionSettingsInlineRedactionConfigurationArgs.builder()
+ *             .inlineRedactionConfiguration(DataProtectionSettingsInlineRedactionConfigurationArgs.builder()
  *                 .globalConfidenceLevel(2)
  *                 .globalEnforcedUrls(                
  *                     "https://example.com",
  *                     "https://test.example.com")
  *                 .globalExemptUrls("https://exempt.example.com")
  *                 .inlineRedactionPatterns(                
- *                     WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
+ *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
  *                         .builtInPatternId("ssn")
  *                         .confidenceLevel(3)
  *                         .enforcedUrls("https://pattern1.example.com")
  *                         .exemptUrls("https://exempt-pattern1.example.com")
- *                         .redactionPlaceHolders(WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
+ *                         .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
  *                             .redactionPlaceHolderType("CustomText")
  *                             .redactionPlaceHolderText("REDACTED-SSN")
  *                             .build())
  *                         .build(),
- *                     WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
- *                         .customPattern(WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs.builder()
+ *                     DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs.builder()
+ *                         .customPattern(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs.builder()
  *                             .patternName("CustomPattern")
  *                             .patternRegex("/\\d{3}-\\d{2}-\\d{4}/g")
  *                             .keywordRegex("/SSN|Social Security/gi")
  *                             .patternDescription("Custom SSN pattern")
  *                             .build())
- *                         .redactionPlaceHolders(WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
+ *                         .redactionPlaceHolders(DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs.builder()
  *                             .redactionPlaceHolderType("CustomText")
  *                             .redactionPlaceHolderText("REDACTED-CUSTOM")
  *                             .build())
@@ -191,7 +191,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webdataprotectionsettings.WebDataProtectionSettings has been deprecated in favor of aws.workspacesweb/dataprotectionsettings.DataProtectionSettings */
 @ResourceType(type="aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings")
 public class WebDataProtectionSettings extends com.pulumi.resources.CustomResource {
     /**

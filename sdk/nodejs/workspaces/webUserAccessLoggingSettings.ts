@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "amazon-workspaces-web-example-stream",
  *     shardCount: 1,
  * });
- * const exampleWebUserAccessLoggingSettings = new aws.workspaces.WebUserAccessLoggingSettings("example", {kinesisStreamArn: example.arn});
+ * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {kinesisStreamArn: example.arn});
  * ```
  *
  * ### With Tags
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     name: "example-stream",
  *     shardCount: 1,
  * });
- * const exampleWebUserAccessLoggingSettings = new aws.workspaces.WebUserAccessLoggingSettings("example", {
+ * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {
  *     kinesisStreamArn: example.arn,
  *     tags: {
  *         Name: "example-user-access-logging-settings",
@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings
  */
 export class WebUserAccessLoggingSettings extends pulumi.CustomResource {
     /**
@@ -60,6 +62,7 @@ export class WebUserAccessLoggingSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebUserAccessLoggingSettingsState, opts?: pulumi.CustomResourceOptions): WebUserAccessLoggingSettings {
+        pulumi.log.warn("WebUserAccessLoggingSettings is deprecated: aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings")
         return new WebUserAccessLoggingSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -109,8 +112,11 @@ export class WebUserAccessLoggingSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings */
     constructor(name: string, args: WebUserAccessLoggingSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings */
     constructor(name: string, argsOrState?: WebUserAccessLoggingSettingsArgs | WebUserAccessLoggingSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebUserAccessLoggingSettings is deprecated: aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

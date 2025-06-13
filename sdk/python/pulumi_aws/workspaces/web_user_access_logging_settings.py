@@ -156,8 +156,13 @@ class _WebUserAccessLoggingSettingsState:
         pulumi.set(self, "user_access_logging_settings_arn", value)
 
 
+warnings.warn("""aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings")
 class WebUserAccessLoggingSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -179,7 +184,7 @@ class WebUserAccessLoggingSettings(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="amazon-workspaces-web-example-stream",
             shard_count=1)
-        example_web_user_access_logging_settings = aws.workspaces.WebUserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
+        example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
         ```
 
         ### With Tags
@@ -191,7 +196,7 @@ class WebUserAccessLoggingSettings(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="example-stream",
             shard_count=1)
-        example_web_user_access_logging_settings = aws.workspaces.WebUserAccessLoggingSettings("example",
+        example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example",
             kinesis_stream_arn=example.arn,
             tags={
                 "Name": "example-user-access-logging-settings",
@@ -234,7 +239,7 @@ class WebUserAccessLoggingSettings(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="amazon-workspaces-web-example-stream",
             shard_count=1)
-        example_web_user_access_logging_settings = aws.workspaces.WebUserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
+        example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
         ```
 
         ### With Tags
@@ -246,7 +251,7 @@ class WebUserAccessLoggingSettings(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="example-stream",
             shard_count=1)
-        example_web_user_access_logging_settings = aws.workspaces.WebUserAccessLoggingSettings("example",
+        example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example",
             kinesis_stream_arn=example.arn,
             tags={
                 "Name": "example-user-access-logging-settings",
@@ -280,6 +285,7 @@ class WebUserAccessLoggingSettings(pulumi.CustomResource):
                  kinesis_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebUserAccessLoggingSettings is deprecated: aws.workspaces/webuseraccessloggingsettings.WebUserAccessLoggingSettings has been deprecated in favor of aws.workspacesweb/useraccessloggingsettings.UserAccessLoggingSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
