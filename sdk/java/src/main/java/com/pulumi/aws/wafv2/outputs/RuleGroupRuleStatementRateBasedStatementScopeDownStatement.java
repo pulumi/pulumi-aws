@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
@@ -27,6 +28,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
     /**
      * @return A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
      * 
@@ -90,6 +96,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
     /**
      * @return A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
@@ -179,6 +192,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement byteMatchStatement;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -194,6 +208,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.andStatement = defaults.andStatement;
+    	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
@@ -211,6 +226,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
         public Builder andStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement) {
 
             this.andStatement = andStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder asnMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement) {
+
+            this.asnMatchStatement = asnMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -282,6 +303,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatement build() {
             final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatement();
             _resultValue.andStatement = andStatement;
+            _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;

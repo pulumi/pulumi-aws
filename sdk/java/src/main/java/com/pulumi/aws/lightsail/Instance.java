@@ -21,9 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
- * with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
- * for more information.
+ * Manages a Lightsail Instance. Use this resource to create easy virtual private servers with custom software already setup.
  * 
  * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  * 
@@ -54,9 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Create a new GitLab Lightsail Instance
- *         var gitlabTest = new Instance("gitlabTest", InstanceArgs.builder()
- *             .name("custom_gitlab")
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .name("example")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
@@ -72,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ### Example With User Data
  * 
- * Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+ * Lightsail user data is handled differently than EC2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -97,8 +94,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custom = new Instance("custom", InstanceArgs.builder()
- *             .name("custom")
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .name("example")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
@@ -137,8 +134,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance("test", InstanceArgs.builder()
- *             .name("custom_instance")
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .name("example")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
@@ -161,131 +158,119 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lightsail Instances using their name. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/instance:Instance gitlab_test &#39;custom_gitlab&#39;
+ * $ pulumi import aws:lightsail/instance:Instance example &#39;example&#39;
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * The add-on configuration for the instance. Detailed below.
+     * Add-on configuration for the instance. See below.
      * 
      */
     @Export(name="addOn", refs={InstanceAddOn.class}, tree="[0]")
     private Output</* @Nullable */ InstanceAddOn> addOn;
 
     /**
-     * @return The add-on configuration for the instance. Detailed below.
+     * @return Add-on configuration for the instance. See below.
      * 
      */
     public Output<Optional<InstanceAddOn>> addOn() {
         return Codegen.optional(this.addOn);
     }
     /**
-     * The ARN of the Lightsail instance (matches `id`).
+     * ARN of the Lightsail instance (matches `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Lightsail instance (matches `id`).
+     * @return ARN of the Lightsail instance (matches `id`).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Availability Zone in which to create your instance. A
-     * list of available zones can be obtained using the AWS CLI command:
-     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+     * Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your instance. A
-     * list of available zones can be obtained using the AWS CLI command:
-     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+     * @return Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The ID for a virtual private server image. A list of available
-     * blueprint IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+     * ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     @Export(name="blueprintId", refs={String.class}, tree="[0]")
     private Output<String> blueprintId;
 
     /**
-     * @return The ID for a virtual private server image. A list of available
-     * blueprint IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+     * @return ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     public Output<String> blueprintId() {
         return this.blueprintId;
     }
     /**
-     * The bundle of specification information. A list of available
-     * bundle IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+     * Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output<String> bundleId;
 
     /**
-     * @return The bundle of specification information. A list of available
-     * bundle IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+     * @return Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     public Output<String> bundleId() {
         return this.bundleId;
     }
     /**
-     * The number of vCPUs the instance has.
+     * Number of vCPUs the instance has.
      * 
      */
     @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCount;
 
     /**
-     * @return The number of vCPUs the instance has.
+     * @return Number of vCPUs the instance has.
      * 
      */
     public Output<Integer> cpuCount() {
         return this.cpuCount;
     }
     /**
-     * The timestamp when the instance was created.
+     * Timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the instance was created.
+     * @return Timestamp when the instance was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+     * IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+     * @return IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
@@ -306,107 +291,109 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.ipv6Addresses;
     }
     /**
-     * A Boolean value indicating whether this instance has a static IP assigned to it.
+     * Whether this instance has a static IP assigned to it.
      * 
      */
     @Export(name="isStaticIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isStaticIp;
 
     /**
-     * @return A Boolean value indicating whether this instance has a static IP assigned to it.
+     * @return Whether this instance has a static IP assigned to it.
      * 
      */
     public Output<Boolean> isStaticIp() {
         return this.isStaticIp;
     }
     /**
-     * The name of your key pair. Created in the
-     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     * Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      * 
      */
     @Export(name="keyPairName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyPairName;
 
     /**
-     * @return The name of your key pair. Created in the
-     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     * @return Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      * 
      */
     public Output<Optional<String>> keyPairName() {
         return Codegen.optional(this.keyPairName);
     }
     /**
-     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * @return Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The private IP address of the instance.
+     * Private IP address of the instance.
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
-     * @return The private IP address of the instance.
+     * @return Private IP address of the instance.
      * 
      */
     public Output<String> privateIpAddress() {
         return this.privateIpAddress;
     }
     /**
-     * The public IP address of the instance.
+     * Public IP address of the instance.
      * 
      */
     @Export(name="publicIpAddress", refs={String.class}, tree="[0]")
     private Output<String> publicIpAddress;
 
     /**
-     * @return The public IP address of the instance.
+     * @return Public IP address of the instance.
      * 
      */
     public Output<String> publicIpAddress() {
         return this.publicIpAddress;
     }
     /**
-     * The amount of RAM in GB on the instance (e.g., 1.0).
+     * Amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
     @Export(name="ramSize", refs={Double.class}, tree="[0]")
     private Output<Double> ramSize;
 
     /**
-     * @return The amount of RAM in GB on the instance (e.g., 1.0).
+     * @return Amount of RAM in GB on the instance (e.g., 1.0).
      * 
      */
     public Output<Double> ramSize() {
         return this.ramSize;
     }
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -417,35 +404,35 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Single lined launch script as a string to configure server with additional user data
+     * Single lined launch script as a string to configure server with additional user data.
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
-     * @return Single lined launch script as a string to configure server with additional user data
+     * @return Single lined launch script as a string to configure server with additional user data.
      * 
      */
     public Output<Optional<String>> userData() {
         return Codegen.optional(this.userData);
     }
     /**
-     * The user name for connecting to the instance (e.g., ec2-user).
+     * User name for connecting to the instance (e.g., ec2-user).
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**
-     * @return The user name for connecting to the instance (e.g., ec2-user).
+     * @return User name for connecting to the instance (e.g., ec2-user).
      * 
      */
     public Output<String> username() {

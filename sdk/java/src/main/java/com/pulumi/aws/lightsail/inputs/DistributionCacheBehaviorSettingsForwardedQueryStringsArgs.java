@@ -18,14 +18,14 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
     public static final DistributionCacheBehaviorSettingsForwardedQueryStringsArgs Empty = new DistributionCacheBehaviorSettingsForwardedQueryStringsArgs();
 
     /**
-     * Indicates whether the distribution forwards and caches based on query strings.
+     * Whether the distribution forwards and caches based on query strings.
      * 
      */
     @Import(name="option")
     private @Nullable Output<Boolean> option;
 
     /**
-     * @return Indicates whether the distribution forwards and caches based on query strings.
+     * @return Whether the distribution forwards and caches based on query strings.
      * 
      */
     public Optional<Output<Boolean>> option() {
@@ -33,14 +33,14 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
     }
 
     /**
-     * The specific query strings that the distribution forwards to the origin.
+     * Specific query strings that the distribution forwards to the origin.
      * 
      */
     @Import(name="queryStringsAllowedLists")
     private @Nullable Output<List<String>> queryStringsAllowedLists;
 
     /**
-     * @return The specific query strings that the distribution forwards to the origin.
+     * @return Specific query strings that the distribution forwards to the origin.
      * 
      */
     public Optional<Output<List<String>>> queryStringsAllowedLists() {
@@ -73,7 +73,7 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
         }
 
         /**
-         * @param option Indicates whether the distribution forwards and caches based on query strings.
+         * @param option Whether the distribution forwards and caches based on query strings.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
         }
 
         /**
-         * @param option Indicates whether the distribution forwards and caches based on query strings.
+         * @param option Whether the distribution forwards and caches based on query strings.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
         }
 
         /**
-         * @param queryStringsAllowedLists The specific query strings that the distribution forwards to the origin.
+         * @param queryStringsAllowedLists Specific query strings that the distribution forwards to the origin.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
         }
 
         /**
-         * @param queryStringsAllowedLists The specific query strings that the distribution forwards to the origin.
+         * @param queryStringsAllowedLists Specific query strings that the distribution forwards to the origin.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs ex
         }
 
         /**
-         * @param queryStringsAllowedLists The specific query strings that the distribution forwards to the origin.
+         * @param queryStringsAllowedLists Specific query strings that the distribution forwards to the origin.
          * 
          * @return builder
          * 

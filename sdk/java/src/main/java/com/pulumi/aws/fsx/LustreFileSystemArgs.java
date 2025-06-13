@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fsx;
 
+import com.pulumi.aws.fsx.inputs.LustreFileSystemDataReadCacheConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemLogConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemMetadataConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemRootSquashConfigurationArgs;
@@ -111,6 +112,13 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> dataCompressionType() {
         return Optional.ofNullable(this.dataCompressionType);
+    }
+
+    @Import(name="dataReadCacheConfiguration")
+    private @Nullable Output<LustreFileSystemDataReadCacheConfigurationArgs> dataReadCacheConfiguration;
+
+    public Optional<Output<LustreFileSystemDataReadCacheConfigurationArgs>> dataReadCacheConfiguration() {
+        return Optional.ofNullable(this.dataReadCacheConfiguration);
     }
 
     /**
@@ -362,14 +370,14 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -411,6 +419,21 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     * 
+     */
+    @Import(name="throughputCapacity")
+    private @Nullable Output<Integer> throughputCapacity;
+
+    /**
+     * @return Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     * 
+     */
+    public Optional<Output<Integer>> throughputCapacity() {
+        return Optional.ofNullable(this.throughputCapacity);
+    }
+
+    /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
@@ -434,6 +457,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.copyTagsToBackups = $.copyTagsToBackups;
         this.dailyAutomaticBackupStartTime = $.dailyAutomaticBackupStartTime;
         this.dataCompressionType = $.dataCompressionType;
+        this.dataReadCacheConfiguration = $.dataReadCacheConfiguration;
         this.deploymentType = $.deploymentType;
         this.driveCacheType = $.driveCacheType;
         this.efaEnabled = $.efaEnabled;
@@ -453,6 +477,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
+        this.throughputCapacity = $.throughputCapacity;
         this.weeklyMaintenanceStartTime = $.weeklyMaintenanceStartTime;
     }
 
@@ -598,6 +623,15 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder dataCompressionType(String dataCompressionType) {
             return dataCompressionType(Output.of(dataCompressionType));
+        }
+
+        public Builder dataReadCacheConfiguration(@Nullable Output<LustreFileSystemDataReadCacheConfigurationArgs> dataReadCacheConfiguration) {
+            $.dataReadCacheConfiguration = dataReadCacheConfiguration;
+            return this;
+        }
+
+        public Builder dataReadCacheConfiguration(LustreFileSystemDataReadCacheConfigurationArgs dataReadCacheConfiguration) {
+            return dataReadCacheConfiguration(Output.of(dataReadCacheConfiguration));
         }
 
         /**
@@ -955,7 +989,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageType The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -966,7 +1000,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageType The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -1019,6 +1053,27 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param throughputCapacity Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughputCapacity(@Nullable Output<Integer> throughputCapacity) {
+            $.throughputCapacity = throughputCapacity;
+            return this;
+        }
+
+        /**
+         * @param throughputCapacity Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughputCapacity(Integer throughputCapacity) {
+            return throughputCapacity(Output.of(throughputCapacity));
         }
 
         /**

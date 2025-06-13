@@ -16,14 +16,14 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
     public static final LbAttachmentState Empty = new LbAttachmentState();
 
     /**
-     * The name of the instance to attach to the load balancer.
+     * Name of the instance to attach to the load balancer.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return The name of the instance to attach to the load balancer.
+     * @return Name of the instance to attach to the load balancer.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -31,14 +31,14 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
      * 
      */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return Name of the Lightsail load balancer.
      * 
      */
     public Optional<Output<String>> lbName() {
@@ -71,7 +71,7 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceName The name of the instance to attach to the load balancer.
+         * @param instanceName Name of the instance to attach to the load balancer.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceName The name of the instance to attach to the load balancer.
+         * @param instanceName Name of the instance to attach to the load balancer.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbName The name of the Lightsail load balancer.
+         * @param lbName Name of the Lightsail load balancer.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class LbAttachmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbName The name of the Lightsail load balancer.
+         * @param lbName Name of the Lightsail load balancer.
          * 
          * @return builder
          * 

@@ -159,6 +159,36 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * 
+     */
+    @Import(name="presharedKeyArn")
+    private @Nullable Output<String> presharedKeyArn;
+
+    /**
+     * @return ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * 
+     */
+    public Optional<Output<String>> presharedKeyArn() {
+        return Optional.ofNullable(this.presharedKeyArn);
+    }
+
+    /**
+     * Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    @Import(name="presharedKeyStorage")
+    private @Nullable Output<String> presharedKeyStorage;
+
+    /**
+     * @return Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+     * 
+     */
+    public Optional<Output<String>> presharedKeyStorage() {
+        return Optional.ofNullable(this.presharedKeyStorage);
+    }
+
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
@@ -1123,6 +1153,8 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.localIpv4NetworkCidr = $.localIpv4NetworkCidr;
         this.localIpv6NetworkCidr = $.localIpv6NetworkCidr;
         this.outsideIpAddressType = $.outsideIpAddressType;
+        this.presharedKeyArn = $.presharedKeyArn;
+        this.presharedKeyStorage = $.presharedKeyStorage;
         this.remoteIpv4NetworkCidr = $.remoteIpv4NetworkCidr;
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
         this.routes = $.routes;
@@ -1393,6 +1425,48 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder outsideIpAddressType(String outsideIpAddressType) {
             return outsideIpAddressType(Output.of(outsideIpAddressType));
+        }
+
+        /**
+         * @param presharedKeyArn ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyArn(@Nullable Output<String> presharedKeyArn) {
+            $.presharedKeyArn = presharedKeyArn;
+            return this;
+        }
+
+        /**
+         * @param presharedKeyArn ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyArn(String presharedKeyArn) {
+            return presharedKeyArn(Output.of(presharedKeyArn));
+        }
+
+        /**
+         * @param presharedKeyStorage Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyStorage(@Nullable Output<String> presharedKeyStorage) {
+            $.presharedKeyStorage = presharedKeyStorage;
+            return this;
+        }
+
+        /**
+         * @param presharedKeyStorage Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presharedKeyStorage(String presharedKeyStorage) {
+            return presharedKeyStorage(Output.of(presharedKeyStorage));
         }
 
         /**

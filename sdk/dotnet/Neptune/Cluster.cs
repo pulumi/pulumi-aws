@@ -59,38 +59,35 @@ namespace Pulumi.Aws.Neptune
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
         [Output("allowMajorVersionUpgrade")]
         public Output<bool> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// The Neptune Cluster Amazon Resource Name (ARN)
+        /// Neptune Cluster ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        /// List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// The days to retain backups for. Default `1`
+        /// Days to retain backups for. Default `1`
         /// </summary>
         [Output("backupRetentionPeriod")]
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
@@ -107,7 +104,7 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableArray<string>> ClusterMembers { get; private set; } = null!;
 
         /// <summary>
-        /// The Neptune Cluster Resource ID
+        /// Neptune Cluster Resource ID
         /// </summary>
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
@@ -119,109 +116,109 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         /// </summary>
         [Output("enableCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnableCloudwatchLogsExports { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS address of the Neptune instance
+        /// DNS address of the Neptune instance
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The database engine version.
+        /// Database engine version.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        /// Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// Global cluster identifier specified on `aws.neptune.GlobalCluster`.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Route53 Hosted Zone ID of the endpoint
+        /// Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Output("iamDatabaseAuthenticationEnabled")]
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        /// List of ARNs for the IAM roles to associate to the Neptune Cluster.
         /// </summary>
         [Output("iamRoles")]
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("neptuneClusterParameterGroupName")]
         public Output<string> NeptuneClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         /// </summary>
         [Output("neptuneInstanceParameterGroupName")]
         public Output<string?> NeptuneInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A Neptune subnet group to associate with this Neptune instance.
+        /// Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The port on which the Neptune accepts connections. Default is `8182`.
+        /// Port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        /// Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
         public Output<string> ReaderEndpoint { get; private set; } = null!;
@@ -239,19 +236,19 @@ namespace Pulumi.Aws.Neptune
         public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        /// Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
@@ -263,13 +260,13 @@ namespace Pulumi.Aws.Neptune
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -327,13 +324,13 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -342,7 +339,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        /// List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -351,14 +348,11 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The days to retain backups for. Default `1`
+        /// Days to retain backups for. Default `1`
         /// </summary>
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
 
-        /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
@@ -375,7 +369,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -384,7 +378,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {
@@ -393,31 +387,31 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine version.
+        /// Database engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        /// Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// Global cluster identifier specified on `aws.neptune.GlobalCluster`.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -426,7 +420,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _iamRoles;
 
         /// <summary>
-        /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        /// List of ARNs for the IAM roles to associate to the Neptune Cluster.
         /// </summary>
         public InputList<string> IamRoles
         {
@@ -435,43 +429,43 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("neptuneClusterParameterGroupName")]
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         /// </summary>
         [Input("neptuneInstanceParameterGroupName")]
         public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// A Neptune subnet group to associate with this Neptune instance.
+        /// Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
 
         /// <summary>
-        /// The port on which the Neptune accepts connections. Default is `8182`.
+        /// Port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -489,19 +483,19 @@ namespace Pulumi.Aws.Neptune
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        /// Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -516,7 +510,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -545,19 +539,19 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The Neptune Cluster Amazon Resource Name (ARN)
+        /// Neptune Cluster ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -566,7 +560,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        /// List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -575,14 +569,11 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The days to retain backups for. Default `1`
+        /// Days to retain backups for. Default `1`
         /// </summary>
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
 
-        /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
@@ -605,7 +596,7 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The Neptune Cluster Resource ID
+        /// Neptune Cluster Resource ID
         /// </summary>
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
@@ -617,7 +608,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -626,7 +617,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {
@@ -635,43 +626,43 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The DNS address of the Neptune instance
+        /// DNS address of the Neptune instance
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine version.
+        /// Database engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        /// Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
+        /// Global cluster identifier specified on `aws.neptune.GlobalCluster`.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Route53 Hosted Zone ID of the endpoint
+        /// Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -680,7 +671,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _iamRoles;
 
         /// <summary>
-        /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        /// List of ARNs for the IAM roles to associate to the Neptune Cluster.
         /// </summary>
         public InputList<string> IamRoles
         {
@@ -689,49 +680,49 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("neptuneClusterParameterGroupName")]
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         /// </summary>
         [Input("neptuneInstanceParameterGroupName")]
         public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// A Neptune subnet group to associate with this Neptune instance.
+        /// Neptune subnet group to associate with this Neptune instance.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
 
         /// <summary>
-        /// The port on which the Neptune accepts connections. Default is `8182`.
+        /// Port on which the Neptune accepts connections. Default is `8182`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        /// Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }
@@ -749,19 +740,19 @@ namespace Pulumi.Aws.Neptune
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        /// Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -776,7 +767,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -788,7 +779,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

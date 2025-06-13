@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+// Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
 //
 // > **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
 //
@@ -81,17 +81,19 @@ import (
 type ContainerServiceDeploymentVersion struct {
 	pulumi.CustomResourceState
 
-	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers ContainerServiceDeploymentVersionContainerArrayOutput `pulumi:"containers"`
-	// The timestamp when the deployment was created.
+	// Date and time when the deployment was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrOutput `pulumi:"publicEndpoint"`
-	// The name for the container service.
+	// Name of the container service.
+	//
+	// The following arguments are optional:
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
-	// The current state of the container service.
+	// Current state of the container service.
 	State pulumi.StringOutput `pulumi:"state"`
-	// The version number of the deployment.
+	// Version number of the deployment.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
 
@@ -131,32 +133,36 @@ func GetContainerServiceDeploymentVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
 type containerServiceDeploymentVersionState struct {
-	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers []ContainerServiceDeploymentVersionContainer `pulumi:"containers"`
-	// The timestamp when the deployment was created.
+	// Date and time when the deployment was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint *ContainerServiceDeploymentVersionPublicEndpoint `pulumi:"publicEndpoint"`
-	// The name for the container service.
+	// Name of the container service.
+	//
+	// The following arguments are optional:
 	ServiceName *string `pulumi:"serviceName"`
-	// The current state of the container service.
+	// Current state of the container service.
 	State *string `pulumi:"state"`
-	// The version number of the deployment.
+	// Version number of the deployment.
 	Version *int `pulumi:"version"`
 }
 
 type ContainerServiceDeploymentVersionState struct {
-	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers ContainerServiceDeploymentVersionContainerArrayInput
-	// The timestamp when the deployment was created.
+	// Date and time when the deployment was created.
 	CreatedAt pulumi.StringPtrInput
-	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrInput
-	// The name for the container service.
+	// Name of the container service.
+	//
+	// The following arguments are optional:
 	ServiceName pulumi.StringPtrInput
-	// The current state of the container service.
+	// Current state of the container service.
 	State pulumi.StringPtrInput
-	// The version number of the deployment.
+	// Version number of the deployment.
 	Version pulumi.IntPtrInput
 }
 
@@ -165,21 +171,25 @@ func (ContainerServiceDeploymentVersionState) ElementType() reflect.Type {
 }
 
 type containerServiceDeploymentVersionArgs struct {
-	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers []ContainerServiceDeploymentVersionContainer `pulumi:"containers"`
-	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint *ContainerServiceDeploymentVersionPublicEndpoint `pulumi:"publicEndpoint"`
-	// The name for the container service.
+	// Name of the container service.
+	//
+	// The following arguments are optional:
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
 type ContainerServiceDeploymentVersionArgs struct {
-	// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+	// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 	Containers ContainerServiceDeploymentVersionContainerArrayInput
-	// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrInput
-	// The name for the container service.
+	// Name of the container service.
+	//
+	// The following arguments are optional:
 	ServiceName pulumi.StringInput
 }
 
@@ -270,36 +280,38 @@ func (o ContainerServiceDeploymentVersionOutput) ToContainerServiceDeploymentVer
 	return o
 }
 
-// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
 func (o ContainerServiceDeploymentVersionOutput) Containers() ContainerServiceDeploymentVersionContainerArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) ContainerServiceDeploymentVersionContainerArrayOutput {
 		return v.Containers
 	}).(ContainerServiceDeploymentVersionContainerArrayOutput)
 }
 
-// The timestamp when the deployment was created.
+// Date and time when the deployment was created.
 func (o ContainerServiceDeploymentVersionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+// Configuration block that describes the settings of the public endpoint for the container service. See below.
 func (o ContainerServiceDeploymentVersionOutput) PublicEndpoint() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
 		return v.PublicEndpoint
 	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
 }
 
-// The name for the container service.
+// Name of the container service.
+//
+// The following arguments are optional:
 func (o ContainerServiceDeploymentVersionOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// The current state of the container service.
+// Current state of the container service.
 func (o ContainerServiceDeploymentVersionOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The version number of the deployment.
+// Version number of the deployment.
 func (o ContainerServiceDeploymentVersionOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

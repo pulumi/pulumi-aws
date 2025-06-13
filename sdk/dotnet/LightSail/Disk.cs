@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a Lightsail Disk resource.
+    /// Manages a Lightsail disk. Use this resource to create additional block storage that can be attached to Lightsail instances for extra storage capacity.
     /// 
     /// ## Example Usage
     /// 
@@ -38,9 +38,9 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var test = new Aws.LightSail.Disk("test", new()
+    ///     var example = new Aws.LightSail.Disk("example", new()
     ///     {
-    ///         Name = "test",
+    ///         Name = "example-disk",
     ///         SizeInGb = 8,
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///     });
@@ -53,56 +53,58 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/disk:Disk test test
+    /// $ pulumi import aws:lightsail/disk:Disk example example-disk
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/disk:Disk")]
     public partial class Disk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Lightsail disk.
+        /// ARN of the disk.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone in which to create your disk.
+        /// Availability Zone in which to create the disk.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the disk was created.
+        /// Date and time when the disk was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the disk.
+        /// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the disk in GB.
+        /// Size of the disk in GB.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sizeInGb")]
         public Output<int> SizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
         /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,19 +156,21 @@ namespace Pulumi.Aws.LightSail
     public sealed class DiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone in which to create your disk.
+        /// Availability Zone in which to create the disk.
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// The name of the disk.
+        /// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The size of the disk in GB.
+        /// Size of the disk in GB.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sizeInGb", required: true)]
         public Input<int> SizeInGb { get; set; } = null!;
@@ -175,7 +179,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -192,37 +196,39 @@ namespace Pulumi.Aws.LightSail
     public sealed class DiskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Lightsail disk.
+        /// ARN of the disk.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Availability Zone in which to create your disk.
+        /// Availability Zone in which to create the disk.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The timestamp when the disk was created.
+        /// Date and time when the disk was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The name of the disk.
+        /// Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The size of the disk in GB.
+        /// Size of the disk in GB.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sizeInGb")]
         public Input<int>? SizeInGb { get; set; }
 
         /// <summary>
-        /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
         /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }
@@ -231,7 +237,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -243,7 +249,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

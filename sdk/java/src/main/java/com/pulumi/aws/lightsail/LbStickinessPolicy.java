@@ -16,7 +16,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Configures Session Stickiness for a Lightsail Load Balancer.
+ * Manages session stickiness for a Lightsail Load Balancer.
+ * 
+ * Use this resource to configure session stickiness to ensure that user sessions are consistently routed to the same backend instance. This helps maintain session state for applications that store session data locally on the server.
  * 
  * ## Example Usage
  * 
@@ -45,15 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbStickinessPolicy = new LbStickinessPolicy("testLbStickinessPolicy", LbStickinessPolicyArgs.builder()
- *             .lbName(test.name())
+ *         var exampleLbStickinessPolicy = new LbStickinessPolicy("exampleLbStickinessPolicy", LbStickinessPolicyArgs.builder()
+ *             .lbName(example.name())
  *             .cookieDuration(900)
  *             .enabled(true)
  *             .build());
@@ -69,49 +71,49 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+ * $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")
 public class LbStickinessPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The cookie duration in seconds. This determines the length of the session stickiness.
+     * Cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
     @Export(name="cookieDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> cookieDuration;
 
     /**
-     * @return The cookie duration in seconds. This determines the length of the session stickiness.
+     * @return Cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
     public Output<Integer> cookieDuration() {
         return this.cookieDuration;
     }
     /**
-     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * Whether to enable session stickiness for the load balancer.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * @return Whether to enable session stickiness for the load balancer.
      * 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
     /**
-     * The name of the load balancer to which you want to enable session stickiness.
+     * Name of the load balancer to which you want to enable session stickiness.
      * 
      */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to enable session stickiness.
+     * @return Name of the load balancer to which you want to enable session stickiness.
      * 
      */
     public Output<String> lbName() {

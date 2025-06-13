@@ -30,8 +30,8 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             SigningProfileVersionArns = new[]
     ///             {
-    ///                 example1.Arn,
-    ///                 example2.Arn,
+    ///                 example1.VersionArn,
+    ///                 example2.VersionArn,
     ///             },
     ///         },
     ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs

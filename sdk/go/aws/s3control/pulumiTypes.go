@@ -913,6 +913,170 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
+type DirectoryBucketAccessPointScopeScope struct {
+	// You can specify a list of API operations as permissions for the access point.
+	Permissions []string `pulumi:"permissions"`
+	// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+	//
+	// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+	Prefixes []string `pulumi:"prefixes"`
+}
+
+// DirectoryBucketAccessPointScopeScopeInput is an input type that accepts DirectoryBucketAccessPointScopeScopeArgs and DirectoryBucketAccessPointScopeScopeOutput values.
+// You can construct a concrete instance of `DirectoryBucketAccessPointScopeScopeInput` via:
+//
+//	DirectoryBucketAccessPointScopeScopeArgs{...}
+type DirectoryBucketAccessPointScopeScopeInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketAccessPointScopeScopeOutput() DirectoryBucketAccessPointScopeScopeOutput
+	ToDirectoryBucketAccessPointScopeScopeOutputWithContext(context.Context) DirectoryBucketAccessPointScopeScopeOutput
+}
+
+type DirectoryBucketAccessPointScopeScopeArgs struct {
+	// You can specify a list of API operations as permissions for the access point.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+	//
+	// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+	Prefixes pulumi.StringArrayInput `pulumi:"prefixes"`
+}
+
+func (DirectoryBucketAccessPointScopeScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketAccessPointScopeScope)(nil)).Elem()
+}
+
+func (i DirectoryBucketAccessPointScopeScopeArgs) ToDirectoryBucketAccessPointScopeScopeOutput() DirectoryBucketAccessPointScopeScopeOutput {
+	return i.ToDirectoryBucketAccessPointScopeScopeOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketAccessPointScopeScopeArgs) ToDirectoryBucketAccessPointScopeScopeOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAccessPointScopeScopeOutput)
+}
+
+func (i DirectoryBucketAccessPointScopeScopeArgs) ToDirectoryBucketAccessPointScopeScopePtrOutput() DirectoryBucketAccessPointScopeScopePtrOutput {
+	return i.ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketAccessPointScopeScopeArgs) ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAccessPointScopeScopeOutput).ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(ctx)
+}
+
+// DirectoryBucketAccessPointScopeScopePtrInput is an input type that accepts DirectoryBucketAccessPointScopeScopeArgs, DirectoryBucketAccessPointScopeScopePtr and DirectoryBucketAccessPointScopeScopePtrOutput values.
+// You can construct a concrete instance of `DirectoryBucketAccessPointScopeScopePtrInput` via:
+//
+//	        DirectoryBucketAccessPointScopeScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryBucketAccessPointScopeScopePtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketAccessPointScopeScopePtrOutput() DirectoryBucketAccessPointScopeScopePtrOutput
+	ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(context.Context) DirectoryBucketAccessPointScopeScopePtrOutput
+}
+
+type directoryBucketAccessPointScopeScopePtrType DirectoryBucketAccessPointScopeScopeArgs
+
+func DirectoryBucketAccessPointScopeScopePtr(v *DirectoryBucketAccessPointScopeScopeArgs) DirectoryBucketAccessPointScopeScopePtrInput {
+	return (*directoryBucketAccessPointScopeScopePtrType)(v)
+}
+
+func (*directoryBucketAccessPointScopeScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketAccessPointScopeScope)(nil)).Elem()
+}
+
+func (i *directoryBucketAccessPointScopeScopePtrType) ToDirectoryBucketAccessPointScopeScopePtrOutput() DirectoryBucketAccessPointScopeScopePtrOutput {
+	return i.ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(context.Background())
+}
+
+func (i *directoryBucketAccessPointScopeScopePtrType) ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAccessPointScopeScopePtrOutput)
+}
+
+type DirectoryBucketAccessPointScopeScopeOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketAccessPointScopeScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketAccessPointScopeScope)(nil)).Elem()
+}
+
+func (o DirectoryBucketAccessPointScopeScopeOutput) ToDirectoryBucketAccessPointScopeScopeOutput() DirectoryBucketAccessPointScopeScopeOutput {
+	return o
+}
+
+func (o DirectoryBucketAccessPointScopeScopeOutput) ToDirectoryBucketAccessPointScopeScopeOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopeOutput {
+	return o
+}
+
+func (o DirectoryBucketAccessPointScopeScopeOutput) ToDirectoryBucketAccessPointScopeScopePtrOutput() DirectoryBucketAccessPointScopeScopePtrOutput {
+	return o.ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketAccessPointScopeScopeOutput) ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketAccessPointScopeScope) *DirectoryBucketAccessPointScopeScope {
+		return &v
+	}).(DirectoryBucketAccessPointScopeScopePtrOutput)
+}
+
+// You can specify a list of API operations as permissions for the access point.
+func (o DirectoryBucketAccessPointScopeScopeOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryBucketAccessPointScopeScope) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+//
+// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+func (o DirectoryBucketAccessPointScopeScopeOutput) Prefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryBucketAccessPointScopeScope) []string { return v.Prefixes }).(pulumi.StringArrayOutput)
+}
+
+type DirectoryBucketAccessPointScopeScopePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketAccessPointScopeScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketAccessPointScopeScope)(nil)).Elem()
+}
+
+func (o DirectoryBucketAccessPointScopeScopePtrOutput) ToDirectoryBucketAccessPointScopeScopePtrOutput() DirectoryBucketAccessPointScopeScopePtrOutput {
+	return o
+}
+
+func (o DirectoryBucketAccessPointScopeScopePtrOutput) ToDirectoryBucketAccessPointScopeScopePtrOutputWithContext(ctx context.Context) DirectoryBucketAccessPointScopeScopePtrOutput {
+	return o
+}
+
+func (o DirectoryBucketAccessPointScopeScopePtrOutput) Elem() DirectoryBucketAccessPointScopeScopeOutput {
+	return o.ApplyT(func(v *DirectoryBucketAccessPointScopeScope) DirectoryBucketAccessPointScopeScope {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketAccessPointScopeScope
+		return ret
+	}).(DirectoryBucketAccessPointScopeScopeOutput)
+}
+
+// You can specify a list of API operations as permissions for the access point.
+func (o DirectoryBucketAccessPointScopeScopePtrOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryBucketAccessPointScopeScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(pulumi.StringArrayOutput)
+}
+
+// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+//
+// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+func (o DirectoryBucketAccessPointScopeScopePtrOutput) Prefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryBucketAccessPointScopeScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefixes
+	}).(pulumi.StringArrayOutput)
+}
+
 type MultiRegionAccessPointDetails struct {
 	Name              string                                          `pulumi:"name"`
 	PublicAccessBlock *MultiRegionAccessPointDetailsPublicAccessBlock `pulumi:"publicAccessBlock"`
@@ -5878,6 +6042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleExpirationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAccessPointScopeScopeInput)(nil)).Elem(), DirectoryBucketAccessPointScopeScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAccessPointScopeScopePtrInput)(nil)).Elem(), DirectoryBucketAccessPointScopeScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsInput)(nil)).Elem(), MultiRegionAccessPointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsPtrInput)(nil)).Elem(), MultiRegionAccessPointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsPublicAccessBlockInput)(nil)).Elem(), MultiRegionAccessPointDetailsPublicAccessBlockArgs{})
@@ -5954,6 +6120,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleExpirationPtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketAccessPointScopeScopeOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketAccessPointScopeScopePtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsPublicAccessBlockOutput{})

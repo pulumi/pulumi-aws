@@ -29,6 +29,7 @@ class LustreFileSystemArgs:
                  copy_tags_to_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  data_compression_type: Optional[pulumi.Input[builtins.str]] = None,
+                 data_read_cache_configuration: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
                  deployment_type: Optional[pulumi.Input[builtins.str]] = None,
                  drive_cache_type: Optional[pulumi.Input[builtins.str]] = None,
                  efa_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -47,6 +48,7 @@ class LustreFileSystemArgs:
                  storage_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
@@ -79,8 +81,9 @@ class LustreFileSystemArgs:
                
                **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
-        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         :param pulumi.Input[builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -96,6 +99,8 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if data_compression_type is not None:
             pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if data_read_cache_configuration is not None:
+            pulumi.set(__self__, "data_read_cache_configuration", data_read_cache_configuration)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if drive_cache_type is not None:
@@ -132,6 +137,8 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if throughput_capacity is not None:
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
@@ -220,6 +227,15 @@ class LustreFileSystemArgs:
     @data_compression_type.setter
     def data_compression_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="dataReadCacheConfiguration")
+    def data_read_cache_configuration(self) -> Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]:
+        return pulumi.get(self, "data_read_cache_configuration")
+
+    @data_read_cache_configuration.setter
+    def data_read_cache_configuration(self, value: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]):
+        pulumi.set(self, "data_read_cache_configuration", value)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -421,7 +437,7 @@ class LustreFileSystemArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         """
         return pulumi.get(self, "storage_type")
 
@@ -440,6 +456,18 @@ class LustreFileSystemArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        """
+        return pulumi.get(self, "throughput_capacity")
+
+    @throughput_capacity.setter
+    def throughput_capacity(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "throughput_capacity", value)
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
@@ -464,6 +492,7 @@ class _LustreFileSystemState:
                  copy_tags_to_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  data_compression_type: Optional[pulumi.Input[builtins.str]] = None,
+                 data_read_cache_configuration: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']] = None,
                  deployment_type: Optional[pulumi.Input[builtins.str]] = None,
                  dns_name: Optional[pulumi.Input[builtins.str]] = None,
                  drive_cache_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -488,6 +517,7 @@ class _LustreFileSystemState:
                  subnet_ids: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -523,12 +553,13 @@ class _LustreFileSystemState:
                
                **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
-        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         :param pulumi.Input[builtins.str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         :param pulumi.Input[builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -546,6 +577,8 @@ class _LustreFileSystemState:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if data_compression_type is not None:
             pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if data_read_cache_configuration is not None:
+            pulumi.set(__self__, "data_read_cache_configuration", data_read_cache_configuration)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if dns_name is not None:
@@ -597,6 +630,8 @@ class _LustreFileSystemState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if throughput_capacity is not None:
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
         if weekly_maintenance_start_time is not None:
@@ -685,6 +720,15 @@ class _LustreFileSystemState:
     @data_compression_type.setter
     def data_compression_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="dataReadCacheConfiguration")
+    def data_read_cache_configuration(self) -> Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]:
+        return pulumi.get(self, "data_read_cache_configuration")
+
+    @data_read_cache_configuration.setter
+    def data_read_cache_configuration(self, value: Optional[pulumi.Input['LustreFileSystemDataReadCacheConfigurationArgs']]):
+        pulumi.set(self, "data_read_cache_configuration", value)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -934,7 +978,7 @@ class _LustreFileSystemState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         """
         return pulumi.get(self, "storage_type")
 
@@ -982,6 +1026,18 @@ class _LustreFileSystemState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        """
+        return pulumi.get(self, "throughput_capacity")
+
+    @throughput_capacity.setter
+    def throughput_capacity(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "throughput_capacity", value)
+
+    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1018,6 +1074,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  copy_tags_to_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  data_compression_type: Optional[pulumi.Input[builtins.str]] = None,
+                 data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
                  deployment_type: Optional[pulumi.Input[builtins.str]] = None,
                  drive_cache_type: Optional[pulumi.Input[builtins.str]] = None,
                  efa_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1037,6 +1094,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -1093,11 +1151,12 @@ class LustreFileSystem(pulumi.CustomResource):
                
                **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
-        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         :param pulumi.Input[builtins.str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         :param pulumi.Input[builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
@@ -1153,6 +1212,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  copy_tags_to_backups: Optional[pulumi.Input[builtins.bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  data_compression_type: Optional[pulumi.Input[builtins.str]] = None,
+                 data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
                  deployment_type: Optional[pulumi.Input[builtins.str]] = None,
                  drive_cache_type: Optional[pulumi.Input[builtins.str]] = None,
                  efa_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1172,6 +1232,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1188,6 +1249,7 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
             __props__.__dict__["data_compression_type"] = data_compression_type
+            __props__.__dict__["data_read_cache_configuration"] = data_read_cache_configuration
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["drive_cache_type"] = drive_cache_type
             __props__.__dict__["efa_enabled"] = efa_enabled
@@ -1209,6 +1271,7 @@ class LustreFileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["throughput_capacity"] = throughput_capacity
             __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
@@ -1234,6 +1297,7 @@ class LustreFileSystem(pulumi.CustomResource):
             copy_tags_to_backups: Optional[pulumi.Input[builtins.bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[builtins.str]] = None,
             data_compression_type: Optional[pulumi.Input[builtins.str]] = None,
+            data_read_cache_configuration: Optional[pulumi.Input[Union['LustreFileSystemDataReadCacheConfigurationArgs', 'LustreFileSystemDataReadCacheConfigurationArgsDict']]] = None,
             deployment_type: Optional[pulumi.Input[builtins.str]] = None,
             dns_name: Optional[pulumi.Input[builtins.str]] = None,
             drive_cache_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -1258,6 +1322,7 @@ class LustreFileSystem(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            throughput_capacity: Optional[pulumi.Input[builtins.int]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None,
             weekly_maintenance_start_time: Optional[pulumi.Input[builtins.str]] = None) -> 'LustreFileSystem':
         """
@@ -1298,12 +1363,13 @@ class LustreFileSystem(pulumi.CustomResource):
                
                **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         :param pulumi.Input[builtins.int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
-        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        :param pulumi.Input[builtins.str] storage_type: The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         :param pulumi.Input[builtins.str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
         :param pulumi.Input[builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
@@ -1318,6 +1384,7 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
         __props__.__dict__["data_compression_type"] = data_compression_type
+        __props__.__dict__["data_read_cache_configuration"] = data_read_cache_configuration
         __props__.__dict__["deployment_type"] = deployment_type
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["drive_cache_type"] = drive_cache_type
@@ -1342,6 +1409,7 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["throughput_capacity"] = throughput_capacity
         __props__.__dict__["vpc_id"] = vpc_id
         __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return LustreFileSystem(resource_name, opts=opts, __props__=__props__)
@@ -1401,6 +1469,11 @@ class LustreFileSystem(pulumi.CustomResource):
         Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         """
         return pulumi.get(self, "data_compression_type")
+
+    @property
+    @pulumi.getter(name="dataReadCacheConfiguration")
+    def data_read_cache_configuration(self) -> pulumi.Output[Optional['outputs.LustreFileSystemDataReadCacheConfiguration']]:
+        return pulumi.get(self, "data_read_cache_configuration")
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -1570,7 +1643,7 @@ class LustreFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1600,6 +1673,14 @@ class LustreFileSystem(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="throughputCapacity")
+    def throughput_capacity(self) -> pulumi.Output[Optional[builtins.int]]:
+        """
+        Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        """
+        return pulumi.get(self, "throughput_capacity")
 
     @property
     @pulumi.getter(name="vpcId")

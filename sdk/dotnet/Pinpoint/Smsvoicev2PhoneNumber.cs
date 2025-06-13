@@ -137,6 +137,12 @@ namespace Pulumi.Aws.Pinpoint
         [Output("twoWayChannelEnabled")]
         public Output<bool> TwoWayChannelEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        /// </summary>
+        [Output("twoWayChannelRole")]
+        public Output<string?> TwoWayChannelRole { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Smsvoicev2PhoneNumber resource with the given unique name, arguments, and options.
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.Pinpoint
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
 
+        /// <summary>
+        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        /// </summary>
+        [Input("twoWayChannelRole")]
+        public Input<string>? TwoWayChannelRole { get; set; }
+
         public Smsvoicev2PhoneNumberArgs()
         {
         }
@@ -375,6 +387,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
+
+        /// <summary>
+        /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        /// </summary>
+        [Input("twoWayChannelRole")]
+        public Input<string>? TwoWayChannelRole { get; set; }
 
         public Smsvoicev2PhoneNumberState()
         {

@@ -25,6 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointPrivateDns{}
 	case "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification":
 		r = &EndpointServicePrivateDnsVerification{}
+	case "aws:vpc/routeServer:RouteServer":
+		r = &RouteServer{}
+	case "aws:vpc/routeServerEndpoint:RouteServerEndpoint":
+		r = &RouteServerEndpoint{}
+	case "aws:vpc/routeServerPeer:RouteServerPeer":
+		r = &RouteServerPeer{}
+	case "aws:vpc/routeServerPropagation:RouteServerPropagation":
+		r = &RouteServerPropagation{}
+	case "aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation":
+		r = &RouteServerVpcAssociation{}
 	case "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule":
 		r = &SecurityGroupEgressRule{}
 	case "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule":
@@ -52,6 +62,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpc/endpointServicePrivateDnsVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/routeServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/routeServerEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/routeServerPeer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/routeServerPropagation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/routeServerVpcAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

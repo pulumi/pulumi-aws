@@ -706,6 +706,149 @@ class Association(pulumi.CustomResource):
             }])
         ```
 
+        ### Create an association with multiple instances with their instance ids
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # First EC2 instance
+        web_server1 = aws.ec2.Instance("web_server_1",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            subnet_id=public["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+        \"\"\")
+        # Second EC2 instance
+        web_server2 = aws.ec2.Instance("web_server_2",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            subnet_id=public["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+        \"\"\")
+        # Removed EC2 provisioning dependencies for brevity
+        system_update = aws.ssm.Association("system_update",
+            name="AWS-RunShellScript",
+            targets=[{
+                "key": "InstanceIds",
+                "values": [
+                    web_server1.id,
+                    web_server2.id,
+                ],
+            }],
+            schedule_expression="cron(0 2 ? * SUN *)",
+            parameters={
+                "commands": std.join(separator="\\n",
+                    input=[
+                        "#!/bin/bash",
+                        "echo 'Starting system update on $(hostname)'",
+                        "echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
+                        "yum update -y",
+                        "echo 'System update completed successfully'",
+                        "systemctl status httpd",
+                        "df -h",
+                        "free -m",
+                    ]).result,
+                "workingDirectory": "/tmp",
+                "executionTimeout": "3600",
+            },
+            association_name="weekly-system-update",
+            compliance_severity="MEDIUM",
+            max_concurrency="1",
+            max_errors="0",
+            tags={
+                "Name": "Weekly System Update",
+                "Environment": "demo",
+                "Purpose": "maintenance",
+            })
+        ```
+
+        ### Create an association with multiple instances with their values matching their tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # SSM Association for Webbased Servers
+        database_association = aws.ssm.Association("database_association",
+            name=system_update["name"],
+            targets=[{
+                "key": "tag:Role",
+                "values": [
+                    "WebServer",
+                    "Database",
+                ],
+            }],
+            parameters={
+                "restartServices": "true",
+            },
+            schedule_expression="cron(0 3 ? * SUN *)")
+        # EC2 Instance 1 - Web Server with "ServerType" tag
+        web_server = aws.ec2.Instance("web_server",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType(instance_type),
+            subnet_id=default["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=std.base64encode(input=f\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+            
+        # Install Apache web server
+        yum install -y httpd
+        systemctl enable httpd
+        systemctl start httpd
+        echo "<h1>Web Server - {prefix}</h1>" > /var/www/html/index.html
+        \"\"\").result,
+            tags={
+                "Name": f"{prefix}-web-server",
+                "ServerType": "WebServer",
+                "Role": "WebServer",
+                "Environment": environment,
+                "Owner": owner,
+            })
+        # EC2 Instance 2 - Database Server with "Role" tag
+        database_server = aws.ec2.Instance("database_server",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType(instance_type),
+            subnet_id=default["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=std.base64encode(input=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+            
+        # Install MySQL
+        yum install -y mysql-server
+        systemctl enable mysqld
+        systemctl start mysqld
+        \"\"\").result,
+            tags={
+                "Name": f"{prefix}-database-server",
+                "Role": "Database",
+                "Environment": environment,
+                "Owner": owner,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import SSM associations using the `association_id`. For example:
@@ -807,6 +950,149 @@ class Association(pulumi.CustomResource):
                 "key": "InstanceIds",
                 "values": [example_aws_instance["id"]],
             }])
+        ```
+
+        ### Create an association with multiple instances with their instance ids
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # First EC2 instance
+        web_server1 = aws.ec2.Instance("web_server_1",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            subnet_id=public["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+        \"\"\")
+        # Second EC2 instance
+        web_server2 = aws.ec2.Instance("web_server_2",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
+            subnet_id=public["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+        \"\"\")
+        # Removed EC2 provisioning dependencies for brevity
+        system_update = aws.ssm.Association("system_update",
+            name="AWS-RunShellScript",
+            targets=[{
+                "key": "InstanceIds",
+                "values": [
+                    web_server1.id,
+                    web_server2.id,
+                ],
+            }],
+            schedule_expression="cron(0 2 ? * SUN *)",
+            parameters={
+                "commands": std.join(separator="\\n",
+                    input=[
+                        "#!/bin/bash",
+                        "echo 'Starting system update on $(hostname)'",
+                        "echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
+                        "yum update -y",
+                        "echo 'System update completed successfully'",
+                        "systemctl status httpd",
+                        "df -h",
+                        "free -m",
+                    ]).result,
+                "workingDirectory": "/tmp",
+                "executionTimeout": "3600",
+            },
+            association_name="weekly-system-update",
+            compliance_severity="MEDIUM",
+            max_concurrency="1",
+            max_errors="0",
+            tags={
+                "Name": "Weekly System Update",
+                "Environment": "demo",
+                "Purpose": "maintenance",
+            })
+        ```
+
+        ### Create an association with multiple instances with their values matching their tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # SSM Association for Webbased Servers
+        database_association = aws.ssm.Association("database_association",
+            name=system_update["name"],
+            targets=[{
+                "key": "tag:Role",
+                "values": [
+                    "WebServer",
+                    "Database",
+                ],
+            }],
+            parameters={
+                "restartServices": "true",
+            },
+            schedule_expression="cron(0 3 ? * SUN *)")
+        # EC2 Instance 1 - Web Server with "ServerType" tag
+        web_server = aws.ec2.Instance("web_server",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType(instance_type),
+            subnet_id=default["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=std.base64encode(input=f\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+            
+        # Install Apache web server
+        yum install -y httpd
+        systemctl enable httpd
+        systemctl start httpd
+        echo "<h1>Web Server - {prefix}</h1>" > /var/www/html/index.html
+        \"\"\").result,
+            tags={
+                "Name": f"{prefix}-web-server",
+                "ServerType": "WebServer",
+                "Role": "WebServer",
+                "Environment": environment,
+                "Owner": owner,
+            })
+        # EC2 Instance 2 - Database Server with "Role" tag
+        database_server = aws.ec2.Instance("database_server",
+            ami=amazon_linux["id"],
+            instance_type=aws.ec2.InstanceType(instance_type),
+            subnet_id=default["id"],
+            vpc_security_group_ids=[ec2_sg["id"]],
+            iam_instance_profile=ec2_ssm_profile["name"],
+            user_data=std.base64encode(input=\"\"\"#!/bin/bash
+        yum update -y
+        yum install -y amazon-ssm-agent
+        systemctl enable amazon-ssm-agent
+        systemctl start amazon-ssm-agent
+            
+        # Install MySQL
+        yum install -y mysql-server
+        systemctl enable mysqld
+        systemctl start mysqld
+        \"\"\").result,
+            tags={
+                "Name": f"{prefix}-database-server",
+                "Role": "Database",
+                "Environment": environment,
+                "Owner": owner,
+            })
         ```
 
         ## Import

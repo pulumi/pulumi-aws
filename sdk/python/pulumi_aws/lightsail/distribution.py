@@ -35,17 +35,17 @@ class DistributionArgs:
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
-        :param pulumi.Input['DistributionOriginArgs'] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input['DistributionOriginArgs'] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
-        :param pulumi.Input[builtins.str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
-        :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
+        :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        :param pulumi.Input[builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] name: Name of the distribution.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
@@ -81,7 +81,7 @@ class DistributionArgs:
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> pulumi.Input['DistributionDefaultCacheBehaviorArgs']:
         """
-        Object that describes the default cache behavior of the distribution. Detailed below
+        Default cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -93,7 +93,9 @@ class DistributionArgs:
     @pulumi.getter
     def origin(self) -> pulumi.Input['DistributionOriginArgs']:
         """
-        Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "origin")
 
@@ -105,9 +107,7 @@ class DistributionArgs:
     @pulumi.getter(name="cacheBehaviorSettings")
     def cache_behavior_settings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']]:
         """
-        An object that describes the cache behavior settings of the distribution. Detailed below
-
-        The following arguments are optional:
+        Cache behavior settings of the distribution. See below.
         """
         return pulumi.get(self, "cache_behavior_settings")
 
@@ -119,7 +119,7 @@ class DistributionArgs:
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
         """
-        A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        Per-path cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "cache_behaviors")
 
@@ -131,7 +131,7 @@ class DistributionArgs:
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the SSL/TLS certificate attached to the distribution, if any.
+        Name of the SSL/TLS certificate attached to the distribution.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -143,7 +143,7 @@ class DistributionArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address type of the distribution. Default: `dualstack`.
+        IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -155,7 +155,7 @@ class DistributionArgs:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether the distribution is enabled. Default: `true`.
+        Whether the distribution is enabled. Default: `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -179,7 +179,7 @@ class DistributionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -213,28 +213,29 @@ class _DistributionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Distribution resources.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alternative_domain_names: The alternate domain names of the distribution.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alternative_domain_names: Alternate domain names of the distribution.
+        :param pulumi.Input[builtins.str] arn: ARN of the distribution.
         :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsArgs'] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the distribution was created.
+        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] domain_name: Domain name of the distribution.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        :param pulumi.Input[builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionLocationArgs']]] locations: Location of the distribution, such as the AWS Region and Availability Zone. See below.
+        :param pulumi.Input[builtins.str] name: Name of the distribution.
+        :param pulumi.Input['DistributionOriginArgs'] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the distribution was created.
-        :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] domain_name: The domain name of the distribution.
-        :param pulumi.Input[builtins.str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
-        :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionLocationArgs']]] locations: An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
-        :param pulumi.Input[builtins.str] name: Name of the distribution.
-        :param pulumi.Input['DistributionOriginArgs'] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input[builtins.str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type (e.g., Distribution).
-        :param pulumi.Input[builtins.str] status: The status of the distribution.
-        :param pulumi.Input[builtins.str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] origin_public_dns: Public DNS of the origin.
+               * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[builtins.str] resource_type: Lightsail resource type (e.g., Distribution).
+        :param pulumi.Input[builtins.str] status: Status of the distribution.
+        :param pulumi.Input[builtins.str] support_code: Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alternative_domain_names is not None:
             pulumi.set(__self__, "alternative_domain_names", alternative_domain_names)
@@ -284,7 +285,7 @@ class _DistributionState:
     @pulumi.getter(name="alternativeDomainNames")
     def alternative_domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The alternate domain names of the distribution.
+        Alternate domain names of the distribution.
         """
         return pulumi.get(self, "alternative_domain_names")
 
@@ -296,7 +297,7 @@ class _DistributionState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the distribution.
+        ARN of the distribution.
         """
         return pulumi.get(self, "arn")
 
@@ -320,9 +321,7 @@ class _DistributionState:
     @pulumi.getter(name="cacheBehaviorSettings")
     def cache_behavior_settings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']]:
         """
-        An object that describes the cache behavior settings of the distribution. Detailed below
-
-        The following arguments are optional:
+        Cache behavior settings of the distribution. See below.
         """
         return pulumi.get(self, "cache_behavior_settings")
 
@@ -334,7 +333,7 @@ class _DistributionState:
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
         """
-        A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        Per-path cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "cache_behaviors")
 
@@ -346,7 +345,7 @@ class _DistributionState:
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the SSL/TLS certificate attached to the distribution, if any.
+        Name of the SSL/TLS certificate attached to the distribution.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -358,7 +357,7 @@ class _DistributionState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The timestamp when the distribution was created.
+        Timestamp when the distribution was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -370,7 +369,7 @@ class _DistributionState:
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
         """
-        Object that describes the default cache behavior of the distribution. Detailed below
+        Default cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -382,7 +381,7 @@ class _DistributionState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The domain name of the distribution.
+        Domain name of the distribution.
         """
         return pulumi.get(self, "domain_name")
 
@@ -394,7 +393,7 @@ class _DistributionState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The IP address type of the distribution. Default: `dualstack`.
+        IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -406,7 +405,7 @@ class _DistributionState:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether the distribution is enabled. Default: `true`.
+        Whether the distribution is enabled. Default: `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -418,7 +417,7 @@ class _DistributionState:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLocationArgs']]]]:
         """
-        An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+        Location of the distribution, such as the AWS Region and Availability Zone. See below.
         """
         return pulumi.get(self, "locations")
 
@@ -442,7 +441,9 @@ class _DistributionState:
     @pulumi.getter
     def origin(self) -> Optional[pulumi.Input['DistributionOriginArgs']]:
         """
-        Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "origin")
 
@@ -454,7 +455,8 @@ class _DistributionState:
     @pulumi.getter(name="originPublicDns")
     def origin_public_dns(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The public DNS of the origin.
+        Public DNS of the origin.
+        * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
         """
         return pulumi.get(self, "origin_public_dns")
 
@@ -466,7 +468,7 @@ class _DistributionState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Lightsail resource type (e.g., Distribution).
+        Lightsail resource type (e.g., Distribution).
         """
         return pulumi.get(self, "resource_type")
 
@@ -478,7 +480,7 @@ class _DistributionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The status of the distribution.
+        Status of the distribution.
         """
         return pulumi.get(self, "status")
 
@@ -490,7 +492,7 @@ class _DistributionState:
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+        Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -502,7 +504,7 @@ class _DistributionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -515,7 +517,7 @@ class _DistributionState:
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -542,27 +544,25 @@ class Distribution(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lightsail Distribution.
+        Manages a Lightsail content delivery network (CDN) distribution. Use this resource to cache content at edge locations and reduce latency for users accessing your content.
 
         ## Example Usage
 
         ### Basic Usage
 
-        Below is a basic example with a bucket as an origin.
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="test-bucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test.name,
-                "region_name": test.region,
+                "name": example.name,
+                "region_name": example.region,
             },
             default_cache_behavior={
                 "behavior": "cache",
@@ -585,9 +585,7 @@ class Distribution(pulumi.CustomResource):
             })
         ```
 
-        ### instance origin example
-
-        Below is an example of an instance as the origin.
+        ### Instance Origin
 
         ```python
         import pulumi
@@ -598,31 +596,29 @@ class Distribution(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_static_ip = aws.lightsail.StaticIp("example", name="example-static-ip")
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test = aws.lightsail.StaticIpAttachment("test",
-            static_ip_name=test_static_ip.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example = aws.lightsail.StaticIpAttachment("example",
+            static_ip_name=example_static_ip.name,
+            instance_name=example_instance.name)
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test_instance.name,
+                "name": example_instance.name,
                 "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
-        ### lb origin example
-
-        Below is an example with a load balancer as an origin
+        ### Load Balancer Origin
 
         ```python
         import pulumi
@@ -633,56 +629,56 @@ class Distribution(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("test",
-            lb_name=test.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example_lb_attachment = aws.lightsail.LbAttachment("example",
+            lb_name=example.name,
+            instance_name=example_instance.name)
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test.name,
+                "name": example.name,
                 "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_lb_attachment]))
         ```
 
         ## Import
 
-        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
+        Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        :param pulumi.Input[builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
+        :param pulumi.Input[builtins.str] name: Name of the distribution.
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
-        :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
-        :param pulumi.Input[builtins.str] name: Name of the distribution.
-        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -691,27 +687,25 @@ class Distribution(pulumi.CustomResource):
                  args: DistributionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lightsail Distribution.
+        Manages a Lightsail content delivery network (CDN) distribution. Use this resource to cache content at edge locations and reduce latency for users accessing your content.
 
         ## Example Usage
 
         ### Basic Usage
 
-        Below is a basic example with a bucket as an origin.
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test",
-            name="test-bucket",
+        example = aws.lightsail.Bucket("example",
+            name="example-bucket",
             bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test.name,
-                "region_name": test.region,
+                "name": example.name,
+                "region_name": example.region,
             },
             default_cache_behavior={
                 "behavior": "cache",
@@ -734,9 +728,7 @@ class Distribution(pulumi.CustomResource):
             })
         ```
 
-        ### instance origin example
-
-        Below is an example of an instance as the origin.
+        ### Instance Origin
 
         ```python
         import pulumi
@@ -747,31 +739,29 @@ class Distribution(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_static_ip = aws.lightsail.StaticIp("example", name="example-static-ip")
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test = aws.lightsail.StaticIpAttachment("test",
-            static_ip_name=test_static_ip.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example = aws.lightsail.StaticIpAttachment("example",
+            static_ip_name=example_static_ip.name,
+            instance_name=example_instance.name)
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test_instance.name,
+                "name": example_instance.name,
                 "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
-        ### lb origin example
-
-        Below is an example with a load balancer as an origin
+        ### Load Balancer Origin
 
         ```python
         import pulumi
@@ -782,40 +772,40 @@ class Distribution(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("test",
-            lb_name=test.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("test",
-            name="test-distribution",
+        example_lb_attachment = aws.lightsail.LbAttachment("example",
+            lb_name=example.name,
+            instance_name=example_instance.name)
+        example_distribution = aws.lightsail.Distribution("example",
+            name="example-distribution",
             bundle_id="small_1_0",
             origin={
-                "name": test.name,
+                "name": example.name,
                 "region_name": available.id,
             },
             default_cache_behavior={
                 "behavior": "cache",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_lb_attachment]))
         ```
 
         ## Import
 
-        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
+        Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
         ```
 
         :param str resource_name: The name of the resource.
@@ -915,28 +905,29 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alternative_domain_names: The alternate domain names of the distribution.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the distribution.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] alternative_domain_names: Alternate domain names of the distribution.
+        :param pulumi.Input[builtins.str] arn: ARN of the distribution.
         :param pulumi.Input[builtins.str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: Cache behavior settings of the distribution. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: Per-path cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] certificate_name: Name of the SSL/TLS certificate attached to the distribution.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the distribution was created.
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Default cache behavior of the distribution. See below.
+        :param pulumi.Input[builtins.str] domain_name: Domain name of the distribution.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        :param pulumi.Input[builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]] locations: Location of the distribution, such as the AWS Region and Availability Zone. See below.
+        :param pulumi.Input[builtins.str] name: Name of the distribution.
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the distribution was created.
-        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
-        :param pulumi.Input[builtins.str] domain_name: The domain name of the distribution.
-        :param pulumi.Input[builtins.str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
-        :param pulumi.Input[builtins.bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]] locations: An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
-        :param pulumi.Input[builtins.str] name: Name of the distribution.
-        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input[builtins.str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[builtins.str] resource_type: The Lightsail resource type (e.g., Distribution).
-        :param pulumi.Input[builtins.str] status: The status of the distribution.
-        :param pulumi.Input[builtins.str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] origin_public_dns: Public DNS of the origin.
+               * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[builtins.str] resource_type: Lightsail resource type (e.g., Distribution).
+        :param pulumi.Input[builtins.str] status: Status of the distribution.
+        :param pulumi.Input[builtins.str] support_code: Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -968,7 +959,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="alternativeDomainNames")
     def alternative_domain_names(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        The alternate domain names of the distribution.
+        Alternate domain names of the distribution.
         """
         return pulumi.get(self, "alternative_domain_names")
 
@@ -976,7 +967,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the distribution.
+        ARN of the distribution.
         """
         return pulumi.get(self, "arn")
 
@@ -992,9 +983,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="cacheBehaviorSettings")
     def cache_behavior_settings(self) -> pulumi.Output[Optional['outputs.DistributionCacheBehaviorSettings']]:
         """
-        An object that describes the cache behavior settings of the distribution. Detailed below
-
-        The following arguments are optional:
+        Cache behavior settings of the distribution. See below.
         """
         return pulumi.get(self, "cache_behavior_settings")
 
@@ -1002,7 +991,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionCacheBehavior']]]:
         """
-        A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        Per-path cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "cache_behaviors")
 
@@ -1010,7 +999,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of the SSL/TLS certificate attached to the distribution, if any.
+        Name of the SSL/TLS certificate attached to the distribution.
         """
         return pulumi.get(self, "certificate_name")
 
@@ -1018,7 +1007,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         """
-        The timestamp when the distribution was created.
+        Timestamp when the distribution was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -1026,7 +1015,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> pulumi.Output['outputs.DistributionDefaultCacheBehavior']:
         """
-        Object that describes the default cache behavior of the distribution. Detailed below
+        Default cache behavior of the distribution. See below.
         """
         return pulumi.get(self, "default_cache_behavior")
 
@@ -1034,7 +1023,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[builtins.str]:
         """
-        The domain name of the distribution.
+        Domain name of the distribution.
         """
         return pulumi.get(self, "domain_name")
 
@@ -1042,7 +1031,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The IP address type of the distribution. Default: `dualstack`.
+        IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -1050,7 +1039,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Indicates whether the distribution is enabled. Default: `true`.
+        Whether the distribution is enabled. Default: `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -1058,7 +1047,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Sequence['outputs.DistributionLocation']]:
         """
-        An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+        Location of the distribution, such as the AWS Region and Availability Zone. See below.
         """
         return pulumi.get(self, "locations")
 
@@ -1074,7 +1063,9 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def origin(self) -> pulumi.Output['outputs.DistributionOrigin']:
         """
-        Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "origin")
 
@@ -1082,7 +1073,8 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="originPublicDns")
     def origin_public_dns(self) -> pulumi.Output[builtins.str]:
         """
-        The public DNS of the origin.
+        Public DNS of the origin.
+        * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
         """
         return pulumi.get(self, "origin_public_dns")
 
@@ -1090,7 +1082,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[builtins.str]:
         """
-        The Lightsail resource type (e.g., Distribution).
+        Lightsail resource type (e.g., Distribution).
         """
         return pulumi.get(self, "resource_type")
 
@@ -1098,7 +1090,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        The status of the distribution.
+        Status of the distribution.
         """
         return pulumi.get(self, "status")
 
@@ -1106,7 +1098,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[builtins.str]:
         """
-        The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+        Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -1114,7 +1106,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1123,7 +1115,7 @@ class Distribution(pulumi.CustomResource):
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

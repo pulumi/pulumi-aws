@@ -39,18 +39,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An object that describes the cache behavior settings of the distribution. Detailed below
-     * 
-     * The following arguments are optional:
+     * Cache behavior settings of the distribution. See below.
      * 
      */
     @Import(name="cacheBehaviorSettings")
     private @Nullable Output<DistributionCacheBehaviorSettingsArgs> cacheBehaviorSettings;
 
     /**
-     * @return An object that describes the cache behavior settings of the distribution. Detailed below
-     * 
-     * The following arguments are optional:
+     * @return Cache behavior settings of the distribution. See below.
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsArgs>> cacheBehaviorSettings() {
@@ -58,14 +54,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * Per-path cache behavior of the distribution. See below.
      * 
      */
     @Import(name="cacheBehaviors")
     private @Nullable Output<List<DistributionCacheBehaviorArgs>> cacheBehaviors;
 
     /**
-     * @return A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * @return Per-path cache behavior of the distribution. See below.
      * 
      */
     public Optional<Output<List<DistributionCacheBehaviorArgs>>> cacheBehaviors() {
@@ -73,14 +69,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SSL/TLS certificate attached to the distribution, if any.
+     * Name of the SSL/TLS certificate attached to the distribution.
      * 
      */
     @Import(name="certificateName")
     private @Nullable Output<String> certificateName;
 
     /**
-     * @return The name of the SSL/TLS certificate attached to the distribution, if any.
+     * @return Name of the SSL/TLS certificate attached to the distribution.
      * 
      */
     public Optional<Output<String>> certificateName() {
@@ -88,14 +84,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object that describes the default cache behavior of the distribution. Detailed below
+     * Default cache behavior of the distribution. See below.
      * 
      */
     @Import(name="defaultCacheBehavior", required=true)
     private Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
-     * @return Object that describes the default cache behavior of the distribution. Detailed below
+     * @return Default cache behavior of the distribution. See below.
      * 
      */
     public Output<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior() {
@@ -103,14 +99,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address type of the distribution. Default: `dualstack`.
+     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The IP address type of the distribution. Default: `dualstack`.
+     * @return IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -118,14 +114,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the distribution is enabled. Default: `true`.
+     * Whether the distribution is enabled. Default: `true`.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Indicates whether the distribution is enabled. Default: `true`.
+     * @return Whether the distribution is enabled. Default: `true`.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -148,14 +144,18 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="origin", required=true)
     private Output<DistributionOriginArgs> origin;
 
     /**
-     * @return Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * @return Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<DistributionOriginArgs> origin() {
@@ -163,14 +163,14 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -232,9 +232,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution. Detailed below
-         * 
-         * The following arguments are optional:
+         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
          * 
          * @return builder
          * 
@@ -245,9 +243,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution. Detailed below
-         * 
-         * The following arguments are optional:
+         * @param cacheBehaviorSettings Cache behavior settings of the distribution. See below.
          * 
          * @return builder
          * 
@@ -257,7 +253,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
          * 
          * @return builder
          * 
@@ -268,7 +264,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
          * 
          * @return builder
          * 
@@ -278,7 +274,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheBehaviors A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+         * @param cacheBehaviors Per-path cache behavior of the distribution. See below.
          * 
          * @return builder
          * 
@@ -288,7 +284,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
+         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
          * 
          * @return builder
          * 
@@ -299,7 +295,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateName The name of the SSL/TLS certificate attached to the distribution, if any.
+         * @param certificateName Name of the SSL/TLS certificate attached to the distribution.
          * 
          * @return builder
          * 
@@ -309,7 +305,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Object that describes the default cache behavior of the distribution. Detailed below
+         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
          * 
          * @return builder
          * 
@@ -320,7 +316,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCacheBehavior Object that describes the default cache behavior of the distribution. Detailed below
+         * @param defaultCacheBehavior Default cache behavior of the distribution. See below.
          * 
          * @return builder
          * 
@@ -330,7 +326,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the distribution. Default: `dualstack`.
+         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
          * 
          * @return builder
          * 
@@ -341,7 +337,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the distribution. Default: `dualstack`.
+         * @param ipAddressType IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
          * 
          * @return builder
          * 
@@ -351,7 +347,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Indicates whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Whether the distribution is enabled. Default: `true`.
          * 
          * @return builder
          * 
@@ -362,7 +358,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Indicates whether the distribution is enabled. Default: `true`.
+         * @param isEnabled Whether the distribution is enabled. Default: `true`.
          * 
          * @return builder
          * 
@@ -393,7 +389,9 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -404,7 +402,9 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+         * @param origin Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

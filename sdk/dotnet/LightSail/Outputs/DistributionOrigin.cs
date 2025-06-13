@@ -14,19 +14,19 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionOrigin
     {
         /// <summary>
-        /// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        /// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        /// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         /// </summary>
         public readonly string? ProtocolPolicy;
         /// <summary>
-        /// The AWS Region name of the origin resource.
+        /// AWS Region name of the origin resource.
         /// </summary>
         public readonly string RegionName;
         /// <summary>
-        /// The resource type of the origin resource (e.g., Instance).
+        /// Lightsail resource type (e.g., Distribution).
         /// </summary>
         public readonly string? ResourceType;
 

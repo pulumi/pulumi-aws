@@ -30,13 +30,10 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier.
         :param pulumi.Input[builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-               * **NOTE:** Upgrading major versions is not supported.
-        :param pulumi.Input[builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if deletion_protection is not None:
@@ -54,7 +51,7 @@ class GlobalClusterArgs:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Input[builtins.str]:
         """
-        The global cluster identifier.
+        Global cluster identifier.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -91,7 +88,6 @@ class GlobalClusterArgs:
     def engine_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        * **NOTE:** Upgrading major versions is not supported.
         """
         return pulumi.get(self, "engine_version")
 
@@ -102,9 +98,6 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -114,9 +107,6 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -139,16 +129,13 @@ class _GlobalClusterState:
                  storage_encrypted: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
-        :param pulumi.Input[builtins.str] arn: Global Cluster Amazon Resource Name (ARN)
+        :param pulumi.Input[builtins.str] arn: Global Cluster ARN
         :param pulumi.Input[builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-               * **NOTE:** Upgrading major versions is not supported.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        :param pulumi.Input[builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -175,7 +162,7 @@ class _GlobalClusterState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Global Cluster Amazon Resource Name (ARN)
+        Global Cluster ARN
         """
         return pulumi.get(self, "arn")
 
@@ -212,7 +199,6 @@ class _GlobalClusterState:
     def engine_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        * **NOTE:** Upgrading major versions is not supported.
         """
         return pulumi.get(self, "engine_version")
 
@@ -224,7 +210,7 @@ class _GlobalClusterState:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The global cluster identifier.
+        Global cluster identifier.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -259,9 +245,6 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @source_db_cluster_identifier.setter
@@ -280,9 +263,6 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @storage_encrypted.setter
@@ -375,10 +355,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-               * **NOTE:** Upgrading major versions is not supported.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier.
-        :param pulumi.Input[builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier.
         """
         ...
     @overload
@@ -522,16 +499,13 @@ class GlobalCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: Global Cluster Amazon Resource Name (ARN)
+        :param pulumi.Input[builtins.str] arn: Global Cluster ARN
         :param pulumi.Input[builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[builtins.str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-               * **NOTE:** Upgrading major versions is not supported.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[builtins.str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        :param pulumi.Input[builtins.str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -553,7 +527,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        Global Cluster Amazon Resource Name (ARN)
+        Global Cluster ARN
         """
         return pulumi.get(self, "arn")
 
@@ -578,7 +552,6 @@ class GlobalCluster(pulumi.CustomResource):
     def engine_version(self) -> pulumi.Output[builtins.str]:
         """
         Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-        * **NOTE:** Upgrading major versions is not supported.
         """
         return pulumi.get(self, "engine_version")
 
@@ -586,7 +559,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[builtins.str]:
         """
-        The global cluster identifier.
+        Global cluster identifier.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -609,9 +582,6 @@ class GlobalCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[builtins.str]:
-        """
-        Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        """
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
@@ -622,8 +592,5 @@ class GlobalCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[builtins.bool]:
-        """
-        Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-        """
         return pulumi.get(self, "storage_encrypted")
 

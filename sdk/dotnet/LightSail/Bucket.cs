@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a lightsail bucket.
+    /// Manages a Lightsail bucket. Use this resource to create and manage object storage buckets for storing files, images, and other data in Lightsail.
     /// 
     /// ## Example Usage
     /// 
@@ -22,9 +22,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Bucket("test", new()
+    ///     var example = new Aws.LightSail.Bucket("example", new()
     ///     {
-    ///         Name = "mytestbucket",
+    ///         Name = "example-bucket",
     ///         BundleId = "small_1_0",
     ///     });
     /// 
@@ -36,72 +36,74 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+    /// $ pulumi import aws:lightsail/bucket:Bucket example example-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the lightsail bucket.
+        /// ARN of the Lightsail bucket.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        /// Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        /// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         /// </summary>
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the bucket was created.
+        /// Date and time when the bucket was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the bucket.
+        /// Name for the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Web Services Region name.
+        /// AWS Region name.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// URL of the bucket.
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -152,19 +154,18 @@ namespace Pulumi.Aws.LightSail
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        /// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 
-        /// <summary>
-        /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// The name for the bucket.
+        /// Name for the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -173,7 +174,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,49 +191,48 @@ namespace Pulumi.Aws.LightSail
     public sealed class BucketState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the lightsail bucket.
+        /// ARN of the Lightsail bucket.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
+        /// Availability Zone. Follows the format us-east-2a (case-sensitive).
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        /// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         /// </summary>
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
 
         /// <summary>
-        /// The timestamp when the bucket was created.
+        /// Date and time when the bucket was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
-        /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// The name for the bucket.
+        /// Name for the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Web Services Region name.
+        /// AWS Region name.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
@@ -262,6 +262,9 @@ namespace Pulumi.Aws.LightSail
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// URL of the bucket.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

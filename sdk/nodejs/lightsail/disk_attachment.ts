@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Attaches a Lightsail disk to a Lightsail Instance
+ * Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
  *
  * ## Example Usage
  *
@@ -20,30 +20,30 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const test = new aws.lightsail.Disk("test", {
- *     name: "test-disk",
+ * const example = new aws.lightsail.Disk("example", {
+ *     name: "example-disk",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });
- * const testInstance = new aws.lightsail.Instance("test", {
- *     name: "test-instance",
+ * const exampleInstance = new aws.lightsail.Instance("example", {
+ *     name: "example-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_3_0",
  * });
- * const testDisk_attachment = new aws.lightsail.Disk_attachment("test", {
- *     diskName: test.name,
- *     instanceName: testInstance.name,
+ * const exampleDisk_attachment = new aws.lightsail.Disk_attachment("example", {
+ *     diskName: example.name,
+ *     instanceName: exampleInstance.name,
  *     diskPath: "/dev/xvdf",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
+ * Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
  * ```
  */
 export class Disk_attachment extends pulumi.CustomResource {
@@ -75,15 +75,15 @@ export class Disk_attachment extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Lightsail Disk.
+     * Name of the Lightsail disk.
      */
     public readonly diskName!: pulumi.Output<string>;
     /**
-     * The disk path to expose to the instance.
+     * Disk path to expose to the instance.
      */
     public readonly diskPath!: pulumi.Output<string>;
     /**
-     * The name of the Lightsail Instance to attach to.
+     * Name of the Lightsail instance to attach to.
      */
     public readonly instanceName!: pulumi.Output<string>;
 
@@ -128,15 +128,15 @@ export class Disk_attachment extends pulumi.CustomResource {
  */
 export interface Disk_attachmentState {
     /**
-     * The name of the Lightsail Disk.
+     * Name of the Lightsail disk.
      */
     diskName?: pulumi.Input<string>;
     /**
-     * The disk path to expose to the instance.
+     * Disk path to expose to the instance.
      */
     diskPath?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance to attach to.
+     * Name of the Lightsail instance to attach to.
      */
     instanceName?: pulumi.Input<string>;
 }
@@ -146,15 +146,15 @@ export interface Disk_attachmentState {
  */
 export interface Disk_attachmentArgs {
     /**
-     * The name of the Lightsail Disk.
+     * Name of the Lightsail disk.
      */
     diskName: pulumi.Input<string>;
     /**
-     * The disk path to expose to the instance.
+     * Disk path to expose to the instance.
      */
     diskPath: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance to attach to.
+     * Name of the Lightsail instance to attach to.
      */
     instanceName: pulumi.Input<string>;
 }

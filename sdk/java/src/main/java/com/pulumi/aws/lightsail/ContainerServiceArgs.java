@@ -22,14 +22,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     public static final ContainerServiceArgs Empty = new ContainerServiceArgs();
 
     /**
-     * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     * Whether to disable the container service. Defaults to `false`.
      * 
      */
     @Import(name="isDisabled")
     private @Nullable Output<Boolean> isDisabled;
 
     /**
-     * @return A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+     * @return Whether to disable the container service. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> isDisabled() {
@@ -37,16 +37,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name for the container service. Names must be of length 1 to 63, and be
-     * unique within each AWS Region in your Lightsail account.
+     * Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the container service. Names must be of length 1 to 63, and be
-     * unique within each AWS Region in your Lightsail account.
+     * @return Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -54,18 +52,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The power specification for the container service. The power specifies the amount of memory,
-     * the number of vCPUs, and the monthly price of each node of the container service.
-     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     * Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
     @Import(name="power", required=true)
     private Output<String> power;
 
     /**
-     * @return The power specification for the container service. The power specifies the amount of memory,
-     * the number of vCPUs, and the monthly price of each node of the container service.
-     * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+     * @return Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
     public Output<String> power() {
@@ -73,14 +67,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     @Import(name="privateRegistryAccess")
     private @Nullable Output<ContainerServicePrivateRegistryAccessArgs> privateRegistryAccess;
 
     /**
-     * @return An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+     * @return Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     public Optional<Output<ContainerServicePrivateRegistryAccessArgs>> privateRegistryAccess() {
@@ -88,22 +82,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The public domain names to use with the container service, such as example.com
-     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-     * specify are used when you create a deployment with a container configured as the public endpoint of your container
-     * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-     * Defined below.
+     * Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
      * 
      */
     @Import(name="publicDomainNames")
     private @Nullable Output<ContainerServicePublicDomainNamesArgs> publicDomainNames;
 
     /**
-     * @return The public domain names to use with the container service, such as example.com
-     * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-     * specify are used when you create a deployment with a container configured as the public endpoint of your container
-     * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-     * Defined below.
+     * @return Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
      * 
      */
     public Optional<Output<ContainerServicePublicDomainNamesArgs>> publicDomainNames() {
@@ -111,16 +97,18 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The scale specification for the container service. The scale specifies the allocated compute
-     * nodes of the container service.
+     * Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="scale", required=true)
     private Output<Integer> scale;
 
     /**
-     * @return The scale specification for the container service. The scale specifies the allocated compute
-     * nodes of the container service.
+     * @return Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> scale() {
@@ -128,20 +116,14 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-     * configured with a provider
-     * `default_tags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-     * configured with a provider
-     * `default_tags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -179,7 +161,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param isDisabled A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+         * @param isDisabled Whether to disable the container service. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -190,7 +172,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param isDisabled A Boolean value indicating whether the container service is disabled. Defaults to `false`.
+         * @param isDisabled Whether to disable the container service. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -200,8 +182,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name for the container service. Names must be of length 1 to 63, and be
-         * unique within each AWS Region in your Lightsail account.
+         * @param name Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 
@@ -212,8 +193,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name for the container service. Names must be of length 1 to 63, and be
-         * unique within each AWS Region in your Lightsail account.
+         * @param name Name of the container service. Names must be of length 1 to 63, and be unique within each AWS Region in your Lightsail account.
          * 
          * @return builder
          * 
@@ -223,9 +203,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param power The power specification for the container service. The power specifies the amount of memory,
-         * the number of vCPUs, and the monthly price of each node of the container service.
-         * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+         * @param power Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
          * 
          * @return builder
          * 
@@ -236,9 +214,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param power The power specification for the container service. The power specifies the amount of memory,
-         * the number of vCPUs, and the monthly price of each node of the container service.
-         * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+         * @param power Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
          * 
          * @return builder
          * 
@@ -248,7 +224,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * @param privateRegistryAccess Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 
@@ -259,7 +235,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param privateRegistryAccess An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+         * @param privateRegistryAccess Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 
@@ -269,11 +245,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param publicDomainNames The public domain names to use with the container service, such as example.com
-         * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-         * specify are used when you create a deployment with a container configured as the public endpoint of your container
-         * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-         * Defined below.
+         * @param publicDomainNames Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
          * 
          * @return builder
          * 
@@ -284,11 +256,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param publicDomainNames The public domain names to use with the container service, such as example.com
-         * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
-         * specify are used when you create a deployment with a container configured as the public endpoint of your container
-         * service. If you don&#39;t specify public domain names, then you can use the default domain of the container service.
-         * Defined below.
+         * @param publicDomainNames Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don&#39;t specify public domain names, then you can use the default domain of the container service. See below.
          * 
          * @return builder
          * 
@@ -298,8 +266,9 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scale The scale specification for the container service. The scale specifies the allocated compute
-         * nodes of the container service.
+         * @param scale Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -310,8 +279,9 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scale The scale specification for the container service. The scale specifies the allocated compute
-         * nodes of the container service.
+         * @param scale Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -321,10 +291,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-         * configured with a provider
-         * `default_tags` configuration block
-         * present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -335,10 +302,7 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
-         * configured with a provider
-         * `default_tags` configuration block
-         * present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

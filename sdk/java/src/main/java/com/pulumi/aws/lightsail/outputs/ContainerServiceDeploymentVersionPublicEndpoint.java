@@ -13,38 +13,38 @@ import java.util.Objects;
 @CustomType
 public final class ContainerServiceDeploymentVersionPublicEndpoint {
     /**
-     * @return The name of the container for the endpoint.
+     * @return Name of the container for the endpoint.
      * 
      */
     private String containerName;
     /**
-     * @return The port of the container to which traffic is forwarded to.
+     * @return Port of the container to which traffic is forwarded to.
      * 
      */
     private Integer containerPort;
     /**
-     * @return A configuration block that describes the health check configuration of the container. Detailed below.
+     * @return Configuration block that describes the health check configuration of the container. See below.
      * 
      */
     private ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck;
 
     private ContainerServiceDeploymentVersionPublicEndpoint() {}
     /**
-     * @return The name of the container for the endpoint.
+     * @return Name of the container for the endpoint.
      * 
      */
     public String containerName() {
         return this.containerName;
     }
     /**
-     * @return The port of the container to which traffic is forwarded to.
+     * @return Port of the container to which traffic is forwarded to.
      * 
      */
     public Integer containerPort() {
         return this.containerPort;
     }
     /**
-     * @return A configuration block that describes the health check configuration of the container. Detailed below.
+     * @return Configuration block that describes the health check configuration of the container. See below.
      * 
      */
     public ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck() {

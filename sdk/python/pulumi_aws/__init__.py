@@ -183,6 +183,8 @@ if typing.TYPE_CHECKING:
     docdb = __docdb
     import pulumi_aws.drs as __drs
     drs = __drs
+    import pulumi_aws.dsql as __dsql
+    dsql = __dsql
     import pulumi_aws.dynamodb as __dynamodb
     dynamodb = __dynamodb
     import pulumi_aws.ebs as __ebs
@@ -549,6 +551,7 @@ else:
     dms = _utilities.lazy_import('pulumi_aws.dms')
     docdb = _utilities.lazy_import('pulumi_aws.docdb')
     drs = _utilities.lazy_import('pulumi_aws.drs')
+    dsql = _utilities.lazy_import('pulumi_aws.dsql')
     dynamodb = _utilities.lazy_import('pulumi_aws.dynamodb')
     ebs = _utilities.lazy_import('pulumi_aws.ebs')
     ec2 = _utilities.lazy_import('pulumi_aws.ec2')
@@ -870,6 +873,14 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/workspaceConfiguration",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/workspaceConfiguration:WorkspaceConfiguration": "WorkspaceConfiguration"
   }
  },
  {
@@ -4222,6 +4233,22 @@ _utilities.register(
   "fqn": "pulumi_aws.drs",
   "classes": {
    "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate": "ReplicationConfigurationTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dsql/cluster",
+  "fqn": "pulumi_aws.dsql",
+  "classes": {
+   "aws:dsql/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dsql/clusterPeering",
+  "fqn": "pulumi_aws.dsql",
+  "classes": {
+   "aws:dsql/clusterPeering:ClusterPeering": "ClusterPeering"
   }
  },
  {
@@ -10586,6 +10613,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3control/directoryBucketAccessPointScope",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope": "DirectoryBucketAccessPointScope"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3control/multiRegionAccessPoint",
   "fqn": "pulumi_aws.s3control",
   "classes": {
@@ -12362,6 +12397,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "vpc/routeServer",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/routeServer:RouteServer": "RouteServer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/routeServerEndpoint",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/routeServerEndpoint:RouteServerEndpoint": "RouteServerEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/routeServerPeer",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/routeServerPeer:RouteServerPeer": "RouteServerPeer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/routeServerPropagation",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/routeServerPropagation:RouteServerPropagation": "RouteServerPropagation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/routeServerVpcAssociation",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation": "RouteServerVpcAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "vpc/securityGroupEgressRule",
   "fqn": "pulumi_aws.vpc",
   "classes": {
@@ -12802,10 +12877,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workspaces/webDataProtectionSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings": "WebDataProtectionSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/webIpAccessSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webIpAccessSettings:WebIpAccessSettings": "WebIpAccessSettings"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workspaces/webNetworkSettings",
   "fqn": "pulumi_aws.workspaces",
   "classes": {
    "aws:workspaces/webNetworkSettings:WebNetworkSettings": "WebNetworkSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/webUserAccessLoggingSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings": "WebUserAccessLoggingSettings"
   }
  },
  {

@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
+// Manages HTTPS redirection for a Lightsail Load Balancer.
+//
+// Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
 //
 // ## Example Usage
 //
@@ -28,8 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
-//				Name:            pulumi.String("test-load-balancer"),
+//			example, err := lightsail.NewLb(ctx, "example", &lightsail.LbArgs{
+//				Name:            pulumi.String("example-load-balancer"),
 //				HealthCheckPath: pulumi.String("/"),
 //				InstancePort:    pulumi.Int(80),
 //				Tags: pulumi.StringMap{
@@ -39,23 +41,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "test", &lightsail.LbCertificateArgs{
-//				Name:       pulumi.String("test-load-balancer-certificate"),
-//				LbName:     test.ID(),
-//				DomainName: pulumi.String("test.com"),
+//			exampleLbCertificate, err := lightsail.NewLbCertificate(ctx, "example", &lightsail.LbCertificateArgs{
+//				Name:       pulumi.String("example-load-balancer-certificate"),
+//				LbName:     example.ID(),
+//				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "test", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          test.Name,
-//				CertificateName: testLbCertificate.Name,
+//			_, err = lightsail.NewLbCertificateAttachment(ctx, "example", &lightsail.LbCertificateAttachmentArgs{
+//				LbName:          example.Name,
+//				CertificateName: exampleLbCertificate.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "test", &lightsail.LbHttpsRedirectionPolicyArgs{
-//				LbName:  test.Name,
+//			_, err = lightsail.NewLbHttpsRedirectionPolicy(ctx, "example", &lightsail.LbHttpsRedirectionPolicyArgs{
+//				LbName:  example.Name,
 //				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -72,14 +74,14 @@ import (
 // Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 //
 // ```sh
-// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
 // ```
 type LbHttpsRedirectionPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The name of the load balancer to which you want to enable http to https redirection.
+	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
 }
 
@@ -119,16 +121,16 @@ func GetLbHttpsRedirectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
 type lbHttpsRedirectionPolicyState struct {
-	// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled *bool `pulumi:"enabled"`
-	// The name of the load balancer to which you want to enable http to https redirection.
+	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 	LbName *string `pulumi:"lbName"`
 }
 
 type LbHttpsRedirectionPolicyState struct {
-	// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled pulumi.BoolPtrInput
-	// The name of the load balancer to which you want to enable http to https redirection.
+	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 	LbName pulumi.StringPtrInput
 }
 
@@ -137,17 +139,17 @@ func (LbHttpsRedirectionPolicyState) ElementType() reflect.Type {
 }
 
 type lbHttpsRedirectionPolicyArgs struct {
-	// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled bool `pulumi:"enabled"`
-	// The name of the load balancer to which you want to enable http to https redirection.
+	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 	LbName string `pulumi:"lbName"`
 }
 
 // The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
 type LbHttpsRedirectionPolicyArgs struct {
-	// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+	// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 	Enabled pulumi.BoolInput
-	// The name of the load balancer to which you want to enable http to https redirection.
+	// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 	LbName pulumi.StringInput
 }
 
@@ -238,12 +240,12 @@ func (o LbHttpsRedirectionPolicyOutput) ToLbHttpsRedirectionPolicyOutputWithCont
 	return o
 }
 
-// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
 func (o LbHttpsRedirectionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The name of the load balancer to which you want to enable http to https redirection.
+// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
 func (o LbHttpsRedirectionPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }

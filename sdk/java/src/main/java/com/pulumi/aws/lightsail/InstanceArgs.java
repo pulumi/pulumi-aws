@@ -19,14 +19,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
-     * The add-on configuration for the instance. Detailed below.
+     * Add-on configuration for the instance. See below.
      * 
      */
     @Import(name="addOn")
     private @Nullable Output<InstanceAddOnArgs> addOn;
 
     /**
-     * @return The add-on configuration for the instance. Detailed below.
+     * @return Add-on configuration for the instance. See below.
      * 
      */
     public Optional<Output<InstanceAddOnArgs>> addOn() {
@@ -34,18 +34,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Availability Zone in which to create your instance. A
-     * list of available zones can be obtained using the AWS CLI command:
-     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+     * Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your instance. A
-     * list of available zones can be obtained using the AWS CLI command:
-     * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+     * @return Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
     public Output<String> availabilityZone() {
@@ -53,18 +49,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID for a virtual private server image. A list of available
-     * blueprint IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+     * ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     @Import(name="blueprintId", required=true)
     private Output<String> blueprintId;
 
     /**
-     * @return The ID for a virtual private server image. A list of available
-     * blueprint IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+     * @return ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
     public Output<String> blueprintId() {
@@ -72,18 +64,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bundle of specification information. A list of available
-     * bundle IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+     * Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     @Import(name="bundleId", required=true)
     private Output<String> bundleId;
 
     /**
-     * @return The bundle of specification information. A list of available
-     * bundle IDs can be obtained using the AWS CLI command:
-     * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+     * @return Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
     public Output<String> bundleId() {
@@ -91,14 +79,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+     * IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+     * @return IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -106,16 +94,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of your key pair. Created in the
-     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     * Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      * 
      */
     @Import(name="keyPairName")
     private @Nullable Output<String> keyPairName;
 
     /**
-     * @return The name of your key pair. Created in the
-     * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+     * @return Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
      * 
      */
     public Optional<Output<String>> keyPairName() {
@@ -123,14 +109,18 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * @return Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,14 +128,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -153,14 +143,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Single lined launch script as a string to configure server with additional user data
+     * Single lined launch script as a string to configure server with additional user data.
      * 
      */
     @Import(name="userData")
     private @Nullable Output<String> userData;
 
     /**
-     * @return Single lined launch script as a string to configure server with additional user data
+     * @return Single lined launch script as a string to configure server with additional user data.
      * 
      */
     public Optional<Output<String>> userData() {
@@ -200,7 +190,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addOn The add-on configuration for the instance. Detailed below.
+         * @param addOn Add-on configuration for the instance. See below.
          * 
          * @return builder
          * 
@@ -211,7 +201,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addOn The add-on configuration for the instance. Detailed below.
+         * @param addOn Add-on configuration for the instance. See below.
          * 
          * @return builder
          * 
@@ -221,9 +211,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your instance. A
-         * list of available zones can be obtained using the AWS CLI command:
-         * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+         * @param availabilityZone Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
          * 
          * @return builder
          * 
@@ -234,9 +222,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your instance. A
-         * list of available zones can be obtained using the AWS CLI command:
-         * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+         * @param availabilityZone Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
          * 
          * @return builder
          * 
@@ -246,9 +232,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The ID for a virtual private server image. A list of available
-         * blueprint IDs can be obtained using the AWS CLI command:
-         * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+         * @param blueprintId ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
          * 
          * @return builder
          * 
@@ -259,9 +243,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The ID for a virtual private server image. A list of available
-         * blueprint IDs can be obtained using the AWS CLI command:
-         * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+         * @param blueprintId ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
          * 
          * @return builder
          * 
@@ -271,9 +253,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle of specification information. A list of available
-         * bundle IDs can be obtained using the AWS CLI command:
-         * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+         * @param bundleId Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
          * 
          * @return builder
          * 
@@ -284,9 +264,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle of specification information. A list of available
-         * bundle IDs can be obtained using the AWS CLI command:
-         * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+         * @param bundleId Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
          * 
          * @return builder
          * 
@@ -296,7 +274,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+         * @param ipAddressType IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
          * 
          * @return builder
          * 
@@ -307,7 +285,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+         * @param ipAddressType IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
          * 
          * @return builder
          * 
@@ -317,8 +295,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyPairName The name of your key pair. Created in the
-         * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+         * @param keyPairName Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
          * 
          * @return builder
          * 
@@ -329,8 +306,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyPairName The name of your key pair. Created in the
-         * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+         * @param keyPairName Name of your key pair. Created in the Lightsail console (cannot use `aws.ec2.KeyPair` at this time).
          * 
          * @return builder
          * 
@@ -340,7 +316,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+         * @param name Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -351,7 +329,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+         * @param name Name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -361,7 +341,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -372,7 +352,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -382,7 +362,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData Single lined launch script as a string to configure server with additional user data
+         * @param userData Single lined launch script as a string to configure server with additional user data.
          * 
          * @return builder
          * 
@@ -393,7 +373,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userData Single lined launch script as a string to configure server with additional user data
+         * @param userData Single lined launch script as a string to configure server with additional user data.
          * 
          * @return builder
          * 

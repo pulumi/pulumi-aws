@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  * const newCsc = new aws.lambda.CodeSigningConfig("new_csc", {
  *     allowedPublishers: {
  *         signingProfileVersionArns: [
- *             example1.arn,
- *             example2.arn,
+ *             example1.versionArn,
+ *             example2.versionArn,
  *         ],
  *     },
  *     policies: {

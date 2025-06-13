@@ -19,6 +19,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementAndStatementGetArgs>? AndStatement { get; set; }
 
         /// <summary>
+        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `asn_match_statement` below for details.
+        /// </summary>
+        [Input("asnMatchStatement")]
+        public Input<Inputs.WebAclRuleStatementAsnMatchStatementGetArgs>? AsnMatchStatement { get; set; }
+
+        /// <summary>
         /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         /// </summary>
         [Input("byteMatchStatement")]

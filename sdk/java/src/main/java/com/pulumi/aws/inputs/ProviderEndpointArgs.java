@@ -1939,6 +1939,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="evs")
+    private @Nullable Output<String> evs;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> evs() {
+        return Optional.ofNullable(this.evs);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="finspace")
     private @Nullable Output<String> finspace;
 
@@ -4676,6 +4691,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.eventbridge = $.eventbridge;
         this.events = $.events;
         this.evidently = $.evidently;
+        this.evs = $.evs;
         this.finspace = $.finspace;
         this.firehose = $.firehose;
         this.fis = $.fis;
@@ -7556,6 +7572,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder evidently(String evidently) {
             return evidently(Output.of(evidently));
+        }
+
+        /**
+         * @param evs Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evs(@Nullable Output<String> evs) {
+            $.evs = evs;
+            return this;
+        }
+
+        /**
+         * @param evs Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evs(String evs) {
+            return evs(Output.of(evs));
         }
 
         /**

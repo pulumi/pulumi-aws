@@ -14,7 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+ * Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
+ * 
+ * Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
  * 
  * ## Example Usage
  * 
@@ -45,22 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()
- *             .name("test-load-balancer-certificate")
- *             .lbName(test.id())
- *             .domainName("test.com")
+ *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
+ *             .name("example-load-balancer-certificate")
+ *             .lbName(example.id())
+ *             .domainName("example.com")
  *             .build());
  * 
- *         var testLbCertificateAttachment = new LbCertificateAttachment("testLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
- *             .lbName(test.name())
- *             .certificateName(testLbCertificate.name())
+ *         var exampleLbCertificateAttachment = new LbCertificateAttachment("exampleLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
+ *             .lbName(example.name())
+ *             .certificateName(exampleLbCertificate.name())
  *             .build());
  * 
  *     }
@@ -74,35 +76,35 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+ * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")
 public class LbCertificateAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The name of your SSL/TLS certificate.
+     * Name of your SSL/TLS certificate.
      * 
      */
     @Export(name="certificateName", refs={String.class}, tree="[0]")
     private Output<String> certificateName;
 
     /**
-     * @return The name of your SSL/TLS certificate.
+     * @return Name of your SSL/TLS certificate.
      * 
      */
     public Output<String> certificateName() {
         return this.certificateName;
     }
     /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
      */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
      */
     public Output<String> lbName() {

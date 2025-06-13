@@ -28,6 +28,8 @@ __all__ = [
     'BucketLifecycleConfigurationRuleExpirationArgsDict',
     'BucketLifecycleConfigurationRuleFilterArgs',
     'BucketLifecycleConfigurationRuleFilterArgsDict',
+    'DirectoryBucketAccessPointScopeScopeArgs',
+    'DirectoryBucketAccessPointScopeScopeArgsDict',
     'MultiRegionAccessPointDetailsArgs',
     'MultiRegionAccessPointDetailsArgsDict',
     'MultiRegionAccessPointDetailsPublicAccessBlockArgs',
@@ -440,6 +442,64 @@ class BucketLifecycleConfigurationRuleFilterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class DirectoryBucketAccessPointScopeScopeArgsDict(TypedDict):
+        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        You can specify a list of API operations as permissions for the access point.
+        """
+        prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+
+        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+        """
+elif False:
+    DirectoryBucketAccessPointScopeScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryBucketAccessPointScopeScopeArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions: You can specify a list of API operations as permissions for the access point.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefixes: You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+               
+               * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if prefixes is not None:
+            pulumi.set(__self__, "prefixes", prefixes)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        You can specify a list of API operations as permissions for the access point.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+
+        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+        """
+        return pulumi.get(self, "prefixes")
+
+    @prefixes.setter
+    def prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "prefixes", value)
 
 
 if not MYPY:

@@ -23,13 +23,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Lightsail Distribution.
+ * Manages a Lightsail content delivery network (CDN) distribution. Use this resource to cache content at edge locations and reduce latency for users accessing your content.
  * 
  * ## Example Usage
  * 
  * ### Basic Usage
- * 
- * Below is a basic example with a bucket as an origin.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -62,17 +60,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()
- *             .name("test-bucket")
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .name("example-bucket")
  *             .bundleId("small_1_0")
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
- *             .name("test-distribution")
+ *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
+ *             .name("example-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
- *                 .name(test.name())
- *                 .regionName(test.region())
+ *                 .name(example.name())
+ *                 .regionName(example.region())
  *                 .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior("cache")
@@ -101,9 +99,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### instance origin example
- * 
- * Below is an example of an instance as the origin.
+ * ### Instance Origin
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -147,34 +143,34 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()
- *             .name("test-static-ip")
+ *         var exampleStaticIp = new StaticIp("exampleStaticIp", StaticIpArgs.builder()
+ *             .name("example-static-ip")
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
- *             .name("test-instance")
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
+ *             .name("example-instance")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("micro_1_0")
  *             .build());
  * 
- *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()
- *             .staticIpName(testStaticIp.name())
- *             .instanceName(testInstance.name())
+ *         var example = new StaticIpAttachment("example", StaticIpAttachmentArgs.builder()
+ *             .staticIpName(exampleStaticIp.name())
+ *             .instanceName(exampleInstance.name())
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
- *             .name("test-distribution")
+ *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
+ *             .name("example-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
- *                 .name(testInstance.name())
+ *                 .name(exampleInstance.name())
  *                 .regionName(available.id())
  *                 .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior("cache")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
+ *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
@@ -183,9 +179,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### lb origin example
- * 
- * Below is an example with a load balancer as an origin
+ * ### Load Balancer Origin
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -229,37 +223,37 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
- *             .name("test-instance")
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
+ *             .name("example-instance")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testLbAttachment = new LbAttachment("testLbAttachment", LbAttachmentArgs.builder()
- *             .lbName(test.name())
- *             .instanceName(testInstance.name())
+ *         var exampleLbAttachment = new LbAttachment("exampleLbAttachment", LbAttachmentArgs.builder()
+ *             .lbName(example.name())
+ *             .instanceName(exampleInstance.name())
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
- *             .name("test-distribution")
+ *         var exampleDistribution = new Distribution("exampleDistribution", DistributionArgs.builder()
+ *             .name("example-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
- *                 .name(test.name())
+ *                 .name(example.name())
  *                 .regionName(available.id())
  *                 .build())
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior("cache")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testLbAttachment)
+ *                 .dependsOn(exampleLbAttachment)
  *                 .build());
  * 
  *     }
@@ -270,38 +264,38 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
+ * Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/distribution:Distribution")
 public class Distribution extends com.pulumi.resources.CustomResource {
     /**
-     * The alternate domain names of the distribution.
+     * Alternate domain names of the distribution.
      * 
      */
     @Export(name="alternativeDomainNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> alternativeDomainNames;
 
     /**
-     * @return The alternate domain names of the distribution.
+     * @return Alternate domain names of the distribution.
      * 
      */
     public Output<List<String>> alternativeDomainNames() {
         return this.alternativeDomainNames;
     }
     /**
-     * The Amazon Resource Name (ARN) of the distribution.
+     * ARN of the distribution.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the distribution.
+     * @return ARN of the distribution.
      * 
      */
     public Output<String> arn() {
@@ -322,130 +316,126 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.bundleId;
     }
     /**
-     * An object that describes the cache behavior settings of the distribution. Detailed below
-     * 
-     * The following arguments are optional:
+     * Cache behavior settings of the distribution. See below.
      * 
      */
     @Export(name="cacheBehaviorSettings", refs={DistributionCacheBehaviorSettings.class}, tree="[0]")
     private Output</* @Nullable */ DistributionCacheBehaviorSettings> cacheBehaviorSettings;
 
     /**
-     * @return An object that describes the cache behavior settings of the distribution. Detailed below
-     * 
-     * The following arguments are optional:
+     * @return Cache behavior settings of the distribution. See below.
      * 
      */
     public Output<Optional<DistributionCacheBehaviorSettings>> cacheBehaviorSettings() {
         return Codegen.optional(this.cacheBehaviorSettings);
     }
     /**
-     * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * Per-path cache behavior of the distribution. See below.
      * 
      */
     @Export(name="cacheBehaviors", refs={List.class,DistributionCacheBehavior.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionCacheBehavior>> cacheBehaviors;
 
     /**
-     * @return A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * @return Per-path cache behavior of the distribution. See below.
      * 
      */
     public Output<Optional<List<DistributionCacheBehavior>>> cacheBehaviors() {
         return Codegen.optional(this.cacheBehaviors);
     }
     /**
-     * The name of the SSL/TLS certificate attached to the distribution, if any.
+     * Name of the SSL/TLS certificate attached to the distribution.
      * 
      */
     @Export(name="certificateName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateName;
 
     /**
-     * @return The name of the SSL/TLS certificate attached to the distribution, if any.
+     * @return Name of the SSL/TLS certificate attached to the distribution.
      * 
      */
     public Output<Optional<String>> certificateName() {
         return Codegen.optional(this.certificateName);
     }
     /**
-     * The timestamp when the distribution was created.
+     * Timestamp when the distribution was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the distribution was created.
+     * @return Timestamp when the distribution was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Object that describes the default cache behavior of the distribution. Detailed below
+     * Default cache behavior of the distribution. See below.
      * 
      */
     @Export(name="defaultCacheBehavior", refs={DistributionDefaultCacheBehavior.class}, tree="[0]")
     private Output<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
     /**
-     * @return Object that describes the default cache behavior of the distribution. Detailed below
+     * @return Default cache behavior of the distribution. See below.
      * 
      */
     public Output<DistributionDefaultCacheBehavior> defaultCacheBehavior() {
         return this.defaultCacheBehavior;
     }
     /**
-     * The domain name of the distribution.
+     * Domain name of the distribution.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return The domain name of the distribution.
+     * @return Domain name of the distribution.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * The IP address type of the distribution. Default: `dualstack`.
+     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The IP address type of the distribution. Default: `dualstack`.
+     * @return IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
         return Codegen.optional(this.ipAddressType);
     }
     /**
-     * Indicates whether the distribution is enabled. Default: `true`.
+     * Whether the distribution is enabled. Default: `true`.
      * 
      */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isEnabled;
 
     /**
-     * @return Indicates whether the distribution is enabled. Default: `true`.
+     * @return Whether the distribution is enabled. Default: `true`.
      * 
      */
     public Output<Optional<Boolean>> isEnabled() {
         return Codegen.optional(this.isEnabled);
     }
     /**
-     * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+     * Location of the distribution, such as the AWS Region and Availability Zone. See below.
      * 
      */
     @Export(name="locations", refs={List.class,DistributionLocation.class}, tree="[0,1]")
     private Output<List<DistributionLocation>> locations;
 
     /**
-     * @return An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+     * @return Location of the distribution, such as the AWS Region and Availability Zone. See below.
      * 
      */
     public Output<List<DistributionLocation>> locations() {
@@ -466,91 +456,97 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="origin", refs={DistributionOrigin.class}, tree="[0]")
     private Output<DistributionOrigin> origin;
 
     /**
-     * @return Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * @return Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<DistributionOrigin> origin() {
         return this.origin;
     }
     /**
-     * The public DNS of the origin.
+     * Public DNS of the origin.
+     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      * 
      */
     @Export(name="originPublicDns", refs={String.class}, tree="[0]")
     private Output<String> originPublicDns;
 
     /**
-     * @return The public DNS of the origin.
+     * @return Public DNS of the origin.
+     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      * 
      */
     public Output<String> originPublicDns() {
         return this.originPublicDns;
     }
     /**
-     * The Lightsail resource type (e.g., Distribution).
+     * Lightsail resource type (e.g., Distribution).
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return The Lightsail resource type (e.g., Distribution).
+     * @return Lightsail resource type (e.g., Distribution).
      * 
      */
     public Output<String> resourceType() {
         return this.resourceType;
     }
     /**
-     * The status of the distribution.
+     * Status of the distribution.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the distribution.
+     * @return Status of the distribution.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
     /**
-     * @return The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * @return Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
     public Output<String> supportCode() {
         return this.supportCode;
     }
     /**
-     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -561,7 +557,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

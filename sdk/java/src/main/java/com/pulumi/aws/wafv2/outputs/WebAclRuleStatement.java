@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAndStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementIpSetReferenceStatement;
@@ -30,6 +31,11 @@ public final class WebAclRuleStatement {
      * 
      */
     private @Nullable WebAclRuleStatementAndStatement andStatement;
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementAsnMatchStatement asnMatchStatement;
     /**
      * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
      * 
@@ -108,6 +114,13 @@ public final class WebAclRuleStatement {
      */
     public Optional<WebAclRuleStatementAndStatement> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementAsnMatchStatement> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
     /**
      * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
@@ -218,6 +231,7 @@ public final class WebAclRuleStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementAndStatement andStatement;
+        private @Nullable WebAclRuleStatementAsnMatchStatement asnMatchStatement;
         private @Nullable WebAclRuleStatementByteMatchStatement byteMatchStatement;
         private @Nullable WebAclRuleStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -236,6 +250,7 @@ public final class WebAclRuleStatement {
         public Builder(WebAclRuleStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.andStatement = defaults.andStatement;
+    	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
@@ -256,6 +271,12 @@ public final class WebAclRuleStatement {
         public Builder andStatement(@Nullable WebAclRuleStatementAndStatement andStatement) {
 
             this.andStatement = andStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder asnMatchStatement(@Nullable WebAclRuleStatementAsnMatchStatement asnMatchStatement) {
+
+            this.asnMatchStatement = asnMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -345,6 +366,7 @@ public final class WebAclRuleStatement {
         public WebAclRuleStatement build() {
             final var _resultValue = new WebAclRuleStatement();
             _resultValue.andStatement = andStatement;
+            _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
