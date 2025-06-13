@@ -195,6 +195,8 @@ const (
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
+	notificationsMod            = "Notifications"            // Notifications
+	notificationsContactsMod    = "NotificationsContacts"    // Notificaitions Contacts
 	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	organizationsMod            = "Organizations"            // Organizations
@@ -421,6 +423,8 @@ var moduleMap = map[string]string{
 	"networkfirewall":                 networkFirewallMod,
 	"networkmanager":                  networkManagerMod,
 	"networkmonitor":                  networkMonitorMod,
+	"notifications":                   notificationsMod,
+	"notificationsContacts":           notificationsContactsMod,
 	"oam":                             oamMod,
 	"opensearch":                      opensearchMod,
 	"organizations":                   organizationsMod,
@@ -5779,8 +5783,17 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_route53domains_domain":                      {"domainName"},
 		"aws_api_gateway_rest_api_put":                   {"restApiId"},
 		"aws_ec2_default_credit_specification":           {"instanceFamily"},
-		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"key_value_store_arn"},
 		"aws_inspector2_filter":                          {"arn"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
+		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
+		"aws_quicksight_account_settings":                {"awsAccountId"},
+		"aws_notificationscontacts_email_contact":        {"arn"},
+		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
+		"aws_notifications_notification_configuration":   {"arn"},
+		"aws_notifications_notification_hub":             {"notificationHubRegion"},
+		"aws_notifications_event_rule":                   {"arn"},
+		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
+		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
