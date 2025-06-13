@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebUserSettings;
- * import com.pulumi.aws.workspaces.WebUserSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.UserSettings;
+ * import com.pulumi.aws.workspacesweb.UserSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebUserSettings("example", WebUserSettingsArgs.builder()
+ *         var example = new UserSettings("example", UserSettingsArgs.builder()
  *             .copyAllowed("Enabled")
  *             .downloadAllowed("Enabled")
  *             .pasteAllowed("Enabled")
@@ -73,9 +73,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebUserSettings;
- * import com.pulumi.aws.workspaces.WebUserSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebUserSettingsToolbarConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.UserSettings;
+ * import com.pulumi.aws.workspacesweb.UserSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.UserSettingsToolbarConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebUserSettings("example", WebUserSettingsArgs.builder()
+ *         var example = new UserSettings("example", UserSettingsArgs.builder()
  *             .copyAllowed("Enabled")
  *             .downloadAllowed("Enabled")
  *             .pasteAllowed("Enabled")
  *             .printAllowed("Enabled")
  *             .uploadAllowed("Enabled")
- *             .toolbarConfiguration(WebUserSettingsToolbarConfigurationArgs.builder()
+ *             .toolbarConfiguration(UserSettingsToolbarConfigurationArgs.builder()
  *                 .toolbarType("Docked")
  *                 .visualMode("Dark")
  *                 .hiddenToolbarItems(                
@@ -122,10 +122,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspaces.WebUserSettings;
- * import com.pulumi.aws.workspaces.WebUserSettingsArgs;
- * import com.pulumi.aws.workspaces.inputs.WebUserSettingsToolbarConfigurationArgs;
- * import com.pulumi.aws.workspaces.inputs.WebUserSettingsCookieSynchronizationConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.UserSettings;
+ * import com.pulumi.aws.workspacesweb.UserSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.UserSettingsToolbarConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.UserSettingsCookieSynchronizationConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleWebUserSettings = new WebUserSettings("exampleWebUserSettings", WebUserSettingsArgs.builder()
+ *         var exampleUserSettings = new UserSettings("exampleUserSettings", UserSettingsArgs.builder()
  *             .copyAllowed("Enabled")
  *             .downloadAllowed("Enabled")
  *             .pasteAllowed("Enabled")
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *             .idleDisconnectTimeoutInMinutes(15)
  *             .customerManagedKey(example.arn())
  *             .additionalEncryptionContext(Map.of("Environment", "Production"))
- *             .toolbarConfiguration(WebUserSettingsToolbarConfigurationArgs.builder()
+ *             .toolbarConfiguration(UserSettingsToolbarConfigurationArgs.builder()
  *                 .toolbarType("Docked")
  *                 .visualMode("Dark")
  *                 .hiddenToolbarItems(                
@@ -163,12 +163,12 @@ import javax.annotation.Nullable;
  *                     "Microphone")
  *                 .maxDisplayResolution("size1920X1080")
  *                 .build())
- *             .cookieSynchronizationConfiguration(WebUserSettingsCookieSynchronizationConfigurationArgs.builder()
- *                 .allowlists(WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs.builder()
+ *             .cookieSynchronizationConfiguration(UserSettingsCookieSynchronizationConfigurationArgs.builder()
+ *                 .allowlists(UserSettingsCookieSynchronizationConfigurationAllowlistArgs.builder()
  *                     .domain("example.com")
  *                     .path("/path")
  *                     .build())
- *                 .blocklists(WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs.builder()
+ *                 .blocklists(UserSettingsCookieSynchronizationConfigurationBlocklistArgs.builder()
  *                     .domain("blocked.com")
  *                     .build())
  *                 .build())
@@ -189,7 +189,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webUserSettings:WebUserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings */
 @ResourceType(type="aws:workspaces/webUserSettings:WebUserSettings")
 public class WebUserSettings extends com.pulumi.resources.CustomResource {
     /**

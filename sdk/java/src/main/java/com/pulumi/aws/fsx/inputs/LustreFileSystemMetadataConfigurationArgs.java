@@ -17,14 +17,14 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
     public static final LustreFileSystemMetadataConfigurationArgs Empty = new LustreFileSystemMetadataConfigurationArgs();
 
     /**
-     * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+     * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+     * @return Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -32,7 +32,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+     * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
      * 
      * !&gt; **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
      * 
@@ -41,7 +41,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
     private @Nullable Output<String> mode;
 
     /**
-     * @return Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+     * @return Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
      * 
      * !&gt; **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
      * 
@@ -76,7 +76,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param iops Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+         * @param iops Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param iops Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+         * @param iops Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param mode Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         * @param mode Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
          * 
          * !&gt; **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          * 
@@ -110,7 +110,7 @@ public final class LustreFileSystemMetadataConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param mode Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         * @param mode Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
          * 
          * !&gt; **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          * 

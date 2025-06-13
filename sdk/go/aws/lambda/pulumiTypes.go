@@ -3239,7 +3239,7 @@ type FunctionLoggingConfig struct {
 	LogFormat string `pulumi:"logFormat"`
 	// the CloudWatch log group your function sends logs to.
 	LogGroup *string `pulumi:"logGroup"`
-	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
 	SystemLogLevel *string `pulumi:"systemLogLevel"`
 }
 
@@ -3261,7 +3261,7 @@ type FunctionLoggingConfigArgs struct {
 	LogFormat pulumi.StringInput `pulumi:"logFormat"`
 	// the CloudWatch log group your function sends logs to.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
-	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
 	SystemLogLevel pulumi.StringPtrInput `pulumi:"systemLogLevel"`
 }
 
@@ -3357,7 +3357,7 @@ func (o FunctionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
-// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
 func (o FunctionLoggingConfigOutput) SystemLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.SystemLogLevel }).(pulumi.StringPtrOutput)
 }
@@ -3416,7 +3416,7 @@ func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
 func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {

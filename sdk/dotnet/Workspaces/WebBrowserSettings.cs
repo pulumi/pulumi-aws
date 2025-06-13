@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebBrowserSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.BrowserSettings("example", new()
     ///     {
     ///         BrowserPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Workspaces
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWebBrowserSettings = new Aws.Workspaces.WebBrowserSettings("example", new()
+    ///     var exampleBrowserSettings = new Aws.WorkSpacesWeb.BrowserSettings("example", new()
     ///     {
     ///         BrowserPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -93,6 +93,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webBrowserSettings:WebBrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings")]
     [AwsResourceType("aws:workspaces/webBrowserSettings:WebBrowserSettings")]
     public partial class WebBrowserSettings : global::Pulumi.CustomResource
     {

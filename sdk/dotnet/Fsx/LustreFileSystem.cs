@@ -88,6 +88,9 @@ namespace Pulumi.Aws.Fsx
         [Output("dataCompressionType")]
         public Output<string?> DataCompressionType { get; private set; } = null!;
 
+        [Output("dataReadCacheConfiguration")]
+        public Output<Outputs.LustreFileSystemDataReadCacheConfiguration?> DataReadCacheConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
@@ -213,7 +216,7 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
@@ -237,6 +240,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        /// </summary>
+        [Output("throughputCapacity")]
+        public Output<int?> ThroughputCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
@@ -331,6 +340,9 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
+
+        [Input("dataReadCacheConfiguration")]
+        public Input<Inputs.LustreFileSystemDataReadCacheConfigurationArgs>? DataReadCacheConfiguration { get; set; }
 
         /// <summary>
         /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
@@ -445,7 +457,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -469,6 +481,12 @@ namespace Pulumi.Aws.Fsx
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        /// </summary>
+        [Input("throughputCapacity")]
+        public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -525,6 +543,9 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
+
+        [Input("dataReadCacheConfiguration")]
+        public Input<Inputs.LustreFileSystemDataReadCacheConfigurationGetArgs>? DataReadCacheConfiguration { get; set; }
 
         /// <summary>
         /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
@@ -669,7 +690,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -706,6 +727,12 @@ namespace Pulumi.Aws.Fsx
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+        /// </summary>
+        [Input("throughputCapacity")]
+        public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.

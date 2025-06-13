@@ -25,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = workspaces.NewWebBrowserSettings(ctx, "example", &workspaces.WebBrowserSettingsArgs{
+//			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
 //				BrowserPolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //	"encoding/json"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +90,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = workspaces.NewWebBrowserSettings(ctx, "example", &workspaces.WebBrowserSettingsArgs{
+//			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
 //				BrowserPolicy:      pulumi.String(json0),
 //				CustomerManagedKey: example.Arn,
 //				AdditionalEncryptionContext: pulumi.StringMap{
@@ -116,6 +116,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webBrowserSettings:WebBrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings
 type WebBrowserSettings struct {
 	pulumi.CustomResourceState
 

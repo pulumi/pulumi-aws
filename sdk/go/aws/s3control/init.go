@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketLifecycleConfiguration{}
 	case "aws:s3control/bucketPolicy:BucketPolicy":
 		r = &BucketPolicy{}
+	case "aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope":
+		r = &DirectoryBucketAccessPointScope{}
 	case "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint":
 		r = &MultiRegionAccessPoint{}
 	case "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy":
@@ -98,6 +100,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3control/bucketPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/directoryBucketAccessPointScope",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
+ * Manages public ports for a Lightsail instance. Use this resource to open ports for a specific Amazon Lightsail instance and specify the IP addresses allowed to connect to the instance through the ports and the protocol.
  *
  * > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
  *
@@ -20,19 +20,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Instance("test", {
- *     name: "yak_sail",
- *     availabilityZone: available.names[0],
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * const example = new aws.lightsail.Instance("example", {
+ *     name: "example-instance",
+ *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_3_0",
  * });
- * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("test", {
- *     instanceName: test.name,
- *     portInfos: [{
- *         protocol: "tcp",
- *         fromPort: 80,
- *         toPort: 80,
- *     }],
+ * const exampleInstancePublicPorts = new aws.lightsail.InstancePublicPorts("example", {
+ *     instanceName: example.name,
+ *     portInfos: [
+ *         {
+ *             protocol: "tcp",
+ *             fromPort: 80,
+ *             toPort: 80,
+ *         },
+ *         {
+ *             protocol: "tcp",
+ *             fromPort: 443,
+ *             toPort: 443,
+ *             cidrs: ["192.168.1.0/24"],
+ *         },
+ *     ],
  * });
  * ```
  */
@@ -69,7 +84,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
      */
     public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
 
@@ -113,7 +128,7 @@ export interface InstancePublicPortsState {
      */
     instanceName?: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
      */
     portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }
@@ -127,7 +142,7 @@ export interface InstancePublicPortsArgs {
      */
     instanceName: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
+     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
      */
     portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }

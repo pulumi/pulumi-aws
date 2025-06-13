@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WebBrowserSettings;
- * import com.pulumi.aws.workspaces.WebBrowserSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.BrowserSettings;
+ * import com.pulumi.aws.workspacesweb.BrowserSettingsArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebBrowserSettings("example", WebBrowserSettingsArgs.builder()
+ *         var example = new BrowserSettings("example", BrowserSettingsArgs.builder()
  *             .browserPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("AdditionalSettings", jsonObject(
@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.workspaces.WebBrowserSettings;
- * import com.pulumi.aws.workspaces.WebBrowserSettingsArgs;
+ * import com.pulumi.aws.workspacesweb.BrowserSettings;
+ * import com.pulumi.aws.workspacesweb.BrowserSettingsArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleWebBrowserSettings = new WebBrowserSettings("exampleWebBrowserSettings", WebBrowserSettingsArgs.builder()
+ *         var exampleBrowserSettings = new BrowserSettings("exampleBrowserSettings", BrowserSettingsArgs.builder()
  *             .browserPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("chromePolicies", jsonObject(
@@ -125,7 +125,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:workspaces/webBrowserSettings:WebBrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
  * ```
  * 
+ * @deprecated
+ * aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings
+ * 
  */
+@Deprecated /* aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings */
 @ResourceType(type="aws:workspaces/webBrowserSettings:WebBrowserSettings")
 public class WebBrowserSettings extends com.pulumi.resources.CustomResource {
     /**

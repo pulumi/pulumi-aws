@@ -21,6 +21,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -48,9 +50,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -66,6 +68,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -93,9 +97,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -111,6 +115,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -138,9 +144,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -156,6 +162,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -183,9 +191,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -201,6 +209,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -228,9 +238,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -246,6 +256,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -273,9 +285,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }
@@ -291,6 +303,8 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
+     * &gt; **Note:** If AWS returns multiple matching engine versions, this data source will produce a `multiple Neptune engine versions` error. To avoid this, provide additional criteria to narrow the results or use the `latest` argument to select a single version. See the Argument Reference for details.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -318,9 +332,9 @@ public final class NeptuneFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
-     *                 "1.0.3.0",
-     *                 "1.0.2.2",
-     *                 "1.0.2.1")
+     *                 "1.4.5.0",
+     *                 "1.4.4.0",
+     *                 "1.4.3.0")
      *             .build());
      * 
      *     }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _commands;
 
         /// <summary>
-        /// The launch command for the container. A list of string.
+        /// Launch command for the container. A list of strings.
         /// </summary>
         public InputList<string> Commands
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// The name for the container.
+        /// Name of the container.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputMap<string>? _environment;
 
         /// <summary>
-        /// A key-value map of the environment variables of the container.
+        /// Key-value map of the environment variables of the container.
         /// </summary>
         public InputMap<string> Environment
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+        /// Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
         /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputMap<string>? _ports;
 
         /// <summary>
-        /// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+        /// Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
         /// </summary>
         public InputMap<string> Ports
         {

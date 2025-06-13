@@ -145,7 +145,7 @@ class AssociationTarget(dict):
                  values: Sequence[builtins.str]):
         """
         :param builtins.str key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        :param Sequence[builtins.str] values: A list of instance IDs or tag values. AWS currently limits this list size to one value.
+        :param Sequence[builtins.str] values: User-defined criteria that maps to Key. A list of instance IDs or tag values.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -162,7 +162,7 @@ class AssociationTarget(dict):
     @pulumi.getter
     def values(self) -> Sequence[builtins.str]:
         """
-        A list of instance IDs or tag values. AWS currently limits this list size to one value.
+        User-defined criteria that maps to Key. A list of instance IDs or tag values.
         """
         return pulumi.get(self, "values")
 

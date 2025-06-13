@@ -14,6 +14,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEngineVersionResult {
+    /**
+     * @return Default character set for the engine version.
+     * 
+     */
+    private String defaultCharacterSet;
+    private @Nullable Boolean defaultOnly;
     private @Nullable String engine;
     /**
      * @return Description of the database engine.
@@ -25,28 +31,53 @@ public final class GetEngineVersionResult {
      * 
      */
     private List<String> exportableLogTypes;
+    private @Nullable Boolean hasMajorTarget;
+    private @Nullable Boolean hasMinorTarget;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    private @Nullable Boolean latest;
     private String parameterGroupFamily;
+    private @Nullable List<String> preferredMajorTargets;
+    private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
     /**
-     * @return Set of the time zones supported by this engine.
+     * @return Set of character sets supported by this engine version.
+     * 
+     */
+    private List<String> supportedCharacterSets;
+    /**
+     * @return Set of time zones supported by this engine.
      * 
      */
     private List<String> supportedTimezones;
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports global databases.
+     * 
+     */
+    private Boolean supportsGlobalDatabases;
+    /**
+     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
     private Boolean supportsLogExportsToCloudwatch;
     /**
-     * @return Indicates whether the database engine version supports read replicas.
+     * @return Whether the database engine version supports read replicas.
      * 
      */
     private Boolean supportsReadReplica;
+    /**
+     * @return Set of valid major engine versions that this version can be upgraded to.
+     * 
+     */
+    private List<String> validMajorTargets;
+    /**
+     * @return Set of valid minor engine versions that this version can be upgraded to.
+     * 
+     */
+    private List<String> validMinorTargets;
     /**
      * @return Set of engine versions that this database engine version can be upgraded to.
      * 
@@ -54,12 +85,27 @@ public final class GetEngineVersionResult {
     private List<String> validUpgradeTargets;
     private String version;
     /**
+     * @return Actual engine version returned by the API.
+     * 
+     */
+    private String versionActual;
+    /**
      * @return Description of the database engine version.
      * 
      */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
+    /**
+     * @return Default character set for the engine version.
+     * 
+     */
+    public String defaultCharacterSet() {
+        return this.defaultCharacterSet;
+    }
+    public Optional<Boolean> defaultOnly() {
+        return Optional.ofNullable(this.defaultOnly);
+    }
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
@@ -77,6 +123,12 @@ public final class GetEngineVersionResult {
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
     }
+    public Optional<Boolean> hasMajorTarget() {
+        return Optional.ofNullable(this.hasMajorTarget);
+    }
+    public Optional<Boolean> hasMinorTarget() {
+        return Optional.ofNullable(this.hasMinorTarget);
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -84,32 +136,69 @@ public final class GetEngineVersionResult {
     public String id() {
         return this.id;
     }
+    public Optional<Boolean> latest() {
+        return Optional.ofNullable(this.latest);
+    }
     public String parameterGroupFamily() {
         return this.parameterGroupFamily;
+    }
+    public List<String> preferredMajorTargets() {
+        return this.preferredMajorTargets == null ? List.of() : this.preferredMajorTargets;
+    }
+    public List<String> preferredUpgradeTargets() {
+        return this.preferredUpgradeTargets == null ? List.of() : this.preferredUpgradeTargets;
     }
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
     /**
-     * @return Set of the time zones supported by this engine.
+     * @return Set of character sets supported by this engine version.
+     * 
+     */
+    public List<String> supportedCharacterSets() {
+        return this.supportedCharacterSets;
+    }
+    /**
+     * @return Set of time zones supported by this engine.
      * 
      */
     public List<String> supportedTimezones() {
         return this.supportedTimezones;
     }
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports global databases.
+     * 
+     */
+    public Boolean supportsGlobalDatabases() {
+        return this.supportsGlobalDatabases;
+    }
+    /**
+     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
     /**
-     * @return Indicates whether the database engine version supports read replicas.
+     * @return Whether the database engine version supports read replicas.
      * 
      */
     public Boolean supportsReadReplica() {
         return this.supportsReadReplica;
+    }
+    /**
+     * @return Set of valid major engine versions that this version can be upgraded to.
+     * 
+     */
+    public List<String> validMajorTargets() {
+        return this.validMajorTargets;
+    }
+    /**
+     * @return Set of valid minor engine versions that this version can be upgraded to.
+     * 
+     */
+    public List<String> validMinorTargets() {
+        return this.validMinorTargets;
     }
     /**
      * @return Set of engine versions that this database engine version can be upgraded to.
@@ -120,6 +209,13 @@ public final class GetEngineVersionResult {
     }
     public String version() {
         return this.version;
+    }
+    /**
+     * @return Actual engine version returned by the API.
+     * 
+     */
+    public String versionActual() {
+        return this.versionActual;
     }
     /**
      * @return Description of the database engine version.
@@ -138,35 +234,73 @@ public final class GetEngineVersionResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String defaultCharacterSet;
+        private @Nullable Boolean defaultOnly;
         private @Nullable String engine;
         private String engineDescription;
         private List<String> exportableLogTypes;
+        private @Nullable Boolean hasMajorTarget;
+        private @Nullable Boolean hasMinorTarget;
         private String id;
+        private @Nullable Boolean latest;
         private String parameterGroupFamily;
+        private @Nullable List<String> preferredMajorTargets;
+        private @Nullable List<String> preferredUpgradeTargets;
         private @Nullable List<String> preferredVersions;
+        private List<String> supportedCharacterSets;
         private List<String> supportedTimezones;
+        private Boolean supportsGlobalDatabases;
         private Boolean supportsLogExportsToCloudwatch;
         private Boolean supportsReadReplica;
+        private List<String> validMajorTargets;
+        private List<String> validMinorTargets;
         private List<String> validUpgradeTargets;
         private String version;
+        private String versionActual;
         private String versionDescription;
         public Builder() {}
         public Builder(GetEngineVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.defaultCharacterSet = defaults.defaultCharacterSet;
+    	      this.defaultOnly = defaults.defaultOnly;
     	      this.engine = defaults.engine;
     	      this.engineDescription = defaults.engineDescription;
     	      this.exportableLogTypes = defaults.exportableLogTypes;
+    	      this.hasMajorTarget = defaults.hasMajorTarget;
+    	      this.hasMinorTarget = defaults.hasMinorTarget;
     	      this.id = defaults.id;
+    	      this.latest = defaults.latest;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
+    	      this.preferredMajorTargets = defaults.preferredMajorTargets;
+    	      this.preferredUpgradeTargets = defaults.preferredUpgradeTargets;
     	      this.preferredVersions = defaults.preferredVersions;
+    	      this.supportedCharacterSets = defaults.supportedCharacterSets;
     	      this.supportedTimezones = defaults.supportedTimezones;
+    	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.supportsReadReplica = defaults.supportsReadReplica;
+    	      this.validMajorTargets = defaults.validMajorTargets;
+    	      this.validMinorTargets = defaults.validMinorTargets;
     	      this.validUpgradeTargets = defaults.validUpgradeTargets;
     	      this.version = defaults.version;
+    	      this.versionActual = defaults.versionActual;
     	      this.versionDescription = defaults.versionDescription;
         }
 
+        @CustomType.Setter
+        public Builder defaultCharacterSet(String defaultCharacterSet) {
+            if (defaultCharacterSet == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "defaultCharacterSet");
+            }
+            this.defaultCharacterSet = defaultCharacterSet;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultOnly(@Nullable Boolean defaultOnly) {
+
+            this.defaultOnly = defaultOnly;
+            return this;
+        }
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
 
@@ -193,11 +327,29 @@ public final class GetEngineVersionResult {
             return exportableLogTypes(List.of(exportableLogTypes));
         }
         @CustomType.Setter
+        public Builder hasMajorTarget(@Nullable Boolean hasMajorTarget) {
+
+            this.hasMajorTarget = hasMajorTarget;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hasMinorTarget(@Nullable Boolean hasMinorTarget) {
+
+            this.hasMinorTarget = hasMinorTarget;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder latest(@Nullable Boolean latest) {
+
+            this.latest = latest;
             return this;
         }
         @CustomType.Setter
@@ -209,6 +361,24 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder preferredMajorTargets(@Nullable List<String> preferredMajorTargets) {
+
+            this.preferredMajorTargets = preferredMajorTargets;
+            return this;
+        }
+        public Builder preferredMajorTargets(String... preferredMajorTargets) {
+            return preferredMajorTargets(List.of(preferredMajorTargets));
+        }
+        @CustomType.Setter
+        public Builder preferredUpgradeTargets(@Nullable List<String> preferredUpgradeTargets) {
+
+            this.preferredUpgradeTargets = preferredUpgradeTargets;
+            return this;
+        }
+        public Builder preferredUpgradeTargets(String... preferredUpgradeTargets) {
+            return preferredUpgradeTargets(List.of(preferredUpgradeTargets));
+        }
+        @CustomType.Setter
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
 
             this.preferredVersions = preferredVersions;
@@ -216,6 +386,17 @@ public final class GetEngineVersionResult {
         }
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+        @CustomType.Setter
+        public Builder supportedCharacterSets(List<String> supportedCharacterSets) {
+            if (supportedCharacterSets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedCharacterSets");
+            }
+            this.supportedCharacterSets = supportedCharacterSets;
+            return this;
+        }
+        public Builder supportedCharacterSets(String... supportedCharacterSets) {
+            return supportedCharacterSets(List.of(supportedCharacterSets));
         }
         @CustomType.Setter
         public Builder supportedTimezones(List<String> supportedTimezones) {
@@ -227,6 +408,14 @@ public final class GetEngineVersionResult {
         }
         public Builder supportedTimezones(String... supportedTimezones) {
             return supportedTimezones(List.of(supportedTimezones));
+        }
+        @CustomType.Setter
+        public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
+            if (supportsGlobalDatabases == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsGlobalDatabases");
+            }
+            this.supportsGlobalDatabases = supportsGlobalDatabases;
+            return this;
         }
         @CustomType.Setter
         public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
@@ -243,6 +432,28 @@ public final class GetEngineVersionResult {
             }
             this.supportsReadReplica = supportsReadReplica;
             return this;
+        }
+        @CustomType.Setter
+        public Builder validMajorTargets(List<String> validMajorTargets) {
+            if (validMajorTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validMajorTargets");
+            }
+            this.validMajorTargets = validMajorTargets;
+            return this;
+        }
+        public Builder validMajorTargets(String... validMajorTargets) {
+            return validMajorTargets(List.of(validMajorTargets));
+        }
+        @CustomType.Setter
+        public Builder validMinorTargets(List<String> validMinorTargets) {
+            if (validMinorTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validMinorTargets");
+            }
+            this.validMinorTargets = validMinorTargets;
+            return this;
+        }
+        public Builder validMinorTargets(String... validMinorTargets) {
+            return validMinorTargets(List.of(validMinorTargets));
         }
         @CustomType.Setter
         public Builder validUpgradeTargets(List<String> validUpgradeTargets) {
@@ -264,6 +475,14 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder versionActual(String versionActual) {
+            if (versionActual == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionActual");
+            }
+            this.versionActual = versionActual;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versionDescription(String versionDescription) {
             if (versionDescription == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionDescription");
@@ -273,17 +492,29 @@ public final class GetEngineVersionResult {
         }
         public GetEngineVersionResult build() {
             final var _resultValue = new GetEngineVersionResult();
+            _resultValue.defaultCharacterSet = defaultCharacterSet;
+            _resultValue.defaultOnly = defaultOnly;
             _resultValue.engine = engine;
             _resultValue.engineDescription = engineDescription;
             _resultValue.exportableLogTypes = exportableLogTypes;
+            _resultValue.hasMajorTarget = hasMajorTarget;
+            _resultValue.hasMinorTarget = hasMinorTarget;
             _resultValue.id = id;
+            _resultValue.latest = latest;
             _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredMajorTargets = preferredMajorTargets;
+            _resultValue.preferredUpgradeTargets = preferredUpgradeTargets;
             _resultValue.preferredVersions = preferredVersions;
+            _resultValue.supportedCharacterSets = supportedCharacterSets;
             _resultValue.supportedTimezones = supportedTimezones;
+            _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.supportsReadReplica = supportsReadReplica;
+            _resultValue.validMajorTargets = validMajorTargets;
+            _resultValue.validMinorTargets = validMinorTargets;
             _resultValue.validUpgradeTargets = validUpgradeTargets;
             _resultValue.version = version;
+            _resultValue.versionActual = versionActual;
             _resultValue.versionDescription = versionDescription;
             return _resultValue;
         }

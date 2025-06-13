@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebBrowserSettings("example", {browserPolicy: JSON.stringify({
+ * const example = new aws.workspacesweb.BrowserSettings("example", {browserPolicy: JSON.stringify({
  *     AdditionalSettings: {
  *         DownloadsSettings: {
  *             Behavior: "DISABLE",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     description: "KMS key for WorkSpaces Web Browser Settings",
  *     deletionWindowInDays: 7,
  * });
- * const exampleWebBrowserSettings = new aws.workspaces.WebBrowserSettings("example", {
+ * const exampleBrowserSettings = new aws.workspacesweb.BrowserSettings("example", {
  *     browserPolicy: JSON.stringify({
  *         chromePolicies: {
  *             DefaultDownloadDirectory: {
@@ -59,6 +59,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webBrowserSettings:WebBrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings
  */
 export class WebBrowserSettings extends pulumi.CustomResource {
     /**
@@ -71,6 +73,7 @@ export class WebBrowserSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebBrowserSettingsState, opts?: pulumi.CustomResourceOptions): WebBrowserSettings {
+        pulumi.log.warn("WebBrowserSettings is deprecated: aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings")
         return new WebBrowserSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -128,8 +131,11 @@ export class WebBrowserSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings */
     constructor(name: string, args: WebBrowserSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings */
     constructor(name: string, argsOrState?: WebBrowserSettingsArgs | WebBrowserSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebBrowserSettings is deprecated: aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

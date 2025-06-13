@@ -3766,7 +3766,7 @@ func (o RuleGroupRuleGroupRuleVariablesPortSetPortSetOutput) Definitions() pulum
 type RuleGroupRuleGroupRulesSource struct {
 	// A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
 	RulesSourceList *RuleGroupRuleGroupRulesSourceRulesSourceList `pulumi:"rulesSourceList"`
-	// The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+	// Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
 	RulesString *string `pulumi:"rulesString"`
 	// Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
 	StatefulRules []RuleGroupRuleGroupRulesSourceStatefulRule `pulumi:"statefulRules"`
@@ -3788,7 +3788,7 @@ type RuleGroupRuleGroupRulesSourceInput interface {
 type RuleGroupRuleGroupRulesSourceArgs struct {
 	// A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
 	RulesSourceList RuleGroupRuleGroupRulesSourceRulesSourceListPtrInput `pulumi:"rulesSourceList"`
-	// The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+	// Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
 	RulesString pulumi.StringPtrInput `pulumi:"rulesString"`
 	// Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
 	StatefulRules RuleGroupRuleGroupRulesSourceStatefulRuleArrayInput `pulumi:"statefulRules"`
@@ -3880,7 +3880,7 @@ func (o RuleGroupRuleGroupRulesSourceOutput) RulesSourceList() RuleGroupRuleGrou
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
 }
 
-// The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+// Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
 func (o RuleGroupRuleGroupRulesSourceOutput) RulesString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSource) *string { return v.RulesString }).(pulumi.StringPtrOutput)
 }
@@ -3933,7 +3933,7 @@ func (o RuleGroupRuleGroupRulesSourcePtrOutput) RulesSourceList() RuleGroupRuleG
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
 }
 
-// The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+// Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
 func (o RuleGroupRuleGroupRulesSourcePtrOutput) RulesString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSource) *string {
 		if v == nil {

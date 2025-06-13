@@ -16,26 +16,166 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
-    /// ### Python Job
+    /// ### Python Glue Job
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Job("example", new()
+    ///     // IAM role for Glue jobs
+    ///     var glueJobRole = new Aws.Iam.Role("glue_job_role", new()
     ///     {
-    ///         Name = "example",
+    ///         Name = "glue-job-role",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "glue.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var etlJob = new Aws.Glue.Job("etl_job", new()
+    ///     {
+    ///         Name = "example-etl-job",
+    ///         Description = "An example Glue ETL job",
+    ///         RoleArn = glueJobRole.Arn,
     ///         GlueVersion = "5.0",
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         MaxRetries = 0,
+    ///         Timeout = 2880,
+    ///         NumberOfWorkers = 2,
+    ///         WorkerType = "G.1X",
+    ///         Connections = new[]
+    ///         {
+    ///             example.Name,
+    ///         },
+    ///         ExecutionClass = "STANDARD",
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
-    ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.py",
+    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/etl_job.py",
+    ///             Name = "glueetl",
     ///             PythonVersion = "3",
     ///         },
+    ///         NotificationProperty = new Aws.Glue.Inputs.JobNotificationPropertyArgs
+    ///         {
+    ///             NotifyDelayAfter = 3,
+    ///         },
+    ///         DefaultArguments = 
+    ///         {
+    ///             { "--job-language", "python" },
+    ///             { "--continuous-log-logGroup", "/aws-glue/jobs" },
+    ///             { "--enable-continuous-cloudwatch-log", "true" },
+    ///             { "--enable-continuous-log-filter", "true" },
+    ///             { "--enable-metrics", "" },
+    ///             { "--enable-auto-scaling", "true" },
+    ///         },
+    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ManagedBy", "AWS" },
+    ///         },
+    ///     });
+    /// 
+    ///     var glueEtlScript = new Aws.S3.BucketObjectv2("glue_etl_script", new()
+    ///     {
+    ///         Bucket = glueScripts.Id,
+    ///         Key = "jobs/etl_job.py",
+    ///         Source = new FileAsset("jobs/etl_job.py"),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Pythonshell Job
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // IAM role for Glue jobs
+    ///     var glueJobRole = new Aws.Iam.Role("glue_job_role", new()
+    ///     {
+    ///         Name = "glue-job-role",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "glue.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var pythonShellJob = new Aws.Glue.Job("python_shell_job", new()
+    ///     {
+    ///         Name = "example-python-shell-job",
+    ///         Description = "An example Python shell job",
+    ///         RoleArn = glueJobRole.Arn,
+    ///         MaxCapacity = 0.0625,
+    ///         MaxRetries = 0,
+    ///         Timeout = 2880,
+    ///         Connections = new[]
+    ///         {
+    ///             example.Name,
+    ///         },
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             ScriptLocation = $"s3://{glueScripts.Bucket}/jobs/shell_job.py",
+    ///             Name = "pythonshell",
+    ///             PythonVersion = "3.9",
+    ///         },
+    ///         DefaultArguments = 
+    ///         {
+    ///             { "--job-language", "python" },
+    ///             { "--continuous-log-logGroup", "/aws-glue/jobs" },
+    ///             { "--enable-continuous-cloudwatch-log", "true" },
+    ///             { "library-set", "analytics" },
+    ///         },
+    ///         ExecutionProperty = new Aws.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ManagedBy", "AWS" },
+    ///         },
+    ///     });
+    /// 
+    ///     var pythonShellScript = new Aws.S3.BucketObjectv2("python_shell_script", new()
+    ///     {
+    ///         Bucket = glueScripts.Id,
+    ///         Key = "jobs/shell_job.py",
+    ///         Source = new FileAsset("jobs/shell_job.py"),
     ///     });
     /// 
     /// });

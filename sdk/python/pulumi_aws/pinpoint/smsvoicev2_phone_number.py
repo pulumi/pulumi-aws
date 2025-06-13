@@ -33,7 +33,8 @@ class Smsvoicev2PhoneNumberArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['Smsvoicev2PhoneNumberTimeoutsArgs']] = None,
                  two_way_channel_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 two_way_channel_role: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
         :param pulumi.Input[builtins.str] iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -46,6 +47,7 @@ class Smsvoicev2PhoneNumberArgs:
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
         :param pulumi.Input[builtins.bool] two_way_channel_enabled: By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        :param pulumi.Input[builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         """
         pulumi.set(__self__, "iso_country_code", iso_country_code)
         pulumi.set(__self__, "message_type", message_type)
@@ -67,6 +69,8 @@ class Smsvoicev2PhoneNumberArgs:
             pulumi.set(__self__, "two_way_channel_arn", two_way_channel_arn)
         if two_way_channel_enabled is not None:
             pulumi.set(__self__, "two_way_channel_enabled", two_way_channel_enabled)
+        if two_way_channel_role is not None:
+            pulumi.set(__self__, "two_way_channel_role", two_way_channel_role)
 
     @property
     @pulumi.getter(name="isoCountryCode")
@@ -206,6 +210,18 @@ class Smsvoicev2PhoneNumberArgs:
     def two_way_channel_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "two_way_channel_enabled", value)
 
+    @property
+    @pulumi.getter(name="twoWayChannelRole")
+    def two_way_channel_role(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        """
+        return pulumi.get(self, "two_way_channel_role")
+
+    @two_way_channel_role.setter
+    def two_way_channel_role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "two_way_channel_role", value)
+
 
 @pulumi.input_type
 class _Smsvoicev2PhoneNumberState:
@@ -225,7 +241,8 @@ class _Smsvoicev2PhoneNumberState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['Smsvoicev2PhoneNumberTimeoutsArgs']] = None,
                  two_way_channel_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 two_way_channel_role: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Smsvoicev2PhoneNumber resources.
         :param pulumi.Input[builtins.str] arn: ARN of the phone number.
@@ -242,6 +259,7 @@ class _Smsvoicev2PhoneNumberState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
         :param pulumi.Input[builtins.bool] two_way_channel_enabled: By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        :param pulumi.Input[builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -278,6 +296,8 @@ class _Smsvoicev2PhoneNumberState:
             pulumi.set(__self__, "two_way_channel_arn", two_way_channel_arn)
         if two_way_channel_enabled is not None:
             pulumi.set(__self__, "two_way_channel_enabled", two_way_channel_enabled)
+        if two_way_channel_role is not None:
+            pulumi.set(__self__, "two_way_channel_role", two_way_channel_role)
 
     @property
     @pulumi.getter
@@ -466,6 +486,18 @@ class _Smsvoicev2PhoneNumberState:
     def two_way_channel_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "two_way_channel_enabled", value)
 
+    @property
+    @pulumi.getter(name="twoWayChannelRole")
+    def two_way_channel_role(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        """
+        return pulumi.get(self, "two_way_channel_role")
+
+    @two_way_channel_role.setter
+    def two_way_channel_role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "two_way_channel_role", value)
+
 
 @pulumi.type_token("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")
 class Smsvoicev2PhoneNumber(pulumi.CustomResource):
@@ -485,6 +517,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['Smsvoicev2PhoneNumberTimeoutsArgs', 'Smsvoicev2PhoneNumberTimeoutsArgsDict']]] = None,
                  two_way_channel_arn: Optional[pulumi.Input[builtins.str]] = None,
                  two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 two_way_channel_role: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS End User Messaging SMS phone number.
@@ -522,6 +555,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] self_managed_opt_outs_enabled: When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
         :param pulumi.Input[builtins.bool] two_way_channel_enabled: By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        :param pulumi.Input[builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         """
         ...
     @overload
@@ -580,6 +614,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['Smsvoicev2PhoneNumberTimeoutsArgs', 'Smsvoicev2PhoneNumberTimeoutsArgsDict']]] = None,
                  two_way_channel_arn: Optional[pulumi.Input[builtins.str]] = None,
                  two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 two_way_channel_role: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -609,6 +644,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["two_way_channel_arn"] = two_way_channel_arn
             __props__.__dict__["two_way_channel_enabled"] = two_way_channel_enabled
+            __props__.__dict__["two_way_channel_role"] = two_way_channel_role
             __props__.__dict__["arn"] = None
             __props__.__dict__["monthly_leasing_price"] = None
             __props__.__dict__["phone_number"] = None
@@ -638,7 +674,8 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['Smsvoicev2PhoneNumberTimeoutsArgs', 'Smsvoicev2PhoneNumberTimeoutsArgsDict']]] = None,
             two_way_channel_arn: Optional[pulumi.Input[builtins.str]] = None,
-            two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None) -> 'Smsvoicev2PhoneNumber':
+            two_way_channel_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            two_way_channel_role: Optional[pulumi.Input[builtins.str]] = None) -> 'Smsvoicev2PhoneNumber':
         """
         Get an existing Smsvoicev2PhoneNumber resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -660,6 +697,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] two_way_channel_arn: The Amazon Resource Name (ARN) of the two way channel.
         :param pulumi.Input[builtins.bool] two_way_channel_enabled: By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        :param pulumi.Input[builtins.str] two_way_channel_role: IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -681,6 +719,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["two_way_channel_arn"] = two_way_channel_arn
         __props__.__dict__["two_way_channel_enabled"] = two_way_channel_enabled
+        __props__.__dict__["two_way_channel_role"] = two_way_channel_role
         return Smsvoicev2PhoneNumber(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -805,4 +844,12 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
         """
         return pulumi.get(self, "two_way_channel_enabled")
+
+    @property
+    @pulumi.getter(name="twoWayChannelRole")
+    def two_way_channel_role(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+        """
+        return pulumi.get(self, "two_way_channel_role")
 

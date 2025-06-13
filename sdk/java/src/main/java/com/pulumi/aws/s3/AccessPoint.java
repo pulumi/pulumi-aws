@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  * 
- * &gt; This resource cannot be used with S3 directory buckets.
+ * &gt; This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
  * 
  * ## Example Usage
  * 
@@ -115,6 +115,58 @@ import javax.annotation.Nullable;
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS Partition Directory Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.s3.DirectoryBucket;
+ * import com.pulumi.aws.s3.DirectoryBucketArgs;
+ * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
+ * import com.pulumi.aws.s3.AccessPoint;
+ * import com.pulumi.aws.s3.AccessPointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state("available")
+ *             .build());
+ * 
+ *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
+ *             .bucket("example--zoneId--x-s3")
+ *             .location(DirectoryBucketLocationArgs.builder()
+ *                 .name(available.zoneIds()[0])
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
+ *             .bucket(test.bucket())
+ *             .name("example--zoneId--xa-s3")
  *             .build());
  * 
  *     }

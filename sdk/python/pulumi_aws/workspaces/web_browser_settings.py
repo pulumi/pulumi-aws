@@ -220,8 +220,13 @@ class _WebBrowserSettingsState:
         pulumi.set(self, "tags_all", value)
 
 
+warnings.warn("""aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webBrowserSettings:WebBrowserSettings")
 class WebBrowserSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,7 +248,7 @@ class WebBrowserSettings(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebBrowserSettings("example", browser_policy=json.dumps({
+        example = aws.workspacesweb.BrowserSettings("example", browser_policy=json.dumps({
             "AdditionalSettings": {
                 "DownloadsSettings": {
                     "Behavior": "DISABLE",
@@ -262,7 +267,7 @@ class WebBrowserSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web Browser Settings",
             deletion_window_in_days=7)
-        example_web_browser_settings = aws.workspaces.WebBrowserSettings("example",
+        example_browser_settings = aws.workspacesweb.BrowserSettings("example",
             browser_policy=json.dumps({
                 "chromePolicies": {
                     "DefaultDownloadDirectory": {
@@ -314,7 +319,7 @@ class WebBrowserSettings(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.workspaces.WebBrowserSettings("example", browser_policy=json.dumps({
+        example = aws.workspacesweb.BrowserSettings("example", browser_policy=json.dumps({
             "AdditionalSettings": {
                 "DownloadsSettings": {
                     "Behavior": "DISABLE",
@@ -333,7 +338,7 @@ class WebBrowserSettings(pulumi.CustomResource):
         example = aws.kms.Key("example",
             description="KMS key for WorkSpaces Web Browser Settings",
             deletion_window_in_days=7)
-        example_web_browser_settings = aws.workspaces.WebBrowserSettings("example",
+        example_browser_settings = aws.workspacesweb.BrowserSettings("example",
             browser_policy=json.dumps({
                 "chromePolicies": {
                     "DefaultDownloadDirectory": {
@@ -378,6 +383,7 @@ class WebBrowserSettings(pulumi.CustomResource):
                  customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebBrowserSettings is deprecated: aws.workspaces/webbrowsersettings.WebBrowserSettings has been deprecated in favor of aws.workspacesweb/browsersettings.BrowserSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

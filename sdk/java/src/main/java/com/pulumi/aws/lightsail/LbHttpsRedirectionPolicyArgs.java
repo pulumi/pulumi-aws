@@ -16,14 +16,14 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
     public static final LbHttpsRedirectionPolicyArgs Empty = new LbHttpsRedirectionPolicyArgs();
 
     /**
-     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * @return Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
      * 
      */
     public Output<Boolean> enabled() {
@@ -31,14 +31,14 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the load balancer to which you want to enable http to https redirection.
+     * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
      * 
      */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to enable http to https redirection.
+     * @return Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
      * 
      */
     public Output<String> lbName() {
@@ -71,7 +71,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * @param enabled Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * @param enabled Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to enable http to https redirection.
+         * @param lbName Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to enable http to https redirection.
+         * @param lbName Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
          * 
          * @return builder
          * 

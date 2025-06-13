@@ -154,14 +154,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:neptune/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Global Cluster Amazon Resource Name (ARN)
+     * @return Global Cluster ARN
      * 
      */
     public Output<String> arn() {
@@ -197,7 +197,6 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -205,21 +204,20 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      * 
      */
     @Export(name="globalClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> globalClusterIdentifier;
 
     /**
-     * @return The global cluster identifier.
+     * @return Global cluster identifier.
      * 
      */
     public Output<String> globalClusterIdentifier() {
@@ -254,14 +252,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.globalClusterResourceId;
     }
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {
@@ -274,14 +272,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Boolean> storageEncrypted() {

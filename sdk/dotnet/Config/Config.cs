@@ -954,6 +954,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Evs { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Finspace { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

@@ -15,14 +15,14 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
     public static final BucketResourceAccessArgs Empty = new BucketResourceAccessArgs();
 
     /**
-     * The name of the bucket to grant access to.
+     * Name of the bucket to grant access to.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the bucket to grant access to.
+     * @return Name of the bucket to grant access to.
      * 
      */
     public Output<String> bucketName() {
@@ -30,14 +30,14 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the resource to be granted bucket access.
+     * Name of the resource to grant bucket access.
      * 
      */
     @Import(name="resourceName", required=true)
     private Output<String> resourceName;
 
     /**
-     * @return The name of the resource to be granted bucket access.
+     * @return Name of the resource to grant bucket access.
      * 
      */
     public Output<String> resourceName() {
@@ -70,7 +70,7 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bucketName The name of the bucket to grant access to.
+         * @param bucketName Name of the bucket to grant access to.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param bucketName The name of the bucket to grant access to.
+         * @param bucketName Name of the bucket to grant access to.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceName The name of the resource to be granted bucket access.
+         * @param resourceName Name of the resource to grant bucket access.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceName The name of the resource to be granted bucket access.
+         * @param resourceName Name of the resource to grant bucket access.
          * 
          * @return builder
          * 

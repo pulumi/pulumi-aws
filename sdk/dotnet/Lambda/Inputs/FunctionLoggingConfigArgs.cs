@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         public Input<string>? LogGroup { get; set; }
 
         /// <summary>
-        /// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        /// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
         /// </summary>
         [Input("systemLogLevel")]
         public Input<string>? SystemLogLevel { get; set; }

@@ -1453,6 +1453,10 @@
     {
       "old": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `terraform destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.",
       "new": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty."
+    },
+    {
+      "old": "* `force_delete` - (Optional) Whether to force delete non-empty buckets using `terraform destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.\n",
+      "new": "* `force_delete` - (Optional) Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.\n"
     }
   ],
   "lightsail_container_service_deployment_version.html.markdown": [
@@ -1549,6 +1553,14 @@
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
+    },
+    {
+      "old": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.\n",
+      "new": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.\n"
+    },
+    {
+      "old": "* `storage_encrypted` - (Optional, Forces new resources) Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.\n",
+      "new": "* `storage_encrypted` - (Optional, Forces new resources) Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "network_acl.html.markdown": [

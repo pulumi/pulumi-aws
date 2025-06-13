@@ -48,6 +48,20 @@ public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResou
         return this.keyValueStoreArn;
     }
     /**
+     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * 
+     */
+    @Export(name="maxBatchSize", refs={Integer.class}, tree="[0]")
+    private Output<Integer> maxBatchSize;
+
+    /**
+     * @return Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     * 
+     */
+    public Output<Integer> maxBatchSize() {
+        return this.maxBatchSize;
+    }
+    /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resource_key_value_pair` below.
      * 

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
@@ -27,6 +28,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
     /**
      * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
      * 
@@ -90,6 +96,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
     /**
      * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
@@ -179,6 +192,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement byteMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -194,6 +208,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.andStatement = defaults.andStatement;
+    	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
@@ -211,6 +226,12 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         public Builder andStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement) {
 
             this.andStatement = andStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder asnMatchStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement) {
+
+            this.asnMatchStatement = asnMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -282,6 +303,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         public WebAclRuleStatementRateBasedStatementScopeDownStatement build() {
             final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatement();
             _resultValue.andStatement = andStatement;
+            _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;

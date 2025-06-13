@@ -25,6 +25,11 @@ __all__ = [
     'DirectoryWorkspaceAccessProperties',
     'DirectoryWorkspaceCreationProperties',
     'IpGroupRule',
+    'WebDataProtectionSettingsInlineRedactionConfiguration',
+    'WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern',
+    'WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern',
+    'WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder',
+    'WebIpAccessSettingsIpRule',
     'WebUserSettingsCookieSynchronizationConfiguration',
     'WebUserSettingsCookieSynchronizationConfigurationAllowlist',
     'WebUserSettingsCookieSynchronizationConfigurationBlocklist',
@@ -575,6 +580,362 @@ class IpGroupRule(dict):
     def description(self) -> Optional[builtins.str]:
         """
         The description of the IP group.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class WebDataProtectionSettingsInlineRedactionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "globalConfidenceLevel":
+            suggest = "global_confidence_level"
+        elif key == "globalEnforcedUrls":
+            suggest = "global_enforced_urls"
+        elif key == "globalExemptUrls":
+            suggest = "global_exempt_urls"
+        elif key == "inlineRedactionPatterns":
+            suggest = "inline_redaction_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebDataProtectionSettingsInlineRedactionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 global_confidence_level: Optional[builtins.int] = None,
+                 global_enforced_urls: Optional[Sequence[builtins.str]] = None,
+                 global_exempt_urls: Optional[Sequence[builtins.str]] = None,
+                 inline_redaction_patterns: Optional[Sequence['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern']] = None):
+        """
+        :param builtins.int global_confidence_level: The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+        :param Sequence[builtins.str] global_enforced_urls: The global enforced URL configuration for the inline redaction configuration.
+        :param Sequence[builtins.str] global_exempt_urls: The global exempt URL configuration for the inline redaction configuration.
+        :param Sequence['WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs'] inline_redaction_patterns: The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+        """
+        if global_confidence_level is not None:
+            pulumi.set(__self__, "global_confidence_level", global_confidence_level)
+        if global_enforced_urls is not None:
+            pulumi.set(__self__, "global_enforced_urls", global_enforced_urls)
+        if global_exempt_urls is not None:
+            pulumi.set(__self__, "global_exempt_urls", global_exempt_urls)
+        if inline_redaction_patterns is not None:
+            pulumi.set(__self__, "inline_redaction_patterns", inline_redaction_patterns)
+
+    @property
+    @pulumi.getter(name="globalConfidenceLevel")
+    def global_confidence_level(self) -> Optional[builtins.int]:
+        """
+        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+        """
+        return pulumi.get(self, "global_confidence_level")
+
+    @property
+    @pulumi.getter(name="globalEnforcedUrls")
+    def global_enforced_urls(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The global enforced URL configuration for the inline redaction configuration.
+        """
+        return pulumi.get(self, "global_enforced_urls")
+
+    @property
+    @pulumi.getter(name="globalExemptUrls")
+    def global_exempt_urls(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The global exempt URL configuration for the inline redaction configuration.
+        """
+        return pulumi.get(self, "global_exempt_urls")
+
+    @property
+    @pulumi.getter(name="inlineRedactionPatterns")
+    def inline_redaction_patterns(self) -> Optional[Sequence['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern']]:
+        """
+        The inline redaction patterns to be enabled for the inline redaction configuration. Detailed below.
+        """
+        return pulumi.get(self, "inline_redaction_patterns")
+
+
+@pulumi.output_type
+class WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "builtInPatternId":
+            suggest = "built_in_pattern_id"
+        elif key == "confidenceLevel":
+            suggest = "confidence_level"
+        elif key == "customPattern":
+            suggest = "custom_pattern"
+        elif key == "enforcedUrls":
+            suggest = "enforced_urls"
+        elif key == "exemptUrls":
+            suggest = "exempt_urls"
+        elif key == "redactionPlaceHolders":
+            suggest = "redaction_place_holders"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 built_in_pattern_id: Optional[builtins.str] = None,
+                 confidence_level: Optional[builtins.int] = None,
+                 custom_pattern: Optional['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern'] = None,
+                 enforced_urls: Optional[Sequence[builtins.str]] = None,
+                 exempt_urls: Optional[Sequence[builtins.str]] = None,
+                 redaction_place_holders: Optional[Sequence['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder']] = None):
+        """
+        :param builtins.str built_in_pattern_id: The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
+        :param builtins.int confidence_level: The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+        :param 'WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs' custom_pattern: The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
+        :param Sequence[builtins.str] enforced_urls: The enforced URL configuration for the inline redaction pattern.
+        :param Sequence[builtins.str] exempt_urls: The exempt URL configuration for the inline redaction pattern.
+        :param Sequence['WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs'] redaction_place_holders: The redaction placeholder that will replace the redacted text in session. Detailed below.
+        """
+        if built_in_pattern_id is not None:
+            pulumi.set(__self__, "built_in_pattern_id", built_in_pattern_id)
+        if confidence_level is not None:
+            pulumi.set(__self__, "confidence_level", confidence_level)
+        if custom_pattern is not None:
+            pulumi.set(__self__, "custom_pattern", custom_pattern)
+        if enforced_urls is not None:
+            pulumi.set(__self__, "enforced_urls", enforced_urls)
+        if exempt_urls is not None:
+            pulumi.set(__self__, "exempt_urls", exempt_urls)
+        if redaction_place_holders is not None:
+            pulumi.set(__self__, "redaction_place_holders", redaction_place_holders)
+
+    @property
+    @pulumi.getter(name="builtInPatternId")
+    def built_in_pattern_id(self) -> Optional[builtins.str]:
+        """
+        The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
+        """
+        return pulumi.get(self, "built_in_pattern_id")
+
+    @property
+    @pulumi.getter(name="confidenceLevel")
+    def confidence_level(self) -> Optional[builtins.int]:
+        """
+        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
+        """
+        return pulumi.get(self, "confidence_level")
+
+    @property
+    @pulumi.getter(name="customPattern")
+    def custom_pattern(self) -> Optional['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern']:
+        """
+        The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
+        """
+        return pulumi.get(self, "custom_pattern")
+
+    @property
+    @pulumi.getter(name="enforcedUrls")
+    def enforced_urls(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The enforced URL configuration for the inline redaction pattern.
+        """
+        return pulumi.get(self, "enforced_urls")
+
+    @property
+    @pulumi.getter(name="exemptUrls")
+    def exempt_urls(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The exempt URL configuration for the inline redaction pattern.
+        """
+        return pulumi.get(self, "exempt_urls")
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolders")
+    def redaction_place_holders(self) -> Optional[Sequence['outputs.WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder']]:
+        """
+        The redaction placeholder that will replace the redacted text in session. Detailed below.
+        """
+        return pulumi.get(self, "redaction_place_holders")
+
+
+@pulumi.output_type
+class WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternName":
+            suggest = "pattern_name"
+        elif key == "patternRegex":
+            suggest = "pattern_regex"
+        elif key == "keywordRegex":
+            suggest = "keyword_regex"
+        elif key == "patternDescription":
+            suggest = "pattern_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pattern_name: builtins.str,
+                 pattern_regex: builtins.str,
+                 keyword_regex: Optional[builtins.str] = None,
+                 pattern_description: Optional[builtins.str] = None):
+        """
+        :param builtins.str pattern_name: The pattern name for the custom pattern.
+        :param builtins.str pattern_regex: The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+        :param builtins.str keyword_regex: The keyword regex for the customer pattern.
+        :param builtins.str pattern_description: The pattern description for the customer pattern.
+        """
+        pulumi.set(__self__, "pattern_name", pattern_name)
+        pulumi.set(__self__, "pattern_regex", pattern_regex)
+        if keyword_regex is not None:
+            pulumi.set(__self__, "keyword_regex", keyword_regex)
+        if pattern_description is not None:
+            pulumi.set(__self__, "pattern_description", pattern_description)
+
+    @property
+    @pulumi.getter(name="patternName")
+    def pattern_name(self) -> builtins.str:
+        """
+        The pattern name for the custom pattern.
+        """
+        return pulumi.get(self, "pattern_name")
+
+    @property
+    @pulumi.getter(name="patternRegex")
+    def pattern_regex(self) -> builtins.str:
+        """
+        The pattern regex for the customer pattern. The format must follow JavaScript regex format.
+        """
+        return pulumi.get(self, "pattern_regex")
+
+    @property
+    @pulumi.getter(name="keywordRegex")
+    def keyword_regex(self) -> Optional[builtins.str]:
+        """
+        The keyword regex for the customer pattern.
+        """
+        return pulumi.get(self, "keyword_regex")
+
+    @property
+    @pulumi.getter(name="patternDescription")
+    def pattern_description(self) -> Optional[builtins.str]:
+        """
+        The pattern description for the customer pattern.
+        """
+        return pulumi.get(self, "pattern_description")
+
+
+@pulumi.output_type
+class WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redactionPlaceHolderType":
+            suggest = "redaction_place_holder_type"
+        elif key == "redactionPlaceHolderText":
+            suggest = "redaction_place_holder_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebDataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 redaction_place_holder_type: builtins.str,
+                 redaction_place_holder_text: Optional[builtins.str] = None):
+        """
+        :param builtins.str redaction_place_holder_type: The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
+        :param builtins.str redaction_place_holder_text: The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        """
+        pulumi.set(__self__, "redaction_place_holder_type", redaction_place_holder_type)
+        if redaction_place_holder_text is not None:
+            pulumi.set(__self__, "redaction_place_holder_text", redaction_place_holder_text)
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolderType")
+    def redaction_place_holder_type(self) -> builtins.str:
+        """
+        The redaction placeholder type that will replace the redacted text in session. Currently, only `CustomText` is supported.
+        """
+        return pulumi.get(self, "redaction_place_holder_type")
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolderText")
+    def redaction_place_holder_text(self) -> Optional[builtins.str]:
+        """
+        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        """
+        return pulumi.get(self, "redaction_place_holder_text")
+
+
+@pulumi.output_type
+class WebIpAccessSettingsIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipRange":
+            suggest = "ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebIpAccessSettingsIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebIpAccessSettingsIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebIpAccessSettingsIpRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_range: builtins.str,
+                 description: Optional[builtins.str] = None):
+        """
+        :param builtins.str ip_range: The IP range of the IP rule.
+        :param builtins.str description: The description of the IP access settings.
+        """
+        pulumi.set(__self__, "ip_range", ip_range)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> builtins.str:
+        """
+        The IP range of the IP rule.
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        The description of the IP access settings.
         """
         return pulumi.get(self, "description")
 

@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Allocates a static IP address.
+    /// Manages a static IP address.
     /// 
-    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    /// Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+    /// 
+    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
     /// 
     /// ## Example Usage
     /// 
@@ -24,37 +26,45 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.StaticIp("test", new()
+    ///     var example = new Aws.LightSail.StaticIp("example", new()
     ///     {
     ///         Name = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:lightsail/staticIp:StaticIp example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIp:StaticIp")]
     public partial class StaticIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Lightsail static IP
+        /// ARN of the Lightsail static IP.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The allocated static IP address
+        /// Allocated static IP address.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the allocated static IP
+        /// Name for the allocated static IP.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The support code.
+        /// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
@@ -106,7 +116,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class StaticIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name for the allocated static IP
+        /// Name for the allocated static IP.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -120,25 +130,25 @@ namespace Pulumi.Aws.LightSail
     public sealed class StaticIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Lightsail static IP
+        /// ARN of the Lightsail static IP.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The allocated static IP address
+        /// Allocated static IP address.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The name for the allocated static IP
+        /// Name for the allocated static IP.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The support code.
+        /// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }

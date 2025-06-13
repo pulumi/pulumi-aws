@@ -51,6 +51,10 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
      */
     public readonly keyValueStoreArn!: pulumi.Output<string>;
     /**
+     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     */
+    public readonly maxBatchSize!: pulumi.Output<number>;
+    /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.
      */
@@ -74,6 +78,7 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KeyvaluestoreKeysExclusiveState | undefined;
             resourceInputs["keyValueStoreArn"] = state ? state.keyValueStoreArn : undefined;
+            resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
             resourceInputs["resourceKeyValuePairs"] = state ? state.resourceKeyValuePairs : undefined;
             resourceInputs["totalSizeInBytes"] = state ? state.totalSizeInBytes : undefined;
         } else {
@@ -82,6 +87,7 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
                 throw new Error("Missing required property 'keyValueStoreArn'");
             }
             resourceInputs["keyValueStoreArn"] = args ? args.keyValueStoreArn : undefined;
+            resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             resourceInputs["resourceKeyValuePairs"] = args ? args.resourceKeyValuePairs : undefined;
             resourceInputs["totalSizeInBytes"] = undefined /*out*/;
         }
@@ -100,6 +106,10 @@ export interface KeyvaluestoreKeysExclusiveState {
      * The following arguments are optional:
      */
     keyValueStoreArn?: pulumi.Input<string>;
+    /**
+     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.
@@ -121,6 +131,10 @@ export interface KeyvaluestoreKeysExclusiveArgs {
      * The following arguments are optional:
      */
     keyValueStoreArn: pulumi.Input<string>;
+    /**
+     * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
+     */
+    maxBatchSize?: pulumi.Input<number>;
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.

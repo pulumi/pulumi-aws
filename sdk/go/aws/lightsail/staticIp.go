@@ -11,9 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allocates a static IP address.
+// Manages a static IP address.
 //
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+// Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+//
+// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 //
 // ## Example Usage
 //
@@ -29,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewStaticIp(ctx, "test", &lightsail.StaticIpArgs{
+//			_, err := lightsail.NewStaticIp(ctx, "example", &lightsail.StaticIpArgs{
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -40,16 +42,24 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+//
+// ```sh
+// $ pulumi import aws:lightsail/staticIp:StaticIp example example
+// ```
 type StaticIp struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Lightsail static IP
+	// ARN of the Lightsail static IP.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The name for the allocated static IP
+	// Name for the allocated static IP.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The support code.
+	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 }
 
@@ -83,24 +93,24 @@ func GetStaticIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticIp resources.
 type staticIpState struct {
-	// The ARN of the Lightsail static IP
+	// ARN of the Lightsail static IP.
 	Arn *string `pulumi:"arn"`
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The name for the allocated static IP
+	// Name for the allocated static IP.
 	Name *string `pulumi:"name"`
-	// The support code.
+	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode *string `pulumi:"supportCode"`
 }
 
 type StaticIpState struct {
-	// The ARN of the Lightsail static IP
+	// ARN of the Lightsail static IP.
 	Arn pulumi.StringPtrInput
-	// The allocated static IP address
+	// Allocated static IP address.
 	IpAddress pulumi.StringPtrInput
-	// The name for the allocated static IP
+	// Name for the allocated static IP.
 	Name pulumi.StringPtrInput
-	// The support code.
+	// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringPtrInput
 }
 
@@ -109,13 +119,13 @@ func (StaticIpState) ElementType() reflect.Type {
 }
 
 type staticIpArgs struct {
-	// The name for the allocated static IP
+	// Name for the allocated static IP.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a StaticIp resource.
 type StaticIpArgs struct {
-	// The name for the allocated static IP
+	// Name for the allocated static IP.
 	Name pulumi.StringPtrInput
 }
 
@@ -206,22 +216,22 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 	return o
 }
 
-// The ARN of the Lightsail static IP
+// ARN of the Lightsail static IP.
 func (o StaticIpOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The allocated static IP address
+// Allocated static IP address.
 func (o StaticIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The name for the allocated static IP
+// Name for the allocated static IP.
 func (o StaticIpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The support code.
+// Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 func (o StaticIpOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIp) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }

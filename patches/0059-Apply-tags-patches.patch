@@ -500,6 +500,19 @@ index 1046d96871..3f8448d649 100644
  
  			"use_dedicated_replication_server": schema.BoolAttribute{
  				Required: true,
+diff --git a/internal/service/dsql/cluster.go b/internal/service/dsql/cluster.go
+index fb8dba4308..376bab42b9 100644
+--- a/internal/service/dsql/cluster.go
++++ b/internal/service/dsql/cluster.go
+@@ -81,7 +81,7 @@ func (r *clusterResource) Schema(ctx context.Context, request resource.SchemaReq
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"vpc_endpoint_service_name": schema.StringAttribute{
+ 				Computed: true,
+ 				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/ec2_capacity_block_reservation.go b/internal/service/ec2/ec2_capacity_block_reservation.go
 index 2dc713e4eb..9a7973fba8 100644
 --- a/internal/service/ec2/ec2_capacity_block_reservation.go
@@ -538,6 +551,45 @@ index 0dde8cfc90..56c79690c3 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  			names.AttrVPCID: schema.StringAttribute{
  				Optional: true,
+ 				PlanModifiers: []planmodifier.String{
+diff --git a/internal/service/ec2/vpc_route_server.go b/internal/service/ec2/vpc_route_server.go
+index 91c16ea2f4..8f5205d64c 100644
+--- a/internal/service/ec2/vpc_route_server.go
++++ b/internal/service/ec2/vpc_route_server.go
+@@ -93,7 +93,7 @@ func (r *vpcRouteServerResource) Schema(ctx context.Context, request resource.Sc
+ 				Computed: true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/ec2/vpc_route_server_endpoint.go b/internal/service/ec2/vpc_route_server_endpoint.go
+index b3dfca1164..c95a0d7b9d 100644
+--- a/internal/service/ec2/vpc_route_server_endpoint.go
++++ b/internal/service/ec2/vpc_route_server_endpoint.go
+@@ -76,7 +76,7 @@ func (r *vpcRouteServerEndpointResource) Schema(ctx context.Context, request res
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrVPCID: schema.StringAttribute{
+ 				Computed: true,
+ 				PlanModifiers: []planmodifier.String{
+diff --git a/internal/service/ec2/vpc_route_server_peer.go b/internal/service/ec2/vpc_route_server_peer.go
+index 2cd4f45489..01bc7e7462 100644
+--- a/internal/service/ec2/vpc_route_server_peer.go
++++ b/internal/service/ec2/vpc_route_server_peer.go
+@@ -87,7 +87,7 @@ func (r *vpcRouteServerPeerResource) Schema(ctx context.Context, req resource.Sc
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrSubnetID: schema.StringAttribute{
+ 				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
 index 21eeddfa6b..bff0a2da9f 100644
@@ -696,12 +748,12 @@ index d69e4e44c8..d1a6eae711 100644
  	}
  }
 diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
-index d749138f74..29e6891331 100644
+index 41f168bd38..493e488fb5 100644
 --- a/internal/service/logs/delivery.go
 +++ b/internal/service/logs/delivery.go
 @@ -93,7 +93,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
  			},
- 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute[s3DeliveryConfigurationModel](ctx, 1, s3DeliveryConfigurationListOptions, listplanmodifier.UseStateForUnknown()),
+ 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute(ctx, 1, s3DeliveryConfigurationListOptions, listplanmodifier.UseStateForUnknown()),
  			names.AttrTags:              tftags.TagsAttribute(),
 -			names.AttrTagsAll:           tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll:           tftags.TagsAttribute(),
@@ -851,19 +903,45 @@ index f773ee50a0..48008bd8bf 100644
  			names.AttrVPCID: schema.StringAttribute{
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
+diff --git a/internal/service/notifications/notification_configuration.go b/internal/service/notifications/notification_configuration.go
+index 7777c71500..b809182b00 100644
+--- a/internal/service/notifications/notification_configuration.go
++++ b/internal/service/notifications/notification_configuration.go
+@@ -71,7 +71,7 @@ func (r *notificationConfigurationResource) Schema(ctx context.Context, request
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/notificationscontacts/email_contact.go b/internal/service/notificationscontacts/email_contact.go
+index 7339d1d7a0..0724844b46 100644
+--- a/internal/service/notificationscontacts/email_contact.go
++++ b/internal/service/notificationscontacts/email_contact.go
+@@ -67,7 +67,7 @@ func (r *emailContactResource) Schema(ctx context.Context, request resource.Sche
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index 30ecec3d52..072b191ce2 100644
+index 778cbbd09f..c7d79754dd 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
-@@ -120,7 +120,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -126,7 +126,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  			names.AttrType: schema.StringAttribute{
- 				Optional: true,
- 				Computed: true,
+ 				Description: "Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.",
+ 				Optional:    true,
 diff --git a/internal/service/osis/pipeline.go b/internal/service/osis/pipeline.go
 index f39ac603c9..88f515d1f9 100644
 --- a/internal/service/osis/pipeline.go
@@ -930,10 +1008,10 @@ index 6fe1f2daa7..8684b9a0d2 100644
  	}
  }
 diff --git a/internal/service/pinpointsmsvoicev2/phone_number.go b/internal/service/pinpointsmsvoicev2/phone_number.go
-index b95bd9ddbb..40ec333341 100644
+index 3ccd54966b..75b597de3d 100644
 --- a/internal/service/pinpointsmsvoicev2/phone_number.go
 +++ b/internal/service/pinpointsmsvoicev2/phone_number.go
-@@ -120,7 +120,7 @@ func (r *phoneNumberResource) Schema(ctx context.Context, request resource.Schem
+@@ -126,7 +126,7 @@ func (r *phoneNumberResource) Schema(ctx context.Context, request resource.Schem
  				Default:  booldefault.StaticBool(false),
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -1332,6 +1410,19 @@ index 07d7145722..0822d5d68a 100644
  		},
  		Blocks: map[string]schema.Block{
  			"error_report_configuration": schema.ListNestedBlock{
+diff --git a/internal/service/verifiedpermissions/policy_store.go b/internal/service/verifiedpermissions/policy_store.go
+index 6ac7fcb7a3..6c098b6f70 100644
+--- a/internal/service/verifiedpermissions/policy_store.go
++++ b/internal/service/verifiedpermissions/policy_store.go
+@@ -63,7 +63,7 @@ func (r *resourcePolicyStore) Schema(ctx context.Context, request resource.Schem
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"validation_settings": schema.ListNestedBlock{
 diff --git a/internal/service/vpclattice/resource_configuration.go b/internal/service/vpclattice/resource_configuration.go
 index 29937b2a74..fce607c87d 100644
 --- a/internal/service/vpclattice/resource_configuration.go
@@ -1384,3 +1475,81 @@ index f343ca3b29..70db910245 100644
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/workspacesweb/browser_settings.go b/internal/service/workspacesweb/browser_settings.go
+index 940e8e952d..f6cd293311 100644
+--- a/internal/service/workspacesweb/browser_settings.go
++++ b/internal/service/workspacesweb/browser_settings.go
+@@ -81,7 +81,7 @@ func (r *browserSettingsResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/workspacesweb/data_protection_settings.go b/internal/service/workspacesweb/data_protection_settings.go
+index f1286e65ec..8a60f605d0 100644
+--- a/internal/service/workspacesweb/data_protection_settings.go
++++ b/internal/service/workspacesweb/data_protection_settings.go
+@@ -93,7 +93,7 @@ func (r *dataProtectionSettingsResource) Schema(ctx context.Context, request res
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"inline_redaction_configuration": schema.ListNestedBlock{
+diff --git a/internal/service/workspacesweb/ip_access_settings.go b/internal/service/workspacesweb/ip_access_settings.go
+index 082a73cf2f..f6d93d3e9e 100644
+--- a/internal/service/workspacesweb/ip_access_settings.go
++++ b/internal/service/workspacesweb/ip_access_settings.go
+@@ -92,7 +92,7 @@ func (r *ipAccessSettingsResource) Schema(ctx context.Context, request resource.
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"ip_rule": schema.ListNestedBlock{
+diff --git a/internal/service/workspacesweb/network_settings.go b/internal/service/workspacesweb/network_settings.go
+index 432fef097f..ce4a47ec03 100644
+--- a/internal/service/workspacesweb/network_settings.go
++++ b/internal/service/workspacesweb/network_settings.go
+@@ -79,7 +79,7 @@ func (r *networkSettingsResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrVPCID: schema.StringAttribute{
+ 				Required: true,
+ 			},
+diff --git a/internal/service/workspacesweb/user_access_logging_settings.go b/internal/service/workspacesweb/user_access_logging_settings.go
+index aa9b5a1abb..21cdb47b72 100644
+--- a/internal/service/workspacesweb/user_access_logging_settings.go
++++ b/internal/service/workspacesweb/user_access_logging_settings.go
+@@ -58,7 +58,7 @@ func (r *userAccessLoggingSettingsResource) Schema(ctx context.Context, request
+ 				Required:   true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"user_access_logging_settings_arn": schema.StringAttribute{
+ 				Computed: true,
+ 				PlanModifiers: []planmodifier.String{
+diff --git a/internal/service/workspacesweb/user_settings.go b/internal/service/workspacesweb/user_settings.go
+index 1b9ce94e67..061ccc1aa9 100644
+--- a/internal/service/workspacesweb/user_settings.go
++++ b/internal/service/workspacesweb/user_settings.go
+@@ -110,7 +110,7 @@ func (r *userSettingsResource) Schema(ctx context.Context, request resource.Sche
+ 				Required:   true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"upload_allowed": schema.StringAttribute{
+ 				CustomType: fwtypes.StringEnumType[awstypes.EnabledType](),
+ 				Required:   true,

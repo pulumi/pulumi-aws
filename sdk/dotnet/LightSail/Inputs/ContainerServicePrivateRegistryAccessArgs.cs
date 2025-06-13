@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class ContainerServicePrivateRegistryAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        /// Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
         /// </summary>
         [Input("ecrImagePullerRole")]
         public Input<Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs>? EcrImagePullerRole { get; set; }

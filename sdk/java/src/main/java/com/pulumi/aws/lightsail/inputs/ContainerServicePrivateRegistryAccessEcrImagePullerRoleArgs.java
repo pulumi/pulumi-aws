@@ -17,14 +17,14 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
     public static final ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs Empty = new ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs();
 
     /**
-     * A Boolean value that indicates whether to activate the role. The default is `false`.
+     * Whether to activate the role. Defaults to `false`.
      * 
      */
     @Import(name="isActive")
     private @Nullable Output<Boolean> isActive;
 
     /**
-     * @return A Boolean value that indicates whether to activate the role. The default is `false`.
+     * @return Whether to activate the role. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> isActive() {
@@ -32,18 +32,14 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
     }
 
     /**
-     * The principal ARN of the container service. The principal ARN can be used to create a trust
-     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     * service permission to access resources in your standard AWS account.
+     * Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
      * 
      */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
     /**
-     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
-     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     * service permission to access resources in your standard AWS account.
+     * @return Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
      * 
      */
     public Optional<Output<String>> principalArn() {
@@ -76,7 +72,7 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
         }
 
         /**
-         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
+         * @param isActive Whether to activate the role. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -87,7 +83,7 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
         }
 
         /**
-         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
+         * @param isActive Whether to activate the role. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -97,9 +93,7 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
         }
 
         /**
-         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
-         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         * service permission to access resources in your standard AWS account.
+         * @param principalArn Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
         }
 
         /**
-         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
-         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         * service permission to access resources in your standard AWS account.
+         * @param principalArn Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
          * 
          * @return builder
          * 

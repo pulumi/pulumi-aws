@@ -926,6 +926,407 @@ func (o ScraperTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceConfigurationLimitsPerLabelSet struct {
+	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+	LabelSet map[string]string `pulumi:"labelSet"`
+	// Configuration block for the limits to apply to the specified label set. Detailed below.
+	Limits *WorkspaceConfigurationLimitsPerLabelSetLimits `pulumi:"limits"`
+}
+
+// WorkspaceConfigurationLimitsPerLabelSetInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetArgs and WorkspaceConfigurationLimitsPerLabelSetOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationLimitsPerLabelSetInput` via:
+//
+//	WorkspaceConfigurationLimitsPerLabelSetArgs{...}
+type WorkspaceConfigurationLimitsPerLabelSetInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationLimitsPerLabelSetOutput() WorkspaceConfigurationLimitsPerLabelSetOutput
+	ToWorkspaceConfigurationLimitsPerLabelSetOutputWithContext(context.Context) WorkspaceConfigurationLimitsPerLabelSetOutput
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetArgs struct {
+	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+	LabelSet pulumi.StringMapInput `pulumi:"labelSet"`
+	// Configuration block for the limits to apply to the specified label set. Detailed below.
+	Limits WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput `pulumi:"limits"`
+}
+
+func (WorkspaceConfigurationLimitsPerLabelSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetArgs) ToWorkspaceConfigurationLimitsPerLabelSetOutput() WorkspaceConfigurationLimitsPerLabelSetOutput {
+	return i.ToWorkspaceConfigurationLimitsPerLabelSetOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetArgs) ToWorkspaceConfigurationLimitsPerLabelSetOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetOutput)
+}
+
+// WorkspaceConfigurationLimitsPerLabelSetArrayInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetArray and WorkspaceConfigurationLimitsPerLabelSetArrayOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationLimitsPerLabelSetArrayInput` via:
+//
+//	WorkspaceConfigurationLimitsPerLabelSetArray{ WorkspaceConfigurationLimitsPerLabelSetArgs{...} }
+type WorkspaceConfigurationLimitsPerLabelSetArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationLimitsPerLabelSetArrayOutput() WorkspaceConfigurationLimitsPerLabelSetArrayOutput
+	ToWorkspaceConfigurationLimitsPerLabelSetArrayOutputWithContext(context.Context) WorkspaceConfigurationLimitsPerLabelSetArrayOutput
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetArray []WorkspaceConfigurationLimitsPerLabelSetInput
+
+func (WorkspaceConfigurationLimitsPerLabelSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceConfigurationLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetArray) ToWorkspaceConfigurationLimitsPerLabelSetArrayOutput() WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
+	return i.ToWorkspaceConfigurationLimitsPerLabelSetArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetArray) ToWorkspaceConfigurationLimitsPerLabelSetArrayOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetArrayOutput)
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationLimitsPerLabelSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetOutput) ToWorkspaceConfigurationLimitsPerLabelSetOutput() WorkspaceConfigurationLimitsPerLabelSetOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetOutput) ToWorkspaceConfigurationLimitsPerLabelSetOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetOutput {
+	return o
+}
+
+// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+func (o WorkspaceConfigurationLimitsPerLabelSetOutput) LabelSet() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) map[string]string { return v.LabelSet }).(pulumi.StringMapOutput)
+}
+
+// Configuration block for the limits to apply to the specified label set. Detailed below.
+func (o WorkspaceConfigurationLimitsPerLabelSetOutput) Limits() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) *WorkspaceConfigurationLimitsPerLabelSetLimits {
+		return v.Limits
+	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationLimitsPerLabelSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceConfigurationLimitsPerLabelSet)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetArrayOutput) ToWorkspaceConfigurationLimitsPerLabelSetArrayOutput() WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetArrayOutput) ToWorkspaceConfigurationLimitsPerLabelSetArrayOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetArrayOutput) Index(i pulumi.IntInput) WorkspaceConfigurationLimitsPerLabelSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceConfigurationLimitsPerLabelSet {
+		return vs[0].([]WorkspaceConfigurationLimitsPerLabelSet)[vs[1].(int)]
+	}).(WorkspaceConfigurationLimitsPerLabelSetOutput)
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetLimits struct {
+	// Maximum number of active time series that can be ingested for metrics matching the label set.
+	MaxSeries int `pulumi:"maxSeries"`
+}
+
+// WorkspaceConfigurationLimitsPerLabelSetLimitsInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetLimitsArgs and WorkspaceConfigurationLimitsPerLabelSetLimitsOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationLimitsPerLabelSetLimitsInput` via:
+//
+//	WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{...}
+type WorkspaceConfigurationLimitsPerLabelSetLimitsInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput
+	ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutputWithContext(context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsOutput
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetLimitsArgs struct {
+	// Maximum number of active time series that can be ingested for metrics matching the label set.
+	MaxSeries pulumi.IntInput `pulumi:"maxSeries"`
+}
+
+func (WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return i.ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return i.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput).ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetLimitsArgs, WorkspaceConfigurationLimitsPerLabelSetLimitsPtr and WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput` via:
+//
+//	        WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput
+	ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput
+}
+
+type workspaceConfigurationLimitsPerLabelSetLimitsPtrType WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
+
+func WorkspaceConfigurationLimitsPerLabelSetLimitsPtr(v *WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput {
+	return (*workspaceConfigurationLimitsPerLabelSetLimitsPtrType)(v)
+}
+
+func (*workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
+}
+
+func (i *workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return i.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetLimitsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return o.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceConfigurationLimitsPerLabelSetLimits) *WorkspaceConfigurationLimitsPerLabelSetLimits {
+		return &v
+	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
+}
+
+// Maximum number of active time series that can be ingested for metrics matching the label set.
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) MaxSeries() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSetLimits) int { return v.MaxSeries }).(pulumi.IntOutput)
+}
+
+type WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) Elem() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return o.ApplyT(func(v *WorkspaceConfigurationLimitsPerLabelSetLimits) WorkspaceConfigurationLimitsPerLabelSetLimits {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceConfigurationLimitsPerLabelSetLimits
+		return ret
+	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
+}
+
+// Maximum number of active time series that can be ingested for metrics matching the label set.
+func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) MaxSeries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfigurationLimitsPerLabelSetLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSeries
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkspaceConfigurationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// WorkspaceConfigurationTimeoutsInput is an input type that accepts WorkspaceConfigurationTimeoutsArgs and WorkspaceConfigurationTimeoutsOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationTimeoutsInput` via:
+//
+//	WorkspaceConfigurationTimeoutsArgs{...}
+type WorkspaceConfigurationTimeoutsInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationTimeoutsOutput() WorkspaceConfigurationTimeoutsOutput
+	ToWorkspaceConfigurationTimeoutsOutputWithContext(context.Context) WorkspaceConfigurationTimeoutsOutput
+}
+
+type WorkspaceConfigurationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (WorkspaceConfigurationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i WorkspaceConfigurationTimeoutsArgs) ToWorkspaceConfigurationTimeoutsOutput() WorkspaceConfigurationTimeoutsOutput {
+	return i.ToWorkspaceConfigurationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationTimeoutsArgs) ToWorkspaceConfigurationTimeoutsOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationTimeoutsOutput)
+}
+
+func (i WorkspaceConfigurationTimeoutsArgs) ToWorkspaceConfigurationTimeoutsPtrOutput() WorkspaceConfigurationTimeoutsPtrOutput {
+	return i.ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConfigurationTimeoutsArgs) ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationTimeoutsOutput).ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceConfigurationTimeoutsPtrInput is an input type that accepts WorkspaceConfigurationTimeoutsArgs, WorkspaceConfigurationTimeoutsPtr and WorkspaceConfigurationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceConfigurationTimeoutsPtrInput` via:
+//
+//	        WorkspaceConfigurationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceConfigurationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceConfigurationTimeoutsPtrOutput() WorkspaceConfigurationTimeoutsPtrOutput
+	ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(context.Context) WorkspaceConfigurationTimeoutsPtrOutput
+}
+
+type workspaceConfigurationTimeoutsPtrType WorkspaceConfigurationTimeoutsArgs
+
+func WorkspaceConfigurationTimeoutsPtr(v *WorkspaceConfigurationTimeoutsArgs) WorkspaceConfigurationTimeoutsPtrInput {
+	return (*workspaceConfigurationTimeoutsPtrType)(v)
+}
+
+func (*workspaceConfigurationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i *workspaceConfigurationTimeoutsPtrType) ToWorkspaceConfigurationTimeoutsPtrOutput() WorkspaceConfigurationTimeoutsPtrOutput {
+	return i.ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceConfigurationTimeoutsPtrType) ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationTimeoutsPtrOutput)
+}
+
+type WorkspaceConfigurationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationTimeoutsOutput) ToWorkspaceConfigurationTimeoutsOutput() WorkspaceConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationTimeoutsOutput) ToWorkspaceConfigurationTimeoutsOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationTimeoutsOutput) ToWorkspaceConfigurationTimeoutsPtrOutput() WorkspaceConfigurationTimeoutsPtrOutput {
+	return o.ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceConfigurationTimeoutsOutput) ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceConfigurationTimeouts) *WorkspaceConfigurationTimeouts {
+		return &v
+	}).(WorkspaceConfigurationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o WorkspaceConfigurationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o WorkspaceConfigurationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceConfigurationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConfigurationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o WorkspaceConfigurationTimeoutsPtrOutput) ToWorkspaceConfigurationTimeoutsPtrOutput() WorkspaceConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationTimeoutsPtrOutput) ToWorkspaceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConfigurationTimeoutsPtrOutput) Elem() WorkspaceConfigurationTimeoutsOutput {
+	return o.ApplyT(func(v *WorkspaceConfigurationTimeouts) WorkspaceConfigurationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceConfigurationTimeouts
+		return ret
+	}).(WorkspaceConfigurationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o WorkspaceConfigurationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o WorkspaceConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceLoggingConfiguration struct {
 	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 	LogGroupArn string `pulumi:"logGroupArn"`
@@ -1076,6 +1477,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksPtrInput)(nil)).Elem(), ScraperSourceEksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperTimeoutsInput)(nil)).Elem(), ScraperTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperTimeoutsPtrInput)(nil)).Elem(), ScraperTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetArrayInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimitsInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsPtrInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
@@ -1090,6 +1497,12 @@ func init() {
 	pulumi.RegisterOutputType(ScraperSourceEksPtrOutput{})
 	pulumi.RegisterOutputType(ScraperTimeoutsOutput{})
 	pulumi.RegisterOutputType(ScraperTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationTimeoutsOutput{})
+	pulumi.RegisterOutputType(WorkspaceConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationPtrOutput{})
 }

@@ -63,22 +63,30 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         return this.fromPort;
     }
 
+    /**
+     * Set of IPv6 CIDR blocks.
+     * 
+     */
     @Import(name="ipv6Cidrs")
     private @Nullable Output<List<String>> ipv6Cidrs;
 
+    /**
+     * @return Set of IPv6 CIDR blocks.
+     * 
+     */
     public Optional<Output<List<String>>> ipv6Cidrs() {
         return Optional.ofNullable(this.ipv6Cidrs);
     }
 
     /**
-     * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
      * 
      */
     public Output<String> protocol() {
@@ -216,21 +224,39 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
             return fromPort(Output.of(fromPort));
         }
 
+        /**
+         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6Cidrs(@Nullable Output<List<String>> ipv6Cidrs) {
             $.ipv6Cidrs = ipv6Cidrs;
             return this;
         }
 
+        /**
+         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6Cidrs(List<String> ipv6Cidrs) {
             return ipv6Cidrs(Output.of(ipv6Cidrs));
         }
 
+        /**
+         * @param ipv6Cidrs Set of IPv6 CIDR blocks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv6Cidrs(String... ipv6Cidrs) {
             return ipv6Cidrs(List.of(ipv6Cidrs));
         }
 
         /**
-         * @param protocol IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
          * 
          * @return builder
          * 
@@ -241,7 +267,7 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protocol IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+         * @param protocol IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
          * 
          * @return builder
          * 

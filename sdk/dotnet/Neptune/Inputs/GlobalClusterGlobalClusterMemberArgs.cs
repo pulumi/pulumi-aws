@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Neptune.Inputs
     public sealed class GlobalClusterGlobalClusterMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of member DB Cluster.
+        /// ARN of member DB Cluster.
         /// </summary>
         [Input("dbClusterArn")]
         public Input<string>? DbClusterArn { get; set; }

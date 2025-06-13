@@ -64,7 +64,7 @@ git branch upstream-v5.60.0 && git checkout upstream-v5.60.0
 # if patch_computed_only edited anything in ./upstream, commit it
 (cd ./upstream && go build ./...) # verify everything builds
 # add commits as needed to make it build
-./scripts/upstream.sh format_patches
+./scripts/upstream.sh check_in
 git add ./patches && git commit -m "Update patches for v5.60.0"
 (cd upstream && git reset --hard v5.60.0)
 git add ./upstream && git commit -m "Move upstream to v5.60.0"

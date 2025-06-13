@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+    /// Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
     /// 
     /// &gt; **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
     /// 
@@ -79,37 +79,39 @@ namespace Pulumi.Aws.LightSail
     public partial class ContainerServiceDeploymentVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ContainerServiceDeploymentVersionContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the deployment was created.
+        /// Date and time when the deployment was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
         /// </summary>
         [Output("publicEndpoint")]
         public Output<Outputs.ContainerServiceDeploymentVersionPublicEndpoint?> PublicEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the container service.
+        /// Name of the container service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the container service.
+        /// Current state of the container service.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the deployment.
+        /// Version number of the deployment.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -164,7 +166,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>? _containers;
 
         /// <summary>
-        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs> Containers
         {
@@ -173,13 +175,15 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
         /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs>? PublicEndpoint { get; set; }
 
         /// <summary>
-        /// The name for the container service.
+        /// Name of the container service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -196,7 +200,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>? _containers;
 
         /// <summary>
-        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         /// </summary>
         public InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs> Containers
         {
@@ -205,31 +209,33 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// The timestamp when the deployment was created.
+        /// Date and time when the deployment was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// Configuration block that describes the settings of the public endpoint for the container service. See below.
         /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointGetArgs>? PublicEndpoint { get; set; }
 
         /// <summary>
-        /// The name for the container service.
+        /// Name of the container service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The current state of the container service.
+        /// Current state of the container service.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The version number of the deployment.
+        /// Version number of the deployment.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

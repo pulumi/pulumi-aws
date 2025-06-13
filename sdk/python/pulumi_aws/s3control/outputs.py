@@ -23,6 +23,7 @@ __all__ = [
     'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload',
     'BucketLifecycleConfigurationRuleExpiration',
     'BucketLifecycleConfigurationRuleFilter',
+    'DirectoryBucketAccessPointScopeScope',
     'MultiRegionAccessPointDetails',
     'MultiRegionAccessPointDetailsPublicAccessBlock',
     'MultiRegionAccessPointDetailsRegion',
@@ -349,6 +350,41 @@ class BucketLifecycleConfigurationRuleFilter(dict):
         Key-value map of object tags for rule filtering.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DirectoryBucketAccessPointScopeScope(dict):
+    def __init__(__self__, *,
+                 permissions: Optional[Sequence[builtins.str]] = None,
+                 prefixes: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] permissions: You can specify a list of API operations as permissions for the access point.
+        :param Sequence[builtins.str] prefixes: You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+               
+               * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if prefixes is not None:
+            pulumi.set(__self__, "prefixes", prefixes)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        You can specify a list of API operations as permissions for the access point.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
+    def prefixes(self) -> Optional[Sequence[builtins.str]]:
+        """
+        You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+
+        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+        """
+        return pulumi.get(self, "prefixes")
 
 
 @pulumi.output_type

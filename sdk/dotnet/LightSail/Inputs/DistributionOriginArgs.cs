@@ -13,25 +13,25 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class DistributionOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        /// Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        /// Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         /// </summary>
         [Input("protocolPolicy")]
         public Input<string>? ProtocolPolicy { get; set; }
 
         /// <summary>
-        /// The AWS Region name of the origin resource.
+        /// AWS Region name of the origin resource.
         /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 
         /// <summary>
-        /// The resource type of the origin resource (e.g., Instance).
+        /// Lightsail resource type (e.g., Distribution).
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

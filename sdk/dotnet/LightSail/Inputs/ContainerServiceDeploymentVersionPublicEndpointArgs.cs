@@ -13,19 +13,19 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class ContainerServiceDeploymentVersionPublicEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container for the endpoint.
+        /// Name of the container for the endpoint.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The port of the container to which traffic is forwarded to.
+        /// Port of the container to which traffic is forwarded to.
         /// </summary>
         [Input("containerPort", required: true)]
         public Input<int> ContainerPort { get; set; } = null!;
 
         /// <summary>
-        /// A configuration block that describes the health check configuration of the container. Detailed below.
+        /// Configuration block that describes the health check configuration of the container. See below.
         /// </summary>
         [Input("healthCheck", required: true)]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> HealthCheck { get; set; } = null!;

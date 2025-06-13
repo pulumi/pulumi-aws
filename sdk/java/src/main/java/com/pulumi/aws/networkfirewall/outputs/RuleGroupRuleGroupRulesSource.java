@@ -21,7 +21,7 @@ public final class RuleGroupRuleGroupRulesSource {
      */
     private @Nullable RuleGroupRuleGroupRulesSourceRulesSourceList rulesSourceList;
     /**
-     * @return The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
      * 
      */
     private @Nullable String rulesString;
@@ -45,7 +45,7 @@ public final class RuleGroupRuleGroupRulesSource {
         return Optional.ofNullable(this.rulesSourceList);
     }
     /**
-     * @return The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
      * 
      */
     public Optional<String> rulesString() {

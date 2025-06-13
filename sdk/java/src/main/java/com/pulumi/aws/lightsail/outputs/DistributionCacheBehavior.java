@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class DistributionCacheBehavior {
     /**
-     * @return The cache behavior for the specified path.
+     * @return Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
      * 
      */
     private String behavior;
     /**
-     * @return The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+     * @return Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
      * 
      */
     private String path;
 
     private DistributionCacheBehavior() {}
     /**
-     * @return The cache behavior for the specified path.
+     * @return Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
      * 
      */
     public String behavior() {
         return this.behavior;
     }
     /**
-     * @return The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+     * @return Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
      * 
      */
     public String path() {

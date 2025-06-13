@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ContainerServiceDeploymentVersionContainer {
     /**
-     * @return The launch command for the container. A list of string.
+     * @return Launch command for the container. A list of strings.
      * 
      */
     private @Nullable List<String> commands;
     /**
-     * @return The name for the container.
+     * @return Name of the container.
      * 
      */
     private String containerName;
     /**
-     * @return A key-value map of the environment variables of the container.
+     * @return Key-value map of the environment variables of the container.
      * 
      */
     private @Nullable Map<String,String> environment;
     /**
-     * @return The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * @return Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
     private String image;
     /**
-     * @return A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * @return Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
     private @Nullable Map<String,String> ports;
 
     private ContainerServiceDeploymentVersionContainer() {}
     /**
-     * @return The launch command for the container. A list of string.
+     * @return Launch command for the container. A list of strings.
      * 
      */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return The name for the container.
+     * @return Name of the container.
      * 
      */
     public String containerName() {
         return this.containerName;
     }
     /**
-     * @return A key-value map of the environment variables of the container.
+     * @return Key-value map of the environment variables of the container.
      * 
      */
     public Map<String,String> environment() {
         return this.environment == null ? Map.of() : this.environment;
     }
     /**
-     * @return The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * @return Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
     public String image() {
         return this.image;
     }
     /**
-     * @return A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * @return Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
     public Map<String,String> ports() {

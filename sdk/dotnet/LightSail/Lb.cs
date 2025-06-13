@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Creates a Lightsail load balancer resource.
+    /// Manages a Lightsail load balancer resource.
+    /// 
+    /// Use this resource to distribute incoming traffic across multiple Lightsail instances to improve application availability and performance.
     /// 
     /// ## Example Usage
     /// 
@@ -22,9 +24,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Lb("test", new()
+    ///     var example = new Aws.LightSail.Lb("example", new()
     ///     {
-    ///         Name = "test-load-balancer",
+    ///         Name = "example-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -41,77 +43,82 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+    /// $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lb:Lb")]
     public partial class Lb : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Lightsail load balancer.
+        /// ARN of the Lightsail load balancer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the load balancer was created.
+        /// Timestamp when the load balancer was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS name of the load balancer.
+        /// DNS name of the load balancer.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// The health check path of the load balancer. Default value "/".
+        /// Health check path of the load balancer. Default value `/`.
         /// </summary>
         [Output("healthCheckPath")]
         public Output<string?> HealthCheckPath { get; private set; } = null!;
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// Instance port the load balancer will connect to.
         /// </summary>
         [Output("instancePort")]
         public Output<int> InstancePort { get; private set; } = null!;
 
+        /// <summary>
+        /// IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol of the load balancer.
+        /// Protocol of the load balancer.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The public ports of the load balancer.
+        /// Public ports of the load balancer.
         /// </summary>
         [Output("publicPorts")]
         public Output<ImmutableArray<int>> PublicPorts { get; private set; } = null!;
 
         /// <summary>
-        /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Output("supportCode")]
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -163,22 +170,27 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The health check path of the load balancer. Default value "/".
+        /// Health check path of the load balancer. Default value `/`.
         /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// Instance port the load balancer will connect to.
         /// </summary>
         [Input("instancePort", required: true)]
         public Input<int> InstancePort { get; set; } = null!;
 
+        /// <summary>
+        /// IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -187,7 +199,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -204,46 +216,51 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Lightsail load balancer.
+        /// ARN of the Lightsail load balancer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The timestamp when the load balancer was created.
+        /// Timestamp when the load balancer was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The DNS name of the load balancer.
+        /// DNS name of the load balancer.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// The health check path of the load balancer. Default value "/".
+        /// Health check path of the load balancer. Default value `/`.
         /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// The instance port the load balancer will connect.
+        /// Instance port the load balancer will connect to.
         /// </summary>
         [Input("instancePort")]
         public Input<int>? InstancePort { get; set; }
 
+        /// <summary>
+        /// IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail load balancer.
+        /// Name of the Lightsail load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The protocol of the load balancer.
+        /// Protocol of the load balancer.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -252,7 +269,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<int>? _publicPorts;
 
         /// <summary>
-        /// The public ports of the load balancer.
+        /// Public ports of the load balancer.
         /// </summary>
         public InputList<int> PublicPorts
         {
@@ -261,7 +278,7 @@ namespace Pulumi.Aws.LightSail
         }
 
         /// <summary>
-        /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        /// Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
         public Input<string>? SupportCode { get; set; }
@@ -270,7 +287,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -282,7 +299,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

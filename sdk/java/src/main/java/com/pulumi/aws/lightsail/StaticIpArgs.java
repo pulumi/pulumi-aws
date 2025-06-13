@@ -16,14 +16,14 @@ public final class StaticIpArgs extends com.pulumi.resources.ResourceArgs {
     public static final StaticIpArgs Empty = new StaticIpArgs();
 
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the allocated static IP
+     * @return Name for the allocated static IP.
      * 
      */
     public Optional<Output<String>> name() {
@@ -55,7 +55,7 @@ public final class StaticIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the allocated static IP
+         * @param name Name for the allocated static IP.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class StaticIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the allocated static IP
+         * @param name Name for the allocated static IP.
          * 
          * @return builder
          * 

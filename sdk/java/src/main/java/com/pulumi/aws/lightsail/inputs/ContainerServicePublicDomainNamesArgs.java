@@ -15,9 +15,17 @@ public final class ContainerServicePublicDomainNamesArgs extends com.pulumi.reso
 
     public static final ContainerServicePublicDomainNamesArgs Empty = new ContainerServicePublicDomainNamesArgs();
 
+    /**
+     * Set of certificate configurations for the public domain names. Each element contains the following attributes:
+     * 
+     */
     @Import(name="certificates", required=true)
     private Output<List<ContainerServicePublicDomainNamesCertificateArgs>> certificates;
 
+    /**
+     * @return Set of certificate configurations for the public domain names. Each element contains the following attributes:
+     * 
+     */
     public Output<List<ContainerServicePublicDomainNamesCertificateArgs>> certificates() {
         return this.certificates;
     }
@@ -46,15 +54,33 @@ public final class ContainerServicePublicDomainNamesArgs extends com.pulumi.reso
             $ = new ContainerServicePublicDomainNamesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificates Set of certificate configurations for the public domain names. Each element contains the following attributes:
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(Output<List<ContainerServicePublicDomainNamesCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
         }
 
+        /**
+         * @param certificates Set of certificate configurations for the public domain names. Each element contains the following attributes:
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(List<ContainerServicePublicDomainNamesCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
 
+        /**
+         * @param certificates Set of certificate configurations for the public domain names. Each element contains the following attributes:
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(ContainerServicePublicDomainNamesCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }

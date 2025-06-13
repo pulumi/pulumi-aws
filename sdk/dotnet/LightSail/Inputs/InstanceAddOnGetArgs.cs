@@ -13,19 +13,19 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class InstanceAddOnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+        /// Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
         /// </summary>
         [Input("snapshotTime", required: true)]
         public Input<string> SnapshotTime { get; set; } = null!;
 
         /// <summary>
-        /// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+        /// Status of the add-on. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// The add-on type. There is currently only one valid type `AutoSnapshot`.
+        /// Add-on type. There is currently only one valid type `AutoSnapshot`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

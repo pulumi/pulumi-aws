@@ -192,6 +192,222 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Create an association with multiple instances with their instance ids
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // First EC2 instance
+ *         var webServer1 = new Instance("webServer1", InstanceArgs.builder()
+ *             .ami(amazonLinux.id())
+ *             .instanceType("t3.micro")
+ *             .subnetId(public_.id())
+ *             .vpcSecurityGroupIds(ec2Sg.id())
+ *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .userData("""
+ * #!/bin/bash
+ * yum update -y
+ * yum install -y amazon-ssm-agent
+ * systemctl enable amazon-ssm-agent
+ * systemctl start amazon-ssm-agent
+ *             """)
+ *             .build());
+ * 
+ *         // Second EC2 instance
+ *         var webServer2 = new Instance("webServer2", InstanceArgs.builder()
+ *             .ami(amazonLinux.id())
+ *             .instanceType("t3.micro")
+ *             .subnetId(public_.id())
+ *             .vpcSecurityGroupIds(ec2Sg.id())
+ *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .userData("""
+ * #!/bin/bash
+ * yum update -y
+ * yum install -y amazon-ssm-agent
+ * systemctl enable amazon-ssm-agent
+ * systemctl start amazon-ssm-agent
+ *             """)
+ *             .build());
+ * 
+ *         // Removed EC2 provisioning dependencies for brevity
+ *         var systemUpdate = new Association("systemUpdate", AssociationArgs.builder()
+ *             .name("AWS-RunShellScript")
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key("InstanceIds")
+ *                 .values(                
+ *                     webServer1.id(),
+ *                     webServer2.id())
+ *                 .build())
+ *             .scheduleExpression("cron(0 2 ? * SUN *)")
+ *             .parameters(Map.ofEntries(
+ *                 Map.entry("commands", StdFunctions.join(JoinArgs.builder()
+ *                     .separator("""
+ * 
+ *                     """)
+ *                     .input(                    
+ *                         "#!/bin/bash",
+ *                         "echo 'Starting system update on $(hostname)'",
+ *                         "echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
+ *                         "yum update -y",
+ *                         "echo 'System update completed successfully'",
+ *                         "systemctl status httpd",
+ *                         "df -h",
+ *                         "free -m")
+ *                     .build()).result()),
+ *                 Map.entry("workingDirectory", "/tmp"),
+ *                 Map.entry("executionTimeout", "3600")
+ *             ))
+ *             .associationName("weekly-system-update")
+ *             .complianceSeverity("MEDIUM")
+ *             .maxConcurrency("1")
+ *             .maxErrors("0")
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Name", "Weekly System Update"),
+ *                 Map.entry("Environment", "demo"),
+ *                 Map.entry("Purpose", "maintenance")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Create an association with multiple instances with their values matching their tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Association;
+ * import com.pulumi.aws.ssm.AssociationArgs;
+ * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // SSM Association for Webbased Servers
+ *         var databaseAssociation = new Association("databaseAssociation", AssociationArgs.builder()
+ *             .name(systemUpdate.name())
+ *             .targets(AssociationTargetArgs.builder()
+ *                 .key("tag:Role")
+ *                 .values(                
+ *                     "WebServer",
+ *                     "Database")
+ *                 .build())
+ *             .parameters(Map.of("restartServices", "true"))
+ *             .scheduleExpression("cron(0 3 ? * SUN *)")
+ *             .build());
+ * 
+ *         // EC2 Instance 1 - Web Server with "ServerType" tag
+ *         var webServer = new Instance("webServer", InstanceArgs.builder()
+ *             .ami(amazonLinux.id())
+ *             .instanceType(instanceType)
+ *             .subnetId(default_.id())
+ *             .vpcSecurityGroupIds(ec2Sg.id())
+ *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .userData(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input("""
+ * #!/bin/bash
+ * yum update -y
+ * yum install -y amazon-ssm-agent
+ * systemctl enable amazon-ssm-agent
+ * systemctl start amazon-ssm-agent
+ *     
+ * # Install Apache web server
+ * yum install -y httpd
+ * systemctl enable httpd
+ * systemctl start httpd
+ * echo "<h1>Web Server - %s</h1>" > /var/www/html/index.html
+ * ", prefix))
+ *                 .build()).result())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Name", String.format("%s-web-server", prefix)),
+ *                 Map.entry("ServerType", "WebServer"),
+ *                 Map.entry("Role", "WebServer"),
+ *                 Map.entry("Environment", environment),
+ *                 Map.entry("Owner", owner)
+ *             ))
+ *             .build());
+ * 
+ *         // EC2 Instance 2 - Database Server with "Role" tag
+ *         var databaseServer = new Instance("databaseServer", InstanceArgs.builder()
+ *             .ami(amazonLinux.id())
+ *             .instanceType(instanceType)
+ *             .subnetId(default_.id())
+ *             .vpcSecurityGroupIds(ec2Sg.id())
+ *             .iamInstanceProfile(ec2SsmProfile.name())
+ *             .userData(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input("""
+ * #!/bin/bash
+ * yum update -y
+ * yum install -y amazon-ssm-agent
+ * systemctl enable amazon-ssm-agent
+ * systemctl start amazon-ssm-agent
+ *     
+ * # Install MySQL
+ * yum install -y mysql-server
+ * systemctl enable mysqld
+ * systemctl start mysqld
+ *                 """)
+ *                 .build()).result())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Name", String.format("%s-database-server", prefix)),
+ *                 Map.entry("Role", "Database"),
+ *                 Map.entry("Environment", environment),
+ *                 Map.entry("Owner", owner)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM associations using the `association_id`. For example:

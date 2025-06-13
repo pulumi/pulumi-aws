@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebUserSettings("example", {
+ * const example = new aws.workspacesweb.UserSettings("example", {
  *     copyAllowed: "Enabled",
  *     downloadAllowed: "Enabled",
  *     pasteAllowed: "Enabled",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.WebUserSettings("example", {
+ * const example = new aws.workspacesweb.UserSettings("example", {
  *     copyAllowed: "Enabled",
  *     downloadAllowed: "Enabled",
  *     pasteAllowed: "Enabled",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     description: "KMS key for WorkSpaces Web User Settings",
  *     deletionWindowInDays: 7,
  * });
- * const exampleWebUserSettings = new aws.workspaces.WebUserSettings("example", {
+ * const exampleUserSettings = new aws.workspacesweb.UserSettings("example", {
  *     copyAllowed: "Enabled",
  *     downloadAllowed: "Enabled",
  *     pasteAllowed: "Enabled",
@@ -104,6 +104,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:workspaces/webUserSettings:WebUserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
  * ```
+ *
+ * @deprecated aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings
  */
 export class WebUserSettings extends pulumi.CustomResource {
     /**
@@ -116,6 +118,7 @@ export class WebUserSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebUserSettingsState, opts?: pulumi.CustomResourceOptions): WebUserSettings {
+        pulumi.log.warn("WebUserSettings is deprecated: aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings")
         return new WebUserSettings(name, <any>state, { ...opts, id: id });
     }
 
@@ -209,8 +212,11 @@ export class WebUserSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings */
     constructor(name: string, args: WebUserSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings */
     constructor(name: string, argsOrState?: WebUserSettingsArgs | WebUserSettingsState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("WebUserSettings is deprecated: aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

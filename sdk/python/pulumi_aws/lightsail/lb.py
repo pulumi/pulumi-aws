@@ -27,10 +27,13 @@ class LbArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lb resource.
-        :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
-        :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.int] instance_port: Instance port the load balancer will connect to.
+        :param pulumi.Input[builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        :param pulumi.Input[builtins.str] name: Name of the Lightsail load balancer.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_port", instance_port)
         if health_check_path is not None:
@@ -46,7 +49,7 @@ class LbArgs:
     @pulumi.getter(name="instancePort")
     def instance_port(self) -> pulumi.Input[builtins.int]:
         """
-        The instance port the load balancer will connect.
+        Instance port the load balancer will connect to.
         """
         return pulumi.get(self, "instance_port")
 
@@ -58,7 +61,7 @@ class LbArgs:
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The health check path of the load balancer. Default value "/".
+        Health check path of the load balancer. Default value `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -69,6 +72,9 @@ class LbArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -79,7 +85,9 @@ class LbArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -91,7 +99,7 @@ class LbArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -117,17 +125,20 @@ class _LbState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Lb resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the Lightsail load balancer.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the load balancer was created.
-        :param pulumi.Input[builtins.str] dns_name: The DNS name of the load balancer.
-        :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
-        :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[builtins.str] protocol: The protocol of the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: The public ports of the load balancer.
-        :param pulumi.Input[builtins.str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the load balancer was created.
+        :param pulumi.Input[builtins.str] dns_name: DNS name of the load balancer.
+        :param pulumi.Input[builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
+        :param pulumi.Input[builtins.int] instance_port: Instance port the load balancer will connect to.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        :param pulumi.Input[builtins.str] name: Name of the Lightsail load balancer.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] protocol: Protocol of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: Public ports of the load balancer.
+        :param pulumi.Input[builtins.str] support_code: Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -161,7 +172,7 @@ class _LbState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the Lightsail load balancer.
+        ARN of the Lightsail load balancer.
         """
         return pulumi.get(self, "arn")
 
@@ -173,7 +184,7 @@ class _LbState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The timestamp when the load balancer was created.
+        Timestamp when the load balancer was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -185,7 +196,7 @@ class _LbState:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The DNS name of the load balancer.
+        DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
 
@@ -197,7 +208,7 @@ class _LbState:
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The health check path of the load balancer. Default value "/".
+        Health check path of the load balancer. Default value `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -209,7 +220,7 @@ class _LbState:
     @pulumi.getter(name="instancePort")
     def instance_port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The instance port the load balancer will connect.
+        Instance port the load balancer will connect to.
         """
         return pulumi.get(self, "instance_port")
 
@@ -220,6 +231,9 @@ class _LbState:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -230,7 +244,9 @@ class _LbState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -242,7 +258,7 @@ class _LbState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The protocol of the load balancer.
+        Protocol of the load balancer.
         """
         return pulumi.get(self, "protocol")
 
@@ -254,7 +270,7 @@ class _LbState:
     @pulumi.getter(name="publicPorts")
     def public_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]]:
         """
-        The public ports of the load balancer.
+        Public ports of the load balancer.
         """
         return pulumi.get(self, "public_ports")
 
@@ -266,7 +282,7 @@ class _LbState:
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -278,7 +294,7 @@ class _LbState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -291,7 +307,7 @@ class _LbState:
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -313,7 +329,9 @@ class Lb(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a Lightsail load balancer resource.
+        Manages a Lightsail load balancer resource.
+
+        Use this resource to distribute incoming traffic across multiple Lightsail instances to improve application availability and performance.
 
         ## Example Usage
 
@@ -321,8 +339,8 @@ class Lb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
@@ -335,15 +353,18 @@ class Lb(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+        $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
-        :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
+        :param pulumi.Input[builtins.int] instance_port: Instance port the load balancer will connect to.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        :param pulumi.Input[builtins.str] name: Name of the Lightsail load balancer.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -352,7 +373,9 @@ class Lb(pulumi.CustomResource):
                  args: LbArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Lightsail load balancer resource.
+        Manages a Lightsail load balancer resource.
+
+        Use this resource to distribute incoming traffic across multiple Lightsail instances to improve application availability and performance.
 
         ## Example Usage
 
@@ -360,8 +383,8 @@ class Lb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
@@ -374,7 +397,7 @@ class Lb(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+        $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -449,17 +472,20 @@ class Lb(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the Lightsail load balancer.
-        :param pulumi.Input[builtins.str] created_at: The timestamp when the load balancer was created.
-        :param pulumi.Input[builtins.str] dns_name: The DNS name of the load balancer.
-        :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
-        :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
-        :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
-        :param pulumi.Input[builtins.str] protocol: The protocol of the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: The public ports of the load balancer.
-        :param pulumi.Input[builtins.str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the load balancer was created.
+        :param pulumi.Input[builtins.str] dns_name: DNS name of the load balancer.
+        :param pulumi.Input[builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
+        :param pulumi.Input[builtins.int] instance_port: Instance port the load balancer will connect to.
+        :param pulumi.Input[builtins.str] ip_address_type: IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        :param pulumi.Input[builtins.str] name: Name of the Lightsail load balancer.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] protocol: Protocol of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: Public ports of the load balancer.
+        :param pulumi.Input[builtins.str] support_code: Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,7 +509,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the Lightsail load balancer.
+        ARN of the Lightsail load balancer.
         """
         return pulumi.get(self, "arn")
 
@@ -491,7 +517,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         """
-        The timestamp when the load balancer was created.
+        Timestamp when the load balancer was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -499,7 +525,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[builtins.str]:
         """
-        The DNS name of the load balancer.
+        DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
 
@@ -507,7 +533,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The health check path of the load balancer. Default value "/".
+        Health check path of the load balancer. Default value `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -515,20 +541,25 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="instancePort")
     def instance_port(self) -> pulumi.Output[builtins.int]:
         """
-        The instance port the load balancer will connect.
+        Instance port the load balancer will connect to.
         """
         return pulumi.get(self, "instance_port")
 
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -536,7 +567,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[builtins.str]:
         """
-        The protocol of the load balancer.
+        Protocol of the load balancer.
         """
         return pulumi.get(self, "protocol")
 
@@ -544,7 +575,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="publicPorts")
     def public_ports(self) -> pulumi.Output[Sequence[builtins.int]]:
         """
-        The public ports of the load balancer.
+        Public ports of the load balancer.
         """
         return pulumi.get(self, "public_ports")
 
@@ -552,7 +583,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[builtins.str]:
         """
-        The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+        Support code for the load balancer. Include this code in your email to support when you have questions about a load balancer in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -560,7 +591,7 @@ class Lb(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -569,7 +600,7 @@ class Lb(pulumi.CustomResource):
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

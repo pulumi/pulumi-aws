@@ -15,14 +15,14 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceAddOnArgs Empty = new InstanceAddOnArgs();
 
     /**
-     * The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+     * Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
      * 
      */
     @Import(name="snapshotTime", required=true)
     private Output<String> snapshotTime;
 
     /**
-     * @return The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+     * @return Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
      * 
      */
     public Output<String> snapshotTime() {
@@ -30,14 +30,14 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+     * Status of the add-on. Valid values: `Enabled`, `Disabled`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+     * @return Status of the add-on. Valid values: `Enabled`, `Disabled`.
      * 
      */
     public Output<String> status() {
@@ -45,14 +45,14 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The add-on type. There is currently only one valid type `AutoSnapshot`.
+     * Add-on type. There is currently only one valid type `AutoSnapshot`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The add-on type. There is currently only one valid type `AutoSnapshot`.
+     * @return Add-on type. There is currently only one valid type `AutoSnapshot`.
      * 
      */
     public Output<String> type() {
@@ -86,7 +86,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotTime The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+         * @param snapshotTime Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotTime The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+         * @param snapshotTime Daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+         * @param status Status of the add-on. Valid values: `Enabled`, `Disabled`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the add-on. Valid Values: `Enabled`, `Disabled`.
+         * @param status Status of the add-on. Valid values: `Enabled`, `Disabled`.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The add-on type. There is currently only one valid type `AutoSnapshot`.
+         * @param type Add-on type. There is currently only one valid type `AutoSnapshot`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The add-on type. There is currently only one valid type `AutoSnapshot`.
+         * @param type Add-on type. There is currently only one valid type `AutoSnapshot`.
          * 
          * @return builder
          * 

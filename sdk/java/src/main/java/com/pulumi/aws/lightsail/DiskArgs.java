@@ -19,14 +19,14 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     public static final DiskArgs Empty = new DiskArgs();
 
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your disk.
+     * @return Availability Zone in which to create the disk.
      * 
      */
     public Output<String> availabilityZone() {
@@ -34,14 +34,14 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the disk.
+     * @return Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      * 
      */
     public Optional<Output<String>> name() {
@@ -49,14 +49,18 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="sizeInGb", required=true)
     private Output<Integer> sizeInGb;
 
     /**
-     * @return The size of the disk in GB.
+     * @return Size of the disk in GB.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> sizeInGb() {
@@ -64,14 +68,14 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -106,7 +110,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your disk.
+         * @param availabilityZone Availability Zone in which to create the disk.
          * 
          * @return builder
          * 
@@ -117,7 +121,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your disk.
+         * @param availabilityZone Availability Zone in which to create the disk.
          * 
          * @return builder
          * 
@@ -127,7 +131,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the disk.
+         * @param name Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
          * 
          * @return builder
          * 
@@ -138,7 +142,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the disk.
+         * @param name Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
          * 
          * @return builder
          * 
@@ -148,7 +152,9 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The size of the disk in GB.
+         * @param sizeInGb Size of the disk in GB.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -159,7 +165,9 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInGb The size of the disk in GB.
+         * @param sizeInGb Size of the disk in GB.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -169,7 +177,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -180,7 +188,7 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

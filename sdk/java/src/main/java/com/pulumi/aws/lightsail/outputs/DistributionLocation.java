@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class DistributionLocation {
     /**
-     * @return The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * @return Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
     private String availabilityZone;
     /**
-     * @return The AWS Region name.
+     * @return AWS Region name.
      * 
      */
     private String regionName;
 
     private DistributionLocation() {}
     /**
-     * @return The Availability Zone. Follows the format us-east-2a (case-sensitive).
+     * @return Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
     public String availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * @return The AWS Region name.
+     * @return AWS Region name.
      * 
      */
     public String regionName() {

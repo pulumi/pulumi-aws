@@ -4,6 +4,7 @@
 package com.pulumi.aws.neptune.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,14 +17,29 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
     public static final GetEngineVersionPlainArgs Empty = new GetEngineVersionPlainArgs();
 
     /**
-     * DB engine. (Default: `neptune`)
+     * Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+     * 
+     */
+    @Import(name="defaultOnly")
+    private @Nullable Boolean defaultOnly;
+
+    /**
+     * @return Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+     * 
+     */
+    public Optional<Boolean> defaultOnly() {
+        return Optional.ofNullable(this.defaultOnly);
+    }
+
+    /**
+     * DB engine. Must be `neptune`. Default is `neptune`.
      * 
      */
     @Import(name="engine")
     private @Nullable String engine;
 
     /**
-     * @return DB engine. (Default: `neptune`)
+     * @return DB engine. Must be `neptune`. Default is `neptune`.
      * 
      */
     public Optional<String> engine() {
@@ -31,18 +47,93 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * Whether to filter for engine versions that have a major target.
+     * 
+     */
+    @Import(name="hasMajorTarget")
+    private @Nullable Boolean hasMajorTarget;
+
+    /**
+     * @return Whether to filter for engine versions that have a major target.
+     * 
+     */
+    public Optional<Boolean> hasMajorTarget() {
+        return Optional.ofNullable(this.hasMajorTarget);
+    }
+
+    /**
+     * Whether to filter for engine versions that have a minor target.
+     * 
+     */
+    @Import(name="hasMinorTarget")
+    private @Nullable Boolean hasMinorTarget;
+
+    /**
+     * @return Whether to filter for engine versions that have a minor target.
+     * 
+     */
+    public Optional<Boolean> hasMinorTarget() {
+        return Optional.ofNullable(this.hasMinorTarget);
+    }
+
+    /**
+     * Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+     * 
+     */
+    @Import(name="latest")
+    private @Nullable Boolean latest;
+
+    /**
+     * @return Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+     * 
+     */
+    public Optional<Boolean> latest() {
+        return Optional.ofNullable(this.latest);
+    }
+
+    /**
+     * Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
      * 
      */
     @Import(name="parameterGroupFamily")
     private @Nullable String parameterGroupFamily;
 
     /**
-     * @return Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+     * @return Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
      * 
      */
     public Optional<String> parameterGroupFamily() {
         return Optional.ofNullable(this.parameterGroupFamily);
+    }
+
+    /**
+     * Ordered list of preferred major engine versions.
+     * 
+     */
+    @Import(name="preferredMajorTargets")
+    private @Nullable List<String> preferredMajorTargets;
+
+    /**
+     * @return Ordered list of preferred major engine versions.
+     * 
+     */
+    public Optional<List<String>> preferredMajorTargets() {
+        return Optional.ofNullable(this.preferredMajorTargets);
+    }
+
+    /**
+     * Ordered list of preferred upgrade engine versions.
+     * 
+     */
+    @Import(name="preferredUpgradeTargets")
+    private @Nullable List<String> preferredUpgradeTargets;
+
+    /**
+     * @return Ordered list of preferred upgrade engine versions.
+     * 
+     */
+    public Optional<List<String>> preferredUpgradeTargets() {
+        return Optional.ofNullable(this.preferredUpgradeTargets);
     }
 
     /**
@@ -78,8 +169,14 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
     private GetEngineVersionPlainArgs() {}
 
     private GetEngineVersionPlainArgs(GetEngineVersionPlainArgs $) {
+        this.defaultOnly = $.defaultOnly;
         this.engine = $.engine;
+        this.hasMajorTarget = $.hasMajorTarget;
+        this.hasMinorTarget = $.hasMinorTarget;
+        this.latest = $.latest;
         this.parameterGroupFamily = $.parameterGroupFamily;
+        this.preferredMajorTargets = $.preferredMajorTargets;
+        this.preferredUpgradeTargets = $.preferredUpgradeTargets;
         this.preferredVersions = $.preferredVersions;
         this.version = $.version;
     }
@@ -103,7 +200,18 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param engine DB engine. (Default: `neptune`)
+         * @param defaultOnly Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `default_only` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOnly(@Nullable Boolean defaultOnly) {
+            $.defaultOnly = defaultOnly;
+            return this;
+        }
+
+        /**
+         * @param engine DB engine. Must be `neptune`. Default is `neptune`.
          * 
          * @return builder
          * 
@@ -114,7 +222,40 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+         * @param hasMajorTarget Whether to filter for engine versions that have a major target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMajorTarget(@Nullable Boolean hasMajorTarget) {
+            $.hasMajorTarget = hasMajorTarget;
+            return this;
+        }
+
+        /**
+         * @param hasMinorTarget Whether to filter for engine versions that have a minor target.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hasMinorTarget(@Nullable Boolean hasMinorTarget) {
+            $.hasMinorTarget = hasMinorTarget;
+            return this;
+        }
+
+        /**
+         * @param latest Whether to return only the latest engine version that matches all other criteria. This differs from `default_only`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `default_only` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latest(@Nullable Boolean latest) {
+            $.latest = latest;
+            return this;
+        }
+
+        /**
+         * @param parameterGroupFamily Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
          * 
          * @return builder
          * 
@@ -122,6 +263,48 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         public Builder parameterGroupFamily(@Nullable String parameterGroupFamily) {
             $.parameterGroupFamily = parameterGroupFamily;
             return this;
+        }
+
+        /**
+         * @param preferredMajorTargets Ordered list of preferred major engine versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredMajorTargets(@Nullable List<String> preferredMajorTargets) {
+            $.preferredMajorTargets = preferredMajorTargets;
+            return this;
+        }
+
+        /**
+         * @param preferredMajorTargets Ordered list of preferred major engine versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredMajorTargets(String... preferredMajorTargets) {
+            return preferredMajorTargets(List.of(preferredMajorTargets));
+        }
+
+        /**
+         * @param preferredUpgradeTargets Ordered list of preferred upgrade engine versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredUpgradeTargets(@Nullable List<String> preferredUpgradeTargets) {
+            $.preferredUpgradeTargets = preferredUpgradeTargets;
+            return this;
+        }
+
+        /**
+         * @param preferredUpgradeTargets Ordered list of preferred upgrade engine versions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredUpgradeTargets(String... preferredUpgradeTargets) {
+            return preferredUpgradeTargets(List.of(preferredUpgradeTargets));
         }
 
         /**

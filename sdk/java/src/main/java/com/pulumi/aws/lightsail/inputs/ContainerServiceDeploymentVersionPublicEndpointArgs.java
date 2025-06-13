@@ -17,14 +17,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
     public static final ContainerServiceDeploymentVersionPublicEndpointArgs Empty = new ContainerServiceDeploymentVersionPublicEndpointArgs();
 
     /**
-     * The name of the container for the endpoint.
+     * Name of the container for the endpoint.
      * 
      */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
     /**
-     * @return The name of the container for the endpoint.
+     * @return Name of the container for the endpoint.
      * 
      */
     public Output<String> containerName() {
@@ -32,14 +32,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
     }
 
     /**
-     * The port of the container to which traffic is forwarded to.
+     * Port of the container to which traffic is forwarded to.
      * 
      */
     @Import(name="containerPort", required=true)
     private Output<Integer> containerPort;
 
     /**
-     * @return The port of the container to which traffic is forwarded to.
+     * @return Port of the container to which traffic is forwarded to.
      * 
      */
     public Output<Integer> containerPort() {
@@ -47,14 +47,14 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
     }
 
     /**
-     * A configuration block that describes the health check configuration of the container. Detailed below.
+     * Configuration block that describes the health check configuration of the container. See below.
      * 
      */
     @Import(name="healthCheck", required=true)
     private Output<ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> healthCheck;
 
     /**
-     * @return A configuration block that describes the health check configuration of the container. Detailed below.
+     * @return Configuration block that describes the health check configuration of the container. See below.
      * 
      */
     public Output<ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> healthCheck() {
@@ -88,7 +88,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param containerName The name of the container for the endpoint.
+         * @param containerName Name of the container for the endpoint.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param containerName The name of the container for the endpoint.
+         * @param containerName Name of the container for the endpoint.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param containerPort The port of the container to which traffic is forwarded to.
+         * @param containerPort Port of the container to which traffic is forwarded to.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param containerPort The port of the container to which traffic is forwarded to.
+         * @param containerPort Port of the container to which traffic is forwarded to.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param healthCheck A configuration block that describes the health check configuration of the container. Detailed below.
+         * @param healthCheck Configuration block that describes the health check configuration of the container. See below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ContainerServiceDeploymentVersionPublicEndpointArgs extends c
         }
 
         /**
-         * @param healthCheck A configuration block that describes the health check configuration of the container. Detailed below.
+         * @param healthCheck Configuration block that describes the health check configuration of the container. See below.
          * 
          * @return builder
          * 

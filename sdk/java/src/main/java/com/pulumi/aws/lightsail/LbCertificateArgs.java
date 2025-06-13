@@ -18,14 +18,14 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final LbCertificateArgs Empty = new LbCertificateArgs();
 
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -33,14 +33,14 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
     /**
-     * @return The load balancer name where you want to create the SSL/TLS certificate.
+     * @return Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     public Output<String> lbName() {
@@ -48,14 +48,18 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The SSL/TLS certificate name.
+     * @return SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -105,7 +109,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -116,7 +120,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
+         * @param domainName Domain name (e.g., example.com) for your SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -126,7 +130,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
+         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -137,7 +141,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
+         * @param lbName Load balancer name where you want to create the SSL/TLS certificate.
          * 
          * @return builder
          * 
@@ -147,7 +151,9 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The SSL/TLS certificate name.
+         * @param name SSL/TLS certificate name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -158,7 +164,9 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The SSL/TLS certificate name.
+         * @param name SSL/TLS certificate name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

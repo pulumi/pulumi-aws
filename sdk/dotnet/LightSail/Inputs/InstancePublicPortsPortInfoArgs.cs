@@ -44,6 +44,10 @@ namespace Pulumi.Aws.LightSail.Inputs
 
         [Input("ipv6Cidrs")]
         private InputList<string>? _ipv6Cidrs;
+
+        /// <summary>
+        /// Set of IPv6 CIDR blocks.
+        /// </summary>
         public InputList<string> Ipv6Cidrs
         {
             get => _ipv6Cidrs ?? (_ipv6Cidrs = new InputList<string>());
@@ -51,7 +55,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+        /// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

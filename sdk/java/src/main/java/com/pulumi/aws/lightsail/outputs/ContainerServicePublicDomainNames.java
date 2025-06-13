@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ContainerServicePublicDomainNames {
+    /**
+     * @return Set of certificate configurations for the public domain names. Each element contains the following attributes:
+     * 
+     */
     private List<ContainerServicePublicDomainNamesCertificate> certificates;
 
     private ContainerServicePublicDomainNames() {}
+    /**
+     * @return Set of certificate configurations for the public domain names. Each element contains the following attributes:
+     * 
+     */
     public List<ContainerServicePublicDomainNamesCertificate> certificates() {
         return this.certificates;
     }

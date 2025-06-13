@@ -1062,6 +1062,162 @@ func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) Index(i pu
 	}).(FileCacheLustreConfigurationMetadataConfigurationOutput)
 }
 
+type LustreFileSystemDataReadCacheConfiguration struct {
+	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
+	Size *int `pulumi:"size"`
+	// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+	SizingMode string `pulumi:"sizingMode"`
+}
+
+// LustreFileSystemDataReadCacheConfigurationInput is an input type that accepts LustreFileSystemDataReadCacheConfigurationArgs and LustreFileSystemDataReadCacheConfigurationOutput values.
+// You can construct a concrete instance of `LustreFileSystemDataReadCacheConfigurationInput` via:
+//
+//	LustreFileSystemDataReadCacheConfigurationArgs{...}
+type LustreFileSystemDataReadCacheConfigurationInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemDataReadCacheConfigurationOutput() LustreFileSystemDataReadCacheConfigurationOutput
+	ToLustreFileSystemDataReadCacheConfigurationOutputWithContext(context.Context) LustreFileSystemDataReadCacheConfigurationOutput
+}
+
+type LustreFileSystemDataReadCacheConfigurationArgs struct {
+	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
+	Size pulumi.IntPtrInput `pulumi:"size"`
+	// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+	SizingMode pulumi.StringInput `pulumi:"sizingMode"`
+}
+
+func (LustreFileSystemDataReadCacheConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemDataReadCacheConfiguration)(nil)).Elem()
+}
+
+func (i LustreFileSystemDataReadCacheConfigurationArgs) ToLustreFileSystemDataReadCacheConfigurationOutput() LustreFileSystemDataReadCacheConfigurationOutput {
+	return i.ToLustreFileSystemDataReadCacheConfigurationOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemDataReadCacheConfigurationArgs) ToLustreFileSystemDataReadCacheConfigurationOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemDataReadCacheConfigurationOutput)
+}
+
+func (i LustreFileSystemDataReadCacheConfigurationArgs) ToLustreFileSystemDataReadCacheConfigurationPtrOutput() LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return i.ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemDataReadCacheConfigurationArgs) ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemDataReadCacheConfigurationOutput).ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(ctx)
+}
+
+// LustreFileSystemDataReadCacheConfigurationPtrInput is an input type that accepts LustreFileSystemDataReadCacheConfigurationArgs, LustreFileSystemDataReadCacheConfigurationPtr and LustreFileSystemDataReadCacheConfigurationPtrOutput values.
+// You can construct a concrete instance of `LustreFileSystemDataReadCacheConfigurationPtrInput` via:
+//
+//	        LustreFileSystemDataReadCacheConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LustreFileSystemDataReadCacheConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemDataReadCacheConfigurationPtrOutput() LustreFileSystemDataReadCacheConfigurationPtrOutput
+	ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(context.Context) LustreFileSystemDataReadCacheConfigurationPtrOutput
+}
+
+type lustreFileSystemDataReadCacheConfigurationPtrType LustreFileSystemDataReadCacheConfigurationArgs
+
+func LustreFileSystemDataReadCacheConfigurationPtr(v *LustreFileSystemDataReadCacheConfigurationArgs) LustreFileSystemDataReadCacheConfigurationPtrInput {
+	return (*lustreFileSystemDataReadCacheConfigurationPtrType)(v)
+}
+
+func (*lustreFileSystemDataReadCacheConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemDataReadCacheConfiguration)(nil)).Elem()
+}
+
+func (i *lustreFileSystemDataReadCacheConfigurationPtrType) ToLustreFileSystemDataReadCacheConfigurationPtrOutput() LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return i.ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *lustreFileSystemDataReadCacheConfigurationPtrType) ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemDataReadCacheConfigurationPtrOutput)
+}
+
+type LustreFileSystemDataReadCacheConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemDataReadCacheConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemDataReadCacheConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationOutput) ToLustreFileSystemDataReadCacheConfigurationOutput() LustreFileSystemDataReadCacheConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationOutput) ToLustreFileSystemDataReadCacheConfigurationOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationOutput) ToLustreFileSystemDataReadCacheConfigurationPtrOutput() LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return o.ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationOutput) ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LustreFileSystemDataReadCacheConfiguration) *LustreFileSystemDataReadCacheConfiguration {
+		return &v
+	}).(LustreFileSystemDataReadCacheConfigurationPtrOutput)
+}
+
+// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
+func (o LustreFileSystemDataReadCacheConfigurationOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemDataReadCacheConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+func (o LustreFileSystemDataReadCacheConfigurationOutput) SizingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LustreFileSystemDataReadCacheConfiguration) string { return v.SizingMode }).(pulumi.StringOutput)
+}
+
+type LustreFileSystemDataReadCacheConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemDataReadCacheConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemDataReadCacheConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) ToLustreFileSystemDataReadCacheConfigurationPtrOutput() LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) ToLustreFileSystemDataReadCacheConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemDataReadCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) Elem() LustreFileSystemDataReadCacheConfigurationOutput {
+	return o.ApplyT(func(v *LustreFileSystemDataReadCacheConfiguration) LustreFileSystemDataReadCacheConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LustreFileSystemDataReadCacheConfiguration
+		return ret
+	}).(LustreFileSystemDataReadCacheConfigurationOutput)
+}
+
+// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
+func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemDataReadCacheConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) SizingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemDataReadCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SizingMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type LustreFileSystemLogConfiguration struct {
 	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination *string `pulumi:"destination"`
@@ -1219,9 +1375,9 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 }
 
 type LustreFileSystemMetadataConfiguration struct {
-	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
 	Iops *int `pulumi:"iops"`
-	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 	//
 	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode *string `pulumi:"mode"`
@@ -1239,9 +1395,9 @@ type LustreFileSystemMetadataConfigurationInput interface {
 }
 
 type LustreFileSystemMetadataConfigurationArgs struct {
-	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 	//
 	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
@@ -1324,12 +1480,12 @@ func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataC
 	}).(LustreFileSystemMetadataConfigurationPtrOutput)
 }
 
-// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
 func (o LustreFileSystemMetadataConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 //
 // !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationOutput) Mode() pulumi.StringPtrOutput {
@@ -1360,7 +1516,7 @@ func (o LustreFileSystemMetadataConfigurationPtrOutput) Elem() LustreFileSystemM
 	}).(LustreFileSystemMetadataConfigurationOutput)
 }
 
-// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`. Valid values for `INTELLIGENT_TIERING` storage type are `6000` or `12000`.
 func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *int {
 		if v == nil {
@@ -1370,7 +1526,7 @@ func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 //
 // !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
@@ -7997,6 +8153,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationLogConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationLogConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemDataReadCacheConfigurationInput)(nil)).Elem(), LustreFileSystemDataReadCacheConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemDataReadCacheConfigurationPtrInput)(nil)).Elem(), LustreFileSystemDataReadCacheConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationPtrInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemMetadataConfigurationInput)(nil)).Elem(), LustreFileSystemMetadataConfigurationArgs{})
@@ -8115,6 +8273,8 @@ func init() {
 	pulumi.RegisterOutputType(FileCacheLustreConfigurationLogConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemDataReadCacheConfigurationOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemDataReadCacheConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemMetadataConfigurationOutput{})

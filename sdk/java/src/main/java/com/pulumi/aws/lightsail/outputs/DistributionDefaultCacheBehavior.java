@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DistributionDefaultCacheBehavior {
     /**
-     * @return The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+     * @return Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
      * 
      */
     private String behavior;
 
     private DistributionDefaultCacheBehavior() {}
     /**
-     * @return The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+     * @return Cache behavior of the distribution. Valid values: `cache`, `dont-cache`.
      * 
      */
     public String behavior() {

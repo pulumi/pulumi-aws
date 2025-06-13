@@ -15,14 +15,14 @@ public final class BucketAccessKeyArgs extends com.pulumi.resources.ResourceArgs
     public static final BucketAccessKeyArgs Empty = new BucketAccessKeyArgs();
 
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the bucket that the new access key will belong to, and grant access to.
+     * @return Name of the bucket that the access key will belong to and grant access to.
      * 
      */
     public Output<String> bucketName() {
@@ -54,7 +54,7 @@ public final class BucketAccessKeyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucketName The name of the bucket that the new access key will belong to, and grant access to.
+         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketAccessKeyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucketName The name of the bucket that the new access key will belong to, and grant access to.
+         * @param bucketName Name of the bucket that the access key will belong to and grant access to.
          * 
          * @return builder
          * 

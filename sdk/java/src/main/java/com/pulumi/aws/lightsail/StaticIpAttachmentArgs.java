@@ -15,14 +15,14 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
     public static final StaticIpAttachmentArgs Empty = new StaticIpAttachmentArgs();
 
     /**
-     * The name of the Lightsail instance to attach the IP to
+     * Name of the Lightsail instance to attach the IP to.
      * 
      */
     @Import(name="instanceName", required=true)
     private Output<String> instanceName;
 
     /**
-     * @return The name of the Lightsail instance to attach the IP to
+     * @return Name of the Lightsail instance to attach the IP to.
      * 
      */
     public Output<String> instanceName() {
@@ -30,14 +30,14 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the allocated static IP
+     * Name of the allocated static IP.
      * 
      */
     @Import(name="staticIpName", required=true)
     private Output<String> staticIpName;
 
     /**
-     * @return The name of the allocated static IP
+     * @return Name of the allocated static IP.
      * 
      */
     public Output<String> staticIpName() {
@@ -70,7 +70,7 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * @param instanceName Name of the Lightsail instance to attach the IP to.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param instanceName The name of the Lightsail instance to attach the IP to
+         * @param instanceName Name of the Lightsail instance to attach the IP to.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param staticIpName The name of the allocated static IP
+         * @param staticIpName Name of the allocated static IP.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param staticIpName The name of the allocated static IP
+         * @param staticIpName Name of the allocated static IP.
          * 
          * @return builder
          * 

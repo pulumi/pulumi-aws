@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to manage a deployment version for your Amazon Lightsail container service.
+ * Manages a Lightsail container service deployment version. Use this resource to deploy containerized applications to your Lightsail container service with specific container configurations and settings.
  * 
  * &gt; **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
  * 
@@ -96,84 +96,88 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")
 public class ContainerServiceDeploymentVersion extends com.pulumi.resources.CustomResource {
     /**
-     * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+     * Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
      * 
      */
     @Export(name="containers", refs={List.class,ContainerServiceDeploymentVersionContainer.class}, tree="[0,1]")
     private Output<List<ContainerServiceDeploymentVersionContainer>> containers;
 
     /**
-     * @return A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+     * @return Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
      * 
      */
     public Output<List<ContainerServiceDeploymentVersionContainer>> containers() {
         return this.containers;
     }
     /**
-     * The timestamp when the deployment was created.
+     * Date and time when the deployment was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the deployment was created.
+     * @return Date and time when the deployment was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+     * Configuration block that describes the settings of the public endpoint for the container service. See below.
      * 
      */
     @Export(name="publicEndpoint", refs={ContainerServiceDeploymentVersionPublicEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ ContainerServiceDeploymentVersionPublicEndpoint> publicEndpoint;
 
     /**
-     * @return A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+     * @return Configuration block that describes the settings of the public endpoint for the container service. See below.
      * 
      */
     public Output<Optional<ContainerServiceDeploymentVersionPublicEndpoint>> publicEndpoint() {
         return Codegen.optional(this.publicEndpoint);
     }
     /**
-     * The name for the container service.
+     * Name of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
-     * @return The name for the container service.
+     * @return Name of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceName() {
         return this.serviceName;
     }
     /**
-     * The current state of the container service.
+     * Current state of the container service.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The current state of the container service.
+     * @return Current state of the container service.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * The version number of the deployment.
+     * Version number of the deployment.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**
-     * @return The version number of the deployment.
+     * @return Version number of the deployment.
      * 
      */
     public Output<Integer> version() {

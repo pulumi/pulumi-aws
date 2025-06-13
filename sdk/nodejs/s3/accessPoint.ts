@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *
  * > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  *
- * > This resource cannot be used with S3 directory buckets.
+ * > This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
  *
  * ## Example Usage
  *
@@ -45,6 +45,27 @@ import * as utilities from "../utilities";
  *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,
  *     },
+ * });
+ * ```
+ *
+ * ### AWS Partition Directory Bucket
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const example = new aws.s3.DirectoryBucket("example", {
+ *     bucket: "example--zoneId--x-s3",
+ *     location: {
+ *         name: available.then(available => available.zoneIds?.[0]),
+ *     },
+ * });
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: test.bucket,
+ *     name: "example--zoneId--xa-s3",
  * });
  * ```
  *

@@ -102,11 +102,11 @@ if not MYPY:
     class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
         max_capacity: NotRequired[pulumi.Input[builtins.float]]
         """
-        The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         min_capacity: NotRequired[pulumi.Input[builtins.float]]
         """
-        The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
 elif False:
     ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -117,8 +117,8 @@ class ClusterServerlessV2ScalingConfigurationArgs:
                  max_capacity: Optional[pulumi.Input[builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[builtins.float]] = None):
         """
-        :param pulumi.Input[builtins.float] max_capacity: The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        :param pulumi.Input[builtins.float] min_capacity: The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        :param pulumi.Input[builtins.float] max_capacity: Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        :param pulumi.Input[builtins.float] min_capacity: Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -129,7 +129,7 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -141,7 +141,7 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+        Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -154,7 +154,7 @@ if not MYPY:
     class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
         db_cluster_arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         is_writer: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -169,7 +169,7 @@ class GlobalClusterGlobalClusterMemberArgs:
                  db_cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
                  is_writer: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[builtins.str] db_cluster_arn: ARN of member DB Cluster.
         :param pulumi.Input[builtins.bool] is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
@@ -181,7 +181,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 

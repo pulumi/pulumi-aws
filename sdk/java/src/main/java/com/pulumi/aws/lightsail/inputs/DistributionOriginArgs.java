@@ -17,14 +17,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     public static final DistributionOriginArgs Empty = new DistributionOriginArgs();
 
     /**
-     * The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * @return Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     @Import(name="protocolPolicy")
     private @Nullable Output<String> protocolPolicy;
 
     /**
-     * @return The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * @return Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     public Optional<Output<String>> protocolPolicy() {
@@ -47,14 +47,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The AWS Region name of the origin resource.
+     * AWS Region name of the origin resource.
      * 
      */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return AWS Region name of the origin resource.
      * 
      */
     public Output<String> regionName() {
@@ -62,14 +62,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The resource type of the origin resource (e.g., Instance).
+     * Lightsail resource type (e.g., Distribution).
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The resource type of the origin resource (e.g., Instance).
+     * @return Lightsail resource type (e.g., Distribution).
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -104,7 +104,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+         * @param name Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+         * @param name Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param protocolPolicy The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+         * @param protocolPolicy Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param protocolPolicy The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+         * @param protocolPolicy Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param regionName The AWS Region name of the origin resource.
+         * @param regionName AWS Region name of the origin resource.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param regionName The AWS Region name of the origin resource.
+         * @param regionName AWS Region name of the origin resource.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceType The resource type of the origin resource (e.g., Instance).
+         * @param resourceType Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceType The resource type of the origin resource (e.g., Instance).
+         * @param resourceType Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 

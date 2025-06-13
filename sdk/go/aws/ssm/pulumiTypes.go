@@ -199,7 +199,7 @@ func (o AssociationOutputLocationPtrOutput) S3Region() pulumi.StringPtrOutput {
 type AssociationTarget struct {
 	// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
 	Key string `pulumi:"key"`
-	// A list of instance IDs or tag values. AWS currently limits this list size to one value.
+	// User-defined criteria that maps to Key. A list of instance IDs or tag values.
 	Values []string `pulumi:"values"`
 }
 
@@ -217,7 +217,7 @@ type AssociationTargetInput interface {
 type AssociationTargetArgs struct {
 	// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A list of instance IDs or tag values. AWS currently limits this list size to one value.
+	// User-defined criteria that maps to Key. A list of instance IDs or tag values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -277,7 +277,7 @@ func (o AssociationTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A list of instance IDs or tag values. AWS currently limits this list size to one value.
+// User-defined criteria that maps to Key. A list of instance IDs or tag values.
 func (o AssociationTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssociationTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

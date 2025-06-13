@@ -110,7 +110,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     }
 
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -123,11 +123,10 @@ export class GlobalCluster extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
@@ -139,12 +138,12 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
 
@@ -197,7 +196,7 @@ export class GlobalCluster extends pulumi.CustomResource {
  */
 export interface GlobalClusterState {
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      */
     arn?: pulumi.Input<string>;
     /**
@@ -210,11 +209,10 @@ export interface GlobalClusterState {
     engine?: pulumi.Input<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -226,12 +224,12 @@ export interface GlobalClusterState {
      */
     globalClusterResourceId?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean>;
 }
@@ -250,19 +248,18 @@ export interface GlobalClusterArgs {
     engine?: pulumi.Input<string>;
     /**
      * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The global cluster identifier.
+     * Global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean>;
 }

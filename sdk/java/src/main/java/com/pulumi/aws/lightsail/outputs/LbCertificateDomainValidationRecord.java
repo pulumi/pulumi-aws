@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LbCertificateDomainValidationRecord {
     /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     private @Nullable String domainName;
@@ -22,7 +22,7 @@ public final class LbCertificateDomainValidationRecord {
 
     private LbCertificateDomainValidationRecord() {}
     /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     public Optional<String> domainName() {

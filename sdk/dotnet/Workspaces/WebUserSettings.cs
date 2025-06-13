@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebUserSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.UserSettings("example", new()
     ///     {
     ///         CopyAllowed = "Enabled",
     ///         DownloadAllowed = "Enabled",
@@ -46,14 +46,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.WebUserSettings("example", new()
+    ///     var example = new Aws.WorkSpacesWeb.UserSettings("example", new()
     ///     {
     ///         CopyAllowed = "Enabled",
     ///         DownloadAllowed = "Enabled",
     ///         PasteAllowed = "Enabled",
     ///         PrintAllowed = "Enabled",
     ///         UploadAllowed = "Enabled",
-    ///         ToolbarConfiguration = new Aws.Workspaces.Inputs.WebUserSettingsToolbarConfigurationArgs
+    ///         ToolbarConfiguration = new Aws.WorkSpacesWeb.Inputs.UserSettingsToolbarConfigurationArgs
     ///         {
     ///             ToolbarType = "Docked",
     ///             VisualMode = "Dark",
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Workspaces
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWebUserSettings = new Aws.Workspaces.WebUserSettings("example", new()
+    ///     var exampleUserSettings = new Aws.WorkSpacesWeb.UserSettings("example", new()
     ///     {
     ///         CopyAllowed = "Enabled",
     ///         DownloadAllowed = "Enabled",
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             { "Environment", "Production" },
     ///         },
-    ///         ToolbarConfiguration = new Aws.Workspaces.Inputs.WebUserSettingsToolbarConfigurationArgs
+    ///         ToolbarConfiguration = new Aws.WorkSpacesWeb.Inputs.UserSettingsToolbarConfigurationArgs
     ///         {
     ///             ToolbarType = "Docked",
     ///             VisualMode = "Dark",
@@ -110,11 +110,11 @@ namespace Pulumi.Aws.Workspaces
     ///             },
     ///             MaxDisplayResolution = "size1920X1080",
     ///         },
-    ///         CookieSynchronizationConfiguration = new Aws.Workspaces.Inputs.WebUserSettingsCookieSynchronizationConfigurationArgs
+    ///         CookieSynchronizationConfiguration = new Aws.WorkSpacesWeb.Inputs.UserSettingsCookieSynchronizationConfigurationArgs
     ///         {
     ///             Allowlists = new[]
     ///             {
-    ///                 new Aws.Workspaces.Inputs.WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs
+    ///                 new Aws.WorkSpacesWeb.Inputs.UserSettingsCookieSynchronizationConfigurationAllowlistArgs
     ///                 {
     ///                     Domain = "example.com",
     ///                     Path = "/path",
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Workspaces
     ///             },
     ///             Blocklists = new[]
     ///             {
-    ///                 new Aws.Workspaces.Inputs.WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs
+    ///                 new Aws.WorkSpacesWeb.Inputs.UserSettingsCookieSynchronizationConfigurationBlocklistArgs
     ///                 {
     ///                     Domain = "blocked.com",
     ///                 },
@@ -145,6 +145,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webUserSettings:WebUserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings")]
     [AwsResourceType("aws:workspaces/webUserSettings:WebUserSettings")]
     public partial class WebUserSettings : global::Pulumi.CustomResource
     {

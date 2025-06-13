@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Attaches a Lightsail disk to a Lightsail Instance
+ * Manages a Lightsail disk attachment. Use this resource to attach additional storage disks to your Lightsail instances for expanded storage capacity.
  * 
  * ## Example Usage
  * 
@@ -55,22 +55,22 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Disk("test", DiskArgs.builder()
- *             .name("test-disk")
+ *         var example = new Disk("example", DiskArgs.builder()
+ *             .name("example-disk")
  *             .sizeInGb(8)
  *             .availabilityZone(available.names()[0])
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
- *             .name("test-instance")
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
+ *             .name("example-instance")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testDisk_attachment = new Disk_attachment("testDisk_attachment", Disk_attachmentArgs.builder()
- *             .diskName(test.name())
- *             .instanceName(testInstance.name())
+ *         var exampleDisk_attachment = new Disk_attachment("exampleDisk_attachment", Disk_attachmentArgs.builder()
+ *             .diskName(example.name())
+ *             .instanceName(exampleInstance.name())
  *             .diskPath("/dev/xvdf")
  *             .build());
  * 
@@ -82,52 +82,52 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
+ * Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/disk_attachment:Disk_attachment")
 public class Disk_attachment extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Lightsail Disk.
+     * Name of the Lightsail disk.
      * 
      */
     @Export(name="diskName", refs={String.class}, tree="[0]")
     private Output<String> diskName;
 
     /**
-     * @return The name of the Lightsail Disk.
+     * @return Name of the Lightsail disk.
      * 
      */
     public Output<String> diskName() {
         return this.diskName;
     }
     /**
-     * The disk path to expose to the instance.
+     * Disk path to expose to the instance.
      * 
      */
     @Export(name="diskPath", refs={String.class}, tree="[0]")
     private Output<String> diskPath;
 
     /**
-     * @return The disk path to expose to the instance.
+     * @return Disk path to expose to the instance.
      * 
      */
     public Output<String> diskPath() {
         return this.diskPath;
     }
     /**
-     * The name of the Lightsail Instance to attach to.
+     * Name of the Lightsail instance to attach to.
      * 
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
-     * @return The name of the Lightsail Instance to attach to.
+     * @return Name of the Lightsail instance to attach to.
      * 
      */
     public Output<String> instanceName() {

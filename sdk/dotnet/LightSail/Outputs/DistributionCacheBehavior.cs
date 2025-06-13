@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehavior
     {
         /// <summary>
-        /// The cache behavior for the specified path.
+        /// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
         /// </summary>
         public readonly string Behavior;
         /// <summary>
-        /// The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
+        /// Path to a directory or file to cache, or not cache. Use an asterisk symbol to specify wildcard directories (`path/to/assets/*`), and file types (`*.html`, `*.jpg`, `*.js`). Directories and file paths are case-sensitive.
         /// </summary>
         public readonly string Path;
 

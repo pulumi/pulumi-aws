@@ -628,6 +628,49 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
 
+        ### Example with S3 as source for the suricata rules
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
+            key="rules/custom.rules")
+        s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
+            capacity=1000,
+            name="my-terraform-s3-rules",
+            type="STATEFUL",
+            rule_group={
+                "rule_variables": {
+                    "ip_sets": [{
+                        "key": "HOME_NET",
+                        "ip_set": {
+                            "definitions": [
+                                "10.0.0.0/16",
+                                "192.168.0.0/16",
+                                "172.16.0.0/12",
+                            ],
+                        },
+                    }],
+                    "port_sets": [{
+                        "key": "HTTP_PORTS",
+                        "port_set": {
+                            "definitions": [
+                                "443",
+                                "80",
+                            ],
+                        },
+                    }],
+                },
+                "rules_source": {
+                    "rules_string": suricata_rules.body,
+                },
+            },
+            tags={
+                "ManagedBy": "terraform",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
@@ -922,6 +965,49 @@ class RuleGroup(pulumi.CustomResource):
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
+            })
+        ```
+
+        ### Example with S3 as source for the suricata rules
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
+            key="rules/custom.rules")
+        s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
+            capacity=1000,
+            name="my-terraform-s3-rules",
+            type="STATEFUL",
+            rule_group={
+                "rule_variables": {
+                    "ip_sets": [{
+                        "key": "HOME_NET",
+                        "ip_set": {
+                            "definitions": [
+                                "10.0.0.0/16",
+                                "192.168.0.0/16",
+                                "172.16.0.0/12",
+                            ],
+                        },
+                    }],
+                    "port_sets": [{
+                        "key": "HTTP_PORTS",
+                        "port_set": {
+                            "definitions": [
+                                "443",
+                                "80",
+                            ],
+                        },
+                    }],
+                },
+                "rules_source": {
+                    "rules_string": suricata_rules.body,
+                },
+            },
+            tags={
+                "ManagedBy": "terraform",
             })
         ```
 

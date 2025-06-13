@@ -120,6 +120,10 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      */
     public readonly twoWayChannelEnabled!: pulumi.Output<boolean>;
+    /**
+     * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     */
+    public readonly twoWayChannelRole!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Smsvoicev2PhoneNumber resource with the given unique name, arguments, and options.
@@ -150,6 +154,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["twoWayChannelArn"] = state ? state.twoWayChannelArn : undefined;
             resourceInputs["twoWayChannelEnabled"] = state ? state.twoWayChannelEnabled : undefined;
+            resourceInputs["twoWayChannelRole"] = state ? state.twoWayChannelRole : undefined;
         } else {
             const args = argsOrState as Smsvoicev2PhoneNumberArgs | undefined;
             if ((!args || args.isoCountryCode === undefined) && !opts.urn) {
@@ -176,6 +181,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["twoWayChannelArn"] = args ? args.twoWayChannelArn : undefined;
             resourceInputs["twoWayChannelEnabled"] = args ? args.twoWayChannelEnabled : undefined;
+            resourceInputs["twoWayChannelRole"] = args ? args.twoWayChannelRole : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["monthlyLeasingPrice"] = undefined /*out*/;
             resourceInputs["phoneNumber"] = undefined /*out*/;
@@ -250,6 +256,10 @@ export interface Smsvoicev2PhoneNumberState {
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      */
     twoWayChannelEnabled?: pulumi.Input<boolean>;
+    /**
+     * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     */
+    twoWayChannelRole?: pulumi.Input<string>;
 }
 
 /**
@@ -298,4 +308,8 @@ export interface Smsvoicev2PhoneNumberArgs {
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      */
     twoWayChannelEnabled?: pulumi.Input<boolean>;
+    /**
+     * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
+     */
+    twoWayChannelRole?: pulumi.Input<string>;
 }

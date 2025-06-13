@@ -137,6 +137,215 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// 
+    /// ### Create an association with multiple instances with their instance ids
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // First EC2 instance
+    ///     var webServer1 = new Aws.Ec2.Instance("web_server_1", new()
+    ///     {
+    ///         Ami = amazonLinux.Id,
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
+    ///         SubnetId = @public.Id,
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             ec2Sg.Id,
+    ///         },
+    ///         IamInstanceProfile = ec2SsmProfile.Name,
+    ///         UserData = @"#!/bin/bash
+    /// yum update -y
+    /// yum install -y amazon-ssm-agent
+    /// systemctl enable amazon-ssm-agent
+    /// systemctl start amazon-ssm-agent
+    /// ",
+    ///     });
+    /// 
+    ///     // Second EC2 instance
+    ///     var webServer2 = new Aws.Ec2.Instance("web_server_2", new()
+    ///     {
+    ///         Ami = amazonLinux.Id,
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
+    ///         SubnetId = @public.Id,
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             ec2Sg.Id,
+    ///         },
+    ///         IamInstanceProfile = ec2SsmProfile.Name,
+    ///         UserData = @"#!/bin/bash
+    /// yum update -y
+    /// yum install -y amazon-ssm-agent
+    /// systemctl enable amazon-ssm-agent
+    /// systemctl start amazon-ssm-agent
+    /// ",
+    ///     });
+    /// 
+    ///     // Removed EC2 provisioning dependencies for brevity
+    ///     var systemUpdate = new Aws.Ssm.Association("system_update", new()
+    ///     {
+    ///         Name = "AWS-RunShellScript",
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     webServer1.Id,
+    ///                     webServer2.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
+    ///         Parameters = 
+    ///         {
+    ///             { "commands", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = @"
+    /// ",
+    ///                 Input = new[]
+    ///                 {
+    ///                     "#!/bin/bash",
+    ///                     "echo 'Starting system update on $(hostname)'",
+    ///                     "echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
+    ///                     "yum update -y",
+    ///                     "echo 'System update completed successfully'",
+    ///                     "systemctl status httpd",
+    ///                     "df -h",
+    ///                     "free -m",
+    ///                 },
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///             { "workingDirectory", "/tmp" },
+    ///             { "executionTimeout", "3600" },
+    ///         },
+    ///         AssociationName = "weekly-system-update",
+    ///         ComplianceSeverity = "MEDIUM",
+    ///         MaxConcurrency = "1",
+    ///         MaxErrors = "0",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Weekly System Update" },
+    ///             { "Environment", "demo" },
+    ///             { "Purpose", "maintenance" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Create an association with multiple instances with their values matching their tags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // SSM Association for Webbased Servers
+    ///     var databaseAssociation = new Aws.Ssm.Association("database_association", new()
+    ///     {
+    ///         Name = systemUpdate.Name,
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             {
+    ///                 Key = "tag:Role",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "WebServer",
+    ///                     "Database",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "restartServices", "true" },
+    ///         },
+    ///         ScheduleExpression = "cron(0 3 ? * SUN *)",
+    ///     });
+    /// 
+    ///     // EC2 Instance 1 - Web Server with "ServerType" tag
+    ///     var webServer = new Aws.Ec2.Instance("web_server", new()
+    ///     {
+    ///         Ami = amazonLinux.Id,
+    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;(instanceType),
+    ///         SubnetId = @default.Id,
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             ec2Sg.Id,
+    ///         },
+    ///         IamInstanceProfile = ec2SsmProfile.Name,
+    ///         UserData = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = @$"#!/bin/bash
+    /// yum update -y
+    /// yum install -y amazon-ssm-agent
+    /// systemctl enable amazon-ssm-agent
+    /// systemctl start amazon-ssm-agent
+    ///     
+    /// # Install Apache web server
+    /// yum install -y httpd
+    /// systemctl enable httpd
+    /// systemctl start httpd
+    /// echo ""&lt;h1&gt;Web Server - {prefix}&lt;/h1&gt;"" &gt; /var/www/html/index.html
+    /// ",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Tags = 
+    ///         {
+    ///             { "Name", $"{prefix}-web-server" },
+    ///             { "ServerType", "WebServer" },
+    ///             { "Role", "WebServer" },
+    ///             { "Environment", environment },
+    ///             { "Owner", owner },
+    ///         },
+    ///     });
+    /// 
+    ///     // EC2 Instance 2 - Database Server with "Role" tag
+    ///     var databaseServer = new Aws.Ec2.Instance("database_server", new()
+    ///     {
+    ///         Ami = amazonLinux.Id,
+    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType&gt;(instanceType),
+    ///         SubnetId = @default.Id,
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             ec2Sg.Id,
+    ///         },
+    ///         IamInstanceProfile = ec2SsmProfile.Name,
+    ///         UserData = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = @"#!/bin/bash
+    /// yum update -y
+    /// yum install -y amazon-ssm-agent
+    /// systemctl enable amazon-ssm-agent
+    /// systemctl start amazon-ssm-agent
+    ///     
+    /// # Install MySQL
+    /// yum install -y mysql-server
+    /// systemctl enable mysqld
+    /// systemctl start mysqld
+    /// ",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Tags = 
+    ///         {
+    ///             { "Name", $"{prefix}-database-server" },
+    ///             { "Role", "Database" },
+    ///             { "Environment", environment },
+    ///             { "Owner", owner },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM associations using the `association_id`. For example:

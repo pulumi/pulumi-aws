@@ -24,8 +24,8 @@ class LbAttachmentArgs:
                  lb_name: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a LbAttachment resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the instance to attach to the load balancer.
-        :param pulumi.Input[builtins.str] lb_name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance to attach to the load balancer.
+        :param pulumi.Input[builtins.str] lb_name: Name of the Lightsail load balancer.
         """
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "lb_name", lb_name)
@@ -34,7 +34,7 @@ class LbAttachmentArgs:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the instance to attach to the load balancer.
+        Name of the instance to attach to the load balancer.
         """
         return pulumi.get(self, "instance_name")
 
@@ -46,7 +46,7 @@ class LbAttachmentArgs:
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
         """
         return pulumi.get(self, "lb_name")
 
@@ -62,8 +62,8 @@ class _LbAttachmentState:
                  lb_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbAttachment resources.
-        :param pulumi.Input[builtins.str] instance_name: The name of the instance to attach to the load balancer.
-        :param pulumi.Input[builtins.str] lb_name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance to attach to the load balancer.
+        :param pulumi.Input[builtins.str] lb_name: Name of the Lightsail load balancer.
         """
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
@@ -74,7 +74,7 @@ class _LbAttachmentState:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the instance to attach to the load balancer.
+        Name of the instance to attach to the load balancer.
         """
         return pulumi.get(self, "instance_name")
 
@@ -86,7 +86,7 @@ class _LbAttachmentState:
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
         """
         return pulumi.get(self, "lb_name")
 
@@ -105,7 +105,7 @@ class LbAttachment(pulumi.CustomResource):
                  lb_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Attaches a Lightsail Instance to a Lightsail Load Balancer.
+        Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
 
         ## Example Usage
 
@@ -118,21 +118,21 @@ class LbAttachment(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("test",
-            lb_name=test.name,
-            instance_name=test_instance.name)
+        example_lb_attachment = aws.lightsail.LbAttachment("example",
+            lb_name=example.name,
+            instance_name=example_instance.name)
         ```
 
         ## Import
@@ -140,13 +140,13 @@ class LbAttachment(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the instance to attach to the load balancer.
-        :param pulumi.Input[builtins.str] lb_name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance to attach to the load balancer.
+        :param pulumi.Input[builtins.str] lb_name: Name of the Lightsail load balancer.
         """
         ...
     @overload
@@ -155,7 +155,7 @@ class LbAttachment(pulumi.CustomResource):
                  args: LbAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Lightsail Instance to a Lightsail Load Balancer.
+        Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
 
         ## Example Usage
 
@@ -168,21 +168,21 @@ class LbAttachment(pulumi.CustomResource):
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
             }])
-        test = aws.lightsail.Lb("test",
-            name="test-load-balancer",
+        example = aws.lightsail.Lb("example",
+            name="example-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("test",
-            name="test-instance",
+        example_instance = aws.lightsail.Instance("example",
+            name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("test",
-            lb_name=test.name,
-            instance_name=test_instance.name)
+        example_lb_attachment = aws.lightsail.LbAttachment("example",
+            lb_name=example.name,
+            instance_name=example_instance.name)
         ```
 
         ## Import
@@ -190,7 +190,7 @@ class LbAttachment(pulumi.CustomResource):
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,8 +244,8 @@ class LbAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] instance_name: The name of the instance to attach to the load balancer.
-        :param pulumi.Input[builtins.str] lb_name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] instance_name: Name of the instance to attach to the load balancer.
+        :param pulumi.Input[builtins.str] lb_name: Name of the Lightsail load balancer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,7 +259,7 @@ class LbAttachment(pulumi.CustomResource):
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the instance to attach to the load balancer.
+        Name of the instance to attach to the load balancer.
         """
         return pulumi.get(self, "instance_name")
 
@@ -267,7 +267,7 @@ class LbAttachment(pulumi.CustomResource):
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the Lightsail load balancer.
+        Name of the Lightsail load balancer.
         """
         return pulumi.get(self, "lb_name")
 

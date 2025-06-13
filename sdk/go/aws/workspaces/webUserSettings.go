@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebUserSettings(ctx, "example", &workspaces.WebUserSettingsArgs{
+//			_, err := workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
 //				CopyAllowed:     pulumi.String("Enabled"),
 //				DownloadAllowed: pulumi.String("Enabled"),
 //				PasteAllowed:    pulumi.String("Enabled"),
@@ -53,20 +53,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewWebUserSettings(ctx, "example", &workspaces.WebUserSettingsArgs{
+//			_, err := workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
 //				CopyAllowed:     pulumi.String("Enabled"),
 //				DownloadAllowed: pulumi.String("Enabled"),
 //				PasteAllowed:    pulumi.String("Enabled"),
 //				PrintAllowed:    pulumi.String("Enabled"),
 //				UploadAllowed:   pulumi.String("Enabled"),
-//				ToolbarConfiguration: &workspaces.WebUserSettingsToolbarConfigurationArgs{
+//				ToolbarConfiguration: &workspacesweb.UserSettingsToolbarConfigurationArgs{
 //					ToolbarType: pulumi.String("Docked"),
 //					VisualMode:  pulumi.String("Dark"),
 //					HiddenToolbarItems: pulumi.StringArray{
@@ -92,7 +92,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = workspaces.NewWebUserSettings(ctx, "example", &workspaces.WebUserSettingsArgs{
+//			_, err = workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
 //				CopyAllowed:                    pulumi.String("Enabled"),
 //				DownloadAllowed:                pulumi.String("Enabled"),
 //				PasteAllowed:                   pulumi.String("Enabled"),
@@ -119,7 +119,7 @@ import (
 //				AdditionalEncryptionContext: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},
-//				ToolbarConfiguration: &workspaces.WebUserSettingsToolbarConfigurationArgs{
+//				ToolbarConfiguration: &workspacesweb.UserSettingsToolbarConfigurationArgs{
 //					ToolbarType: pulumi.String("Docked"),
 //					VisualMode:  pulumi.String("Dark"),
 //					HiddenToolbarItems: pulumi.StringArray{
@@ -128,15 +128,15 @@ import (
 //					},
 //					MaxDisplayResolution: pulumi.String("size1920X1080"),
 //				},
-//				CookieSynchronizationConfiguration: &workspaces.WebUserSettingsCookieSynchronizationConfigurationArgs{
-//					Allowlists: workspaces.WebUserSettingsCookieSynchronizationConfigurationAllowlistArray{
-//						&workspaces.WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs{
+//				CookieSynchronizationConfiguration: &workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs{
+//					Allowlists: workspacesweb.UserSettingsCookieSynchronizationConfigurationAllowlistArray{
+//						&workspacesweb.UserSettingsCookieSynchronizationConfigurationAllowlistArgs{
 //							Domain: pulumi.String("example.com"),
 //							Path:   pulumi.String("/path"),
 //						},
 //					},
-//					Blocklists: workspaces.WebUserSettingsCookieSynchronizationConfigurationBlocklistArray{
-//						&workspaces.WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs{
+//					Blocklists: workspacesweb.UserSettingsCookieSynchronizationConfigurationBlocklistArray{
+//						&workspacesweb.UserSettingsCookieSynchronizationConfigurationBlocklistArgs{
 //							Domain: pulumi.String("blocked.com"),
 //						},
 //					},
@@ -161,6 +161,8 @@ import (
 // ```sh
 // $ pulumi import aws:workspaces/webUserSettings:WebUserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
 // ```
+//
+// Deprecated: aws.workspaces/webusersettings.WebUserSettings has been deprecated in favor of aws.workspacesweb/usersettings.UserSettings
 type WebUserSettings struct {
 	pulumi.CustomResourceState
 

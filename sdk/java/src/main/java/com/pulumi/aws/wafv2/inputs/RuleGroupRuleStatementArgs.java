@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAsnMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs;
@@ -40,6 +41,21 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<RuleGroupRuleStatementAndStatementArgs>> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+
+    /**
+     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    @Import(name="asnMatchStatement")
+    private @Nullable Output<RuleGroupRuleStatementAsnMatchStatementArgs> asnMatchStatement;
+
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementAsnMatchStatementArgs>> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
 
     /**
@@ -226,6 +242,7 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
 
     private RuleGroupRuleStatementArgs(RuleGroupRuleStatementArgs $) {
         this.andStatement = $.andStatement;
+        this.asnMatchStatement = $.asnMatchStatement;
         this.byteMatchStatement = $.byteMatchStatement;
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
@@ -277,6 +294,27 @@ public final class RuleGroupRuleStatementArgs extends com.pulumi.resources.Resou
          */
         public Builder andStatement(RuleGroupRuleStatementAndStatementArgs andStatement) {
             return andStatement(Output.of(andStatement));
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(@Nullable Output<RuleGroupRuleStatementAsnMatchStatementArgs> asnMatchStatement) {
+            $.asnMatchStatement = asnMatchStatement;
+            return this;
+        }
+
+        /**
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder asnMatchStatement(RuleGroupRuleStatementAsnMatchStatementArgs asnMatchStatement) {
+            return asnMatchStatement(Output.of(asnMatchStatement));
         }
 
         /**

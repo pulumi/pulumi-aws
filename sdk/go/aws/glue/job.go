@@ -18,30 +18,180 @@ import (
 //
 // ## Example Usage
 //
-// ### Python Job
+// ### Python Glue Job
 //
 // ```go
 // package main
 //
 // import (
 //
+//	"encoding/json"
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				Name:        pulumi.String("example"),
-//				GlueVersion: pulumi.String("5.0"),
-//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "glue.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			// IAM role for Glue jobs
+//			glueJobRole, err := iam.NewRole(ctx, "glue_job_role", &iam.RoleArgs{
+//				Name:             pulumi.String("glue-job-role"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewJob(ctx, "etl_job", &glue.JobArgs{
+//				Name:            pulumi.String("example-etl-job"),
+//				Description:     pulumi.String("An example Glue ETL job"),
+//				RoleArn:         glueJobRole.Arn,
+//				GlueVersion:     pulumi.String("5.0"),
+//				MaxRetries:      pulumi.Int(0),
+//				Timeout:         pulumi.Int(2880),
+//				NumberOfWorkers: pulumi.Int(2),
+//				WorkerType:      pulumi.String("G.1X"),
+//				Connections: pulumi.StringArray{
+//					example.Name,
+//				},
+//				ExecutionClass: pulumi.String("STANDARD"),
 //				Command: &glue.JobCommandArgs{
-//					ScriptLocation: pulumi.Sprintf("s3://%v/example.py", exampleAwsS3Bucket.Bucket),
+//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/etl_job.py", glueScripts.Bucket),
+//					Name:           pulumi.String("glueetl"),
 //					PythonVersion:  pulumi.String("3"),
 //				},
+//				NotificationProperty: &glue.JobNotificationPropertyArgs{
+//					NotifyDelayAfter: pulumi.Int(3),
+//				},
+//				DefaultArguments: pulumi.StringMap{
+//					"--job-language":                     pulumi.String("python"),
+//					"--continuous-log-logGroup":          pulumi.String("/aws-glue/jobs"),
+//					"--enable-continuous-cloudwatch-log": pulumi.String("true"),
+//					"--enable-continuous-log-filter":     pulumi.String("true"),
+//					"--enable-metrics":                   pulumi.String(""),
+//					"--enable-auto-scaling":              pulumi.String("true"),
+//				},
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"ManagedBy": pulumi.String("AWS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "glue_etl_script", &s3.BucketObjectv2Args{
+//				Bucket: pulumi.Any(glueScripts.Id),
+//				Key:    pulumi.String("jobs/etl_job.py"),
+//				Source: pulumi.NewFileAsset("jobs/etl_job.py"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Pythonshell Job
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "glue.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			// IAM role for Glue jobs
+//			glueJobRole, err := iam.NewRole(ctx, "glue_job_role", &iam.RoleArgs{
+//				Name:             pulumi.String("glue-job-role"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewJob(ctx, "python_shell_job", &glue.JobArgs{
+//				Name:        pulumi.String("example-python-shell-job"),
+//				Description: pulumi.String("An example Python shell job"),
+//				RoleArn:     glueJobRole.Arn,
+//				MaxCapacity: pulumi.Float64(0.0625),
+//				MaxRetries:  pulumi.Int(0),
+//				Timeout:     pulumi.Int(2880),
+//				Connections: pulumi.StringArray{
+//					example.Name,
+//				},
+//				Command: &glue.JobCommandArgs{
+//					ScriptLocation: pulumi.Sprintf("s3://%v/jobs/shell_job.py", glueScripts.Bucket),
+//					Name:           pulumi.String("pythonshell"),
+//					PythonVersion:  pulumi.String("3.9"),
+//				},
+//				DefaultArguments: pulumi.StringMap{
+//					"--job-language":                     pulumi.String("python"),
+//					"--continuous-log-logGroup":          pulumi.String("/aws-glue/jobs"),
+//					"--enable-continuous-cloudwatch-log": pulumi.String("true"),
+//					"library-set":                        pulumi.String("analytics"),
+//				},
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"ManagedBy": pulumi.String("AWS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "python_shell_script", &s3.BucketObjectv2Args{
+//				Bucket: pulumi.Any(glueScripts.Id),
+//				Key:    pulumi.String("jobs/shell_job.py"),
+//				Source: pulumi.NewFileAsset("jobs/shell_job.py"),
 //			})
 //			if err != nil {
 //				return err

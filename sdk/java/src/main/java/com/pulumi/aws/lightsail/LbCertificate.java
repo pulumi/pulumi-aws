@@ -16,7 +16,9 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Lightsail load balancer Certificate resource.
+ * Manages a Lightsail Load Balancer Certificate.
+ * 
+ * Use this resource to create and manage SSL/TLS certificates for Lightsail Load Balancers. The certificate must be validated before it can be attached to a load balancer to enable HTTPS traffic.
  * 
  * ## Example Usage
  * 
@@ -45,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()
- *             .name("test-load-balancer-certificate")
- *             .lbName(test.id())
- *             .domainName("test.com")
+ *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
+ *             .name("example-load-balancer-certificate")
+ *             .lbName(example.id())
+ *             .domainName("example.com")
  *             .build());
  * 
  *     }
@@ -69,83 +71,95 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+ * $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbCertificate:LbCertificate")
 public class LbCertificate extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the lightsail certificate.
+     * ARN of the lightsail certificate.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the lightsail certificate.
+     * @return ARN of the lightsail certificate.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The timestamp when the instance was created.
+     * Timestamp when the instance was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The timestamp when the instance was created.
+     * @return Timestamp when the instance was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
+     * @return Domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
+    /**
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * 
+     */
     @Export(name="domainValidationRecords", refs={List.class,LbCertificateDomainValidationRecord.class}, tree="[0,1]")
     private Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords;
 
+    /**
+     * @return Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+     * 
+     */
     public Output<List<LbCertificateDomainValidationRecord>> domainValidationRecords() {
         return this.domainValidationRecords;
     }
     /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
+     * Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
-     * @return The load balancer name where you want to create the SSL/TLS certificate.
+     * @return Load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
     public Output<String> lbName() {
         return this.lbName;
     }
     /**
-     * The SSL/TLS certificate name.
+     * SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The SSL/TLS certificate name.
+     * @return SSL/TLS certificate name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -165,9 +179,17 @@ public class LbCertificate extends com.pulumi.resources.CustomResource {
     public Output<List<String>> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
+    /**
+     * Support code for the certificate.
+     * 
+     */
     @Export(name="supportCode", refs={String.class}, tree="[0]")
     private Output<String> supportCode;
 
+    /**
+     * @return Support code for the certificate.
+     * 
+     */
     public Output<String> supportCode() {
         return this.supportCode;
     }

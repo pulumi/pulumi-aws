@@ -20,14 +20,14 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
     public static final ContainerServiceDeploymentVersionArgs Empty = new ContainerServiceDeploymentVersionArgs();
 
     /**
-     * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+     * Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
      * 
      */
     @Import(name="containers", required=true)
     private Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers;
 
     /**
-     * @return A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+     * @return Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
      * 
      */
     public Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers() {
@@ -35,14 +35,14 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
     }
 
     /**
-     * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+     * Configuration block that describes the settings of the public endpoint for the container service. See below.
      * 
      */
     @Import(name="publicEndpoint")
     private @Nullable Output<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint;
 
     /**
-     * @return A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+     * @return Configuration block that describes the settings of the public endpoint for the container service. See below.
      * 
      */
     public Optional<Output<ContainerServiceDeploymentVersionPublicEndpointArgs>> publicEndpoint() {
@@ -50,14 +50,18 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
     }
 
     /**
-     * The name for the container service.
+     * Name of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
     /**
-     * @return The name for the container service.
+     * @return Name of the container service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceName() {
@@ -91,7 +95,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+         * @param containers Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
          * 
          * @return builder
          * 
@@ -102,7 +106,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+         * @param containers Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
          * 
          * @return builder
          * 
@@ -112,7 +116,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+         * @param containers Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
          * 
          * @return builder
          * 
@@ -122,7 +126,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+         * @param publicEndpoint Configuration block that describes the settings of the public endpoint for the container service. See below.
          * 
          * @return builder
          * 
@@ -133,7 +137,7 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+         * @param publicEndpoint Configuration block that describes the settings of the public endpoint for the container service. See below.
          * 
          * @return builder
          * 
@@ -143,7 +147,9 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param serviceName The name for the container service.
+         * @param serviceName Name of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -154,7 +160,9 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param serviceName The name for the container service.
+         * @param serviceName Name of the container service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

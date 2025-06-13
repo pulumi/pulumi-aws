@@ -35,14 +35,14 @@ public final class RuleGroupRuleGroupRulesSourceArgs extends com.pulumi.resource
     }
 
     /**
-     * The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+     * Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
      * 
      */
     @Import(name="rulesString")
     private @Nullable Output<String> rulesString;
 
     /**
-     * @return The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+     * @return Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
      * 
      */
     public Optional<Output<String>> rulesString() {
@@ -128,7 +128,7 @@ public final class RuleGroupRuleGroupRulesSourceArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rulesString The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+         * @param rulesString Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RuleGroupRuleGroupRulesSourceArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rulesString The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+         * @param rulesString Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
          * 
          * @return builder
          * 

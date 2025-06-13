@@ -14,35 +14,35 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehaviorSettings
     {
         /// <summary>
-        /// The HTTP methods that are processed and forwarded to the distribution's origin.
+        /// HTTP methods that are processed and forwarded to the distribution's origin.
         /// </summary>
         public readonly string? AllowedHttpMethods;
         /// <summary>
-        /// The HTTP method responses that are cached by your distribution.
+        /// HTTP method responses that are cached by your distribution.
         /// </summary>
         public readonly string? CachedHttpMethods;
         /// <summary>
-        /// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        /// Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         /// </summary>
         public readonly int? DefaultTtl;
         /// <summary>
-        /// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        /// Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
         /// </summary>
         public readonly Outputs.DistributionCacheBehaviorSettingsForwardedCookies? ForwardedCookies;
         /// <summary>
-        /// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        /// Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
         /// </summary>
         public readonly Outputs.DistributionCacheBehaviorSettingsForwardedHeaders? ForwardedHeaders;
         /// <summary>
-        /// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        /// Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
         /// </summary>
         public readonly Outputs.DistributionCacheBehaviorSettingsForwardedQueryStrings? ForwardedQueryStrings;
         /// <summary>
-        /// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        /// Maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
         public readonly int? MaximumTtl;
         /// <summary>
-        /// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        /// Minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
         public readonly int? MinimumTtl;
 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
     /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// &gt; This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
     /// 
     /// ## Example Usage
     /// 
@@ -72,6 +72,39 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             VpcId = exampleVpc.Id,
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### AWS Partition Directory Bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.DirectoryBucket("example", new()
+    ///     {
+    ///         Bucket = "example--zoneId--x-s3",
+    ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
+    ///         {
+    ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
+    ///     {
+    ///         Bucket = test.Bucket,
+    ///         Name = "example--zoneId--xa-s3",
     ///     });
     /// 
     /// });

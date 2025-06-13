@@ -23,7 +23,7 @@ class StaticIpArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StaticIp resource.
-        :param pulumi.Input[builtins.str] name: The name for the allocated static IP
+        :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -32,7 +32,7 @@ class StaticIpArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name for the allocated static IP
+        Name for the allocated static IP.
         """
         return pulumi.get(self, "name")
 
@@ -50,10 +50,10 @@ class _StaticIpState:
                  support_code: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticIp resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the Lightsail static IP
-        :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
-        :param pulumi.Input[builtins.str] name: The name for the allocated static IP
-        :param pulumi.Input[builtins.str] support_code: The support code.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail static IP.
+        :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
+        :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+        :param pulumi.Input[builtins.str] support_code: Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -68,7 +68,7 @@ class _StaticIpState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the Lightsail static IP
+        ARN of the Lightsail static IP.
         """
         return pulumi.get(self, "arn")
 
@@ -80,7 +80,7 @@ class _StaticIpState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The allocated static IP address
+        Allocated static IP address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -92,7 +92,7 @@ class _StaticIpState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name for the allocated static IP
+        Name for the allocated static IP.
         """
         return pulumi.get(self, "name")
 
@@ -104,7 +104,7 @@ class _StaticIpState:
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The support code.
+        Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 
@@ -122,9 +122,11 @@ class StaticIp(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Allocates a static IP address.
+        Manages a static IP address.
 
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+        Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
         ## Example Usage
 
@@ -132,12 +134,20 @@ class StaticIp(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.StaticIp("test", name="example")
+        example = aws.lightsail.StaticIp("example", name="example")
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+
+        ```sh
+        $ pulumi import aws:lightsail/staticIp:StaticIp example example
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] name: The name for the allocated static IP
+        :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
         """
         ...
     @overload
@@ -146,9 +156,11 @@ class StaticIp(pulumi.CustomResource):
                  args: Optional[StaticIpArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allocates a static IP address.
+        Manages a static IP address.
 
-        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+        Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+
+        > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
         ## Example Usage
 
@@ -156,7 +168,15 @@ class StaticIp(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.StaticIp("test", name="example")
+        example = aws.lightsail.StaticIp("example", name="example")
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+
+        ```sh
+        $ pulumi import aws:lightsail/staticIp:StaticIp example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -209,10 +229,10 @@ class StaticIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the Lightsail static IP
-        :param pulumi.Input[builtins.str] ip_address: The allocated static IP address
-        :param pulumi.Input[builtins.str] name: The name for the allocated static IP
-        :param pulumi.Input[builtins.str] support_code: The support code.
+        :param pulumi.Input[builtins.str] arn: ARN of the Lightsail static IP.
+        :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
+        :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+        :param pulumi.Input[builtins.str] support_code: Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -228,7 +248,7 @@ class StaticIp(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the Lightsail static IP
+        ARN of the Lightsail static IP.
         """
         return pulumi.get(self, "arn")
 
@@ -236,7 +256,7 @@ class StaticIp(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[builtins.str]:
         """
-        The allocated static IP address
+        Allocated static IP address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -244,7 +264,7 @@ class StaticIp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name for the allocated static IP
+        Name for the allocated static IP.
         """
         return pulumi.get(self, "name")
 
@@ -252,7 +272,7 @@ class StaticIp(pulumi.CustomResource):
     @pulumi.getter(name="supportCode")
     def support_code(self) -> pulumi.Output[builtins.str]:
         """
-        The support code.
+        Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         return pulumi.get(self, "support_code")
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
+        /// User-defined criteria that maps to Key. A list of instance IDs or tag values.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Attaches a Lightsail Instance to a Lightsail Load Balancer.
+ * Manages a Lightsail Load Balancer Attachment. Use this resource to attach Lightsail instances to a load balancer for distributing traffic across multiple instances.
  * 
  * ## Example Usage
  * 
@@ -55,23 +55,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
- *             .name("test-instance")
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
+ *             .name("example-instance")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testLbAttachment = new LbAttachment("testLbAttachment", LbAttachmentArgs.builder()
- *             .lbName(test.name())
- *             .instanceName(testInstance.name())
+ *         var exampleLbAttachment = new LbAttachment("exampleLbAttachment", LbAttachmentArgs.builder()
+ *             .lbName(example.name())
+ *             .instanceName(exampleInstance.name())
  *             .build());
  * 
  *     }
@@ -85,35 +85,35 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+ * $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbAttachment:LbAttachment")
 public class LbAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the instance to attach to the load balancer.
+     * Name of the instance to attach to the load balancer.
      * 
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
-     * @return The name of the instance to attach to the load balancer.
+     * @return Name of the instance to attach to the load balancer.
      * 
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
-     * The name of the Lightsail load balancer.
+     * Name of the Lightsail load balancer.
      * 
      */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
-     * @return The name of the Lightsail load balancer.
+     * @return Name of the Lightsail load balancer.
      * 
      */
     public Output<String> lbName() {

@@ -62,14 +62,14 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+     * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
      * 
      */
     @Import(name="systemLogLevel")
     private @Nullable Output<String> systemLogLevel;
 
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
      * 
      */
     public Optional<Output<String>> systemLogLevel() {
@@ -167,7 +167,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
          * 
          * @return builder
          * 

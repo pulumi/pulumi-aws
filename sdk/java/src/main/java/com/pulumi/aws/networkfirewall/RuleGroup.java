@@ -422,6 +422,78 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Example with S3 as source for the suricata rules
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var suricataRules = S3Functions.getObject(GetObjectArgs.builder()
+ *             .bucket(suricataRulesAwsS3Bucket.id())
+ *             .key("rules/custom.rules")
+ *             .build());
+ * 
+ *         var s3RulesExample = new RuleGroup("s3RulesExample", RuleGroupArgs.builder()
+ *             .capacity(1000)
+ *             .name("my-terraform-s3-rules")
+ *             .type("STATEFUL")
+ *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
+ *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
+ *                     .ipSets(RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
+ *                         .key("HOME_NET")
+ *                         .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
+ *                             .definitions(                            
+ *                                 "10.0.0.0/16",
+ *                                 "192.168.0.0/16",
+ *                                 "172.16.0.0/12")
+ *                             .build())
+ *                         .build())
+ *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
+ *                         .key("HTTP_PORTS")
+ *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
+ *                             .definitions(                            
+ *                                 "443",
+ *                                 "80")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
+ *                     .rulesString(suricataRules.body())
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.of("ManagedBy", "terraform"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:

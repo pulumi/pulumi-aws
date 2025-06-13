@@ -33,8 +33,8 @@ import (
 //			_, err := lambda.NewCodeSigningConfig(ctx, "new_csc", &lambda.CodeSigningConfigArgs{
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
-//						example1.Arn,
-//						example2.Arn,
+//						example1.VersionArn,
+//						example2.VersionArn,
 //					},
 //				},
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{

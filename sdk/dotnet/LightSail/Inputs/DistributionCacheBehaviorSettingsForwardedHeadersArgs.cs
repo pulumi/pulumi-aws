@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _headersAllowLists;
 
         /// <summary>
-        /// The specific headers to forward to your distribution's origin.
+        /// Specific headers to forward to your distribution's origin.
         /// </summary>
         public InputList<string> HeadersAllowLists
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// The headers that you want your distribution to forward to your origin and base caching on.
+        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
         /// </summary>
         [Input("option")]
         public Input<string>? Option { get; set; }

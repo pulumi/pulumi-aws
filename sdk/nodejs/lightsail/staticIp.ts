@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allocates a static IP address.
+ * Manages a static IP address.
  *
- * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+ * Use this resource to allocate a static IP address that can be attached to Lightsail instances to provide a consistent public IP address that persists across instance restarts.
+ *
+ * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
  *
  * ## Example Usage
  *
@@ -15,7 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.StaticIp("test", {name: "example"});
+ * const example = new aws.lightsail.StaticIp("example", {name: "example"});
+ * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:lightsail/staticIp:StaticIp example example
  * ```
  */
 export class StaticIp extends pulumi.CustomResource {
@@ -47,19 +57,19 @@ export class StaticIp extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Lightsail static IP
+     * ARN of the Lightsail static IP.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The allocated static IP address
+     * Allocated static IP address.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The support code.
+     * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
@@ -97,19 +107,19 @@ export class StaticIp extends pulumi.CustomResource {
  */
 export interface StaticIpState {
     /**
-     * The ARN of the Lightsail static IP
+     * ARN of the Lightsail static IP.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The allocated static IP address
+     * Allocated static IP address.
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
      */
     name?: pulumi.Input<string>;
     /**
-     * The support code.
+     * Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      */
     supportCode?: pulumi.Input<string>;
 }
@@ -119,7 +129,7 @@ export interface StaticIpState {
  */
 export interface StaticIpArgs {
     /**
-     * The name for the allocated static IP
+     * Name for the allocated static IP.
      */
     name?: pulumi.Input<string>;
 }

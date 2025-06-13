@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// </summary>
         public readonly string? LogGroup;
         /// <summary>
-        /// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        /// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
         /// </summary>
         public readonly string? SystemLogLevel;
 

@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementIpSetReferenceStatement;
@@ -28,6 +29,11 @@ public final class RuleGroupRuleStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementAndStatement andStatement;
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementAsnMatchStatement asnMatchStatement;
     /**
      * @return A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
      * 
@@ -96,6 +102,13 @@ public final class RuleGroupRuleStatement {
      */
     public Optional<RuleGroupRuleStatementAndStatement> andStatement() {
         return Optional.ofNullable(this.andStatement);
+    }
+    /**
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementAsnMatchStatement> asnMatchStatement() {
+        return Optional.ofNullable(this.asnMatchStatement);
     }
     /**
      * @return A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
@@ -192,6 +205,7 @@ public final class RuleGroupRuleStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementAndStatement andStatement;
+        private @Nullable RuleGroupRuleStatementAsnMatchStatement asnMatchStatement;
         private @Nullable RuleGroupRuleStatementByteMatchStatement byteMatchStatement;
         private @Nullable RuleGroupRuleStatementGeoMatchStatement geoMatchStatement;
         private @Nullable RuleGroupRuleStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -208,6 +222,7 @@ public final class RuleGroupRuleStatement {
         public Builder(RuleGroupRuleStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.andStatement = defaults.andStatement;
+    	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
@@ -226,6 +241,12 @@ public final class RuleGroupRuleStatement {
         public Builder andStatement(@Nullable RuleGroupRuleStatementAndStatement andStatement) {
 
             this.andStatement = andStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder asnMatchStatement(@Nullable RuleGroupRuleStatementAsnMatchStatement asnMatchStatement) {
+
+            this.asnMatchStatement = asnMatchStatement;
             return this;
         }
         @CustomType.Setter
@@ -303,6 +324,7 @@ public final class RuleGroupRuleStatement {
         public RuleGroupRuleStatement build() {
             final var _resultValue = new RuleGroupRuleStatement();
             _resultValue.andStatement = andStatement;
+            _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;

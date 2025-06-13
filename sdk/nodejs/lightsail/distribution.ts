@@ -8,28 +8,26 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Lightsail Distribution.
+ * Manages a Lightsail content delivery network (CDN) distribution. Use this resource to cache content at edge locations and reduce latency for users accessing your content.
  *
  * ## Example Usage
  *
  * ### Basic Usage
  *
- * Below is a basic example with a bucket as an origin.
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Bucket("test", {
- *     name: "test-bucket",
+ * const example = new aws.lightsail.Bucket("example", {
+ *     name: "example-bucket",
  *     bundleId: "small_1_0",
  * });
- * const testDistribution = new aws.lightsail.Distribution("test", {
- *     name: "test-distribution",
+ * const exampleDistribution = new aws.lightsail.Distribution("example", {
+ *     name: "example-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
- *         name: test.name,
- *         regionName: test.region,
+ *         name: example.name,
+ *         regionName: example.region,
  *     },
  *     defaultCacheBehavior: {
  *         behavior: "cache",
@@ -53,9 +51,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### instance origin example
- *
- * Below is an example of an instance as the origin.
+ * ### Instance Origin
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -68,35 +64,33 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const testStaticIp = new aws.lightsail.StaticIp("test", {name: "test-static-ip"});
- * const testInstance = new aws.lightsail.Instance("test", {
- *     name: "test-instance",
+ * const exampleStaticIp = new aws.lightsail.StaticIp("example", {name: "example-static-ip"});
+ * const exampleInstance = new aws.lightsail.Instance("example", {
+ *     name: "example-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "micro_1_0",
  * });
- * const test = new aws.lightsail.StaticIpAttachment("test", {
- *     staticIpName: testStaticIp.name,
- *     instanceName: testInstance.name,
+ * const example = new aws.lightsail.StaticIpAttachment("example", {
+ *     staticIpName: exampleStaticIp.name,
+ *     instanceName: exampleInstance.name,
  * });
- * const testDistribution = new aws.lightsail.Distribution("test", {
- *     name: "test-distribution",
+ * const exampleDistribution = new aws.lightsail.Distribution("example", {
+ *     name: "example-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
- *         name: testInstance.name,
+ *         name: exampleInstance.name,
  *         regionName: available.then(available => available.id),
  *     },
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
  * }, {
- *     dependsOn: [test],
+ *     dependsOn: [example],
  * });
  * ```
  *
- * ### lb origin example
- *
- * Below is an example with a load balancer as an origin
+ * ### Load Balancer Origin
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -109,45 +103,45 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const test = new aws.lightsail.Lb("test", {
- *     name: "test-load-balancer",
+ * const example = new aws.lightsail.Lb("example", {
+ *     name: "example-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testInstance = new aws.lightsail.Instance("test", {
- *     name: "test-instance",
+ * const exampleInstance = new aws.lightsail.Instance("example", {
+ *     name: "example-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_3_0",
  * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("test", {
- *     lbName: test.name,
- *     instanceName: testInstance.name,
+ * const exampleLbAttachment = new aws.lightsail.LbAttachment("example", {
+ *     lbName: example.name,
+ *     instanceName: exampleInstance.name,
  * });
- * const testDistribution = new aws.lightsail.Distribution("test", {
- *     name: "test-distribution",
+ * const exampleDistribution = new aws.lightsail.Distribution("example", {
+ *     name: "example-distribution",
  *     bundleId: "small_1_0",
  *     origin: {
- *         name: test.name,
+ *         name: example.name,
  *         regionName: available.then(available => available.id),
  *     },
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
  * }, {
- *     dependsOn: [testLbAttachment],
+ *     dependsOn: [exampleLbAttachment],
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
+ * Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
  * ```
  */
 export class Distribution extends pulumi.CustomResource {
@@ -179,11 +173,11 @@ export class Distribution extends pulumi.CustomResource {
     }
 
     /**
-     * The alternate domain names of the distribution.
+     * Alternate domain names of the distribution.
      */
     public /*out*/ readonly alternativeDomainNames!: pulumi.Output<string[]>;
     /**
-     * The Amazon Resource Name (ARN) of the distribution.
+     * ARN of the distribution.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -191,41 +185,39 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly bundleId!: pulumi.Output<string>;
     /**
-     * An object that describes the cache behavior settings of the distribution. Detailed below
-     *
-     * The following arguments are optional:
+     * Cache behavior settings of the distribution. See below.
      */
     public readonly cacheBehaviorSettings!: pulumi.Output<outputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
     /**
-     * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * Per-path cache behavior of the distribution. See below.
      */
     public readonly cacheBehaviors!: pulumi.Output<outputs.lightsail.DistributionCacheBehavior[] | undefined>;
     /**
-     * The name of the SSL/TLS certificate attached to the distribution, if any.
+     * Name of the SSL/TLS certificate attached to the distribution.
      */
     public readonly certificateName!: pulumi.Output<string | undefined>;
     /**
-     * The timestamp when the distribution was created.
+     * Timestamp when the distribution was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Object that describes the default cache behavior of the distribution. Detailed below
+     * Default cache behavior of the distribution. See below.
      */
     public readonly defaultCacheBehavior!: pulumi.Output<outputs.lightsail.DistributionDefaultCacheBehavior>;
     /**
-     * The domain name of the distribution.
+     * Domain name of the distribution.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * The IP address type of the distribution. Default: `dualstack`.
+     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether the distribution is enabled. Default: `true`.
+     * Whether the distribution is enabled. Default: `true`.
      */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+     * Location of the distribution, such as the AWS Region and Availability Zone. See below.
      */
     public /*out*/ readonly locations!: pulumi.Output<outputs.lightsail.DistributionLocation[]>;
     /**
@@ -233,31 +225,34 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly origin!: pulumi.Output<outputs.lightsail.DistributionOrigin>;
     /**
-     * The public DNS of the origin.
+     * Public DNS of the origin.
+     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      */
     public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
     /**
-     * The Lightsail resource type (e.g., Distribution).
+     * Lightsail resource type (e.g., Distribution).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
-     * The status of the distribution.
+     * Status of the distribution.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
-     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -338,11 +333,11 @@ export class Distribution extends pulumi.CustomResource {
  */
 export interface DistributionState {
     /**
-     * The alternate domain names of the distribution.
+     * Alternate domain names of the distribution.
      */
     alternativeDomainNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Resource Name (ARN) of the distribution.
+     * ARN of the distribution.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -350,41 +345,39 @@ export interface DistributionState {
      */
     bundleId?: pulumi.Input<string>;
     /**
-     * An object that describes the cache behavior settings of the distribution. Detailed below
-     *
-     * The following arguments are optional:
+     * Cache behavior settings of the distribution. See below.
      */
     cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
     /**
-     * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * Per-path cache behavior of the distribution. See below.
      */
     cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
     /**
-     * The name of the SSL/TLS certificate attached to the distribution, if any.
+     * Name of the SSL/TLS certificate attached to the distribution.
      */
     certificateName?: pulumi.Input<string>;
     /**
-     * The timestamp when the distribution was created.
+     * Timestamp when the distribution was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * Object that describes the default cache behavior of the distribution. Detailed below
+     * Default cache behavior of the distribution. See below.
      */
     defaultCacheBehavior?: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior>;
     /**
-     * The domain name of the distribution.
+     * Domain name of the distribution.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The IP address type of the distribution. Default: `dualstack`.
+     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * Indicates whether the distribution is enabled. Default: `true`.
+     * Whether the distribution is enabled. Default: `true`.
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+     * Location of the distribution, such as the AWS Region and Availability Zone. See below.
      */
     locations?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionLocation>[]>;
     /**
@@ -392,31 +385,34 @@ export interface DistributionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     *
+     * The following arguments are optional:
      */
     origin?: pulumi.Input<inputs.lightsail.DistributionOrigin>;
     /**
-     * The public DNS of the origin.
+     * Public DNS of the origin.
+     * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      */
     originPublicDns?: pulumi.Input<string>;
     /**
-     * The Lightsail resource type (e.g., Distribution).
+     * Lightsail resource type (e.g., Distribution).
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * The status of the distribution.
+     * Status of the distribution.
      */
     status?: pulumi.Input<string>;
     /**
-     * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+     * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      */
     supportCode?: pulumi.Input<string>;
     /**
-     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -432,29 +428,27 @@ export interface DistributionArgs {
      */
     bundleId: pulumi.Input<string>;
     /**
-     * An object that describes the cache behavior settings of the distribution. Detailed below
-     *
-     * The following arguments are optional:
+     * Cache behavior settings of the distribution. See below.
      */
     cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
     /**
-     * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+     * Per-path cache behavior of the distribution. See below.
      */
     cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
     /**
-     * The name of the SSL/TLS certificate attached to the distribution, if any.
+     * Name of the SSL/TLS certificate attached to the distribution.
      */
     certificateName?: pulumi.Input<string>;
     /**
-     * Object that describes the default cache behavior of the distribution. Detailed below
+     * Default cache behavior of the distribution. See below.
      */
     defaultCacheBehavior: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior>;
     /**
-     * The IP address type of the distribution. Default: `dualstack`.
+     * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * Indicates whether the distribution is enabled. Default: `true`.
+     * Whether the distribution is enabled. Default: `true`.
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
@@ -462,11 +456,13 @@ export interface DistributionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+     * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
+     *
+     * The following arguments are optional:
      */
     origin: pulumi.Input<inputs.lightsail.DistributionOrigin>;
     /**
-     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         private InputList<string>? _cookiesAllowLists;
 
         /// <summary>
-        /// The specific cookies to forward to your distribution's origin.
+        /// Specific cookies to forward to your distribution's origin.
         /// </summary>
         public InputList<string> CookiesAllowLists
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         }
 
         /// <summary>
-        /// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+        /// Which cookies to forward to the distribution's origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
         /// </summary>
         [Input("option")]
         public Input<string>? Option { get; set; }

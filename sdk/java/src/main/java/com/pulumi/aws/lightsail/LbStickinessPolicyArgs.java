@@ -17,14 +17,14 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
     public static final LbStickinessPolicyArgs Empty = new LbStickinessPolicyArgs();
 
     /**
-     * The cookie duration in seconds. This determines the length of the session stickiness.
+     * Cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
     @Import(name="cookieDuration", required=true)
     private Output<Integer> cookieDuration;
 
     /**
-     * @return The cookie duration in seconds. This determines the length of the session stickiness.
+     * @return Cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
     public Output<Integer> cookieDuration() {
@@ -32,14 +32,14 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * Whether to enable session stickiness for the load balancer.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * @return Whether to enable session stickiness for the load balancer.
      * 
      */
     public Output<Boolean> enabled() {
@@ -47,14 +47,14 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the load balancer to which you want to enable session stickiness.
+     * Name of the load balancer to which you want to enable session stickiness.
      * 
      */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to enable session stickiness.
+     * @return Name of the load balancer to which you want to enable session stickiness.
      * 
      */
     public Output<String> lbName() {
@@ -88,7 +88,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cookieDuration The cookie duration in seconds. This determines the length of the session stickiness.
+         * @param cookieDuration Cookie duration in seconds. This determines the length of the session stickiness.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param cookieDuration The cookie duration in seconds. This determines the length of the session stickiness.
+         * @param cookieDuration Cookie duration in seconds. This determines the length of the session stickiness.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+         * @param enabled Whether to enable session stickiness for the load balancer.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+         * @param enabled Whether to enable session stickiness for the load balancer.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to enable session stickiness.
+         * @param lbName Name of the load balancer to which you want to enable session stickiness.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lbName The name of the load balancer to which you want to enable session stickiness.
+         * @param lbName Name of the load balancer to which you want to enable session stickiness.
          * 
          * @return builder
          * 

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionCacheBehaviorSettingsForwardedCookies {
     /**
-     * @return The specific cookies to forward to your distribution&#39;s origin.
+     * @return Specific cookies to forward to your distribution&#39;s origin.
      * 
      */
     private @Nullable List<String> cookiesAllowLists;
     /**
-     * @return Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+     * @return Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
      * 
      */
     private @Nullable String option;
 
     private DistributionCacheBehaviorSettingsForwardedCookies() {}
     /**
-     * @return The specific cookies to forward to your distribution&#39;s origin.
+     * @return Specific cookies to forward to your distribution&#39;s origin.
      * 
      */
     public List<String> cookiesAllowLists() {
         return this.cookiesAllowLists == null ? List.of() : this.cookiesAllowLists;
     }
     /**
-     * @return Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+     * @return Which cookies to forward to the distribution&#39;s origin for a cache behavior. Valid values: `all`, `none`, `allow-list`.
      * 
      */
     public Optional<String> option() {

@@ -860,7 +860,7 @@ class FunctionLoggingConfig(dict):
         :param builtins.str log_format: select between `Text` and structured `JSON` format for your function's logs.
         :param builtins.str application_log_level: for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
         :param builtins.str log_group: the CloudWatch log group your function sends logs to.
-        :param builtins.str system_log_level: for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        :param builtins.str system_log_level: for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
         """
         pulumi.set(__self__, "log_format", log_format)
         if application_log_level is not None:
@@ -898,7 +898,7 @@ class FunctionLoggingConfig(dict):
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional[builtins.str]:
         """
-        for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
         """
         return pulumi.get(self, "system_log_level")
 

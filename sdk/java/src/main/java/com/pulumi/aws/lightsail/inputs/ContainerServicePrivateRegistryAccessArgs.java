@@ -16,14 +16,14 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
     public static final ContainerServicePrivateRegistryAccessArgs Empty = new ContainerServicePrivateRegistryAccessArgs();
 
     /**
-     * Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+     * Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     @Import(name="ecrImagePullerRole")
     private @Nullable Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> ecrImagePullerRole;
 
     /**
-     * @return Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+     * @return Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
      * 
      */
     public Optional<Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs>> ecrImagePullerRole() {
@@ -55,7 +55,7 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
         }
 
         /**
-         * @param ecrImagePullerRole Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+         * @param ecrImagePullerRole Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
         }
 
         /**
-         * @param ecrImagePullerRole Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+         * @param ecrImagePullerRole Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
          * 
          * @return builder
          * 

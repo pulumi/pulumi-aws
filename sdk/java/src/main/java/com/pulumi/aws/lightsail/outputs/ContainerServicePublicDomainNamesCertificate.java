@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ContainerServicePublicDomainNamesCertificate {
+    /**
+     * @return Name of the certificate.
+     * 
+     */
     private String certificateName;
+    /**
+     * @return List of domain names for the certificate.
+     * 
+     */
     private List<String> domainNames;
 
     private ContainerServicePublicDomainNamesCertificate() {}
+    /**
+     * @return Name of the certificate.
+     * 
+     */
     public String certificateName() {
         return this.certificateName;
     }
+    /**
+     * @return List of domain names for the certificate.
+     * 
+     */
     public List<String> domainNames() {
         return this.domainNames;
     }

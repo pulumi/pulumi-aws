@@ -31,14 +31,14 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of instance IDs or tag values. AWS currently limits this list size to one value.
+     * User-defined criteria that maps to Key. A list of instance IDs or tag values.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return A list of instance IDs or tag values. AWS currently limits this list size to one value.
+     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
      * 
      */
     public Output<List<String>> values() {
@@ -92,7 +92,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values A list of instance IDs or tag values. AWS currently limits this list size to one value.
+         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values A list of instance IDs or tag values. AWS currently limits this list size to one value.
+         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values A list of instance IDs or tag values. AWS currently limits this list size to one value.
+         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
          * 
          * @return builder
          * 

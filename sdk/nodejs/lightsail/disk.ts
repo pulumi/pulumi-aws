@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Lightsail Disk resource.
+ * Manages a Lightsail disk. Use this resource to create additional block storage that can be attached to Lightsail instances for extra storage capacity.
  *
  * ## Example Usage
  *
@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  *         values: ["opt-in-not-required"],
  *     }],
  * });
- * const test = new aws.lightsail.Disk("test", {
- *     name: "test",
+ * const example = new aws.lightsail.Disk("example", {
+ *     name: "example-disk",
  *     sizeInGb: 8,
  *     availabilityZone: available.then(available => available.names?.[0]),
  * });
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/disk:Disk test test
+ * $ pulumi import aws:lightsail/disk:Disk example example-disk
  * ```
  */
 export class Disk extends pulumi.CustomResource {
@@ -64,35 +64,37 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Lightsail disk.
+     * ARN of the disk.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The timestamp when the disk was created.
+     * Date and time when the disk was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     *
+     * The following arguments are optional:
      */
     public readonly sizeInGb!: pulumi.Output<number>;
     /**
-     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -146,35 +148,37 @@ export class Disk extends pulumi.CustomResource {
  */
 export interface DiskState {
     /**
-     * The ARN of the Lightsail disk.
+     * ARN of the disk.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The timestamp when the disk was created.
+     * Date and time when the disk was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      */
     name?: pulumi.Input<string>;
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     *
+     * The following arguments are optional:
      */
     sizeInGb?: pulumi.Input<number>;
     /**
-     * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+     * Support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail.
      */
     supportCode?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -186,19 +190,21 @@ export interface DiskState {
  */
 export interface DiskArgs {
     /**
-     * The Availability Zone in which to create your disk.
+     * Availability Zone in which to create the disk.
      */
     availabilityZone: pulumi.Input<string>;
     /**
-     * The name of the disk.
+     * Name of the disk. Must begin with an alphabetic character and contain only alphanumeric characters, underscores, hyphens, and dots.
      */
     name?: pulumi.Input<string>;
     /**
-     * The size of the disk in GB.
+     * Size of the disk in GB.
+     *
+     * The following arguments are optional:
      */
     sizeInGb: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
