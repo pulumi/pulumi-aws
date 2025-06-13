@@ -5,10 +5,4 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Pulumi" Version="3.82.1" />
-    <PackageReference Include="Pulumi.Aws" Version="7.0.0-alpha.0" />
-  </ItemGroup>
-
 </Project>
