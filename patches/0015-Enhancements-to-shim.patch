@@ -12,7 +12,7 @@ This patch combines a couple of patches that all effect shim.go
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000000..858599b33f
+index 0000000000..a4c1d81989
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,40 @@
@@ -23,8 +23,8 @@ index 0000000000..858599b33f
 +
 +	pfprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-+	"github.com/hashicorp/terraform-provider-aws/internal/provider"
-+	"github.com/hashicorp/terraform-provider-aws/internal/provider/fwprovider"
++	"github.com/hashicorp/terraform-provider-aws/internal/provider/framework"
++	"github.com/hashicorp/terraform-provider-aws/internal/provider/sdkv2"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tags"
 +)
 +
@@ -34,11 +34,11 @@ index 0000000000..858599b33f
 +}
 +
 +func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
-+	primary, err := provider.New(ctx)
++	primary, err := sdkv2.NewProvider(ctx)
 +	if err != nil {
 +		return UpstreamProvider{}, err
 +	}
-+	pf, err := fwprovider.New(ctx, primary)
++	pf, err := framework.NewProvider(ctx, primary)
 +	if err != nil {
 +		//lintignore:R009
 +		panic(err)
