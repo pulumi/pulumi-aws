@@ -6197,6 +6197,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
+		if _, ok := prov.Resources[tfResourceID]; !ok {
+			prov.Resources[tfResourceID] = &info.Resource{}
+		}
 		prov.Resources[tfResourceID].ComputeID = func(
 			ctx context.Context, state resource.PropertyMap,
 		) (resource.ID, error) {
