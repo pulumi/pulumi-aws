@@ -263,6 +263,7 @@ const (
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
 	workspacesMod               = "Workspaces"               // Workspaces
+	workspaceswebMod            = "WorkSpacesWeb"            // WorkSpaces Web
 	xrayMod                     = "Xray"                     // X-Ray
 
 	// Legacy Mods
@@ -494,6 +495,7 @@ var moduleMap = map[string]string{
 	"wafregional":                     wafregionalMod,
 	"wafv2":                           wafV2Mod,
 	"workspaces":                      workspacesMod,
+	"workspacesweb":                   workspaceswebMod,
 	"xray":                            xrayMod,
 }
 
@@ -5786,14 +5788,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_inspector2_filter":                          {"arn"},
 		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
 		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
 		"aws_quicksight_account_settings":                {"awsAccountId"},
 		"aws_notificationscontacts_email_contact":        {"arn"},
-		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
 		"aws_notifications_notification_configuration":   {"arn"},
 		"aws_notifications_notification_hub":             {"notificationHubRegion"},
 		"aws_notifications_event_rule":                   {"arn"},
 		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
-		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

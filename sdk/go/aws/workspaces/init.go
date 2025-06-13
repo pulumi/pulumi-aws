@@ -27,12 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Directory{}
 	case "aws:workspaces/ipGroup:IpGroup":
 		r = &IpGroup{}
-	case "aws:workspaces/webBrowserSettings:WebBrowserSettings":
-		r = &WebBrowserSettings{}
-	case "aws:workspaces/webNetworkSettings:WebNetworkSettings":
-		r = &WebNetworkSettings{}
-	case "aws:workspaces/webUserSettings:WebUserSettings":
-		r = &WebUserSettings{}
 	case "aws:workspaces/workspace:Workspace":
 		r = &Workspace{}
 	default:
@@ -61,21 +55,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"workspaces/ipGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"workspaces/webBrowserSettings",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"workspaces/webNetworkSettings",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"workspaces/webUserSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

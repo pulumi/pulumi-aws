@@ -461,6 +461,8 @@ if typing.TYPE_CHECKING:
     wafv2 = __wafv2
     import pulumi_aws.workspaces as __workspaces
     workspaces = __workspaces
+    import pulumi_aws.workspacesweb as __workspacesweb
+    workspacesweb = __workspacesweb
     import pulumi_aws.xray as __xray
     xray = __xray
 else:
@@ -682,6 +684,7 @@ else:
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
     workspaces = _utilities.lazy_import('pulumi_aws.workspaces')
+    workspacesweb = _utilities.lazy_import('pulumi_aws.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws.xray')
 
 _utilities.register(
@@ -12577,34 +12580,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "workspaces/webBrowserSettings",
-  "fqn": "pulumi_aws.workspaces",
-  "classes": {
-   "aws:workspaces/webBrowserSettings:WebBrowserSettings": "WebBrowserSettings"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "workspaces/webNetworkSettings",
-  "fqn": "pulumi_aws.workspaces",
-  "classes": {
-   "aws:workspaces/webNetworkSettings:WebNetworkSettings": "WebNetworkSettings"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "workspaces/webUserSettings",
-  "fqn": "pulumi_aws.workspaces",
-  "classes": {
-   "aws:workspaces/webUserSettings:WebUserSettings": "WebUserSettings"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "workspaces/workspace",
   "fqn": "pulumi_aws.workspaces",
   "classes": {
    "aws:workspaces/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/browserSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/browserSettings:BrowserSettings": "BrowserSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/networkSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/networkSettings:NetworkSettings": "NetworkSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspacesweb/userSettings",
+  "fqn": "pulumi_aws.workspacesweb",
+  "classes": {
+   "aws:workspacesweb/userSettings:UserSettings": "UserSettings"
   }
  },
  {
