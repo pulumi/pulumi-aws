@@ -56,7 +56,8 @@ type LookupAliasArgs struct {
 	// Description of state machine alias.
 	Description *string `pulumi:"description"`
 	// Name of the State Machine alias.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn string `pulumi:"statemachineArn"`
@@ -93,7 +94,8 @@ type LookupAliasOutputArgs struct {
 	// Description of state machine alias.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name of the State Machine alias.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`

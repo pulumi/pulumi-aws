@@ -316,6 +316,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alarms);
     }
     /**
+     * ARN that identifies the service.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN that identifies the service.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      * 
      */

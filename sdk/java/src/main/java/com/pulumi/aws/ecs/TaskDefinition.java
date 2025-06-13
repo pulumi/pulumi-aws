@@ -510,16 +510,12 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
      * 
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
-     * 
      */
     @Export(name="enableFaultInjection", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableFaultInjection;
 
     /**
      * @return Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
-     * 
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
     public Output<Boolean> enableFaultInjection() {
@@ -786,6 +782,8 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
      * 
+     * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+     * 
      */
     @Export(name="volumes", refs={List.class,TaskDefinitionVolume.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskDefinitionVolume>> volumes;
@@ -794,6 +792,8 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
      * @return Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
+     * 
+     * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
     public Output<Optional<List<TaskDefinitionVolume>>> volumes() {

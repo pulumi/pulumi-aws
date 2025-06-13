@@ -35,7 +35,6 @@ class ThesaurusArgs:
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -109,9 +108,6 @@ class ThesaurusArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -147,7 +143,6 @@ class _ThesaurusState:
         :param pulumi.Input[builtins.str] arn: ARN of the thesaurus.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] status: The current status of the thesaurus.
@@ -224,9 +219,6 @@ class _ThesaurusState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -348,7 +340,6 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         """
@@ -467,7 +458,6 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the thesaurus.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[builtins.str] status: The current status of the thesaurus.
@@ -522,9 +512,6 @@ class Thesaurus(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @property

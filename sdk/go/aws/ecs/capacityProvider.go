@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
+//			example, err := autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
 //				Tags: autoscaling.GroupTagArray{
 //					&autoscaling.GroupTagArgs{
 //						Key:               pulumi.String("AmazonECSManaged"),
@@ -43,10 +43,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewCapacityProvider(ctx, "test", &ecs.CapacityProviderArgs{
-//				Name: pulumi.String("test"),
+//			_, err = ecs.NewCapacityProvider(ctx, "example", &ecs.CapacityProviderArgs{
+//				Name: pulumi.String("example"),
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn:          test.Arn,
+//					AutoScalingGroupArn:          example.Arn,
 //					ManagedTerminationProtection: pulumi.String("ENABLED"),
 //					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
 //						MaximumScalingStepSize: pulumi.Int(1000),
@@ -67,10 +67,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+// Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 // ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState

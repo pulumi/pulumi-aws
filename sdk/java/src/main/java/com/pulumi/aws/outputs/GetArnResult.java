@@ -24,7 +24,7 @@ public final class GetArnResult {
     private String partition;
     /**
      * @return Region the resource resides in.
-     * Note that the ARNs for some resources do not require a region, so this component might be omitted.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      * 
      */
     private String region;
@@ -63,7 +63,7 @@ public final class GetArnResult {
     }
     /**
      * @return Region the resource resides in.
-     * Note that the ARNs for some resources do not require a region, so this component might be omitted.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      * 
      */
     public String region() {

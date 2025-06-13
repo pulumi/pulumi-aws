@@ -135,7 +135,7 @@ type PermissionsBoundaryAttachment struct {
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryOutput `pulumi:"permissionsBoundary"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -184,7 +184,7 @@ type permissionsBoundaryAttachmentState struct {
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary *PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -195,7 +195,7 @@ type PermissionsBoundaryAttachmentState struct {
 	PermissionSetArn pulumi.StringPtrInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -210,7 +210,7 @@ type permissionsBoundaryAttachmentArgs struct {
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -222,7 +222,7 @@ type PermissionsBoundaryAttachmentArgs struct {
 	PermissionSetArn pulumi.StringInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -330,7 +330,7 @@ func (o PermissionsBoundaryAttachmentOutput) PermissionsBoundary() PermissionsBo
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PermissionsBoundaryAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

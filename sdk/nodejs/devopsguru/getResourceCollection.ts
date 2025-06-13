@@ -35,6 +35,9 @@ export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pu
  * A collection of arguments for invoking getResourceCollection.
  */
 export interface GetResourceCollectionArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -89,6 +92,9 @@ export function getResourceCollectionOutput(args: GetResourceCollectionOutputArg
  * A collection of arguments for invoking getResourceCollection.
  */
 export interface GetResourceCollectionOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.

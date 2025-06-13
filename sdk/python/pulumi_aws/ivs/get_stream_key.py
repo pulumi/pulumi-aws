@@ -124,6 +124,7 @@ def get_stream_key(channel_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str channel_arn: ARN of the Channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -160,6 +161,7 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str channel_arn: ARN of the Channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()

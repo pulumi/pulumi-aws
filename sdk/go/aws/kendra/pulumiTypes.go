@@ -860,7 +860,7 @@ func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Template() pulumi
 type DataSourceConfigurationWebCrawlerConfiguration struct {
 	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
 	AuthenticationConfiguration *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 	CrawlDepth *int `pulumi:"crawlDepth"`
 	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
 	MaxContentSizePerPageInMegaBytes *float64 `pulumi:"maxContentSizePerPageInMegaBytes"`
@@ -892,7 +892,7 @@ type DataSourceConfigurationWebCrawlerConfigurationInput interface {
 type DataSourceConfigurationWebCrawlerConfigurationArgs struct {
 	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
 	AuthenticationConfiguration DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
-	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 	CrawlDepth pulumi.IntPtrInput `pulumi:"crawlDepth"`
 	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
 	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput `pulumi:"maxContentSizePerPageInMegaBytes"`
@@ -994,7 +994,7 @@ func (o DataSourceConfigurationWebCrawlerConfigurationOutput) AuthenticationConf
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.CrawlDepth }).(pulumi.IntPtrOutput)
 }
@@ -1074,7 +1074,7 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) AuthenticationC
 	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
 }
 
-// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -1753,9 +1753,9 @@ type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration stru
 	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
 	SeedUrls []string `pulumi:"seedUrls"`
 	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-	// * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-	// * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-	// * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
+	// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+	// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+	// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 	WebCrawlerMode *string `pulumi:"webCrawlerMode"`
 }
 
@@ -1774,9 +1774,9 @@ type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs 
 	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
 	SeedUrls pulumi.StringArrayInput `pulumi:"seedUrls"`
 	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-	// * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-	// * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-	// * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
+	// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+	// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+	// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 	WebCrawlerMode pulumi.StringPtrInput `pulumi:"webCrawlerMode"`
 }
 
@@ -1865,9 +1865,9 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOu
 }
 
 // The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-// * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-// * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-// * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
+// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) WebCrawlerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
 		return v.WebCrawlerMode
@@ -1909,9 +1909,9 @@ func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPt
 }
 
 // The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-// * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-// * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-// * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
+// * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+// * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+// * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
 func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) WebCrawlerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
 		if v == nil {

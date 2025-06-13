@@ -161,7 +161,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// Note - Only file_system_id or volume_id can be specified. file_system_id is used for Lustre and Windows, volume_id is used for ONTAP.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -186,6 +185,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Output("volumeId")]
         public Output<string?> VolumeId { get; private set; } = null!;
@@ -244,7 +245,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// Note - Only file_system_id or volume_id can be specified. file_system_id is used for Lustre and Windows, volume_id is used for ONTAP.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -263,6 +263,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
@@ -301,7 +303,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// Note - Only file_system_id or volume_id can be specified. file_system_id is used for Lustre and Windows, volume_id is used for ONTAP.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -338,6 +339,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

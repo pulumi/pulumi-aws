@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServicePrincipalResult {
     /**
-     * @return Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+     * @return Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
      * 
      */
     private String id;
@@ -20,10 +20,6 @@ public final class GetServicePrincipalResult {
      * 
      */
     private String name;
-    /**
-     * @return Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
-     * 
-     */
     private String region;
     private String serviceName;
     /**
@@ -34,7 +30,7 @@ public final class GetServicePrincipalResult {
 
     private GetServicePrincipalResult() {}
     /**
-     * @return Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+     * @return Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
      * 
      */
     public String id() {
@@ -47,10 +43,6 @@ public final class GetServicePrincipalResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
-     * 
-     */
     public String region() {
         return this.region;
     }

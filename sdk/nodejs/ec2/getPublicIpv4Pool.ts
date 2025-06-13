@@ -40,6 +40,9 @@ export interface GetPublicIpv4PoolArgs {
      * AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
      */
     poolId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Any tags for the address pool.
@@ -113,6 +116,9 @@ export interface GetPublicIpv4PoolOutputArgs {
      * AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
      */
     poolId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Any tags for the address pool.

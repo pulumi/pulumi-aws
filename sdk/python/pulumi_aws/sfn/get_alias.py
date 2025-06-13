@@ -149,6 +149,7 @@ def get_alias(description: Optional[builtins.str] = None,
 
     :param builtins.str description: Description of state machine alias.
     :param builtins.str name: Name of the State Machine alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()
@@ -191,6 +192,7 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[builtins.str]]]
 
     :param builtins.str description: Description of state machine alias.
     :param builtins.str name: Name of the State Machine alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()

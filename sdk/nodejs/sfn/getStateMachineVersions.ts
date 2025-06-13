@@ -32,6 +32,9 @@ export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ARN of the State Machine.
@@ -82,6 +85,9 @@ export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutpu
  * A collection of arguments for invoking getStateMachineVersions.
  */
 export interface GetStateMachineVersionsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ARN of the State Machine.

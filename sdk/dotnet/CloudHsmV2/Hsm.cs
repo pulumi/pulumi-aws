@@ -81,13 +81,14 @@ namespace Pulumi.Aws.CloudHsmV2
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
+        /// 
+        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -158,13 +159,14 @@ namespace Pulumi.Aws.CloudHsmV2
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
+        /// 
+        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -215,13 +217,14 @@ namespace Pulumi.Aws.CloudHsmV2
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
+        /// 
+        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -58,7 +58,7 @@ type VpcBlockPublicAccessOptions struct {
 	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringOutput `pulumi:"internetGatewayBlockMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                          `pulumi:"region"`
 	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -102,7 +102,7 @@ type vpcBlockPublicAccessOptionsState struct {
 	AwsRegion *string `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode *string `pulumi:"internetGatewayBlockMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                              `pulumi:"region"`
 	Timeouts *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
 }
@@ -114,7 +114,7 @@ type VpcBlockPublicAccessOptionsState struct {
 	AwsRegion pulumi.StringPtrInput
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrInput
 }
@@ -126,7 +126,7 @@ func (VpcBlockPublicAccessOptionsState) ElementType() reflect.Type {
 type vpcBlockPublicAccessOptionsArgs struct {
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode string `pulumi:"internetGatewayBlockMode"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                              `pulumi:"region"`
 	Timeouts *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
 }
@@ -135,7 +135,7 @@ type vpcBlockPublicAccessOptionsArgs struct {
 type VpcBlockPublicAccessOptionsArgs struct {
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrInput
 }
@@ -242,7 +242,7 @@ func (o VpcBlockPublicAccessOptionsOutput) InternetGatewayBlockMode() pulumi.Str
 	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.InternetGatewayBlockMode }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpcBlockPublicAccessOptionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

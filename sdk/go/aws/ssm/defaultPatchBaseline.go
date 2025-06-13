@@ -98,7 +98,7 @@ type DefaultPatchBaseline struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -158,7 +158,7 @@ type defaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -183,7 +183,7 @@ type DefaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -212,7 +212,7 @@ type defaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem string `pulumi:"operatingSystem"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -238,7 +238,7 @@ type DefaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -355,7 +355,7 @@ func (o DefaultPatchBaselineOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultPatchBaselineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ class RestoreTestingPlanArgs:
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         """
@@ -92,7 +92,7 @@ class RestoreTestingPlanArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -151,7 +151,7 @@ class _RestoreTestingPlanState:
         :param pulumi.Input[builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -216,7 +216,7 @@ class _RestoreTestingPlanState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -329,7 +329,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -440,7 +440,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -489,7 +489,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

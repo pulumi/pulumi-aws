@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        /// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        /// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         /// For S3, this should be the ARN of the S3 Bucket.
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        /// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        /// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         /// For S3, this should be the ARN of the S3 Bucket.
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -568,7 +568,7 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        /// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        /// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         /// For S3, this should be the ARN of the S3 Bucket.
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).

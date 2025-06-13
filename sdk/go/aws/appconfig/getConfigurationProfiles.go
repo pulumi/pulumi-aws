@@ -28,8 +28,9 @@ func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfile
 // A collection of arguments for invoking getConfigurationProfiles.
 type GetConfigurationProfilesArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId string  `pulumi:"applicationId"`
-	Region        *string `pulumi:"region"`
+	ApplicationId string `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConfigurationProfiles.
@@ -54,8 +55,9 @@ func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationPr
 // A collection of arguments for invoking getConfigurationProfiles.
 type GetConfigurationProfilesOutputArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetConfigurationProfilesOutputArgs) ElementType() reflect.Type {

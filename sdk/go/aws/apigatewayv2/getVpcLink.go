@@ -52,6 +52,7 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// VPC Link Tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -88,6 +89,7 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// VPC Link Tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -34,6 +34,9 @@ export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The ARN of the organizational unit.
@@ -86,6 +89,9 @@ export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The ARN of the organizational unit.

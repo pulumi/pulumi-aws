@@ -160,9 +160,7 @@ namespace Pulumi.Aws.Ebs
         private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
         /// </summary>
         public List<Inputs.GetSnapshotIdsFilterArgs> Filters
         {
@@ -212,9 +210,7 @@ namespace Pulumi.Aws.Ebs
         private InputList<Inputs.GetSnapshotIdsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
         /// </summary>
         public InputList<Inputs.GetSnapshotIdsFilterInputArgs> Filters
         {

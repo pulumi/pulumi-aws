@@ -6,6 +6,7 @@ package com.pulumi.aws.lb.inputs;
 import com.pulumi.aws.lb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerIpamPoolsArgs;
+import com.pulumi.aws.lb.inputs.LoadBalancerMinimumLoadBalancerCapacityArgs;
 import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -369,6 +370,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     * 
+     */
+    @Import(name="minimumLoadBalancerCapacity")
+    private @Nullable Output<LoadBalancerMinimumLoadBalancerCapacityArgs> minimumLoadBalancerCapacity;
+
+    /**
+     * @return Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     * 
+     */
+    public Optional<Output<LoadBalancerMinimumLoadBalancerCapacityArgs>> minimumLoadBalancerCapacity() {
+        return Optional.ofNullable(this.minimumLoadBalancerCapacity);
+    }
+
+    /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
@@ -574,6 +590,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.ipAddressType = $.ipAddressType;
         this.ipamPools = $.ipamPools;
         this.loadBalancerType = $.loadBalancerType;
+        this.minimumLoadBalancerCapacity = $.minimumLoadBalancerCapacity;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.preserveHostHeader = $.preserveHostHeader;
@@ -1087,6 +1104,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loadBalancerType(String loadBalancerType) {
             return loadBalancerType(Output.of(loadBalancerType));
+        }
+
+        /**
+         * @param minimumLoadBalancerCapacity Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumLoadBalancerCapacity(@Nullable Output<LoadBalancerMinimumLoadBalancerCapacityArgs> minimumLoadBalancerCapacity) {
+            $.minimumLoadBalancerCapacity = minimumLoadBalancerCapacity;
+            return this;
+        }
+
+        /**
+         * @param minimumLoadBalancerCapacity Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumLoadBalancerCapacity(LoadBalancerMinimumLoadBalancerCapacityArgs minimumLoadBalancerCapacity) {
+            return minimumLoadBalancerCapacity(Output.of(minimumLoadBalancerCapacity));
         }
 
         /**

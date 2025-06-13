@@ -40,16 +40,12 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-     * 
      */
     @Import(name="executionMode")
     private @Nullable Output<String> executionMode;
 
     /**
      * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Optional<Output<String>> executionMode() {
@@ -164,12 +160,16 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
      */
     @Import(name="variables")
     private @Nullable Output<List<PipelineVariableArgs>> variables;
 
     /**
      * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Optional<Output<List<PipelineVariableArgs>>> variables() {
@@ -243,8 +243,6 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
          * 
-         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-         * 
          * @return builder
          * 
          */
@@ -255,8 +253,6 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-         * 
-         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
          * @return builder
          * 
@@ -435,6 +431,8 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
          * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
          * @return builder
          * 
          */
@@ -446,6 +444,8 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
          * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
          * @return builder
          * 
          */
@@ -455,6 +455,8 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
          * @return builder
          * 

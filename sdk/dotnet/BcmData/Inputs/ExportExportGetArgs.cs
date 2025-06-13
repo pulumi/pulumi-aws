@@ -42,9 +42,6 @@ namespace Pulumi.Aws.BcmData.Inputs
             set => _destinationConfigurations = value;
         }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// </summary>
         [Input("exportArn")]
         public Input<string>? ExportArn { get; set; }
 

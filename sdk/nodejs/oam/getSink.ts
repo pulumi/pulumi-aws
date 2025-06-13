@@ -33,6 +33,9 @@ export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getSink.
  */
 export interface GetSinkArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ARN of the sink.
@@ -100,6 +103,9 @@ export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getSink.
  */
 export interface GetSinkOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ARN of the sink.

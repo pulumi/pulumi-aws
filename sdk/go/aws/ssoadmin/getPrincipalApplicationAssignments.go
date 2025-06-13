@@ -61,8 +61,9 @@ type GetPrincipalApplicationAssignmentsArgs struct {
 	// An identifier for an object in IAM Identity Center, such as a user or group.
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType string  `pulumi:"principalType"`
-	Region        *string `pulumi:"region"`
+	PrincipalType string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPrincipalApplicationAssignments.
@@ -96,8 +97,9 @@ type GetPrincipalApplicationAssignmentsOutputArgs struct {
 	// An identifier for an object in IAM Identity Center, such as a user or group.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-	PrincipalType pulumi.StringInput    `pulumi:"principalType"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPrincipalApplicationAssignmentsOutputArgs) ElementType() reflect.Type {

@@ -147,6 +147,7 @@ def get_vpc_link(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: VPC Link Tags.
     :param builtins.str vpc_link_id: VPC Link ID
     """
@@ -185,6 +186,7 @@ def get_vpc_link_output(region: Optional[pulumi.Input[Optional[builtins.str]]] =
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: VPC Link Tags.
     :param builtins.str vpc_link_id: VPC Link ID
     """

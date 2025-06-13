@@ -42,7 +42,7 @@ class GetServiceAccountResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN of the AWS ELB service account in the selected region.
+        ARN of the AWS ELB service account in the selected Region.
         """
         return pulumi.get(self, "arn")
 
@@ -118,8 +118,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS ELB account ID is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -177,8 +176,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS ELB account ID is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

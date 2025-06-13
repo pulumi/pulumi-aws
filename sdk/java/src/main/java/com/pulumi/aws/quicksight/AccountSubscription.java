@@ -108,14 +108,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.activeDirectoryName);
     }
     /**
-     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Export(name="adminGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminGroups;
 
     /**
-     * @return Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * @return Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Output<Optional<List<String>>> adminGroups() {
@@ -136,14 +136,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return this.authenticationMethod;
     }
     /**
-     * Author group associated with your Active Directory.
+     * Author group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     @Export(name="authorGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authorGroups;
 
     /**
-     * @return Author group associated with your Active Directory.
+     * @return Author group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     public Output<Optional<List<String>>> authorGroups() {
@@ -280,14 +280,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return this.notificationEmail;
     }
     /**
-     * Reader group associated with your Active Directory.
+     * Reader group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     @Export(name="readerGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> readerGroups;
 
     /**
-     * @return Reader group associated with your Active Directory.
+     * @return Reader group associated with your Active Directory or IAM Identity Center account.
      * 
      */
     public Output<Optional<List<String>>> readerGroups() {

@@ -264,8 +264,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Output("executionMode")]
         public Output<string?> ExecutionMode { get; private set; } = null!;
@@ -326,6 +324,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.PipelineVariable>> Variables { get; private set; } = null!;
@@ -390,8 +390,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Input("executionMode")]
         public Input<string>? ExecutionMode { get; set; }
@@ -461,6 +459,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         public InputList<Inputs.PipelineVariableArgs> Variables
         {
@@ -496,8 +496,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Input("executionMode")]
         public Input<string>? ExecutionMode { get; set; }
@@ -591,6 +589,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         public InputList<Inputs.PipelineVariableGetArgs> Variables
         {

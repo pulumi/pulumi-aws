@@ -106,7 +106,6 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
     public readonly referencedSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -127,6 +126,8 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     public readonly toPort!: pulumi.Output<number | undefined>;
 
@@ -223,7 +224,6 @@ export interface SecurityGroupIngressRuleState {
     referencedSecurityGroupId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     region?: pulumi.Input<string>;
     /**
@@ -244,6 +244,8 @@ export interface SecurityGroupIngressRuleState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     toPort?: pulumi.Input<number>;
 }
@@ -282,7 +284,6 @@ export interface SecurityGroupIngressRuleArgs {
     referencedSecurityGroupId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     region?: pulumi.Input<string>;
     /**
@@ -295,6 +296,8 @@ export interface SecurityGroupIngressRuleArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     toPort?: pulumi.Input<number>;
 }

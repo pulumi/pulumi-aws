@@ -27,7 +27,7 @@ class InstanceTrustProviderAttachmentArgs:
         The set of arguments for constructing a InstanceTrustProviderAttachment resource.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
         pulumi.set(__self__, "verifiedaccess_trust_provider_id", verifiedaccess_trust_provider_id)
@@ -62,7 +62,7 @@ class InstanceTrustProviderAttachmentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -79,7 +79,7 @@ class _InstanceTrustProviderAttachmentState:
                  verifiedaccess_trust_provider_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         """
@@ -94,7 +94,7 @@ class _InstanceTrustProviderAttachmentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -169,7 +169,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         """
@@ -263,7 +263,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         """
@@ -280,7 +280,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -158,14 +158,14 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
 
     /**
      * The status of scaling group.
-     * * `CREATING` – The scaling group creation is in progress.
-     * * `CREATE_FAILED` – The scaling group creation has failed.
-     * * `ACTIVE` – The scaling group is active.
-     * * `UPDATING` – The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `DELETING` – The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the scaling group.
-     * * `DELETED` – The scaling group is successfully deleted.
+     * * `CREATING` - The scaling group creation is in progress.
+     * * `CREATE_FAILED` - The scaling group creation has failed.
+     * * `ACTIVE` - The scaling group is active.
+     * * `UPDATING` - The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `DELETING` - The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the scaling group.
+     * * `DELETED` - The scaling group is successfully deleted.
      * 
      */
     @Import(name="status")
@@ -173,14 +173,14 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return The status of scaling group.
-     * * `CREATING` – The scaling group creation is in progress.
-     * * `CREATE_FAILED` – The scaling group creation has failed.
-     * * `ACTIVE` – The scaling group is active.
-     * * `UPDATING` – The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `DELETING` – The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the scaling group.
-     * * `DELETED` – The scaling group is successfully deleted.
+     * * `CREATING` - The scaling group creation is in progress.
+     * * `CREATE_FAILED` - The scaling group creation has failed.
+     * * `ACTIVE` - The scaling group is active.
+     * * `UPDATING` - The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `DELETING` - The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the scaling group.
+     * * `DELETED` - The scaling group is successfully deleted.
      * 
      */
     public Optional<Output<String>> status() {
@@ -473,14 +473,14 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param status The status of scaling group.
-         * * `CREATING` – The scaling group creation is in progress.
-         * * `CREATE_FAILED` – The scaling group creation has failed.
-         * * `ACTIVE` – The scaling group is active.
-         * * `UPDATING` – The scaling group is in the process of being updated.
-         * * `UPDATE_FAILED` – The update action failed.
-         * * `DELETING` – The scaling group is in the process of being deleted.
-         * * `DELETE_FAILED` – The system failed to delete the scaling group.
-         * * `DELETED` – The scaling group is successfully deleted.
+         * * `CREATING` - The scaling group creation is in progress.
+         * * `CREATE_FAILED` - The scaling group creation has failed.
+         * * `ACTIVE` - The scaling group is active.
+         * * `UPDATING` - The scaling group is in the process of being updated.
+         * * `UPDATE_FAILED` - The update action failed.
+         * * `DELETING` - The scaling group is in the process of being deleted.
+         * * `DELETE_FAILED` - The system failed to delete the scaling group.
+         * * `DELETED` - The scaling group is successfully deleted.
          * 
          * @return builder
          * 
@@ -492,14 +492,14 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param status The status of scaling group.
-         * * `CREATING` – The scaling group creation is in progress.
-         * * `CREATE_FAILED` – The scaling group creation has failed.
-         * * `ACTIVE` – The scaling group is active.
-         * * `UPDATING` – The scaling group is in the process of being updated.
-         * * `UPDATE_FAILED` – The update action failed.
-         * * `DELETING` – The scaling group is in the process of being deleted.
-         * * `DELETE_FAILED` – The system failed to delete the scaling group.
-         * * `DELETED` – The scaling group is successfully deleted.
+         * * `CREATING` - The scaling group creation is in progress.
+         * * `CREATE_FAILED` - The scaling group creation has failed.
+         * * `ACTIVE` - The scaling group is active.
+         * * `UPDATING` - The scaling group is in the process of being updated.
+         * * `UPDATE_FAILED` - The update action failed.
+         * * `DELETING` - The scaling group is in the process of being deleted.
+         * * `DELETE_FAILED` - The system failed to delete the scaling group.
+         * * `DELETED` - The scaling group is successfully deleted.
          * 
          * @return builder
          * 

@@ -38,6 +38,9 @@ export interface GetServerlessAccessPolicyArgs {
      * Name of the policy.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Type of access policy. Must be `data`.
@@ -100,6 +103,9 @@ export interface GetServerlessAccessPolicyOutputArgs {
      * Name of the policy.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Type of access policy. Must be `data`.

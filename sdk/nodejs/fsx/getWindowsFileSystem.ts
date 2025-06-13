@@ -40,6 +40,9 @@ export interface GetWindowsFileSystemArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The tags to associate with the file system.
@@ -178,6 +181,9 @@ export interface GetWindowsFileSystemOutputArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The tags to associate with the file system.

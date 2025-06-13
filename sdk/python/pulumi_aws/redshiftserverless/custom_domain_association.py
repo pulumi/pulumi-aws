@@ -29,7 +29,7 @@ class CustomDomainAssociationArgs:
         :param pulumi.Input[builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
         :param pulumi.Input[builtins.str] workgroup_name: Name of the workgroup.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "custom_domain_certificate_arn", custom_domain_certificate_arn)
         pulumi.set(__self__, "custom_domain_name", custom_domain_name)
@@ -77,7 +77,7 @@ class CustomDomainAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _CustomDomainAssociationState:
         :param pulumi.Input[builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[builtins.str] custom_domain_certificate_expiry_time: Expiration time for the certificate.
         :param pulumi.Input[builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup_name: Name of the workgroup.
         """
         if custom_domain_certificate_arn is not None:
@@ -153,7 +153,7 @@ class _CustomDomainAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -217,7 +217,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup_name: Name of the workgroup.
         """
         ...
@@ -318,7 +318,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[builtins.str] custom_domain_certificate_expiry_time: Expiration time for the certificate.
         :param pulumi.Input[builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup_name: Name of the workgroup.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -360,7 +360,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

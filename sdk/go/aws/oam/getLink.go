@@ -53,9 +53,10 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getLink.
 type LookupLinkArgs struct {
 	// ARN of the link.
-	LinkIdentifier string            `pulumi:"linkIdentifier"`
-	Region         *string           `pulumi:"region"`
-	Tags           map[string]string `pulumi:"tags"`
+	LinkIdentifier string `pulumi:"linkIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLink.
@@ -93,9 +94,10 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 // A collection of arguments for invoking getLink.
 type LookupLinkOutputArgs struct {
 	// ARN of the link.
-	LinkIdentifier pulumi.StringInput    `pulumi:"linkIdentifier"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
-	Tags           pulumi.StringMapInput `pulumi:"tags"`
+	LinkIdentifier pulumi.StringInput `pulumi:"linkIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLinkOutputArgs) ElementType() reflect.Type {

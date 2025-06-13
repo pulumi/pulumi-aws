@@ -62,6 +62,11 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      */
     private @Nullable Integer throughput;
     /**
+     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * 
+     */
+    private @Nullable Integer volumeInitializationRate;
+    /**
      * @return Volume type.
      * 
      */
@@ -132,6 +137,13 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return Optional.ofNullable(this.throughput);
     }
     /**
+     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * 
+     */
+    public Optional<Integer> volumeInitializationRate() {
+        return Optional.ofNullable(this.volumeInitializationRate);
+    }
+    /**
      * @return Volume type.
      * 
      */
@@ -157,6 +169,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         private @Nullable String snapshotId;
         private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications;
         private @Nullable Integer throughput;
+        private @Nullable Integer volumeInitializationRate;
         private @Nullable String volumeType;
         public Builder() {}
         public Builder(ServiceVolumeConfigurationManagedEbsVolume defaults) {
@@ -170,6 +183,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
     	      this.snapshotId = defaults.snapshotId;
     	      this.tagSpecifications = defaults.tagSpecifications;
     	      this.throughput = defaults.throughput;
+    	      this.volumeInitializationRate = defaults.volumeInitializationRate;
     	      this.volumeType = defaults.volumeType;
         }
 
@@ -233,6 +247,12 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
             return this;
         }
         @CustomType.Setter
+        public Builder volumeInitializationRate(@Nullable Integer volumeInitializationRate) {
+
+            this.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
 
             this.volumeType = volumeType;
@@ -249,6 +269,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
             _resultValue.snapshotId = snapshotId;
             _resultValue.tagSpecifications = tagSpecifications;
             _resultValue.throughput = throughput;
+            _resultValue.volumeInitializationRate = volumeInitializationRate;
             _resultValue.volumeType = volumeType;
             return _resultValue;
         }

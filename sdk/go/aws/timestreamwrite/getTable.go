@@ -56,7 +56,8 @@ type LookupTableArgs struct {
 	// Name of the Timestream database.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the Timestream table.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -99,7 +100,8 @@ type LookupTableOutputArgs struct {
 	// Name of the Timestream database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the Timestream table.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

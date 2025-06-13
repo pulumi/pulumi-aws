@@ -79,20 +79,18 @@ type DefaultSubnet struct {
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   pulumi.BoolOutput      `pulumi:"existingDefaultSubnet"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  pulumi.StringOutput  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId     pulumi.StringOutput  `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                     pulumi.BoolPtrOutput `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     pulumi.StringOutput  `pulumi:"outpostArn"`
-	OwnerId                        pulumi.StringOutput  `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput  `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-	Region  pulumi.StringOutput    `pulumi:"region"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ForceDestroy                   pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     pulumi.StringOutput    `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput   `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            pulumi.BoolPtrOutput   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     pulumi.StringOutput    `pulumi:"outpostArn"`
+	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         pulumi.StringOutput    `pulumi:"region"`
+	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -149,20 +147,18 @@ type defaultSubnetState struct {
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   *bool   `pulumi:"existingDefaultSubnet"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   *bool   `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  *string `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId     *string `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                     *bool   `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     *string `pulumi:"outpostArn"`
-	OwnerId                        *string `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-	Region  *string           `pulumi:"region"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     *string           `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     *string           `pulumi:"outpostArn"`
+	OwnerId                        *string           `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -196,11 +192,9 @@ type DefaultSubnetState struct {
 	OutpostArn                     pulumi.StringPtrInput
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-	Region  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringPtrInput
 }
@@ -222,16 +216,14 @@ type defaultSubnetArgs struct {
 	EnableResourceNameDnsARecordOnLaunch    *bool   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   *bool   `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  *string `pulumi:"ipv6CidrBlock"`
-	Ipv6Native                     *bool   `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
-	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
+	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
+	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
+	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         *string           `pulumi:"region"`
+	Tags                           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -254,10 +246,8 @@ type DefaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	Region                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {
@@ -435,8 +425,6 @@ func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutpu
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
 func (o DefaultSubnetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

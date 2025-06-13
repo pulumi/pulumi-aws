@@ -169,6 +169,7 @@ def get_profiling_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: The name of the profiling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -206,6 +207,7 @@ def get_profiling_group_output(name: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str name: The name of the profiling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name

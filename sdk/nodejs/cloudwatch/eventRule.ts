@@ -90,8 +90,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name or ARN of the event bus to associate with this rule.
-     * If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
      */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
@@ -103,9 +102,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the rule should be enabled.
-     * Defaults to `true`.
-     * Conflicts with `state`.
+     * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      *
      * @deprecated is_enabled is deprecated. Use state instead.
      */
@@ -131,18 +128,13 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
-     * State of the rule.
-     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * Defaults to `ENABLED`.
-     * Conflicts with `isEnabled`.
-     *
-     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     * State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `isEnabled`.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -212,8 +204,7 @@ export interface EventRuleState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name or ARN of the event bus to associate with this rule.
-     * If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -225,9 +216,7 @@ export interface EventRuleState {
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * Whether the rule should be enabled.
-     * Defaults to `true`.
-     * Conflicts with `state`.
+     * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      *
      * @deprecated is_enabled is deprecated. Use state instead.
      */
@@ -253,18 +242,13 @@ export interface EventRuleState {
      */
     scheduleExpression?: pulumi.Input<string>;
     /**
-     * State of the rule.
-     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * Defaults to `ENABLED`.
-     * Conflicts with `isEnabled`.
-     *
-     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     * State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `isEnabled`.
      */
     state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -282,8 +266,7 @@ export interface EventRuleArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name or ARN of the event bus to associate with this rule.
-     * If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
      */
     eventBusName?: pulumi.Input<string>;
     /**
@@ -295,9 +278,7 @@ export interface EventRuleArgs {
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * Whether the rule should be enabled.
-     * Defaults to `true`.
-     * Conflicts with `state`.
+     * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      *
      * @deprecated is_enabled is deprecated. Use state instead.
      */
@@ -323,18 +304,13 @@ export interface EventRuleArgs {
      */
     scheduleExpression?: pulumi.Input<string>;
     /**
-     * State of the rule.
-     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * Defaults to `ENABLED`.
-     * Conflicts with `isEnabled`.
-     *
-     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
+     * State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `isEnabled`.
      */
     state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `scheduleExpression` argument.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

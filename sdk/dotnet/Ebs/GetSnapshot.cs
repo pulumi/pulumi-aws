@@ -160,9 +160,7 @@ namespace Pulumi.Aws.Ebs
         private List<Inputs.GetSnapshotFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-snapshots in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
         public List<Inputs.GetSnapshotFilterArgs> Filters
         {
@@ -242,9 +240,7 @@ namespace Pulumi.Aws.Ebs
         private InputList<Inputs.GetSnapshotFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-snapshots in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
         public InputList<Inputs.GetSnapshotFilterInputArgs> Filters
         {

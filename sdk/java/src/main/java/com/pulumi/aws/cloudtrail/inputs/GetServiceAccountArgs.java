@@ -16,16 +16,14 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     public static final GetServiceAccountArgs Empty = new GetServiceAccountArgs();
 
     /**
-     * Name of the region whose AWS CloudTrail account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Name of the region whose AWS CloudTrail account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * @return Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -57,8 +55,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param region Name of the region whose AWS CloudTrail account ID is desired.
-         * Defaults to the region from the AWS provider configuration.
+         * @param region Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -69,8 +66,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param region Name of the region whose AWS CloudTrail account ID is desired.
-         * Defaults to the region from the AWS provider configuration.
+         * @param region Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

@@ -415,8 +415,6 @@ type TaskDefinition struct {
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-	//
-	// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	EnableFaultInjection pulumi.BoolOutput `pulumi:"enableFaultInjection"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
@@ -459,6 +457,8 @@ type TaskDefinition struct {
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+	//
+	// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
 
@@ -507,8 +507,6 @@ type taskDefinitionState struct {
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-	//
-	// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
@@ -551,6 +549,8 @@ type taskDefinitionState struct {
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+	//
+	// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -564,8 +564,6 @@ type TaskDefinitionState struct {
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-	//
-	// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	EnableFaultInjection pulumi.BoolPtrInput
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
@@ -608,6 +606,8 @@ type TaskDefinitionState struct {
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+	//
+	// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	Volumes TaskDefinitionVolumeArrayInput
 }
 
@@ -621,8 +621,6 @@ type taskDefinitionArgs struct {
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-	//
-	// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
@@ -661,6 +659,8 @@ type taskDefinitionArgs struct {
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+	//
+	// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -671,8 +671,6 @@ type TaskDefinitionArgs struct {
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-	//
-	// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	EnableFaultInjection pulumi.BoolPtrInput
 	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
@@ -711,6 +709,8 @@ type TaskDefinitionArgs struct {
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+	//
+	// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 	Volumes TaskDefinitionVolumeArrayInput
 }
 
@@ -822,8 +822,6 @@ func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 }
 
 // Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-//
-// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 func (o TaskDefinitionOutput) EnableFaultInjection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolOutput { return v.EnableFaultInjection }).(pulumi.BoolOutput)
 }
@@ -923,6 +921,8 @@ func (o TaskDefinitionOutput) TrackLatest() pulumi.BoolPtrOutput {
 // Configuration block for volumes that containers in your task may use. Detailed below.
 //
 // > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+//
+// > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
 func (o TaskDefinitionOutput) Volumes() TaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionVolumeArrayOutput { return v.Volumes }).(TaskDefinitionVolumeArrayOutput)
 }

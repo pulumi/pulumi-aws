@@ -60,7 +60,7 @@ type ServiceNetworkVpcAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -117,7 +117,7 @@ type serviceNetworkVpcAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// The account that created the association.
 	CreatedBy *string `pulumi:"createdBy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -139,7 +139,7 @@ type ServiceNetworkVpcAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// The account that created the association.
 	CreatedBy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -161,7 +161,7 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkVpcAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The IDs of the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -176,7 +176,7 @@ type serviceNetworkVpcAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 type ServiceNetworkVpcAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The IDs of the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -286,7 +286,7 @@ func (o ServiceNetworkVpcAssociationOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceNetworkVpcAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

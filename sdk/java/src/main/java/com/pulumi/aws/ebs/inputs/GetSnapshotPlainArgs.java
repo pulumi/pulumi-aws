@@ -19,18 +19,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetSnapshotPlainArgs Empty = new GetSnapshotPlainArgs();
 
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetSnapshotFilter> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     public Optional<List<GetSnapshotFilter>> filters() {
@@ -158,9 +154,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -171,9 +165,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 

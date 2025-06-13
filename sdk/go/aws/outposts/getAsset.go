@@ -27,8 +27,9 @@ type GetAssetArgs struct {
 	// Outpost ARN.
 	Arn string `pulumi:"arn"`
 	// ID of the asset.
-	AssetId string  `pulumi:"assetId"`
-	Region  *string `pulumi:"region"`
+	AssetId string `pulumi:"assetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAsset.
@@ -62,8 +63,9 @@ type GetAssetOutputArgs struct {
 	// Outpost ARN.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ID of the asset.
-	AssetId pulumi.StringInput    `pulumi:"assetId"`
-	Region  pulumi.StringPtrInput `pulumi:"region"`
+	AssetId pulumi.StringInput `pulumi:"assetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAssetOutputArgs) ElementType() reflect.Type {

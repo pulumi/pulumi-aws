@@ -63,7 +63,7 @@ type DirectoryConfig struct {
 	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
 	// Distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput `pulumi:"organizationalUnitDistinguishedNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
@@ -114,7 +114,7 @@ type directoryConfigState struct {
 	DirectoryName *string `pulumi:"directoryName"`
 	// Distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 	ServiceAccountCredentials *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
@@ -127,7 +127,7 @@ type DirectoryConfigState struct {
 	DirectoryName pulumi.StringPtrInput
 	// Distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsPtrInput
@@ -142,7 +142,7 @@ type directoryConfigArgs struct {
 	DirectoryName string `pulumi:"directoryName"`
 	// Distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
@@ -154,7 +154,7 @@ type DirectoryConfigArgs struct {
 	DirectoryName pulumi.StringInput
 	// Distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsInput
@@ -262,7 +262,7 @@ func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.Str
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DirectoryConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

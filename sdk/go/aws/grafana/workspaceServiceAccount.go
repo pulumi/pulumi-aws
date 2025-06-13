@@ -56,7 +56,7 @@ type WorkspaceServiceAccount struct {
 	GrafanaRole pulumi.StringOutput `pulumi:"grafanaRole"`
 	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId pulumi.StringOutput `pulumi:"serviceAccountId"`
@@ -104,7 +104,7 @@ type workspaceServiceAccountState struct {
 	GrafanaRole *string `pulumi:"grafanaRole"`
 	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId *string `pulumi:"serviceAccountId"`
@@ -117,7 +117,7 @@ type WorkspaceServiceAccountState struct {
 	GrafanaRole pulumi.StringPtrInput
 	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the service account in the given Grafana workspace
 	ServiceAccountId pulumi.StringPtrInput
@@ -134,7 +134,7 @@ type workspaceServiceAccountArgs struct {
 	GrafanaRole string `pulumi:"grafanaRole"`
 	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Grafana workspace with which the service account is associated.
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -146,7 +146,7 @@ type WorkspaceServiceAccountArgs struct {
 	GrafanaRole pulumi.StringInput
 	// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Grafana workspace with which the service account is associated.
 	WorkspaceId pulumi.StringInput
@@ -249,7 +249,7 @@ func (o WorkspaceServiceAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceServiceAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

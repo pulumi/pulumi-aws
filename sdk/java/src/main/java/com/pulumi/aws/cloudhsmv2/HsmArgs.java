@@ -49,12 +49,16 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
+     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+     * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
      * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
+     * 
+     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -63,7 +67,6 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
      * 
      */
     @Import(name="region")
@@ -71,7 +74,6 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
      * 
      */
     public Optional<Output<String>> region() {
@@ -166,6 +168,8 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
          * 
+         * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -177,6 +181,8 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipAddress The IP address of HSM module. Must be within the CIDR of selected subnet.
          * 
+         * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -186,7 +192,6 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
          * 
          * @return builder
          * 
@@ -198,7 +203,6 @@ public final class HsmArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
          * 
          * @return builder
          * 

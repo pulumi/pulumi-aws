@@ -69,7 +69,7 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
      */
     public readonly instanceFamily!: pulumi.Output<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
@@ -122,7 +122,7 @@ export interface DefaultCreditSpecificationState {
      */
     instanceFamily?: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
@@ -141,7 +141,7 @@ export interface DefaultCreditSpecificationArgs {
      */
     instanceFamily: pulumi.Input<string>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;

@@ -247,6 +247,7 @@ def get_dev_environment(alias: Optional[builtins.str] = None,
     :param builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param builtins.str project_name: The name of the project in the space.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param builtins.str space_name: The name of the space.
     """
@@ -309,6 +310,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[builtins.st
     :param builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param builtins.str project_name: The name of the project in the space.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param builtins.str space_name: The name of the space.
     """

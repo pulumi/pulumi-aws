@@ -260,10 +260,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -358,10 +358,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -456,10 +456,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -554,10 +554,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -652,10 +652,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -750,10 +750,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -848,10 +848,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.

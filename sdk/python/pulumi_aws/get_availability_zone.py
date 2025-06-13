@@ -213,10 +213,10 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
     """
     `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current region.
+    in the current Region.
 
     This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS region and an
+    and to split the AZ name into its component parts of an AWS Region and an
     AZ identifier letter. The latter may be useful e.g., for implementing a
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
@@ -316,10 +316,10 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
     `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current region.
+    in the current Region.
 
     This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS region and an
+    and to split the AZ name into its component parts of an AWS Region and an
     AZ identifier letter. The latter may be useful e.g., for implementing a
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.

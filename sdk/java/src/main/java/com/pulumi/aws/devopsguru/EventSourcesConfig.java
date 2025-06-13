@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import DevOps Guru Event Sources Config using the `id`. For example:
+ * Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
  * 
  * ```sh
  * $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
@@ -85,14 +85,14 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventSources);
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

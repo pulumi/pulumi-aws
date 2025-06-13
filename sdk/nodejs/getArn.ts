@@ -53,7 +53,7 @@ export interface GetArnResult {
     readonly partition: string;
     /**
      * Region the resource resides in.
-     * Note that the ARNs for some resources do not require a region, so this component might be omitted.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      */
     readonly region: string;
     /**

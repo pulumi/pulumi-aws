@@ -27,7 +27,7 @@ class SinkPolicyArgs:
         The set of arguments for constructing a SinkPolicy resource.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
@@ -62,7 +62,7 @@ class SinkPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -83,7 +83,7 @@ class _SinkPolicyState:
         Input properties used for looking up and filtering SinkPolicy resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Sink.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
@@ -126,7 +126,7 @@ class _SinkPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -222,7 +222,7 @@ class SinkPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
         ...
@@ -341,7 +341,7 @@ class SinkPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Sink.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
@@ -376,7 +376,7 @@ class SinkPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

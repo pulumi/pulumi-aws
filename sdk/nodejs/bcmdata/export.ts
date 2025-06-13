@@ -87,6 +87,11 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
@@ -107,6 +112,7 @@ export class Export extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExportState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["export"] = state ? state.export : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -116,6 +122,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["export"] = args ? args.export : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +134,11 @@ export class Export extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Export resources.
  */
 export interface ExportState {
+    /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */

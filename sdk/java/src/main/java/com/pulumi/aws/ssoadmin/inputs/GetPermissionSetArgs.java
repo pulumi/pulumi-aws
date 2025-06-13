@@ -50,12 +50,16 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Name of the SSO Permission Set.
      * 
+     * &gt; **NOTE:** Either `arn` or `name` must be configured.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the SSO Permission Set.
+     * 
+     * &gt; **NOTE:** Either `arn` or `name` must be configured.
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,7 +68,6 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `arn` or `name` must be configured.
      * 
      */
     @Import(name="region")
@@ -72,7 +75,6 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `arn` or `name` must be configured.
      * 
      */
     public Optional<Output<String>> region() {
@@ -167,6 +169,8 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param name Name of the SSO Permission Set.
          * 
+         * &gt; **NOTE:** Either `arn` or `name` must be configured.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +182,8 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param name Name of the SSO Permission Set.
          * 
+         * &gt; **NOTE:** Either `arn` or `name` must be configured.
+         * 
          * @return builder
          * 
          */
@@ -187,7 +193,6 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **NOTE:** Either `arn` or `name` must be configured.
          * 
          * @return builder
          * 
@@ -199,7 +204,6 @@ public final class GetPermissionSetArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **NOTE:** Either `arn` or `name` must be configured.
          * 
          * @return builder
          * 

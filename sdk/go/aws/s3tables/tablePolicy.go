@@ -34,7 +34,7 @@ type TablePolicy struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
@@ -89,7 +89,7 @@ type tablePolicyState struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace *string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy *string `pulumi:"resourcePolicy"`
@@ -106,7 +106,7 @@ type TablePolicyState struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringPtrInput
@@ -127,7 +127,7 @@ type tablePolicyArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy string `pulumi:"resourcePolicy"`
@@ -145,7 +145,7 @@ type TablePolicyArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringInput
@@ -254,7 +254,7 @@ func (o TablePolicyOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TablePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

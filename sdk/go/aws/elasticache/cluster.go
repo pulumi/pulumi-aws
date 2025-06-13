@@ -307,8 +307,6 @@ type Cluster struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrOutput `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
-	//
-	// The following arguments are optional:
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -427,8 +425,6 @@ type clusterState struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode *string `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
-	//
-	// The following arguments are optional:
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
@@ -518,8 +514,6 @@ type ClusterState struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrInput
 	// The name of the parameter group to associate with this cache cluster.
-	//
-	// The following arguments are optional:
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput
@@ -603,8 +597,6 @@ type clusterArgs struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode *string `pulumi:"outpostMode"`
 	// The name of the parameter group to associate with this cache cluster.
-	//
-	// The following arguments are optional:
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port *int `pulumi:"port"`
@@ -683,8 +675,6 @@ type ClusterArgs struct {
 	// Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
 	OutpostMode pulumi.StringPtrInput
 	// The name of the parameter group to associate with this cache cluster.
-	//
-	// The following arguments are optional:
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 	Port pulumi.IntPtrInput
@@ -921,8 +911,6 @@ func (o ClusterOutput) OutpostMode() pulumi.StringPtrOutput {
 }
 
 // The name of the parameter group to associate with this cache cluster.
-//
-// The following arguments are optional:
 func (o ClusterOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ParameterGroupName }).(pulumi.StringOutput)
 }

@@ -67,9 +67,7 @@ func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulum
 
 // A collection of arguments for invoking getSnapshotIds.
 type GetSnapshotIdsArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-volumes in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners []string `pulumi:"owners"`
@@ -102,9 +100,7 @@ func GetSnapshotIdsOutput(ctx *pulumi.Context, args GetSnapshotIdsOutputArgs, op
 
 // A collection of arguments for invoking getSnapshotIds.
 type GetSnapshotIdsOutputArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-volumes in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
 	Filters GetSnapshotIdsFilterArrayInput `pulumi:"filters"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners pulumi.StringArrayInput `pulumi:"owners"`

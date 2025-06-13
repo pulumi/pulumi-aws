@@ -65,7 +65,7 @@ type Policy struct {
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type policyState struct {
 	PolicyId *string `pulumi:"policyId"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -123,7 +123,7 @@ type PolicyState struct {
 	PolicyId pulumi.StringPtrInput
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -136,7 +136,7 @@ type policyArgs struct {
 	Definition *PolicyDefinition `pulumi:"definition"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -146,7 +146,7 @@ type PolicyArgs struct {
 	Definition PolicyDefinitionPtrInput
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -257,7 +257,7 @@ func (o PolicyOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o PolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

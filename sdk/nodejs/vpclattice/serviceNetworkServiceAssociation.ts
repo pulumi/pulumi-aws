@@ -77,7 +77,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -86,7 +86,6 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     public readonly serviceNetworkIdentifier!: pulumi.Output<string>;
     /**
@@ -170,7 +169,7 @@ export interface ServiceNetworkServiceAssociationState {
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -179,7 +178,6 @@ export interface ServiceNetworkServiceAssociationState {
     serviceIdentifier?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**
@@ -201,7 +199,7 @@ export interface ServiceNetworkServiceAssociationState {
  */
 export interface ServiceNetworkServiceAssociationArgs {
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -210,7 +208,6 @@ export interface ServiceNetworkServiceAssociationArgs {
     serviceIdentifier: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
     /**

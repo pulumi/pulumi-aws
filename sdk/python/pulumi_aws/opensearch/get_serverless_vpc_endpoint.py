@@ -144,6 +144,7 @@ def get_serverless_vpc_endpoint(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
     """
     __args__ = dict()
@@ -177,6 +178,7 @@ def get_serverless_vpc_endpoint_output(region: Optional[pulumi.Input[Optional[bu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
     """
     __args__ = dict()

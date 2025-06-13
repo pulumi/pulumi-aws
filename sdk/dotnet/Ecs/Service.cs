@@ -203,6 +203,12 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceAlarms?> Alarms { get; private set; } = null!;
 
         /// <summary>
+        /// ARN that identifies the service.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         /// </summary>
         [Output("availabilityZoneRebalancing")]
@@ -705,6 +711,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("alarms")]
         public Input<Inputs.ServiceAlarmsGetArgs>? Alarms { get; set; }
+
+        /// <summary>
+        /// ARN that identifies the service.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.

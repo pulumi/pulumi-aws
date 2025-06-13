@@ -61,7 +61,7 @@ type WorkspaceServiceAccountToken struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
@@ -124,7 +124,7 @@ type workspaceServiceAccountTokenState struct {
 	Key *string `pulumi:"key"`
 	// A name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive *int `pulumi:"secondsToLive"`
@@ -145,7 +145,7 @@ type WorkspaceServiceAccountTokenState struct {
 	Key pulumi.StringPtrInput
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntPtrInput
@@ -164,7 +164,7 @@ func (WorkspaceServiceAccountTokenState) ElementType() reflect.Type {
 type workspaceServiceAccountTokenArgs struct {
 	// A name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive int `pulumi:"secondsToLive"`
@@ -178,7 +178,7 @@ type workspaceServiceAccountTokenArgs struct {
 type WorkspaceServiceAccountTokenArgs struct {
 	// A name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntInput
@@ -295,7 +295,7 @@ func (o WorkspaceServiceAccountTokenOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceServiceAccountTokenOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

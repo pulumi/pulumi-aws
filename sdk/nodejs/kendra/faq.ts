@@ -131,9 +131,6 @@ export class Faq extends pulumi.CustomResource {
      * The name that should be associated with the FAQ.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     public readonly region!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
@@ -250,9 +247,6 @@ export interface FaqState {
      * The name that should be associated with the FAQ.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
@@ -292,9 +286,6 @@ export interface FaqArgs {
      * The name that should be associated with the FAQ.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).

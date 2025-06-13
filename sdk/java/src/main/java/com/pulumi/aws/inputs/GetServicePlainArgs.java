@@ -37,14 +37,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+     * @return Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -142,7 +142,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param region Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+         * @param region Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

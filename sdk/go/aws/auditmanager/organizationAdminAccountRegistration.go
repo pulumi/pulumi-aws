@@ -56,7 +56,7 @@ type OrganizationAdminAccountRegistration struct {
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
 	// Identifier for the organization.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -97,7 +97,7 @@ type organizationAdminAccountRegistrationState struct {
 	AdminAccountId *string `pulumi:"adminAccountId"`
 	// Identifier for the organization.
 	OrganizationId *string `pulumi:"organizationId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -106,7 +106,7 @@ type OrganizationAdminAccountRegistrationState struct {
 	AdminAccountId pulumi.StringPtrInput
 	// Identifier for the organization.
 	OrganizationId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -117,7 +117,7 @@ func (OrganizationAdminAccountRegistrationState) ElementType() reflect.Type {
 type organizationAdminAccountRegistrationArgs struct {
 	// Identifier for the organization administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -125,7 +125,7 @@ type organizationAdminAccountRegistrationArgs struct {
 type OrganizationAdminAccountRegistrationArgs struct {
 	// Identifier for the organization administrator account.
 	AdminAccountId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -226,7 +226,7 @@ func (o OrganizationAdminAccountRegistrationOutput) OrganizationId() pulumi.Stri
 	return o.ApplyT(func(v *OrganizationAdminAccountRegistration) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationAdminAccountRegistrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccountRegistration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

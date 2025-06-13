@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountSettingsArgs, AccountSettingsState } from "./accountSettings";
+export type AccountSettings = import("./accountSettings").AccountSettings;
+export const AccountSettings: typeof import("./accountSettings").AccountSettings = null as any;
+utilities.lazyLoad(exports, ["AccountSettings"], () => require("./accountSettings"));
+
 export { AccountSubscriptionArgs, AccountSubscriptionState } from "./accountSubscription";
 export type AccountSubscription = import("./accountSubscription").AccountSubscription;
 export const AccountSubscription: typeof import("./accountSubscription").AccountSubscription = null as any;
@@ -130,6 +135,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:quicksight/accountSettings:AccountSettings":
+                return new AccountSettings(name, <any>undefined, { urn })
             case "aws:quicksight/accountSubscription:AccountSubscription":
                 return new AccountSubscription(name, <any>undefined, { urn })
             case "aws:quicksight/analysis:Analysis":
@@ -173,6 +180,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "quicksight/accountSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/analysis", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dashboard", _module)

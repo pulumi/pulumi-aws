@@ -55,7 +55,7 @@ import (
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -107,7 +107,7 @@ func GetTagOptionResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOptionResourceAssociation resources.
 type tagOptionResourceAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -124,7 +124,7 @@ type tagOptionResourceAssociationState struct {
 }
 
 type TagOptionResourceAssociationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource.
 	ResourceArn pulumi.StringPtrInput
@@ -145,7 +145,7 @@ func (TagOptionResourceAssociationState) ElementType() reflect.Type {
 }
 
 type tagOptionResourceAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Resource identifier.
 	ResourceId string `pulumi:"resourceId"`
@@ -155,7 +155,7 @@ type tagOptionResourceAssociationArgs struct {
 
 // The set of arguments for constructing a TagOptionResourceAssociation resource.
 type TagOptionResourceAssociationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Resource identifier.
 	ResourceId pulumi.StringInput
@@ -250,7 +250,7 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TagOptionResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOptionResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

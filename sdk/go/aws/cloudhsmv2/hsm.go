@@ -70,9 +70,10 @@ type Hsm struct {
 	// The state of the HSM module.
 	HsmState pulumi.StringOutput `pulumi:"hsmState"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
+	//
+	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -122,9 +123,10 @@ type hsmState struct {
 	// The state of the HSM module.
 	HsmState *string `pulumi:"hsmState"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
+	//
+	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	Region *string `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId *string `pulumi:"subnetId"`
@@ -142,9 +144,10 @@ type HsmState struct {
 	// The state of the HSM module.
 	HsmState pulumi.StringPtrInput
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
+	//
+	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	IpAddress pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	Region pulumi.StringPtrInput
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringPtrInput
@@ -160,9 +163,10 @@ type hsmArgs struct {
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId string `pulumi:"clusterId"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
+	//
+	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	Region *string `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId *string `pulumi:"subnetId"`
@@ -175,9 +179,10 @@ type HsmArgs struct {
 	// The ID of Cloud HSM v2 cluster to which HSM will be added.
 	ClusterId pulumi.StringInput
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
+	//
+	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	IpAddress pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 	Region pulumi.StringPtrInput
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringPtrInput
@@ -296,12 +301,13 @@ func (o HsmOutput) HsmState() pulumi.StringOutput {
 }
 
 // The IP address of HSM module. Must be within the CIDR of selected subnet.
+//
+// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 func (o HsmOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
 func (o HsmOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

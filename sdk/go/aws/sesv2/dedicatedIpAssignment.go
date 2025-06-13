@@ -59,7 +59,7 @@ type DedicatedIpAssignment struct {
 	DestinationPoolName pulumi.StringOutput `pulumi:"destinationPoolName"`
 	// Dedicated IP address.
 	Ip pulumi.StringOutput `pulumi:"ip"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -103,7 +103,7 @@ type dedicatedIpAssignmentState struct {
 	DestinationPoolName *string `pulumi:"destinationPoolName"`
 	// Dedicated IP address.
 	Ip *string `pulumi:"ip"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -112,7 +112,7 @@ type DedicatedIpAssignmentState struct {
 	DestinationPoolName pulumi.StringPtrInput
 	// Dedicated IP address.
 	Ip pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -125,7 +125,7 @@ type dedicatedIpAssignmentArgs struct {
 	DestinationPoolName string `pulumi:"destinationPoolName"`
 	// Dedicated IP address.
 	Ip string `pulumi:"ip"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -135,7 +135,7 @@ type DedicatedIpAssignmentArgs struct {
 	DestinationPoolName pulumi.StringInput
 	// Dedicated IP address.
 	Ip pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -236,7 +236,7 @@ func (o DedicatedIpAssignmentOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpAssignment) pulumi.StringOutput { return v.Ip }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DedicatedIpAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

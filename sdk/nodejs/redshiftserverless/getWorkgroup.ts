@@ -35,6 +35,9 @@ export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkgroup.
  */
 export interface GetWorkgroupArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The name of the workgroup associated with the database.
@@ -114,6 +117,9 @@ export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkgroup.
  */
 export interface GetWorkgroupOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The name of the workgroup associated with the database.

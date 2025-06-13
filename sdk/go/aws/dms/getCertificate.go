@@ -53,9 +53,10 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId string            `pulumi:"certificateId"`
-	Region        *string           `pulumi:"region"`
-	Tags          map[string]string `pulumi:"tags"`
+	CertificateId string `pulumi:"certificateId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificate.
@@ -97,9 +98,10 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId pulumi.StringInput    `pulumi:"certificateId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
-	Tags          pulumi.StringMapInput `pulumi:"tags"`
+	CertificateId pulumi.StringInput `pulumi:"certificateId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {

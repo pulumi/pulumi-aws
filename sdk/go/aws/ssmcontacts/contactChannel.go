@@ -107,7 +107,7 @@ type ContactChannel struct {
 	DeliveryAddress ContactChannelDeliveryAddressOutput `pulumi:"deliveryAddress"`
 	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -162,7 +162,7 @@ type contactChannelState struct {
 	DeliveryAddress *ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
 	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type *string `pulumi:"type"`
@@ -179,7 +179,7 @@ type ContactChannelState struct {
 	DeliveryAddress ContactChannelDeliveryAddressPtrInput
 	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringPtrInput
@@ -196,7 +196,7 @@ type contactChannelArgs struct {
 	DeliveryAddress ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
 	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type string `pulumi:"type"`
@@ -210,7 +210,7 @@ type ContactChannelArgs struct {
 	DeliveryAddress ContactChannelDeliveryAddressInput
 	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringInput
@@ -328,7 +328,7 @@ func (o ContactChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ContactChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

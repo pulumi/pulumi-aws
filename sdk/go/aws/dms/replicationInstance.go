@@ -162,11 +162,6 @@ type ReplicationInstance struct {
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
@@ -177,11 +172,6 @@ type ReplicationInstance struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringOutput `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringOutput `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayOutput `pulumi:"replicationInstancePrivateIps"`
@@ -252,11 +242,6 @@ type replicationInstanceState struct {
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -267,11 +252,6 @@ type replicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass *string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId *string `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps []string `pulumi:"replicationInstancePrivateIps"`
@@ -307,11 +287,6 @@ type ReplicationInstanceState struct {
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
@@ -322,11 +297,6 @@ type ReplicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringPtrInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringPtrInput
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayInput
@@ -366,11 +336,6 @@ type replicationInstanceArgs struct {
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -379,11 +344,6 @@ type replicationInstanceArgs struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
@@ -414,11 +374,6 @@ type ReplicationInstanceArgs struct {
 	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	//
-	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
@@ -427,11 +382,6 @@ type ReplicationInstanceArgs struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
@@ -574,11 +524,6 @@ func (o ReplicationInstanceOutput) NetworkType() pulumi.StringOutput {
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-//
-// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-// - Constraints: Minimum 30-minute window.
 func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
@@ -604,11 +549,6 @@ func (o ReplicationInstanceOutput) ReplicationInstanceClass() pulumi.StringOutpu
 }
 
 // The replication instance identifier. This parameter is stored as a lowercase string.
-//
-// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-// - First character must be a letter.
-// - Cannot end with a hyphen
-// - Cannot contain two consecutive hyphens.
 func (o ReplicationInstanceOutput) ReplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceId }).(pulumi.StringOutput)
 }

@@ -52,6 +52,7 @@ func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectio
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	Type string `pulumi:"type"`
@@ -80,6 +81,7 @@ func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceColl
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	Type pulumi.StringInput `pulumi:"type"`

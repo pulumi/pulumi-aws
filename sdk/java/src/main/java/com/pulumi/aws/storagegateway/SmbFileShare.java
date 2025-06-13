@@ -201,16 +201,12 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
     /**
      * Refresh cache information. see `cache_attributes` Block for more details.
      * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
-     * 
      */
     @Export(name="cacheAttributes", refs={SmbFileShareCacheAttributes.class}, tree="[0]")
     private Output</* @Nullable */ SmbFileShareCacheAttributes> cacheAttributes;
 
     /**
      * @return Refresh cache information. see `cache_attributes` Block for more details.
-     * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Output<Optional<SmbFileShareCacheAttributes>> cacheAttributes() {
@@ -485,12 +481,16 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

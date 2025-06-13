@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *     parameters: {
  *         s3: {
  *             manifestFileLocation: {
- *                 bucket: example.arn,
+ *                 bucket: example.bucket,
  *                 key: exampleBucketObjectv2.key,
  *             },
  *             roleArn: exampleRole.arn,

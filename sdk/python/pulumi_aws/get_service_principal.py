@@ -48,7 +48,7 @@ class GetServicePrincipalResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+        Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
         """
         return pulumi.get(self, "id")
 
@@ -63,9 +63,6 @@ class GetServicePrincipalResult:
     @property
     @pulumi.getter
     def region(self) -> builtins.str:
-        """
-        Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
-        """
         return pulumi.get(self, "region")
 
     @property
@@ -113,7 +110,7 @@ def get_service_principal(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Region you'd like the SPN for. By default, uses the current region.
+    :param builtins.str region: Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the service you want to generate a Service Principal Name for.
     """
     __args__ = dict()
@@ -146,7 +143,7 @@ def get_service_principal_output(region: Optional[pulumi.Input[Optional[builtins
     ```
 
 
-    :param builtins.str region: Region you'd like the SPN for. By default, uses the current region.
+    :param builtins.str region: Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the service you want to generate a Service Principal Name for.
     """
     __args__ = dict()

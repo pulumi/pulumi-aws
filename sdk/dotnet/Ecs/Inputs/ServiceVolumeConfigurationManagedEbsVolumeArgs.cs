@@ -73,6 +73,12 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
+        /// Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        /// </summary>
+        [Input("volumeInitializationRate")]
+        public Input<int>? VolumeInitializationRate { get; set; }
+
+        /// <summary>
         /// Volume type.
         /// </summary>
         [Input("volumeType")]

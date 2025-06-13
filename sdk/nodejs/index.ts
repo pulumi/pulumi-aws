@@ -221,6 +221,7 @@ import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
+import * as notifications from "./notifications";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
@@ -293,6 +294,7 @@ import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
 import * as workspaces from "./workspaces";
+import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
 
 export {
@@ -442,6 +444,7 @@ export {
     networkfirewall,
     networkmanager,
     networkmonitor,
+    notifications,
     oam,
     opensearch,
     opensearchingest,
@@ -514,6 +517,7 @@ export {
     wafregional,
     wafv2,
     workspaces,
+    workspacesweb,
     xray,
 };
 pulumi.runtime.registerResourcePackage("aws", {

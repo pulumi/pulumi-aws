@@ -53,7 +53,7 @@ type WorkspaceApiKey struct {
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringOutput `pulumi:"keyRole"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
@@ -113,7 +113,7 @@ type workspaceApiKeyState struct {
 	KeyName *string `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole *string `pulumi:"keyRole"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive *int `pulumi:"secondsToLive"`
@@ -128,7 +128,7 @@ type WorkspaceApiKeyState struct {
 	KeyName pulumi.StringPtrInput
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntPtrInput
@@ -145,7 +145,7 @@ type workspaceApiKeyArgs struct {
 	KeyName string `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole string `pulumi:"keyRole"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive int `pulumi:"secondsToLive"`
@@ -159,7 +159,7 @@ type WorkspaceApiKeyArgs struct {
 	KeyName pulumi.StringInput
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntInput
@@ -269,7 +269,7 @@ func (o WorkspaceApiKeyOutput) KeyRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.KeyRole }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceApiKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -565,6 +565,7 @@ class ServiceArgs:
 class _ServiceState:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+                 arn: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone_rebalancing: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
@@ -601,6 +602,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[builtins.str] arn: ARN that identifies the service.
         :param pulumi.Input[builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
@@ -640,6 +642,8 @@ class _ServiceState:
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if availability_zone_rebalancing is not None:
             pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategies is not None:
@@ -718,6 +722,18 @@ class _ServiceState:
     @alarms.setter
     def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
         pulumi.set(self, "alarms", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN that identifies the service.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")
@@ -1518,6 +1534,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["volume_configuration"] = volume_configuration
             __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
@@ -1530,6 +1547,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alarms: Optional[pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']]] = None,
+            arn: Optional[pulumi.Input[builtins.str]] = None,
             availability_zone_rebalancing: Optional[pulumi.Input[builtins.str]] = None,
             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
             cluster: Optional[pulumi.Input[builtins.str]] = None,
@@ -1571,6 +1589,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[builtins.str] arn: ARN that identifies the service.
         :param pulumi.Input[builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
@@ -1613,6 +1632,7 @@ class Service(pulumi.CustomResource):
         __props__ = _ServiceState.__new__(_ServiceState)
 
         __props__.__dict__["alarms"] = alarms
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zone_rebalancing"] = availability_zone_rebalancing
         __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__.__dict__["cluster"] = cluster
@@ -1655,6 +1675,14 @@ class Service(pulumi.CustomResource):
         Information about the CloudWatch alarms. See below.
         """
         return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        ARN that identifies the service.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")

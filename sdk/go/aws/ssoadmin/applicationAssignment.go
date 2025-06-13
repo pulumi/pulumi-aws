@@ -88,7 +88,7 @@ type ApplicationAssignment struct {
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -137,7 +137,7 @@ type applicationAssignmentState struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType *string `pulumi:"principalType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -148,7 +148,7 @@ type ApplicationAssignmentState struct {
 	PrincipalId pulumi.StringPtrInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -163,7 +163,7 @@ type applicationAssignmentArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -175,7 +175,7 @@ type ApplicationAssignmentArgs struct {
 	PrincipalId pulumi.StringInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -281,7 +281,7 @@ func (o ApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ApplicationAssignmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

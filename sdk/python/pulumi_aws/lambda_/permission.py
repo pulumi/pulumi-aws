@@ -48,7 +48,7 @@ class PermissionArgs:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-               Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+               Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
                For EventBridge events, this should be the ARN of the EventBridge Rule.
                For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -194,7 +194,7 @@ class PermissionArgs:
     def source_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         For S3, this should be the ARN of the S3 Bucket.
         For EventBridge events, this should be the ARN of the EventBridge Rule.
         For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -261,7 +261,7 @@ class _PermissionState:
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-               Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+               Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
                For EventBridge events, this should be the ARN of the EventBridge Rule.
                For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -410,7 +410,7 @@ class _PermissionState:
     def source_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         For S3, this should be the ARN of the S3 Bucket.
         For EventBridge events, this should be the ARN of the EventBridge Rule.
         For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -647,7 +647,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-               Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+               Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
                For EventBridge events, this should be the ARN of the EventBridge Rule.
                For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -923,7 +923,7 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_account: This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         :param pulumi.Input[builtins.str] source_arn: When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-               Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+               Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
                For S3, this should be the ARN of the S3 Bucket.
                For EventBridge events, this should be the ARN of the EventBridge Rule.
                For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -1029,7 +1029,7 @@ class Permission(pulumi.CustomResource):
     def source_arn(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-        Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+        Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
         For S3, this should be the ARN of the S3 Bucket.
         For EventBridge events, this should be the ARN of the EventBridge Rule.
         For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).

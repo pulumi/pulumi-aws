@@ -231,6 +231,7 @@ def get_listener(listener_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
     :param Mapping[str, builtins.str] tags: List of tags associated with the listener.
     """
@@ -279,6 +280,7 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
     :param Mapping[str, builtins.str] tags: List of tags associated with the listener.
     """

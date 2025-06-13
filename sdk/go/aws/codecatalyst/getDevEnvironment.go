@@ -61,8 +61,9 @@ type LookupDevEnvironmentArgs struct {
 	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId string `pulumi:"envId"`
 	// The name of the project in the space.
-	ProjectName string  `pulumi:"projectName"`
-	Region      *string `pulumi:"region"`
+	ProjectName string `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []GetDevEnvironmentRepository `pulumi:"repositories"`
 	// The name of the space.
@@ -119,8 +120,9 @@ type LookupDevEnvironmentOutputArgs struct {
 	// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
 	EnvId pulumi.StringInput `pulumi:"envId"`
 	// The name of the project in the space.
-	ProjectName pulumi.StringInput    `pulumi:"projectName"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories GetDevEnvironmentRepositoryArrayInput `pulumi:"repositories"`
 	// The name of the space.

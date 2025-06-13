@@ -51,7 +51,8 @@ func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, o
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupArgs struct {
 	// Name of the parameter group.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the parameter group.
 	Tags map[string]string `pulumi:"tags"`
@@ -88,7 +89,8 @@ func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOu
 // A collection of arguments for invoking getParameterGroup.
 type LookupParameterGroupOutputArgs struct {
 	// Name of the parameter group.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the parameter group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

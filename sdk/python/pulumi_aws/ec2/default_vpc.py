@@ -34,13 +34,6 @@ class DefaultVpcArgs:
         """
         The set of arguments for constructing a DefaultVpc resource.
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-               
-               * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-               * The default value for `enable_dns_hostnames` is `true`
-               
-               This resource supports the following additional arguments:
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -152,15 +145,6 @@ class DefaultVpcArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-
-        * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-        * The default value for `enable_dns_hostnames` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -208,13 +192,6 @@ class _DefaultVpcState:
         :param pulumi.Input[builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-               
-               * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-               * The default value for `enable_dns_hostnames` is `true`
-               
-               This resource supports the following additional arguments:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -455,15 +432,6 @@ class _DefaultVpcState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-
-        * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-        * The default value for `enable_dns_hostnames` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -544,13 +512,6 @@ class DefaultVpc(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-               
-               * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-               * The default value for `enable_dns_hostnames` is `true`
-               
-               This resource supports the following additional arguments:
         """
         ...
     @overload
@@ -693,13 +654,6 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-               
-               * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-               * The default value for `enable_dns_hostnames` is `true`
-               
-               This resource supports the following additional arguments:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -842,15 +796,6 @@ class DefaultVpc(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpc` differ slightly from those of `ec2.Vpc`:
-
-        * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-        * The default value for `enable_dns_hostnames` is `true`
-
-        This resource supports the following additional arguments:
-        """
         return pulumi.get(self, "region")
 
     @property

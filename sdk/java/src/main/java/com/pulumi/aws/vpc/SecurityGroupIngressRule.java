@@ -198,7 +198,6 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
@@ -206,7 +205,6 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     public Output<String> region() {
@@ -271,12 +269,16 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
+     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+     * 
      */
     @Export(name="toPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> toPort;
 
     /**
      * @return The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * 
+     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     public Output<Optional<Integer>> toPort() {

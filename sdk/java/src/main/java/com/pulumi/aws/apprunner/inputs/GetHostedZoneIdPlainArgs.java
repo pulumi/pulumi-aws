@@ -15,16 +15,14 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetHostedZoneIdPlainArgs Empty = new GetHostedZoneIdPlainArgs();
 
     /**
-     * Name of the region whose AWS App Runner service HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Name of the region whose AWS App Runner service HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * @return Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -56,8 +54,7 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param region Name of the region whose AWS App Runner service HostedZoneId is desired.
-         * Defaults to the region from the AWS provider configuration.
+         * @param region Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

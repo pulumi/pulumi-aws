@@ -16,14 +16,14 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
     public static final GetServicePrincipalPlainArgs Empty = new GetServicePrincipalPlainArgs();
 
     /**
-     * Region you&#39;d like the SPN for. By default, uses the current region.
+     * Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region you&#39;d like the SPN for. By default, uses the current region.
+     * @return Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -71,7 +71,7 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param region Region you&#39;d like the SPN for. By default, uses the current region.
+         * @param region Region you&#39;d like the SPN for. Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

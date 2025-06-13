@@ -38,14 +38,14 @@ class PipelineArgs:
         :param pulumi.Input[builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-               
-               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -106,8 +106,6 @@ class PipelineArgs:
     def execution_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-
-        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "execution_mode")
 
@@ -180,6 +178,8 @@ class PipelineArgs:
     def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]:
         """
         A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "variables")
 
@@ -209,8 +209,6 @@ class _PipelineState:
         :param pulumi.Input[builtins.str] arn: Codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-               
-               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -221,6 +219,8 @@ class _PipelineState:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllArgs']]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -278,8 +278,6 @@ class _PipelineState:
     def execution_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-
-        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "execution_mode")
 
@@ -400,6 +398,8 @@ class _PipelineState:
     def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]]:
         """
         A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "variables")
 
@@ -565,8 +565,6 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-               
-               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -575,6 +573,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         ...
     @overload
@@ -804,8 +804,6 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-               
-               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[builtins.str] name: The name of the pipeline.
         :param pulumi.Input[builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -816,6 +814,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict']]]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+               
+               **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -857,8 +857,6 @@ class Pipeline(pulumi.CustomResource):
     def execution_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-
-        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "execution_mode")
 
@@ -939,6 +937,8 @@ class Pipeline(pulumi.CustomResource):
     def variables(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineVariable']]]:
         """
         A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+
+        **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         """
         return pulumi.get(self, "variables")
 

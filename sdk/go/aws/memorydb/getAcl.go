@@ -51,7 +51,8 @@ func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getAcl.
 type LookupAclArgs struct {
 	// Name of the ACL.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the ACL.
 	Tags map[string]string `pulumi:"tags"`
@@ -85,7 +86,8 @@ func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulu
 // A collection of arguments for invoking getAcl.
 type LookupAclOutputArgs struct {
 	// Name of the ACL.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the ACL.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

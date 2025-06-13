@@ -48,16 +48,14 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name or ARN of the event bus to associate with this rule.
-     * If you omit this, the `default` event bus is used.
+     * The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
      * 
      */
     @Import(name="eventBusName")
     private @Nullable Output<String> eventBusName;
 
     /**
-     * @return The name or ARN of the event bus to associate with this rule.
-     * If you omit this, the `default` event bus is used.
+     * @return The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
      * 
      */
     public Optional<Output<String>> eventBusName() {
@@ -95,9 +93,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the rule should be enabled.
-     * Defaults to `true`.
-     * Conflicts with `state`.
+     * Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      * 
      * @deprecated
      * is_enabled is deprecated. Use state instead.
@@ -108,9 +104,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Whether the rule should be enabled.
-     * Defaults to `true`.
-     * Conflicts with `state`.
+     * @return Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
      * 
      * @deprecated
      * is_enabled is deprecated. Use state instead.
@@ -197,28 +191,14 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * State of the rule.
-     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * Defaults to `ENABLED`.
-     * Conflicts with `is_enabled`.
-     * 
-     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `is_enabled`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return State of the rule.
-     * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-     * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-     * Defaults to `ENABLED`.
-     * Conflicts with `is_enabled`.
-     * 
-     * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * @return State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `is_enabled`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -228,12 +208,16 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -335,8 +319,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBusName The name or ARN of the event bus to associate with this rule.
-         * If you omit this, the `default` event bus is used.
+         * @param eventBusName The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
          * 
          * @return builder
          * 
@@ -347,8 +330,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBusName The name or ARN of the event bus to associate with this rule.
-         * If you omit this, the `default` event bus is used.
+         * @param eventBusName The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
          * 
          * @return builder
          * 
@@ -400,9 +382,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the rule should be enabled.
-         * Defaults to `true`.
-         * Conflicts with `state`.
+         * @param isEnabled Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
          * 
          * @return builder
          * 
@@ -417,9 +397,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isEnabled Whether the rule should be enabled.
-         * Defaults to `true`.
-         * Conflicts with `state`.
+         * @param isEnabled Whether the rule should be enabled. Defaults to `true`. Conflicts with `state`.
          * 
          * @return builder
          * 
@@ -538,14 +516,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state State of the rule.
-         * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-         * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-         * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-         * Defaults to `ENABLED`.
-         * Conflicts with `is_enabled`.
-         * 
-         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * @param state State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `is_enabled`.
          * 
          * @return builder
          * 
@@ -556,14 +527,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state State of the rule.
-         * Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-         * When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail.
-         * To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`.
-         * Defaults to `ENABLED`.
-         * Conflicts with `is_enabled`.
-         * 
-         * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * @param state State of the rule. Valid values are `DISABLED`, `ENABLED`, and `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. When state is `ENABLED`, the rule is enabled for all events except those delivered by CloudTrail. To also enable the rule for events delivered by CloudTrail, set `state` to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. Defaults to `ENABLED`. Conflicts with `is_enabled`.
          * 
          * @return builder
          * 
@@ -575,6 +539,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
+         * 
          * @return builder
          * 
          */
@@ -585,6 +551,8 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * **NOTE:** The rule state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
          * 
          * @return builder
          * 

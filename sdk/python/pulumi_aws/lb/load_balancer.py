@@ -42,6 +42,7 @@ class LoadBalancerArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
                  load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 minimum_load_balancer_capacity: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -73,6 +74,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input['LoadBalancerIpamPoolsArgs'] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs'] minimum_load_balancer_capacity: Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -127,6 +129,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "ipam_pools", ipam_pools)
         if load_balancer_type is not None:
             pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        if minimum_load_balancer_capacity is not None:
+            pulumi.set(__self__, "minimum_load_balancer_capacity", minimum_load_balancer_capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -387,6 +391,18 @@ class LoadBalancerArgs:
         pulumi.set(self, "load_balancer_type", value)
 
     @property
+    @pulumi.getter(name="minimumLoadBalancerCapacity")
+    def minimum_load_balancer_capacity(self) -> Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
+        """
+        Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        """
+        return pulumi.get(self, "minimum_load_balancer_capacity")
+
+    @minimum_load_balancer_capacity.setter
+    def minimum_load_balancer_capacity(self, value: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
+        pulumi.set(self, "minimum_load_balancer_capacity", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -525,6 +541,7 @@ class _LoadBalancerState:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  ipam_pools: Optional[pulumi.Input['LoadBalancerIpamPoolsArgs']] = None,
                  load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 minimum_load_balancer_capacity: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -562,6 +579,7 @@ class _LoadBalancerState:
         :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input['LoadBalancerIpamPoolsArgs'] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs'] minimum_load_balancer_capacity: Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -624,6 +642,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "ipam_pools", ipam_pools)
         if load_balancer_type is not None:
             pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        if minimum_load_balancer_capacity is not None:
+            pulumi.set(__self__, "minimum_load_balancer_capacity", minimum_load_balancer_capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -926,6 +946,18 @@ class _LoadBalancerState:
         pulumi.set(self, "load_balancer_type", value)
 
     @property
+    @pulumi.getter(name="minimumLoadBalancerCapacity")
+    def minimum_load_balancer_capacity(self) -> Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
+        """
+        Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        """
+        return pulumi.get(self, "minimum_load_balancer_capacity")
+
+    @minimum_load_balancer_capacity.setter
+    def minimum_load_balancer_capacity(self, value: Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]):
+        pulumi.set(self, "minimum_load_balancer_capacity", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1097,6 +1129,7 @@ class LoadBalancer(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
                  load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1226,6 +1259,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -1378,6 +1412,7 @@ class LoadBalancer(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
                  load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1416,6 +1451,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["ipam_pools"] = ipam_pools
             __props__.__dict__["load_balancer_type"] = load_balancer_type
+            __props__.__dict__["minimum_load_balancer_capacity"] = minimum_load_balancer_capacity
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["preserve_host_header"] = preserve_host_header
@@ -1466,6 +1502,7 @@ class LoadBalancer(pulumi.CustomResource):
             ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
             ipam_pools: Optional[pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']]] = None,
             load_balancer_type: Optional[pulumi.Input[builtins.str]] = None,
+            minimum_load_balancer_capacity: Optional[pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             preserve_host_header: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1508,6 +1545,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address_type: Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         :param pulumi.Input[Union['LoadBalancerIpamPoolsArgs', 'LoadBalancerIpamPoolsArgsDict']] ipam_pools: . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
         :param pulumi.Input[builtins.str] load_balancer_type: Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
         :param pulumi.Input[builtins.str] name: Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.bool] preserve_host_header: Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -1551,6 +1589,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["ipam_pools"] = ipam_pools
         __props__.__dict__["load_balancer_type"] = load_balancer_type
+        __props__.__dict__["minimum_load_balancer_capacity"] = minimum_load_balancer_capacity
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["preserve_host_header"] = preserve_host_header
@@ -1748,6 +1787,14 @@ class LoadBalancer(pulumi.CustomResource):
         Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         """
         return pulumi.get(self, "load_balancer_type")
+
+    @property
+    @pulumi.getter(name="minimumLoadBalancerCapacity")
+    def minimum_load_balancer_capacity(self) -> pulumi.Output[Optional['outputs.LoadBalancerMinimumLoadBalancerCapacity']]:
+        """
+        Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        """
+        return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @property
     @pulumi.getter

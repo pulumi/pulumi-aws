@@ -35,7 +35,6 @@ class QuerySuggestionsBlockListArgs:
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[builtins.str] name: Name for the block list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -109,9 +108,6 @@ class QuerySuggestionsBlockListArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -148,7 +144,6 @@ class _QuerySuggestionsBlockListState:
         :param pulumi.Input[builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[builtins.str] name: Name for the block list.
         :param pulumi.Input[builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -236,9 +231,6 @@ class _QuerySuggestionsBlockListState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -350,7 +342,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[builtins.str] name: Name for the block list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         """
@@ -472,7 +463,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[builtins.str] name: Name for the block list.
         :param pulumi.Input[builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -534,9 +524,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @property

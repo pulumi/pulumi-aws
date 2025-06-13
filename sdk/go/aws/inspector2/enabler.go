@@ -91,7 +91,7 @@ type Enabler struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
@@ -138,7 +138,7 @@ type enablerState struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
@@ -150,7 +150,7 @@ type EnablerState struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
@@ -166,7 +166,7 @@ type enablerArgs struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
@@ -179,7 +179,7 @@ type EnablerArgs struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
@@ -280,7 +280,7 @@ func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EnablerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

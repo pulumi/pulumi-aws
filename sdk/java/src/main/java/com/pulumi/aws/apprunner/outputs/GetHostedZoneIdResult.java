@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetHostedZoneIdResult {
     /**
-     * @return ID of the AWS App Runner service HostedZoneId in the selected region.
+     * @return ID of the AWS App Runner service HostedZoneId in the selected Region.
      * 
      */
     private String id;
@@ -19,7 +19,7 @@ public final class GetHostedZoneIdResult {
 
     private GetHostedZoneIdResult() {}
     /**
-     * @return ID of the AWS App Runner service HostedZoneId in the selected region.
+     * @return ID of the AWS App Runner service HostedZoneId in the selected Region.
      * 
      */
     public String id() {

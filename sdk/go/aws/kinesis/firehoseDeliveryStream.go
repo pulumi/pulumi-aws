@@ -1067,12 +1067,12 @@ type FirehoseDeliveryStream struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
-	//
-	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
 	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
 	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -1142,12 +1142,12 @@ type firehoseDeliveryStreamState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
-	//
-	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
 	SnowflakeConfiguration *FirehoseDeliveryStreamSnowflakeConfiguration `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1185,12 +1185,12 @@ type FirehoseDeliveryStreamState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
-	//
-	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
 	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrInput
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1232,12 +1232,12 @@ type firehoseDeliveryStreamArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
-	//
-	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
 	SnowflakeConfiguration *FirehoseDeliveryStreamSnowflakeConfiguration `pulumi:"snowflakeConfiguration"`
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags      map[string]string `pulumi:"tags"`
@@ -1274,12 +1274,12 @@ type FirehoseDeliveryStreamArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Encrypt at rest options. See `serverSideEncryption` block below for details.
-	//
-	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	// Configuration options when `destination` is `snowflake`. See `snowflakeConfiguration` block below for details.
 	SnowflakeConfiguration FirehoseDeliveryStreamSnowflakeConfigurationPtrInput
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+	//
+	// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags      pulumi.StringMapInput
@@ -1461,8 +1461,6 @@ func (o FirehoseDeliveryStreamOutput) Region() pulumi.StringOutput {
 }
 
 // Encrypt at rest options. See `serverSideEncryption` block below for details.
-//
-// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamOutput) ServerSideEncryption() FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 		return v.ServerSideEncryption
@@ -1477,6 +1475,8 @@ func (o FirehoseDeliveryStreamOutput) SnowflakeConfiguration() FirehoseDeliveryS
 }
 
 // Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+//
+// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamOutput) SplunkConfiguration() FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 		return v.SplunkConfiguration

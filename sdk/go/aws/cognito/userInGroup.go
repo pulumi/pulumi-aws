@@ -81,7 +81,7 @@ type UserInGroup struct {
 
 	// The name of the group to which the user is to be added.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The user pool ID of the user and group.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -130,7 +130,7 @@ func GetUserInGroup(ctx *pulumi.Context,
 type userInGroupState struct {
 	// The name of the group to which the user is to be added.
 	GroupName *string `pulumi:"groupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user pool ID of the user and group.
 	UserPoolId *string `pulumi:"userPoolId"`
@@ -141,7 +141,7 @@ type userInGroupState struct {
 type UserInGroupState struct {
 	// The name of the group to which the user is to be added.
 	GroupName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user pool ID of the user and group.
 	UserPoolId pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (UserInGroupState) ElementType() reflect.Type {
 type userInGroupArgs struct {
 	// The name of the group to which the user is to be added.
 	GroupName string `pulumi:"groupName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The user pool ID of the user and group.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -168,7 +168,7 @@ type userInGroupArgs struct {
 type UserInGroupArgs struct {
 	// The name of the group to which the user is to be added.
 	GroupName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The user pool ID of the user and group.
 	UserPoolId pulumi.StringInput
@@ -268,7 +268,7 @@ func (o UserInGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o UserInGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

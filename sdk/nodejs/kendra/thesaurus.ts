@@ -79,9 +79,6 @@ export class Thesaurus extends pulumi.CustomResource {
      * The name for the thesaurus.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     public readonly region!: pulumi.Output<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
@@ -171,9 +168,6 @@ export interface ThesaurusState {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
@@ -208,9 +202,6 @@ export interface ThesaurusArgs {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.

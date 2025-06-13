@@ -159,6 +159,7 @@ def get_public_ipv4_pool(pool_id: Optional[builtins.str] = None,
 
 
     :param builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags for the address pool.
     """
     __args__ = dict()
@@ -198,6 +199,7 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags for the address pool.
     """
     __args__ = dict()

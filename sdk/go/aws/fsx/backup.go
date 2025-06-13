@@ -178,7 +178,6 @@ type Backup struct {
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -187,6 +186,8 @@ type Backup struct {
 	// The type of the file system backup.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	//
+	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 	VolumeId pulumi.StringPtrOutput `pulumi:"volumeId"`
 }
 
@@ -229,7 +230,6 @@ type backupState struct {
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
@@ -238,6 +238,8 @@ type backupState struct {
 	// The type of the file system backup.
 	Type *string `pulumi:"type"`
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	//
+	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 	VolumeId *string `pulumi:"volumeId"`
 }
 
@@ -251,7 +253,6 @@ type BackupState struct {
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
@@ -260,6 +261,8 @@ type BackupState struct {
 	// The type of the file system backup.
 	Type pulumi.StringPtrInput
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	//
+	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 	VolumeId pulumi.StringPtrInput
 }
 
@@ -271,11 +274,12 @@ type backupArgs struct {
 	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	//
+	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 	VolumeId *string `pulumi:"volumeId"`
 }
 
@@ -284,11 +288,12 @@ type BackupArgs struct {
 	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	//
+	// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 	VolumeId pulumi.StringPtrInput
 }
 
@@ -400,7 +405,6 @@ func (o BackupOutput) OwnerId() pulumi.StringOutput {
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
 func (o BackupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -421,6 +425,8 @@ func (o BackupOutput) Type() pulumi.StringOutput {
 }
 
 // The ID of the volume to back up. Required if backing up a ONTAP Volume.
+//
+// Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
 func (o BackupOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.VolumeId }).(pulumi.StringPtrOutput)
 }

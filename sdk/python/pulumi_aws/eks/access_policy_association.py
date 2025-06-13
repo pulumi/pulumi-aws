@@ -33,7 +33,7 @@ class AccessPolicyAssociationArgs:
         :param pulumi.Input[builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_scope", access_scope)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -94,7 +94,7 @@ class AccessPolicyAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -121,7 +121,7 @@ class _AccessPolicyAssociationState:
         :param pulumi.Input[builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_scope is not None:
             pulumi.set(__self__, "access_scope", access_scope)
@@ -214,7 +214,7 @@ class _AccessPolicyAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -268,7 +268,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -377,7 +377,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -444,7 +444,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

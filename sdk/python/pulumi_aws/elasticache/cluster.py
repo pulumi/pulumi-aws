@@ -85,8 +85,6 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
@@ -373,8 +371,6 @@ class ClusterArgs:
     def parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -616,8 +612,6 @@ class _ClusterState:
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
@@ -977,8 +971,6 @@ class _ClusterState:
     def parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1358,8 +1350,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
@@ -1692,8 +1682,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
@@ -1938,8 +1926,6 @@ class Cluster(pulumi.CustomResource):
     def parameter_group_name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 

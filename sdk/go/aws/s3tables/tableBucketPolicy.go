@@ -68,7 +68,7 @@ import (
 type TableBucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
@@ -112,7 +112,7 @@ func GetTableBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableBucketPolicy resources.
 type tableBucketPolicyState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy *string `pulumi:"resourcePolicy"`
@@ -121,7 +121,7 @@ type tableBucketPolicyState struct {
 }
 
 type TableBucketPolicyState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (TableBucketPolicyState) ElementType() reflect.Type {
 }
 
 type tableBucketPolicyArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy string `pulumi:"resourcePolicy"`
@@ -144,7 +144,7 @@ type tableBucketPolicyArgs struct {
 
 // The set of arguments for constructing a TableBucketPolicy resource.
 type TableBucketPolicyArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Amazon Web Services resource-based policy document in JSON format.
 	ResourcePolicy pulumi.StringInput
@@ -239,7 +239,7 @@ func (o TableBucketPolicyOutput) ToTableBucketPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TableBucketPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

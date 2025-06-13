@@ -79,7 +79,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetHostedZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the zone for. By default, fetches the current region.
+        /// Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class GetHostedZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the zone for. By default, fetches the current region.
+        /// Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -112,9 +112,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Region of the hosted zone.
-        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

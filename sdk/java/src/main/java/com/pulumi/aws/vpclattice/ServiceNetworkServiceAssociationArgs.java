@@ -18,14 +18,14 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
     public static final ServiceNetworkServiceAssociationArgs Empty = new ServiceNetworkServiceAssociationArgs();
 
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -49,7 +49,6 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     @Import(name="serviceNetworkIdentifier", required=true)
@@ -57,7 +56,6 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
 
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
@@ -107,7 +105,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -118,7 +116,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -150,7 +148,6 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
 
         /**
          * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -162,7 +159,6 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
 
         /**
          * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
          * 
          * @return builder
          * 

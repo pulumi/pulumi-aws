@@ -182,6 +182,7 @@ def get_configuration_set(configuration_set_name: Optional[builtins.str] = None,
 
 
     :param builtins.str configuration_set_name: The name of the configuration set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
@@ -223,6 +224,7 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[b
 
 
     :param builtins.str configuration_set_name: The name of the configuration set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()

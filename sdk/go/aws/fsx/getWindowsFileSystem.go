@@ -53,7 +53,8 @@ func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemA
 // A collection of arguments for invoking getWindowsFileSystem.
 type LookupWindowsFileSystemArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The tags to associate with the file system.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,7 +125,8 @@ func LookupWindowsFileSystemOutput(ctx *pulumi.Context, args LookupWindowsFileSy
 // A collection of arguments for invoking getWindowsFileSystem.
 type LookupWindowsFileSystemOutputArgs struct {
 	// Identifier of the file system (e.g. `fs-12345678`).
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags to associate with the file system.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

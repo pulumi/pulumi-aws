@@ -40,11 +40,12 @@ export interface GetServerlessCollectionArgs {
     id?: string;
     /**
      * Name of the collection.
+     *
+     * > Exactly one of `id` or `name` is required.
      */
     name?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > Exactly one of `id` or `name` is required.
      */
     region?: string;
 }
@@ -138,11 +139,12 @@ export interface GetServerlessCollectionOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * Name of the collection.
+     *
+     * > Exactly one of `id` or `name` is required.
      */
     name?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > Exactly one of `id` or `name` is required.
      */
     region?: pulumi.Input<string>;
 }

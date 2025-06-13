@@ -172,6 +172,7 @@ def get_application(application_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str application_arn: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -209,6 +210,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str application_arn: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn

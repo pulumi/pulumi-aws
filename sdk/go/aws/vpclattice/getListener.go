@@ -51,8 +51,9 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 // A collection of arguments for invoking getListener.
 type LookupListenerArgs struct {
 	// ID or Amazon Resource Name (ARN) of the listener
-	ListenerIdentifier string  `pulumi:"listenerIdentifier"`
-	Region             *string `pulumi:"region"`
+	ListenerIdentifier string `pulumi:"listenerIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service network
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the listener.
@@ -102,8 +103,9 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 // A collection of arguments for invoking getListener.
 type LookupListenerOutputArgs struct {
 	// ID or Amazon Resource Name (ARN) of the listener
-	ListenerIdentifier pulumi.StringInput    `pulumi:"listenerIdentifier"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
+	ListenerIdentifier pulumi.StringInput `pulumi:"listenerIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service network
 	ServiceIdentifier pulumi.StringInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the listener.

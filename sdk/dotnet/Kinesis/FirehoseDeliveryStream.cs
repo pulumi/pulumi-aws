@@ -1085,8 +1085,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
-        /// 
-        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
@@ -1099,6 +1097,8 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// 
+        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Output("splunkConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamSplunkConfiguration?> SplunkConfiguration { get; private set; } = null!;
@@ -1247,8 +1247,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
-        /// 
-        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
@@ -1261,6 +1259,8 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// 
+        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs>? SplunkConfiguration { get; set; }
@@ -1371,8 +1371,6 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
-        /// 
-        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
@@ -1385,6 +1383,8 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// 
+        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationGetArgs>? SplunkConfiguration { get; set; }

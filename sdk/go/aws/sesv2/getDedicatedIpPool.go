@@ -53,8 +53,9 @@ func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs,
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
-	PoolName string  `pulumi:"poolName"`
-	Region   *string `pulumi:"region"`
+	PoolName string `pulumi:"poolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -87,8 +88,9 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 // A collection of arguments for invoking getDedicatedIpPool.
 type LookupDedicatedIpPoolOutputArgs struct {
 	// Name of the dedicated IP pool.
-	PoolName pulumi.StringInput    `pulumi:"poolName"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

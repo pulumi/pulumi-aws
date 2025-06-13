@@ -30,7 +30,7 @@ class OptInArgs:
         The set of arguments for constructing a OptIn resource.
         :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See Resource for more details.
         """
         if conditions is not None:
@@ -70,7 +70,7 @@ class OptInArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -105,7 +105,7 @@ class _OptInState:
         :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[builtins.str] last_modified: Last modified date and time of the record.
         :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See Resource for more details.
         """
         if conditions is not None:
@@ -170,7 +170,7 @@ class _OptInState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -220,7 +220,7 @@ class OptIn(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See Resource for more details.
         """
         ...
@@ -303,7 +303,7 @@ class OptIn(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[builtins.str] last_modified: Last modified date and time of the record.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See Resource for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -351,7 +351,7 @@ class OptIn(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

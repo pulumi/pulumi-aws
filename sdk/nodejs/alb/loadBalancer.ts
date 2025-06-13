@@ -229,6 +229,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly loadBalancerType!: pulumi.Output<enums.alb.LoadBalancerType | undefined>;
     /**
+     * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     */
+    public readonly minimumLoadBalancerCapacity!: pulumi.Output<outputs.alb.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
+    /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -314,6 +318,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["ipamPools"] = state ? state.ipamPools : undefined;
             resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
+            resourceInputs["minimumLoadBalancerCapacity"] = state ? state.minimumLoadBalancerCapacity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = state ? state.preserveHostHeader : undefined;
@@ -348,6 +353,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["ipamPools"] = args ? args.ipamPools : undefined;
             resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
+            resourceInputs["minimumLoadBalancerCapacity"] = args ? args.minimumLoadBalancerCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = args ? args.preserveHostHeader : undefined;
@@ -467,6 +473,10 @@ export interface LoadBalancerState {
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
+    /**
+     * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     */
+    minimumLoadBalancerCapacity?: pulumi.Input<inputs.alb.LoadBalancerMinimumLoadBalancerCapacity>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
@@ -602,6 +612,10 @@ export interface LoadBalancerArgs {
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
+    /**
+     * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     */
+    minimumLoadBalancerCapacity?: pulumi.Input<inputs.alb.LoadBalancerMinimumLoadBalancerCapacity>;
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */

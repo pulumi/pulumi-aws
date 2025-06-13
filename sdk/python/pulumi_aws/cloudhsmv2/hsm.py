@@ -30,8 +30,9 @@ class HsmArgs:
         :param pulumi.Input[builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               
                > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -73,6 +74,8 @@ class HsmArgs:
     def ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The IP address of HSM module. Must be within the CIDR of selected subnet.
+
+        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "ip_address")
 
@@ -85,7 +88,6 @@ class HsmArgs:
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "region")
 
@@ -125,8 +127,9 @@ class _HsmState:
         :param pulumi.Input[builtins.str] hsm_id: The id of the HSM module.
         :param pulumi.Input[builtins.str] hsm_state: The state of the HSM module.
         :param pulumi.Input[builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               
                > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
         if availability_zone is not None:
@@ -211,6 +214,8 @@ class _HsmState:
     def ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The IP address of HSM module. Must be within the CIDR of selected subnet.
+
+        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "ip_address")
 
@@ -223,7 +228,6 @@ class _HsmState:
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "region")
 
@@ -286,8 +290,9 @@ class Hsm(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               
                > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
         ...
@@ -391,8 +396,9 @@ class Hsm(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hsm_id: The id of the HSM module.
         :param pulumi.Input[builtins.str] hsm_state: The state of the HSM module.
         :param pulumi.Input[builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               
                > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -454,6 +460,8 @@ class Hsm(pulumi.CustomResource):
     def ip_address(self) -> pulumi.Output[builtins.str]:
         """
         The IP address of HSM module. Must be within the CIDR of selected subnet.
+
+        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "ip_address")
 
@@ -462,7 +470,6 @@ class Hsm(pulumi.CustomResource):
     def region(self) -> pulumi.Output[builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
         """
         return pulumi.get(self, "region")
 

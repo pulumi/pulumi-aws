@@ -126,14 +126,14 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
         return this.dnsEntries;
     }
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -155,7 +155,6 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
     }
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     @Export(name="serviceNetworkIdentifier", refs={String.class}, tree="[0]")
@@ -163,7 +162,6 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
 
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     public Output<String> serviceNetworkIdentifier() {

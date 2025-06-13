@@ -56,7 +56,8 @@ type LookupGeofenceCollectionArgs struct {
 	CollectionName string `pulumi:"collectionName"`
 	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	Region   *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the geofence collection.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,7 +97,8 @@ type LookupGeofenceCollectionOutputArgs struct {
 	CollectionName pulumi.StringInput `pulumi:"collectionName"`
 	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the geofence collection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

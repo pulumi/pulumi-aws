@@ -135,7 +135,7 @@ namespace Pulumi.Aws
         public readonly string Partition;
         /// <summary>
         /// Region the resource resides in.
-        /// Note that the ARNs for some resources do not require a region, so this component might be omitted.
+        /// Note that the ARNs for some resources do not include a Region, so this component might be omitted.
         /// </summary>
         public readonly string Region;
         /// <summary>

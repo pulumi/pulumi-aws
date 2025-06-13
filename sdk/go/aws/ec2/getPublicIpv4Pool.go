@@ -53,7 +53,8 @@ func GetPublicIpv4Pool(ctx *pulumi.Context, args *GetPublicIpv4PoolArgs, opts ..
 // A collection of arguments for invoking getPublicIpv4Pool.
 type GetPublicIpv4PoolArgs struct {
 	// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-	PoolId string  `pulumi:"poolId"`
+	PoolId string `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Any tags for the address pool.
 	Tags map[string]string `pulumi:"tags"`
@@ -91,7 +92,8 @@ func GetPublicIpv4PoolOutput(ctx *pulumi.Context, args GetPublicIpv4PoolOutputAr
 // A collection of arguments for invoking getPublicIpv4Pool.
 type GetPublicIpv4PoolOutputArgs struct {
 	// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
-	PoolId pulumi.StringInput    `pulumi:"poolId"`
+	PoolId pulumi.StringInput `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags for the address pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

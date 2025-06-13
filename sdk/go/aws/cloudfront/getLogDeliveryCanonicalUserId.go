@@ -91,7 +91,7 @@ func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCano
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdArgs struct {
-	// Region you'd like the zone for. By default, fetches the current region.
+	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -113,7 +113,7 @@ func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliver
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdOutputArgs struct {
-	// Region you'd like the zone for. By default, fetches the current region.
+	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

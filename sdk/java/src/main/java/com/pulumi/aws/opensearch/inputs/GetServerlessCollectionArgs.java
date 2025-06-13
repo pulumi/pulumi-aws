@@ -33,12 +33,16 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
     /**
      * Name of the collection.
      * 
+     * &gt; Exactly one of `id` or `name` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the collection.
+     * 
+     * &gt; Exactly one of `id` or `name` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,7 +51,6 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `id` or `name` is required.
      * 
      */
     @Import(name="region")
@@ -55,7 +58,6 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; Exactly one of `id` or `name` is required.
      * 
      */
     public Optional<Output<String>> region() {
@@ -112,6 +114,8 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         /**
          * @param name Name of the collection.
          * 
+         * &gt; Exactly one of `id` or `name` is required.
+         * 
          * @return builder
          * 
          */
@@ -123,6 +127,8 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         /**
          * @param name Name of the collection.
          * 
+         * &gt; Exactly one of `id` or `name` is required.
+         * 
          * @return builder
          * 
          */
@@ -132,7 +138,6 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; Exactly one of `id` or `name` is required.
          * 
          * @return builder
          * 
@@ -144,7 +149,6 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; Exactly one of `id` or `name` is required.
          * 
          * @return builder
          * 

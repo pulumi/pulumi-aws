@@ -52,6 +52,7 @@ func GetSlackWorkspace(ctx *pulumi.Context, args *GetSlackWorkspaceArgs, opts ..
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Slack workspace name configured with AWS Chatbot.
 	SlackTeamName string `pulumi:"slackTeamName"`
@@ -78,6 +79,7 @@ func GetSlackWorkspaceOutput(ctx *pulumi.Context, args GetSlackWorkspaceOutputAr
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Slack workspace name configured with AWS Chatbot.
 	SlackTeamName pulumi.StringInput `pulumi:"slackTeamName"`

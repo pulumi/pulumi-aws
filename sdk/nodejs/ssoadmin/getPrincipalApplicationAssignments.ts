@@ -56,6 +56,9 @@ export interface GetPrincipalApplicationAssignmentsArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -128,5 +131,8 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

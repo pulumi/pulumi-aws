@@ -206,6 +206,7 @@ def get_configuration_profile(application_id: Optional[builtins.str] = None,
 
     :param builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
     :param builtins.str configuration_profile_id: ID of the Configuration Profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -253,6 +254,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[built
 
     :param builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
     :param builtins.str configuration_profile_id: ID of the Configuration Profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()

@@ -53,7 +53,8 @@ func LookupVpcIpam(ctx *pulumi.Context, args *LookupVpcIpamArgs, opts ...pulumi.
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamArgs struct {
 	// ID of the IPAM.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -108,7 +109,8 @@ func LookupVpcIpamOutput(ctx *pulumi.Context, args LookupVpcIpamOutputArgs, opts
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamOutputArgs struct {
 	// ID of the IPAM.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

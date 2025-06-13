@@ -63,7 +63,7 @@ type BucketOwnershipControls struct {
 
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleOutput `pulumi:"rule"`
@@ -107,7 +107,7 @@ func GetBucketOwnershipControls(ctx *pulumi.Context,
 type bucketOwnershipControlsState struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule *BucketOwnershipControlsRule `pulumi:"rule"`
@@ -116,7 +116,7 @@ type bucketOwnershipControlsState struct {
 type BucketOwnershipControlsState struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRulePtrInput
@@ -129,7 +129,7 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 type bucketOwnershipControlsArgs struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRule `pulumi:"rule"`
@@ -139,7 +139,7 @@ type bucketOwnershipControlsArgs struct {
 type BucketOwnershipControlsArgs struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleInput
@@ -237,7 +237,7 @@ func (o BucketOwnershipControlsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o BucketOwnershipControlsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

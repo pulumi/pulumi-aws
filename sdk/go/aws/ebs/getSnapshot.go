@@ -67,9 +67,7 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-snapshots in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
 	Filters []GetSnapshotFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
@@ -138,9 +136,7 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotOutputArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-snapshots in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
 	Filters GetSnapshotFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`

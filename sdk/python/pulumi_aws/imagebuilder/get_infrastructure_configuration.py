@@ -277,6 +277,7 @@ def get_infrastructure_configuration(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the infrastructure configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the infrastructure configuration.
     """
@@ -327,6 +328,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str arn: ARN of the infrastructure configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the infrastructure configuration.
     """

@@ -135,6 +135,7 @@ def get_sink(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str sink_identifier: ARN of the sink.
     :param Mapping[str, builtins.str] tags: Tags assigned to the sink.
     """
@@ -172,6 +173,7 @@ def get_sink_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = Non
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str sink_identifier: ARN of the sink.
     :param Mapping[str, builtins.str] tags: Tags assigned to the sink.
     """

@@ -52,13 +52,9 @@ func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs,
 
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The replication task identifier.
-	//
-	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen.
-	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId string            `pulumi:"replicationTaskId"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -105,13 +101,9 @@ func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTask
 
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The replication task identifier.
-	//
-	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen.
-	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringInput    `pulumi:"replicationTaskId"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }

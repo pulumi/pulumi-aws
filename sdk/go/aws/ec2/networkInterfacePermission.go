@@ -78,7 +78,7 @@ type NetworkInterfacePermission struct {
 	NetworkInterfacePermissionId pulumi.StringOutput `pulumi:"networkInterfacePermissionId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                         `pulumi:"region"`
 	Timeouts NetworkInterfacePermissionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -130,7 +130,7 @@ type networkInterfacePermissionState struct {
 	NetworkInterfacePermissionId *string `pulumi:"networkInterfacePermissionId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission *string `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
@@ -144,7 +144,7 @@ type NetworkInterfacePermissionState struct {
 	NetworkInterfacePermissionId pulumi.StringPtrInput
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
 }
@@ -160,7 +160,7 @@ type networkInterfacePermissionArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission string `pulumi:"permission"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Timeouts *NetworkInterfacePermissionTimeouts `pulumi:"timeouts"`
 }
@@ -173,7 +173,7 @@ type NetworkInterfacePermissionArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
 	Permission pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts NetworkInterfacePermissionTimeoutsPtrInput
 }
@@ -285,7 +285,7 @@ func (o NetworkInterfacePermissionOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o NetworkInterfacePermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

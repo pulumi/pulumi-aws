@@ -41,11 +41,6 @@ class ReplicationInstanceArgs:
         The set of arguments for constructing a ReplicationInstance resource.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-               
-               - Must contain from 1 to 63 alphanumeric characters or hyphens.
-               - First character must be a letter.
-               - Cannot end with a hyphen
-               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[builtins.int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
         :param pulumi.Input[builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -56,11 +51,6 @@ class ReplicationInstanceArgs:
         :param pulumi.Input[builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
-               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-               - Format: `ddd:hh24:mi-ddd:hh24:mi`
-               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: A subnet group to associate with the replication instance.
@@ -117,11 +107,6 @@ class ReplicationInstanceArgs:
     def replication_instance_id(self) -> pulumi.Input[builtins.str]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
-
-        - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        - First character must be a letter.
-        - Cannot end with a hyphen
-        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 
@@ -242,11 +227,6 @@ class ReplicationInstanceArgs:
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-
-        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -351,21 +331,11 @@ class _ReplicationInstanceState:
         :param pulumi.Input[builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
-               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-               - Format: `ddd:hh24:mi-ddd:hh24:mi`
-               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-               
-               - Must contain from 1 to 63 alphanumeric characters or hyphens.
-               - First character must be a letter.
-               - Cannot end with a hyphen
-               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: A subnet group to associate with the replication instance.
@@ -529,11 +499,6 @@ class _ReplicationInstanceState:
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-
-        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -594,11 +559,6 @@ class _ReplicationInstanceState:
     def replication_instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
-
-        - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        - First character must be a letter.
-        - Cannot end with a hyphen
-        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 
@@ -790,20 +750,10 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
-               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-               - Format: `ddd:hh24:mi-ddd:hh24:mi`
-               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-               
-               - Must contain from 1 to 63 alphanumeric characters or hyphens.
-               - First character must be a letter.
-               - Cannot end with a hyphen
-               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
@@ -1003,21 +953,11 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-               
-               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-               - Format: `ddd:hh24:mi-ddd:hh24:mi`
-               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-               - Constraints: Minimum 30-minute window.
         :param pulumi.Input[builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-               
-               - Must contain from 1 to 63 alphanumeric characters or hyphens.
-               - First character must be a letter.
-               - Cannot end with a hyphen
-               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: A subnet group to associate with the replication instance.
@@ -1129,11 +1069,6 @@ class ReplicationInstance(pulumi.CustomResource):
     def preferred_maintenance_window(self) -> pulumi.Output[builtins.str]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-
-        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        - Constraints: Minimum 30-minute window.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -1174,11 +1109,6 @@ class ReplicationInstance(pulumi.CustomResource):
     def replication_instance_id(self) -> pulumi.Output[builtins.str]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
-
-        - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        - First character must be a letter.
-        - Cannot end with a hyphen
-        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_instance_id")
 

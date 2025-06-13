@@ -35,7 +35,7 @@ class DeploymentArgs:
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "application_version", application_version)
@@ -109,7 +109,7 @@ class DeploymentArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -143,7 +143,7 @@ class _DeploymentState:
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         if application_id is not None:
@@ -221,7 +221,7 @@ class _DeploymentState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -296,7 +296,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         ...
@@ -406,7 +406,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -461,7 +461,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

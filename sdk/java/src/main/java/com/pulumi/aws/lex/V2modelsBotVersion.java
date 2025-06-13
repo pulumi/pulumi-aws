@@ -101,6 +101,7 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
     }
     /**
      * A description of the version. Use the description to help identify the version in lists.
+     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
@@ -108,6 +109,7 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A description of the version. Use the description to help identify the version in lists.
+     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
     public Output<Optional<String>> description() {
@@ -116,18 +118,12 @@ public class V2modelsBotVersion extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      * 
-     * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
-     * 
      */
     @Export(name="localeSpecification", refs={Map.class,String.class,V2modelsBotVersionLocaleSpecification.class}, tree="[0,1,2]")
     private Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification;
 
     /**
      * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-     * 
-     * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
     public Output<Map<String,V2modelsBotVersionLocaleSpecification>> localeSpecification() {

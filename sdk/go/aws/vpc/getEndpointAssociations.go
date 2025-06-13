@@ -52,6 +52,7 @@ func GetEndpointAssociations(ctx *pulumi.Context, args *GetEndpointAssociationsA
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the specific VPC Endpoint to retrieve.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
@@ -78,6 +79,7 @@ func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociat
 
 // A collection of arguments for invoking getEndpointAssociations.
 type GetEndpointAssociationsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific VPC Endpoint to retrieve.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`

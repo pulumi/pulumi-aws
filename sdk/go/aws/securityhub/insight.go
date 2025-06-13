@@ -244,7 +244,7 @@ type Insight struct {
 	GroupByAttribute pulumi.StringOutput `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -292,7 +292,7 @@ type insightState struct {
 	GroupByAttribute *string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -305,7 +305,7 @@ type InsightState struct {
 	GroupByAttribute pulumi.StringPtrInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -320,7 +320,7 @@ type insightArgs struct {
 	GroupByAttribute string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -332,7 +332,7 @@ type InsightArgs struct {
 	GroupByAttribute pulumi.StringInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -443,7 +443,7 @@ func (o InsightOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InsightOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

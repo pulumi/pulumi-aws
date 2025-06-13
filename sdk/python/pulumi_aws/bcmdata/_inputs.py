@@ -53,9 +53,6 @@ if not MYPY:
         Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
         """
         export_arn: NotRequired[pulumi.Input[builtins.str]]
-        """
-        Amazon Resource Name (ARN) for this export.
-        """
         refresh_cadences: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgsDict']]]]
         """
         Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
@@ -77,7 +74,6 @@ class ExportExportArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]] data_queries: Data query for this specific data export. See the `data_query` argument reference below.
         :param pulumi.Input[builtins.str] description: Description for this specific data export.
         :param pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]] destination_configurations: Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
-        :param pulumi.Input[builtins.str] export_arn: Amazon Resource Name (ARN) for this export.
         :param pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]] refresh_cadences: Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
         """
         pulumi.set(__self__, "name", name)
@@ -143,9 +139,6 @@ class ExportExportArgs:
     @property
     @pulumi.getter(name="exportArn")
     def export_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Amazon Resource Name (ARN) for this export.
-        """
         return pulumi.get(self, "export_arn")
 
     @export_arn.setter

@@ -40,6 +40,9 @@ export interface GetServerlessSecurityConfigArgs {
      * The unique identifier of the security configuration.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * SAML options for the security configuration.
@@ -111,6 +114,9 @@ export interface GetServerlessSecurityConfigOutputArgs {
      * The unique identifier of the security configuration.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * SAML options for the security configuration.

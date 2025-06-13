@@ -57,7 +57,7 @@ type AvailabilityZoneGroup struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringOutput `pulumi:"optInStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -101,7 +101,7 @@ type availabilityZoneGroupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus *string `pulumi:"optInStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type AvailabilityZoneGroupState struct {
 	GroupName pulumi.StringPtrInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -123,7 +123,7 @@ type availabilityZoneGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -133,7 +133,7 @@ type AvailabilityZoneGroupArgs struct {
 	GroupName pulumi.StringInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -234,7 +234,7 @@ func (o AvailabilityZoneGroupOutput) OptInStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.OptInStatus }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AvailabilityZoneGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

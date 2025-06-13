@@ -56,8 +56,9 @@ type LookupEnvironmentArgs struct {
 	// ID of the AppConfig Application to which this Environment belongs.
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the AppConfig Environment.
-	EnvironmentId string  `pulumi:"environmentId"`
-	Region        *string `pulumi:"region"`
+	EnvironmentId string `pulumi:"environmentId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,8 +99,9 @@ type LookupEnvironmentOutputArgs struct {
 	// ID of the AppConfig Application to which this Environment belongs.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// ID of the AppConfig Environment.
-	EnvironmentId pulumi.StringInput    `pulumi:"environmentId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

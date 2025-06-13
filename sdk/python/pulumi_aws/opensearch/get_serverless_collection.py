@@ -227,8 +227,9 @@ def get_serverless_collection(id: Optional[builtins.str] = None,
 
     :param builtins.str id: ID of the collection.
     :param builtins.str name: Name of the collection.
-    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           
            > Exactly one of `id` or `name` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -274,8 +275,9 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[builtins
 
     :param builtins.str id: ID of the collection.
     :param builtins.str name: Name of the collection.
-    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           
            > Exactly one of `id` or `name` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id

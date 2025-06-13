@@ -173,6 +173,7 @@ def get_response_plan(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags applied to the response plan.
     """
     __args__ = dict()
@@ -205,6 +206,7 @@ def get_response_plan_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags applied to the response plan.
     """
     __args__ = dict()

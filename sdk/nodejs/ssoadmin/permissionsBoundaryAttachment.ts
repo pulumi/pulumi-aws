@@ -113,7 +113,7 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<outputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -172,7 +172,7 @@ export interface PermissionsBoundaryAttachmentState {
      */
     permissionsBoundary?: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }
@@ -194,7 +194,7 @@ export interface PermissionsBoundaryAttachmentArgs {
      */
     permissionsBoundary: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

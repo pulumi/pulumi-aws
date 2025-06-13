@@ -35,7 +35,7 @@ export function getServicePrincipal(args: GetServicePrincipalArgs, opts?: pulumi
  */
 export interface GetServicePrincipalArgs {
     /**
-     * Region you'd like the SPN for. By default, uses the current region.
+     * Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -49,16 +49,13 @@ export interface GetServicePrincipalArgs {
  */
 export interface GetServicePrincipalResult {
     /**
-     * Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+     * Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
      */
     readonly id: string;
     /**
      * Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
      */
     readonly name: string;
-    /**
-     * Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
-     */
     readonly region: string;
     readonly serviceName: string;
     /**
@@ -97,7 +94,7 @@ export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, o
  */
 export interface GetServicePrincipalOutputArgs {
     /**
-     * Region you'd like the SPN for. By default, uses the current region.
+     * Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

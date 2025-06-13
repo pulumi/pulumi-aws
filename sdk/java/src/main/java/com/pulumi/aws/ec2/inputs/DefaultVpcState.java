@@ -182,29 +182,9 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
-     * 
-     * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-     * * The default value for `enable_dns_hostnames` is `true`
-     * 
-     * This resource supports the following additional arguments:
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
-     * 
-     * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-     * * The default value for `enable_dns_hostnames` is `true`
-     * 
-     * This resource supports the following additional arguments:
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -485,35 +465,11 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
-         * 
-         * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-         * * The default value for `enable_dns_hostnames` is `true`
-         * 
-         * This resource supports the following additional arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * The arguments of an `aws.ec2.DefaultVpc` differ slightly from those of `aws.ec2.Vpc`:
-         * 
-         * * The `cidr_block` and `instance_tenancy` arguments become computed attributes
-         * * The default value for `enable_dns_hostnames` is `true`
-         * 
-         * This resource supports the following additional arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

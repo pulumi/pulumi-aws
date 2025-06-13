@@ -112,6 +112,7 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[builtins.st
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
@@ -145,6 +146,7 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity

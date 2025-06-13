@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+ * Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
  *
  * ```sh
  * $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -101,7 +101,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
      */
     public readonly opsCenter!: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -151,7 +151,7 @@ export interface ServiceIntegrationState {
      */
     opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }
@@ -173,7 +173,7 @@ export interface ServiceIntegrationArgs {
      */
     opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

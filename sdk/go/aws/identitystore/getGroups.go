@@ -58,8 +58,9 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId string  `pulumi:"identityStoreId"`
-	Region          *string `pulumi:"region"`
+	IdentityStoreId string `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroups.
@@ -84,8 +85,9 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
-	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupsOutputArgs) ElementType() reflect.Type {

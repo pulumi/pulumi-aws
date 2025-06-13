@@ -26,10 +26,6 @@ class DefaultVpcDhcpOptionsArgs:
         """
         The set of arguments for constructing a DefaultVpcDhcpOptions resource.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-               Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-               The following arguments are still supported:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         if owner_id is not None:
@@ -54,12 +50,6 @@ class DefaultVpcDhcpOptionsArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-        Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-        The following arguments are still supported:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -99,10 +89,6 @@ class _DefaultVpcDhcpOptionsState:
         :param pulumi.Input[builtins.str] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-               Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-               The following arguments are still supported:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         if arn is not None:
@@ -215,12 +201,6 @@ class _DefaultVpcDhcpOptionsState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-        Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-        The following arguments are still supported:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -295,10 +275,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-               Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-               The following arguments are still supported:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         ...
@@ -410,10 +386,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-               Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-               The following arguments are still supported:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -488,12 +460,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-        Namely, the `domain_name`, `domain_name_servers` and `ntp_servers` arguments are computed.
-        The following arguments are still supported:
-        """
         return pulumi.get(self, "region")
 
     @property

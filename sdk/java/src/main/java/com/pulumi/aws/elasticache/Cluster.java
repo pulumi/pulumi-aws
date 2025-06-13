@@ -625,16 +625,12 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * The name of the parameter group to associate with this cache cluster.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
      * @return The name of the parameter group to associate with this cache cluster.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> parameterGroupName() {

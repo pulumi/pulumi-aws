@@ -130,8 +130,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class GetHostedZoneIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS App Runner service HostedZoneId is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -145,8 +144,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class GetHostedZoneIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS App Runner service HostedZoneId is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -162,7 +160,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class GetHostedZoneIdResult
     {
         /// <summary>
-        /// ID of the AWS App Runner service HostedZoneId in the selected region.
+        /// ID of the AWS App Runner service HostedZoneId in the selected Region.
         /// </summary>
         public readonly string Id;
         public readonly string Region;

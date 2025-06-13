@@ -101,8 +101,6 @@ type SmbFileShare struct {
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
 	// Refresh cache information. see `cacheAttributes` Block for more details.
-	//
-	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrOutput `pulumi:"caseSensitivity"`
@@ -143,6 +141,8 @@ type SmbFileShare struct {
 	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
 	SmbAclEnabled pulumi.BoolPtrOutput `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -204,8 +204,6 @@ type smbFileShareState struct {
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see `cacheAttributes` Block for more details.
-	//
-	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
@@ -246,6 +244,8 @@ type smbFileShareState struct {
 	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
 	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -269,8 +269,6 @@ type SmbFileShareState struct {
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see `cacheAttributes` Block for more details.
-	//
-	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
@@ -311,6 +309,8 @@ type SmbFileShareState struct {
 	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
 	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -336,8 +336,6 @@ type smbFileShareArgs struct {
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see `cacheAttributes` Block for more details.
-	//
-	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
@@ -374,6 +372,8 @@ type smbFileShareArgs struct {
 	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
 	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
@@ -394,8 +394,6 @@ type SmbFileShareArgs struct {
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see `cacheAttributes` Block for more details.
-	//
-	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
@@ -432,6 +430,8 @@ type SmbFileShareArgs struct {
 	// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
 	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	Tags pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
@@ -557,8 +557,6 @@ func (o SmbFileShareOutput) BucketRegion() pulumi.StringPtrOutput {
 }
 
 // Refresh cache information. see `cacheAttributes` Block for more details.
-//
-// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 func (o SmbFileShareOutput) CacheAttributes() SmbFileShareCacheAttributesPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) SmbFileShareCacheAttributesPtrOutput { return v.CacheAttributes }).(SmbFileShareCacheAttributesPtrOutput)
 }
@@ -659,6 +657,8 @@ func (o SmbFileShareOutput) SmbAclEnabled() pulumi.BoolPtrOutput {
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 func (o SmbFileShareOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

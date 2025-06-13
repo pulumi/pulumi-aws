@@ -65,8 +65,7 @@ func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pul
 
 // A collection of arguments for invoking getHostedZoneId.
 type GetHostedZoneIdArgs struct {
-	// Name of the region whose AWS ELB HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -88,8 +87,7 @@ func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, 
 
 // A collection of arguments for invoking getHostedZoneId.
 type GetHostedZoneIdOutputArgs struct {
-	// Name of the region whose AWS ELB HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

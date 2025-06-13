@@ -74,7 +74,7 @@ type LogIndexPolicy struct {
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// JSON policy document. This is a JSON formatted string.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -118,7 +118,7 @@ type logIndexPolicyState struct {
 	LogGroupName *string `pulumi:"logGroupName"`
 	// JSON policy document. This is a JSON formatted string.
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -127,7 +127,7 @@ type LogIndexPolicyState struct {
 	LogGroupName pulumi.StringPtrInput
 	// JSON policy document. This is a JSON formatted string.
 	PolicyDocument pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -140,7 +140,7 @@ type logIndexPolicyArgs struct {
 	LogGroupName string `pulumi:"logGroupName"`
 	// JSON policy document. This is a JSON formatted string.
 	PolicyDocument string `pulumi:"policyDocument"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -150,7 +150,7 @@ type LogIndexPolicyArgs struct {
 	LogGroupName pulumi.StringInput
 	// JSON policy document. This is a JSON formatted string.
 	PolicyDocument pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -251,7 +251,7 @@ func (o LogIndexPolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogIndexPolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogIndexPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogIndexPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

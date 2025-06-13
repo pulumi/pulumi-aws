@@ -31,6 +31,9 @@ export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: 
  * A collection of arguments for invoking getReplicationInstance.
  */
 export interface GetReplicationInstanceArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The replication instance identifier.
@@ -138,6 +141,9 @@ export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputA
  * A collection of arguments for invoking getReplicationInstance.
  */
 export interface GetReplicationInstanceOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The replication instance identifier.

@@ -85,7 +85,7 @@ type AuthPolicy struct {
 
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
@@ -131,7 +131,7 @@ func GetAuthPolicy(ctx *pulumi.Context,
 type authPolicyState struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy *string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
@@ -142,7 +142,7 @@ type authPolicyState struct {
 type AuthPolicyState struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringPtrInput
@@ -157,7 +157,7 @@ func (AuthPolicyState) ElementType() reflect.Type {
 type authPolicyArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy string `pulumi:"policy"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
@@ -169,7 +169,7 @@ type authPolicyArgs struct {
 type AuthPolicyArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput
@@ -269,7 +269,7 @@ func (o AuthPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AuthPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

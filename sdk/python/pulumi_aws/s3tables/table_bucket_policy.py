@@ -27,7 +27,7 @@ class TableBucketPolicyArgs:
         The set of arguments for constructing a TableBucketPolicy resource.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -62,7 +62,7 @@ class TableBucketPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -79,7 +79,7 @@ class _TableBucketPolicyState:
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableBucketPolicy resources.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
@@ -94,7 +94,7 @@ class _TableBucketPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -165,7 +165,7 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
@@ -255,7 +255,7 @@ class TableBucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
@@ -272,7 +272,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

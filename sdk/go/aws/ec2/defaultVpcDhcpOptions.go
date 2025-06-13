@@ -74,11 +74,7 @@ type DefaultVpcDhcpOptions struct {
 	NtpServers      pulumi.StringOutput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-	// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-	// The following arguments are still supported:
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region  pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -126,11 +122,7 @@ type defaultVpcDhcpOptionsState struct {
 	NtpServers      *string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-	// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-	// The following arguments are still supported:
-	Region *string `pulumi:"region"`
+	Region  *string `pulumi:"region"`
 	// A map of tags to assign to the resource.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -149,11 +141,7 @@ type DefaultVpcDhcpOptionsState struct {
 	NtpServers      pulumi.StringPtrInput
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-	// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-	// The following arguments are still supported:
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -166,11 +154,7 @@ func (DefaultVpcDhcpOptionsState) ElementType() reflect.Type {
 type defaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-	// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-	// The following arguments are still supported:
-	Region *string `pulumi:"region"`
+	Region  *string `pulumi:"region"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -179,11 +163,7 @@ type defaultVpcDhcpOptionsArgs struct {
 type DefaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-	// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-	// The following arguments are still supported:
-	Region pulumi.StringPtrInput
+	Region  pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -311,10 +291,6 @@ func (o DefaultVpcDhcpOptionsOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// The arguments of an `ec2.DefaultVpcDhcpOptions` differ slightly from `ec2.VpcDhcpOptions`  resources.
-// Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-// The following arguments are still supported:
 func (o DefaultVpcDhcpOptionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

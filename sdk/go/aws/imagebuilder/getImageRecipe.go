@@ -51,7 +51,8 @@ func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ..
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeArgs struct {
 	// ARN of the image recipe.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the image recipe.
 	Tags map[string]string `pulumi:"tags"`
@@ -101,7 +102,8 @@ func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputAr
 // A collection of arguments for invoking getImageRecipe.
 type LookupImageRecipeOutputArgs struct {
 	// ARN of the image recipe.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the image recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

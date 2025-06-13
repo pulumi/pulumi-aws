@@ -63,7 +63,6 @@ class ExportExport(dict):
         :param Sequence['ExportExportDataQueryArgs'] data_queries: Data query for this specific data export. See the `data_query` argument reference below.
         :param builtins.str description: Description for this specific data export.
         :param Sequence['ExportExportDestinationConfigurationArgs'] destination_configurations: Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
-        :param builtins.str export_arn: Amazon Resource Name (ARN) for this export.
         :param Sequence['ExportExportRefreshCadenceArgs'] refresh_cadences: Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
         """
         pulumi.set(__self__, "name", name)
@@ -113,9 +112,6 @@ class ExportExport(dict):
     @property
     @pulumi.getter(name="exportArn")
     def export_arn(self) -> Optional[builtins.str]:
-        """
-        Amazon Resource Name (ARN) for this export.
-        """
         return pulumi.get(self, "export_arn")
 
     @property

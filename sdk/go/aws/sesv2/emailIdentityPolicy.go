@@ -93,7 +93,7 @@ type EmailIdentityPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -142,7 +142,7 @@ type emailIdentityPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName *string `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -153,7 +153,7 @@ type EmailIdentityPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// The name of the policy.
 	PolicyName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -168,7 +168,7 @@ type emailIdentityPolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName string `pulumi:"policyName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -180,7 +180,7 @@ type EmailIdentityPolicyArgs struct {
 	Policy pulumi.StringInput
 	// The name of the policy.
 	PolicyName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -286,7 +286,7 @@ func (o EmailIdentityPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EmailIdentityPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -87,15 +87,15 @@ type KxVolume struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
@@ -173,15 +173,15 @@ type kxVolumeState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status *string `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
@@ -218,15 +218,15 @@ type KxVolumeState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status pulumi.StringPtrInput
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
@@ -435,15 +435,15 @@ func (o KxVolumeOutput) Region() pulumi.StringOutput {
 }
 
 // The status of volume creation.
-// * `CREATING` – The volume creation is in progress.
-// * `CREATE_FAILED` – The volume creation has failed.
-// * `ACTIVE` – The volume is active.
-// * `UPDATING` – The volume is in the process of being updated.
-// * `UPDATE_FAILED` – The update action failed.
-// * `UPDATED` – The volume is successfully updated.
-// * `DELETING` – The volume is in the process of being deleted.
-// * `DELETE_FAILED` – The system failed to delete the volume.
-// * `DELETED` – The volume is successfully deleted.
+// * `CREATING` - The volume creation is in progress.
+// * `CREATE_FAILED` - The volume creation has failed.
+// * `ACTIVE` - The volume is active.
+// * `UPDATING` - The volume is in the process of being updated.
+// * `UPDATE_FAILED` - The update action failed.
+// * `UPDATED` - The volume is successfully updated.
+// * `DELETING` - The volume is in the process of being deleted.
+// * `DELETE_FAILED` - The system failed to delete the volume.
+// * `DELETED` - The volume is successfully deleted.
 func (o KxVolumeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

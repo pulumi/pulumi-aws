@@ -53,8 +53,9 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 // A collection of arguments for invoking getApplication.
 type LookupApplicationArgs struct {
 	// ARN of the application.
-	ApplicationArn string  `pulumi:"applicationArn"`
-	Region         *string `pulumi:"region"`
+	ApplicationArn string `pulumi:"applicationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplication.
@@ -91,8 +92,9 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 // A collection of arguments for invoking getApplication.
 type LookupApplicationOutputArgs struct {
 	// ARN of the application.
-	ApplicationArn pulumi.StringInput    `pulumi:"applicationArn"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {

@@ -31,7 +31,7 @@ class WorkspaceApiKeyArgs:
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_role", key_role)
@@ -92,7 +92,7 @@ class WorkspaceApiKeyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -115,7 +115,7 @@ class _WorkspaceApiKeyState:
         :param pulumi.Input[builtins.str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -172,7 +172,7 @@ class _WorkspaceApiKeyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -239,7 +239,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -338,7 +338,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -382,7 +382,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

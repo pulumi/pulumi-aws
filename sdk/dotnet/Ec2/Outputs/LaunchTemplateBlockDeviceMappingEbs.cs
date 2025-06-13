@@ -42,6 +42,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
+        /// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+        /// </summary>
+        public readonly int? VolumeInitializationRate;
+        /// <summary>
         /// The size of the volume in gigabytes.
         /// </summary>
         public readonly int? VolumeSize;
@@ -65,6 +69,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? throughput,
 
+            int? volumeInitializationRate,
+
             int? volumeSize,
 
             string? volumeType)
@@ -75,6 +81,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
             Throughput = throughput;
+            VolumeInitializationRate = volumeInitializationRate;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

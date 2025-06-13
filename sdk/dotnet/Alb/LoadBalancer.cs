@@ -298,6 +298,12 @@ namespace Pulumi.Aws.Alb
         public Output<Pulumi.Aws.Alb.LoadBalancerType?> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Output("minimumLoadBalancerCapacity")]
+        public Output<Outputs.LoadBalancerMinimumLoadBalancerCapacity?> MinimumLoadBalancerCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
         [Output("name")]
@@ -541,6 +547,12 @@ namespace Pulumi.Aws.Alb
         public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Input("minimumLoadBalancerCapacity")]
+        public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityArgs>? MinimumLoadBalancerCapacity { get; set; }
+
+        /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
         [Input("name")]
@@ -767,6 +779,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("loadBalancerType")]
         public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
+
+        /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Input("minimumLoadBalancerCapacity")]
+        public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityGetArgs>? MinimumLoadBalancerCapacity { get; set; }
 
         /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.

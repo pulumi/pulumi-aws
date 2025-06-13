@@ -6376,6 +6376,10 @@ if not MYPY:
         """
         The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         """
+        volume_initialization_rate: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+        """
         volume_size: NotRequired[pulumi.Input[builtins.int]]
         """
         The size of the volume in gigabytes.
@@ -6397,6 +6401,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[builtins.int]] = None,
                  volume_size: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -6410,6 +6415,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[builtins.str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[builtins.int] throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[builtins.int] volume_initialization_rate: The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
         :param pulumi.Input[builtins.int] volume_size: The size of the volume in gigabytes.
         :param pulumi.Input[builtins.str] volume_type: The volume type.
                Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
@@ -6426,6 +6432,8 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -6506,6 +6514,18 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
 
     @property
     @pulumi.getter(name="volumeSize")

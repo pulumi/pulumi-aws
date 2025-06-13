@@ -59,8 +59,9 @@ func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmai
 // A collection of arguments for invoking getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesArgs struct {
 	// The name of the email identity.
-	EmailIdentity string  `pulumi:"emailIdentity"`
-	Region        *string `pulumi:"region"`
+	EmailIdentity string `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEmailIdentityMailFromAttributes.
@@ -87,8 +88,9 @@ func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args Looku
 // A collection of arguments for invoking getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesOutputArgs struct {
 	// The name of the email identity.
-	EmailIdentity pulumi.StringInput    `pulumi:"emailIdentity"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	EmailIdentity pulumi.StringInput `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEmailIdentityMailFromAttributesOutputArgs) ElementType() reflect.Type {

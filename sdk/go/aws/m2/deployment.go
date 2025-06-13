@@ -63,7 +63,7 @@ type Deployment struct {
 	// Environment to deploy application to.
 	EnvironmentId pulumi.StringOutput  `pulumi:"environmentId"`
 	ForceStop     pulumi.BoolPtrOutput `pulumi:"forceStop"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Start the application once deployed.
 	Start    pulumi.BoolOutput           `pulumi:"start"`
@@ -120,7 +120,7 @@ type deploymentState struct {
 	// Environment to deploy application to.
 	EnvironmentId *string `pulumi:"environmentId"`
 	ForceStop     *bool   `pulumi:"forceStop"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Start the application once deployed.
 	Start    *bool               `pulumi:"start"`
@@ -136,7 +136,7 @@ type DeploymentState struct {
 	// Environment to deploy application to.
 	EnvironmentId pulumi.StringPtrInput
 	ForceStop     pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Start the application once deployed.
 	Start    pulumi.BoolPtrInput
@@ -155,7 +155,7 @@ type deploymentArgs struct {
 	// Environment to deploy application to.
 	EnvironmentId string `pulumi:"environmentId"`
 	ForceStop     *bool  `pulumi:"forceStop"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Start the application once deployed.
 	Start    bool                `pulumi:"start"`
@@ -171,7 +171,7 @@ type DeploymentArgs struct {
 	// Environment to deploy application to.
 	EnvironmentId pulumi.StringInput
 	ForceStop     pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Start the application once deployed.
 	Start    pulumi.BoolInput
@@ -288,7 +288,7 @@ func (o DeploymentOutput) ForceStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.ForceStop }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

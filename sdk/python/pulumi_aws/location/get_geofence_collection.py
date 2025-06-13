@@ -162,6 +162,7 @@ def get_geofence_collection(collection_name: Optional[builtins.str] = None,
 
     :param builtins.str collection_name: Name of the geofence collection.
     :param builtins.str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the geofence collection.
     """
     __args__ = dict()
@@ -204,6 +205,7 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[builti
 
     :param builtins.str collection_name: Name of the geofence collection.
     :param builtins.str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the geofence collection.
     """
     __args__ = dict()

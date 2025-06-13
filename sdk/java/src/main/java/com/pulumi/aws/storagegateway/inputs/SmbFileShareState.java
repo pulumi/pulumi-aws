@@ -112,16 +112,12 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * Refresh cache information. see `cache_attributes` Block for more details.
      * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
-     * 
      */
     @Import(name="cacheAttributes")
     private @Nullable Output<SmbFileShareCacheAttributesArgs> cacheAttributes;
 
     /**
      * @return Refresh cache information. see `cache_attributes` Block for more details.
-     * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Optional<Output<SmbFileShareCacheAttributesArgs>> cacheAttributes() {
@@ -416,12 +412,16 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -665,8 +665,6 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
          * 
-         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
-         * 
          * @return builder
          * 
          */
@@ -677,8 +675,6 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
-         * 
-         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 
@@ -1099,6 +1095,8 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+         * 
          * @return builder
          * 
          */
@@ -1109,6 +1107,8 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 

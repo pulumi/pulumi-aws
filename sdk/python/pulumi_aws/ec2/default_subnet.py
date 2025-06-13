@@ -42,8 +42,6 @@ class DefaultSubnetArgs:
                
                This resource supports the following additional arguments:
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if assign_ipv6_address_on_creation is not None:
@@ -194,10 +192,6 @@ class DefaultSubnetArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -251,8 +245,6 @@ class _DefaultSubnetState:
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         if arn is not None:
@@ -503,10 +495,6 @@ class _DefaultSubnetState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -604,8 +592,6 @@ class DefaultSubnet(pulumi.CustomResource):
                
                This resource supports the following additional arguments:
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
         """
         ...
     @overload
@@ -757,8 +743,6 @@ class DefaultSubnet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
-        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -910,10 +894,6 @@ class DefaultSubnet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        The arguments of an `ec2.DefaultSubnet` differ slightly from those of `ec2.Subnet`:
-        """
         return pulumi.get(self, "region")
 
     @property

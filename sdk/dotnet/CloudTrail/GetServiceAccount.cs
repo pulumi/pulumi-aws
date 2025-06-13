@@ -289,8 +289,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS CloudTrail account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -304,8 +303,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS CloudTrail account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -321,7 +319,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// ARN of the AWS CloudTrail service account in the selected region.
+        /// ARN of the AWS CloudTrail service account in the selected Region.
         /// </summary>
         public readonly string Arn;
         /// <summary>

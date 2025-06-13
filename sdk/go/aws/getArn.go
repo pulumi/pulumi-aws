@@ -64,7 +64,7 @@ type GetArnResult struct {
 	// Partition that the resource is in.
 	Partition string `pulumi:"partition"`
 	// Region the resource resides in.
-	// Note that the ARNs for some resources do not require a region, so this component might be omitted.
+	// Note that the ARNs for some resources do not include a Region, so this component might be omitted.
 	Region string `pulumi:"region"`
 	// Content of this part of the ARN varies by service.
 	// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
@@ -127,7 +127,7 @@ func (o GetArnResultOutput) Partition() pulumi.StringOutput {
 }
 
 // Region the resource resides in.
-// Note that the ARNs for some resources do not require a region, so this component might be omitted.
+// Note that the ARNs for some resources do not include a Region, so this component might be omitted.
 func (o GetArnResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Region }).(pulumi.StringOutput)
 }

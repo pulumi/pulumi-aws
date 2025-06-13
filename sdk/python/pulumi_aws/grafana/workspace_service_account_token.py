@@ -31,7 +31,7 @@ class WorkspaceServiceAccountTokenArgs:
         :param pulumi.Input[builtins.str] service_account_id: The ID of the service account for which to create a token.
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
         :param pulumi.Input[builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "seconds_to_live", seconds_to_live)
         pulumi.set(__self__, "service_account_id", service_account_id)
@@ -93,7 +93,7 @@ class WorkspaceServiceAccountTokenArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -120,7 +120,7 @@ class _WorkspaceServiceAccountTokenState:
         :param pulumi.Input[builtins.str] expires_at: Specifies when the service account token will expire.
         :param pulumi.Input[builtins.str] key: The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         :param pulumi.Input[builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         :param pulumi.Input[builtins.str] service_account_id: The ID of the service account for which to create a token.
         :param pulumi.Input[builtins.str] service_account_token_id: Identifier of the service account token in the given Grafana workspace.
@@ -197,7 +197,7 @@ class _WorkspaceServiceAccountTokenState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -289,7 +289,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         :param pulumi.Input[builtins.str] service_account_id: The ID of the service account for which to create a token.
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
@@ -396,7 +396,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] expires_at: Specifies when the service account token will expire.
         :param pulumi.Input[builtins.str] key: The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         :param pulumi.Input[builtins.str] name: A name for the token to create. The name must be unique within the workspace.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         :param pulumi.Input[builtins.str] service_account_id: The ID of the service account for which to create a token.
         :param pulumi.Input[builtins.str] service_account_token_id: Identifier of the service account token in the given Grafana workspace.
@@ -453,7 +453,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

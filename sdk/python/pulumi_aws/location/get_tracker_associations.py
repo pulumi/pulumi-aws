@@ -98,6 +98,7 @@ def get_tracker_associations(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()
@@ -129,6 +130,7 @@ def get_tracker_associations_output(region: Optional[pulumi.Input[Optional[built
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()

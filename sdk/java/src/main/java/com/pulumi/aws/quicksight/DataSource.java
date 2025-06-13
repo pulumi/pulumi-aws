@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *             .parameters(DataSourceParametersArgs.builder()
  *                 .s3(DataSourceParametersS3Args.builder()
  *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
- *                         .bucket(example.arn())
+ *                         .bucket(example.bucket())
  *                         .key(exampleBucketObjectv2.key())
  *                         .build())
  *                     .roleArn(exampleRole.arn())

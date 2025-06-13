@@ -182,6 +182,7 @@ def get_link(link_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str link_identifier: ARN of the link.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier
@@ -222,6 +223,7 @@ def get_link_output(link_identifier: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str link_identifier: ARN of the link.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier

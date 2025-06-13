@@ -137,6 +137,7 @@ def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
 
 
     :param builtins.str pool_name: Name of the dedicated IP pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags attached to the pool.
     """
     __args__ = dict()
@@ -174,6 +175,7 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str pool_name: Name of the dedicated IP pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags attached to the pool.
     """
     __args__ = dict()

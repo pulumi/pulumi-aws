@@ -19,6 +19,23 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
     public static final ExportState Empty = new ExportState();
 
     /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      * 
      */
@@ -57,6 +74,7 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
     private ExportState() {}
 
     private ExportState(ExportState $) {
+        this.arn = $.arn;
         this.export = $.export;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -79,6 +97,29 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ExportState defaults) {
             $ = new ExportState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) for this export.
+         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) for this export.
+         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

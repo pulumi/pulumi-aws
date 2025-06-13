@@ -57,7 +57,7 @@ type OrganizationConfiguration struct {
 	AutoEnable OrganizationConfigurationAutoEnableOutput `pulumi:"autoEnable"`
 	// Whether your configuration reached the max account limit.
 	MaxAccountLimitReached pulumi.BoolOutput `pulumi:"maxAccountLimitReached"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -98,7 +98,7 @@ type organizationConfigurationState struct {
 	AutoEnable *OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`
 	// Whether your configuration reached the max account limit.
 	MaxAccountLimitReached *bool `pulumi:"maxAccountLimitReached"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -107,7 +107,7 @@ type OrganizationConfigurationState struct {
 	AutoEnable OrganizationConfigurationAutoEnablePtrInput
 	// Whether your configuration reached the max account limit.
 	MaxAccountLimitReached pulumi.BoolPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -118,7 +118,7 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 type organizationConfigurationArgs struct {
 	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -126,7 +126,7 @@ type organizationConfigurationArgs struct {
 type OrganizationConfigurationArgs struct {
 	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnableInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -227,7 +227,7 @@ func (o OrganizationConfigurationOutput) MaxAccountLimitReached() pulumi.BoolOut
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.MaxAccountLimitReached }).(pulumi.BoolOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

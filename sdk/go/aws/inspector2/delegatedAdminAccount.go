@@ -59,7 +59,7 @@ type DelegatedAdminAccount struct {
 
 	// Account to enable as delegated admin account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of this delegated admin account.
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
@@ -100,7 +100,7 @@ func GetDelegatedAdminAccount(ctx *pulumi.Context,
 type delegatedAdminAccountState struct {
 	// Account to enable as delegated admin account.
 	AccountId *string `pulumi:"accountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Status of this delegated admin account.
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
@@ -109,7 +109,7 @@ type delegatedAdminAccountState struct {
 type DelegatedAdminAccountState struct {
 	// Account to enable as delegated admin account.
 	AccountId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Status of this delegated admin account.
 	RelationshipStatus pulumi.StringPtrInput
@@ -122,7 +122,7 @@ func (DelegatedAdminAccountState) ElementType() reflect.Type {
 type delegatedAdminAccountArgs struct {
 	// Account to enable as delegated admin account.
 	AccountId string `pulumi:"accountId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -130,7 +130,7 @@ type delegatedAdminAccountArgs struct {
 type DelegatedAdminAccountArgs struct {
 	// Account to enable as delegated admin account.
 	AccountId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -226,7 +226,7 @@ func (o DelegatedAdminAccountOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DelegatedAdminAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdminAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

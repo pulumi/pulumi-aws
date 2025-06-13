@@ -35,7 +35,7 @@ class CatalogTableOptimizerArgs:
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -110,7 +110,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -133,7 +133,7 @@ class _CatalogTableOptimizerState:
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -190,7 +190,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -318,7 +318,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -475,7 +475,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -519,7 +519,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
