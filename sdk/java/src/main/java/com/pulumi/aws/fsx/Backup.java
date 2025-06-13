@@ -265,7 +265,6 @@ public class Backup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * Note - Only file_system_id or volume_id can be specified. file_system_id is used for Lustre and Windows, volume_id is used for ONTAP.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
@@ -273,7 +272,6 @@ public class Backup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * Note - Only file_system_id or volume_id can be specified. file_system_id is used for Lustre and Windows, volume_id is used for ONTAP.
      * 
      */
     public Output<String> region() {
@@ -324,12 +322,16 @@ public class Backup extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
+     * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
+     * 
      */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeId;
 
     /**
      * @return The ID of the volume to back up. Required if backing up a ONTAP Volume.
+     * 
+     * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
      * 
      */
     public Output<Optional<String>> volumeId() {

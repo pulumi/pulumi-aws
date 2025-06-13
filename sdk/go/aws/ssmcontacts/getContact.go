@@ -53,7 +53,8 @@ func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.
 // A collection of arguments for invoking getContact.
 type LookupContactArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -87,7 +88,8 @@ func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts
 // A collection of arguments for invoking getContact.
 type LookupContactOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

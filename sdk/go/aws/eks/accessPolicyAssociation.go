@@ -70,7 +70,7 @@ type AccessPolicyAssociation struct {
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -128,7 +128,7 @@ type accessPolicyAssociationState struct {
 	PolicyArn *string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn *string `pulumi:"principalArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type AccessPolicyAssociationState struct {
 	PolicyArn pulumi.StringPtrInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -162,7 +162,7 @@ type accessPolicyAssociationArgs struct {
 	PolicyArn string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string `pulumi:"principalArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -176,7 +176,7 @@ type AccessPolicyAssociationArgs struct {
 	PolicyArn pulumi.StringInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -297,7 +297,7 @@ func (o AccessPolicyAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AccessPolicyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

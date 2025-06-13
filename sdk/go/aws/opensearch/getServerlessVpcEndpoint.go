@@ -50,6 +50,7 @@ func LookupServerlessVpcEndpoint(ctx *pulumi.Context, args *LookupServerlessVpcE
 
 // A collection of arguments for invoking getServerlessVpcEndpoint.
 type LookupServerlessVpcEndpointArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The unique identifier of the endpoint.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
@@ -84,6 +85,7 @@ func LookupServerlessVpcEndpointOutput(ctx *pulumi.Context, args LookupServerles
 
 // A collection of arguments for invoking getServerlessVpcEndpoint.
 type LookupServerlessVpcEndpointOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The unique identifier of the endpoint.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`

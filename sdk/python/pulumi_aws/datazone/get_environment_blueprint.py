@@ -138,6 +138,7 @@ def get_environment_blueprint(domain_id: Optional[builtins.str] = None,
     :param builtins.str domain_id: ID of the domain.
     :param builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
     :param builtins.str name: Name of the blueprint.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
@@ -183,6 +184,7 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[builtins.s
     :param builtins.str domain_id: ID of the domain.
     :param builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
     :param builtins.str name: Name of the blueprint.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id

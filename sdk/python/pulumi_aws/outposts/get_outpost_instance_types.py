@@ -97,6 +97,7 @@ def get_outpost_instance_types(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: Outpost ARN.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -126,6 +127,7 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str arn: Outpost ARN.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

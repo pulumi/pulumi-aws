@@ -220,7 +220,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetLogDeliveryCanonicalUserIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the zone for. By default, fetches the current region.
+        /// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetLogDeliveryCanonicalUserIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the zone for. By default, fetches the current region.
+        /// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -106,7 +106,7 @@ namespace Pulumi.Aws
     public sealed class GetServicePrincipalArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the SPN for. By default, uses the current region.
+        /// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws
     public sealed class GetServicePrincipalInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Region you'd like the SPN for. By default, uses the current region.
+        /// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -148,16 +148,13 @@ namespace Pulumi.Aws
     public sealed class GetServicePrincipalResult
     {
         /// <summary>
-        /// Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+        /// Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
-        /// </summary>
         public readonly string Region;
         public readonly string ServiceName;
         /// <summary>

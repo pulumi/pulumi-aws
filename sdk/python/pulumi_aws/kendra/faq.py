@@ -37,7 +37,6 @@ class FaqArgs:
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -133,9 +132,6 @@ class FaqArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -179,7 +175,6 @@ class _FaqState:
         :param pulumi.Input[builtins.str] faq_id: The identifier of the FAQ.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
@@ -321,9 +316,6 @@ class _FaqState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -486,7 +478,6 @@ class Faq(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         """
@@ -656,7 +647,6 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] faq_id: The identifier of the FAQ.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
@@ -751,9 +741,6 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
-        """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-        """
         return pulumi.get(self, "region")
 
     @property

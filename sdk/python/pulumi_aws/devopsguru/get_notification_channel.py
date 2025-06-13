@@ -104,6 +104,7 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
 
     :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param builtins.str id: Unique identifier for the notification channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
@@ -141,6 +142,7 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param builtins.str id: Unique identifier for the notification channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()

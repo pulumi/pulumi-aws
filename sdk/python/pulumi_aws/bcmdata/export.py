@@ -70,14 +70,19 @@ class ExportArgs:
 @pulumi.input_type
 class _ExportState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[builtins.str]] = None,
                  export: Optional[pulumi.Input['ExportExportArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ExportTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Export resources.
+        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) for this export.
+               * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if export is not None:
             pulumi.set(__self__, "export", export)
         if tags is not None:
@@ -86,6 +91,19 @@ class _ExportState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Amazon Resource Name (ARN) for this export.
+        * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -279,6 +297,7 @@ class Export(pulumi.CustomResource):
             __props__.__dict__["export"] = export
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(Export, __self__).__init__(
             'aws:bcmdata/export:Export',
@@ -290,6 +309,7 @@ class Export(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[builtins.str]] = None,
             export: Optional[pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -301,17 +321,29 @@ class Export(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) for this export.
+               * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
         :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ExportState.__new__(_ExportState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["export"] = export
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return Export(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        Amazon Resource Name (ARN) for this export.
+        * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

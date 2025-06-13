@@ -59,8 +59,6 @@ class SmbFileShareArgs:
         :param pulumi.Input[builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
-               
-               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[builtins.str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -76,6 +74,8 @@ class SmbFileShareArgs:
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[builtins.str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
@@ -230,8 +230,6 @@ class SmbFileShareArgs:
     def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see `cache_attributes` Block for more details.
-
-        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 
@@ -412,6 +410,8 @@ class SmbFileShareArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "tags")
 
@@ -486,8 +486,6 @@ class _SmbFileShareState:
         :param pulumi.Input[builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
-               
-               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[builtins.str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -508,6 +506,8 @@ class _SmbFileShareState:
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[builtins.str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
@@ -650,8 +650,6 @@ class _SmbFileShareState:
     def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
         """
         Refresh cache information. see `cache_attributes` Block for more details.
-
-        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 
@@ -892,6 +890,8 @@ class _SmbFileShareState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "tags")
 
@@ -1020,8 +1020,6 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
-               
-               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[builtins.str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -1040,6 +1038,8 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[builtins.str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
@@ -1232,8 +1232,6 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
-               
-               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[builtins.str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -1254,6 +1252,8 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[builtins.str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
@@ -1347,8 +1347,6 @@ class SmbFileShare(pulumi.CustomResource):
     def cache_attributes(self) -> pulumi.Output[Optional['outputs.SmbFileShareCacheAttributes']]:
         """
         Refresh cache information. see `cache_attributes` Block for more details.
-
-        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 
@@ -1509,6 +1507,8 @@ class SmbFileShare(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "tags")
 

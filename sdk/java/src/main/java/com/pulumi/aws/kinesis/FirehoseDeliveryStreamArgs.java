@@ -234,16 +234,12 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     /**
      * Encrypt at rest options. See `server_side_encryption` block below for details.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<FirehoseDeliveryStreamServerSideEncryptionArgs> serverSideEncryption;
 
     /**
      * @return Encrypt at rest options. See `server_side_encryption` block below for details.
-     * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamServerSideEncryptionArgs>> serverSideEncryption() {
@@ -268,12 +264,16 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
      */
     @Import(name="splunkConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
 
     /**
      * @return Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationArgs>> splunkConfiguration() {
@@ -629,8 +629,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         /**
          * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
          * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-         * 
          * @return builder
          * 
          */
@@ -641,8 +639,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
         /**
          * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
-         * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -675,6 +671,8 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
          * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * 
          * @return builder
          * 
          */
@@ -685,6 +683,8 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+         * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 

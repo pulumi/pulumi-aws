@@ -40,8 +40,7 @@ export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.Invoke
  */
 export interface GetHostedZoneIdArgs {
     /**
-     * Name of the region whose AWS App Runner service HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -51,7 +50,7 @@ export interface GetHostedZoneIdArgs {
  */
 export interface GetHostedZoneIdResult {
     /**
-     * ID of the AWS App Runner service HostedZoneId in the selected region.
+     * ID of the AWS App Runner service HostedZoneId in the selected Region.
      */
     readonly id: string;
     readonly region: string;
@@ -92,8 +91,7 @@ export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: p
  */
 export interface GetHostedZoneIdOutputArgs {
     /**
-     * Name of the region whose AWS App Runner service HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

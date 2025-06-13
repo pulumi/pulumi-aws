@@ -17,18 +17,14 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetSnapshotIdsPlainArgs Empty = new GetSnapshotIdsPlainArgs();
 
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetSnapshotIdsFilter> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
      * 
      */
     public Optional<List<GetSnapshotIdsFilter>> filters() {
@@ -108,9 +104,7 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -121,9 +115,7 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
          * 
          * @return builder
          * 

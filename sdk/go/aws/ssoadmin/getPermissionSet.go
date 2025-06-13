@@ -61,9 +61,10 @@ type LookupPermissionSetArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn string `pulumi:"instanceArn"`
 	// Name of the SSO Permission Set.
+	//
+	// > **NOTE:** Either `arn` or `name` must be configured.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `arn` or `name` must be configured.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -104,9 +105,10 @@ type LookupPermissionSetOutputArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// Name of the SSO Permission Set.
+	//
+	// > **NOTE:** Either `arn` or `name` must be configured.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **NOTE:** Either `arn` or `name` must be configured.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

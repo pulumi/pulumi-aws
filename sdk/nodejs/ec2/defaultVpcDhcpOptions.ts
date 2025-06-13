@@ -85,12 +85,6 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * The ID of the AWS account that owns the DHCP options set.
      */
     public readonly ownerId!: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
-     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-     * The following arguments are still supported:
-     */
     public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource.
@@ -165,12 +159,6 @@ export interface DefaultVpcDhcpOptionsState {
      * The ID of the AWS account that owns the DHCP options set.
      */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
-     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-     * The following arguments are still supported:
-     */
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
@@ -187,12 +175,6 @@ export interface DefaultVpcDhcpOptionsArgs {
      * The ID of the AWS account that owns the DHCP options set.
      */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultVpcDhcpOptions` differ slightly from `aws.ec2.VpcDhcpOptions`  resources.
-     * Namely, the `domainName`, `domainNameServers` and `ntpServers` arguments are computed.
-     * The following arguments are still supported:
-     */
     region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.

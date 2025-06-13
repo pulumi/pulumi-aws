@@ -29,7 +29,7 @@ class EmailIdentityPolicyArgs:
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         pulumi.set(__self__, "policy", policy)
@@ -77,7 +77,7 @@ class EmailIdentityPolicyArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -98,7 +98,7 @@ class _EmailIdentityPolicyState:
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if email_identity is not None:
             pulumi.set(__self__, "email_identity", email_identity)
@@ -149,7 +149,7 @@ class _EmailIdentityPolicyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -221,7 +221,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -338,7 +338,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_identity: The email identity.
         :param pulumi.Input[builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[builtins.str] policy_name: The name of the policy.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,7 +378,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

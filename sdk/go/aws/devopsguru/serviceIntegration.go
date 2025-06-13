@@ -91,7 +91,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+// Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
 //
 // ```sh
 // $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -105,7 +105,7 @@ type ServiceIntegration struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrOutput `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrOutput `pulumi:"opsCenter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type serviceIntegrationState struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -156,7 +156,7 @@ type ServiceIntegrationState struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -171,7 +171,7 @@ type serviceIntegrationArgs struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -183,7 +183,7 @@ type ServiceIntegrationArgs struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -293,7 +293,7 @@ func (o ServiceIntegrationOutput) OpsCenter() ServiceIntegrationOpsCenterPtrOutp
 	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationOpsCenterPtrOutput { return v.OpsCenter }).(ServiceIntegrationOpsCenterPtrOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ServiceIntegrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

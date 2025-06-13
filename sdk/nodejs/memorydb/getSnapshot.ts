@@ -38,6 +38,9 @@ export interface GetSnapshotArgs {
      * Name of the snapshot.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Map of tags assigned to the snapshot.
@@ -114,6 +117,9 @@ export interface GetSnapshotOutputArgs {
      * Name of the snapshot.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the snapshot.

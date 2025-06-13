@@ -70,7 +70,7 @@ type SharedDirectoryAccepter struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
 	OwnerDirectoryId pulumi.StringOutput `pulumi:"ownerDirectoryId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
@@ -117,7 +117,7 @@ type sharedDirectoryAccepterState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
 	OwnerDirectoryId *string `pulumi:"ownerDirectoryId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
@@ -132,7 +132,7 @@ type SharedDirectoryAccepterState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
 	OwnerDirectoryId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringPtrInput
@@ -143,7 +143,7 @@ func (SharedDirectoryAccepterState) ElementType() reflect.Type {
 }
 
 type sharedDirectoryAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId string `pulumi:"sharedDirectoryId"`
@@ -151,7 +151,7 @@ type sharedDirectoryAccepterArgs struct {
 
 // The set of arguments for constructing a SharedDirectoryAccepter resource.
 type SharedDirectoryAccepterArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringInput
@@ -264,7 +264,7 @@ func (o SharedDirectoryAccepterOutput) OwnerDirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.OwnerDirectoryId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SharedDirectoryAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedDirectoryAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

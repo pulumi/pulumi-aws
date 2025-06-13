@@ -52,6 +52,7 @@ func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSink.
 type LookupSinkArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the sink.
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
@@ -86,6 +87,7 @@ func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSink.
 type LookupSinkOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the sink.
 	SinkIdentifier pulumi.StringInput `pulumi:"sinkIdentifier"`

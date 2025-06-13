@@ -371,8 +371,6 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        /// 
-        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         [Output("enableFaultInjection")]
         public Output<bool> EnableFaultInjection { get; private set; } = null!;
@@ -491,6 +489,8 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// 
+        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
@@ -555,8 +555,6 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        /// 
-        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         [Input("enableFaultInjection")]
         public Input<bool>? EnableFaultInjection { get; set; }
@@ -684,6 +682,8 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// 
+        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
@@ -725,8 +725,6 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        /// 
-        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         [Input("enableFaultInjection")]
         public Input<bool>? EnableFaultInjection { get; set; }
@@ -872,6 +870,8 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// 
+        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeGetArgs> Volumes
         {

@@ -20,18 +20,14 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSnapshotArgs Empty = new GetSnapshotArgs();
 
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetSnapshotFilterArgs>> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     public Optional<Output<List<GetSnapshotFilterArgs>>> filters() {
@@ -159,9 +155,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -172,9 +166,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -184,9 +176,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 

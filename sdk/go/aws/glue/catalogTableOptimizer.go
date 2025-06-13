@@ -144,7 +144,7 @@ type CatalogTableOptimizer struct {
 	Configuration CatalogTableOptimizerConfigurationPtrOutput `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
@@ -200,7 +200,7 @@ type catalogTableOptimizerState struct {
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table.
 	TableName *string `pulumi:"tableName"`
@@ -215,7 +215,7 @@ type CatalogTableOptimizerState struct {
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringPtrInput
@@ -234,7 +234,7 @@ type catalogTableOptimizerArgs struct {
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName string `pulumi:"databaseName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
@@ -250,7 +250,7 @@ type CatalogTableOptimizerArgs struct {
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringInput
@@ -360,7 +360,7 @@ func (o CatalogTableOptimizerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o CatalogTableOptimizerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

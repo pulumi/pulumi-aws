@@ -123,7 +123,6 @@ export class Backup extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -140,6 +139,8 @@ export class Backup extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
+     *
+     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
      */
     public readonly volumeId!: pulumi.Output<string | undefined>;
 
@@ -204,7 +205,6 @@ export interface BackupState {
     ownerId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     region?: pulumi.Input<string>;
     /**
@@ -221,6 +221,8 @@ export interface BackupState {
     type?: pulumi.Input<string>;
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
+     *
+     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
      */
     volumeId?: pulumi.Input<string>;
 }
@@ -235,7 +237,6 @@ export interface BackupArgs {
     fileSystemId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * Note - Only fileSystemId or volumeId can be specified. fileSystemId is used for Lustre and Windows, volumeId is used for ONTAP.
      */
     region?: pulumi.Input<string>;
     /**
@@ -244,6 +245,8 @@ export interface BackupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
+     *
+     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
      */
     volumeId?: pulumi.Input<string>;
 }

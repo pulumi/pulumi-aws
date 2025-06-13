@@ -129,9 +129,7 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
     ```
 
 
-    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
@@ -180,9 +178,7 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.

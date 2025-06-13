@@ -155,11 +155,6 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly networkType!: pulumi.Output<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
@@ -180,11 +175,6 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly replicationInstanceClass!: pulumi.Output<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
-     *
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      */
     public readonly replicationInstanceId!: pulumi.Output<string>;
     /**
@@ -323,11 +313,6 @@ export interface ReplicationInstanceState {
     networkType?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -348,11 +333,6 @@ export interface ReplicationInstanceState {
     replicationInstanceClass?: pulumi.Input<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
-     *
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId?: pulumi.Input<string>;
     /**
@@ -423,11 +403,6 @@ export interface ReplicationInstanceArgs {
     networkType?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     *
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -444,11 +419,6 @@ export interface ReplicationInstanceArgs {
     replicationInstanceClass: pulumi.Input<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
-     *
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId: pulumi.Input<string>;
     /**

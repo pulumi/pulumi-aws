@@ -40,6 +40,21 @@ export type IpGroup = import("./ipGroup").IpGroup;
 export const IpGroup: typeof import("./ipGroup").IpGroup = null as any;
 utilities.lazyLoad(exports, ["IpGroup"], () => require("./ipGroup"));
 
+export { WebBrowserSettingsArgs, WebBrowserSettingsState } from "./webBrowserSettings";
+export type WebBrowserSettings = import("./webBrowserSettings").WebBrowserSettings;
+export const WebBrowserSettings: typeof import("./webBrowserSettings").WebBrowserSettings = null as any;
+utilities.lazyLoad(exports, ["WebBrowserSettings"], () => require("./webBrowserSettings"));
+
+export { WebNetworkSettingsArgs, WebNetworkSettingsState } from "./webNetworkSettings";
+export type WebNetworkSettings = import("./webNetworkSettings").WebNetworkSettings;
+export const WebNetworkSettings: typeof import("./webNetworkSettings").WebNetworkSettings = null as any;
+utilities.lazyLoad(exports, ["WebNetworkSettings"], () => require("./webNetworkSettings"));
+
+export { WebUserSettingsArgs, WebUserSettingsState } from "./webUserSettings";
+export type WebUserSettings = import("./webUserSettings").WebUserSettings;
+export const WebUserSettings: typeof import("./webUserSettings").WebUserSettings = null as any;
+utilities.lazyLoad(exports, ["WebUserSettings"], () => require("./webUserSettings"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -56,6 +71,12 @@ const _module = {
                 return new Directory(name, <any>undefined, { urn })
             case "aws:workspaces/ipGroup:IpGroup":
                 return new IpGroup(name, <any>undefined, { urn })
+            case "aws:workspaces/webBrowserSettings:WebBrowserSettings":
+                return new WebBrowserSettings(name, <any>undefined, { urn })
+            case "aws:workspaces/webNetworkSettings:WebNetworkSettings":
+                return new WebNetworkSettings(name, <any>undefined, { urn })
+            case "aws:workspaces/webUserSettings:WebUserSettings":
+                return new WebUserSettings(name, <any>undefined, { urn })
             case "aws:workspaces/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
@@ -66,4 +87,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "workspaces/connectionAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/directory", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/ipGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webBrowserSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webNetworkSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webUserSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/workspace", _module)

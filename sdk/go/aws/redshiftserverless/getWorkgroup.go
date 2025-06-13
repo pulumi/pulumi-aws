@@ -52,6 +52,7 @@ func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkgroup.
 type LookupWorkgroupArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName string `pulumi:"workgroupName"`
@@ -93,6 +94,7 @@ func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, 
 
 // A collection of arguments for invoking getWorkgroup.
 type LookupWorkgroupOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`

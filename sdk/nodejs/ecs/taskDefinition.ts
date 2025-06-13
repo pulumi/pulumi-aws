@@ -285,8 +285,6 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     public readonly enableFaultInjection!: pulumi.Output<boolean>;
     /**
@@ -367,6 +365,8 @@ export class TaskDefinition extends pulumi.CustomResource {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
@@ -467,8 +467,6 @@ export interface TaskDefinitionState {
     cpu?: pulumi.Input<string>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**
@@ -549,6 +547,8 @@ export interface TaskDefinitionState {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }
@@ -567,8 +567,6 @@ export interface TaskDefinitionArgs {
     cpu?: pulumi.Input<string>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**
@@ -641,6 +639,8 @@ export interface TaskDefinitionArgs {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }

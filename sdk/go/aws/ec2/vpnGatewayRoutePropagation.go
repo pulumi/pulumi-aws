@@ -47,7 +47,7 @@ import (
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
@@ -91,7 +91,7 @@ func GetVpnGatewayRoutePropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
 type vpnGatewayRoutePropagationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId *string `pulumi:"routeTableId"`
@@ -100,7 +100,7 @@ type vpnGatewayRoutePropagationState struct {
 }
 
 type VpnGatewayRoutePropagationState struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (VpnGatewayRoutePropagationState) ElementType() reflect.Type {
 }
 
 type vpnGatewayRoutePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId string `pulumi:"routeTableId"`
@@ -123,7 +123,7 @@ type vpnGatewayRoutePropagationArgs struct {
 
 // The set of arguments for constructing a VpnGatewayRoutePropagation resource.
 type VpnGatewayRoutePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The id of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringInput
@@ -218,7 +218,7 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWith
 	return o
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o VpnGatewayRoutePropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

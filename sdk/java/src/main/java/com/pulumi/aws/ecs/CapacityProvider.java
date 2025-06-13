@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group("test", GroupArgs.builder()
+ *         var example = new Group("example", GroupArgs.builder()
  *             .tags(GroupTagArgs.builder()
  *                 .key("AmazonECSManaged")
  *                 .value("true")
@@ -59,10 +59,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testCapacityProvider = new CapacityProvider("testCapacityProvider", CapacityProviderArgs.builder()
- *             .name("test")
+ *         var exampleCapacityProvider = new CapacityProvider("exampleCapacityProvider", CapacityProviderArgs.builder()
+ *             .name("example")
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(test.arn())
+ *                 .autoScalingGroupArn(example.arn())
  *                 .managedTerminationProtection("ENABLED")
  *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
  *                     .maximumScalingStepSize(1000)
@@ -81,10 +81,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+ * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+ * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
  * ```
  * 
  */

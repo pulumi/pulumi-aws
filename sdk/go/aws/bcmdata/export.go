@@ -90,6 +90,9 @@ import (
 type Export struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export   ExportExportPtrOutput   `pulumi:"export"`
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
@@ -127,6 +130,9 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn *string `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export   *ExportExport     `pulumi:"export"`
 	Tags     map[string]string `pulumi:"tags"`
@@ -135,6 +141,9 @@ type exportState struct {
 }
 
 type ExportState struct {
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn pulumi.StringPtrInput
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export   ExportExportPtrInput
 	Tags     pulumi.StringMapInput
@@ -246,6 +255,12 @@ func (o ExportOutput) ToExportOutput() ExportOutput {
 
 func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 	return o
+}
+
+// Amazon Resource Name (ARN) for this export.
+// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+func (o ExportOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.

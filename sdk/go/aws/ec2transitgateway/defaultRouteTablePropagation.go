@@ -46,7 +46,7 @@ type DefaultRouteTablePropagation struct {
 	pulumi.CustomResourceState
 
 	OriginalDefaultRouteTableId pulumi.StringOutput `pulumi:"originalDefaultRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                           `pulumi:"region"`
 	Timeouts DefaultRouteTablePropagationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
@@ -92,7 +92,7 @@ func GetDefaultRouteTablePropagation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
 type defaultRouteTablePropagationState struct {
 	OriginalDefaultRouteTableId *string `pulumi:"originalDefaultRouteTableId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                               `pulumi:"region"`
 	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
@@ -103,7 +103,7 @@ type defaultRouteTablePropagationState struct {
 
 type DefaultRouteTablePropagationState struct {
 	OriginalDefaultRouteTableId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
 	// ID of the Transit Gateway to change the default association route table on.
@@ -117,7 +117,7 @@ func (DefaultRouteTablePropagationState) ElementType() reflect.Type {
 }
 
 type defaultRouteTablePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                               `pulumi:"region"`
 	Timeouts *DefaultRouteTablePropagationTimeouts `pulumi:"timeouts"`
 	// ID of the Transit Gateway to change the default association route table on.
@@ -128,7 +128,7 @@ type defaultRouteTablePropagationArgs struct {
 
 // The set of arguments for constructing a DefaultRouteTablePropagation resource.
 type DefaultRouteTablePropagationArgs struct {
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts DefaultRouteTablePropagationTimeoutsPtrInput
 	// ID of the Transit Gateway to change the default association route table on.
@@ -228,7 +228,7 @@ func (o DefaultRouteTablePropagationOutput) OriginalDefaultRouteTableId() pulumi
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.OriginalDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultRouteTablePropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTablePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

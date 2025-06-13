@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DevOps Guru Event Sources Config using the `id`. For example:
+// Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
 //
 // ```sh
 // $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
@@ -59,7 +59,7 @@ type EventSourcesConfig struct {
 
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayOutput `pulumi:"eventSources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -95,14 +95,14 @@ func GetEventSourcesConfig(ctx *pulumi.Context,
 type eventSourcesConfigState struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type EventSourcesConfigState struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -113,7 +113,7 @@ func (EventSourcesConfigState) ElementType() reflect.Type {
 type eventSourcesConfigArgs struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources []EventSourcesConfigEventSource `pulumi:"eventSources"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -121,7 +121,7 @@ type eventSourcesConfigArgs struct {
 type EventSourcesConfigArgs struct {
 	// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
 	EventSources EventSourcesConfigEventSourceArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -217,7 +217,7 @@ func (o EventSourcesConfigOutput) EventSources() EventSourcesConfigEventSourceAr
 	return o.ApplyT(func(v *EventSourcesConfig) EventSourcesConfigEventSourceArrayOutput { return v.EventSources }).(EventSourcesConfigEventSourceArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o EventSourcesConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourcesConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -31,7 +31,7 @@ class ConfigurationSetEventDestinationArgs:
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "event_destination", event_destination)
@@ -79,7 +79,7 @@ class ConfigurationSetEventDestinationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -100,7 +100,7 @@ class _ConfigurationSetEventDestinationState:
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if configuration_set_name is not None:
             pulumi.set(__self__, "configuration_set_name", configuration_set_name)
@@ -151,7 +151,7 @@ class _ConfigurationSetEventDestinationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -289,7 +289,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -472,7 +472,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -512,7 +512,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

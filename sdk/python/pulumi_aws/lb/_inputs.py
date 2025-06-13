@@ -70,6 +70,8 @@ __all__ = [
     'LoadBalancerConnectionLogsArgsDict',
     'LoadBalancerIpamPoolsArgs',
     'LoadBalancerIpamPoolsArgsDict',
+    'LoadBalancerMinimumLoadBalancerCapacityArgs',
+    'LoadBalancerMinimumLoadBalancerCapacityArgsDict',
     'LoadBalancerSubnetMappingArgs',
     'LoadBalancerSubnetMappingArgsDict',
     'TargetGroupHealthCheckArgs',
@@ -2628,6 +2630,37 @@ class LoadBalancerIpamPoolsArgs:
     @ipv4_ipam_pool_id.setter
     def ipv4_ipam_pool_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+
+if not MYPY:
+    class LoadBalancerMinimumLoadBalancerCapacityArgsDict(TypedDict):
+        capacity_units: pulumi.Input[builtins.int]
+        """
+        The number of capacity units.
+        """
+elif False:
+    LoadBalancerMinimumLoadBalancerCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerMinimumLoadBalancerCapacityArgs:
+    def __init__(__self__, *,
+                 capacity_units: pulumi.Input[builtins.int]):
+        """
+        :param pulumi.Input[builtins.int] capacity_units: The number of capacity units.
+        """
+        pulumi.set(__self__, "capacity_units", capacity_units)
+
+    @property
+    @pulumi.getter(name="capacityUnits")
+    def capacity_units(self) -> pulumi.Input[builtins.int]:
+        """
+        The number of capacity units.
+        """
+        return pulumi.get(self, "capacity_units")
+
+    @capacity_units.setter
+    def capacity_units(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "capacity_units", value)
 
 
 if not MYPY:

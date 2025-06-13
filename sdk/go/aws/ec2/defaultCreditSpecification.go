@@ -57,7 +57,7 @@ type DefaultCreditSpecification struct {
 	CpuCredits pulumi.StringOutput `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily pulumi.StringOutput `pulumi:"instanceFamily"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                         `pulumi:"region"`
 	Timeouts DefaultCreditSpecificationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -102,7 +102,7 @@ type defaultCreditSpecificationState struct {
 	CpuCredits *string `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily *string `pulumi:"instanceFamily"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Timeouts *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
 }
@@ -112,7 +112,7 @@ type DefaultCreditSpecificationState struct {
 	CpuCredits pulumi.StringPtrInput
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts DefaultCreditSpecificationTimeoutsPtrInput
 }
@@ -126,7 +126,7 @@ type defaultCreditSpecificationArgs struct {
 	CpuCredits string `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily string `pulumi:"instanceFamily"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
 	Timeouts *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
 }
@@ -137,7 +137,7 @@ type DefaultCreditSpecificationArgs struct {
 	CpuCredits pulumi.StringInput
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts DefaultCreditSpecificationTimeoutsPtrInput
 }
@@ -239,7 +239,7 @@ func (o DefaultCreditSpecificationOutput) InstanceFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultCreditSpecification) pulumi.StringOutput { return v.InstanceFamily }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DefaultCreditSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultCreditSpecification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

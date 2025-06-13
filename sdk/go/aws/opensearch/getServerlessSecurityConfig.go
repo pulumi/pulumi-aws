@@ -53,7 +53,8 @@ func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessS
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigArgs struct {
 	// The unique identifier of the security configuration.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
@@ -89,7 +90,8 @@ func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServer
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigOutputArgs struct {
 	// The unique identifier of the security configuration.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions GetServerlessSecurityConfigSamlOptionArrayInput `pulumi:"samlOptions"`

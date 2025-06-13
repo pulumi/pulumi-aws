@@ -150,6 +150,7 @@ def get_serverless_security_config(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: The unique identifier of the security configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
@@ -188,6 +189,7 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str id: The unique identifier of the security configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()

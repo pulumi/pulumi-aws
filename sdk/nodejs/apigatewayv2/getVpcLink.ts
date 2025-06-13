@@ -33,6 +33,9 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * VPC Link Tags.
@@ -104,6 +107,9 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpcLink.
  */
 export interface GetVpcLinkOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * VPC Link Tags.

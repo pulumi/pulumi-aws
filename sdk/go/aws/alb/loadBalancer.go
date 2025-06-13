@@ -147,6 +147,8 @@ type LoadBalancer struct {
 	IpamPools LoadBalancerIpamPoolsPtrOutput `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType LoadBalancerTypePtrOutput `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrOutput `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -258,6 +260,8 @@ type loadBalancerState struct {
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -334,6 +338,8 @@ type LoadBalancerState struct {
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType LoadBalancerTypePtrInput
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -408,6 +414,8 @@ type loadBalancerArgs struct {
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -474,6 +482,8 @@ type LoadBalancerArgs struct {
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType LoadBalancerTypePtrInput
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -700,6 +710,13 @@ func (o LoadBalancerOutput) IpamPools() LoadBalancerIpamPoolsPtrOutput {
 // Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 func (o LoadBalancerOutput) LoadBalancerType() LoadBalancerTypePtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTypePtrOutput { return v.LoadBalancerType }).(LoadBalancerTypePtrOutput)
+}
+
+// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+func (o LoadBalancerOutput) MinimumLoadBalancerCapacity() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+		return v.MinimumLoadBalancerCapacity
+	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
 }
 
 // Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.

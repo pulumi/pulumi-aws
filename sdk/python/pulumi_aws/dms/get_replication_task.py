@@ -228,12 +228,8 @@ def get_replication_task(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_task_id: The replication task identifier.
-           
-           - Must contain from 1 to 255 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen.
-           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -277,12 +273,8 @@ def get_replication_task_output(region: Optional[pulumi.Input[Optional[builtins.
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_task_id: The replication task identifier.
-           
-           - Must contain from 1 to 255 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen.
-           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
     __args__['region'] = region

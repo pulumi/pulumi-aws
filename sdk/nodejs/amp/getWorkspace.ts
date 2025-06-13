@@ -33,6 +33,9 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Tags assigned to the resource.
@@ -112,6 +115,9 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Tags assigned to the resource.

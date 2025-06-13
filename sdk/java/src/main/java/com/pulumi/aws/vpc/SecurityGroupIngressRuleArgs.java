@@ -125,7 +125,6 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     @Import(name="region")
@@ -133,7 +132,6 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     public Optional<Output<String>> region() {
@@ -173,12 +171,16 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
+     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+     * 
      */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
     /**
      * @return The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * 
+     * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
      * 
      */
     public Optional<Output<Integer>> toPort() {
@@ -368,7 +370,6 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
          * 
          * @return builder
          * 
@@ -380,7 +381,6 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
          * 
          * @return builder
          * 
@@ -434,6 +434,8 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
         /**
          * @param toPort The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
          * 
+         * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+         * 
          * @return builder
          * 
          */
@@ -444,6 +446,8 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
         /**
          * @param toPort The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+         * 
+         * &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
          * 
          * @return builder
          * 

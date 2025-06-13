@@ -32,6 +32,9 @@ export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Slack workspace name configured with AWS Chatbot.
@@ -82,6 +85,9 @@ export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?
  * A collection of arguments for invoking getSlackWorkspace.
  */
 export interface GetSlackWorkspaceOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Slack workspace name configured with AWS Chatbot.

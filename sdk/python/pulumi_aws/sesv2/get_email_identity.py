@@ -158,6 +158,7 @@ def get_email_identity(email_identity: Optional[builtins.str] = None,
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
@@ -197,6 +198,7 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()

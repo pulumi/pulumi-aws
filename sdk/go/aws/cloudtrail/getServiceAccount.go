@@ -112,14 +112,13 @@ func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ..
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountArgs struct {
-	// Name of the region whose AWS CloudTrail account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
-	// ARN of the AWS CloudTrail service account in the selected region.
+	// ARN of the AWS CloudTrail service account in the selected Region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -137,8 +136,7 @@ func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputAr
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountOutputArgs struct {
-	// Name of the region whose AWS CloudTrail account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -161,7 +159,7 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 	return o
 }
 
-// ARN of the AWS CloudTrail service account in the selected region.
+// ARN of the AWS CloudTrail service account in the selected Region.
 func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }

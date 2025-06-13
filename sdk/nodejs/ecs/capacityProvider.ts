@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.autoscaling.Group("test", {tags: [{
+ * const example = new aws.autoscaling.Group("example", {tags: [{
  *     key: "AmazonECSManaged",
  *     value: "true",
  *     propagateAtLaunch: true,
  * }]});
- * const testCapacityProvider = new aws.ecs.CapacityProvider("test", {
- *     name: "test",
+ * const exampleCapacityProvider = new aws.ecs.CapacityProvider("example", {
+ *     name: "example",
  *     autoScalingGroupProvider: {
- *         autoScalingGroupArn: test.arn,
+ *         autoScalingGroupArn: example.arn,
  *         managedTerminationProtection: "ENABLED",
  *         managedScaling: {
  *             maximumScalingStepSize: 1000,
@@ -40,10 +40,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+ * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
  *
  * ```sh
- * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+ * $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
  * ```
  */
 export class CapacityProvider extends pulumi.CustomResource {

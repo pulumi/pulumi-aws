@@ -158,6 +158,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
+     * ARN that identifies the service.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      */
     public readonly availabilityZoneRebalancing!: pulumi.Output<string | undefined>;
@@ -307,6 +311,7 @@ export class Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["alarms"] = state ? state.alarms : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZoneRebalancing"] = state ? state.availabilityZoneRebalancing : undefined;
             resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = state ? state.cluster : undefined;
@@ -375,6 +380,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["volumeConfiguration"] = args ? args.volumeConfiguration : undefined;
             resourceInputs["vpcLatticeConfigurations"] = args ? args.vpcLatticeConfigurations : undefined;
             resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -390,6 +396,10 @@ export interface ServiceState {
      * Information about the CloudWatch alarms. See below.
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    /**
+     * ARN that identifies the service.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      */

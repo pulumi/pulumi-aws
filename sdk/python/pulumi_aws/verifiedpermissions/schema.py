@@ -29,7 +29,7 @@ class SchemaArgs:
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input['SchemaDefinitionArgs'] definition: The definition of the schema.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         if definition is not None:
@@ -65,7 +65,7 @@ class SchemaArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -86,7 +86,7 @@ class _SchemaState:
         :param pulumi.Input['SchemaDefinitionArgs'] definition: The definition of the schema.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] namespaces: (Optional) Identifies the namespaces of the entities referenced by this schema.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
@@ -137,7 +137,7 @@ class _SchemaState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -190,7 +190,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -285,7 +285,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] namespaces: (Optional) Identifies the namespaces of the entities referenced by this schema.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -325,7 +325,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceAccountResult {
     /**
-     * @return ARN of the AWS ELB service account in the selected region.
+     * @return ARN of the AWS ELB service account in the selected Region.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetServiceAccountResult {
 
     private GetServiceAccountResult() {}
     /**
-     * @return ARN of the AWS ELB service account in the selected region.
+     * @return ARN of the AWS ELB service account in the selected Region.
      * 
      */
     public String arn() {

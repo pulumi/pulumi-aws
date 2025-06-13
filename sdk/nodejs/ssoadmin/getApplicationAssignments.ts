@@ -39,6 +39,9 @@ export interface GetApplicationAssignmentsArgs {
      * ARN of the application.
      */
     applicationArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -89,5 +92,8 @@ export interface GetApplicationAssignmentsOutputArgs {
      * ARN of the application.
      */
     applicationArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

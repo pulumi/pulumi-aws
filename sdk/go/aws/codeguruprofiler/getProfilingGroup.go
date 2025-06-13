@@ -53,7 +53,8 @@ func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, o
 // A collection of arguments for invoking getProfilingGroup.
 type LookupProfilingGroupArgs struct {
 	// The name of the profiling group.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -90,7 +91,8 @@ func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOu
 // A collection of arguments for invoking getProfilingGroup.
 type LookupProfilingGroupOutputArgs struct {
 	// The name of the profiling group.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

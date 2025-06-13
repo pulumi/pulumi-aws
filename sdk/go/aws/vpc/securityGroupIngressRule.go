@@ -89,7 +89,6 @@ type SecurityGroupIngressRule struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrOutput `pulumi:"referencedSecurityGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
@@ -100,6 +99,8 @@ type SecurityGroupIngressRule struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrOutput `pulumi:"toPort"`
 }
 
@@ -156,7 +157,6 @@ type securityGroupIngressRuleState struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
@@ -167,6 +167,8 @@ type securityGroupIngressRuleState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort *int `pulumi:"toPort"`
 }
 
@@ -188,7 +190,6 @@ type SecurityGroupIngressRuleState struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringPtrInput
@@ -199,6 +200,8 @@ type SecurityGroupIngressRuleState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrInput
 }
 
@@ -222,13 +225,14 @@ type securityGroupIngressRuleArgs struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	Region *string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort *int `pulumi:"toPort"`
 }
 
@@ -249,13 +253,14 @@ type SecurityGroupIngressRuleArgs struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	Region pulumi.StringPtrInput
 	// The ID of the security group.
 	SecurityGroupId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrInput
 }
 
@@ -387,7 +392,6 @@ func (o SecurityGroupIngressRuleOutput) ReferencedSecurityGroupId() pulumi.Strin
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 func (o SecurityGroupIngressRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -413,6 +417,8 @@ func (o SecurityGroupIngressRuleOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+//
+// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 func (o SecurityGroupIngressRuleOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
 }

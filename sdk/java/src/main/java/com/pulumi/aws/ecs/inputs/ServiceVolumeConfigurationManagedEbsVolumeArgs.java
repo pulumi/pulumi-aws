@@ -156,6 +156,21 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
     }
 
     /**
+     * Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * 
+     */
+    @Import(name="volumeInitializationRate")
+    private @Nullable Output<Integer> volumeInitializationRate;
+
+    /**
+     * @return Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+     * 
+     */
+    public Optional<Output<Integer>> volumeInitializationRate() {
+        return Optional.ofNullable(this.volumeInitializationRate);
+    }
+
+    /**
      * Volume type.
      * 
      */
@@ -182,6 +197,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         this.snapshotId = $.snapshotId;
         this.tagSpecifications = $.tagSpecifications;
         this.throughput = $.throughput;
+        this.volumeInitializationRate = $.volumeInitializationRate;
         this.volumeType = $.volumeType;
     }
 
@@ -400,6 +416,27 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
          */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
+        }
+
+        /**
+         * @param volumeInitializationRate Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeInitializationRate(@Nullable Output<Integer> volumeInitializationRate) {
+            $.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+
+        /**
+         * @param volumeInitializationRate Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeInitializationRate(Integer volumeInitializationRate) {
+            return volumeInitializationRate(Output.of(volumeInitializationRate));
         }
 
         /**

@@ -380,7 +380,7 @@ type Permission struct {
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 	// For S3, this should be the ARN of the S3 Bucket.
 	// For EventBridge events, this should be the ARN of the EventBridge Rule.
 	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -453,7 +453,7 @@ type permissionState struct {
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 	// For S3, this should be the ARN of the S3 Bucket.
 	// For EventBridge events, this should be the ARN of the EventBridge Rule.
 	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -488,7 +488,7 @@ type PermissionState struct {
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 	// For S3, this should be the ARN of the S3 Bucket.
 	// For EventBridge events, this should be the ARN of the EventBridge Rule.
 	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -527,7 +527,7 @@ type permissionArgs struct {
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 	// For S3, this should be the ARN of the S3 Bucket.
 	// For EventBridge events, this should be the ARN of the EventBridge Rule.
 	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -563,7 +563,7 @@ type PermissionArgs struct {
 	// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
 	// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-	// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+	// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 	// For S3, this should be the ARN of the S3 Bucket.
 	// For EventBridge events, this should be the ARN of the EventBridge Rule.
 	// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
@@ -711,7 +711,7 @@ func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {
 }
 
 // When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+// Without this, any resource from `principal` will be granted permission - even if that resource is from another account.
 // For S3, this should be the ARN of the S3 Bucket.
 // For EventBridge events, this should be the ARN of the EventBridge Rule.
 // For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).

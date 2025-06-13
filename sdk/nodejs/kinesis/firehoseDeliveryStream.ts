@@ -744,8 +744,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly region!: pulumi.Output<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     /**
@@ -754,6 +752,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly snowflakeConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     /**
@@ -889,8 +889,6 @@ export interface FirehoseDeliveryStreamState {
     region?: pulumi.Input<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
@@ -899,6 +897,8 @@ export interface FirehoseDeliveryStreamState {
     snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**
@@ -971,8 +971,6 @@ export interface FirehoseDeliveryStreamArgs {
     region?: pulumi.Input<string>;
     /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
@@ -981,6 +979,8 @@ export interface FirehoseDeliveryStreamArgs {
     snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**

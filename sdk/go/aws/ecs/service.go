@@ -232,6 +232,8 @@ type Service struct {
 
 	// Information about the CloudWatch alarms. See below.
 	Alarms ServiceAlarmsPtrOutput `pulumi:"alarms"`
+	// ARN that identifies the service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
 	AvailabilityZoneRebalancing pulumi.StringPtrOutput `pulumi:"availabilityZoneRebalancing"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
@@ -335,6 +337,8 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms *ServiceAlarms `pulumi:"alarms"`
+	// ARN that identifies the service.
+	Arn *string `pulumi:"arn"`
 	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
 	AvailabilityZoneRebalancing *string `pulumi:"availabilityZoneRebalancing"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
@@ -409,6 +413,8 @@ type serviceState struct {
 type ServiceState struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms ServiceAlarmsPtrInput
+	// ARN that identifies the service.
+	Arn pulumi.StringPtrInput
 	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
 	AvailabilityZoneRebalancing pulumi.StringPtrInput
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
@@ -719,6 +725,11 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 // Information about the CloudWatch alarms. See below.
 func (o ServiceOutput) Alarms() ServiceAlarmsPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceAlarmsPtrOutput { return v.Alarms }).(ServiceAlarmsPtrOutput)
+}
+
+// ARN that identifies the service.
+func (o ServiceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.

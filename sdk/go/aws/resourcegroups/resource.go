@@ -71,7 +71,7 @@ type Resource struct {
 
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -117,7 +117,7 @@ func GetResource(ctx *pulumi.Context,
 type resourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn *string `pulumi:"groupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -128,7 +128,7 @@ type resourceState struct {
 type ResourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringPtrInput
@@ -143,7 +143,7 @@ func (ResourceState) ElementType() reflect.Type {
 type resourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn string `pulumi:"groupArn"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -153,7 +153,7 @@ type resourceArgs struct {
 type ResourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringInput
@@ -251,7 +251,7 @@ func (o ResourceOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

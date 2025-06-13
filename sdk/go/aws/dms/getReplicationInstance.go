@@ -50,6 +50,7 @@ func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInsta
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The replication instance identifier.
 	ReplicationInstanceId string            `pulumi:"replicationInstanceId"`
@@ -106,6 +107,7 @@ func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplication
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The replication instance identifier.
 	ReplicationInstanceId pulumi.StringInput    `pulumi:"replicationInstanceId"`

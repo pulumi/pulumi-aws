@@ -56,8 +56,9 @@ type LookupConfigurationProfileArgs struct {
 	// ID of the AppConfig application to which this configuration profile belongs.
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
-	ConfigurationProfileId string  `pulumi:"configurationProfileId"`
-	Region                 *string `pulumi:"region"`
+	ConfigurationProfileId string `pulumi:"configurationProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -102,8 +103,9 @@ type LookupConfigurationProfileOutputArgs struct {
 	// ID of the AppConfig application to which this configuration profile belongs.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
-	ConfigurationProfileId pulumi.StringInput    `pulumi:"configurationProfileId"`
-	Region                 pulumi.StringPtrInput `pulumi:"region"`
+	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

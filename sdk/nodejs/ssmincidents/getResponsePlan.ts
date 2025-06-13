@@ -29,6 +29,9 @@ export interface GetResponsePlanArgs {
      * The Amazon Resource Name (ARN) of the response plan.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The tags applied to the response plan.
@@ -98,6 +101,9 @@ export interface GetResponsePlanOutputArgs {
      * The Amazon Resource Name (ARN) of the response plan.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The tags applied to the response plan.

@@ -53,8 +53,9 @@ func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignme
 // A collection of arguments for invoking getApplicationAssignments.
 type GetApplicationAssignmentsArgs struct {
 	// ARN of the application.
-	ApplicationArn string  `pulumi:"applicationArn"`
-	Region         *string `pulumi:"region"`
+	ApplicationArn string `pulumi:"applicationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplicationAssignments.
@@ -79,8 +80,9 @@ func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAss
 // A collection of arguments for invoking getApplicationAssignments.
 type GetApplicationAssignmentsOutputArgs struct {
 	// ARN of the application.
-	ApplicationArn pulumi.StringInput    `pulumi:"applicationArn"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetApplicationAssignmentsOutputArgs) ElementType() reflect.Type {

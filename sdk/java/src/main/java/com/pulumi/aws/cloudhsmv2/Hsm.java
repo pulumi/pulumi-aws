@@ -144,6 +144,8 @@ public class Hsm extends com.pulumi.resources.CustomResource {
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
+     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+     * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
@@ -151,13 +153,14 @@ public class Hsm extends com.pulumi.resources.CustomResource {
     /**
      * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
+     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+     * 
      */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
@@ -165,7 +168,6 @@ public class Hsm extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
      * 
      */
     public Output<String> region() {

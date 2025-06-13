@@ -28,7 +28,7 @@ class GetPolicyStoreResult:
     """
     A collection of values returned by getPolicyStore.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, region=None, validation_settings=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, region=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetPolicyStoreResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if validation_settings and not isinstance(validation_settings, list):
             raise TypeError("Expected argument 'validation_settings' to be a list")
         pulumi.set(__self__, "validation_settings", validation_settings)
@@ -91,6 +94,14 @@ class GetPolicyStoreResult:
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Map of key-value pairs associated with the policy store.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
         """
@@ -111,6 +122,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             id=self.id,
             last_updated_date=self.last_updated_date,
             region=self.region,
+            tags=self.tags,
             validation_settings=self.validation_settings)
 
 
@@ -133,6 +145,7 @@ def get_policy_store(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: The ID of the Policy Store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -147,6 +160,7 @@ def get_policy_store(id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         region=pulumi.get(__ret__, 'region'),
+        tags=pulumi.get(__ret__, 'tags'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -167,6 +181,7 @@ def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: The ID of the Policy Store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -180,4 +195,5 @@ def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         region=pulumi.get(__response__, 'region'),
+        tags=pulumi.get(__response__, 'tags'),
         validation_settings=pulumi.get(__response__, 'validation_settings')))

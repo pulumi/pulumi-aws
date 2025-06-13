@@ -130,6 +130,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
     :param builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments
@@ -174,6 +175,7 @@ def get_principal_application_assignments_output(application_assignments: Option
     :param builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments

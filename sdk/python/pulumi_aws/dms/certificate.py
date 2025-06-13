@@ -28,8 +28,6 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[builtins.str] certificate_id: The certificate identifier.
-               
-               - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -50,8 +48,6 @@ class CertificateArgs:
     def certificate_id(self) -> pulumi.Input[builtins.str]:
         """
         The certificate identifier.
-
-        - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")
 
@@ -122,8 +118,6 @@ class _CertificateState:
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[builtins.str] certificate_id: The certificate identifier.
-               
-               - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -162,8 +156,6 @@ class _CertificateState:
     def certificate_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The certificate identifier.
-
-        - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")
 
@@ -273,8 +265,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_id: The certificate identifier.
-               
-               - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -378,8 +368,6 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[builtins.str] certificate_id: The certificate identifier.
-               
-               - Must contain from 1 to 255 alphanumeric characters and hyphens.
         :param pulumi.Input[builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -412,8 +400,6 @@ class Certificate(pulumi.CustomResource):
     def certificate_id(self) -> pulumi.Output[builtins.str]:
         """
         The certificate identifier.
-
-        - Must contain from 1 to 255 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "certificate_id")
 

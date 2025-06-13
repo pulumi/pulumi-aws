@@ -192,8 +192,6 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     *
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     public readonly executionMode!: pulumi.Output<string | undefined>;
     /**
@@ -234,6 +232,8 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
 
@@ -307,8 +307,6 @@ export interface PipelineState {
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     *
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     executionMode?: pulumi.Input<string>;
     /**
@@ -349,6 +347,8 @@ export interface PipelineState {
     triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }
@@ -363,8 +363,6 @@ export interface PipelineArgs {
     artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     *
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     executionMode?: pulumi.Input<string>;
     /**
@@ -397,6 +395,8 @@ export interface PipelineArgs {
     triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     *
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      */
     variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }

@@ -64,6 +64,9 @@ export interface GetFleetArgs {
      * Fleet name.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Mapping of Key-Value tags for the resource.
@@ -195,6 +198,9 @@ export interface GetFleetOutputArgs {
      * Fleet name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Mapping of Key-Value tags for the resource.

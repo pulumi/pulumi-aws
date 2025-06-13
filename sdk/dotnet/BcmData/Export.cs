@@ -96,6 +96,13 @@ namespace Pulumi.Aws.BcmData
     public partial class Export : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) for this export.
+        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
         [Output("export")]
@@ -181,6 +188,13 @@ namespace Pulumi.Aws.BcmData
 
     public sealed class ExportState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) for this export.
+        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>

@@ -54,8 +54,9 @@ func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pul
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId string  `pulumi:"applicationId"`
-	Region        *string `pulumi:"region"`
+	ApplicationId string `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEnvironments.
@@ -80,8 +81,9 @@ func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, 
 // A collection of arguments for invoking getEnvironments.
 type GetEnvironmentsOutputArgs struct {
 	// ID of the AppConfig Application.
-	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
-	Region        pulumi.StringPtrInput `pulumi:"region"`
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEnvironmentsOutputArgs) ElementType() reflect.Type {
