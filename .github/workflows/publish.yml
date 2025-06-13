@@ -141,13 +141,13 @@ jobs:
         cache-go: false
     - name: Publish SDKs
       if: inputs.skipJavaSdk == false
-      uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
+      uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
       with:
         sdk: all
         version: ${{ inputs.version }}
     - name: Publish SDKs (except Java)
       if: inputs.skipJavaSdk == true
-      uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
+      uses: pulumi/pulumi-package-publisher@c1672c7928591d563dccb12729e05e315c21f8c2 # v0.0.22
       with:
         sdk: all,!java
         version: ${{ inputs.version }}
