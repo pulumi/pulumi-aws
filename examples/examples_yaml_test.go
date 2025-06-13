@@ -184,29 +184,49 @@ func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
 }
 
 func TestS3BucketToBucketUpgrade(t *testing.T) {
-	/*previewRes := */ testProviderUpgrade(t, "bucket-to-bucket", nil,
+	test, _ := testProviderUpgrade(t, "bucket-to-bucket", &testProviderUpgradeOptions{
+		skipDefaultPreviewTest: true,
+		runProgram:             true,
+		skipCache:              true,
+	},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "step1")),
 	)
-	// TODO: [pulumi-aws#5514] fix bucket v7 upgrade
-	// assertpreview.HasNoChanges(t, previewRes)
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   9,
+	}, res.ChangeSummary)
+
 }
 
 func TestS3BucketV2ToBucketUpgrade(t *testing.T) {
-	/*previewRes := */ testProviderUpgrade(t, "bucketv2-to-bucket", nil,
+	test, _ := testProviderUpgrade(t, "bucketv2-to-bucket", &testProviderUpgradeOptions{
+		skipDefaultPreviewTest: true,
+		skipCache:              true,
+		runProgram:             true,
+	},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucketv2-to-bucket", "step1")),
 	)
-	// TODO: [pulumi-aws#1111] fix bucket v7 upgrade
-	// assertpreview.HasNoChanges(t, previewRes)
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   9,
+	}, res.ChangeSummary)
 }
 
 func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
 	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames", &testProviderUpgradeOptions{
 		skipDefaultPreviewTest: true,
+		skipCache:              true,
+		runProgram:             true,
 	},
 		optproviderupgrade.NewSourcePath(filepath.Join("bucket-sidecar-renames", "step1")),
 	)
-	diff := runPreviewWithPlanDiff(t, test)
-	assert.Equal(t, map[string]interface{}{}, diff)
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   11,
+	}, res.ChangeSummary)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {

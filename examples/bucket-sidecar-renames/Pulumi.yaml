@@ -1,6 +1,11 @@
 name: test-aws-bucket-migration
 runtime: yaml
 resources:
+  aws:
+    type: pulumi:providers:aws
+    defaultProvider: true
+    options:
+      version: 6.78.0
   loggingBucket:
     type: aws:s3:BucketV2
     properties:

@@ -124,6 +124,7 @@ type testProviderUpgradeOptions struct {
 	region                 string
 	skipDefaultPreviewTest bool
 	skipCache              bool
+	runProgram             bool
 }
 
 func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions, upgradeOpts ...optproviderupgrade.PreviewProviderUpgradeOpt) (*pulumitest.PulumiTest, auto.PreviewResult) {
@@ -140,8 +141,14 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
 	options := []opttest.Option{
+		// disable auto destroy on this initial stack. AutoDestroy is set
+		// later on the baseline stack
+		opttest.NewStackOptions(optnewstack.DisableAutoDestroy()),
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+	}
+	if opts != nil && opts.runProgram {
+		options = append(options, opttest.Env("PULUMI_RUN_PROGRAM", "true"))
 	}
 	if opts == nil || !opts.installDeps {
 		options = append(options, opttest.SkipInstall())
