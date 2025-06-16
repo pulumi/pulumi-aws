@@ -89,7 +89,7 @@ jobs:
         requested-token-type: urn:pulumi:token-type:access_token:organization
         export-environment-variables: false
     - name: Export AWS Credentials
-      uses: pulumi/esc-action@41fd832f44f4820124b5350b5f84a00f741f234e # v1.3.0
+      uses: pulumi/esc-action@efb0bc8946938f0dfbfa00e829196ec95f0d0ea7 # v1.4.0
       env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
