@@ -10,6 +10,7 @@ import (
 	"context"
 	"crypto/rand"
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -25,10 +26,12 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -691,21 +694,97 @@ func TestUpdateImportedLambda(t *testing.T) {
 	)
 
 	test.SetConfig(t, "runtime", "nodejs18.x")
+	test.SetConfig(t, "aws:region", "us-west-2")
 	res := test.Up(t)
 	lambdaName := res.Outputs["lambda_name"]
 	lambdaRole := res.Outputs["lambda_role"]
+	runtime := "nodejs18.x"
 
 	secondStack := test.InstallStack(t, "new_stack")
 
 	// Check that we can reimport the lambda.
 	secondStack.SetConfig(t, "lambda_name", lambdaName.Value.(string))
-	secondStack.SetConfig(t, "runtime", "nodejs18.x")
+	secondStack.SetConfig(t, "runtime", runtime)
+	secondStack.SetConfig(t, "aws:region", "us-west-2")
 	secondStack.SetConfig(t, "lambda_role", lambdaRole.Value.(string))
-	secondStack.Up(t)
+	up2Res := secondStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 2, // the role and the lambda
+	}, *up2Res.Summary.ResourceChanges)
 
 	// Check that we can change a property on the lambda
-	secondStack.SetConfig(t, "runtime", "nodejs16.x")
+	runtime = "nodejs20.x"
+	secondStack.SetConfig(t, "runtime", runtime)
 	secondStack.Up(t)
+
+	thirdStack := test.InstallStack(t, "region_stack")
+
+	// Check that we can reimport the lambda in a different region
+	thirdStack.SetConfig(t, "lambda_name", fmt.Sprintf("%s@us-west-2", lambdaName.Value.(string)))
+	thirdStack.SetConfig(t, "runtime", runtime)
+	thirdStack.SetConfig(t, "lambda_role", lambdaRole.Value.(string))
+	thirdStack.SetConfig(t, "aws:region", "us-east-1")
+	thirdStack.SetConfig(t, "lambda_region", "us-west-2")
+	up3Res := thirdStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 2, // the role and the lambda
+	}, *up3Res.Summary.ResourceChanges)
+}
+
+func TestImportResourceNew(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "test-programs", "resource-import-ts"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+
+	test.SetConfig(t, "aws:region", "us-west-2")
+	res := test.Up(t)
+	queueArn := res.Outputs["queue_arn"]
+	reportGroupArn := res.Outputs["report_group_arn"]
+	vpcId := res.Outputs["vpc_id"]
+	subnetId := res.Outputs["subnet_id"]
+	computeEnvArn := res.Outputs["compute_env_arn"]
+	securityGroupId := res.Outputs["security_group_id"]
+	roleName := res.Outputs["role_name"]
+	policyAttachmentArn := res.Outputs["policy_attachment_arn"]
+
+	secondStack := test.InstallStack(t, "new_stack", optnewstack.DisableAutoDestroy())
+
+	// Check that we can reimport the resources in the same region.
+	secondStack.SetConfig(t, "queue_arn", queueArn.Value.(string))
+	secondStack.SetConfig(t, "aws:region", "us-west-2")
+	secondStack.SetConfig(t, "report_group_arn", reportGroupArn.Value.(string))
+	secondStack.SetConfig(t, "vpc_id", vpcId.Value.(string))
+	secondStack.SetConfig(t, "subnet_id", subnetId.Value.(string))
+	secondStack.SetConfig(t, "compute_env_arn", computeEnvArn.Value.(string))
+	secondStack.SetConfig(t, "security_group_id", securityGroupId.Value.(string))
+	secondStack.SetConfig(t, "role_name", roleName.Value.(string))
+	secondStack.SetConfig(t, "policy_attachment_arn", policyAttachmentArn.Value.(string))
+	up2Res := secondStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 8,
+	}, *up2Res.Summary.ResourceChanges)
+
+	thirdStack := test.InstallStack(t, "region_stack", optnewstack.DisableAutoDestroy())
+
+	// Check that we can reimport the resources in a different region
+	thirdStack.SetConfig(t, "queue_arn", queueArn.Value.(string))
+	thirdStack.SetConfig(t, "report_group_arn", reportGroupArn.Value.(string))
+	thirdStack.SetConfig(t, "vpc_id", vpcId.Value.(string))
+	thirdStack.SetConfig(t, "subnet_id", subnetId.Value.(string))
+	thirdStack.SetConfig(t, "compute_env_arn", computeEnvArn.Value.(string))
+	thirdStack.SetConfig(t, "security_group_id", securityGroupId.Value.(string))
+	thirdStack.SetConfig(t, "role_name", roleName.Value.(string))
+	thirdStack.SetConfig(t, "policy_attachment_arn", policyAttachmentArn.Value.(string))
+	thirdStack.SetConfig(t, "aws:region", "us-east-1")
+	thirdStack.SetConfig(t, "import_region", "us-west-2")
+	up3Res := thirdStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 8,
+	}, *up3Res.Summary.ResourceChanges)
 }
 
 func TestNoCodeLambda(t *testing.T) {
@@ -849,6 +928,17 @@ func TestJobQueueUpgrade(t *testing.T) {
 	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
 }
 
+func TestMultipleRegionsUpgrade(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	opts.skipCache = true
+	opts.skipDefaultPreviewTest = true
+	test, _ := testProviderUpgrade(t, filepath.Join("multiple-regions"), opts,
+		optproviderupgrade.NewSourcePath(filepath.Join("multiple-regions-v7")))
+
+	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
+}
+
 func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
 	return &testProviderUpgradeOptions{
 		linkNodeSDK:  true,
@@ -900,18 +990,34 @@ func TestChangingRegion(t *testing.T) {
 
 	t.Run("default provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
-		for _, region := range []string{"us-east-1", "us-west-1"} {
+		for i, region := range []string{"us-east-1", "us-west-1"} {
 			test.SetConfig(t, "aws:region", region)
-			res := test.Up(t)
+			res := test.Up(t, optup.Diff())
+			t.Log(res.Summary.ResourceChanges)
+			if i == 1 {
+				assert.Equal(t, *res.Summary.ResourceChanges, map[string]int{
+					"replace": 1,
+					"same":    1,
+				})
+			}
+
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
 
 	t.Run("explicit provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
-		for _, region := range []string{"us-east-1", "us-west-1"} {
+		for i, region := range []string{"us-east-1", "us-west-1"} {
 			test.SetConfig(t, "desired-region", region)
-			res := test.Up(t)
+			res := test.Up(t, optup.Diff())
+			t.Log(res.Summary.ResourceChanges)
+			if i == 1 {
+				assert.Equal(t, *res.Summary.ResourceChanges, map[string]int{
+					"replace": 1,
+					"same":    1,
+					"update":  1,
+				})
+			}
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
