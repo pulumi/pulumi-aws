@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+    /// Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
     /// 
     /// ## Example Usage
     /// 
@@ -22,15 +22,15 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Bucket("test", new()
+    ///     var example = new Aws.LightSail.Bucket("example", new()
     ///     {
-    ///         Name = "mytestbucket",
+    ///         Name = "example-bucket",
     ///         BundleId = "small_1_0",
     ///     });
     /// 
-    ///     var testLightsailBucketAccessKeyAccessKey = new Aws.Index.LightsailBucketAccessKeyAccessKey("test", new()
+    ///     var exampleBucketAccessKey = new Aws.LightSail.BucketAccessKey("example", new()
     ///     {
-    ///         BucketName = testAwsLightsailBucketAccessKey.Id,
+    ///         BucketName = example.Id,
     ///     });
     /// 
     /// });
@@ -41,38 +41,38 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+    /// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/bucketAccessKey:BucketAccessKey")]
     public partial class BucketAccessKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the access key.
+        /// Access key ID.
         /// </summary>
         [Output("accessKeyId")]
         public Output<string> AccessKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket that the new access key will belong to, and grant access to.
+        /// Name of the bucket that the access key will belong to and grant access to.
         /// </summary>
         [Output("bucketName")]
         public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the access key was created.
+        /// Date and time when the access key was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        /// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         /// </summary>
         [Output("secretAccessKey")]
         public Output<string> SecretAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the access key.
+        /// Status of the access key.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class BucketAccessKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the bucket that the new access key will belong to, and grant access to.
+        /// Name of the bucket that the access key will belong to and grant access to.
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
@@ -138,31 +138,31 @@ namespace Pulumi.Aws.LightSail
     public sealed class BucketAccessKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the access key.
+        /// Access key ID.
         /// </summary>
         [Input("accessKeyId")]
         public Input<string>? AccessKeyId { get; set; }
 
         /// <summary>
-        /// The name of the bucket that the new access key will belong to, and grant access to.
+        /// Name of the bucket that the access key will belong to and grant access to.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// The timestamp when the access key was created.
+        /// Date and time when the access key was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+        /// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         /// </summary>
         [Input("secretAccessKey")]
         public Input<string>? SecretAccessKey { get; set; }
 
         /// <summary>
-        /// The status of the access key.
+        /// Status of the access key.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

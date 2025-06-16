@@ -394,6 +394,75 @@ import (
 //
 // ```
 //
+// ### Example with S3 as source for the suricata rules
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			suricataRules, err := s3.GetObject(ctx, &s3.GetObjectArgs{
+//				Bucket: suricataRulesAwsS3Bucket.Id,
+//				Key:    "rules/custom.rules",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfirewall.NewRuleGroup(ctx, "s3_rules_example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(1000),
+//				Name:     pulumi.String("my-terraform-s3-rules"),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
+//						IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+//								Key: pulumi.String("HOME_NET"),
+//								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("10.0.0.0/16"),
+//										pulumi.String("192.168.0.0/16"),
+//										pulumi.String("172.16.0.0/12"),
+//									},
+//								},
+//							},
+//						},
+//						PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
+//								Key: pulumi.String("HTTP_PORTS"),
+//								PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("443"),
+//										pulumi.String("80"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesString: pulumi.String(suricataRules.Body),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"ManagedBy": pulumi.String("terraform"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:

@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+    /// Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
+    /// 
+    /// Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
     /// 
     /// ## Example Usage
     /// 
@@ -22,9 +24,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Lb("test", new()
+    ///     var example = new Aws.LightSail.Lb("example", new()
     ///     {
-    ///         Name = "test-load-balancer",
+    ///         Name = "example-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -33,17 +35,17 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("test", new()
+    ///     var exampleLbCertificate = new Aws.LightSail.LbCertificate("example", new()
     ///     {
-    ///         Name = "test-load-balancer-certificate",
-    ///         LbName = test.Id,
-    ///         DomainName = "test.com",
+    ///         Name = "example-load-balancer-certificate",
+    ///         LbName = example.Id,
+    ///         DomainName = "example.com",
     ///     });
     /// 
-    ///     var testLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("test", new()
+    ///     var exampleLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("example", new()
     ///     {
-    ///         LbName = test.Name,
-    ///         CertificateName = testLbCertificate.Name,
+    ///         LbName = example.Name,
+    ///         CertificateName = exampleLbCertificate.Name,
     ///     });
     /// 
     /// });
@@ -54,20 +56,20 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+    /// $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
     public partial class LbCertificateAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of your SSL/TLS certificate.
+        /// Name of your SSL/TLS certificate.
         /// </summary>
         [Output("certificateName")]
         public Output<string> CertificateName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
@@ -119,13 +121,13 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbCertificateAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of your SSL/TLS certificate.
+        /// Name of your SSL/TLS certificate.
         /// </summary>
         [Input("certificateName", required: true)]
         public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
@@ -139,13 +141,13 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbCertificateAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of your SSL/TLS certificate.
+        /// Name of your SSL/TLS certificate.
         /// </summary>
         [Input("certificateName")]
         public Input<string>? CertificateName { get; set; }
 
         /// <summary>
-        /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+        /// Name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }

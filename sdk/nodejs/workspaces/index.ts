@@ -45,10 +45,25 @@ export type WebBrowserSettings = import("./webBrowserSettings").WebBrowserSettin
 export const WebBrowserSettings: typeof import("./webBrowserSettings").WebBrowserSettings = null as any;
 utilities.lazyLoad(exports, ["WebBrowserSettings"], () => require("./webBrowserSettings"));
 
+export { WebDataProtectionSettingsArgs, WebDataProtectionSettingsState } from "./webDataProtectionSettings";
+export type WebDataProtectionSettings = import("./webDataProtectionSettings").WebDataProtectionSettings;
+export const WebDataProtectionSettings: typeof import("./webDataProtectionSettings").WebDataProtectionSettings = null as any;
+utilities.lazyLoad(exports, ["WebDataProtectionSettings"], () => require("./webDataProtectionSettings"));
+
+export { WebIpAccessSettingsArgs, WebIpAccessSettingsState } from "./webIpAccessSettings";
+export type WebIpAccessSettings = import("./webIpAccessSettings").WebIpAccessSettings;
+export const WebIpAccessSettings: typeof import("./webIpAccessSettings").WebIpAccessSettings = null as any;
+utilities.lazyLoad(exports, ["WebIpAccessSettings"], () => require("./webIpAccessSettings"));
+
 export { WebNetworkSettingsArgs, WebNetworkSettingsState } from "./webNetworkSettings";
 export type WebNetworkSettings = import("./webNetworkSettings").WebNetworkSettings;
 export const WebNetworkSettings: typeof import("./webNetworkSettings").WebNetworkSettings = null as any;
 utilities.lazyLoad(exports, ["WebNetworkSettings"], () => require("./webNetworkSettings"));
+
+export { WebUserAccessLoggingSettingsArgs, WebUserAccessLoggingSettingsState } from "./webUserAccessLoggingSettings";
+export type WebUserAccessLoggingSettings = import("./webUserAccessLoggingSettings").WebUserAccessLoggingSettings;
+export const WebUserAccessLoggingSettings: typeof import("./webUserAccessLoggingSettings").WebUserAccessLoggingSettings = null as any;
+utilities.lazyLoad(exports, ["WebUserAccessLoggingSettings"], () => require("./webUserAccessLoggingSettings"));
 
 export { WebUserSettingsArgs, WebUserSettingsState } from "./webUserSettings";
 export type WebUserSettings = import("./webUserSettings").WebUserSettings;
@@ -73,8 +88,14 @@ const _module = {
                 return new IpGroup(name, <any>undefined, { urn })
             case "aws:workspaces/webBrowserSettings:WebBrowserSettings":
                 return new WebBrowserSettings(name, <any>undefined, { urn })
+            case "aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings":
+                return new WebDataProtectionSettings(name, <any>undefined, { urn })
+            case "aws:workspaces/webIpAccessSettings:WebIpAccessSettings":
+                return new WebIpAccessSettings(name, <any>undefined, { urn })
             case "aws:workspaces/webNetworkSettings:WebNetworkSettings":
                 return new WebNetworkSettings(name, <any>undefined, { urn })
+            case "aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings":
+                return new WebUserAccessLoggingSettings(name, <any>undefined, { urn })
             case "aws:workspaces/webUserSettings:WebUserSettings":
                 return new WebUserSettings(name, <any>undefined, { urn })
             case "aws:workspaces/workspace:Workspace":
@@ -88,6 +109,9 @@ pulumi.runtime.registerResourceModule("aws", "workspaces/connectionAlias", _modu
 pulumi.runtime.registerResourceModule("aws", "workspaces/directory", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/ipGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/webBrowserSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webDataProtectionSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webIpAccessSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/webNetworkSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/webUserAccessLoggingSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/webUserSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/workspace", _module)

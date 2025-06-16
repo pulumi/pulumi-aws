@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.LustreFileSystemArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemState;
+import com.pulumi.aws.fsx.outputs.LustreFileSystemDataReadCacheConfiguration;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemLogConfiguration;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemMetadataConfiguration;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemRootSquashConfiguration;
@@ -172,6 +173,12 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> dataCompressionType() {
         return Codegen.optional(this.dataCompressionType);
+    }
+    @Export(name="dataReadCacheConfiguration", refs={LustreFileSystemDataReadCacheConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ LustreFileSystemDataReadCacheConfiguration> dataReadCacheConfiguration;
+
+    public Output<Optional<LustreFileSystemDataReadCacheConfiguration>> dataReadCacheConfiguration() {
+        return Codegen.optional(this.dataReadCacheConfiguration);
     }
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
@@ -462,14 +469,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageCapacity);
     }
     /**
-     * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
+     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `data_read_cache_configuration` and `metadata_configuration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     public Output<Optional<String>> storageType() {
@@ -524,6 +531,20 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     * 
+     */
+    @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> throughputCapacity;
+
+    /**
+     * @return Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
+     * 
+     */
+    public Output<Optional<Integer>> throughputCapacity() {
+        return Codegen.optional(this.throughputCapacity);
     }
     /**
      * Identifier of the Virtual Private Cloud for the file system.

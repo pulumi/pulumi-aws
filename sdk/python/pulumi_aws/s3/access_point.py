@@ -385,7 +385,7 @@ class AccessPoint(pulumi.CustomResource):
 
         > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
 
-        > This resource cannot be used with S3 directory buckets.
+        > This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
 
         ## Example Usage
 
@@ -415,6 +415,23 @@ class AccessPoint(pulumi.CustomResource):
             vpc_configuration={
                 "vpc_id": example_vpc.id,
             })
+        ```
+
+        ### AWS Partition Directory Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.s3.DirectoryBucket("example",
+            bucket="example--zoneId--x-s3",
+            location={
+                "name": available.zone_ids[0],
+            })
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=test["bucket"],
+            name="example--zoneId--xa-s3")
         ```
 
         ## Import
@@ -459,7 +476,7 @@ class AccessPoint(pulumi.CustomResource):
 
         > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
 
-        > This resource cannot be used with S3 directory buckets.
+        > This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
 
         ## Example Usage
 
@@ -489,6 +506,23 @@ class AccessPoint(pulumi.CustomResource):
             vpc_configuration={
                 "vpc_id": example_vpc.id,
             })
+        ```
+
+        ### AWS Partition Directory Bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.s3.DirectoryBucket("example",
+            bucket="example--zoneId--x-s3",
+            location={
+                "name": available.zone_ids[0],
+            })
+        example_access_point = aws.s3.AccessPoint("example",
+            bucket=test["bucket"],
+            name="example--zoneId--xa-s3")
         ```
 
         ## Import

@@ -156,6 +156,7 @@ import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as drs from "./drs";
+import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
 import * as ebs from "./ebs";
 import * as ec2 from "./ec2";
@@ -299,6 +300,7 @@ import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
 import * as worklink from "./worklink";
 import * as workspaces from "./workspaces";
+import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
 
 export {
@@ -381,6 +383,7 @@ export {
     dms,
     docdb,
     drs,
+    dsql,
     dynamodb,
     ebs,
     ec2,
@@ -524,6 +527,7 @@ export {
     wafv2,
     worklink,
     workspaces,
+    workspacesweb,
     xray,
 };
 pulumi.runtime.registerResourcePackage("aws", {

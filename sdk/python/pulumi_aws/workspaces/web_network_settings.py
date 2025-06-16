@@ -218,8 +218,13 @@ class _WebNetworkSettingsState:
         pulumi.set(self, "vpc_id", value)
 
 
+warnings.warn("""aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:workspaces/webNetworkSettings:WebNetworkSettings")
 class WebNetworkSettings(pulumi.CustomResource):
+    warnings.warn("""aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -255,7 +260,7 @@ class WebNetworkSettings(pulumi.CustomResource):
             example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
                 vpc_id=example.id,
                 name=f"example-sg-{range['value']}$"))
-        example_web_network_settings = aws.workspaces.WebNetworkSettings("example",
+        example_network_settings = aws.workspacesweb.NetworkSettings("example",
             vpc_id=example.id,
             subnet_ids=[
                 example_subnet[0].id,
@@ -316,7 +321,7 @@ class WebNetworkSettings(pulumi.CustomResource):
             example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
                 vpc_id=example.id,
                 name=f"example-sg-{range['value']}$"))
-        example_web_network_settings = aws.workspaces.WebNetworkSettings("example",
+        example_network_settings = aws.workspacesweb.NetworkSettings("example",
             vpc_id=example.id,
             subnet_ids=[
                 example_subnet[0].id,
@@ -356,6 +361,7 @@ class WebNetworkSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WebNetworkSettings is deprecated: aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -14,7 +14,10 @@ from .get_image import *
 from .get_workspace import *
 from .ip_group import *
 from .web_browser_settings import *
+from .web_data_protection_settings import *
+from .web_ip_access_settings import *
 from .web_network_settings import *
+from .web_user_access_logging_settings import *
 from .web_user_settings import *
 from .workspace import *
 from ._inputs import *

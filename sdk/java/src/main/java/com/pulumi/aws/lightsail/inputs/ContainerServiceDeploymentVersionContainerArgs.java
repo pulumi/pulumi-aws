@@ -19,14 +19,14 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
     public static final ContainerServiceDeploymentVersionContainerArgs Empty = new ContainerServiceDeploymentVersionContainerArgs();
 
     /**
-     * The launch command for the container. A list of string.
+     * Launch command for the container. A list of strings.
      * 
      */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
     /**
-     * @return The launch command for the container. A list of string.
+     * @return Launch command for the container. A list of strings.
      * 
      */
     public Optional<Output<List<String>>> commands() {
@@ -34,14 +34,14 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
     }
 
     /**
-     * The name for the container.
+     * Name of the container.
      * 
      */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
     /**
-     * @return The name for the container.
+     * @return Name of the container.
      * 
      */
     public Output<String> containerName() {
@@ -49,14 +49,14 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
     }
 
     /**
-     * A key-value map of the environment variables of the container.
+     * Key-value map of the environment variables of the container.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<Map<String,String>> environment;
 
     /**
-     * @return A key-value map of the environment variables of the container.
+     * @return Key-value map of the environment variables of the container.
      * 
      */
     public Optional<Output<Map<String,String>>> environment() {
@@ -64,14 +64,14 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
     }
 
     /**
-     * The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
     @Import(name="image", required=true)
     private Output<String> image;
 
     /**
-     * @return The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+     * @return Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
     public Output<String> image() {
@@ -79,14 +79,14 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
     }
 
     /**
-     * A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
     @Import(name="ports")
     private @Nullable Output<Map<String,String>> ports;
 
     /**
-     * @return A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+     * @return Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
     public Optional<Output<Map<String,String>>> ports() {
@@ -122,7 +122,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param commands The launch command for the container. A list of string.
+         * @param commands Launch command for the container. A list of strings.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param commands The launch command for the container. A list of string.
+         * @param commands Launch command for the container. A list of strings.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param commands The launch command for the container. A list of string.
+         * @param commands Launch command for the container. A list of strings.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param containerName The name for the container.
+         * @param containerName Name of the container.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param containerName The name for the container.
+         * @param containerName Name of the container.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param environment A key-value map of the environment variables of the container.
+         * @param environment Key-value map of the environment variables of the container.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param environment A key-value map of the environment variables of the container.
+         * @param environment Key-value map of the environment variables of the container.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param image The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+         * @param image Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param image The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
+         * @param image Name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param ports A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+         * @param ports Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         /**
-         * @param ports A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+         * @param ports Key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
          * 
          * @return builder
          * 

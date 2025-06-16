@@ -28,9 +28,13 @@ public final class InstancePublicPortsPortInfo {
      * 
      */
     private Integer fromPort;
+    /**
+     * @return Set of IPv6 CIDR blocks.
+     * 
+     */
     private @Nullable List<String> ipv6Cidrs;
     /**
-     * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
      * 
      */
     private String protocol;
@@ -64,11 +68,15 @@ public final class InstancePublicPortsPortInfo {
     public Integer fromPort() {
         return this.fromPort;
     }
+    /**
+     * @return Set of IPv6 CIDR blocks.
+     * 
+     */
     public List<String> ipv6Cidrs() {
         return this.ipv6Cidrs == null ? List.of() : this.ipv6Cidrs;
     }
     /**
-     * @return IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+     * @return IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`.
      * 
      */
     public String protocol() {

@@ -54,35 +54,34 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-        :param pulumi.Input[builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
-        :param pulumi.Input[builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        :param pulumi.Input[builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        :param pulumi.Input[builtins.int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
-        :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
-        :param pulumi.Input[builtins.str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
-        :param pulumi.Input[builtins.str] engine_version: The database engine version.
-        :param pulumi.Input[builtins.str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
-        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
-        :param pulumi.Input[builtins.str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[builtins.str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
-        :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
-        :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        :param pulumi.Input[builtins.str] engine_version: Database engine version.
+        :param pulumi.Input[builtins.str] final_snapshot_identifier: Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier specified on `neptune.GlobalCluster`.
+        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        :param pulumi.Input[builtins.str] kms_key_arn: ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
+        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        :param pulumi.Input[builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
+        :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
-        :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         if allow_major_version_upgrade is not None:
@@ -150,7 +149,7 @@ class ClusterArgs:
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
@@ -162,7 +161,7 @@ class ClusterArgs:
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -174,7 +173,7 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -186,7 +185,7 @@ class ClusterArgs:
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The days to retain backups for. Default `1`
+        Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
 
@@ -197,9 +196,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -234,7 +230,7 @@ class ClusterArgs:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -246,7 +242,7 @@ class ClusterArgs:
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
@@ -258,7 +254,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         """
         return pulumi.get(self, "engine")
 
@@ -270,7 +266,7 @@ class ClusterArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database engine version.
+        Database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -282,7 +278,7 @@ class ClusterArgs:
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -294,7 +290,7 @@ class ClusterArgs:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The global cluster identifier specified on `neptune.GlobalCluster`.
+        Global cluster identifier specified on `neptune.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -306,7 +302,7 @@ class ClusterArgs:
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
@@ -318,7 +314,7 @@ class ClusterArgs:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        List of ARNs for the IAM roles to associate to the Neptune Cluster.
         """
         return pulumi.get(self, "iam_roles")
 
@@ -330,7 +326,7 @@ class ClusterArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -342,7 +338,7 @@ class ClusterArgs:
     @pulumi.getter(name="neptuneClusterParameterGroupName")
     def neptune_cluster_parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A cluster parameter group to associate with the cluster.
+        Cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
 
@@ -354,7 +350,7 @@ class ClusterArgs:
     @pulumi.getter(name="neptuneInstanceParameterGroupName")
     def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the DB parameter group to apply to all instances of the DB cluster.
+        Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         """
         return pulumi.get(self, "neptune_instance_parameter_group_name")
 
@@ -366,7 +362,7 @@ class ClusterArgs:
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Neptune subnet group to associate with this Neptune instance.
+        Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
 
@@ -378,7 +374,7 @@ class ClusterArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The port on which the Neptune accepts connections. Default is `8182`.
+        Port on which the Neptune accepts connections. Default is `8182`.
         """
         return pulumi.get(self, "port")
 
@@ -390,7 +386,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -402,7 +398,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -438,7 +434,7 @@ class ClusterArgs:
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
@@ -450,7 +446,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -462,7 +458,7 @@ class ClusterArgs:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -486,7 +482,7 @@ class ClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -549,42 +545,41 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-        :param pulumi.Input[builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[builtins.str] arn: The Neptune Cluster Amazon Resource Name (ARN)
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
-        :param pulumi.Input[builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        :param pulumi.Input[builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[builtins.str] arn: Neptune Cluster ARN
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        :param pulumi.Input[builtins.int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_members: List of Neptune Instances that are a part of this cluster
-        :param pulumi.Input[builtins.str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[builtins.str] cluster_resource_id: Neptune Cluster Resource ID
         :param pulumi.Input[builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
-        :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
-        :param pulumi.Input[builtins.str] endpoint: The DNS address of the Neptune instance
-        :param pulumi.Input[builtins.str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
-        :param pulumi.Input[builtins.str] engine_version: The database engine version.
-        :param pulumi.Input[builtins.str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
-        :param pulumi.Input[builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
-        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
-        :param pulumi.Input[builtins.str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[builtins.str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
-        :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
-        :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[builtins.str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        :param pulumi.Input[builtins.str] endpoint: DNS address of the Neptune instance
+        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        :param pulumi.Input[builtins.str] engine_version: Database engine version.
+        :param pulumi.Input[builtins.str] final_snapshot_identifier: Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier specified on `neptune.GlobalCluster`.
+        :param pulumi.Input[builtins.str] hosted_zone_id: Route53 Hosted Zone ID of the endpoint
+        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        :param pulumi.Input[builtins.str] kms_key_arn: ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
+        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        :param pulumi.Input[builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
+        :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
-        :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         if allow_major_version_upgrade is not None:
@@ -669,7 +664,7 @@ class _ClusterState:
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
@@ -681,7 +676,7 @@ class _ClusterState:
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -693,7 +688,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Neptune Cluster Amazon Resource Name (ARN)
+        Neptune Cluster ARN
         """
         return pulumi.get(self, "arn")
 
@@ -705,7 +700,7 @@ class _ClusterState:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -717,7 +712,7 @@ class _ClusterState:
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The days to retain backups for. Default `1`
+        Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
 
@@ -728,9 +723,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -765,7 +757,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Neptune Cluster Resource ID
+        Neptune Cluster Resource ID
         """
         return pulumi.get(self, "cluster_resource_id")
 
@@ -789,7 +781,7 @@ class _ClusterState:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -801,7 +793,7 @@ class _ClusterState:
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
@@ -813,7 +805,7 @@ class _ClusterState:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The DNS address of the Neptune instance
+        DNS address of the Neptune instance
         """
         return pulumi.get(self, "endpoint")
 
@@ -825,7 +817,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         """
         return pulumi.get(self, "engine")
 
@@ -837,7 +829,7 @@ class _ClusterState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database engine version.
+        Database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -849,7 +841,7 @@ class _ClusterState:
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -861,7 +853,7 @@ class _ClusterState:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The global cluster identifier specified on `neptune.GlobalCluster`.
+        Global cluster identifier specified on `neptune.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -873,7 +865,7 @@ class _ClusterState:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Route53 Hosted Zone ID of the endpoint
+        Route53 Hosted Zone ID of the endpoint
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -885,7 +877,7 @@ class _ClusterState:
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
@@ -897,7 +889,7 @@ class _ClusterState:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        List of ARNs for the IAM roles to associate to the Neptune Cluster.
         """
         return pulumi.get(self, "iam_roles")
 
@@ -909,7 +901,7 @@ class _ClusterState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -921,7 +913,7 @@ class _ClusterState:
     @pulumi.getter(name="neptuneClusterParameterGroupName")
     def neptune_cluster_parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A cluster parameter group to associate with the cluster.
+        Cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
 
@@ -933,7 +925,7 @@ class _ClusterState:
     @pulumi.getter(name="neptuneInstanceParameterGroupName")
     def neptune_instance_parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the DB parameter group to apply to all instances of the DB cluster.
+        Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         """
         return pulumi.get(self, "neptune_instance_parameter_group_name")
 
@@ -945,7 +937,7 @@ class _ClusterState:
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Neptune subnet group to associate with this Neptune instance.
+        Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
 
@@ -957,7 +949,7 @@ class _ClusterState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The port on which the Neptune accepts connections. Default is `8182`.
+        Port on which the Neptune accepts connections. Default is `8182`.
         """
         return pulumi.get(self, "port")
 
@@ -969,7 +961,7 @@ class _ClusterState:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -981,7 +973,7 @@ class _ClusterState:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -993,7 +985,7 @@ class _ClusterState:
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         """
         return pulumi.get(self, "reader_endpoint")
 
@@ -1029,7 +1021,7 @@ class _ClusterState:
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
@@ -1041,7 +1033,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -1053,7 +1045,7 @@ class _ClusterState:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -1077,7 +1069,7 @@ class _ClusterState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1090,7 +1082,7 @@ class _ClusterState:
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1188,35 +1180,34 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-        :param pulumi.Input[builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
-        :param pulumi.Input[builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        :param pulumi.Input[builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        :param pulumi.Input[builtins.int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
-        :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
-        :param pulumi.Input[builtins.str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
-        :param pulumi.Input[builtins.str] engine_version: The database engine version.
-        :param pulumi.Input[builtins.str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
-        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
-        :param pulumi.Input[builtins.str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[builtins.str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
-        :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
-        :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        :param pulumi.Input[builtins.str] engine_version: Database engine version.
+        :param pulumi.Input[builtins.str] final_snapshot_identifier: Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier specified on `neptune.GlobalCluster`.
+        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        :param pulumi.Input[builtins.str] kms_key_arn: ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
+        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        :param pulumi.Input[builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
+        :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
-        :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         ...
@@ -1408,42 +1399,41 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
-        :param pulumi.Input[builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[builtins.str] arn: The Neptune Cluster Amazon Resource Name (ARN)
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
-        :param pulumi.Input[builtins.int] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        :param pulumi.Input[builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        :param pulumi.Input[builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[builtins.str] arn: Neptune Cluster ARN
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        :param pulumi.Input[builtins.int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_members: List of Neptune Instances that are a part of this cluster
-        :param pulumi.Input[builtins.str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[builtins.str] cluster_resource_id: Neptune Cluster Resource ID
         :param pulumi.Input[builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
-        :param pulumi.Input[builtins.bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
-        :param pulumi.Input[builtins.str] endpoint: The DNS address of the Neptune instance
-        :param pulumi.Input[builtins.str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
-        :param pulumi.Input[builtins.str] engine_version: The database engine version.
-        :param pulumi.Input[builtins.str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `neptune.GlobalCluster`.
-        :param pulumi.Input[builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
-        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A List of ARNs for the IAM roles to associate to the Neptune Cluster.
-        :param pulumi.Input[builtins.str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[builtins.str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
-        :param pulumi.Input[builtins.int] port: The port on which the Neptune accepts connections. Default is `8182`.
-        :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
-        :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
-        :param pulumi.Input[builtins.str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_cloudwatch_logs_exports: List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        :param pulumi.Input[builtins.str] endpoint: DNS address of the Neptune instance
+        :param pulumi.Input[builtins.str] engine: Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        :param pulumi.Input[builtins.str] engine_version: Database engine version.
+        :param pulumi.Input[builtins.str] final_snapshot_identifier: Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[builtins.str] global_cluster_identifier: Global cluster identifier specified on `neptune.GlobalCluster`.
+        :param pulumi.Input[builtins.str] hosted_zone_id: Route53 Hosted Zone ID of the endpoint
+        :param pulumi.Input[builtins.bool] iam_database_authentication_enabled: Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        :param pulumi.Input[builtins.str] kms_key_arn: ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.str] neptune_cluster_parameter_group_name: Cluster parameter group to associate with the cluster.
+        :param pulumi.Input[builtins.str] neptune_instance_parameter_group_name: Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        :param pulumi.Input[builtins.str] neptune_subnet_group_name: Neptune subnet group to associate with this Neptune instance.
+        :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
+        :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
-        :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
-        :param pulumi.Input[builtins.str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
-        :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1493,7 +1483,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="allowMajorVersionUpgrade")
     def allow_major_version_upgrade(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         """
         return pulumi.get(self, "allow_major_version_upgrade")
 
@@ -1501,7 +1491,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -1509,7 +1499,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Neptune Cluster Amazon Resource Name (ARN)
+        Neptune Cluster ARN
         """
         return pulumi.get(self, "arn")
 
@@ -1517,7 +1507,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+        List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -1525,16 +1515,13 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The days to retain backups for. Default `1`
+        Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[builtins.str]:
-        """
-        The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
@@ -1557,7 +1544,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> pulumi.Output[builtins.str]:
         """
-        The Neptune Cluster Resource ID
+        Neptune Cluster Resource ID
         """
         return pulumi.get(self, "cluster_resource_id")
 
@@ -1573,7 +1560,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -1581,7 +1568,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
@@ -1589,7 +1576,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        The DNS address of the Neptune instance
+        DNS address of the Neptune instance
         """
         return pulumi.get(self, "endpoint")
 
@@ -1597,7 +1584,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         """
         return pulumi.get(self, "engine")
 
@@ -1605,7 +1592,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[builtins.str]:
         """
-        The database engine version.
+        Database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1613,7 +1600,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+        Name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -1621,7 +1608,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The global cluster identifier specified on `neptune.GlobalCluster`.
+        Global cluster identifier specified on `neptune.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -1629,7 +1616,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[builtins.str]:
         """
-        The Route53 Hosted Zone ID of the endpoint
+        Route53 Hosted Zone ID of the endpoint
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -1637,7 +1624,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        Whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
@@ -1645,7 +1632,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+        List of ARNs for the IAM roles to associate to the Neptune Cluster.
         """
         return pulumi.get(self, "iam_roles")
 
@@ -1653,7 +1640,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1661,7 +1648,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="neptuneClusterParameterGroupName")
     def neptune_cluster_parameter_group_name(self) -> pulumi.Output[builtins.str]:
         """
-        A cluster parameter group to associate with the cluster.
+        Cluster parameter group to associate with the cluster.
         """
         return pulumi.get(self, "neptune_cluster_parameter_group_name")
 
@@ -1669,7 +1656,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="neptuneInstanceParameterGroupName")
     def neptune_instance_parameter_group_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The name of the DB parameter group to apply to all instances of the DB cluster.
+        Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
         """
         return pulumi.get(self, "neptune_instance_parameter_group_name")
 
@@ -1677,7 +1664,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="neptuneSubnetGroupName")
     def neptune_subnet_group_name(self) -> pulumi.Output[builtins.str]:
         """
-        A Neptune subnet group to associate with this Neptune instance.
+        Neptune subnet group to associate with this Neptune instance.
         """
         return pulumi.get(self, "neptune_subnet_group_name")
 
@@ -1685,7 +1672,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The port on which the Neptune accepts connections. Default is `8182`.
+        Port on which the Neptune accepts connections. Default is `8182`.
         """
         return pulumi.get(self, "port")
 
@@ -1693,7 +1680,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[builtins.str]:
         """
-        The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -1701,7 +1688,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[builtins.str]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -1709,7 +1696,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         """
         return pulumi.get(self, "reader_endpoint")
 
@@ -1733,7 +1720,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         """
         return pulumi.get(self, "skip_final_snapshot")
 
@@ -1741,7 +1728,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
+        Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -1749,7 +1736,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        Whether the Neptune cluster is encrypted. The default is `false` if not specified.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -1765,7 +1752,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1774,7 +1761,7 @@ class Cluster(pulumi.CustomResource):
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

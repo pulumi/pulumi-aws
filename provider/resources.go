@@ -126,6 +126,7 @@ const (
 	directoryserviceMod         = "DirectoryService"         // Directory Services
 	docdbMod                    = "DocDB"                    // Document DB
 	drsMod                      = "Drs"                      // Elastic Disaster Recovery (DRS)
+	dsqlMod                     = "Dsql"                     // Amazon Aurora DSQL
 	dynamodbMod                 = "DynamoDB"                 // DynamoDB
 	dxMod                       = "DirectConnect"            // Direct Connect
 	dmsMod                      = "Dms"                      // Data Migraiton Services
@@ -267,6 +268,7 @@ const (
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
 	worklinkMod                 = "WorkLink"                 // Worklink
 	workspacesMod               = "Workspaces"               // Workspaces
+	workspaceswebMod            = "WorkSpacesWeb"            // WorkSpaces Web
 	xrayMod                     = "Xray"                     // X-Ray
 
 	// Legacy Mods
@@ -360,6 +362,7 @@ var moduleMap = map[string]string{
 	"dms":                             dmsMod,
 	"docdb":                           docdbMod,
 	"drs":                             drsMod,
+	"dsql":                            dsqlMod,
 	"dx":                              dxMod,
 	"dynamodb":                        dynamodbMod,
 	"ebs":                             ebsMod,
@@ -501,6 +504,7 @@ var moduleMap = map[string]string{
 	"wafv2":                           wafV2Mod,
 	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
+	"workspacesweb":                   workspaceswebMod,
 	"xray":                            xrayMod,
 }
 
@@ -2110,6 +2114,11 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_vpc_endpoint_security_group_association":     {Tok: awsResource(ec2Mod, "SecurityGroupAssociation")},
 			"aws_vpc_ipv4_cidr_block_association":             {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
 			"aws_vpc_network_performance_metric_subscription": {Tok: awsResource(ec2Mod, "VpcNetworkPerformanceMetricSubscription")},
+			"aws_vpc_route_server":                            {Tok: awsResource(vpcMod, "RouteServer")},
+			"aws_vpc_route_server_endpoint":                   {Tok: awsResource(vpcMod, "RouteServerEndpoint")},
+			"aws_vpc_route_server_peer":                       {Tok: awsResource(vpcMod, "RouteServerPeer")},
+			"aws_vpc_route_server_propagation":                {Tok: awsResource(vpcMod, "RouteServerPropagation")},
+			"aws_vpc_route_server_vpc_association":            {Tok: awsResource(vpcMod, "RouteServerVpcAssociation")},
 			"aws_vpn_connection":                              {Tok: awsResource(ec2Mod, "VpnConnection")},
 			"aws_vpn_connection_route":                        {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
 			"aws_vpn_gateway":                                 {Tok: awsResource(ec2Mod, "VpnGateway")},
@@ -6141,31 +6150,56 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_wafv2_api_key"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
 	}
+	prov.Resources["aws_s3control_directory_bucket_access_point_scope"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "name", "accountId"), nil
+	}
+	prov.Resources["aws_vpc_route_server_vpc_association"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "routeServerId", "vpcId"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
-		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
-		"aws_cloudwatch_log_delivery_source":             {"name"},
-		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
-		"aws_cloudwatch_log_delivery_destination":        {"name"},
-		"aws_media_packagev2_channel_group":              {"name"},
-		"aws_timestreamquery_scheduled_query":            {"arn"},
-		"aws_route53domains_domain":                      {"domainName"},
-		"aws_api_gateway_rest_api_put":                   {"restApiId"},
-		"aws_ec2_default_credit_specification":           {"instanceFamily"},
-		"aws_inspector2_filter":                          {"arn"},
-		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
-		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
-		"aws_quicksight_account_settings":                {"awsAccountId"},
-		"aws_notificationscontacts_email_contact":        {"arn"},
-		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
-		"aws_notifications_notification_configuration":   {"arn"},
-		"aws_notifications_notification_hub":             {"notificationHubRegion"},
-		"aws_notifications_event_rule":                   {"arn"},
-		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
-		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
+		"aws_cloudwatch_log_index_policy":                       {"logGroupName"},
+		"aws_cloudwatch_log_delivery_source":                    {"name"},
+		"aws_cloudwatch_log_delivery_destination_policy":        {"deliveryDestinationName"},
+		"aws_cloudwatch_log_delivery_destination":               {"name"},
+		"aws_media_packagev2_channel_group":                     {"name"},
+		"aws_timestreamquery_scheduled_query":                   {"arn"},
+		"aws_route53domains_domain":                             {"domainName"},
+		"aws_api_gateway_rest_api_put":                          {"restApiId"},
+		"aws_ec2_default_credit_specification":                  {"instanceFamily"},
+		"aws_inspector2_filter":                                 {"arn"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":            {"keyValueStoreArn"},
+		"aws_workspacesweb_network_settings":                    {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings":                    {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings":                       {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings":            {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings":        {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings":                  {"ipAccessSettingsArn"},
+		"aws_workspacesweb_network_settings_legacy":             {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings_legacy":             {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings_legacy":                {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings_legacy":     {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings_legacy": {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings_legacy":           {"ipAccessSettingsArn"},
+		"aws_quicksight_account_settings":                       {"awsAccountId"},
+		"aws_notificationscontacts_email_contact":               {"arn"},
+		"aws_notifications_notification_configuration":          {"arn"},
+		"aws_notifications_notification_hub":                    {"notificationHubRegion"},
+		"aws_notifications_event_rule":                          {"arn"},
+		"aws_notifications_channel_association":                 {"notificationConfigurationArn", "arn"},
+		"aws_prometheus_workspace_configuration":                {"workspaceId"},
+		"aws_vpc_route_server":                                  {"routeServerId"},
+		"aws_vpc_route_server_propagation":                      {"routeServerPropagationId"},
+		"aws_vpc_route_server_endpoint":                         {"routeServerEndpointId"},
+		"aws_vpc_route_server_peer":                             {"routeServerPeerId"},
+		"aws_dsql_cluster_peering":                              {"identifier"},
+		"aws_dsql_cluster":                                      {"identifier"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
+		if _, ok := prov.Resources[tfResourceID]; !ok {
+			prov.Resources[tfResourceID] = &info.Resource{}
+		}
 		prov.Resources[tfResourceID].ComputeID = func(
 			ctx context.Context, state resource.PropertyMap,
 		) (resource.ID, error) {

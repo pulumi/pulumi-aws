@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class LbCertificateDomainValidationRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// Domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

@@ -5,14 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a lightsail resource access to a bucket.
+ * Manages a Lightsail bucket resource access. Use this resource to grant a Lightsail resource (such as an instance) access to a specific bucket.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lightsail.Bucket("example", {
+ *     name: "example-bucket",
+ *     bundleId: "small_1_0",
+ * });
+ * const exampleInstance = new aws.lightsail.Instance("example", {
+ *     name: "example-instance",
+ *     availabilityZone: "us-east-1b",
+ *     blueprintId: "amazon_linux_2",
+ *     bundleId: "nano_3_0",
+ * });
+ * const exampleBucketResourceAccess = new aws.lightsail.BucketResourceAccess("example", {
+ *     bucketName: example.id,
+ *     resourceName: exampleInstance.id,
+ * });
+ * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
+ * $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance
  * ```
  */
 export class BucketResourceAccess extends pulumi.CustomResource {
@@ -44,11 +66,11 @@ export class BucketResourceAccess extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the bucket to grant access to.
+     * Name of the bucket to grant access to.
      */
     public readonly bucketName!: pulumi.Output<string>;
     /**
-     * The name of the resource to be granted bucket access.
+     * Name of the resource to grant bucket access.
      */
     public readonly resourceName!: pulumi.Output<string>;
 
@@ -88,11 +110,11 @@ export class BucketResourceAccess extends pulumi.CustomResource {
  */
 export interface BucketResourceAccessState {
     /**
-     * The name of the bucket to grant access to.
+     * Name of the bucket to grant access to.
      */
     bucketName?: pulumi.Input<string>;
     /**
-     * The name of the resource to be granted bucket access.
+     * Name of the resource to grant bucket access.
      */
     resourceName?: pulumi.Input<string>;
 }
@@ -102,11 +124,11 @@ export interface BucketResourceAccessState {
  */
 export interface BucketResourceAccessArgs {
     /**
-     * The name of the bucket to grant access to.
+     * Name of the bucket to grant access to.
      */
     bucketName: pulumi.Input<string>;
     /**
-     * The name of the resource to be granted bucket access.
+     * Name of the resource to grant bucket access.
      */
     resourceName: pulumi.Input<string>;
 }

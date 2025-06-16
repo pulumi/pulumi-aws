@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
+ * Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
  *
  * ## Example Usage
  *
@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Bucket("test", {
- *     name: "mytestbucket",
+ * const example = new aws.lightsail.Bucket("example", {
+ *     name: "example-bucket",
  *     bundleId: "small_1_0",
  * });
- * const testLightsailBucketAccessKeyAccessKey = new aws.index.LightsailBucketAccessKeyAccessKey("test", {bucketName: testAwsLightsailBucketAccessKey.id});
+ * const exampleBucketAccessKey = new aws.lightsail.BucketAccessKey("example", {bucketName: example.id});
  * ```
  *
  * ## Import
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+ * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
  * ```
  */
 export class BucketAccessKey extends pulumi.CustomResource {
@@ -57,23 +57,23 @@ export class BucketAccessKey extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the access key.
+     * Access key ID.
      */
     public /*out*/ readonly accessKeyId!: pulumi.Output<string>;
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      */
     public readonly bucketName!: pulumi.Output<string>;
     /**
-     * The timestamp when the access key was created.
+     * Date and time when the access key was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
     public /*out*/ readonly secretAccessKey!: pulumi.Output<string>;
     /**
-     * The status of the access key.
+     * Status of the access key.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -116,23 +116,23 @@ export class BucketAccessKey extends pulumi.CustomResource {
  */
 export interface BucketAccessKeyState {
     /**
-     * The ID of the access key.
+     * Access key ID.
      */
     accessKeyId?: pulumi.Input<string>;
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      */
     bucketName?: pulumi.Input<string>;
     /**
-     * The timestamp when the access key was created.
+     * Date and time when the access key was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
+     * Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
     secretAccessKey?: pulumi.Input<string>;
     /**
-     * The status of the access key.
+     * Status of the access key.
      */
     status?: pulumi.Input<string>;
 }
@@ -142,7 +142,7 @@ export interface BucketAccessKeyState {
  */
 export interface BucketAccessKeyArgs {
     /**
-     * The name of the bucket that the new access key will belong to, and grant access to.
+     * Name of the bucket that the access key will belong to and grant access to.
      */
     bucketName: pulumi.Input<string>;
 }

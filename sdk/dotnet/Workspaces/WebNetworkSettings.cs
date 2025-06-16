@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Workspaces
     ///             Name = $"example-sg-{range.Value}$",
     ///         }));
     ///     }
-    ///     var exampleWebNetworkSettings = new Aws.Workspaces.WebNetworkSettings("example", new()
+    ///     var exampleNetworkSettings = new Aws.WorkSpacesWeb.NetworkSettings("example", new()
     ///     {
     ///         VpcId = example.Id,
     ///         SubnetIds = new[]
@@ -82,6 +82,7 @@ namespace Pulumi.Aws.Workspaces
     /// $ pulumi import aws:workspaces/webNetworkSettings:WebNetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345
     /// ```
     /// </summary>
+    [Obsolete(@"aws.workspaces/webnetworksettings.WebNetworkSettings has been deprecated in favor of aws.workspacesweb/networksettings.NetworkSettings")]
     [AwsResourceType("aws:workspaces/webNetworkSettings:WebNetworkSettings")]
     public partial class WebNetworkSettings : global::Pulumi.CustomResource
     {

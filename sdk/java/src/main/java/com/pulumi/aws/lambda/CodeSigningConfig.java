@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *         var newCsc = new CodeSigningConfig("newCsc", CodeSigningConfigArgs.builder()
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
- *                     example1.arn(),
- *                     example2.arn())
+ *                     example1.versionArn(),
+ *                     example2.versionArn())
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
  *                 .untrustedArtifactOnDeployment("Warn")

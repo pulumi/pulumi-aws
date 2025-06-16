@@ -19,14 +19,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     public static final DatabaseArgs Empty = new DatabaseArgs();
 
     /**
-     * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+     * Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
     @Import(name="applyImmediately")
     private @Nullable Output<Boolean> applyImmediately;
 
     /**
-     * @return When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+     * @return Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
     public Optional<Output<Boolean>> applyImmediately() {
@@ -34,14 +34,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+     * Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+     * @return Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -49,14 +49,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+     * Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      * 
      */
     @Import(name="backupRetentionEnabled")
     private @Nullable Output<Boolean> backupRetentionEnabled;
 
     /**
-     * @return When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+     * @return Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      * 
      */
     public Optional<Output<Boolean>> backupRetentionEnabled() {
@@ -64,14 +64,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+     * Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      * 
      */
     @Import(name="blueprintId", required=true)
     private Output<String> blueprintId;
 
     /**
-     * @return The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+     * @return Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      * 
      */
     public Output<String> blueprintId() {
@@ -79,14 +79,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+     * Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      * 
      */
     @Import(name="bundleId", required=true)
     private Output<String> bundleId;
 
     /**
-     * @return The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+     * @return Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      * 
      */
     public Output<String> bundleId() {
@@ -94,14 +94,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+     * Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      * 
      */
     @Import(name="finalSnapshotName")
     private @Nullable Output<String> finalSnapshotName;
 
     /**
-     * @return The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+     * @return Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      * 
      */
     public Optional<Output<String>> finalSnapshotName() {
@@ -109,14 +109,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the master database created when the Lightsail database resource is created.
+     * Name of the master database created when the Lightsail database resource is created.
      * 
      */
     @Import(name="masterDatabaseName", required=true)
     private Output<String> masterDatabaseName;
 
     /**
-     * @return The name of the master database created when the Lightsail database resource is created.
+     * @return Name of the master database created when the Lightsail database resource is created.
      * 
      */
     public Output<String> masterDatabaseName() {
@@ -124,14 +124,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
+     * Password for the master user of your database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     @Import(name="masterPassword", required=true)
     private Output<String> masterPassword;
 
     /**
-     * @return The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
+     * @return Password for the master user of your database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
     public Output<String> masterPassword() {
@@ -139,14 +139,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The master user name for your new database.
+     * Master user name for your database.
      * 
      */
     @Import(name="masterUsername", required=true)
     private Output<String> masterUsername;
 
     /**
-     * @return The master user name for your new database.
+     * @return Master user name for your database.
      * 
      */
     public Output<String> masterUsername() {
@@ -154,14 +154,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+     * Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+     * @return Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -169,14 +169,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+     * Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+     * @return Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -184,14 +184,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+     * Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+     * @return Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
@@ -199,14 +199,18 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="relationalDatabaseName", required=true)
     private Output<String> relationalDatabaseName;
 
     /**
-     * @return The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * @return Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> relationalDatabaseName() {
@@ -214,14 +218,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+     * Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      * 
      */
     @Import(name="skipFinalSnapshot")
     private @Nullable Output<Boolean> skipFinalSnapshot;
 
     /**
-     * @return Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+     * @return Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      * 
      */
     public Optional<Output<Boolean>> skipFinalSnapshot() {
@@ -229,14 +233,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -282,7 +286,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyImmediately When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+         * @param applyImmediately Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
          * 
          * @return builder
          * 
@@ -293,7 +297,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyImmediately When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+         * @param applyImmediately Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
          * 
          * @return builder
          * 
@@ -303,7 +307,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+         * @param availabilityZone Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
          * 
          * @return builder
          * 
@@ -314,7 +318,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+         * @param availabilityZone Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
          * 
          * @return builder
          * 
@@ -324,7 +328,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionEnabled When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+         * @param backupRetentionEnabled Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
          * 
          * @return builder
          * 
@@ -335,7 +339,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backupRetentionEnabled When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+         * @param backupRetentionEnabled Whether to enable automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
          * 
          * @return builder
          * 
@@ -345,7 +349,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+         * @param blueprintId Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
          * 
          * @return builder
          * 
@@ -356,7 +360,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param blueprintId The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+         * @param blueprintId Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
          * 
          * @return builder
          * 
@@ -366,7 +370,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+         * @param bundleId Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
          * 
          * @return builder
          * 
@@ -377,7 +381,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+         * @param bundleId Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
          * 
          * @return builder
          * 
@@ -387,7 +391,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotName The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+         * @param finalSnapshotName Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
          * 
          * @return builder
          * 
@@ -398,7 +402,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotName The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+         * @param finalSnapshotName Name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
          * 
          * @return builder
          * 
@@ -408,7 +412,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterDatabaseName The name of the master database created when the Lightsail database resource is created.
+         * @param masterDatabaseName Name of the master database created when the Lightsail database resource is created.
          * 
          * @return builder
          * 
@@ -419,7 +423,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterDatabaseName The name of the master database created when the Lightsail database resource is created.
+         * @param masterDatabaseName Name of the master database created when the Lightsail database resource is created.
          * 
          * @return builder
          * 
@@ -429,7 +433,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
+         * @param masterPassword Password for the master user of your database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
          * 
          * @return builder
          * 
@@ -440,7 +444,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
+         * @param masterPassword Password for the master user of your database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
          * 
          * @return builder
          * 
@@ -450,7 +454,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterUsername The master user name for your new database.
+         * @param masterUsername Master user name for your database.
          * 
          * @return builder
          * 
@@ -461,7 +465,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterUsername The master user name for your new database.
+         * @param masterUsername Master user name for your database.
          * 
          * @return builder
          * 
@@ -471,7 +475,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+         * @param preferredBackupWindow Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -482,7 +486,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+         * @param preferredBackupWindow Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
          * 
          * @return builder
          * 
@@ -492,7 +496,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
          * 
          * @return builder
          * 
@@ -503,7 +507,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
          * 
          * @return builder
          * 
@@ -513,7 +517,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+         * @param publiclyAccessible Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
          * 
          * @return builder
          * 
@@ -524,7 +528,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+         * @param publiclyAccessible Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
          * 
          * @return builder
          * 
@@ -534,7 +538,9 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationalDatabaseName The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * @param relationalDatabaseName Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -545,7 +551,9 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationalDatabaseName The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * @param relationalDatabaseName Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -555,7 +563,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+         * @param skipFinalSnapshot Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
          * 
          * @return builder
          * 
@@ -566,7 +574,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+         * @param skipFinalSnapshot Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
          * 
          * @return builder
          * 
@@ -576,7 +584,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -587,7 +595,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+         * @param tags Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

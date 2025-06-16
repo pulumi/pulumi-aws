@@ -15,7 +15,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
+ * Manages HTTPS redirection for a Lightsail Load Balancer.
+ * 
+ * Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
  * 
  * ## Example Usage
  * 
@@ -48,26 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()
- *             .name("test-load-balancer")
+ *         var example = new Lb("example", LbArgs.builder()
+ *             .name("example-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort(80)
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()
- *             .name("test-load-balancer-certificate")
- *             .lbName(test.id())
- *             .domainName("test.com")
+ *         var exampleLbCertificate = new LbCertificate("exampleLbCertificate", LbCertificateArgs.builder()
+ *             .name("example-load-balancer-certificate")
+ *             .lbName(example.id())
+ *             .domainName("example.com")
  *             .build());
  * 
- *         var testLbCertificateAttachment = new LbCertificateAttachment("testLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
- *             .lbName(test.name())
- *             .certificateName(testLbCertificate.name())
+ *         var exampleLbCertificateAttachment = new LbCertificateAttachment("exampleLbCertificateAttachment", LbCertificateAttachmentArgs.builder()
+ *             .lbName(example.name())
+ *             .certificateName(exampleLbCertificate.name())
  *             .build());
  * 
- *         var testLbHttpsRedirectionPolicy = new LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy", LbHttpsRedirectionPolicyArgs.builder()
- *             .lbName(test.name())
+ *         var exampleLbHttpsRedirectionPolicy = new LbHttpsRedirectionPolicy("exampleLbHttpsRedirectionPolicy", LbHttpsRedirectionPolicyArgs.builder()
+ *             .lbName(example.name())
  *             .enabled(true)
  *             .build());
  * 
@@ -82,35 +84,35 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
  * 
  * ```sh
- * $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+ * $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
  * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")
 public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * @return Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
      * 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
     /**
-     * The name of the load balancer to which you want to enable http to https redirection.
+     * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
      * 
      */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
     /**
-     * @return The name of the load balancer to which you want to enable http to https redirection.
+     * @return Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
      * 
      */
     public Output<String> lbName() {

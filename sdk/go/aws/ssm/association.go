@@ -158,6 +158,241 @@ import (
 //
 // ```
 //
+// ### Create an association with multiple instances with their instance ids
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// First EC2 instance
+//			webServer1, err := ec2.NewInstance(ctx, "web_server_1", &ec2.InstanceArgs{
+//				Ami:          pulumi.Any(amazonLinux.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
+//				SubnetId:     pulumi.Any(public.Id),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					ec2Sg.Id,
+//				},
+//				IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
+//				UserData: pulumi.String(`#!/bin/bash
+//
+// yum update -y
+// yum install -y amazon-ssm-agent
+// systemctl enable amazon-ssm-agent
+// systemctl start amazon-ssm-agent
+// `),
+//
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	// Second EC2 instance
+//	webServer2, err := ec2.NewInstance(ctx, "web_server_2", &ec2.InstanceArgs{
+//		Ami:          pulumi.Any(amazonLinux.Id),
+//		InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
+//		SubnetId:     pulumi.Any(public.Id),
+//		VpcSecurityGroupIds: pulumi.StringArray{
+//			ec2Sg.Id,
+//		},
+//		IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
+//		UserData: pulumi.String(`#!/bin/bash
+//
+// yum update -y
+// yum install -y amazon-ssm-agent
+// systemctl enable amazon-ssm-agent
+// systemctl start amazon-ssm-agent
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: "\n",
+//				Input: []string{
+//					"#!/bin/bash",
+//					"echo 'Starting system update on $(hostname)'",
+//					"echo 'Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)'",
+//					"yum update -y",
+//					"echo 'System update completed successfully'",
+//					"systemctl status httpd",
+//					"df -h",
+//					"free -m",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Removed EC2 provisioning dependencies for brevity
+//			_, err = ssm.NewAssociation(ctx, "system_update", &ssm.AssociationArgs{
+//				Name: pulumi.String("AWS-RunShellScript"),
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							webServer1.ID(),
+//							webServer2.ID(),
+//						},
+//					},
+//				},
+//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
+//				Parameters: pulumi.StringMap{
+//					"commands":         pulumi.String(invokeJoin.Result),
+//					"workingDirectory": pulumi.String("/tmp"),
+//					"executionTimeout": pulumi.String("3600"),
+//				},
+//				AssociationName:    pulumi.String("weekly-system-update"),
+//				ComplianceSeverity: pulumi.String("MEDIUM"),
+//				MaxConcurrency:     pulumi.String("1"),
+//				MaxErrors:          pulumi.String("0"),
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("Weekly System Update"),
+//					"Environment": pulumi.String("demo"),
+//					"Purpose":     pulumi.String("maintenance"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Create an association with multiple instances with their values matching their tags
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// SSM Association for Webbased Servers
+//			_, err := ssm.NewAssociation(ctx, "database_association", &ssm.AssociationArgs{
+//				Name: pulumi.Any(systemUpdate.Name),
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("tag:Role"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("WebServer"),
+//							pulumi.String("Database"),
+//						},
+//					},
+//				},
+//				Parameters: pulumi.StringMap{
+//					"restartServices": pulumi.String("true"),
+//				},
+//				ScheduleExpression: pulumi.String("cron(0 3 ? * SUN *)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: fmt.Sprintf(`#!/bin/bash
+//
+// yum update -y
+// yum install -y amazon-ssm-agent
+// systemctl enable amazon-ssm-agent
+// systemctl start amazon-ssm-agent
+//
+// # Install Apache web server
+// yum install -y httpd
+// systemctl enable httpd
+// systemctl start httpd
+// echo "<h1>Web Server - %v</h1>" > /var/www/html/index.html
+// `, prefix),
+//
+//	}, nil)
+//	if err != nil {
+//		return err
+//	}
+//	// EC2 Instance 1 - Web Server with "ServerType" tag
+//	_, err = ec2.NewInstance(ctx, "web_server", &ec2.InstanceArgs{
+//		Ami:          pulumi.Any(amazonLinux.Id),
+//		InstanceType: ec2.InstanceType(instanceType),
+//		SubnetId:     pulumi.Any(_default.Id),
+//		VpcSecurityGroupIds: pulumi.StringArray{
+//			ec2Sg.Id,
+//		},
+//		IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
+//		UserData:           pulumi.String(invokeBase64encode.Result),
+//		Tags: pulumi.StringMap{
+//			"Name":        pulumi.Sprintf("%v-web-server", prefix),
+//			"ServerType":  pulumi.String("WebServer"),
+//			"Role":        pulumi.String("WebServer"),
+//			"Environment": pulumi.Any(environment),
+//			"Owner":       pulumi.Any(owner),
+//		},
+//	})
+//	if err != nil {
+//		return err
+//	}
+//	invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//		Input: `#!/bin/bash
+//
+// yum update -y
+// yum install -y amazon-ssm-agent
+// systemctl enable amazon-ssm-agent
+// systemctl start amazon-ssm-agent
+//
+// # Install MySQL
+// yum install -y mysql-server
+// systemctl enable mysqld
+// systemctl start mysqld
+// `,
+//
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// EC2 Instance 2 - Database Server with "Role" tag
+//			_, err = ec2.NewInstance(ctx, "database_server", &ec2.InstanceArgs{
+//				Ami:          pulumi.Any(amazonLinux.Id),
+//				InstanceType: ec2.InstanceType(instanceType),
+//				SubnetId:     pulumi.Any(_default.Id),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					ec2Sg.Id,
+//				},
+//				IamInstanceProfile: pulumi.Any(ec2SsmProfile.Name),
+//				UserData:           pulumi.String(invokeBase64encode1.Result),
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.Sprintf("%v-database-server", prefix),
+//					"Role":        pulumi.String("Database"),
+//					"Environment": pulumi.Any(environment),
+//					"Owner":       pulumi.Any(owner),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import SSM associations using the `association_id`. For example:

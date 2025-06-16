@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail
 {
     /// <summary>
-    /// Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
+    /// Manages HTTPS redirection for a Lightsail Load Balancer.
+    /// 
+    /// Use this resource to configure automatic redirection of HTTP traffic to HTTPS on a Lightsail Load Balancer. A valid certificate must be attached to the load balancer before enabling HTTPS redirection.
     /// 
     /// ## Example Usage
     /// 
@@ -22,9 +24,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Lb("test", new()
+    ///     var example = new Aws.LightSail.Lb("example", new()
     ///     {
-    ///         Name = "test-load-balancer",
+    ///         Name = "example-load-balancer",
     ///         HealthCheckPath = "/",
     ///         InstancePort = 80,
     ///         Tags = 
@@ -33,22 +35,22 @@ namespace Pulumi.Aws.LightSail
     ///         },
     ///     });
     /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("test", new()
+    ///     var exampleLbCertificate = new Aws.LightSail.LbCertificate("example", new()
     ///     {
-    ///         Name = "test-load-balancer-certificate",
-    ///         LbName = test.Id,
-    ///         DomainName = "test.com",
+    ///         Name = "example-load-balancer-certificate",
+    ///         LbName = example.Id,
+    ///         DomainName = "example.com",
     ///     });
     /// 
-    ///     var testLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("test", new()
+    ///     var exampleLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("example", new()
     ///     {
-    ///         LbName = test.Name,
-    ///         CertificateName = testLbCertificate.Name,
+    ///         LbName = example.Name,
+    ///         CertificateName = exampleLbCertificate.Name,
     ///     });
     /// 
-    ///     var testLbHttpsRedirectionPolicy = new Aws.LightSail.LbHttpsRedirectionPolicy("test", new()
+    ///     var exampleLbHttpsRedirectionPolicy = new Aws.LightSail.LbHttpsRedirectionPolicy("example", new()
     ///     {
-    ///         LbName = test.Name,
+    ///         LbName = example.Name,
     ///         Enabled = true,
     ///     });
     /// 
@@ -60,20 +62,20 @@ namespace Pulumi.Aws.LightSail
     /// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+    /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")]
     public partial class LbHttpsRedirectionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the load balancer to which you want to enable http to https redirection.
+        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
         /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
@@ -125,13 +127,13 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbHttpsRedirectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The name of the load balancer to which you want to enable http to https redirection.
+        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
         /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
@@ -145,13 +147,13 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbHttpsRedirectionPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The name of the load balancer to which you want to enable http to https redirection.
+        /// Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
         /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }

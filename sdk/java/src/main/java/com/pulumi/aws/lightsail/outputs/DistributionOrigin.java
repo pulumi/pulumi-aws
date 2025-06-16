@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOrigin {
     /**
-     * @return The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * @return Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
      * 
      */
     private String name;
     /**
-     * @return The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * @return Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     private @Nullable String protocolPolicy;
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return AWS Region name of the origin resource.
      * 
      */
     private String regionName;
     /**
-     * @return The resource type of the origin resource (e.g., Instance).
+     * @return Lightsail resource type (e.g., Distribution).
      * 
      */
     private @Nullable String resourceType;
 
     private DistributionOrigin() {}
     /**
-     * @return The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+     * @return Name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+     * @return Protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
     public Optional<String> protocolPolicy() {
         return Optional.ofNullable(this.protocolPolicy);
     }
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return AWS Region name of the origin resource.
      * 
      */
     public String regionName() {
         return this.regionName;
     }
     /**
-     * @return The resource type of the origin resource (e.g., Instance).
+     * @return Lightsail resource type (e.g., Distribution).
      * 
      */
     public Optional<String> resourceType() {

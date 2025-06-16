@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
+ * Manages a Lightsail Load Balancer Certificate attachment to a Lightsail Load Balancer.
+ *
+ * Use this resource to attach a validated SSL/TLS certificate to a Lightsail Load Balancer to enable HTTPS traffic. The certificate must be validated before it can be attached to the load balancer.
  *
  * ## Example Usage
  *
@@ -13,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Lb("test", {
- *     name: "test-load-balancer",
+ * const example = new aws.lightsail.Lb("example", {
+ *     name: "example-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("test", {
- *     name: "test-load-balancer-certificate",
- *     lbName: test.id,
- *     domainName: "test.com",
+ * const exampleLbCertificate = new aws.lightsail.LbCertificate("example", {
+ *     name: "example-load-balancer-certificate",
+ *     lbName: example.id,
+ *     domainName: "example.com",
  * });
- * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("test", {
- *     lbName: test.name,
- *     certificateName: testLbCertificate.name,
+ * const exampleLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("example", {
+ *     lbName: example.name,
+ *     certificateName: exampleLbCertificate.name,
  * });
  * ```
  *
@@ -37,7 +39,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
  *
  * ```sh
- * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+ * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
  * ```
  */
 export class LbCertificateAttachment extends pulumi.CustomResource {
@@ -69,11 +71,11 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The name of your SSL/TLS certificate.
+     * Name of your SSL/TLS certificate.
      */
     public readonly certificateName!: pulumi.Output<string>;
     /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     public readonly lbName!: pulumi.Output<string>;
 
@@ -113,11 +115,11 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
  */
 export interface LbCertificateAttachmentState {
     /**
-     * The name of your SSL/TLS certificate.
+     * Name of your SSL/TLS certificate.
      */
     certificateName?: pulumi.Input<string>;
     /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     lbName?: pulumi.Input<string>;
 }
@@ -127,11 +129,11 @@ export interface LbCertificateAttachmentState {
  */
 export interface LbCertificateAttachmentArgs {
     /**
-     * The name of your SSL/TLS certificate.
+     * Name of your SSL/TLS certificate.
      */
     certificateName: pulumi.Input<string>;
     /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
+     * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      */
     lbName: pulumi.Input<string>;
 }

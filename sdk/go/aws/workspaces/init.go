@@ -29,8 +29,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpGroup{}
 	case "aws:workspaces/webBrowserSettings:WebBrowserSettings":
 		r = &WebBrowserSettings{}
+	case "aws:workspaces/webDataProtectionSettings:WebDataProtectionSettings":
+		r = &WebDataProtectionSettings{}
+	case "aws:workspaces/webIpAccessSettings:WebIpAccessSettings":
+		r = &WebIpAccessSettings{}
 	case "aws:workspaces/webNetworkSettings:WebNetworkSettings":
 		r = &WebNetworkSettings{}
+	case "aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings":
+		r = &WebUserAccessLoggingSettings{}
 	case "aws:workspaces/webUserSettings:WebUserSettings":
 		r = &WebUserSettings{}
 	case "aws:workspaces/workspace:Workspace":
@@ -70,7 +76,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"workspaces/webDataProtectionSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspaces/webIpAccessSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"workspaces/webNetworkSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspaces/webUserAccessLoggingSettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

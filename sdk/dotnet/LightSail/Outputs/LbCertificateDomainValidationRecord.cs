@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class LbCertificateDomainValidationRecord
     {
         /// <summary>
-        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// Domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
         public readonly string? DomainName;
         public readonly string? ResourceRecordName;

@@ -28,7 +28,7 @@ public final class FunctionLoggingConfig {
      */
     private @Nullable String logGroup;
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
      * 
      */
     private @Nullable String systemLogLevel;
@@ -56,7 +56,7 @@ public final class FunctionLoggingConfig {
         return Optional.ofNullable(this.logGroup);
     }
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
      * 
      */
     public Optional<String> systemLogLevel() {

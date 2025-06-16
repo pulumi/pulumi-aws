@@ -804,20 +804,114 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Python Job
+        ### Python Glue Job
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        example = aws.glue.Job("example",
-            name="example",
+        # IAM role for Glue jobs
+        glue_job_role = aws.iam.Role("glue_job_role",
+            name="glue-job-role",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "glue.amazonaws.com",
+                    },
+                }],
+            }))
+        etl_job = aws.glue.Job("etl_job",
+            name="example-etl-job",
+            description="An example Glue ETL job",
+            role_arn=glue_job_role.arn,
             glue_version="5.0",
-            role_arn=example_aws_iam_role["arn"],
+            max_retries=0,
+            timeout=2880,
+            number_of_workers=2,
+            worker_type="G.1X",
+            connections=[example["name"]],
+            execution_class="STANDARD",
             command={
-                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
+                "name": "glueetl",
                 "python_version": "3",
+            },
+            notification_property={
+                "notify_delay_after": 3,
+            },
+            default_arguments={
+                "--job-language": "python",
+                "--continuous-log-logGroup": "/aws-glue/jobs",
+                "--enable-continuous-cloudwatch-log": "true",
+                "--enable-continuous-log-filter": "true",
+                "--enable-metrics": "",
+                "--enable-auto-scaling": "true",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
+            tags={
+                "ManagedBy": "AWS",
             })
+        glue_etl_script = aws.s3.BucketObjectv2("glue_etl_script",
+            bucket=glue_scripts["id"],
+            key="jobs/etl_job.py",
+            source=pulumi.FileAsset("jobs/etl_job.py"))
+        ```
+
+        ### Pythonshell Job
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        # IAM role for Glue jobs
+        glue_job_role = aws.iam.Role("glue_job_role",
+            name="glue-job-role",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "glue.amazonaws.com",
+                    },
+                }],
+            }))
+        python_shell_job = aws.glue.Job("python_shell_job",
+            name="example-python-shell-job",
+            description="An example Python shell job",
+            role_arn=glue_job_role.arn,
+            max_capacity=0.0625,
+            max_retries=0,
+            timeout=2880,
+            connections=[example["name"]],
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
+                "name": "pythonshell",
+                "python_version": "3.9",
+            },
+            default_arguments={
+                "--job-language": "python",
+                "--continuous-log-logGroup": "/aws-glue/jobs",
+                "--enable-continuous-cloudwatch-log": "true",
+                "library-set": "analytics",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
+            tags={
+                "ManagedBy": "AWS",
+            })
+        python_shell_script = aws.s3.BucketObjectv2("python_shell_script",
+            bucket=glue_scripts["id"],
+            key="jobs/shell_job.py",
+            source=pulumi.FileAsset("jobs/shell_job.py"))
         ```
 
         ### Ray Job
@@ -940,20 +1034,114 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Python Job
+        ### Python Glue Job
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        example = aws.glue.Job("example",
-            name="example",
+        # IAM role for Glue jobs
+        glue_job_role = aws.iam.Role("glue_job_role",
+            name="glue-job-role",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "glue.amazonaws.com",
+                    },
+                }],
+            }))
+        etl_job = aws.glue.Job("etl_job",
+            name="example-etl-job",
+            description="An example Glue ETL job",
+            role_arn=glue_job_role.arn,
             glue_version="5.0",
-            role_arn=example_aws_iam_role["arn"],
+            max_retries=0,
+            timeout=2880,
+            number_of_workers=2,
+            worker_type="G.1X",
+            connections=[example["name"]],
+            execution_class="STANDARD",
             command={
-                "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/etl_job.py",
+                "name": "glueetl",
                 "python_version": "3",
+            },
+            notification_property={
+                "notify_delay_after": 3,
+            },
+            default_arguments={
+                "--job-language": "python",
+                "--continuous-log-logGroup": "/aws-glue/jobs",
+                "--enable-continuous-cloudwatch-log": "true",
+                "--enable-continuous-log-filter": "true",
+                "--enable-metrics": "",
+                "--enable-auto-scaling": "true",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
+            tags={
+                "ManagedBy": "AWS",
             })
+        glue_etl_script = aws.s3.BucketObjectv2("glue_etl_script",
+            bucket=glue_scripts["id"],
+            key="jobs/etl_job.py",
+            source=pulumi.FileAsset("jobs/etl_job.py"))
+        ```
+
+        ### Pythonshell Job
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        # IAM role for Glue jobs
+        glue_job_role = aws.iam.Role("glue_job_role",
+            name="glue-job-role",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "glue.amazonaws.com",
+                    },
+                }],
+            }))
+        python_shell_job = aws.glue.Job("python_shell_job",
+            name="example-python-shell-job",
+            description="An example Python shell job",
+            role_arn=glue_job_role.arn,
+            max_capacity=0.0625,
+            max_retries=0,
+            timeout=2880,
+            connections=[example["name"]],
+            command={
+                "script_location": f"s3://{glue_scripts['bucket']}/jobs/shell_job.py",
+                "name": "pythonshell",
+                "python_version": "3.9",
+            },
+            default_arguments={
+                "--job-language": "python",
+                "--continuous-log-logGroup": "/aws-glue/jobs",
+                "--enable-continuous-cloudwatch-log": "true",
+                "library-set": "analytics",
+            },
+            execution_property={
+                "max_concurrent_runs": 1,
+            },
+            tags={
+                "ManagedBy": "AWS",
+            })
+        python_shell_script = aws.s3.BucketObjectv2("python_shell_script",
+            bucket=glue_scripts["id"],
+            key="jobs/shell_job.py",
+            source=pulumi.FileAsset("jobs/shell_job.py"))
         ```
 
         ### Ray Job
