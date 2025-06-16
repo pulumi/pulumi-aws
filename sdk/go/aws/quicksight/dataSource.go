@@ -196,7 +196,7 @@ import (
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
-//							Bucket: example.Arn,
+//							Bucket: example.Bucket,
 //							Key:    exampleBucketObjectv2.Key,
 //						},
 //						RoleArn: exampleRole.Arn,

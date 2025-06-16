@@ -54,6 +54,7 @@ func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...p
 type LookupAuthPolicyArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
@@ -86,6 +87,7 @@ func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs
 type LookupAuthPolicyOutputArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`

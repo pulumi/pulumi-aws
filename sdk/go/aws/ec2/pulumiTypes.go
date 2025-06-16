@@ -9648,6 +9648,8 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
+	// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The volume type.
@@ -9683,6 +9685,8 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The volume type.
@@ -9801,6 +9805,11 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOut
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
+}
+
 // The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -9897,6 +9906,16 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtr
 			return nil
 		}
 		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeInitializationRate
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -40505,14 +40524,15 @@ func (o GetLaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetLaunchTemplateBlockDeviceMappingEb struct {
-	DeleteOnTermination string `pulumi:"deleteOnTermination"`
-	Encrypted           string `pulumi:"encrypted"`
-	Iops                int    `pulumi:"iops"`
-	KmsKeyId            string `pulumi:"kmsKeyId"`
-	SnapshotId          string `pulumi:"snapshotId"`
-	Throughput          int    `pulumi:"throughput"`
-	VolumeSize          int    `pulumi:"volumeSize"`
-	VolumeType          string `pulumi:"volumeType"`
+	DeleteOnTermination      string `pulumi:"deleteOnTermination"`
+	Encrypted                string `pulumi:"encrypted"`
+	Iops                     int    `pulumi:"iops"`
+	KmsKeyId                 string `pulumi:"kmsKeyId"`
+	SnapshotId               string `pulumi:"snapshotId"`
+	Throughput               int    `pulumi:"throughput"`
+	VolumeInitializationRate int    `pulumi:"volumeInitializationRate"`
+	VolumeSize               int    `pulumi:"volumeSize"`
+	VolumeType               string `pulumi:"volumeType"`
 }
 
 // GetLaunchTemplateBlockDeviceMappingEbInput is an input type that accepts GetLaunchTemplateBlockDeviceMappingEbArgs and GetLaunchTemplateBlockDeviceMappingEbOutput values.
@@ -40527,14 +40547,15 @@ type GetLaunchTemplateBlockDeviceMappingEbInput interface {
 }
 
 type GetLaunchTemplateBlockDeviceMappingEbArgs struct {
-	DeleteOnTermination pulumi.StringInput `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.StringInput `pulumi:"encrypted"`
-	Iops                pulumi.IntInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringInput `pulumi:"volumeType"`
+	DeleteOnTermination      pulumi.StringInput `pulumi:"deleteOnTermination"`
+	Encrypted                pulumi.StringInput `pulumi:"encrypted"`
+	Iops                     pulumi.IntInput    `pulumi:"iops"`
+	KmsKeyId                 pulumi.StringInput `pulumi:"kmsKeyId"`
+	SnapshotId               pulumi.StringInput `pulumi:"snapshotId"`
+	Throughput               pulumi.IntInput    `pulumi:"throughput"`
+	VolumeInitializationRate pulumi.IntInput    `pulumi:"volumeInitializationRate"`
+	VolumeSize               pulumi.IntInput    `pulumi:"volumeSize"`
+	VolumeType               pulumi.StringInput `pulumi:"volumeType"`
 }
 
 func (GetLaunchTemplateBlockDeviceMappingEbArgs) ElementType() reflect.Type {
@@ -40610,6 +40631,10 @@ func (o GetLaunchTemplateBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringO
 
 func (o GetLaunchTemplateBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchTemplateBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateBlockDeviceMappingEbOutput) VolumeInitializationRate() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateBlockDeviceMappingEb) int { return v.VolumeInitializationRate }).(pulumi.IntOutput)
 }
 
 func (o GetLaunchTemplateBlockDeviceMappingEbOutput) VolumeSize() pulumi.IntOutput {

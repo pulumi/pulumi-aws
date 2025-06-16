@@ -46,24 +46,28 @@ import javax.annotation.Nullable;
  *         var test = new RegionSettings("test", RegionSettingsArgs.builder()
  *             .resourceTypeOptInPreference(Map.ofEntries(
  *                 Map.entry("Aurora", true),
+ *                 Map.entry("CloudFormation", true),
  *                 Map.entry("DocumentDB", true),
+ *                 Map.entry("DSQL", true),
  *                 Map.entry("DynamoDB", true),
  *                 Map.entry("EBS", true),
  *                 Map.entry("EC2", true),
  *                 Map.entry("EFS", true),
  *                 Map.entry("FSx", true),
  *                 Map.entry("Neptune", true),
- *                 Map.entry("RDS", true),
- *                 Map.entry("Storage Gateway", true),
- *                 Map.entry("VirtualMachine", true),
- *                 Map.entry("CloudFormation", true),
  *                 Map.entry("Redshift", true),
- *                 Map.entry("S3", true),
- *                 Map.entry("SAP HANA on Amazon EC2", true)
+ *                 Map.entry("Redshift Serverless", false),
+ *                 Map.entry("RDS", false),
+ *                 Map.entry("S3", false),
+ *                 Map.entry("SAP HANA on Amazon EC2", false),
+ *                 Map.entry("Storage Gateway", false),
+ *                 Map.entry("VirtualMachine", false)
  *             ))
  *             .resourceTypeManagementPreference(Map.ofEntries(
- *                 Map.entry("DynamoDB", true),
- *                 Map.entry("EFS", true)
+ *                 Map.entry("CloudFormation", true),
+ *                 Map.entry("DSQL", true),
+ *                 Map.entry("DynamoDB", false),
+ *                 Map.entry("EFS", false)
  *             ))
  *             .build());
  * 
@@ -99,28 +103,28 @@ public class RegionSettings extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+     * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+     * @return A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {
         return this.resourceTypeManagementPreference;
     }
     /**
-     * A map of services along with the opt-in preferences for the Region.
+     * A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     @Export(name="resourceTypeOptInPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
     /**
-     * @return A map of services along with the opt-in preferences for the Region.
+     * @return A map of service names to their opt-in preferences for the Region. See [AWS Documentation on which services support backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeOptInPreference() {

@@ -30,6 +30,9 @@ export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opt
  * A collection of arguments for invoking getServerlessVpcEndpoint.
  */
 export interface GetServerlessVpcEndpointArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * The unique identifier of the endpoint.
@@ -94,6 +97,9 @@ export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOut
  * A collection of arguments for invoking getServerlessVpcEndpoint.
  */
 export interface GetServerlessVpcEndpointOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * The unique identifier of the endpoint.

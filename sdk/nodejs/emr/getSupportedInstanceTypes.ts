@@ -56,6 +56,9 @@ export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, o
  * A collection of arguments for invoking getSupportedInstanceTypes.
  */
 export interface GetSupportedInstanceTypesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -124,6 +127,9 @@ export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesO
  * A collection of arguments for invoking getSupportedInstanceTypes.
  */
 export interface GetSupportedInstanceTypesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).

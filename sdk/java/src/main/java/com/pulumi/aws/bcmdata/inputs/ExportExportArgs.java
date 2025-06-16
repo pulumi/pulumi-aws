@@ -65,17 +65,9 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.destinationConfigurations);
     }
 
-    /**
-     * Amazon Resource Name (ARN) for this export.
-     * 
-     */
     @Import(name="exportArn")
     private @Nullable Output<String> exportArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * 
-     */
     public Optional<Output<String>> exportArn() {
         return Optional.ofNullable(this.exportArn);
     }
@@ -222,23 +214,11 @@ public final class ExportExportArgs extends com.pulumi.resources.ResourceArgs {
             return destinationConfigurations(List.of(destinationConfigurations));
         }
 
-        /**
-         * @param exportArn Amazon Resource Name (ARN) for this export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportArn(@Nullable Output<String> exportArn) {
             $.exportArn = exportArn;
             return this;
         }
 
-        /**
-         * @param exportArn Amazon Resource Name (ARN) for this export.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exportArn(String exportArn) {
             return exportArn(Output.of(exportArn));
         }

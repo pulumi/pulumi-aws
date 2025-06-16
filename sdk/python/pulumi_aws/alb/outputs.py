@@ -45,6 +45,7 @@ __all__ = [
     'LoadBalancerAccessLogs',
     'LoadBalancerConnectionLogs',
     'LoadBalancerIpamPools',
+    'LoadBalancerMinimumLoadBalancerCapacity',
     'LoadBalancerSubnetMapping',
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
@@ -1916,6 +1917,41 @@ class LoadBalancerIpamPools(dict):
         The ID of the IPv4 IPAM pool.
         """
         return pulumi.get(self, "ipv4_ipam_pool_id")
+
+
+@pulumi.output_type
+class LoadBalancerMinimumLoadBalancerCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityUnits":
+            suggest = "capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerMinimumLoadBalancerCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerMinimumLoadBalancerCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerMinimumLoadBalancerCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_units: builtins.int):
+        """
+        :param builtins.int capacity_units: The number of capacity units.
+        """
+        pulumi.set(__self__, "capacity_units", capacity_units)
+
+    @property
+    @pulumi.getter(name="capacityUnits")
+    def capacity_units(self) -> builtins.int:
+        """
+        The number of capacity units.
+        """
+        return pulumi.get(self, "capacity_units")
 
 
 @pulumi.output_type

@@ -54,7 +54,8 @@ func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAcc
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyArgs struct {
 	// Name of the policy.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	Type string `pulumi:"type"`
@@ -86,7 +87,8 @@ func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerle
 // A collection of arguments for invoking getServerlessAccessPolicy.
 type LookupServerlessAccessPolicyOutputArgs struct {
 	// Name of the policy.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of access policy. Must be `data`.
 	Type pulumi.StringInput `pulumi:"type"`

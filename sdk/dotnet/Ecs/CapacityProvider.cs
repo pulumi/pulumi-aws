@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.AutoScaling.Group("test", new()
+    ///     var example = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         Tags = new[]
     ///         {
@@ -37,12 +37,12 @@ namespace Pulumi.Aws.Ecs
     ///         },
     ///     });
     /// 
-    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("test", new()
+    ///     var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("example", new()
     ///     {
-    ///         Name = "test",
+    ///         Name = "example",
     ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///         {
-    ///             AutoScalingGroupArn = test.Arn,
+    ///             AutoScalingGroupArn = example.Arn,
     ///             ManagedTerminationProtection = "ENABLED",
     ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///             {
@@ -59,10 +59,10 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+    /// Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]

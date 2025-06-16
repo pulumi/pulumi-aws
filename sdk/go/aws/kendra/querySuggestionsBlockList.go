@@ -70,8 +70,7 @@ type QuerySuggestionsBlockList struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringOutput `pulumi:"querySuggestionsBlockListId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringOutput `pulumi:"region"`
+	Region                      pulumi.StringOutput `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// S3 path where your block list text file is located. See details below.
@@ -130,8 +129,7 @@ type querySuggestionsBlockListState struct {
 	Name *string `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId *string `pulumi:"querySuggestionsBlockListId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region *string `pulumi:"region"`
+	Region                      *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// S3 path where your block list text file is located. See details below.
@@ -152,8 +150,7 @@ type QuerySuggestionsBlockListState struct {
 	Name pulumi.StringPtrInput
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-	Region pulumi.StringPtrInput
+	Region                      pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringPtrInput
 	// S3 path where your block list text file is located. See details below.
@@ -173,8 +170,7 @@ type querySuggestionsBlockListArgs struct {
 	// Identifier of the index for a block list.
 	IndexId string `pulumi:"indexId"`
 	// Name for the block list.
-	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn string `pulumi:"roleArn"`
@@ -189,8 +185,7 @@ type QuerySuggestionsBlockListArgs struct {
 	// Identifier of the index for a block list.
 	IndexId pulumi.StringInput
 	// Name for the block list.
-	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringInput
@@ -310,7 +305,6 @@ func (o QuerySuggestionsBlockListOutput) QuerySuggestionsBlockListId() pulumi.St
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 func (o QuerySuggestionsBlockListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

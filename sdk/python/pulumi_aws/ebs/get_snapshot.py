@@ -318,9 +318,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-snapshots in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -394,9 +392,7 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-snapshots in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

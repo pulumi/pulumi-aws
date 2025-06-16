@@ -136,6 +136,7 @@ def get_contact(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
@@ -173,6 +174,7 @@ def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()

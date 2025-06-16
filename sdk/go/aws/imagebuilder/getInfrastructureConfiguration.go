@@ -51,7 +51,8 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationArgs struct {
 	// ARN of the infrastructure configuration.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -110,7 +111,8 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 // A collection of arguments for invoking getInfrastructureConfiguration.
 type LookupInfrastructureConfigurationOutputArgs struct {
 	// ARN of the infrastructure configuration.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`

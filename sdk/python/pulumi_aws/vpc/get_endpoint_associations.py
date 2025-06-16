@@ -99,6 +99,7 @@ def get_endpoint_associations(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
     __args__ = dict()
@@ -130,6 +131,7 @@ def get_endpoint_associations_output(region: Optional[pulumi.Input[Optional[buil
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: ID of the specific VPC Endpoint to retrieve.
     """
     __args__ = dict()

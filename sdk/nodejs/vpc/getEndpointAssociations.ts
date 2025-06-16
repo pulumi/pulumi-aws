@@ -35,6 +35,9 @@ export function getEndpointAssociations(args: GetEndpointAssociationsArgs, opts?
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID of the specific VPC Endpoint to retrieve.
@@ -85,6 +88,9 @@ export function getEndpointAssociationsOutput(args: GetEndpointAssociationsOutpu
  * A collection of arguments for invoking getEndpointAssociations.
  */
 export interface GetEndpointAssociationsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID of the specific VPC Endpoint to retrieve.

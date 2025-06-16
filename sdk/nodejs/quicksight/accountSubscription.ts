@@ -68,7 +68,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly activeDirectoryName!: pulumi.Output<string | undefined>;
     /**
-     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
     public readonly adminGroups!: pulumi.Output<string[] | undefined>;
     /**
@@ -76,7 +76,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly authenticationMethod!: pulumi.Output<string>;
     /**
-     * Author group associated with your Active Directory.
+     * Author group associated with your Active Directory or IAM Identity Center account.
      */
     public readonly authorGroups!: pulumi.Output<string[] | undefined>;
     /**
@@ -118,7 +118,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly notificationEmail!: pulumi.Output<string>;
     /**
-     * Reader group associated with your Active Directory.
+     * Reader group associated with your Active Directory or IAM Identity Center account.
      */
     public readonly readerGroups!: pulumi.Output<string[] | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface AccountSubscriptionState {
      */
     activeDirectoryName?: pulumi.Input<string>;
     /**
-     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
     adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -224,7 +224,7 @@ export interface AccountSubscriptionState {
      */
     authenticationMethod?: pulumi.Input<string>;
     /**
-     * Author group associated with your Active Directory.
+     * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -266,7 +266,7 @@ export interface AccountSubscriptionState {
      */
     notificationEmail?: pulumi.Input<string>;
     /**
-     * Reader group associated with your Active Directory.
+     * Reader group associated with your Active Directory or IAM Identity Center account.
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -292,7 +292,7 @@ export interface AccountSubscriptionArgs {
      */
     activeDirectoryName?: pulumi.Input<string>;
     /**
-     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
     adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -300,7 +300,7 @@ export interface AccountSubscriptionArgs {
      */
     authenticationMethod: pulumi.Input<string>;
     /**
-     * Author group associated with your Active Directory.
+     * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -342,7 +342,7 @@ export interface AccountSubscriptionArgs {
      */
     notificationEmail: pulumi.Input<string>;
     /**
-     * Reader group associated with your Active Directory.
+     * Reader group associated with your Active Directory or IAM Identity Center account.
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

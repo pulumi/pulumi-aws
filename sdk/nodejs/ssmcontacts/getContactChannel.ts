@@ -39,6 +39,9 @@ export interface GetContactChannelArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
 }
 
@@ -105,5 +108,8 @@ export interface GetContactChannelOutputArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
 }

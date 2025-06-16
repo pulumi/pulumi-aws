@@ -46,11 +46,12 @@ export interface GetPermissionSetArgs {
     instanceArn: string;
     /**
      * Name of the SSO Permission Set.
+     *
+     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     name?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     region?: string;
     /**
@@ -131,11 +132,12 @@ export interface GetPermissionSetOutputArgs {
     instanceArn: pulumi.Input<string>;
     /**
      * Name of the SSO Permission Set.
+     *
+     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     name?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     region?: pulumi.Input<string>;
     /**

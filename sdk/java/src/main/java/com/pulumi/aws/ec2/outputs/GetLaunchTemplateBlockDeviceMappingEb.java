@@ -17,6 +17,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     private String kmsKeyId;
     private String snapshotId;
     private Integer throughput;
+    private Integer volumeInitializationRate;
     private Integer volumeSize;
     private String volumeType;
 
@@ -38,6 +39,9 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     }
     public Integer throughput() {
         return this.throughput;
+    }
+    public Integer volumeInitializationRate() {
+        return this.volumeInitializationRate;
     }
     public Integer volumeSize() {
         return this.volumeSize;
@@ -61,6 +65,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
         private String kmsKeyId;
         private String snapshotId;
         private Integer throughput;
+        private Integer volumeInitializationRate;
         private Integer volumeSize;
         private String volumeType;
         public Builder() {}
@@ -72,6 +77,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.snapshotId = defaults.snapshotId;
     	      this.throughput = defaults.throughput;
+    	      this.volumeInitializationRate = defaults.volumeInitializationRate;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -125,6 +131,14 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
             return this;
         }
         @CustomType.Setter
+        public Builder volumeInitializationRate(Integer volumeInitializationRate) {
+            if (volumeInitializationRate == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMappingEb", "volumeInitializationRate");
+            }
+            this.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
             if (volumeSize == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMappingEb", "volumeSize");
@@ -148,6 +162,7 @@ public final class GetLaunchTemplateBlockDeviceMappingEb {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.snapshotId = snapshotId;
             _resultValue.throughput = throughput;
+            _resultValue.volumeInitializationRate = volumeInitializationRate;
             _resultValue.volumeSize = volumeSize;
             _resultValue.volumeType = volumeType;
             return _resultValue;

@@ -25,9 +25,6 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExportExportDestinationConfiguration> DestinationConfigurations;
-        /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// </summary>
         public readonly string? ExportArn;
         /// <summary>
         /// Name of this specific data export.

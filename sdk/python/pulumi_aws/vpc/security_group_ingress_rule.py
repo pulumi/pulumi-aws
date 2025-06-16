@@ -42,9 +42,10 @@ class SecurityGroupIngressRuleArgs:
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the source prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The source security group that is referenced in the rule.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+               
+               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         pulumi.set(__self__, "ip_protocol", ip_protocol)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -168,7 +169,6 @@ class SecurityGroupIngressRuleArgs:
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "region")
 
@@ -193,6 +193,8 @@ class SecurityGroupIngressRuleArgs:
     def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+
+        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "to_port")
 
@@ -229,12 +231,13 @@ class _SecurityGroupIngressRuleState:
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the source prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The source security group that is referenced in the rule.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[builtins.str] security_group_rule_id: The ID of the security group rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+               
+               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -366,7 +369,6 @@ class _SecurityGroupIngressRuleState:
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "region")
 
@@ -427,6 +429,8 @@ class _SecurityGroupIngressRuleState:
     def to_port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+
+        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "to_port")
 
@@ -501,10 +505,11 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the source prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The source security group that is referenced in the rule.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+               
+               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         ...
     @overload
@@ -643,12 +648,13 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] prefix_list_id: The ID of the source prefix list.
         :param pulumi.Input[builtins.str] referenced_security_group_id: The source security group that is referenced in the rule.
         :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[builtins.str] security_group_rule_id: The ID of the security group rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+               
+               > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -739,7 +745,6 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     def region(self) -> pulumi.Output[builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "region")
 
@@ -780,6 +785,8 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     def to_port(self) -> pulumi.Output[Optional[builtins.int]]:
         """
         The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+
+        > **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         """
         return pulumi.get(self, "to_port")
 

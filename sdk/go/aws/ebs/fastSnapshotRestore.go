@@ -55,7 +55,7 @@ type FastSnapshotRestore struct {
 
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
@@ -102,7 +102,7 @@ func GetFastSnapshotRestore(ctx *pulumi.Context,
 type fastSnapshotRestoreState struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -114,7 +114,7 @@ type fastSnapshotRestoreState struct {
 type FastSnapshotRestoreState struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput
@@ -130,7 +130,7 @@ func (FastSnapshotRestoreState) ElementType() reflect.Type {
 type fastSnapshotRestoreArgs struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId string                       `pulumi:"snapshotId"`
@@ -141,7 +141,7 @@ type fastSnapshotRestoreArgs struct {
 type FastSnapshotRestoreArgs struct {
 	// Availability zone in which to enable fast snapshot restores.
 	AvailabilityZone pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the snapshot.
 	SnapshotId pulumi.StringInput
@@ -240,7 +240,7 @@ func (o FastSnapshotRestoreOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o FastSnapshotRestoreOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastSnapshotRestore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

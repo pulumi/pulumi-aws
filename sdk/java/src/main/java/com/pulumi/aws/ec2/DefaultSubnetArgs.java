@@ -126,19 +126,9 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.privateDnsHostnameTypeOnLaunch);
     }
 
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -327,25 +317,11 @@ public final class DefaultSubnetArgs extends com.pulumi.resources.ResourceArgs {
             return privateDnsHostnameTypeOnLaunch(Output.of(privateDnsHostnameTypeOnLaunch));
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

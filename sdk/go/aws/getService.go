@@ -112,7 +112,7 @@ type GetServiceArgs struct {
 	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	DnsName *string `pulumi:"dnsName"`
 	Id      *string `pulumi:"id"`
-	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	ReverseDnsName *string `pulumi:"reverseDnsName"`
@@ -149,7 +149,7 @@ type GetServiceOutputArgs struct {
 	// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	Id      pulumi.StringPtrInput `pulumi:"id"`
-	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+	// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
 	ReverseDnsName pulumi.StringPtrInput `pulumi:"reverseDnsName"`

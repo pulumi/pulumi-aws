@@ -65,8 +65,7 @@ type Thesaurus struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -125,8 +124,7 @@ type thesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId *string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
@@ -147,8 +145,7 @@ type ThesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringPtrInput
 	// The name for the thesaurus.
-	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
@@ -171,8 +168,7 @@ type thesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name *string `pulumi:"name"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   *string `pulumi:"name"`
 	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
@@ -187,8 +183,7 @@ type ThesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringInput
 	// The name for the thesaurus.
-	Name pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Name   pulumi.StringPtrInput
 	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
@@ -303,7 +298,6 @@ func (o ThesaurusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 func (o ThesaurusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

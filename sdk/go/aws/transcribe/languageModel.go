@@ -149,7 +149,7 @@ type LanguageModel struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The model name.
 	ModelName pulumi.StringOutput `pulumi:"modelName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -207,7 +207,7 @@ type languageModelState struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// The model name.
 	ModelName *string `pulumi:"modelName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -224,7 +224,7 @@ type LanguageModelState struct {
 	LanguageCode pulumi.StringPtrInput
 	// The model name.
 	ModelName pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -243,7 +243,7 @@ type languageModelArgs struct {
 	LanguageCode string `pulumi:"languageCode"`
 	// The model name.
 	ModelName string `pulumi:"modelName"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -258,7 +258,7 @@ type LanguageModelArgs struct {
 	LanguageCode pulumi.StringInput
 	// The model name.
 	ModelName pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 }
@@ -375,7 +375,7 @@ func (o LanguageModelOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LanguageModelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -57,8 +57,9 @@ func GetPermissionSets(ctx *pulumi.Context, args *GetPermissionSetsArgs, opts ..
 // A collection of arguments for invoking getPermissionSets.
 type GetPermissionSetsArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
-	InstanceArn string  `pulumi:"instanceArn"`
-	Region      *string `pulumi:"region"`
+	InstanceArn string `pulumi:"instanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPermissionSets.
@@ -82,8 +83,9 @@ func GetPermissionSetsOutput(ctx *pulumi.Context, args GetPermissionSetsOutputAr
 // A collection of arguments for invoking getPermissionSets.
 type GetPermissionSetsOutputArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
-	InstanceArn pulumi.StringInput    `pulumi:"instanceArn"`
-	Region      pulumi.StringPtrInput `pulumi:"region"`
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPermissionSetsOutputArgs) ElementType() reflect.Type {

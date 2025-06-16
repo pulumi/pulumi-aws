@@ -2014,6 +2014,10 @@ if not MYPY:
         """
         Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         """
+        volume_initialization_rate: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        """
         volume_type: NotRequired[pulumi.Input[builtins.str]]
         """
         Volume type.
@@ -2033,6 +2037,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] role_arn: Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
@@ -2044,6 +2049,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
         :param pulumi.Input[builtins.str] snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]] tag_specifications: The tags to apply to the volume. See below.
         :param pulumi.Input[builtins.int] throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[builtins.int] volume_initialization_rate: Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
         :param pulumi.Input[builtins.str] volume_type: Volume type.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2063,6 +2069,8 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -2173,6 +2181,18 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
 
     @property
     @pulumi.getter(name="volumeType")

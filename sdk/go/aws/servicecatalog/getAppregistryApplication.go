@@ -53,7 +53,8 @@ func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryAp
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationArgs struct {
 	// Application identifier.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -85,7 +86,8 @@ func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregis
 // A collection of arguments for invoking getAppregistryApplication.
 type LookupAppregistryApplicationOutputArgs struct {
 	// Application identifier.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

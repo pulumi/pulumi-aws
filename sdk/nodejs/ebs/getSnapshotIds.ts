@@ -48,9 +48,7 @@ export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOp
  */
 export interface GetSnapshotIdsArgs {
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
      */
     filters?: inputs.ebs.GetSnapshotIdsFilter[];
     /**
@@ -125,9 +123,7 @@ export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pul
  */
 export interface GetSnapshotIdsOutputArgs {
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotIdsFilterArgs>[]>;
     /**

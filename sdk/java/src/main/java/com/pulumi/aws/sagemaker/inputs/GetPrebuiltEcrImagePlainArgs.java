@@ -46,14 +46,14 @@ public final class GetPrebuiltEcrImagePlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * @return Region to use in the registry path. Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {
@@ -125,7 +125,7 @@ public final class GetPrebuiltEcrImagePlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param region Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+         * @param region Region to use in the registry path. Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

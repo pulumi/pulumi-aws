@@ -15,14 +15,14 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
     public static final ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs Empty = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs();
 
     /**
-     * The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+     * The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
      * 
      */
     @Import(name="idleTtl", required=true)
     private Output<Integer> idleTtl;
 
     /**
-     * @return The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+     * @return The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
      * 
      */
     public Output<Integer> idleTtl() {
@@ -30,14 +30,14 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
     }
 
     /**
-     * The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+     * The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
      * 
      */
     @Import(name="maximumTtl", required=true)
     private Output<Integer> maximumTtl;
 
     /**
-     * @return The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+     * @return The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
      * 
      */
     public Output<Integer> maximumTtl() {
@@ -70,7 +70,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
         }
 
         /**
-         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
         }
 
         /**
-         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+         * @param idleTtl The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
         }
 
         /**
-         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
         }
 
         /**
-         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+         * @param maximumTtl The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
          * 
          * @return builder
          * 

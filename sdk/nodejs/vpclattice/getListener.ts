@@ -39,6 +39,9 @@ export interface GetListenerArgs {
      * ID or Amazon Resource Name (ARN) of the listener
      */
     listenerIdentifier: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * ID or Amazon Resource Name (ARN) of the service network
@@ -138,6 +141,9 @@ export interface GetListenerOutputArgs {
      * ID or Amazon Resource Name (ARN) of the listener
      */
     listenerIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * ID or Amazon Resource Name (ARN) of the service network

@@ -64,8 +64,7 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
  */
 export interface GetServiceAccountArgs {
     /**
-     * Name of the region whose AWS CloudTrail account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -75,7 +74,7 @@ export interface GetServiceAccountArgs {
  */
 export interface GetServiceAccountResult {
     /**
-     * ARN of the AWS CloudTrail service account in the selected region.
+     * ARN of the AWS CloudTrail service account in the selected Region.
      */
     readonly arn: string;
     /**
@@ -144,8 +143,7 @@ export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts
  */
 export interface GetServiceAccountOutputArgs {
     /**
-     * Name of the region whose AWS CloudTrail account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

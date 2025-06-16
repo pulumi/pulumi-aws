@@ -81,7 +81,7 @@ type AppregistryAttributeGroupAssociation struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringOutput `pulumi:"attributeGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -125,7 +125,7 @@ type appregistryAttributeGroupAssociationState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId *string `pulumi:"attributeGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -134,7 +134,7 @@ type AppregistryAttributeGroupAssociationState struct {
 	ApplicationId pulumi.StringPtrInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -147,7 +147,7 @@ type appregistryAttributeGroupAssociationArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId string `pulumi:"attributeGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -157,7 +157,7 @@ type AppregistryAttributeGroupAssociationArgs struct {
 	ApplicationId pulumi.StringInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -258,7 +258,7 @@ func (o AppregistryAttributeGroupAssociationOutput) AttributeGroupId() pulumi.St
 	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroupId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AppregistryAttributeGroupAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

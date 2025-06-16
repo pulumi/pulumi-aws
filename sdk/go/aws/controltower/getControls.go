@@ -24,6 +24,7 @@ func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getControls.
 type GetControlsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier string `pulumi:"targetIdentifier"`
@@ -50,6 +51,7 @@ func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...
 
 // A collection of arguments for invoking getControls.
 type GetControlsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier pulumi.StringInput `pulumi:"targetIdentifier"`

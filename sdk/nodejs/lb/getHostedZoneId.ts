@@ -44,8 +44,7 @@ export interface GetHostedZoneIdArgs {
      */
     loadBalancerType?: string;
     /**
-     * Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -101,8 +100,7 @@ export interface GetHostedZoneIdOutputArgs {
      */
     loadBalancerType?: pulumi.Input<string>;
     /**
-     * Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

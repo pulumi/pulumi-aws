@@ -85,9 +85,6 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * Unique identifier of the block list.
      */
     public /*out*/ readonly querySuggestionsBlockListId!: pulumi.Output<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     public readonly region!: pulumi.Output<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -177,9 +174,6 @@ export interface QuerySuggestionsBlockListState {
      * Unique identifier of the block list.
      */
     querySuggestionsBlockListId?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -210,9 +204,6 @@ export interface QuerySuggestionsBlockListArgs {
      * Name for the block list.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
-     */
     region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.

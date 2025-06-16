@@ -30,7 +30,7 @@ class EnablerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "resource_types", resource_types)
@@ -68,7 +68,7 @@ class EnablerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -87,7 +87,7 @@ class _EnablerState:
         Input properties used for looking up and filtering Enabler resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
@@ -116,7 +116,7 @@ class _EnablerState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -186,7 +186,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
@@ -286,7 +286,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Type of resources to scan.
                Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
@@ -313,7 +313,7 @@ class Enabler(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

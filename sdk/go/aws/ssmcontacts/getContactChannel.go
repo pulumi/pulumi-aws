@@ -53,7 +53,8 @@ func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, o
 // A collection of arguments for invoking getContactChannel.
 type LookupContactChannelArgs struct {
 	// Amazon Resource Name (ARN) of the contact channel.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -87,7 +88,8 @@ func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOu
 // A collection of arguments for invoking getContactChannel.
 type LookupContactChannelOutputArgs struct {
 	// Amazon Resource Name (ARN) of the contact channel.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

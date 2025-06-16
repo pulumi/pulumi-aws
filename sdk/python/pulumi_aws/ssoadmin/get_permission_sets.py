@@ -97,6 +97,7 @@ def get_permission_sets(instance_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
@@ -129,6 +130,7 @@ def get_permission_sets_output(instance_arn: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn

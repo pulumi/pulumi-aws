@@ -616,8 +616,8 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
                  idle_ttl: builtins.int,
                  maximum_ttl: builtins.int):
         """
-        :param builtins.int idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
-        :param builtins.int maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        :param builtins.int idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        :param builtins.int maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         """
         pulumi.set(__self__, "idle_ttl", idle_ttl)
         pulumi.set(__self__, "maximum_ttl", maximum_ttl)
@@ -626,7 +626,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
     @pulumi.getter(name="idleTtl")
     def idle_ttl(self) -> builtins.int:
         """
-        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
         """
         return pulumi.get(self, "idle_ttl")
 
@@ -634,7 +634,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
     @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> builtins.int:
         """
-        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         """
         return pulumi.get(self, "maximum_ttl")
 

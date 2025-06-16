@@ -42,6 +42,9 @@ export interface GetGeofenceCollectionArgs {
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Key-value map of resource tags for the geofence collection.
@@ -122,6 +125,9 @@ export interface GetGeofenceCollectionOutputArgs {
      * Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the geofence collection.

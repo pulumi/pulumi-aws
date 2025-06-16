@@ -82,11 +82,12 @@ export class Hsm extends pulumi.CustomResource {
     public /*out*/ readonly hsmState!: pulumi.Output<string>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
+     *
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -160,11 +161,12 @@ export interface HsmState {
     hsmState?: pulumi.Input<string>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
+     *
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     ipAddress?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     region?: pulumi.Input<string>;
     /**
@@ -187,11 +189,12 @@ export interface HsmArgs {
     clusterId: pulumi.Input<string>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
+     *
+     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     ipAddress?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
     region?: pulumi.Input<string>;
     /**

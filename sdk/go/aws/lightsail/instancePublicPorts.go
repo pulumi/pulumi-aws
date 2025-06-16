@@ -66,7 +66,7 @@ type InstancePublicPorts struct {
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
 	PortInfos InstancePublicPortsPortInfoArrayOutput `pulumi:"portInfos"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -110,7 +110,7 @@ type instancePublicPortsState struct {
 	InstanceName *string `pulumi:"instanceName"`
 	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -119,7 +119,7 @@ type InstancePublicPortsState struct {
 	InstanceName pulumi.StringPtrInput
 	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
 	PortInfos InstancePublicPortsPortInfoArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -132,7 +132,7 @@ type instancePublicPortsArgs struct {
 	InstanceName string `pulumi:"instanceName"`
 	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
 	PortInfos []InstancePublicPortsPortInfo `pulumi:"portInfos"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -142,7 +142,7 @@ type InstancePublicPortsArgs struct {
 	InstanceName pulumi.StringInput
 	// Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
 	PortInfos InstancePublicPortsPortInfoArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -243,7 +243,7 @@ func (o InstancePublicPortsOutput) PortInfos() InstancePublicPortsPortInfoArrayO
 	return o.ApplyT(func(v *InstancePublicPorts) InstancePublicPortsPortInfoArrayOutput { return v.PortInfos }).(InstancePublicPortsPortInfoArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o InstancePublicPortsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstancePublicPorts) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

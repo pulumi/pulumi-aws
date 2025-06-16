@@ -109,8 +109,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("cacheAttributes")]
         public Output<Outputs.SmbFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
@@ -231,6 +229,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -337,8 +337,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
@@ -456,6 +454,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -533,8 +533,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }
@@ -664,6 +662,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {

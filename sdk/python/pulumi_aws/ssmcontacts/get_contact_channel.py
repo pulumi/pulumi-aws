@@ -148,6 +148,7 @@ def get_contact_channel(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -183,6 +184,7 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

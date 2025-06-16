@@ -29,7 +29,7 @@ export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetHostedZoneArgs {
     /**
-     * Region you'd like the zone for. By default, fetches the current region.
+     * Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -42,9 +42,6 @@ export interface GetHostedZoneResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Region of the hosted zone.
-     */
     readonly region: string;
 }
 /**
@@ -72,7 +69,7 @@ export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulum
  */
 export interface GetHostedZoneOutputArgs {
     /**
-     * Region you'd like the zone for. By default, fetches the current region.
+     * Name of the Region whose hosted zone is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

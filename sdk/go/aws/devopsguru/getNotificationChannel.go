@@ -55,7 +55,8 @@ type LookupNotificationChannelArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters []GetNotificationChannelFilter `pulumi:"filters"`
 	// Unique identifier for the notification channel.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` attribute reference below.
 	Sns []GetNotificationChannelSn `pulumi:"sns"`
@@ -85,7 +86,8 @@ type LookupNotificationChannelOutputArgs struct {
 	// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
 	Filters GetNotificationChannelFilterArrayInput `pulumi:"filters"`
 	// Unique identifier for the notification channel.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// SNS noficiation channel configurations. See the `sns` attribute reference below.
 	Sns GetNotificationChannelSnArrayInput `pulumi:"sns"`

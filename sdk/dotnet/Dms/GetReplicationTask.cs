@@ -93,16 +93,14 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationTaskArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
         /// <summary>
         /// The replication task identifier.
-        /// 
-        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
-        /// - First character must be a letter.
-        /// - Cannot end with a hyphen.
-        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId", required: true)]
         public string ReplicationTaskId { get; set; } = null!;
@@ -123,16 +121,14 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationTaskInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The replication task identifier.
-        /// 
-        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
-        /// - First character must be a letter.
-        /// - Cannot end with a hyphen.
-        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId", required: true)]
         public Input<string> ReplicationTaskId { get; set; } = null!;

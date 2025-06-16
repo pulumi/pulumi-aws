@@ -31,7 +31,7 @@ class ServiceIntegrationArgs:
         :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if kms_server_side_encryption is not None:
             pulumi.set(__self__, "kms_server_side_encryption", kms_server_side_encryption)
@@ -82,7 +82,7 @@ class ServiceIntegrationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -103,7 +103,7 @@ class _ServiceIntegrationState:
         :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if kms_server_side_encryption is not None:
             pulumi.set(__self__, "kms_server_side_encryption", kms_server_side_encryption)
@@ -154,7 +154,7 @@ class _ServiceIntegrationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -219,7 +219,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+        Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
 
         ```sh
         $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -230,7 +230,7 @@ class ServiceIntegration(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict']] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input[Union['ServiceIntegrationLogsAnomalyDetectionArgs', 'ServiceIntegrationLogsAnomalyDetectionArgsDict']] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input[Union['ServiceIntegrationOpsCenterArgs', 'ServiceIntegrationOpsCenterArgsDict']] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -283,7 +283,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+        Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
 
         ```sh
         $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -345,7 +345,7 @@ class ServiceIntegration(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict']] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input[Union['ServiceIntegrationLogsAnomalyDetectionArgs', 'ServiceIntegrationLogsAnomalyDetectionArgsDict']] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input[Union['ServiceIntegrationOpsCenterArgs', 'ServiceIntegrationOpsCenterArgsDict']] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -385,7 +385,7 @@ class ServiceIntegration(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

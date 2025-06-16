@@ -48,7 +48,7 @@ type OptIn struct {
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayOutput `pulumi:"principals"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayOutput `pulumi:"resourceDatas"`
@@ -91,7 +91,7 @@ type optInState struct {
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals []OptInPrincipal `pulumi:"principals"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
@@ -105,7 +105,7 @@ type OptInState struct {
 	LastUpdatedBy pulumi.StringPtrInput
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayInput
@@ -120,7 +120,7 @@ type optInArgs struct {
 	Conditions []OptInCondition `pulumi:"conditions"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals []OptInPrincipal `pulumi:"principals"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
@@ -132,7 +132,7 @@ type OptInArgs struct {
 	Conditions OptInConditionArrayInput
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayInput
@@ -244,7 +244,7 @@ func (o OptInOutput) Principals() OptInPrincipalArrayOutput {
 	return o.ApplyT(func(v *OptIn) OptInPrincipalArrayOutput { return v.Principals }).(OptInPrincipalArrayOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o OptInOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptIn) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

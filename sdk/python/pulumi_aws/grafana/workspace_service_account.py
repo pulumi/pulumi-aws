@@ -29,7 +29,7 @@ class WorkspaceServiceAccountArgs:
         :param pulumi.Input[builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
         :param pulumi.Input[builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "grafana_role", grafana_role)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -78,7 +78,7 @@ class WorkspaceServiceAccountArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -99,7 +99,7 @@ class _WorkspaceServiceAccountState:
         Input properties used for looking up and filtering WorkspaceServiceAccount resources.
         :param pulumi.Input[builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_account_id: Identifier of the service account in the given Grafana workspace
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
         """
@@ -142,7 +142,7 @@ class _WorkspaceServiceAccountState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -213,7 +213,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
         """
         ...
@@ -306,7 +306,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_account_id: Identifier of the service account in the given Grafana workspace
         :param pulumi.Input[builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
         """
@@ -341,7 +341,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

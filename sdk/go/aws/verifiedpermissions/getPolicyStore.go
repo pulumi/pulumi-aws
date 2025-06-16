@@ -53,7 +53,8 @@ func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ..
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreArgs struct {
 	// The ID of the Policy Store.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -68,6 +69,8 @@ type LookupPolicyStoreResult struct {
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	Region          string `pulumi:"region"`
+	// Map of key-value pairs associated with the policy store.
+	Tags map[string]string `pulumi:"tags"`
 	// Validation settings for the policy store.
 	ValidationSettings []GetPolicyStoreValidationSetting `pulumi:"validationSettings"`
 }
@@ -84,7 +87,8 @@ func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputAr
 // A collection of arguments for invoking getPolicyStore.
 type LookupPolicyStoreOutputArgs struct {
 	// The ID of the Policy Store.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -132,6 +136,11 @@ func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 
 func (o LookupPolicyStoreResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs associated with the policy store.
+func (o LookupPolicyStoreResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Validation settings for the policy store.

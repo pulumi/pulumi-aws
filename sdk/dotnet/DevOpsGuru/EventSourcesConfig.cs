@@ -44,7 +44,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DevOps Guru Event Sources Config using the `id`. For example:
+    /// Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<ImmutableArray<Outputs.EventSourcesConfigEventSource>> EventSources { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.DevOpsGuru
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.DevOpsGuru
         }
 
         /// <summary>
-        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

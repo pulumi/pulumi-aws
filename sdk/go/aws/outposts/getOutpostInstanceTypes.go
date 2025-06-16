@@ -51,7 +51,8 @@ func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesA
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesArgs struct {
 	// Outpost ARN.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -77,7 +78,8 @@ func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceT
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesOutputArgs struct {
 	// Outpost ARN.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

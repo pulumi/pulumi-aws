@@ -51,7 +51,8 @@ func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArg
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
-	Arn    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -86,7 +87,8 @@ func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotati
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
-	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

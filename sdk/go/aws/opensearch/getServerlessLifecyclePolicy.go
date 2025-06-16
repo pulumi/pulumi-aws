@@ -54,7 +54,8 @@ func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerless
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyArgs struct {
 	// Name of the policy
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	Type string `pulumi:"type"`
@@ -90,7 +91,8 @@ func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServe
 // A collection of arguments for invoking getServerlessLifecyclePolicy.
 type LookupServerlessLifecyclePolicyOutputArgs struct {
 	// Name of the policy
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of lifecycle policy. Must be `retention`.
 	Type pulumi.StringInput `pulumi:"type"`

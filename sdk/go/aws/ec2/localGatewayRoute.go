@@ -58,7 +58,7 @@ type LocalGatewayRoute struct {
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -107,7 +107,7 @@ type localGatewayRouteState struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -118,7 +118,7 @@ type LocalGatewayRouteState struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -133,7 +133,7 @@ type localGatewayRouteArgs struct {
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -145,7 +145,7 @@ type LocalGatewayRouteArgs struct {
 	LocalGatewayRouteTableId pulumi.StringInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
-	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
 
@@ -251,7 +251,7 @@ func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.St
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
 }
 
-// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LocalGatewayRouteOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -243,8 +243,6 @@ type Pipeline struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrOutput `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -265,6 +263,8 @@ type Pipeline struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayOutput `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayOutput `pulumi:"variables"`
 }
 
@@ -312,8 +312,6 @@ type pipelineState struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
@@ -334,6 +332,8 @@ type pipelineState struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
 
@@ -343,8 +343,6 @@ type PipelineState struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
@@ -365,6 +363,8 @@ type PipelineState struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayInput
 }
 
@@ -376,8 +376,6 @@ type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
@@ -394,6 +392,8 @@ type pipelineArgs struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
 
@@ -402,8 +402,6 @@ type PipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
@@ -420,6 +418,8 @@ type PipelineArgs struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayInput
 }
 
@@ -521,8 +521,6 @@ func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreArrayOutput {
 }
 
 // The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-//
-// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 func (o PipelineOutput) ExecutionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.ExecutionMode }).(pulumi.StringPtrOutput)
 }
@@ -573,6 +571,8 @@ func (o PipelineOutput) Triggers() PipelineTriggerArrayOutput {
 }
 
 // A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+//
+// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 func (o PipelineOutput) Variables() PipelineVariableArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineVariableArrayOutput { return v.Variables }).(PipelineVariableArrayOutput)
 }

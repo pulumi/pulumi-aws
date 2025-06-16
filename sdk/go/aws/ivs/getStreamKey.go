@@ -53,8 +53,9 @@ func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.In
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyArgs struct {
 	// ARN of the Channel.
-	ChannelArn string  `pulumi:"channelArn"`
-	Region     *string `pulumi:"region"`
+	ChannelArn string `pulumi:"channelArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -85,8 +86,9 @@ func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts .
 // A collection of arguments for invoking getStreamKey.
 type GetStreamKeyOutputArgs struct {
 	// ARN of the Channel.
-	ChannelArn pulumi.StringInput    `pulumi:"channelArn"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	ChannelArn pulumi.StringInput `pulumi:"channelArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

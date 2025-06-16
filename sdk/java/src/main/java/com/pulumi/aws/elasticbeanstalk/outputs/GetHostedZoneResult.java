@@ -15,10 +15,6 @@ public final class GetHostedZoneResult {
      * 
      */
     private String id;
-    /**
-     * @return Region of the hosted zone.
-     * 
-     */
     private String region;
 
     private GetHostedZoneResult() {}
@@ -29,10 +25,6 @@ public final class GetHostedZoneResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Region of the hosted zone.
-     * 
-     */
     public String region() {
         return this.region;
     }

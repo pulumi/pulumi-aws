@@ -205,6 +205,7 @@ def get_certificate(certificate_id: Optional[builtins.str] = None,
 
 
     :param builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id
@@ -247,6 +248,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id

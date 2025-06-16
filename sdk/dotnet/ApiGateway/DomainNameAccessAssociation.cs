@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ApiGateway
     ///     {
     ///         AccessAssociationSource = exampleAwsVpcEndpoint.Id,
     ///         AccessAssociationSourceType = "VPCE",
-    ///         DomainNameArn = exampleAwsApiGatewayDomainName.DomainNameArn,
+    ///         DomainNameArn = exampleAwsApiGatewayDomainName.Arn,
     ///     });
     /// 
     /// });

@@ -192,6 +192,7 @@ def get_workgroup(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
@@ -231,6 +232,7 @@ def get_workgroup_output(region: Optional[pulumi.Input[Optional[builtins.str]]] 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()

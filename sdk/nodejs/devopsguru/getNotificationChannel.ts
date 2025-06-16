@@ -45,6 +45,9 @@ export interface GetNotificationChannelArgs {
      * Unique identifier for the notification channel.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
@@ -105,6 +108,9 @@ export interface GetNotificationChannelOutputArgs {
      * Unique identifier for the notification channel.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.

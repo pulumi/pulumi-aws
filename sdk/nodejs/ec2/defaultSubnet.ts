@@ -100,10 +100,6 @@ export class DefaultSubnet extends pulumi.CustomResource {
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-     */
     public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -224,10 +220,6 @@ export interface DefaultSubnetState {
     outpostArn?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -263,10 +255,6 @@ export interface DefaultSubnetArgs {
     mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
-    /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * The arguments of an `aws.ec2.DefaultSubnet` differ slightly from those of `aws.ec2.Subnet`:
-     */
     region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

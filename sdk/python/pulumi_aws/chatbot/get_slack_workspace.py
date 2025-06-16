@@ -98,6 +98,7 @@ def get_slack_workspace(region: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     __args__ = dict()
@@ -129,6 +130,7 @@ def get_slack_workspace_output(region: Optional[pulumi.Input[Optional[builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     __args__ = dict()

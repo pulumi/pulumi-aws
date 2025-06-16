@@ -30,7 +30,7 @@ class DefaultCreditSpecificationArgs:
         The set of arguments for constructing a DefaultCreditSpecification resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cpu_credits", cpu_credits)
         pulumi.set(__self__, "instance_family", instance_family)
@@ -67,7 +67,7 @@ class DefaultCreditSpecificationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -96,7 +96,7 @@ class _DefaultCreditSpecificationState:
         Input properties used for looking up and filtering DefaultCreditSpecification resources.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cpu_credits is not None:
             pulumi.set(__self__, "cpu_credits", cpu_credits)
@@ -135,7 +135,7 @@ class _DefaultCreditSpecificationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -192,7 +192,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -283,7 +283,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,7 +315,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

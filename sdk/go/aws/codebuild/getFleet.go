@@ -94,7 +94,8 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getFleet.
 type LookupFleetArgs struct {
 	// Fleet name.
-	Name   string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -148,7 +149,8 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 // A collection of arguments for invoking getFleet.
 type LookupFleetOutputArgs struct {
 	// Fleet name.
-	Name   pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

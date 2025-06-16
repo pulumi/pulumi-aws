@@ -91,6 +91,7 @@ func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTy
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	ReleaseLabel string `pulumi:"releaseLabel"`
@@ -116,6 +117,7 @@ func GetSupportedInstanceTypesOutput(ctx *pulumi.Context, args GetSupportedInsta
 
 // A collection of arguments for invoking getSupportedInstanceTypes.
 type GetSupportedInstanceTypesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`

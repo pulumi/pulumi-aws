@@ -216,15 +216,15 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.autoscaling.Group("test", tags=[{
+        example = aws.autoscaling.Group("example", tags=[{
             "key": "AmazonECSManaged",
             "value": "true",
             "propagate_at_launch": True,
         }])
-        test_capacity_provider = aws.ecs.CapacityProvider("test",
-            name="test",
+        example_capacity_provider = aws.ecs.CapacityProvider("example",
+            name="example",
             auto_scaling_group_provider={
-                "auto_scaling_group_arn": test.arn,
+                "auto_scaling_group_arn": example.arn,
                 "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
@@ -237,10 +237,10 @@ class CapacityProvider(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+        Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 
         ```sh
-        $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+        $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,15 +267,15 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.autoscaling.Group("test", tags=[{
+        example = aws.autoscaling.Group("example", tags=[{
             "key": "AmazonECSManaged",
             "value": "true",
             "propagate_at_launch": True,
         }])
-        test_capacity_provider = aws.ecs.CapacityProvider("test",
-            name="test",
+        example_capacity_provider = aws.ecs.CapacityProvider("example",
+            name="example",
             auto_scaling_group_provider={
-                "auto_scaling_group_arn": test.arn,
+                "auto_scaling_group_arn": example.arn,
                 "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
@@ -288,10 +288,10 @@ class CapacityProvider(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+        Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 
         ```sh
-        $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+        $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
         ```
 
         :param str resource_name: The name of the resource.

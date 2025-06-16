@@ -20,8 +20,7 @@ type ExportExport struct {
 	Description *string `pulumi:"description"`
 	// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
 	DestinationConfigurations []ExportExportDestinationConfiguration `pulumi:"destinationConfigurations"`
-	// Amazon Resource Name (ARN) for this export.
-	ExportArn *string `pulumi:"exportArn"`
+	ExportArn                 *string                                `pulumi:"exportArn"`
 	// Name of this specific data export.
 	Name string `pulumi:"name"`
 	// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
@@ -46,8 +45,7 @@ type ExportExportArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
 	DestinationConfigurations ExportExportDestinationConfigurationArrayInput `pulumi:"destinationConfigurations"`
-	// Amazon Resource Name (ARN) for this export.
-	ExportArn pulumi.StringPtrInput `pulumi:"exportArn"`
+	ExportArn                 pulumi.StringPtrInput                          `pulumi:"exportArn"`
 	// Name of this specific data export.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
@@ -146,7 +144,6 @@ func (o ExportExportOutput) DestinationConfigurations() ExportExportDestinationC
 	return o.ApplyT(func(v ExportExport) []ExportExportDestinationConfiguration { return v.DestinationConfigurations }).(ExportExportDestinationConfigurationArrayOutput)
 }
 
-// Amazon Resource Name (ARN) for this export.
 func (o ExportExportOutput) ExportArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExport) *string { return v.ExportArn }).(pulumi.StringPtrOutput)
 }
@@ -215,7 +212,6 @@ func (o ExportExportPtrOutput) DestinationConfigurations() ExportExportDestinati
 	}).(ExportExportDestinationConfigurationArrayOutput)
 }
 
-// Amazon Resource Name (ARN) for this export.
 func (o ExportExportPtrOutput) ExportArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportExport) *string {
 		if v == nil {

@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> ActiveDirectoryName { get; private set; } = null!;
 
         /// <summary>
-        /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Output("adminGroups")]
         public Output<ImmutableArray<string>> AdminGroups { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AuthenticationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// Author group associated with your Active Directory.
+        /// Author group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         [Output("authorGroups")]
         public Output<ImmutableArray<string>> AuthorGroups { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> NotificationEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Reader group associated with your Active Directory.
+        /// Reader group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         [Output("readerGroups")]
         public Output<ImmutableArray<string>> ReaderGroups { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminGroups;
 
         /// <summary>
-        /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminGroups
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _authorGroups;
 
         /// <summary>
-        /// Author group associated with your Active Directory.
+        /// Author group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         public InputList<string> AuthorGroups
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _readerGroups;
 
         /// <summary>
-        /// Reader group associated with your Active Directory.
+        /// Reader group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         public InputList<string> ReaderGroups
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminGroups;
 
         /// <summary>
-        /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminGroups
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _authorGroups;
 
         /// <summary>
-        /// Author group associated with your Active Directory.
+        /// Author group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         public InputList<string> AuthorGroups
         {
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _readerGroups;
 
         /// <summary>
-        /// Reader group associated with your Active Directory.
+        /// Reader group associated with your Active Directory or IAM Identity Center account.
         /// </summary>
         public InputList<string> ReaderGroups
         {

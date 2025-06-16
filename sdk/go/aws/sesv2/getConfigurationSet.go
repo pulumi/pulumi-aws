@@ -53,8 +53,9 @@ func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArg
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetArgs struct {
 	// The name of the configuration set.
-	ConfigurationSetName string  `pulumi:"configurationSetName"`
-	Region               *string `pulumi:"region"`
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -94,8 +95,9 @@ func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationS
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetOutputArgs struct {
 	// The name of the configuration set.
-	ConfigurationSetName pulumi.StringInput    `pulumi:"configurationSetName"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
+	ConfigurationSetName pulumi.StringInput `pulumi:"configurationSetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

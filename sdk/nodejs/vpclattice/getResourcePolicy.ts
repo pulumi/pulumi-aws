@@ -32,6 +32,9 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: string;
     /**
      * Resource ARN of the resource for which a policy is retrieved.
@@ -82,6 +85,9 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
     region?: pulumi.Input<string>;
     /**
      * Resource ARN of the resource for which a policy is retrieved.

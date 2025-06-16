@@ -106,8 +106,6 @@ export class SmbFileShare extends pulumi.CustomResource {
     public readonly bucketRegion!: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
     /**
@@ -188,6 +186,8 @@ export class SmbFileShare extends pulumi.CustomResource {
     public readonly smbAclEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -323,8 +323,6 @@ export interface SmbFileShareState {
     bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
@@ -405,6 +403,8 @@ export interface SmbFileShareState {
     smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -447,8 +447,6 @@ export interface SmbFileShareArgs {
     bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
@@ -521,6 +519,8 @@ export interface SmbFileShareArgs {
     smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

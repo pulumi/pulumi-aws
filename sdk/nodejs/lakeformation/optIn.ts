@@ -63,7 +63,7 @@ export class OptIn extends pulumi.CustomResource {
      */
     public readonly principals!: pulumi.Output<outputs.lakeformation.OptInPrincipal[] | undefined>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export interface OptInState {
      */
     principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**
@@ -144,7 +144,7 @@ export interface OptInArgs {
      */
     principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
     /**
-     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

@@ -46,7 +46,7 @@ export interface GetPrebuiltEcrImageArgs {
      */
     imageTag?: string;
     /**
-     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -118,7 +118,7 @@ export interface GetPrebuiltEcrImageOutputArgs {
      */
     imageTag?: pulumi.Input<string>;
     /**
-     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

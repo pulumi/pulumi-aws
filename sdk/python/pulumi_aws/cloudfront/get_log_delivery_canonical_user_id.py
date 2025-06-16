@@ -97,7 +97,7 @@ def get_log_delivery_canonical_user_id(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Region you'd like the zone for. By default, fetches the current region.
+    :param builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -145,7 +145,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     ```
 
 
-    :param builtins.str region: Region you'd like the zone for. By default, fetches the current region.
+    :param builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

@@ -174,6 +174,7 @@ def get_environment(application_id: Optional[builtins.str] = None,
 
     :param builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
     :param builtins.str environment_id: ID of the AppConfig Environment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -218,6 +219,7 @@ def get_environment_output(application_id: Optional[pulumi.Input[builtins.str]] 
 
     :param builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
     :param builtins.str environment_id: ID of the AppConfig Environment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()

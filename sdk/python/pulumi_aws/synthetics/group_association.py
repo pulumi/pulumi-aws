@@ -27,7 +27,7 @@ class GroupAssociationArgs:
         The set of arguments for constructing a GroupAssociation resource.
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "canary_arn", canary_arn)
         pulumi.set(__self__, "group_name", group_name)
@@ -62,7 +62,7 @@ class GroupAssociationArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -84,7 +84,7 @@ class _GroupAssociationState:
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_id: ID of the Group.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if canary_arn is not None:
             pulumi.set(__self__, "canary_arn", canary_arn)
@@ -146,7 +146,7 @@ class _GroupAssociationState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -193,7 +193,7 @@ class GroupAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -286,7 +286,7 @@ class GroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_id: ID of the Group.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
-        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,7 +332,7 @@ class GroupAssociation(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

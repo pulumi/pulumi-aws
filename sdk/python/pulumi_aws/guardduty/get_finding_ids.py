@@ -108,6 +108,7 @@ def get_finding_ids(detector_id: Optional[builtins.str] = None,
 
 
     :param builtins.str detector_id: ID of the GuardDuty detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -140,6 +141,7 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[builtins.str]] = N
 
 
     :param builtins.str detector_id: ID of the GuardDuty detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
