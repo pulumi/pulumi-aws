@@ -736,6 +736,7 @@ func TestUpdateImportedLambda(t *testing.T) {
 func TestImportResourceNew(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "test-programs", "resource-import-ts"),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
 	)
 
 	test.SetConfig(t, "aws:region", "us-west-2")
