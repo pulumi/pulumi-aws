@@ -2,6 +2,7 @@ provider: aws
 lint: false
 major-version: 7
 parallel: 1
+shards: 8
 timeout: 150
 generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
