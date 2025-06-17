@@ -32,6 +32,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -691,6 +692,7 @@ func getAwsSession(t *testing.T) *session.Session {
 func TestUpdateImportedLambda(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, "lambda-import-ts",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
 	)
 
 	test.SetConfig(t, "runtime", "nodejs18.x")
@@ -934,10 +936,15 @@ func TestMultipleRegionsUpgrade(t *testing.T) {
 	opts.setEnvRegion = false
 	opts.skipCache = true
 	opts.skipDefaultPreviewTest = true
+	opts.runProgram = true
 	test, _ := testProviderUpgrade(t, filepath.Join("multiple-regions"), opts,
 		optproviderupgrade.NewSourcePath(filepath.Join("multiple-regions-v7")))
 
-	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   10,
+	}, res.ChangeSummary)
 }
 
 func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
