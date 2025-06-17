@@ -932,17 +932,23 @@ func TestJobQueueUpgrade(t *testing.T) {
 }
 
 func TestMultipleRegionsUpgrade(t *testing.T) {
-	opts := nodeProviderUpgradeOpts()
-	opts.setEnvRegion = false
-	opts.skipCache = true
-	opts.skipDefaultPreviewTest = true
-	opts.runProgram = true
-	test, _ := testProviderUpgrade(t, filepath.Join("multiple-regions"), opts,
-		optproviderupgrade.NewSourcePath(filepath.Join("multiple-regions-v7")))
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "multiple-regions"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
 
-	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff())
+	test.Up(t)
+
+	exported := test.ExportStack(t)
+
+	upgradeStack := test.CopyToTempDir(t, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
+	upgradeStack.UpdateSource(t, filepath.Join(getCwd(t), "multiple-regions-v7"))
+	upgradeStack.ImportStack(t, exported)
+
+	res := upgradeStack.Preview(t, optpreview.Diff(), optpreview.Refresh())
+
 	assert.Equal(t, map[apitype.OpType]int{
-		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpDelete: 1, // One of the providers is removed
 		apitype.OpSame:   10,
 	}, res.ChangeSummary)
 }
