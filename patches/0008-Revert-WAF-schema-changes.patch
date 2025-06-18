@@ -6,14 +6,15 @@ Subject: [PATCH] Revert WAF schema changes
 - This causes far too many types to be generated downstream.
 
 diff --git a/internal/service/wafv2/schemas.go b/internal/service/wafv2/schemas.go
-index 1205b82779..afcf0599f6 100644
+index 53f58a6067..249b1dffcc 100644
 --- a/internal/service/wafv2/schemas.go
 +++ b/internal/service/wafv2/schemas.go
-@@ -56,14 +56,14 @@ func ruleGroupRootStatementSchema(level int) *schema.Schema {
+@@ -56,15 +56,15 @@ func ruleGroupRootStatementSchema(level int) *schema.Schema {
  		MaxItems: 1,
  		Elem: &schema.Resource{
  			Schema: map[string]*schema.Schema{
 -				"and_statement":                         statementSchema(level),
+ 				"asn_match_statement":                   asnMatchStatementSchema(),
 +				"and_statement":                         statementSchema(level - 1),
  				"byte_match_statement":                  byteMatchStatementSchema(),
  				"geo_match_statement":                   geoMatchStatementSchema(),
