@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {Topic} from "./index";
+
 /**
  * Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
  *
@@ -436,7 +438,7 @@ export interface TopicSubscriptionState {
      *
      * The following arguments are optional:
      */
-    topic?: pulumi.Input<string>;
+    topic?: pulumi.Input<string | Topic>;
 }
 
 /**
@@ -496,5 +498,5 @@ export interface TopicSubscriptionArgs {
      *
      * The following arguments are optional:
      */
-    topic: pulumi.Input<string>;
+    topic: pulumi.Input<string | Topic>;
 }

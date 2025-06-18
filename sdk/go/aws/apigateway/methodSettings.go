@@ -219,7 +219,7 @@ type methodSettingsState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Settings block, see below.
 	Settings *MethodSettingsSettings `pulumi:"settings"`
 	// Name of the stage
@@ -232,7 +232,7 @@ type MethodSettingsState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Settings block, see below.
 	Settings MethodSettingsSettingsPtrInput
 	// Name of the stage
@@ -249,7 +249,7 @@ type methodSettingsArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Settings block, see below.
 	Settings MethodSettingsSettings `pulumi:"settings"`
 	// Name of the stage
@@ -263,7 +263,7 @@ type MethodSettingsArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Settings block, see below.
 	Settings MethodSettingsSettingsInput
 	// Name of the stage

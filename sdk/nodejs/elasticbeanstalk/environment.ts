@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+import {Application, ApplicationVersion} from "./index";
+
 /**
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
  * you to deploy and manage applications in the AWS cloud without worrying about
@@ -313,7 +315,7 @@ export interface EnvironmentState {
      * Name of the application that contains the version
      * to be deployed
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | Application>;
     arn?: pulumi.Input<string>;
     /**
      * The autoscaling groups used by this Environment.
@@ -410,7 +412,7 @@ export interface EnvironmentState {
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
@@ -428,7 +430,7 @@ export interface EnvironmentArgs {
      * Name of the application that contains the version
      * to be deployed
      */
-    application: pulumi.Input<string>;
+    application: pulumi.Input<string | Application>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
@@ -488,7 +490,7 @@ export interface EnvironmentArgs {
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should

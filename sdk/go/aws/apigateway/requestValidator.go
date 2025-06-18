@@ -103,7 +103,7 @@ type requestValidatorState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -116,7 +116,7 @@ type RequestValidatorState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -133,7 +133,7 @@ type requestValidatorArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -147,7 +147,7 @@ type RequestValidatorArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
 	// Boolean whether to validate request parameters. Defaults to `false`.

@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
  *
@@ -245,7 +247,7 @@ export interface MethodResponseState {
     /**
      * The string identifier of the associated REST API.
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * The method response's status code.
      */
@@ -281,7 +283,7 @@ export interface MethodResponseArgs {
     /**
      * The string identifier of the associated REST API.
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * The method response's status code.
      */

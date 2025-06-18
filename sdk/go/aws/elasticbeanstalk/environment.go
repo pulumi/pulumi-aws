@@ -231,8 +231,8 @@ type environmentState struct {
 	AllSettings []EnvironmentAllSetting `pulumi:"allSettings"`
 	// Name of the application that contains the version
 	// to be deployed
-	Application *string `pulumi:"application"`
-	Arn         *string `pulumi:"arn"`
+	Application interface{} `pulumi:"application"`
+	Arn         *string     `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -286,7 +286,7 @@ type environmentState struct {
 	Triggers []string `pulumi:"triggers"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version *string `pulumi:"version"`
+	Version interface{} `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -301,7 +301,7 @@ type EnvironmentState struct {
 	AllSettings EnvironmentAllSettingArrayInput
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.StringPtrInput
+	Application pulumi.Input
 	Arn         pulumi.StringPtrInput
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayInput
@@ -356,7 +356,7 @@ type EnvironmentState struct {
 	Triggers pulumi.StringArrayInput
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version pulumi.StringPtrInput
+	Version pulumi.Input
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -371,7 +371,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix *string `pulumi:"cnamePrefix"`
@@ -407,7 +407,7 @@ type environmentArgs struct {
 	Tier *string `pulumi:"tier"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version *string `pulumi:"version"`
+	Version interface{} `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -419,7 +419,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.StringInput
+	Application pulumi.Input
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix pulumi.StringPtrInput
@@ -455,7 +455,7 @@ type EnvironmentArgs struct {
 	Tier pulumi.StringPtrInput
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version pulumi.StringPtrInput
+	Version pulumi.Input
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing

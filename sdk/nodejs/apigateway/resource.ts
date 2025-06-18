@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {RestApi} from "./index";
+
 /**
  * Provides an API Gateway Resource.
  *
@@ -144,7 +146,7 @@ export interface ResourceState {
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string>;
+    restApi?: pulumi.Input<string | RestApi>;
 }
 
 /**
@@ -166,5 +168,5 @@ export interface ResourceArgs {
     /**
      * ID of the associated REST API
      */
-    restApi: pulumi.Input<string>;
+    restApi: pulumi.Input<string | RestApi>;
 }

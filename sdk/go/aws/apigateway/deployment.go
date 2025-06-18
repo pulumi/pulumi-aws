@@ -88,7 +88,7 @@ type deploymentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Map to set on the related stage.
@@ -103,7 +103,7 @@ type DeploymentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 	// Map to set on the related stage.
@@ -120,7 +120,7 @@ type deploymentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Map to set on the related stage.
@@ -134,7 +134,7 @@ type DeploymentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 	// Map to set on the related stage.

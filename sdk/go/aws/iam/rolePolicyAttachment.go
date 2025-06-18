@@ -152,14 +152,14 @@ type rolePolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 	// The name of the IAM role to which the policy should be applied
-	Role *string `pulumi:"role"`
+	Role interface{} `pulumi:"role"`
 }
 
 type RolePolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 	// The name of the IAM role to which the policy should be applied
-	Role pulumi.StringPtrInput
+	Role pulumi.Input
 }
 
 func (RolePolicyAttachmentState) ElementType() reflect.Type {
@@ -170,7 +170,7 @@ type rolePolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
 	PolicyArn string `pulumi:"policyArn"`
 	// The name of the IAM role to which the policy should be applied
-	Role string `pulumi:"role"`
+	Role interface{} `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RolePolicyAttachment resource.
@@ -178,7 +178,7 @@ type RolePolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringInput
 	// The name of the IAM role to which the policy should be applied
-	Role pulumi.StringInput
+	Role pulumi.Input
 }
 
 func (RolePolicyAttachmentArgs) ElementType() reflect.Type {

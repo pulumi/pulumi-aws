@@ -102,13 +102,13 @@ import (
 //			}
 //			_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
 //				Name: pulumi.String("test-attachment"),
-//				Users: pulumi.StringArray{
+//				Users: pulumi.Array{
 //					user.Name,
 //				},
-//				Roles: pulumi.StringArray{
+//				Roles: pulumi.Array{
 //					role.Name,
 //				},
-//				Groups: pulumi.StringArray{
+//				Groups: pulumi.Array{
 //					group.Name,
 //				},
 //				PolicyArn: policyPolicy.Arn,
@@ -170,28 +170,28 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
 	// Group(s) the policy should be applied to.
-	Groups []string `pulumi:"groups"`
+	Groups []interface{} `pulumi:"groups"`
 	// Name of the attachment. This cannot be an empty string.
 	Name *string `pulumi:"name"`
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
 	PolicyArn *string `pulumi:"policyArn"`
 	// Role(s) the policy should be applied to.
-	Roles []string `pulumi:"roles"`
+	Roles []interface{} `pulumi:"roles"`
 	// User(s) the policy should be applied to.
-	Users []string `pulumi:"users"`
+	Users []interface{} `pulumi:"users"`
 }
 
 type PolicyAttachmentState struct {
 	// Group(s) the policy should be applied to.
-	Groups pulumi.StringArrayInput
+	Groups pulumi.ArrayInput
 	// Name of the attachment. This cannot be an empty string.
 	Name pulumi.StringPtrInput
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
 	PolicyArn pulumi.StringPtrInput
 	// Role(s) the policy should be applied to.
-	Roles pulumi.StringArrayInput
+	Roles pulumi.ArrayInput
 	// User(s) the policy should be applied to.
-	Users pulumi.StringArrayInput
+	Users pulumi.ArrayInput
 }
 
 func (PolicyAttachmentState) ElementType() reflect.Type {
@@ -200,29 +200,29 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 
 type policyAttachmentArgs struct {
 	// Group(s) the policy should be applied to.
-	Groups []string `pulumi:"groups"`
+	Groups []interface{} `pulumi:"groups"`
 	// Name of the attachment. This cannot be an empty string.
 	Name *string `pulumi:"name"`
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
 	PolicyArn string `pulumi:"policyArn"`
 	// Role(s) the policy should be applied to.
-	Roles []string `pulumi:"roles"`
+	Roles []interface{} `pulumi:"roles"`
 	// User(s) the policy should be applied to.
-	Users []string `pulumi:"users"`
+	Users []interface{} `pulumi:"users"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
 	// Group(s) the policy should be applied to.
-	Groups pulumi.StringArrayInput
+	Groups pulumi.ArrayInput
 	// Name of the attachment. This cannot be an empty string.
 	Name pulumi.StringPtrInput
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
 	PolicyArn pulumi.StringInput
 	// Role(s) the policy should be applied to.
-	Roles pulumi.StringArrayInput
+	Roles pulumi.ArrayInput
 	// User(s) the policy should be applied to.
-	Users pulumi.StringArrayInput
+	Users pulumi.ArrayInput
 }
 
 func (PolicyAttachmentArgs) ElementType() reflect.Type {
