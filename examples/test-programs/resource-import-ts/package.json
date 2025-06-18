@@ -1,0 +1,12 @@
+{
+    "name": "resource-import-ts",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/aws": "6.66.1",
+        "@pulumi/awsx": "^2.0.2"
+    }
+}

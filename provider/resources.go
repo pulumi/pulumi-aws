@@ -904,7 +904,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
-				ForcesProviderReplace: tfbridge.True(),
 			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{

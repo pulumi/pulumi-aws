@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-06-12T15:41:56.082995-04:00",
+      "magic": "74d6dfeae46fede71a19e4a0f7952621dc8201c350e75f575ba8b9ef0249d0ba",
+      "version": "v3.175.0"
+    },
+    "secrets_providers": {
+      "type": "service",
+      "state": {
+        "url": "https://api.pulumi.com",
+        "owner": "chall-pulumi-corp",
+        "project": "lambda-import-ts",
+        "stack": "region-import"
+      }
+    },
+    "metadata": {}
+  }
+}

@@ -1,5 +1,9 @@
 # [WIP] v7 Upgrade
 
+## Enhanced Region Support
+
+Version 7.0.0 adds region to most resources making it significantly easier to manage infrastructure across AWS Regions without requiring multiple provider configurations. See [Enhanced Region Support](./enhanced-region-support.md).
+
 ## Breaking Changes
 
 ### Provider role chaining
