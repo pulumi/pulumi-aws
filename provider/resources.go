@@ -1033,8 +1033,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Authorizer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1042,8 +1043,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "BasePathMapping"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1052,8 +1054,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Deployment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1071,8 +1074,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Integration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 				DeleteBeforeReplace: true,
@@ -1081,8 +1085,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "IntegrationResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1090,8 +1095,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Method"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1099,8 +1105,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "MethodResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1108,8 +1115,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1117,8 +1125,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1126,8 +1135,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1140,8 +1150,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					// 	Type: awsTypeDefaultFile(apigatewayMod, "Resource"),
 					// },
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1151,12 +1162,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Stage"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
-						Name: "deployment",
-						Type: "string",
+						Name:     "deployment",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "Deployment")},
 					},
 					"rest_api_id": {
-						Name: "restApi",
-						Type: "string",
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1232,6 +1245,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"launch_configuration": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(ec2Mod, "LaunchConfiguration")},
+					},
+					"placement_group": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
+					},
 					"enabled_metrics": {
 						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
@@ -1448,8 +1469,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
-						Name: "logGroup",
-						Type: "string",
+						Name:     "logGroup",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(cloudwatchMod, "LogGroup")},
 					},
 				},
 				DeleteBeforeReplace: true, // only 1 active filter is legal at once
@@ -1458,6 +1480,24 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(cloudwatchMod, "MetricAlarm"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"alarm_name": tfbridge.AutoName("name", 255, "-"),
+					"alarm_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
+						},
+					},
+					"insufficient_data_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
+						},
+					},
+					"ok_actions": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
+						},
+					},
 				},
 			},
 			"aws_cloudwatch_query_definition":           {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
@@ -1738,14 +1778,30 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
+					"bucket": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+					},
+				},
 			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsResource(elasticbeanstalkMod, "ConfigurationTemplate")},
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 40, "-"),
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
 					"version_label": {
-						Name: "version",
+						Name:     "version",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "ApplicationVersion")},
 					},
 				},
 			},
@@ -1825,7 +1881,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
 						Type:     "string",
@@ -1862,7 +1919,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "LaunchConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "InstanceProfile")},
 					},
 				},
 			},
@@ -2450,7 +2508,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "Group")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2464,7 +2523,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 				},
 			},
@@ -2485,17 +2545,20 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"users": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: "string",
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(iamMod, "User")},
 						},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: "string",
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 						},
 					},
 					"groups": {
 						Elem: &tfbridge.SchemaInfo{
-							Type: "string",
+							Type:     "string",
+							AltTypes: []tokens.Type{awsResource(iamMod, "Group")},
 						},
 					},
 					"policy_arn": {
@@ -2510,7 +2573,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2524,7 +2588,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "RolePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 					"policy": {
 						Type:      "string",
@@ -2590,7 +2655,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iamMod, "UserPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iamMod, "User")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2655,7 +2721,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(iotMod, "PolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Type: "string",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(iotMod, "Policy")},
 					},
 				},
 			},
@@ -2823,8 +2890,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				IDFields: []string{"statement_id"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
-						Name: "function",
-						Type: "string",
+						Name:     "function",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(lambdaMod, "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100, "-"),
 				},
@@ -3539,6 +3607,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok:      awsResource(s3Mod, "BucketObjectv2"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": {
+						// Prefer a strongly typed Bucket reference.
+						Type: "string",
+						// But also permit a string in cases where all we have is a name.
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
@@ -3568,6 +3642,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok:      awsResource(s3Mod, "BucketObject"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"bucket": {
+						// Prefer a strongly typed Bucket reference.
+						Type: "string",
+						// But also permit a string in cases where all we have is a name.
+						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
+					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
@@ -3777,7 +3857,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
-						Name: "topic",
+						Name:     "topic",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 					},
 				},
 			},
