@@ -48,7 +48,6 @@ if (imported_lambda_name) {
 }
 const testLambda = new aws.lambda.Function("testLambda", {
     region: lambdaRegion,
-    // name: imported_lambda_name,
     code: imported_lambda_name ? undefined : new pulumi.asset.FileArchive("lambda_function_payload.zip"),
     role: iamForLambda.arn,
     handler: "index.test",
